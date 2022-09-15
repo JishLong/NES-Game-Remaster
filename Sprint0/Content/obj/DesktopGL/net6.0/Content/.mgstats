@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Coding/Monogame/Sprint0/Sprint0/Content/File.spritefont","C:/Coding/Monogame/Sprint0/Sprint0/Content/bin/DesktopGL/Content/credits.xnb","FontDescriptionProcessor","SpriteFontContent",2068,70687,0.5477744
+"C:/Coding/Monogame/Sprint0/Sprint0/Content/mario.png","C:/Coding/Monogame/Sprint0/Sprint0/Content/bin/DesktopGL/Content/mario.xnb","TextureProcessor","Texture2DContent",939,8277,0.0369599
