@@ -24,29 +24,44 @@ namespace Sprint0.Player.State
 
         public void HandleUpInput()
         {
-            state.FaceUp();
-            state.StartMoving();
+            if (!state.IsMoving())
+            {
+                state.FaceUp();
+                state.StartMoving();
+                state.MoveUp();
+            }
         }
 
 
         public void HandleDownInput()
         {
-            state.FaceDown();
-            state.StartMoving();
-            state.MoveDown();
+            if (!state.IsMoving())
+            {
+                state.FaceDown();
+                state.StartMoving();
+                state.MoveDown();
+            }
         }
 
         public void HandleLeftInput()
         {
-            state.FaceLeft();
-            state.StartMoving();
+            if (!state.IsMoving())
+            {
+                state.FaceLeft();
+                state.StartMoving();
+                state.MoveLeft();
+            }
+                
         }
 
         public void HandleRightInput()
         {
-            state.FaceRight();
-            state.StartMoving();
-            state.MoveRight();
+            if (!state.IsMoving())
+            {
+                state.FaceRight();
+                state.StartMoving();
+                state.MoveRight();
+            }
         }
     }
 }

@@ -26,6 +26,18 @@ namespace Sprint0.Player
         public void Update()
         {
             var state = stateController.GetState();
+
+            if (state.FacingUp())
+            {
+                if (state.IsMoving() && animationFrame > 15)
+                {
+                    this.currentSprite = new PlayerFacingUpFrame0(state.GetPosition());
+                }
+                else
+                {
+                    this.currentSprite = new PlayerFacingUpFrame1(state.GetPosition());
+                }
+            }
             if (state.FacingDown())
             {
                 if (state.IsMoving() && animationFrame > 15)
@@ -35,6 +47,30 @@ namespace Sprint0.Player
                 else
                 {
                     this.currentSprite = new PlayerFacingDownwardFrame0(state.GetPosition());
+                }
+            }
+
+            if (state.FacingRight())
+            {
+                if (state.IsMoving() && animationFrame > 15)
+                {
+                    this.currentSprite = new PlayerFacingRightFrame0(state.GetPosition());
+                }
+                else
+                {
+                    this.currentSprite = new PlayerFacingRightFrame1(state.GetPosition());
+                }
+            }
+
+            if (state.FacingLeft())
+            {
+                if (state.IsMoving() && animationFrame > 15)
+                {
+                    this.currentSprite = new PlayerFacingLeftFrame0(state.GetPosition());
+                }
+                else
+                {
+                    this.currentSprite = new PlayerFacingLeftFrame1(state.GetPosition());
                 }
             }
 

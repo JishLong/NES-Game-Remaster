@@ -9,7 +9,7 @@ namespace Sprint0.Player
         private bool isDamaged = false;
 
         private Vector2 position;
-        private readonly int movementSpeed = 1;
+        private readonly int movementSpeed = 2;
 
         private enum FacingDirection { up, down, left, right }
         private FacingDirection facingDirection = FacingDirection.right;
@@ -35,6 +35,16 @@ namespace Sprint0.Player
         public void MoveRight()
         {
             this.position.X += movementSpeed;
+        }
+
+        public void MoveLeft()
+        {
+            this.position.X -= movementSpeed;
+        }
+
+        public void MoveUp()
+        {
+            this.position.Y -= movementSpeed;
         }
 
         public bool IsMoving()

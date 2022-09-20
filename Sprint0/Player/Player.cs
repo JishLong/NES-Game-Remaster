@@ -23,6 +23,7 @@ namespace Sprint0.Player
 
         public void Update()
         {
+            // NOTE: spriteProvider MUST be updated before stateController
             spriteProvider.Update();
             stateController.Update();
         }

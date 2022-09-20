@@ -59,6 +59,7 @@ namespace Sprint0
             sprite.Update(g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
             text.Update(g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
 
+            // controllers MUST be updated before player
             player.Update();
 
             base.Update(gameTime);
