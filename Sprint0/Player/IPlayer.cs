@@ -8,7 +8,7 @@ namespace Sprint0.Player
     {
         public void Update();
 
-        public void Draw(SpriteBatch spriteBatch);
+        public void Draw(SpriteBatch spriteBatch, int screenWidth, int screenHeight);
 
         public PlayerStateController GetStateController();
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.State;
 
 namespace Sprint0.Player
@@ -9,7 +8,7 @@ namespace Sprint0.Player
         private readonly PlayerStateController stateController;
 
         // I'm not sure if "provider" is the best name for this class
-        private PlayerSpriteProvider spriteProvider;
+        private readonly PlayerSpriteProvider spriteProvider;
 
         public Player(Game1 game)
         {
@@ -17,9 +16,9 @@ namespace Sprint0.Player
             spriteProvider = new PlayerSpriteProvider(stateController, game);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, int screenWidth, int screenHeight)
         {
-            this.spriteProvider.Draw(spriteBatch);
+            this.spriteProvider.Draw(spriteBatch, screenWidth, screenHeight);
         }
 
         public void Update()

@@ -4,12 +4,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player
 {
-    public class PlayerFacingDownward : ISprite
+    public class PlayerFacingDownwardFrame1 : ISprite
     {
-        private readonly Texture2D spriteSheet;
-        private readonly int spriteScale = 2;
+        private readonly int spriteScale = 3;
 
-        public PlayerFacingDownward()
+        public PlayerFacingDownwardFrame1()
         {
         }
 
@@ -18,12 +17,12 @@ namespace Sprint0.Sprites.Player
             Rectangle sourceRectangle;
             Rectangle destinationRectangle;
 
-            sourceRectangle = new Rectangle(1, 11, 15, 15);
+            sourceRectangle = new Rectangle(18, 11, 15, 15);
             destinationRectangle = new Rectangle(10, 10, spriteScale * 15, spriteScale * 15);
 
-            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            spriteBatch.Draw(spriteSheet, destinationRectangle, sourceRectangle, Color.White);
-            spriteBatch.End();
+            sb.Begin(samplerState: SamplerState.PointClamp);
+            sb.Draw(LinkSpriteSheet.GetSpriteSheet(), destinationRectangle, sourceRectangle, Color.White);
+            sb.End();
         }
 
         public void Update(int screenW, int screenH)

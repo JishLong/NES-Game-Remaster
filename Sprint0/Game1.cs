@@ -26,7 +26,9 @@ namespace Sprint0
 
         protected override void Initialize()
         {
+            
             player = new Player.Player(this);
+            LinkSpriteSheet.Init(this);
 
             controllers = new List<IController>
             {
@@ -57,6 +59,8 @@ namespace Sprint0
             sprite.Update(g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
             text.Update(g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
 
+            player.Update();
+
             base.Update(gameTime);
         }
 
@@ -69,7 +73,7 @@ namespace Sprint0
             text.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
             sb.End();
 
-            player.Draw(sb);
+            player.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
             base.Draw(gameTime);
         }
     }

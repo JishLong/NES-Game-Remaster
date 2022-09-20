@@ -1,42 +1,49 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.State;
+using Sprint0.Sprites.Player;
 
 namespace Sprint0.Player
 {
     public class PlayerSpriteProvider
     {
-        private PlayerStateController stateController;
-        private ISprite currentSprite;
+        private readonly PlayerStateController stateController;
+        private ISprite currentSprite = new PlayerFacingDownwardFrame0();
         private int animationFrame = 0;
 
         public PlayerSpriteProvider(PlayerStateController stateController, Game1 game)
         {
             this.stateController = stateController;
-            spriteSheet = game.Content.Load<Texture2D>("Link+Items");
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, int screenWidth, int screenHeight)
         {
-            
+            currentSprite.Draw(spriteBatch, screenWidth, screenHeight);
         }
 
         // do we want an Update() method or just Draw()?
         public void Update()
         {
-            if (stateController.GetState().FacingDown())
+            var state = stateController.GetState();
+            if (state.FacingDown())
             {
-                if(stateController.GetState().IsMoving() && animationFrame > 15)
+                if (state.IsMoving() && animationFrame > 15)
                 {
-                    
+                    this.currentSprite = new PlayerFacingDownwardFrame1();
                 }
                 else
                 {
-
+                    this.currentSprite = new PlayerFacingDownwardFrame0();
                 }
             }
-            animationFrame++;
+
+            if(animationFrame > 30)
+            {
+                animationFrame = 0;
+            }
+            else
+            {
+                animationFrame++;
+            }
         }
     }
 }
