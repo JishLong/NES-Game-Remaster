@@ -1,3 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
 "/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/Content/File.spritefont","/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/credits.xnb","FontDescriptionProcessor","SpriteFontContent",2008,70687,0.42294
+"/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/Content/Link+Items.png","/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Link+Items.xnb","TextureProcessor","Texture2DContent",27435,460125,0.202765
 "/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/Content/mario.png","/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/mario.xnb","TextureProcessor","Texture2DContent",939,8277,0.177067

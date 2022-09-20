@@ -54,3 +54,4 @@ C:/Coding/Monogame/Sprint0/Sprint0/bin/Debug/net6.0/Content/credits.xnb
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.pdb
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.genruntimeconfig.cache
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/ref/Sprint0.dll
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Link+Items.xnb
