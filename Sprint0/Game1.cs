@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Controllers;
+using Sprint0.Player;
 using Sprint0.Sprites;
 using System.Collections.Generic;
 
@@ -14,6 +15,7 @@ namespace Sprint0
         private List<IController> controllers;
         public ISprite sprite;
         public ISprite text;
+        public IPlayer player;
 
         public Game1()
         {
@@ -24,9 +26,13 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            controllers = new List<IController>();
-            controllers.Add(new KeyboardController(this));
-            controllers.Add(new MouseController(this, g));
+            player = new Player.Player();
+
+            controllers = new List<IController>
+            {
+                new KeyboardController(this, player.GetStateController()),
+                new MouseController(this, g)
+            };
 
             sprite = new StillSprite();
             text = new TextSprite();
