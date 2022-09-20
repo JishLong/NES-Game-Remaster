@@ -1,18 +1,20 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.State;
 using Sprint0.Sprites.Player;
 
 namespace Sprint0.Player
 {
-    public class PlayerSpriteProvider
+    public class PlayerSpriteController
     {
         private readonly PlayerStateController stateController;
-        private ISprite currentSprite = new PlayerFacingDownwardFrame0();
+        private ISprite currentSprite;
         private int animationFrame = 0;
 
-        public PlayerSpriteProvider(PlayerStateController stateController, Game1 game)
+        public PlayerSpriteController(PlayerStateController stateController, Game1 game)
         {
             this.stateController = stateController;
+            this.currentSprite = new PlayerFacingDownwardFrame0(stateController.GetState().GetPosition());
         }
 
         public void Draw(SpriteBatch spriteBatch, int screenWidth, int screenHeight)
@@ -28,11 +30,11 @@ namespace Sprint0.Player
             {
                 if (state.IsMoving() && animationFrame > 15)
                 {
-                    this.currentSprite = new PlayerFacingDownwardFrame1();
+                    this.currentSprite = new PlayerFacingDownwardFrame1(state.GetPosition());
                 }
                 else
                 {
-                    this.currentSprite = new PlayerFacingDownwardFrame0();
+                    this.currentSprite = new PlayerFacingDownwardFrame0(state.GetPosition());
                 }
             }
 
@@ -47,4 +49,3 @@ namespace Sprint0.Player
         }
     }
 }
-

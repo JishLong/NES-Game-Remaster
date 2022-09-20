@@ -1,10 +1,15 @@
-﻿namespace Sprint0.Player
+﻿using Microsoft.Xna.Framework;
+
+namespace Sprint0.Player
 {
     public class PlayerState
     {
         private bool isMoving = false;
         private bool isAttacking = false;
         private bool isDamaged = false;
+
+        private Vector2 position;
+        private readonly int movementSpeed = 1;
 
         private enum FacingDirection { up, down, left, right }
         private FacingDirection facingDirection = FacingDirection.right;
@@ -15,6 +20,21 @@
         public PlayerState()
         {
             // initialization logic is simple default assignments
+        }
+
+        public Vector2 GetPosition()
+        {
+            return position;
+        }
+
+        public void MoveDown()
+        {
+            this.position.Y += movementSpeed;
+        }
+
+        public void MoveRight()
+        {
+            this.position.X += movementSpeed;
         }
 
         public bool IsMoving()

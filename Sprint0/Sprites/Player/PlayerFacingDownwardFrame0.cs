@@ -7,9 +7,11 @@ namespace Sprint0.Sprites.Player
     public class PlayerFacingDownwardFrame0 : ISprite
     {
         private readonly int spriteScale = 3;
+        private readonly Vector2 position;
 
-        public PlayerFacingDownwardFrame0()
+        public PlayerFacingDownwardFrame0(Vector2 position)
         {
+            this.position = position;
         }
 
         public void Draw(SpriteBatch sb, int screenW, int screenH)
@@ -18,7 +20,7 @@ namespace Sprint0.Sprites.Player
             Rectangle destinationRectangle;
 
             sourceRectangle = new Rectangle(1, 11, 15, 15);
-            destinationRectangle = new Rectangle(10, 10, spriteScale * 15, spriteScale * 15);
+            destinationRectangle = new Rectangle((int) position.X, (int) position.Y, spriteScale * 15, spriteScale * 15);
 
             sb.Begin(samplerState: SamplerState.PointClamp);
             sb.Draw(LinkSpriteSheet.GetSpriteSheet(), destinationRectangle, sourceRectangle, Color.White);

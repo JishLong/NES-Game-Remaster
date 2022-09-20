@@ -8,12 +8,12 @@ namespace Sprint0.Player
         private readonly PlayerStateController stateController;
 
         // I'm not sure if "provider" is the best name for this class
-        private readonly PlayerSpriteProvider spriteProvider;
+        private readonly PlayerSpriteController spriteProvider;
 
         public Player(Game1 game)
         {
             stateController = new PlayerStateController();
-            spriteProvider = new PlayerSpriteProvider(stateController, game);
+            spriteProvider = new PlayerSpriteController(stateController, game);
         }
 
         public void Draw(SpriteBatch spriteBatch, int screenWidth, int screenHeight)
@@ -23,8 +23,8 @@ namespace Sprint0.Player
 
         public void Update()
         {
-            stateController.Update();
             spriteProvider.Update();
+            stateController.Update();
         }
 
         public PlayerStateController GetStateController()

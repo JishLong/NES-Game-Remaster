@@ -13,7 +13,8 @@ namespace Sprint0.Player.State
 
         public void Update()
         {
-            //TODO: this should handle stopping movement if no keys are pressed, and change attack state after n frames.s
+            //TODO: this should handle stopping movement if no keys are pressed, and change attack state after n frames.
+            state.StopMoving();
         }
 
         public PlayerState GetState()
@@ -32,6 +33,7 @@ namespace Sprint0.Player.State
         {
             state.FaceDown();
             state.StartMoving();
+            state.MoveDown();
         }
 
         public void HandleLeftInput()
@@ -44,6 +46,7 @@ namespace Sprint0.Player.State
         {
             state.FaceRight();
             state.StartMoving();
+            state.MoveRight();
         }
     }
 }
