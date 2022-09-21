@@ -14,7 +14,7 @@ namespace Sprint0.Sprites.Player
             this.position = position;
         }
 
-        public void Draw(SpriteBatch sb, int screenW, int screenH)
+        public void Draw(SpriteBatch sb, int x, int y, int w, int h)
         {
             Rectangle sourceRectangle;
             Rectangle destinationRectangle;
@@ -27,7 +27,7 @@ namespace Sprint0.Sprites.Player
             sb.End();
         }
 
-        public void Update(int screenW, int screenH)
+        public void Update()
         {
             throw new NotImplementedException();
         }

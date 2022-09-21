@@ -18,7 +18,7 @@ namespace Sprint0.Player
 
         public void Draw(SpriteBatch spriteBatch, int screenWidth, int screenHeight)
         {
-            this.spriteProvider.Draw(spriteBatch, screenWidth, screenHeight);
+            this.spriteProvider.Draw(spriteBatch);
         }
 
         public void Update()
