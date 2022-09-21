@@ -17,9 +17,9 @@ namespace Sprint0.Player
             this.currentSprite = new PlayerFacingDownwardFrame0(stateController.GetState().GetPosition());
         }
 
-        public void Draw(SpriteBatch spriteBatch, int screenWidth, int screenHeight)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            currentSprite.Draw(spriteBatch, screenWidth, screenHeight);
+            currentSprite.Draw(spriteBatch, 0, 0, 0, 0);
         }
 
         // do we want an Update() method or just Draw()?

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Controllers;
+using Sprint0.Items;
 using Sprint0.Player;
 using Sprint0.Sprites;
 using System.Collections.Generic;
@@ -13,9 +14,11 @@ namespace Sprint0
         private SpriteBatch sb;
 
         private List<IController> controllers;
-        public ISprite sprite;
-        public ISprite text;
         public IPlayer player;
+        public IItem[] items;
+
+        public int currentItem
+        { get; set; }
 
         public Game1()
         {
@@ -30,14 +33,13 @@ namespace Sprint0
             player = new Player.Player(this);
             LinkSpriteSheet.Init(this);
 
+            currentItem = 0;
+
             controllers = new List<IController>
             {
                 new KeyboardController(this, player.GetStateController()),
                 new MouseController(this, g)
             };
-
-            sprite = new StillSprite();
-            text = new TextSprite();
 
             base.Initialize();
         }
@@ -47,6 +49,23 @@ namespace Sprint0
             sb = new SpriteBatch(GraphicsDevice);
 
             Resources.LoadContent(Content);
+
+            items = new IItem[] {
+                    new Arrow(400, 200), new BlueCandle(400, 200),
+                    new BluePotion(400, 200),
+                    new Bomb(400, 200),
+                    new Bow(400, 200),
+                    new Clock(400, 200),
+                    new Compass(400, 200),
+                    new Fairy(400, 200),
+                    new Heart(400, 200),
+                    new HeartContainer(400, 200),
+                    new Key(400, 200),
+                    new Map(400, 200),
+                    new Rupee(400, 200),
+                    new TriforcePiece(400, 200),
+                    new WoodenBoomerang(400, 200)
+            };
         }
 
         protected override void Update(GameTime gameTime)
@@ -56,11 +75,10 @@ namespace Sprint0
                 controller.Update();
             }
 
-            sprite.Update(g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
-            text.Update(g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
-
             // controllers MUST be updated before player
             player.Update();
+
+            items[currentItem].Update();
 
             base.Update(gameTime);
         }
@@ -69,12 +87,12 @@ namespace Sprint0
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            player.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
+
             sb.Begin();
-            sprite.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
-            text.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
+            items[currentItem].Draw(sb);
             sb.End();
 
-            player.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
             base.Draw(gameTime);
         }
     }

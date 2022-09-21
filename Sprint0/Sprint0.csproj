@@ -28,7 +28,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Player\" />
-    <Folder Include="Sprites\Player\" />
     <Folder Include="Player\State\" />
     <Folder Include="Commands\Player\" />
   </ItemGroup>

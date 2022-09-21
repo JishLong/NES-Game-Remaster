@@ -5,42 +5,50 @@ namespace Sprint0.Sprites
 {
     public class AnimatedSprite : ISprite
     {
-        /* [sizeModifier]: Changes the scale of this sprite; lower number = bigger sprite
-         * [speed]: Changes the speed at which this sprite cycles through its animation; lower number = faster
-         * [frame]: The current animation frame this sprite is on in its cycle
-         * [timer]: Used to determine when to advance to the next animation frame */
-        private int sizeModifier, speed, frame, timer;
+        private Texture2D spriteSheet;
+        private Rectangle[] frames;
+        protected int speed;
+        private int currentFrame, timer;
 
-        public AnimatedSprite()
+        public AnimatedSprite(Texture2D spriteSheet, int numFrames)
         {
-            sizeModifier = 8;
-            speed = 3;
-            frame = 0;
+            this.spriteSheet = spriteSheet;
+            CreateFrames(spriteSheet, numFrames);
+            currentFrame = 0;
+            speed = 0;
             timer = 0;
         }
 
-        public void Update(int screenW, int screenH)
+        private void CreateFrames(Texture2D spriteSheet, int numFrames)
         {
-            timer++;
-            if (timer == speed)
+            int SsWidth = spriteSheet.Width;
+            int SsHeight = spriteSheet.Height;
+
+            frames = new Rectangle[numFrames];
+
+            for (int i = 0; i < numFrames; i++)
             {
-                timer = 0;
-                frame++;
-                if (frame == 4)
-                {
-                    frame = 0;
-                }
+                frames[i] = new Rectangle(i * SsWidth / numFrames, 0, SsWidth / numFrames, SsHeight);
             }
         }
 
-        public void Draw(SpriteBatch sb, int screenW, int screenH)
+        public void Draw(SpriteBatch spriteBatch, int x, int y, int w, int h)
         {
-            int Size = screenW / sizeModifier;
+            spriteBatch.Draw(spriteSheet, new Rectangle(x, y, w, h), frames[currentFrame], Color.White);
+        }
 
-            sb.Draw(Resources.mario,
-                new Rectangle((screenW - Size) / 2, (screenH - Size) / 2, Size, Size),
-                new Rectangle(frame * 16, 0, 16, 16),
-                Color.White);
+        public void Update()
+        {
+            timer++;
+            if (timer >= speed)
+            {
+                timer = 0;
+                currentFrame++;
+                if (currentFrame >= frames.Length)
+                {
+                    currentFrame = 0;
+                }
+            }
         }
     }
 }
