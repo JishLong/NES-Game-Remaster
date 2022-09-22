@@ -13,9 +13,8 @@ namespace Sprint0
         public static Texture2D rupeeItemSheet;
         public static Texture2D triforcePieceItemSheet;
 
-        public static Texture2D mario;
-
-        public static SpriteFont creditsFont;
+        // Sprite sheets for enemies
+        public static Texture2D DungeonEnemySpriteSheet;
 
         // Sprite sheet positions for still items
         public static Rectangle compass;
@@ -32,16 +31,16 @@ namespace Sprint0
 
         public static void LoadContent(ContentManager c) 
         {
+
+            // Load enemy sprite sheets
+            DungeonEnemySpriteSheet = c.Load<Texture2D>("DungeonEnemies");
+
             // Load item sprite sheets
             stillItemsSheet = c.Load<Texture2D>("stillItems");
             fairyItemSheet = c.Load<Texture2D>("fairyItem");
             heartItemSheet = c.Load<Texture2D>("heartItem");
             rupeeItemSheet = c.Load<Texture2D>("rupeeItem");
             triforcePieceItemSheet = c.Load<Texture2D>("triforcePieceItem");
-
-            mario = c.Load<Texture2D>("mario");
-
-            creditsFont = c.Load<SpriteFont>("credits");
 
             // Load exact position of still items
             compass = new Rectangle(0, 0, 16, 16);

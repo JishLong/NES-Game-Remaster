@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Enemies
 {
     public interface IEnemy
     {
-        void takeDamage();
-        void update();
-
-        void draw();
-        void destroy();
-
+        void TakeDamage(int damage);
+        void Update(GameTime gameTime);
+        void Draw(SpriteBatch sb);
+        void Destroy();
     }
 }
