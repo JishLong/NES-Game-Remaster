@@ -27,7 +27,7 @@ namespace Sprint0.Sprites
             this.SourceRects= new List<Rectangle>();
             this.Width = width;
             this.Height = height;
-            this.UpdateTimer= (1/animSpeed) * 100;  // animation speed is used to calculate the timer.
+            this.UpdateTimer = (1 / animSpeed) * 200;  // animation speed is used to calculate the timer.
         }
         /// <summary>
         /// Returns source rectangle at the given index.

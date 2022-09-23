@@ -16,6 +16,7 @@ namespace Sprint0.Sprites.Enemies
 
         private int Width = 16;
         private int Height = 16;
+        private int SpriteScale = 3;
 
         private Rectangle Target;   // Where to draw the sprite.
         private Rectangle Source;   // Where to draw from.
@@ -39,7 +40,7 @@ namespace Sprint0.Sprites.Enemies
         // by flipping it horizontally every frame...
         public void Draw(SpriteBatch sb, Vector2 position)
         {
-            Target = new Rectangle((int)position.X, (int)position.Y, Width, Height);
+            Target = new Rectangle((int)position.X, (int)position.Y, Width * SpriteScale, Height * SpriteScale);
             Source = MovingAnim.CurrentRect();
 
             if(MovingAnim.CurrentFrame == 0)

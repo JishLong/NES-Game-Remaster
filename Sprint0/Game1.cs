@@ -53,7 +53,7 @@ namespace Sprint0
 
             Resources.LoadContent(Content);
 
-            skeleton = new Skeleton(new Vector2(40,40));
+            skeleton = new Skeleton(new Vector2(200,200));
 
             items = new IItem[] {
                     new Arrow(400, 200), new BlueCandle(400, 200),

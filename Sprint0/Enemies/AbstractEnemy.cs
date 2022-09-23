@@ -6,14 +6,15 @@ namespace Sprint0.Enemies
 {
     public abstract class AbstractEnemy : IEnemy
     {
-        public int health { get; set; }      // Health property
+        public int Health { get; set; }      // Health property
+        public bool CanMove { get; set; }
         public IEnemySprite sprite { get; set; }  // Sprite property 
         
         public void TakeDamage(int damage)
         {
-            health -= damage;
+            Health -= damage;
 
-            if (health <= 0)
+            if (Health <= 0)
             {
                 Destroy();
             }
