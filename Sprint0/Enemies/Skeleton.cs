@@ -15,8 +15,8 @@ namespace Sprint0.Enemies
             // Movement
             this.CanMove = true;
             this.Position = position;
-            this.Direction = new Vector2(1, 0); // Starts moving to the right.
-            this.MovementSpeed = 3;
+            this.Direction = new Vector2(0, 0); // Starts standing still.
+            this.MovementSpeed = 2;
 
             // Update related fields
             this.UpdateTimer = updateTimer;
@@ -60,7 +60,7 @@ namespace Sprint0.Enemies
 
             // Move the skeleton.
 
-            this.Position += (this.Direction * this.MovementSpeed);
+            Position += (this.Direction * this.MovementSpeed);
 
             sprite.Update(gameTime);
         }

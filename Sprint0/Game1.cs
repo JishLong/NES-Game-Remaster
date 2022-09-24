@@ -14,14 +14,14 @@ namespace Sprint0
         private GraphicsDeviceManager g;
         private SpriteBatch sb;
 
-        private IEnemy skeleton;
 
         private List<IController> controllers;
         public IPlayer player;
         public IItem[] items;
+        public IEnemy[] Enemies;
 
-        public int currentItem
-        { get; set; }
+        public int currentItem { get; set; }
+        public int CurrentEnemy{ get; set; }
 
         public Game1()
         {
@@ -37,6 +37,7 @@ namespace Sprint0
             LinkSpriteSheet.Init(this);
 
             currentItem = 0;
+            CurrentEnemy = 0;
 
             controllers = new List<IController>
             {
@@ -53,7 +54,11 @@ namespace Sprint0
 
             Resources.LoadContent(Content);
 
-            skeleton = new Skeleton(new Vector2(200,200));
+            Enemies = new IEnemy[]
+            {
+                new Bat(new Vector2(600,200)),
+                new Skeleton(new Vector2(600, 200)),
+            };
 
             items = new IItem[] {
                     new Arrow(400, 200), new BlueCandle(400, 200),
@@ -84,8 +89,7 @@ namespace Sprint0
             player.Update();
 
             items[currentItem].Update();
-
-            skeleton.Update(gameTime);
+            Enemies[CurrentEnemy].Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -96,12 +100,9 @@ namespace Sprint0
 
             player.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
 
-
-            sb.Begin();
+            sb.Begin(samplerState: SamplerState.PointClamp);
             items[currentItem].Draw(sb);
-
-            skeleton.Draw(sb);
-
+            Enemies[CurrentEnemy].Draw(sb);
             sb.End();
 
             base.Draw(gameTime);

@@ -13,14 +13,21 @@ namespace Sprint0.Enemies
     {
         int ElapsedTime;
         int UpdateTimer;
+        Random RNG;
 
-        public Bat(Vector2 position, int updateTimer)
+        public Bat(Vector2 position, int updateTimer = 1000)
         {
+            this.Health = 1;
+            // Movement
+            this.CanMove = true;
             this.Position = position;
+            this.Direction = new Vector2(0, 0); // Starts standing still.
+            this.MovementSpeed = 2;
 
-
+            // Update related fields
+            this.UpdateTimer = updateTimer;
+            this.RNG = new Random();
             this.sprite = new Sprites.Enemies.BatSprite();
-
         }
 
         public override void Destroy()
@@ -30,11 +37,22 @@ namespace Sprint0.Enemies
 
         public override void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
+            if(ElapsedTime > UpdateTimer)
+            {
+                ElapsedTime = 0;
+                int randDirectionX = this.RNG.Next(-1, 2);
+                int randDirectionY = this.RNG.Next(-1,2);
+
+                Direction = new Vector2(randDirectionX, randDirectionY);
+            }
+
+            Position += (this.Direction * this.MovementSpeed);
+            sprite.Update(gameTime);
         }
         public override void Draw(SpriteBatch sb)
         {
-            throw new NotImplementedException();
+            sprite.Draw(sb, Position);
         }
     }
 }
