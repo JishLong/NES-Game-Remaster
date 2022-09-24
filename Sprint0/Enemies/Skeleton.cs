@@ -6,11 +6,6 @@ namespace Sprint0.Enemies
 {
     public class Skeleton : AbstractEnemy
     {
-
-        Vector2 Position;
-        Vector2 Direction;
-        int MovementSpeed;
-
         int ElapsedTime;    // Units: milliseconds 
         int UpdateTimer;    // Units: milliseconds 
         Random RNG;         // Random number generator;
@@ -47,18 +42,18 @@ namespace Sprint0.Enemies
                 switch (randDirection)
                 {
                     case 0:
-                        Direction = new Vector2(1, 0);
+                        Direction = new Vector2(1, 0); // right
                         break;
 
                     case 1:
-                        Direction = new Vector2(0, -1);
+                        Direction = new Vector2(0, -1); // down
                         break;
 
                     case 2:
-                        Direction = new Vector2(-1, 0);
+                        Direction = new Vector2(-1, 0); // left
                         break;
                     case 3:
-                        Direction = new Vector2(0, 1);
+                        Direction = new Vector2(0, 1); // up
                         break;
                 }
             }

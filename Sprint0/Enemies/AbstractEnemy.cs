@@ -6,8 +6,12 @@ namespace Sprint0.Enemies
 {
     public abstract class AbstractEnemy : IEnemy
     {
-        public int Health { get; set; }      // Health property
-        public bool CanMove { get; set; }
+        public int Health { get; set; }     // Health property
+        public bool CanMove { get; set; }   //
+
+        public Vector2 Position;
+        public Vector2 Direction;
+        public int MovementSpeed;
         public IEnemySprite sprite { get; set; }  // Sprite property 
         
         public void TakeDamage(int damage)
@@ -19,8 +23,8 @@ namespace Sprint0.Enemies
                 Destroy();
             }
         }
+        public abstract void Destroy();
         public abstract void Update(GameTime gameTime);
         public abstract void Draw(SpriteBatch sb);
-        public abstract void Destroy();
     }
 }
