@@ -14,14 +14,16 @@ namespace Sprint0
         private GraphicsDeviceManager g;
         private SpriteBatch sb;
 
-
         private List<IController> controllers;
         public IPlayer player;
-        public IItem[] items;
-        public IEnemy[] Enemies;
 
+        public IItem[] items;
         public int currentItem { get; set; }
-        public int CurrentEnemy{ get; set; }
+
+        public string[] EnemyNames;
+        public IEnemy CurrentEnemy{ get; set; }
+        public EnemyFactory EnemyFactory;
+        public Vector2 DefaultEnemyPosition;
 
         public Game1()
         {
@@ -37,7 +39,9 @@ namespace Sprint0
             LinkSpriteSheet.Init(this);
 
             currentItem = 0;
-            CurrentEnemy = 0;
+
+            this.EnemyFactory = new EnemyFactory();
+            DefaultEnemyPosition = new Vector2(600, 400);
 
             controllers = new List<IController>
             {
@@ -54,10 +58,10 @@ namespace Sprint0
 
             Resources.LoadContent(Content);
 
-            Enemies = new IEnemy[]
+            EnemyNames= new string[]
             {
-                new Bat(new Vector2(600,200)),
-                new Skeleton(new Vector2(600, 200)),
+                "SKELETON",
+                "BAT",
             };
 
             items = new IItem[] {
@@ -76,6 +80,8 @@ namespace Sprint0
                     new TriforcePiece(400, 200),
                     new WoodenBoomerang(400, 200)
             };
+
+            CurrentEnemy = this.EnemyFactory.GetEnemy(EnemyNames[0], DefaultEnemyPosition);
         }
 
         protected override void Update(GameTime gameTime)
@@ -89,7 +95,7 @@ namespace Sprint0
             player.Update();
 
             items[currentItem].Update();
-            Enemies[CurrentEnemy].Update(gameTime);
+            CurrentEnemy.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -102,7 +108,7 @@ namespace Sprint0
 
             sb.Begin(samplerState: SamplerState.PointClamp);
             items[currentItem].Draw(sb);
-            Enemies[CurrentEnemy].Draw(sb);
+            CurrentEnemy.Draw(sb);
             sb.End();
 
             base.Draw(gameTime);
