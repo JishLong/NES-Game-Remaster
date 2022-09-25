@@ -6,6 +6,8 @@ namespace Sprint0.Player.State
     {
         private readonly PlayerState state = new();
 
+        private int attackFrameCounter = 0;
+
         public PlayerStateController()
         {
 
@@ -13,8 +15,38 @@ namespace Sprint0.Player.State
 
         public void Update()
         {
-            //TODO: this should handle stopping movement if no keys are pressed, and change attack state after n frames.
-            state.StopMoving();
+            // movement updating
+            if (state.IsMoving())
+            {
+                if (state.FacingDown())
+                {
+                    state.MoveDown();
+                }
+                else if (state.FacingUp())
+                {
+                    state.MoveUp();
+                }
+                else if (state.FacingRight())
+                {
+                    state.MoveRight();
+                }
+                else
+                {
+                    state.MoveLeft();
+                }
+            }
+
+            // how often the player can attack is an arbitrary choice
+            if (state.IsAttacking())
+            {
+                attackFrameCounter++;
+            }
+
+            if (attackFrameCounter > 20)
+            {
+                attackFrameCounter = 0;
+                state.StopAttacking();
+            }
         }
 
         public PlayerState GetState()
@@ -22,46 +54,82 @@ namespace Sprint0.Player.State
             return state;
         }
 
+        public int GetAttackFrame()
+        {
+            if (attackFrameCounter < 5)
+            {
+                return 0;
+            }
+            else if (attackFrameCounter < 10)
+            {
+                return 1;
+            }
+            else if (attackFrameCounter < 15)
+            {
+                return 2;
+            }
+            else if (attackFrameCounter < 20)
+            {
+                return 3;
+            }
+            else
+            {
+                // indicates something went wrong
+                return -1;
+            }
+        }
+
         public void HandleUpInput()
         {
-            if (!state.IsMoving())
+            if (!state.IsMoving() && !state.IsAttacking())
             {
                 state.FaceUp();
                 state.StartMoving();
-                state.MoveUp();
             }
         }
 
 
         public void HandleDownInput()
         {
-            if (!state.IsMoving())
+            if (!state.IsMoving() && !state.IsAttacking())
             {
                 state.FaceDown();
                 state.StartMoving();
-                state.MoveDown();
             }
         }
 
         public void HandleLeftInput()
         {
-            if (!state.IsMoving())
+            if (!state.IsMoving() && !state.IsAttacking())
             {
                 state.FaceLeft();
                 state.StartMoving();
-                state.MoveLeft();
             }
                 
         }
 
         public void HandleRightInput()
         {
-            if (!state.IsMoving())
+            if (!state.IsMoving() && !state.IsAttacking())
             {
                 state.FaceRight();
                 state.StartMoving();
-                state.MoveRight();
             }
+        }
+
+        public void HandleSwordAttackInput()
+        {
+            if (!state.IsAttacking())
+            {
+                state.EquipSword();
+                state.StartAttacking();
+                state.StopMoving();
+            }
+        }
+
+        public void HandleStopMoving()
+        {
+            state.StopMoving();
         }
     }
 }

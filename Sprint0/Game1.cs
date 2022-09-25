@@ -75,7 +75,6 @@ namespace Sprint0
                 controller.Update();
             }
 
-            // controllers MUST be updated before player
             player.Update();
 
             items[currentItem].Update();
@@ -89,7 +88,7 @@ namespace Sprint0
 
             player.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
 
-            sb.Begin();
+            sb.Begin(samplerState: SamplerState.PointClamp);
             items[currentItem].Draw(sb);
             sb.End();
 
