@@ -1,10 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Enemies.Interfaces;
 using System;
 
-namespace Sprint0.Enemies
+namespace Sprint0.Enemies.Utils
 {
     public class EnemyFactory
-    { 
+    {
         public IEnemy GetEnemy(string enemyType, Vector2 position)
         {
             switch (enemyType)
@@ -14,6 +15,10 @@ namespace Sprint0.Enemies
 
                 case "BAT":
                     return new Bat(position);
+
+                case "HAND":
+                    return new Hand(position);
+
                 default:
                     Console.Error.Write("The concrete type " + enemyType + " could not be instantiated by the Enemy Factory. Does this type exist?");
                     return null;

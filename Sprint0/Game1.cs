@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Controllers;
 using Sprint0.Items;
-using Sprint0.Enemies;
 using Sprint0.Player;
 using Sprint0.Sprites;
 using System.Collections.Generic;
+using Sprint0.Enemies.Interfaces;
+using Sprint0.Enemies.Utils;
 
 namespace Sprint0
 {
@@ -41,7 +42,7 @@ namespace Sprint0
             currentItem = 0;
 
             this.EnemyFactory = new EnemyFactory();
-            DefaultEnemyPosition = new Vector2(600, 400);
+            DefaultEnemyPosition = new Vector2(500, 200);
 
             controllers = new List<IController>
             {
@@ -62,6 +63,7 @@ namespace Sprint0
             {
                 "SKELETON",
                 "BAT",
+                "HAND",
             };
 
             items = new IItem[] {
@@ -102,7 +104,7 @@ namespace Sprint0
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.BlueViolet);
 
             player.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
 

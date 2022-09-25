@@ -11,7 +11,7 @@ namespace Sprint0.Commands.Enemies
         public NextEnemyCommand(Game1 game)
         {
             this.game = game;
-            this.DefaultEnemyPosition = new Vector2(600, 400);
+            this.DefaultEnemyPosition = new Vector2(500, 200);
             this.index = 0;
         }
         public void Execute()

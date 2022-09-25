@@ -1,19 +1,25 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Enemies.Interfaces;
 using Sprint0.Sprites.Enemies;
 
 namespace Sprint0.Enemies
 {
     public abstract class AbstractEnemy : IEnemy
     {
-        public int Health { get; set; }     // Health property
+        // Combat related fields.
+        public int Health { get; set; }     
+        public IStunBehavior StunBehavior;
 
+        // Movement related fields.
         public Vector2 Position;
         public Vector2 Direction;
+        public string DirectionName;
         public int MovementSpeed;
         public bool CanMove;
-        public IEnemySprite sprite { get; set; }  // Sprite property 
         
+        // Sprite related fields.
+        public IEnemySprite sprite { get; set; }  
         public void TakeDamage(int damage)
         {
             Health -= damage;
@@ -23,7 +29,6 @@ namespace Sprint0.Enemies
                 Destroy();
             }
         }
-
         public void Freeze()
         {
             this.CanMove = false;
@@ -33,7 +38,6 @@ namespace Sprint0.Enemies
         {
             this.CanMove = true;
         }
-
         public abstract void Destroy();
         public abstract void Update(GameTime gameTime);
         public abstract void Draw(SpriteBatch sb);

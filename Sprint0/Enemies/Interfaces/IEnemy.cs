@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Sprint0.Enemies
+namespace Sprint0.Enemies.Interfaces
 {
     public interface IEnemy
     {
