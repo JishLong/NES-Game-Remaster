@@ -15,7 +15,8 @@ namespace Sprint0.Player
         private FacingDirection facingDirection = FacingDirection.right;
 
         //TODO: determine exactly what weapns Link needs to have
-        private enum CurrentWeapon { }
+        private enum Weapon { Sword, Bow, MagicStaff }
+        private Weapon currentWeapon;
 
         public PlayerState()
         {
@@ -65,6 +66,46 @@ namespace Sprint0.Player
         public bool IsAttacking()
         {
             return isAttacking;
+        }
+
+        public void StartAttacking()
+        {
+            isAttacking = true;
+        }
+
+        public void StopAttacking()
+        {
+            isAttacking = false;
+        }
+
+        public void EquipSword()
+        {
+            currentWeapon = Weapon.Sword;
+        }
+
+        public bool SwordEquipped()
+        {
+            return currentWeapon == Weapon.Sword;
+        }
+
+        public void EquipBow()
+        {
+            currentWeapon = Weapon.Bow;
+        }
+
+        public bool BowEquipped()
+        {
+            return currentWeapon == Weapon.Bow;
+        }
+
+        public void EquipStaff()
+        {
+            currentWeapon = Weapon.MagicStaff;
+        }
+
+        public bool StaffEquipped()
+        {
+            return currentWeapon == Weapon.MagicStaff;
         }
 
         public bool IsDamaged()

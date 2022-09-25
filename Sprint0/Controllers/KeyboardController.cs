@@ -11,6 +11,7 @@ namespace Sprint0.Controllers
         private Game1 game;
         private Dictionary<Keys, ICommand> heldKeyMap;
         private Dictionary<Keys, ICommand> clickedKeyMap;
+        private Dictionary<Keys, ICommand> releasedKeyMap;
         private PlayerStateController playerStateController;
 
         // Used so that only the "pulse" of the mouse is registered rather than just looking for the button held down
@@ -32,6 +33,8 @@ namespace Sprint0.Controllers
                 { Keys.Down, new PlayerDownInputCommand(playerStateController) },
                 { Keys.Left, new PlayerLeftInputCommand(playerStateController) },
                 { Keys.Right, new PlayerRightInputCommand(playerStateController) },
+                { Keys.Z, new PlayerSwordAttackCommand(playerStateController) },
+                { Keys.N, new PlayerSwordAttackCommand(playerStateController) }
             };
 
             clickedKeyMap = new Dictionary<Keys, ICommand>
@@ -43,7 +46,17 @@ namespace Sprint0.Controllers
                 { Keys.P, new NextEnemyCommand(game) }
             };
 
-
+            releasedKeyMap = new Dictionary<Keys, ICommand>
+            {
+                { Keys.W, new PlayerStopMovingCommand(playerStateController) },
+                { Keys.S, new PlayerStopMovingCommand(playerStateController) },
+                { Keys.A, new PlayerStopMovingCommand(playerStateController) },
+                { Keys.D, new PlayerStopMovingCommand(playerStateController) },
+                { Keys.Up, new PlayerStopMovingCommand(playerStateController) },
+                { Keys.Down, new PlayerStopMovingCommand(playerStateController) },
+                { Keys.Left, new PlayerStopMovingCommand(playerStateController) },
+                { Keys.Right, new PlayerStopMovingCommand(playerStateController) }
+            };
 
             prevState = Keyboard.GetState();
         }
@@ -65,6 +78,14 @@ namespace Sprint0.Controllers
                 if (CurrentState.IsKeyDown(key) && prevState.IsKeyUp(key))
                 {
                     clickedKeyMap[key].Execute();
+                }
+            }
+
+            foreach (var key in releasedKeyMap.Keys)
+            {
+                if (prevState.IsKeyDown(key) && CurrentState.IsKeyUp(key))
+                {
+                    releasedKeyMap[key].Execute();
                 }
             }
 

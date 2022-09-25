@@ -93,7 +93,6 @@ namespace Sprint0
                 controller.Update();
             }
 
-            // controllers MUST be updated before player
             player.Update();
 
             items[currentItem].Update();
