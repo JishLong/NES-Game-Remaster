@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Sprint0.Commands.Player;
+using Sprint0.Commands.Enemies;
 using Sprint0.Player.State;
 using System.Collections.Generic;
 
@@ -40,7 +41,9 @@ namespace Sprint0.Controllers
             {
                 // Item switching controls
                 { Keys.U, new PrevItemCommand(game) },
-                { Keys.I, new NextItemCommand(game) }
+                { Keys.I, new NextItemCommand(game) },
+                { Keys.O, new PrevEnemyCommand(game) },
+                { Keys.P, new NextEnemyCommand(game) }
             };
 
             releasedKeyMap = new Dictionary<Keys, ICommand>

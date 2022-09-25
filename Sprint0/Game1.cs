@@ -5,6 +5,8 @@ using Sprint0.Items;
 using Sprint0.Player;
 using Sprint0.Sprites;
 using System.Collections.Generic;
+using Sprint0.Enemies.Interfaces;
+using Sprint0.Enemies.Utils;
 
 namespace Sprint0
 {
@@ -15,10 +17,14 @@ namespace Sprint0
 
         private List<IController> controllers;
         public IPlayer player;
-        public IItem[] items;
 
-        public int currentItem
-        { get; set; }
+        public IItem[] items;
+        public int currentItem { get; set; }
+
+        public string[] EnemyNames;
+        public IEnemy CurrentEnemy{ get; set; }
+        public EnemyFactory EnemyFactory;
+        public Vector2 DefaultEnemyPosition;
 
         public Game1()
         {
@@ -35,6 +41,9 @@ namespace Sprint0
 
             currentItem = 0;
 
+            this.EnemyFactory = new EnemyFactory();
+            DefaultEnemyPosition = new Vector2(500, 200);
+
             controllers = new List<IController>
             {
                 new KeyboardController(this, player.GetStateController()),
@@ -49,6 +58,13 @@ namespace Sprint0
             sb = new SpriteBatch(GraphicsDevice);
 
             Resources.LoadContent(Content);
+
+            EnemyNames= new string[]
+            {
+                "SKELETON",
+                "BAT",
+                "HAND",
+            };
 
             items = new IItem[] {
                     new Arrow(400, 200), new BlueCandle(400, 200),
@@ -66,6 +82,8 @@ namespace Sprint0
                     new TriforcePiece(400, 200),
                     new WoodenBoomerang(400, 200)
             };
+
+            CurrentEnemy = this.EnemyFactory.GetEnemy(EnemyNames[0], DefaultEnemyPosition);
         }
 
         protected override void Update(GameTime gameTime)
@@ -78,18 +96,20 @@ namespace Sprint0
             player.Update();
 
             items[currentItem].Update();
+            CurrentEnemy.Update(gameTime);
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.BlueViolet);
 
             player.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
 
             sb.Begin(samplerState: SamplerState.PointClamp);
             items[currentItem].Draw(sb);
+            CurrentEnemy.Draw(sb);
             sb.End();
 
             base.Draw(gameTime);
