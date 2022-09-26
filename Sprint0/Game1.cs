@@ -18,7 +18,6 @@ namespace Sprint0
         private GraphicsDeviceManager g;
         private SpriteBatch sb;
 
-
         private List<IController> controllers;
         public IBoss[] Bosses;
 
