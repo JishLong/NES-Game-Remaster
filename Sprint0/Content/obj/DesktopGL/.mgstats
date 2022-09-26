@@ -1,0 +1,7 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/BossEnemies.png","C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/BossEnemies.xnb","TextureProcessor","Texture2DContent",33082,584981,0.140066
+"C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/EnemyDeath.png","C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/EnemyDeath.xnb","TextureProcessor","Texture2DContent",426,4117,0.0016179
+"C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/File.spritefont","C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/credits.xnb","FontDescriptionProcessor","SpriteFontContent",2068,70687,0.0988001
+"C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/Link+Items.png","C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Link+Items.xnb","TextureProcessor","Texture2DContent",19462,460125,0.1490359
+"C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/mario.png","C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/mario.xnb","TextureProcessor","Texture2DContent",939,8277,0.0023753
+"C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/Npcs.png","C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Npcs.xnb","TextureProcessor","Texture2DContent",5129,186309,0.0050798
