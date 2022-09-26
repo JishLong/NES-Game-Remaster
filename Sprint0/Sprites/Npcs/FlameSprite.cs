@@ -40,9 +40,9 @@ namespace Sprint0.Sprites.Npcs
 		{
 			Target = new Rectangle((int)position.X, (int)position.Y, Width * SpriteScale, Height * SpriteScale);
 			Source = MovAnimation.CurrentRect();
-			if (MovAnimation.CurrentFrame == 0 & false)
+			if (false)
 			{
-
+				// TODO: draw logic
 			}
 			else
 			{

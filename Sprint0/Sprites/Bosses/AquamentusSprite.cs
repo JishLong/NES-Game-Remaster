@@ -45,7 +45,7 @@ namespace Sprint0.Sprites.Bosses
 
             if (false)
             {
-                //todo
+                // TODO: draw logic
             }
             else
             {

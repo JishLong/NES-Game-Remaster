@@ -23,10 +23,10 @@ namespace Sprint0.Npcs
             this.sprite = new Sprites.Npcs.BombProjSprite();
         }
 
-        //public override bool IsProjectile()
-        //{
-        //    return this.IsProjectile;
-        //}
+        // public override bool IsProjectile()
+        // {
+        //     return this.IsProjectile;
+        // }
         public override void Destroy()
         {
             // no functionality 

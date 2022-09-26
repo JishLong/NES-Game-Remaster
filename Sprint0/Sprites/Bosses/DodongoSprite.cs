@@ -43,8 +43,9 @@ namespace Sprint0.Sprites.Bosses
 
             if (MovAnimation.CurrentFrame == 0 & false)
             {
-                //todo
-            } else
+                // TODO: draw logic
+            }
+            else
             {
                 sb.Draw(Sheet, Target, Source, Color.White);
 

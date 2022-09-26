@@ -10,7 +10,6 @@ namespace Sprint0.Bosses
 		// Combat related fields.
 		public int Health { get; set; }
 		public int Damage { get; set; }
-		//public IStunBehavior StunBehavior;
 
 		// Movement related fields.
 		public Vector2 Position;

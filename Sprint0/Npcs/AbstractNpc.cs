@@ -38,7 +38,7 @@ namespace Sprint0.Npcs
             this.CanMove = true;
         }
         // need for projectile logic
-        //public abstract bool IsProjectile();
+        // public abstract bool IsProjectile();
         public abstract void Destroy();
         public abstract void Update(GameTime gameTime);
         public abstract void Draw(SpriteBatch sb);

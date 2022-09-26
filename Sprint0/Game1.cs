@@ -8,7 +8,6 @@ using Sprint0.Bosses.Utils;
 using Sprint0.Npcs;
 using Sprint0.Npcs.Interfaces;
 using Sprint0.Npcs.Utils;
-//using Sprint0.Player;
 using Sprint0.Sprites;
 using System.Collections.Generic;
 
@@ -61,10 +60,6 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            
-            //player = new Player.Player(this);
-            //LinkSpriteSheet.Init(this);
-
             currentItem = 0;
             CurrentEnemy = 0;
             this.BossFactory = new BossFactory();
@@ -86,12 +81,10 @@ namespace Sprint0
             sb = new SpriteBatch(GraphicsDevice);
 
             Resources.LoadContent(Content);
-            //BossTypes = new string[]
-            //{
-              //  "DODONGO",
-                //"AQUAMENTUS",
-            //};
-            // DODONGO [1]
+
+            // DODONGO [0]
+            // AQUAMENTUS [1]
+            // AQUAMENTUS FLAMES [2]
             CurrentBoss = this.BossFactory.GetBoss(BossTypes[1], BossPosition);
             CurrentNpc = this.NpcFactory.GetNpc(NpcTypes[1], NpcPosition);
             CurrentBossProj1 = this.BossFactory.GetBoss(BossTypes[2], BossPosition);
@@ -108,24 +101,14 @@ namespace Sprint0
             CurrentBossProj2.Update(gameTime);
             CurrentBossProj3.Update(gameTime);
 
-            // controllers MUST be updated before player
-            //player.Update();
-
-            //items[currentItem].Update();
-            
-
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-           // System.Diagnostics.Debug.WriteLine("Updating");
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            //player.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
-
             sb.Begin(samplerState: SamplerState.PointClamp);
-            //items[currentItem].Draw(sb);
             CurrentBossProj1.Draw(sb);
             CurrentBossProj2.Draw(sb);
             CurrentBossProj3.Draw(sb);

@@ -19,13 +19,12 @@ namespace Sprint0.Bosses
         public AquamentusFlame(Vector2 position, int updateTimer = 1000)
         {
             this.Health = 9999;    // Data here: https://strategywiki.org/wiki/The_Legend_of_Zelda/Bosses
-            this.Damage = 2;    // Damage dealt
+            this.Damage = 1;    // Damage dealt
             this.CanMove = true;
             this.Position = position;
             this.Direction = new Vector2(0, 0); // Starts standing still.
             this.MovementSpeed = 5;
             this.UpdateTimer = updateTimer;
-            this.RNG = new Random();
             this.sprite = new Sprites.Bosses.AquamentusFlameSprite();
         }
 
@@ -40,11 +39,11 @@ namespace Sprint0.Bosses
             if (ElapsedTime > UpdateTimer)
             {
                 ElapsedTime = 0;
-                // todo: add logic for refiring from Aquamentus position
+                // TODO: add logic for refiring from Aquamentus position
                 Position.X = 500;
                 Position.Y = 200;
-                //int randDirection = this.RNG.Next(0, 2);
-                int flameNum = 1;
+                
+                int flameNum = 1; // temp direction
                 switch (flameNum)
                 {
                     case 0:

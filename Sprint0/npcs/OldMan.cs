@@ -16,7 +16,7 @@ namespace Sprint0.Npcs
 		public OldMan(Vector2 position, int updateTimer = 1000)
 		{
 			this.Health = 1;
-			//this.IsProjectile = true;
+			//this.IsProjectile = false;
 			this.Position = position;
 			this.Direction = new Vector2(0, 0); // Starts standing still.
 			this.UpdateTimer = updateTimer;

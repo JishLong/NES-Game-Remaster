@@ -41,12 +41,11 @@ namespace Sprint0.Sprites.Npcs
             Source = MovAnimation.CurrentRect();
             if (MovAnimation.CurrentFrame == 0 & false)
             {
-                
+                // TODO: draw logic
             }
             else
             {
                 sb.Draw(Sheet, Target, Source, Color.White);
-                System.Diagnostics.Debug.WriteLine("Old Man");
             }
         }
 
