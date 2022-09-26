@@ -68,15 +68,15 @@ namespace Sprint0
 
             // Load positions for all blocks
             fireBlock = new Rectangle(0, 0, 16, 16);
-            blueTile = new Rectangle(5, 12, 16, 16);
-            blueWall = new Rectangle(22, 12, 16, 16);
-            blueGap = new Rectangle(39, 29, 16, 16);
-            blueStatueLeft = new Rectangle(39, 12, 16, 16);
-            blueStatueRight = new Rectangle(56, 12, 16, 16);
-            blueStairs = new Rectangle(56, 29, 16, 16);
-            blueSand = new Rectangle(22, 29, 16, 16);
-            greyBricks = new Rectangle(5, 46, 16, 16);
-            whiteBars = new Rectangle(22, 46, 16, 16);
+            blueTile = new Rectangle(4, 11, 16, 16);
+            blueWall = new Rectangle(21, 11, 16, 16);
+            blueGap = new Rectangle(38, 28, 16, 16);
+            blueStatueLeft = new Rectangle(38, 11, 16, 16);
+            blueStatueRight = new Rectangle(55, 11, 16, 16);
+            blueStairs = new Rectangle(55, 28, 16, 16);
+            blueSand = new Rectangle(21, 28, 16, 16);
+            greyBricks = new Rectangle(4, 45, 16, 16);
+            whiteBars = new Rectangle(21, 45, 16, 16);
             ladderBlock = new Rectangle(280, 12, 16, 16);
 
 
