@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Sprint0.Commands;
+using Sprint0.Commands.Player;
 
 namespace Sprint0.Controllers
 {
@@ -27,31 +28,7 @@ namespace Sprint0.Controllers
             // Handling of left click
             if (CurrentState.LeftButton == ButtonState.Pressed && prevState.LeftButton == ButtonState.Released)
             {
-                bool onLeft = CurrentState.X <= graphics.PreferredBackBufferWidth / 2;
-                bool onTop = CurrentState.Y <= graphics.PreferredBackBufferHeight / 2;
-
-                if (onLeft)
-                {
-                    if (onTop)
-                    {
-                        //new StillSpriteCommand(game).Execute();
-                    }
-                    else
-                    {
-                        //new MovingSpriteCommand(game).Execute();
-                    }
-                }
-                else
-                {
-                    if (onTop)
-                    {
-                       // new AnimatedSpriteCommand(game).Execute();
-                    }
-                    else
-                    {
-                       // new MovingAnimatedSpriteCommand(game).Execute();
-                    }
-                }
+                
             }
 
             // Handling of right click

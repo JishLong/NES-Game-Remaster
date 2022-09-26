@@ -13,6 +13,12 @@
   <ItemGroup>
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
+    <None Remove="Player\" />
+    <None Remove="Sprites\Player\" />
+    <None Remove="Player\State\" />
+    <None Remove="Commands\Player\" />
+    <None Remove="Sprites\Player\Attack\" />
+    <None Remove="Sprites\Player\Attack\SwordAttack\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -21,6 +27,13 @@
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Player\" />
+    <Folder Include="Player\State\" />
+    <Folder Include="Commands\Player\" />
+    <Folder Include="Sprites\Player\Attack\" />
+    <Folder Include="Sprites\Player\Attack\SwordAttack\" />
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />

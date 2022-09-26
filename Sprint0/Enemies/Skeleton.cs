@@ -1,38 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Sprint0.Enemies.Utils;
+using Sprint0.Sprites.Enemies;
 
 namespace Sprint0.Enemies
 {
-    public class Skeleton : Enemy
+    public class Skeleton : AbstractEnemy
     {
-        public Skeleton()
+        int ElapsedTime;    // Units: milliseconds 
+        int UpdateTimer;    // Units: milliseconds 
+        public Skeleton(Vector2 position, int updateTimer = 1000)
         {
-            this.health = 2;    // arbitrary health value. I think they die in like a single hit?
-        }
+            // Combat
+            this.Health = 1;
 
-        public override void destroy()
+            // Movement
+            this.CanMove = true;
+            this.Position = position;
+            this.DirectionName = "UP";
+            this.MovementSpeed = 2;
+
+            // Update related fields
+            this.UpdateTimer = updateTimer;
+            this.sprite = new SkeletonSprite();
+        }   
+
+        public override void Destroy()
         {
             // not sure what to do here yet...
             throw new NotImplementedException();
         }
-        public override void update()
+        
+        public override void Update(GameTime gameTime)
         {
-            
+            ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
+            if(ElapsedTime > UpdateTimer)
+            {
+                ElapsedTime = 0;
+                Direction = EnemyUtils.RandOrthogDirection(ref DirectionName);
+            }
+
+            // Move the skeleton.
+            Position += (this.Direction * this.MovementSpeed);
+            sprite.Update(gameTime);
         }
 
-        public override void draw()
+        public override void Draw(SpriteBatch sb)
         {
-            // TODO: public properties for the graphics device manager and the sprite batch from the main game class?
-            //psuedo-code:
-            // sb = ZeldaGame.sprite_batch;
-            // graphics = ZeldaGame.graphics_device_manager;
-            // w = graphics.w;
-            // h = graphics.h;
-            // sprite.Draw(sb, w, h);
+            sprite.Draw(sb, Position);
         }
-
     }
 }

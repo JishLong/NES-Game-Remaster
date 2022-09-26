@@ -1,9 +1,5 @@
-
-
-.vs/*
-
-*/bin/*
-*/obj/*
-
-
+.vs/
+[Bb]in/
+obj/
+[Dd]ebug*/
 
