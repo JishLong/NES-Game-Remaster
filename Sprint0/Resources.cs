@@ -9,6 +9,7 @@ namespace Sprint0
         // Sprite sheets for blocks
         public static Texture2D blocksSpriteSheet;
         public static Texture2D fireSpriteSheet;
+        public static Texture2D weaponsAndItemsSpriteSheet;
 
         // Sprite sheets for items
         public static Texture2D stillItemsSheet;
@@ -63,6 +64,7 @@ namespace Sprint0
             // Load block sprite sheets
             blocksSpriteSheet = c.Load<Texture2D>("dungeonBlocks");
             fireSpriteSheet = c.Load<Texture2D>("fireBlock");
+            weaponsAndItemsSpriteSheet = c.Load<Texture2D>("weaponsAndItems");
 
             // Load positions for all blocks
             fireBlock = new Rectangle(0, 0, 16, 16);
@@ -75,7 +77,7 @@ namespace Sprint0
             blueSand = new Rectangle(22, 29, 16, 16);
             greyBricks = new Rectangle(5, 46, 16, 16);
             whiteBars = new Rectangle(22, 46, 16, 16);
-            ladderBlock = new Rectangle(280, 185, 16, 16);
+            ladderBlock = new Rectangle(280, 12, 16, 16);
 
 
 
