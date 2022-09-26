@@ -7,6 +7,7 @@ using Sprint0.Sprites;
 using System.Collections.Generic;
 using Sprint0.Enemies.Interfaces;
 using Sprint0.Enemies.Utils;
+using Sprint0.Blocks;
 
 namespace Sprint0
 {
@@ -19,7 +20,9 @@ namespace Sprint0
         public IPlayer player;
 
         public IItem[] items;
+        public IBlock[] blocks;
         public int currentItem { get; set; }
+        public int currentBlock { get; set; }
 
         public string[] EnemyNames;
         public IEnemy CurrentEnemy{ get; set; }
@@ -40,6 +43,7 @@ namespace Sprint0
             LinkSpriteSheet.Init(this);
 
             currentItem = 0;
+            currentBlock = 0;
 
             this.EnemyFactory = new EnemyFactory();
             DefaultEnemyPosition = new Vector2(500, 200);
