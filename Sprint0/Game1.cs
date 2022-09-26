@@ -34,8 +34,7 @@ namespace Sprint0
         public EnemyFactory EnemyFactory;
         public Vector2 DefaultEnemyPosition;
 
-        public int currentItem { get; set; }
-        public int CurrentEnemy{ get; set; }
+        //public int CurrentEnemy{ get; set; }
 
         public IBoss CurrentBoss { get; set; }
         public BossFactory BossFactory;
@@ -76,17 +75,10 @@ namespace Sprint0
             player = new Player.Player(this);
             LinkSpriteSheet.Init(this);
             currentItem = 0;
-            CurrentEnemy = 0;
             this.BossFactory = new BossFactory();
             this.NpcFactory = new NpcFactory();
             BossPosition = new Vector2(500, 200);
             NpcPosition = new Vector2(200, 200);
-
-            //controllers = new List<IController>
-           // {
-            //    new KeyboardController(this, player.GetStateController()),
-           //     new MouseController(this, g)
-           // };
 
             currentItem = 0;
 

@@ -31,10 +31,6 @@ C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.Ge
 C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.AssemblyInfoInputs.cache
 C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.AssemblyInfo.cs
 C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.csproj.CoreCompileInputs.cache
-C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\File.xnb
-C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\BossEnemies.xnb
-C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\credits.xnb
-C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\mario.xnb
 C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.exe
 C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.deps.json
 C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.runtimeconfig.json
@@ -55,6 +51,3 @@ C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\refint\Spr
 C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.pdb
 C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.genruntimeconfig.cache
 C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\ref\Sprint0.dll
-C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\EnemyDeath.xnb
-C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Link+Items.xnb
-C:\Users\ad11z\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Npcs.xnb
