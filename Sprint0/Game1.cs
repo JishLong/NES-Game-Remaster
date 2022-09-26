@@ -1,6 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Controllers;
+using Sprint0.Enemies;
+using Sprint0.Bosses;
+using Sprint0.Bosses.Interfaces;
+using Sprint0.Bosses.Utils;
+using Sprint0.Npcs;
+using Sprint0.Npcs.Interfaces;
+using Sprint0.Npcs.Utils;
+//using Sprint0.Player;
 using Sprint0.Sprites;
 using System.Collections.Generic;
 
@@ -11,9 +19,38 @@ namespace Sprint0
         private GraphicsDeviceManager g;
         private SpriteBatch sb;
 
+
         private List<IController> controllers;
-        public ISprite sprite;
-        public ISprite text;
+        public IBoss[] Bosses;
+
+        public int currentItem { get; set; }
+        public int CurrentEnemy{ get; set; }
+
+        public IBoss CurrentBoss { get; set; }
+        public BossFactory BossFactory;
+
+        public IBoss CurrentBossProj1 { get; set; }
+        public IBoss CurrentBossProj2 { get; set; }
+        public IBoss CurrentBossProj3 { get; set; }
+
+        public INpc CurrentNpc { get; set; }
+        public NpcFactory NpcFactory;
+
+        public Vector2 BossPosition;
+        public Vector2 NpcPosition;
+
+        public string[] BossTypes = new string[]
+            {
+                "DODONGO",
+                "AQUAMENTUS",
+                "AQUAMENTUSFLAME",
+            };
+        public string[] NpcTypes = new string[]
+            {
+                "OLDMAN",
+                "FLAME",
+                "BOMBPROJ",
+            };
 
         public Game1()
         {
@@ -24,12 +61,22 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            controllers = new List<IController>();
-            controllers.Add(new KeyboardController(this));
-            controllers.Add(new MouseController(this, g));
+            
+            //player = new Player.Player(this);
+            //LinkSpriteSheet.Init(this);
 
-            sprite = new StillSprite();
-            text = new TextSprite();
+            currentItem = 0;
+            CurrentEnemy = 0;
+            this.BossFactory = new BossFactory();
+            this.NpcFactory = new NpcFactory();
+            BossPosition = new Vector2(500, 200);
+            NpcPosition = new Vector2(200, 200);
+
+            //controllers = new List<IController>
+           // {
+            //    new KeyboardController(this, player.GetStateController()),
+           //     new MouseController(this, g)
+           // };
 
             base.Initialize();
         }
@@ -39,28 +86,51 @@ namespace Sprint0
             sb = new SpriteBatch(GraphicsDevice);
 
             Resources.LoadContent(Content);
+            //BossTypes = new string[]
+            //{
+              //  "DODONGO",
+                //"AQUAMENTUS",
+            //};
+            // DODONGO [1]
+            CurrentBoss = this.BossFactory.GetBoss(BossTypes[1], BossPosition);
+            CurrentNpc = this.NpcFactory.GetNpc(NpcTypes[1], NpcPosition);
+            CurrentBossProj1 = this.BossFactory.GetBoss(BossTypes[2], BossPosition);
+            CurrentBossProj2 = this.BossFactory.GetBoss(BossTypes[2], BossPosition);
+            CurrentBossProj3 = this.BossFactory.GetBoss(BossTypes[2], BossPosition);
         }
 
         protected override void Update(GameTime gameTime)
         {
-            foreach (IController controller in controllers)
-            {
-                controller.Update();
-            }
 
-            sprite.Update(g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
-            text.Update(g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
+            CurrentBoss.Update(gameTime);
+            CurrentNpc.Update(gameTime);
+            CurrentBossProj1.Update(gameTime);
+            CurrentBossProj2.Update(gameTime);
+            CurrentBossProj3.Update(gameTime);
+
+            // controllers MUST be updated before player
+            //player.Update();
+
+            //items[currentItem].Update();
+            
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
+           // System.Diagnostics.Debug.WriteLine("Updating");
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            sb.Begin();
-            sprite.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
-            text.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
+            //player.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
+
+            sb.Begin(samplerState: SamplerState.PointClamp);
+            //items[currentItem].Draw(sb);
+            CurrentBossProj1.Draw(sb);
+            CurrentBossProj2.Draw(sb);
+            CurrentBossProj3.Draw(sb);
+            CurrentBoss.Draw(sb);
+            CurrentNpc.Draw(sb);
             sb.End();
 
             base.Draw(gameTime);

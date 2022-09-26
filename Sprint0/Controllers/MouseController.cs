@@ -34,22 +34,22 @@ namespace Sprint0.Controllers
                 {
                     if (onTop)
                     {
-                        new StillSpriteCommand(game).Execute();
+                        //new StillSpriteCommand(game).Execute();
                     }
                     else
                     {
-                        new MovingSpriteCommand(game).Execute();
+                        //new MovingSpriteCommand(game).Execute();
                     }
                 }
                 else
                 {
                     if (onTop)
                     {
-                        new AnimatedSpriteCommand(game).Execute();
+                       // new AnimatedSpriteCommand(game).Execute();
                     }
                     else
                     {
-                        new MovingAnimatedSpriteCommand(game).Execute();
+                       // new MovingAnimatedSpriteCommand(game).Execute();
                     }
                 }
             }

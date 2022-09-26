@@ -15,10 +15,6 @@ namespace Sprint0.Controllers
 
             keyMap = new Dictionary<Keys, ICommand>();
             keyMap.Add(Keys.D0, new QuitCommand(game));
-            keyMap.Add(Keys.D1, new StillSpriteCommand(game));
-            keyMap.Add(Keys.D2, new AnimatedSpriteCommand(game));
-            keyMap.Add(Keys.D3, new MovingSpriteCommand(game));
-            keyMap.Add(Keys.D4, new MovingAnimatedSpriteCommand(game));
         }
 
         public void Update()

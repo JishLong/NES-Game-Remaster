@@ -1,3 +1,7 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Coding/Monogame/Sprint0/Sprint0/Content/File.spritefont","C:/Coding/Monogame/Sprint0/Sprint0/Content/bin/DesktopGL/Content/credits.xnb","FontDescriptionProcessor","SpriteFontContent",2068,70687,0.5477744
-"C:/Coding/Monogame/Sprint0/Sprint0/Content/mario.png","C:/Coding/Monogame/Sprint0/Sprint0/Content/bin/DesktopGL/Content/mario.xnb","TextureProcessor","Texture2DContent",939,8277,0.0369599
+"C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/BossEnemies.png","C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/BossEnemies.xnb","TextureProcessor","Texture2DContent",33082,584981,0.1439093
+"C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/EnemyDeath.png","C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/EnemyDeath.xnb","TextureProcessor","Texture2DContent",426,4117,0.0025406
+"C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/File.spritefont","C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/credits.xnb","FontDescriptionProcessor","SpriteFontContent",2068,70687,0.1163732
+"C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/Link+Items.png","C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Link+Items.xnb","TextureProcessor","Texture2DContent",19462,460125,0.0137637
+"C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/mario.png","C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/mario.xnb","TextureProcessor","Texture2DContent",939,8277,0.0037834
+"C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/Npcs.png","C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Npcs.xnb","TextureProcessor","Texture2DContent",5129,186309,0.010428

@@ -102,23 +102,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\josh\\.nuget\\packages\\": {},
+    "C:\\Users\\ad11z\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Coding\\Monogame\\backup\\Sprint0\\Sprint0.csproj",
+      "projectUniqueName": "C:\\Users\\ad11z\\source\\repos\\CSE-3902-Project\\Sprint0\\Sprint0.csproj",
       "projectName": "Sprint0",
-      "projectPath": "C:\\Coding\\Monogame\\backup\\Sprint0\\Sprint0.csproj",
-      "packagesPath": "C:\\Users\\josh\\.nuget\\packages\\",
-      "outputPath": "C:\\Coding\\Monogame\\backup\\Sprint0\\obj\\",
+      "projectPath": "C:\\Users\\ad11z\\source\\repos\\CSE-3902-Project\\Sprint0\\Sprint0.csproj",
+      "packagesPath": "C:\\Users\\ad11z\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ad11z\\source\\repos\\CSE-3902-Project\\Sprint0\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\josh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ad11z\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
