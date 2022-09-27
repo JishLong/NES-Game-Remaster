@@ -19,8 +19,8 @@ namespace Sprint0.Sprites.Player
             Rectangle sourceRectangle;
             Rectangle destinationRectangle;
 
-            sourceRectangle = new Rectangle(69, 11, 15, 15);
-            destinationRectangle = new Rectangle((int)position.X, (int)position.Y, spriteScale * 15, spriteScale * 15);
+            sourceRectangle = new Rectangle(71, 11, 12, 16);
+            destinationRectangle = new Rectangle((int)position.X, (int)position.Y, spriteScale * 12, spriteScale * 16);
 
             sb.Begin(samplerState: SamplerState.PointClamp);
             sb.Draw(LinkSpriteSheet.GetSpriteSheet(), destinationRectangle, sourceRectangle, Color.White);

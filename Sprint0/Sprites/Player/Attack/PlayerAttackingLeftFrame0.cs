@@ -4,12 +4,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player
 {
-    public class PlayerFacingDownwardFrame0 : ISprite
+    public class PlayerAttackingLeftFrame0 : ISprite
     {
         private readonly int spriteScale = 3;
         private readonly Vector2 position;
 
-        public PlayerFacingDownwardFrame0(Vector2 position)
+        public PlayerAttackingLeftFrame0(Vector2 position)
         {
             this.position = position;
         }
@@ -19,11 +19,11 @@ namespace Sprint0.Sprites.Player
             Rectangle sourceRectangle;
             Rectangle destinationRectangle;
 
-            sourceRectangle = new Rectangle(1, 11, 15, 16);
-            destinationRectangle = new Rectangle((int) position.X, (int) position.Y, spriteScale * 15, spriteScale * 16);
+            sourceRectangle = new Rectangle(94, 77, 15, 16);
+            destinationRectangle = new Rectangle((int)position.X, (int)position.Y, spriteScale * 15, spriteScale * 16);
 
             sb.Begin(samplerState: SamplerState.PointClamp);
-            sb.Draw(LinkSpriteSheet.GetSpriteSheet(), destinationRectangle, sourceRectangle, Color.White);
+            sb.Draw(LinkSpriteSheet.GetSpriteSheet(), destinationRectangle, sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0f);
             sb.End();
         }
 

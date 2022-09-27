@@ -1,5 +1,4 @@
-﻿using System;
-using Sprint0.Player.State;
+﻿using Sprint0.Player.State;
 using Sprint0.Sprites.Player;
 
 namespace Sprint0.Player.SpriteControllers

@@ -42,7 +42,7 @@ namespace Sprint0.Player.State
                 attackFrameCounter++;
             }
 
-            if (attackFrameCounter > 20)
+            if (attackFrameCounter > 40)
             {
                 attackFrameCounter = 0;
                 state.StopAttacking();
@@ -56,19 +56,19 @@ namespace Sprint0.Player.State
 
         public int GetAttackFrame()
         {
-            if (attackFrameCounter < 5)
+            if (attackFrameCounter < 10)
             {
                 return 0;
             }
-            else if (attackFrameCounter < 10)
+            else if (attackFrameCounter < 20)
             {
                 return 1;
             }
-            else if (attackFrameCounter < 15)
+            else if (attackFrameCounter < 35)
             {
                 return 2;
             }
-            else if (attackFrameCounter < 20)
+            else if (attackFrameCounter < 40)
             {
                 return 3;
             }

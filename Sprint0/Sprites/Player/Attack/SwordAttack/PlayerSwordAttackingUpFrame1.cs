@@ -4,12 +4,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player
 {
-    public class PlayerFacingDownwardFrame0 : ISprite
+    public class PlayerSwordAttackingUpFrame1 : ISprite
     {
         private readonly int spriteScale = 3;
         private readonly Vector2 position;
 
-        public PlayerFacingDownwardFrame0(Vector2 position)
+        public PlayerSwordAttackingUpFrame1(Vector2 position)
         {
             this.position = position;
         }
@@ -19,8 +19,8 @@ namespace Sprint0.Sprites.Player
             Rectangle sourceRectangle;
             Rectangle destinationRectangle;
 
-            sourceRectangle = new Rectangle(1, 11, 15, 16);
-            destinationRectangle = new Rectangle((int) position.X, (int) position.Y, spriteScale * 15, spriteScale * 16);
+            sourceRectangle = new Rectangle(112, 97, 16, 28);
+            destinationRectangle = new Rectangle((int)position.X, (int)position.Y - 36, spriteScale * 16, spriteScale * 28);
 
             sb.Begin(samplerState: SamplerState.PointClamp);
             sb.Draw(LinkSpriteSheet.GetSpriteSheet(), destinationRectangle, sourceRectangle, Color.White);
