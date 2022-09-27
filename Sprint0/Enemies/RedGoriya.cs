@@ -1,17 +1,16 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using System.Linq;
-using Sprint0.Enemies.Utils;
 using Sprint0.Sprites.Enemies;
+using System;
+using Sprint0.Enemies.Utils;
 
 namespace Sprint0.Enemies
 {
-    public class Skeleton : AbstractEnemy
+    public class RedGoriya : AbstractEnemy
     {
-        int ElapsedTime;    // Units: milliseconds 
-        int UpdateTimer;    // Units: milliseconds 
-        public Skeleton(Vector2 position, int updateTimer = 1000)
+        int ElapsedTime;
+        int UpdateTimer;
+        public RedGoriya(Vector2 position, int updateTimer = 1000) 
         {
             // Combat
             this.Health = 1;
@@ -19,20 +18,37 @@ namespace Sprint0.Enemies
             // Movement
             this.CanMove = true;
             this.Position = position;
-            this.DirectionName = "UP";
+            this.DirectionName = "RIGHT";
             this.MovementSpeed = 2;
 
             // Update related fields
             this.UpdateTimer = updateTimer;
-            this.Sprite = new SkeletonSprite();
-        }   
+            this.Sprite = new RedGoriyaRightSprite();
+           
+        }
 
+        public void ChangeSprite(string directionName)
+        {
+            switch (directionName)
+            {
+                case "RIGHT":
+                    this.Sprite = new RedGoriyaRightSprite();
+                    break;
+                case "LEFT":
+                    this.Sprite = new RedGoriyaLeftSprite();
+                    break;
+                case "UP":
+                    this.Sprite = new RedGoriyaUpSprite();
+                    break;
+                case "DOWN":
+                    this.Sprite = new RedGoriyaDownSprite();
+                    break;
+            }
+        }
         public override void Destroy()
         {
-            // not sure what to do here yet...
             throw new NotImplementedException();
         }
-        
         public override void Update(GameTime gameTime)
         {
             ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -40,13 +56,13 @@ namespace Sprint0.Enemies
             {
                 ElapsedTime = 0;
                 Direction = EnemyUtils.RandOrthogDirection(ref DirectionName);
+
+                ChangeSprite(DirectionName);
             }
 
-            // Move the skeleton.
             Position += (this.Direction * this.MovementSpeed);
             Sprite.Update(gameTime);
         }
-
         public override void Draw(SpriteBatch sb)
         {
             Sprite.Draw(sb, Position);

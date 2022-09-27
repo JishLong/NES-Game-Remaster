@@ -19,7 +19,7 @@ namespace Sprint0.Enemies
         public bool CanMove;
         
         // Sprite related fields.
-        public IEnemySprite sprite { get; set; }  
+        public IEnemySprite Sprite { get; set; }  
         public void TakeDamage(int damage)
         {
             Health -= damage;

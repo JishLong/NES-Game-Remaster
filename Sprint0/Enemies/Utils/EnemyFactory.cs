@@ -19,6 +19,12 @@ namespace Sprint0.Enemies.Utils
                 case "HAND":
                     return new Hand(position);
 
+                case "GEL":
+                    return new Gel(position);
+
+                case "RED_GORIYA":
+                    return new RedGoriya(position);
+
                 default:
                     Console.Error.Write("The concrete type " + enemyType + " could not be instantiated by the Enemy Factory. Does this type exist?");
                     return null;

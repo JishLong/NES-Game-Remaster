@@ -1,35 +1,36 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Sprites.Enemies;
-using System;
 using Sprint0.Enemies.Utils;
+using System;
+using Sprint0.Sprites.Enemies;
 
 namespace Sprint0.Enemies
 {
-    public class Goriya : AbstractEnemy
+    public class Gel : AbstractEnemy
     {
         int ElapsedTime;
         int UpdateTimer;
-        public Goriya(Vector2 position, int updateTimer = 1000) 
+
+        public Gel(Vector2 position, int updateTimer = 1000)
         {
             // Combat
             this.Health = 1;
 
             // Movement
-            this.CanMove = true;
             this.Position = position;
-            this.DirectionName = "RIGHT";
-            this.MovementSpeed = 2;
+            this.DirectionName = "UP";
+            this.MovementSpeed = 1;
 
             // Update related fields
             this.UpdateTimer = updateTimer;
-            this.sprite = new GoriyaSprite();
-           
+            this.Sprite = new GelSprite();
         }
+
         public override void Destroy()
         {
             throw new NotImplementedException();
         }
+
         public override void Update(GameTime gameTime)
         {
             ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -39,14 +40,14 @@ namespace Sprint0.Enemies
                 Direction = EnemyUtils.RandOrthogDirection(ref DirectionName);
             }
 
-            // Move the skeleton.
             Position += (this.Direction * this.MovementSpeed);
-            sprite.SetAnim(DirectionName);
-            sprite.Update(gameTime);
+            Sprite.Update(gameTime);
         }
+
         public override void Draw(SpriteBatch sb)
         {
-
+            Sprite.Draw(sb, Position);
         }
+
     }
 }
