@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
@@ -24,7 +24,7 @@ namespace Sprint0.Sprites
         public Animation(int width, int height, double animSpeed)
         {
 
-            this.SourceRects= new List<Rectangle>();
+            this.SourceRects = new List<Rectangle>();
             this.Width = width;
             this.Height = height;
             this.UpdateTimer = (1 / animSpeed) * 200;  // animation speed is used to calculate the timer.
@@ -84,13 +84,13 @@ namespace Sprint0.Sprites
                 height = this.Height;
             }
 
-            if(index == -1)
+            if (index == -1)
             {
-                this.SourceRects.Add(new Rectangle(x,y,width,height));
+                this.SourceRects.Add(new Rectangle(x, y, width, height));
             }
             else
             {
-                this.SourceRects.Insert(index, new Rectangle(x,y,width,height));
+                this.SourceRects.Insert(index, new Rectangle(x, y, width, height));
             }
 
             this.NumFrames++;
