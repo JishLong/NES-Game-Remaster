@@ -42,18 +42,18 @@ namespace Sprint0.Sprites.Enemies
         {
             Target = new Rectangle((int)position.X, (int)position.Y, Width * SpriteScale, Height * SpriteScale);
             Source = MovingAnim.CurrentRect();
+            Vector2 origin = new Vector2(Width/2,Height/2);
 
             if(MovingAnim.CurrentFrame == 0)
             {
                 // Flip the Sprite.
                 SpriteEffects flip = SpriteEffects.FlipHorizontally;
-                Vector2 origin = new Vector2(0, 0);
                 sb.Draw(Sheet, Target, Source, Color.White, 0f, origin, flip, 0f);
             }
             else
             {
                 // Draw it normally
-                sb.Draw(Sheet, Target, Source, Color.White);
+                sb.Draw(Sheet, Target, Source, Color.White, 0f, origin, SpriteEffects.None, 0f);
             }
         }
     }
