@@ -23,7 +23,7 @@ namespace Sprint0.Bosses
             this.CanMove = true;
             this.Position = position;
             this.Direction = new Vector2(0, 0); // Starts standing still.
-            this.MovementSpeed = 5;
+            this.MovementSpeed = 3;
             this.UpdateTimer = updateTimer;
             this.sprite = new Sprites.Bosses.AquamentusFlameSprite();
         }
@@ -40,8 +40,6 @@ namespace Sprint0.Bosses
             {
                 ElapsedTime = 0;
                 // TODO: add logic for refiring from Aquamentus position
-                Position.X = 500;
-                Position.Y = 200;
                 
                 int flameNum = 1; // temp direction
                 switch (flameNum)

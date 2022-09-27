@@ -36,31 +36,21 @@ namespace Sprint0
 
         //public int CurrentEnemy{ get; set; }
 
+        public string[] BossTypes;
         public IBoss CurrentBoss { get; set; }
         public BossFactory BossFactory;
+        public Vector2 BossPosition;
 
         public IBoss CurrentBossProj1 { get; set; }
         public IBoss CurrentBossProj2 { get; set; }
         public IBoss CurrentBossProj3 { get; set; }
 
+        public string[] NpcTypes;
         public INpc CurrentNpc { get; set; }
         public NpcFactory NpcFactory;
-
-        public Vector2 BossPosition;
         public Vector2 NpcPosition;
 
-        public string[] BossTypes = new string[]
-            {
-                "DODONGO",
-                "AQUAMENTUS",
-                "AQUAMENTUSFLAME",
-            };
-        public string[] NpcTypes = new string[]
-            {
-                "OLDMAN",
-                "FLAME",
-                "BOMBPROJ",
-            };
+ 
 
         public Game1()
         {
@@ -77,8 +67,8 @@ namespace Sprint0
             currentItem = 0;
             this.BossFactory = new BossFactory();
             this.NpcFactory = new NpcFactory();
-            BossPosition = new Vector2(500, 200);
-            NpcPosition = new Vector2(200, 200);
+            BossPosition = new Vector2(600, 200);
+            NpcPosition = new Vector2(0, 200);
 
             currentItem = 0;
 
@@ -99,6 +89,18 @@ namespace Sprint0
             sb = new SpriteBatch(GraphicsDevice);
 
             Resources.LoadContent(Content);
+            BossTypes = new string[]
+            {
+                "DODONGO",
+                "AQUAMENTUS",
+                "AQUAMENTUSFLAME",
+            };
+            NpcTypes = new string[]
+            {
+                "OLDMAN",
+                "FLAME",
+                "BOMBPROJ",
+            };
 
             EnemyNames= new string[]
             {
@@ -126,11 +128,10 @@ namespace Sprint0
 
             CurrentEnemy = this.EnemyFactory.GetEnemy(EnemyNames[0], DefaultEnemyPosition);
 
-            // DODONGO [0]
-            // AQUAMENTUS [1]
-            // AQUAMENTUS FLAMES [2]
             CurrentBoss = this.BossFactory.GetBoss(BossTypes[1], BossPosition);
             CurrentNpc = this.NpcFactory.GetNpc(NpcTypes[1], NpcPosition);
+
+            // For Aquamentus flames - need to refactor later
             CurrentBossProj1 = this.BossFactory.GetBoss(BossTypes[2], BossPosition);
             CurrentBossProj2 = this.BossFactory.GetBoss(BossTypes[2], BossPosition);
             CurrentBossProj3 = this.BossFactory.GetBoss(BossTypes[2], BossPosition);
