@@ -18,11 +18,6 @@ namespace Sprint0
         public static Texture2D rupeeItemSheet;
         public static Texture2D triforcePieceItemSheet;
 
-        public static Texture2D BossEnemiesSpriteSheet;
-        public static Texture2D NpcsSpriteSheet;
-        public static Texture2D LinkItemsSpriteSheet;
-
-        public static SpriteFont creditsFont;
         // Sprite sheets for enemies
         public static Texture2D DungeonEnemySpriteSheet;
 
@@ -65,9 +60,6 @@ namespace Sprint0
             heartItemSheet = c.Load<Texture2D>("heartItem");
             rupeeItemSheet = c.Load<Texture2D>("rupeeItem");
             triforcePieceItemSheet = c.Load<Texture2D>("triforcePieceItem");
-            BossEnemiesSpriteSheet = c.Load<Texture2D>("BossEnemies");
-            NpcsSpriteSheet = c.Load<Texture2D>("Npcs");
-            LinkItemsSpriteSheet = c.Load<Texture2D>("Link+items");
 
             // Load block sprite sheets
             blocksSpriteSheet = c.Load<Texture2D>("dungeonBlocks");

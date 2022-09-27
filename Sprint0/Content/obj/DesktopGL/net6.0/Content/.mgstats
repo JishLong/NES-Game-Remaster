@@ -1,5 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-
 "C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/Content/dungeonBlocks.png","C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/dungeonBlocks.xnb","TextureProcessor","Texture2DContent",1344,22661,0.1733768
 "C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/Content/DungeonEnemies.png","C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/DungeonEnemies.xnb","TextureProcessor","Texture2DContent",37210,416869,0.0167265
 "C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/Content/fairyItem.png","C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/fairyItem.xnb","TextureProcessor","Texture2DContent",393,2133,0.0014768
