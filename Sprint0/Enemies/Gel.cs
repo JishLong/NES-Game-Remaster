@@ -1,38 +1,36 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using System.Linq;
 using Sprint0.Enemies.Utils;
+using System;
 using Sprint0.Sprites.Enemies;
 
 namespace Sprint0.Enemies
 {
-    public class Skeleton : AbstractEnemy
+    public class Gel : AbstractEnemy
     {
-        int ElapsedTime;    // Units: milliseconds 
-        int UpdateTimer;    // Units: milliseconds 
-        public Skeleton(Vector2 position, int updateTimer = 1000)
+        int ElapsedTime;
+        int UpdateTimer;
+
+        public Gel(Vector2 position, int updateTimer = 1000)
         {
             // Combat
             this.Health = 1;
 
             // Movement
-            this.CanMove = true;
             this.Position = position;
             this.DirectionName = "UP";
-            this.MovementSpeed = 2;
+            this.MovementSpeed = 1;
 
             // Update related fields
             this.UpdateTimer = updateTimer;
-            this.Sprite = new SkeletonSprite();
-        }   
+            this.Sprite = new GelSprite();
+        }
 
         public override void Destroy()
         {
-            // not sure what to do here yet...
             throw new NotImplementedException();
         }
-        
+
         public override void Update(GameTime gameTime)
         {
             ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -42,7 +40,6 @@ namespace Sprint0.Enemies
                 Direction = EnemyUtils.RandOrthogDirection(ref DirectionName);
             }
 
-            // Move the skeleton.
             Position += (this.Direction * this.MovementSpeed);
             Sprite.Update(gameTime);
         }
@@ -51,5 +48,6 @@ namespace Sprint0.Enemies
         {
             Sprite.Draw(sb, Position);
         }
+
     }
 }

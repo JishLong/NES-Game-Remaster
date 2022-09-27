@@ -25,7 +25,7 @@ namespace Sprint0.Enemies
 
             // Update related fields
             this.UpdateTimer = updateTimer;
-            this.sprite = new Sprites.Enemies.BatSprite();
+            this.Sprite = new Sprites.Enemies.BatSprite();
         }
         public override void Destroy()
         {
@@ -40,11 +40,11 @@ namespace Sprint0.Enemies
                 Direction = EnemyUtils.RandDirection(ref DirectionName);
             }
             Position += (this.Direction * this.MovementSpeed);
-            sprite.Update(gameTime);
+            Sprite.Update(gameTime);
         }
         public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, Position);
+            Sprite.Draw(sb, Position);
         }
     }
 }

@@ -68,6 +68,8 @@ namespace Sprint0
                 "SKELETON",
                 "BAT",
                 "HAND",
+                "GEL",
+                "RED_GORIYA",
             };
 
             items = new IItem[] {
