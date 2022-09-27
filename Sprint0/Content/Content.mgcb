@@ -13,6 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
+
 #begin BossEnemies.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -24,6 +25,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:BossEnemies.png
+
+#begin dungeonBlocks.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:dungeonBlocks.png
 
 #begin DungeonEnemies.png
 /importer:TextureImporter
@@ -55,6 +68,18 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:File.spritefont;credits.spritefont
+
+#begin fireBlock.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:fireBlock.png
 
 #begin heartItem.png
 /importer:TextureImporter
@@ -139,4 +164,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:triforcePieceItem.png
+
+#begin weaponsAndItems.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:weaponsAndItems.png
 

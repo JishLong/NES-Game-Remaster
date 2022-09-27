@@ -14,6 +14,7 @@ using Sprint0.Sprites;
 using System.Collections.Generic;
 using Sprint0.Enemies.Interfaces;
 using Sprint0.Enemies.Utils;
+using Sprint0.Blocks;
 
 namespace Sprint0
 {
@@ -27,7 +28,9 @@ namespace Sprint0
         public IPlayer player;
 
         public IItem[] items;
+        public IBlock[] blocks;
         public int currentItem { get; set; }
+        public int currentBlock { get; set; }
 
         public string[] EnemyNames;
         public IEnemy CurrentEnemy{ get; set; }
@@ -71,6 +74,7 @@ namespace Sprint0
             NpcPosition = new Vector2(0, 200);
 
             currentItem = 0;
+            currentBlock = 0;
 
             this.EnemyFactory = new EnemyFactory();
             DefaultEnemyPosition = new Vector2(500, 200);
@@ -107,6 +111,8 @@ namespace Sprint0
                 "SKELETON",
                 "BAT",
                 "HAND",
+                "GEL",
+                "RED_GORIYA",
             };
 
             items = new IItem[] {
@@ -124,6 +130,20 @@ namespace Sprint0
                     new Rupee(400, 200),
                     new TriforcePiece(400, 200),
                     new WoodenBoomerang(400, 200)
+            };
+
+            blocks = new IBlock[] {
+                     new BlueGap(200, 200),
+                     new BlueSand(200, 200),
+                     new BlueStairs(200, 200),
+                     new BlueStatueLeft(200, 200),
+                     new BlueStatueRight(200, 200),
+                     new BlueTile(200, 200),
+                     new BlueWall(200, 200),
+                     new FireBlock(200, 200),
+                     new GreyBricks(200, 200),
+                     new LadderBlock(200, 200),
+                     new WhiteBars(200, 200),
             };
 
             CurrentEnemy = this.EnemyFactory.GetEnemy(EnemyNames[0], DefaultEnemyPosition);
@@ -148,6 +168,7 @@ namespace Sprint0
             player.Update();
 
             items[currentItem].Update();
+            blocks[currentBlock].Update();
             CurrentEnemy.Update(gameTime);
 
             base.Update(gameTime);
@@ -161,6 +182,7 @@ namespace Sprint0
 
             sb.Begin(samplerState: SamplerState.PointClamp);
             items[currentItem].Draw(sb);
+            blocks[currentBlock].Draw(sb);
             CurrentEnemy.Draw(sb);
             CurrentBossProj1.Draw(sb);
             CurrentBossProj2.Draw(sb);

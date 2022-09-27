@@ -10,7 +10,7 @@ namespace Sprint0.Sprites
         private int Width;
         private int Height;
         private int ElapsedTime = 0;
-        private int UpdateTimer;
+        private double UpdateTimer;
         public int CurrentFrame { get; private set; }
         public int NumFrames { get; private set; }
 
@@ -21,7 +21,7 @@ namespace Sprint0.Sprites
         /// <param name="height">Height of the sprite in this animation.</param>
         /// <param name="animSpeed">Scales the playback speed of the animation.</param>
         /// <param name="frameCoords">Specify a list of frame coordinates upon construction.</param>
-        public Animation(int width, int height, int animSpeed)
+        public Animation(int width, int height, double animSpeed)
         {
 
             this.SourceRects = new List<Rectangle>();

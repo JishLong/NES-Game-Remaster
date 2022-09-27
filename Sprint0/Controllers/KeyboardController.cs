@@ -3,6 +3,7 @@ using Sprint0.Commands.Player;
 using Sprint0.Commands.Enemies;
 using Sprint0.Player.State;
 using System.Collections.Generic;
+using Sprint0.Commands.Blocks;
 
 namespace Sprint0.Controllers
 {
@@ -42,8 +43,12 @@ namespace Sprint0.Controllers
                 // Item switching controls
                 { Keys.U, new PrevItemCommand(game) },
                 { Keys.I, new NextItemCommand(game) },
+                // Enemy switching controls
                 { Keys.O, new PrevEnemyCommand(game) },
-                { Keys.P, new NextEnemyCommand(game) }
+                { Keys.P, new NextEnemyCommand(game) },
+                // Block switching controls
+                { Keys.T, new PrevBlockCommand(game) },
+                { Keys.Y, new NextBlockCommand(game) },
             };
 
             releasedKeyMap = new Dictionary<Keys, ICommand>
