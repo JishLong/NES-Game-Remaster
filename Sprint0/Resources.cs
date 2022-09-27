@@ -6,6 +6,11 @@ namespace Sprint0
 {
     public static class Resources
     {
+        // Sprite sheets for blocks
+        public static Texture2D blocksSpriteSheet;
+        public static Texture2D fireSpriteSheet;
+        public static Texture2D weaponsAndItemsSpriteSheet;
+
         // Sprite sheets for items
         public static Texture2D stillItemsSheet;
         public static Texture2D fairyItemSheet;
@@ -15,6 +20,20 @@ namespace Sprint0
 
         // Sprite sheets for enemies
         public static Texture2D DungeonEnemySpriteSheet;
+
+        // Sprite sheet positions for all blocks
+        public static Rectangle fireBlock;
+        public static Rectangle blueTile;
+        public static Rectangle blueWall;
+        public static Rectangle blueGap;
+        public static Rectangle blueStatueLeft;
+        public static Rectangle blueStatueRight;
+        public static Rectangle blueStairs;
+        public static Rectangle blueSand;
+        public static Rectangle greyBricks;
+        public static Rectangle whiteBars;
+        public static Rectangle ladderBlock;
+
 
         // Sprite sheet positions for still items
         public static Rectangle compass;
@@ -41,6 +60,26 @@ namespace Sprint0
             heartItemSheet = c.Load<Texture2D>("heartItem");
             rupeeItemSheet = c.Load<Texture2D>("rupeeItem");
             triforcePieceItemSheet = c.Load<Texture2D>("triforcePieceItem");
+
+            // Load block sprite sheets
+            blocksSpriteSheet = c.Load<Texture2D>("dungeonBlocks");
+            fireSpriteSheet = c.Load<Texture2D>("fireBlock");
+            weaponsAndItemsSpriteSheet = c.Load<Texture2D>("weaponsAndItems");
+
+            // Load positions for all blocks
+            fireBlock = new Rectangle(0, 0, 16, 16);
+            blueTile = new Rectangle(4, 11, 16, 16);
+            blueWall = new Rectangle(21, 11, 16, 16);
+            blueGap = new Rectangle(38, 28, 16, 16);
+            blueStatueLeft = new Rectangle(38, 11, 16, 16);
+            blueStatueRight = new Rectangle(55, 11, 16, 16);
+            blueStairs = new Rectangle(55, 28, 16, 16);
+            blueSand = new Rectangle(21, 28, 16, 16);
+            greyBricks = new Rectangle(4, 45, 16, 16);
+            whiteBars = new Rectangle(21, 45, 16, 16);
+            ladderBlock = new Rectangle(280, 12, 16, 16);
+
+
 
             // Load exact position of still items
             compass = new Rectangle(0, 0, 16, 16);
