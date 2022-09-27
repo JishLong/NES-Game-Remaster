@@ -159,6 +159,12 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
+            foreach (IController controller in controllers)
+            {
+                controller.Update();
+            }
+            // controllers MUST be updated before player
+            player.Update();
 
             CurrentBoss.Update(gameTime);
             CurrentNpc.Update(gameTime);
