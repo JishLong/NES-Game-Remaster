@@ -28,7 +28,7 @@ namespace Sprint0.Controllers
             foreach (var key in keys)
             {
                 if (state == KeyState.HELD && currentState.IsKeyDown(key)
-                    || state == KeyState.UP && currentState.IsKeyDown(key)
+                    || state == KeyState.UP && currentState.IsKeyUp(key)
                     || state == KeyState.PRESSED && currentState.IsKeyDown(key) && !prevState.IsKeyDown(key)
                     || state == KeyState.RELEASED && !currentState.IsKeyDown(key) && prevState.IsKeyDown(key))
                 {
