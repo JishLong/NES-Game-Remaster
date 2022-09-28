@@ -29,8 +29,8 @@ namespace Sprint0.Controllers
             {
                 if (state == KeyState.HELD && currentState.IsKeyDown(key)
                     || state == KeyState.UP && currentState.IsKeyUp(key)
-                    || state == KeyState.PRESSED && currentState.IsKeyDown(key) && !prevState.IsKeyDown(key)
-                    || state == KeyState.RELEASED && !currentState.IsKeyDown(key) && prevState.IsKeyDown(key))
+                    || state == KeyState.PRESSED && currentState.IsKeyDown(key) && prevState.IsKeyUp(key)
+                    || state == KeyState.RELEASED && currentState.IsKeyUp(key) && prevState.IsKeyDown(key))
                 {
                     return true;
                 }
