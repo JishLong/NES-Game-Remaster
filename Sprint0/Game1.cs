@@ -82,7 +82,7 @@ namespace Sprint0
             controllers = new List<IController>
             {
                 new KeyboardController(this, player.GetStateController()),
-                new MouseController(this, g)
+                new MouseController(this)
             };
 
             base.Initialize();
