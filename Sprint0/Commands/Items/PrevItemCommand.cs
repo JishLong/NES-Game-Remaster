@@ -1,4 +1,6 @@
-﻿namespace Sprint0.Commands.Player
+﻿using Microsoft.Xna.Framework;
+
+namespace Sprint0.Commands.Player
 {
     public class PrevItemCommand : ICommand
     {
@@ -11,14 +13,7 @@
 
         public void Execute()
         {
-            if (game.currentItem > 0)
-            {
-                game.currentItem--;
-            }
-            else
-            {
-                game.currentItem = game.items.Length - 1;
-            }
+            game.currentItem = (game.currentItem - 1 + game.items.Length) % game.items.Length;
         }
     }
 }

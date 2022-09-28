@@ -6,25 +6,16 @@ namespace Sprint0.Commands.Enemies
     {
         private Game1 game;
         private Vector2 DefaultEnemyPosition;
-        int index;
 
         public NextEnemyCommand(Game1 game)
         {
             this.game = game;
             this.DefaultEnemyPosition = new Vector2(500, 200);
-            this.index = 0;
         }
         public void Execute()
         {
-            if (this.index < game.EnemyNames.Length - 1)
-            {
-                index++;
-            }
-            else
-            {
-                index = 0;
-            }
-            game.CurrentEnemy = game.EnemyFactory.GetEnemy(game.EnemyNames[index], DefaultEnemyPosition);
+            game.currentEnemyIndex = (game.currentEnemyIndex + 1) % game.EnemyNames.Length;
+            game.CurrentEnemy = game.EnemyFactory.GetEnemy(game.EnemyNames[game.currentEnemyIndex], DefaultEnemyPosition);
         }
     }
 }
