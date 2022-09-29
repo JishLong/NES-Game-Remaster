@@ -14,7 +14,7 @@ namespace Sprint0.Player
         private enum FacingDirection { up, down, left, right }
         private FacingDirection facingDirection = FacingDirection.right;
 
-        //TODO: determine exactly what weapns Link needs to have
+        //TODO: determine exactly what weapons Link needs to have
         private enum Weapon { Sword, Bow, MagicStaff }
         private Weapon currentWeapon;
 

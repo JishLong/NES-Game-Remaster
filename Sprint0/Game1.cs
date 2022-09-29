@@ -187,9 +187,8 @@ namespace Sprint0
         {
             GraphicsDevice.Clear(Color.BlueViolet);
 
-            player.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
-
             sb.Begin(samplerState: SamplerState.PointClamp);
+            player.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
             items[currentItem].Draw(sb);
             blocks[currentBlock].Draw(sb);
             CurrentEnemy.Draw(sb);

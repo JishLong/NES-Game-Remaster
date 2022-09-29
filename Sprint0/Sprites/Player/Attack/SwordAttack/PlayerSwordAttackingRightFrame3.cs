@@ -22,9 +22,7 @@ namespace Sprint0.Sprites.Player
             sourceRectangle = new Rectangle(163, 77, 19, 15);
             destinationRectangle = new Rectangle((int)position.X, (int)position.Y, spriteScale * 19, spriteScale * 15);
 
-            sb.Begin(samplerState: SamplerState.PointClamp);
             sb.Draw(LinkSpriteSheet.GetSpriteSheet(), destinationRectangle, sourceRectangle, Color.White);
-            sb.End();
         }
 
         public void Update()

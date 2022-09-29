@@ -98,4 +98,3 @@ namespace Sprint0.Player.SpriteControllers
         }
     }
 }
-
