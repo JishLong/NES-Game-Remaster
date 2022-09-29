@@ -16,7 +16,7 @@ namespace Sprint0.Player.SpriteControllers
         private PlayerAttackingSpriteController(PlayerStateController stateController)
         {
             this.stateController = stateController;
-            this.currentController = new PlayerSwordAttackingSpriteController(stateController);
+            this.currentController = PlayerSwordAttackingSpriteController.GetInstance(stateController);
         }
 
         public static PlayerAttackingSpriteController GetInstance(PlayerStateController stateController)
@@ -31,12 +31,12 @@ namespace Sprint0.Player.SpriteControllers
 
         public void Update()
         {
-            
+            currentController.Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            currentController.Draw(spriteBatch);
         }
 
         public void Reset()

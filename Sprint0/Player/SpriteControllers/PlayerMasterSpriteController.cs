@@ -12,6 +12,7 @@ namespace Sprint0.Player
         private readonly PlayerStateController stateController;
         private ISpriteController currentController;
 
+        // singleton getter
         public static PlayerMasterSpriteController GetInstance(PlayerStateController stateController)
         {
             if (instance == null)
@@ -36,7 +37,6 @@ namespace Sprint0.Player
         public void Update()
         {
             var state = stateController.GetState();
-            currentController.Update();
 
             if (state.IsMoving())
             {
@@ -51,6 +51,8 @@ namespace Sprint0.Player
             {
                 currentController = PlayerAttackingSpriteController.GetInstance(stateController);
             }
+
+            currentController.Update();
         }
 
         public void Reset()
