@@ -131,6 +131,11 @@ namespace Sprint0.Player.State
         {
             state.StopMoving();
         }
+
+        public void HandleTakeDamage()
+        {
+            state.TakeDamage();
+        }
     }
 }
 

@@ -2,14 +2,14 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Sprint0.Sprites.Player
+namespace Sprint0.Sprites.Player.Stationary
 {
-    public class PlayerFacingLeftFrame0 : ISprite
+    public class PlayerFacingLeft : ISprite
     {
         private readonly int spriteScale = 3;
         private readonly Vector2 position;
 
-        public PlayerFacingLeftFrame0(Vector2 position)
+        public PlayerFacingLeft(Vector2 position)
         {
             this.position = position;
         }

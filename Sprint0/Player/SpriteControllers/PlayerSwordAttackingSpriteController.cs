@@ -1,10 +1,11 @@
 ﻿using System;
+using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.State;
 using Sprint0.Sprites.Player;
 
 namespace Sprint0.Player.SpriteControllers
 {
-    public class PlayerSwordAttackingSpriteController
+    public class PlayerSwordAttackingSpriteController : ISpriteController
     {
         private PlayerStateController stateController;
 
@@ -12,6 +13,18 @@ namespace Sprint0.Player.SpriteControllers
         {
             this.stateController = stateController;
         }
+
+        public void Update()
+        {
+
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+
+        }
+
+        public void Reset() { }
 
         public ISprite GetSprite()
         {

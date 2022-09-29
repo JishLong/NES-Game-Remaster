@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Player.SpriteControllers;
 using Sprint0.Player.State;
 
 namespace Sprint0.Player
@@ -7,24 +8,22 @@ namespace Sprint0.Player
     {
         private readonly PlayerStateController stateController;
 
-        // I'm not sure if "provider" is the best name for this class
-        private readonly PlayerMasterSpriteController spriteProvider;
+        private readonly ISpriteController spriteController;
 
         public Player(Game1 game)
         {
             stateController = new PlayerStateController();
-            spriteProvider = new PlayerMasterSpriteController(stateController, game);
+            spriteController = PlayerMasterSpriteController.GetInstance(stateController);
         }
 
         public void Draw(SpriteBatch spriteBatch, int screenWidth, int screenHeight)
         {
-            this.spriteProvider.Draw(spriteBatch);
+            this.spriteController.Draw(spriteBatch);
         }
 
         public void Update()
         {
-            // NOTE: spriteProvider MUST be updated before stateController
-            spriteProvider.Update();
+            spriteController.Update();
             stateController.Update();
         }
 

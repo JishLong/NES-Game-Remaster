@@ -1,85 +1,67 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.State;
 using Sprint0.Sprites.Player;
+using Sprint0.Sprites.Player.Movement;
 
 namespace Sprint0.Player.SpriteControllers
 {
-    public class PlayerMovementSpriteController
+    public class PlayerMovementSpriteController : ISpriteController
     {
-        int animationFrame = 0;
-        PlayerStateController stateController;
+        // singleton instance
+        private static PlayerMovementSpriteController instance;
 
-        public PlayerMovementSpriteController(PlayerStateController stateController)
+        private readonly PlayerStateController stateController;
+        private ISprite currentSprite;
+
+        private PlayerMovementSpriteController(PlayerStateController stateController)
         {
             this.stateController = stateController;
+            this.currentSprite = PlayerMovingDown.GetInstance(stateController);
+        }
+
+        public static PlayerMovementSpriteController GetInstance(PlayerStateController stateController)
+        {
+            if (instance == null)
+            {
+                instance = new PlayerMovementSpriteController(stateController);
+            }
+
+            return instance;
+        }
+
+        public void Draw(SpriteBatch sb)
+        {
+            currentSprite.Draw(sb, 0, 0, 0, 0);
         }
 
         public void Update()
         {
-            if (animationFrame > 30)
+            var state = stateController.GetState();
+            currentSprite.Update();
+
+            if (state.FacingUp())
             {
-                animationFrame = 0;
+                currentSprite = PlayerMovingUp.GetInstance(stateController);
+            }
+            else if (state.FacingDown())
+            {
+                currentSprite = PlayerMovingDown.GetInstance(stateController);
+            }
+            else if (state.FacingRight())
+            {
+                currentSprite = PlayerMovingRight.GetInstance(stateController);
             }
             else
             {
-                animationFrame++;
+                currentSprite = PlayerMovingLeft.GetInstance(stateController);
             }
+
+          
         }
 
         public void Reset()
         {
-            animationFrame = 0;
-        }
-
-        public ISprite GetSprite()
-        {
-            var state = stateController.GetState();
-
-            if (state.FacingUp())
-            {
-                if (animationFrame > 15)
-                {
-                    return new PlayerFacingUpFrame0(state.GetPosition());
-                }
-                else
-                {
-                    return new PlayerFacingUpFrame1(state.GetPosition());
-                }
-            }
-            else if (state.FacingDown())
-            {
-                if (animationFrame > 15)
-                {
-                    return new PlayerFacingDownwardFrame1(state.GetPosition());
-                }
-                else
-                {
-                    return new PlayerFacingDownwardFrame0(state.GetPosition());
-                }
-            }
-            else if (state.FacingRight())
-            {
-                if (animationFrame > 15)
-                {
-                    return new PlayerFacingRightFrame0(state.GetPosition());
-                }
-                else
-                {
-                    return new PlayerFacingRightFrame1(state.GetPosition());
-                }
-            }
-
-            else
-            {
-                if (animationFrame > 15)
-                {
-                    return new PlayerFacingLeftFrame0(state.GetPosition());
-                }
-                else
-                {
-                    return new PlayerFacingLeftFrame1(state.GetPosition());
-                }
-            }
+            currentSprite = PlayerMovingDown.GetInstance(stateController);
         }
     }
 }

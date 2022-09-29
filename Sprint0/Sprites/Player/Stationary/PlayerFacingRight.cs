@@ -2,14 +2,14 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Sprint0.Sprites.Player
+namespace Sprint0.Sprites.Player.Stationary
 {
-    public class PlayerFacingRightFrame1 : ISprite
+    public class PlayerFacingRight : ISprite
     {
         private readonly int spriteScale = 3;
         private readonly Vector2 position;
 
-        public PlayerFacingRightFrame1(Vector2 position)
+        public PlayerFacingRight(Vector2 position)
         {
             this.position = position;
         }
@@ -19,7 +19,7 @@ namespace Sprint0.Sprites.Player
             Rectangle sourceRectangle;
             Rectangle destinationRectangle;
 
-            sourceRectangle = new Rectangle(52, 11, 15, 16);
+            sourceRectangle = new Rectangle(35, 11, 15, 16);
             destinationRectangle = new Rectangle((int)position.X, (int)position.Y, spriteScale * 15, spriteScale * 16);
 
             sb.Draw(LinkSpriteSheet.GetSpriteSheet(), destinationRectangle, sourceRectangle, Color.White);
