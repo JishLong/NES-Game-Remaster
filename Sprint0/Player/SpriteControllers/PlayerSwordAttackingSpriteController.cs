@@ -37,10 +37,63 @@ namespace Sprint0.Player.SpriteControllers
                     return new PlayerSwordAttackingDownFrame3(state.GetPosition());
                 }
             }
+            else if (state.FacingRight())
+            {
+                if (attackFrame == 0)
+                {
+                    return new PlayerAttackingRightFrame0(state.GetPosition());
+                }
+                else if (attackFrame == 1)
+                {
+                    return new PlayerSwordAttackingRightFrame1(state.GetPosition());
+                }
+                else if (attackFrame == 2)
+                {
+                    return new PlayerSwordAttackingRightFrame2(state.GetPosition());
+                }
+                else
+                {
+                    return new PlayerSwordAttackingRightFrame3(state.GetPosition());
+                }
+            }
+            else if (state.FacingUp())
+            {
+                if (attackFrame == 0)
+                {
+                    return new PlayerAttackingUpFrame0(state.GetPosition());
+                }
+                else if (attackFrame == 1)
+                {
+                    return new PlayerSwordAttackingUpFrame1(state.GetPosition());
+                }
+                else if (attackFrame == 2)
+                {
+                    return new PlayerSwordAttackingUpFrame2(state.GetPosition());
+                }
+                else
+                {
+                    return new PlayerSwordAttackingUpFrame3(state.GetPosition());
+                }
+            }
+            // when facing left
             else
             {
-                // TODO: temporary
-                return new PlayerFacingDownwardFrame0(state.GetPosition());
+                if (attackFrame == 0)
+                {
+                    return new PlayerAttackingLeftFrame0(state.GetPosition());
+                }
+                else if (attackFrame == 1)
+                {
+                    return new PlayerSwordAttackingLeftFrame1(state.GetPosition());
+                }
+                else if (attackFrame == 2)
+                {
+                    return new PlayerSwordAttackingLeftFrame2(state.GetPosition());
+                }
+                else
+                {
+                    return new PlayerSwordAttackingLeftFrame3(state.GetPosition());
+                }
             }
         }
     }

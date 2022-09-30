@@ -3,6 +3,13 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Controllers;
 using Sprint0.Items;
 using Sprint0.Player;
+using Sprint0.Enemies;
+using Sprint0.Bosses;
+using Sprint0.Bosses.Interfaces;
+using Sprint0.Bosses.Utils;
+using Sprint0.Npcs;
+using Sprint0.Npcs.Interfaces;
+using Sprint0.Npcs.Utils;
 using Sprint0.Sprites;
 using System.Collections.Generic;
 using Sprint0.Enemies.Interfaces;
@@ -17,6 +24,7 @@ namespace Sprint0
         private SpriteBatch sb;
 
         private List<IController> controllers;
+        public IBoss[] Bosses;
         public IPlayer player;
 
         public IItem[] items;
@@ -28,6 +36,24 @@ namespace Sprint0
         public IEnemy CurrentEnemy{ get; set; }
         public EnemyFactory EnemyFactory;
         public Vector2 DefaultEnemyPosition;
+
+        //public int CurrentEnemy{ get; set; }
+
+        public string[] BossTypes;
+        public IBoss CurrentBoss { get; set; }
+        public BossFactory BossFactory;
+        public Vector2 BossPosition;
+
+        public IBoss CurrentBossProj1 { get; set; }
+        public IBoss CurrentBossProj2 { get; set; }
+        public IBoss CurrentBossProj3 { get; set; }
+
+        public string[] NpcTypes;
+        public INpc CurrentNpc { get; set; }
+        public NpcFactory NpcFactory;
+        public Vector2 NpcPosition;
+
+ 
 
         public Game1()
         {
@@ -41,6 +67,11 @@ namespace Sprint0
             
             player = new Player.Player(this);
             LinkSpriteSheet.Init(this);
+            currentItem = 0;
+            this.BossFactory = new BossFactory();
+            this.NpcFactory = new NpcFactory();
+            BossPosition = new Vector2(600, 200);
+            NpcPosition = new Vector2(0, 200);
 
             currentItem = 0;
             currentBlock = 0;
@@ -62,6 +93,18 @@ namespace Sprint0
             sb = new SpriteBatch(GraphicsDevice);
 
             Resources.LoadContent(Content);
+            BossTypes = new string[]
+            {
+                "DODONGO",
+                "AQUAMENTUS",
+                "AQUAMENTUSFLAME",
+            };
+            NpcTypes = new string[]
+            {
+                "OLDMAN",
+                "FLAME",
+                "BOMBPROJ",
+            };
 
             EnemyNames= new string[]
             {
@@ -104,6 +147,14 @@ namespace Sprint0
             };
 
             CurrentEnemy = this.EnemyFactory.GetEnemy(EnemyNames[0], DefaultEnemyPosition);
+
+            CurrentBoss = this.BossFactory.GetBoss(BossTypes[1], BossPosition);
+            CurrentNpc = this.NpcFactory.GetNpc(NpcTypes[1], NpcPosition);
+
+            // For Aquamentus flames - need to refactor later
+            CurrentBossProj1 = this.BossFactory.GetBoss(BossTypes[2], BossPosition);
+            CurrentBossProj2 = this.BossFactory.GetBoss(BossTypes[2], BossPosition);
+            CurrentBossProj3 = this.BossFactory.GetBoss(BossTypes[2], BossPosition);
         }
 
         protected override void Update(GameTime gameTime)
@@ -112,7 +163,14 @@ namespace Sprint0
             {
                 controller.Update();
             }
+            // controllers MUST be updated before player
+            player.Update();
 
+            CurrentBoss.Update(gameTime);
+            CurrentNpc.Update(gameTime);
+            CurrentBossProj1.Update(gameTime);
+            CurrentBossProj2.Update(gameTime);
+            CurrentBossProj3.Update(gameTime);
             player.Update();
 
             items[currentItem].Update();
@@ -132,6 +190,11 @@ namespace Sprint0
             items[currentItem].Draw(sb);
             blocks[currentBlock].Draw(sb);
             CurrentEnemy.Draw(sb);
+            CurrentBossProj1.Draw(sb);
+            CurrentBossProj2.Draw(sb);
+            CurrentBossProj3.Draw(sb);
+            CurrentBoss.Draw(sb);
+            CurrentNpc.Draw(sb);
             sb.End();
 
             base.Draw(gameTime);

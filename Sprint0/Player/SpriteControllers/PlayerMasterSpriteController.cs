@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.SpriteControllers;
 using Sprint0.Player.State;
 using Sprint0.Sprites.Player;
