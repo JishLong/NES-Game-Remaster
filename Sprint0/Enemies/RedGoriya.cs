@@ -2,48 +2,39 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.Enemies;
 using System;
-using Sprint0.Enemies.Utils;
+using Sprint0.Enemies.Behaviors;
+using System.Collections.Generic;
+using static Sprint0.Enemies.Utils.EnemyUtils;
+using Sprint0.Npcs;
 
 namespace Sprint0.Enemies
 {
-    public class RedGoriya : AbstractEnemy
+    public class RedGoriya : AbstractEnemy 
     {
-        int ElapsedTime;
-        int UpdateTimer;
-        public RedGoriya(Vector2 position, int updateTimer = 1000) 
+        private Dictionary<Direction, IEnemySprite> DirectionSprites = new Dictionary<Direction, IEnemySprite>()
+        {
+            {Direction.Up, new RedGoriyaUpSprite()},
+            {Direction.Down, new RedGoriyaDownSprite()},
+            {Direction.Left, new RedGoriyaLeftSprite()},
+            {Direction.Right, new RedGoriyaRightSprite()},
+        };
+
+        private float ProjectileSpeed;
+        public RedGoriya(Vector2 position, Direction direction = Direction.Right, float movementSpeed = 2) 
         {
             // Combat
-            this.Health = 1;
+            Health = 1;
+            ProjectileSpeed = 3;
+            AttackBehavior = new BoomerangAttackBehavior(ProjectileSpeed);
 
             // Movement
-            this.CanMove = true;
-            this.Position = position;
-            this.DirectionName = "RIGHT";
-            this.MovementSpeed = 2;
+            IsFrozen = false;
+            Position = position;
+            Direction = direction;
+            MovementBehavior = new OrthogonalMovementBehavior(movementSpeed, Direction);
 
             // Update related fields
-            this.UpdateTimer = updateTimer;
-            this.Sprite = new RedGoriyaRightSprite();
-           
-        }
-
-        public void ChangeSprite(string directionName)
-        {
-            switch (directionName)
-            {
-                case "RIGHT":
-                    this.Sprite = new RedGoriyaRightSprite();
-                    break;
-                case "LEFT":
-                    this.Sprite = new RedGoriyaLeftSprite();
-                    break;
-                case "UP":
-                    this.Sprite = new RedGoriyaUpSprite();
-                    break;
-                case "DOWN":
-                    this.Sprite = new RedGoriyaDownSprite();
-                    break;
-            }
+            Sprite = DirectionSprites[MovementBehavior.GetDirection()];
         }
         public override void Destroy()
         {
@@ -51,21 +42,21 @@ namespace Sprint0.Enemies
         }
         public override void Update(GameTime gameTime)
         {
-            ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-            if(ElapsedTime > UpdateTimer)
+            if (!IsFrozen)  // If not, this enemy can move, attack, etc...
             {
-                ElapsedTime = 0;
-                Direction = EnemyUtils.RandOrthogDirection(ref DirectionName);
+                // Adds the total movement for this frame to the current position.
+                Position += MovementBehavior.Move(gameTime);
+                Direction = MovementBehavior.GetDirection();
+                Sprite = DirectionSprites[Direction];
 
-                ChangeSprite(DirectionName);
+                AttackBehavior.Attack(gameTime, Direction);
             }
-
-            Position += (this.Direction * this.MovementSpeed);
             Sprite.Update(gameTime);
         }
         public override void Draw(SpriteBatch sb)
         {
             Sprite.Draw(sb, Position);
+            AttackBehavior.Draw(sb);
         }
     }
 }

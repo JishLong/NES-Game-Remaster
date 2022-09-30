@@ -1,49 +1,41 @@
 ﻿using System;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using System.Linq;
-using Sprint0.Enemies.Utils;
 using Sprint0.Sprites.Enemies;
+using Sprint0.Enemies.Behaviors;
+using static Sprint0.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Enemies
 {
     public class Skeleton : AbstractEnemy
     {
-        int ElapsedTime;    // Units: milliseconds 
-        int UpdateTimer;    // Units: milliseconds 
-        public Skeleton(Vector2 position, int updateTimer = 1000)
+        public Skeleton(Vector2 position, float movementSpeed = 2)
         {
             // Combat
-            this.Health = 1;
+            Health = 1;
 
             // Movement
-            this.CanMove = true;
-            this.Position = position;
-            this.DirectionName = "UP";
-            this.MovementSpeed = 2;
+            Direction = Direction.Right;
+            MovementBehavior = new OrthogonalMovementBehavior(movementSpeed, Direction);
+            IsFrozen = false;
+            Position = position;
 
             // Update related fields
-            this.UpdateTimer = updateTimer;
-            this.Sprite = new SkeletonSprite();
+            Sprite = new SkeletonSprite();
         }   
 
         public override void Destroy()
         {
-            // not sure what to do here yet...
             throw new NotImplementedException();
         }
         
         public override void Update(GameTime gameTime)
         {
-            ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-            if(ElapsedTime > UpdateTimer)
-            {
-                ElapsedTime = 0;
-                Direction = EnemyUtils.RandOrthogDirection(ref DirectionName);
+            if (!IsFrozen)
+            {   
+                Position += MovementBehavior.Move(gameTime);
             }
 
-            // Move the skeleton.
-            Position += (this.Direction * this.MovementSpeed);
             Sprite.Update(gameTime);
         }
 

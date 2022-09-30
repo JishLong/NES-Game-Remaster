@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Xna.Framework;
+using Sprint0.Enemies.Utils;
 
 namespace Sprint0.Enemies.Interfaces
 {
     public interface IMovementBehavior
     {
-        void Move();
+        Vector2 Move(GameTime gameTime);
+        EnemyUtils.Direction GetDirection();
     }
 }

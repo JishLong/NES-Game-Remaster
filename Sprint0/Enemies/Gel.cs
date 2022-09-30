@@ -1,8 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Enemies.Utils;
-using System;
+using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Enemies;
+using Sprint0.Enemies.Behaviors;
+using static Sprint0.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Enemies
 {
@@ -11,19 +12,19 @@ namespace Sprint0.Enemies
         int ElapsedTime;
         int UpdateTimer;
 
-        public Gel(Vector2 position, int updateTimer = 1000)
+        public Gel(Vector2 position, float movementSpeed = 1)
         {
             // Combat
-            this.Health = 1;
+            Health = 1;
 
             // Movement
-            this.Position = position;
-            this.DirectionName = "UP";
-            this.MovementSpeed = 1;
+            Direction = Direction.Right;
+            MovementBehavior = new OrthogonalMovementBehavior(movementSpeed, Direction);
+            IsFrozen = false;
+            Position = position;
 
             // Update related fields
-            this.UpdateTimer = updateTimer;
-            this.Sprite = new GelSprite();
+            Sprite = new GelSprite();
         }
 
         public override void Destroy()
@@ -33,14 +34,12 @@ namespace Sprint0.Enemies
 
         public override void Update(GameTime gameTime)
         {
-            ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-            if(ElapsedTime > UpdateTimer)
-            {
-                ElapsedTime = 0;
-                Direction = EnemyUtils.RandOrthogDirection(ref DirectionName);
+        
+            if (!IsFrozen)
+            {   
+                Position += MovementBehavior.Move(gameTime);
             }
 
-            Position += (this.Direction * this.MovementSpeed);
             Sprite.Update(gameTime);
         }
 
@@ -48,6 +47,5 @@ namespace Sprint0.Enemies
         {
             Sprite.Draw(sb, Position);
         }
-
     }
 }

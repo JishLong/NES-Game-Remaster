@@ -21,8 +21,7 @@ namespace Sprint0.Enemies
 
             // Movement
             this.Position = position;
-            this.DirectionName = initialDirection;
-            this.Direction= EnemyUtils.OrthogonalVectors[DirectionName];
+            //this.Direction= EnemyUtils.OrthogonalVectors[DirectionName];
             this.MovementSpeed = 2;
 
             // Update related fields
@@ -38,7 +37,7 @@ namespace Sprint0.Enemies
 
         public override void Update(GameTime gameTime)
         {
-            ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
+            /*ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             if(ElapsedTime > UpdateTimer)
             {
                 ElapsedTime = 0;
@@ -46,7 +45,7 @@ namespace Sprint0.Enemies
             }
 
             Position += (this.Direction * this.MovementSpeed);
-            Sprite.Update(gameTime);
+            Sprite.Update(gameTime);*/
         }
         public override void Draw(SpriteBatch sb)
         {

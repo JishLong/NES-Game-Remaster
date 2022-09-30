@@ -4,7 +4,7 @@ using static Sprint0.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Enemies.Behaviors
 {
-    public class OrthogonalMovementBehavior : IMovementBehavior
+    public class OmniDirectionalMovementBehavior : IMovementBehavior
     {
         private float ElapsedTime;
         private float UpdateTimer;
@@ -16,7 +16,7 @@ namespace Sprint0.Enemies.Behaviors
         /// Constructor.
         /// </summary>
         /// <param name="directionChangeFreq">A direction change will after this many milliseconds.</param>
-        public OrthogonalMovementBehavior(float movementSpeed, Direction direction, float directionChangeFreq = 1000)
+        public OmniDirectionalMovementBehavior(float movementSpeed, Direction direction, float directionChangeFreq = 1000)
         {
             Direction = direction;
             DirectionVector = ToVector(Direction);
@@ -40,7 +40,7 @@ namespace Sprint0.Enemies.Behaviors
             if (ElapsedTime > UpdateTimer)
             {
                 ElapsedTime = 0;
-                Direction = RandOrthogDirection(Direction);
+                Direction = RandOmniDirection(Direction);
                 DirectionVector = ToVector(Direction);
             }
             return DirectionVector * MovementSpeed; 

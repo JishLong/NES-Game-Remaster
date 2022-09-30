@@ -11,20 +11,19 @@ namespace Sprint0.Commands.Enemies
         public NextEnemyCommand(Game1 game)
         {
             this.game = game;
-            this.DefaultEnemyPosition = new Vector2(500, 200);
-            this.index = 0;
+            DefaultEnemyPosition = new Vector2(500, 200);
         }
         public void Execute()
         {
-            if (this.index < game.EnemyNames.Length - 1)
+            if(game.CurrentEnemyIndex < game.EnemyNames.Length -1)
             {
-                index++;
+                game.CurrentEnemyIndex ++;
             }
             else
             {
-                index = 0;
+                game.CurrentEnemyIndex = 0;
             }
-            game.CurrentEnemy = game.EnemyFactory.GetEnemy(game.EnemyNames[index], DefaultEnemyPosition);
+            game.CurrentEnemy = game.EnemyFactory.GetEnemy(game.EnemyNames[game.CurrentEnemyIndex], DefaultEnemyPosition);
         }
     }
 }

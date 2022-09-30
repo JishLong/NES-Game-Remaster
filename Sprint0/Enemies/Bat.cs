@@ -1,31 +1,30 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Enemies.Behaviors;
 using Sprint0.Enemies.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static Sprint0.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Enemies
 {
 
     public class Bat : AbstractEnemy
     {
-        int ElapsedTime;
-        int UpdateTimer;
-        public Bat(Vector2 position, int updateTimer = 1000)
+        public Bat(Vector2 position, float movementSpeed = 2)
         {
-            this.Health = 1;
+            // Combat
+            Health = 1;
+
             // Movement
-            this.CanMove = true;
-            this.Position = position;
-            this.DirectionName = "UP"; // Starts moving up.
-            this.MovementSpeed = 2;
+            Direction = Direction.Right;
+            MovementBehavior = new OmniDirectionalMovementBehavior(movementSpeed, Direction);
+            IsFrozen = false;
+            Position = position;
 
             // Update related fields
-            this.UpdateTimer = updateTimer;
-            this.Sprite = new Sprites.Enemies.BatSprite();
+            Sprite = new Sprites.Enemies.BatSprite();
         }
         public override void Destroy()
         {
@@ -33,13 +32,11 @@ namespace Sprint0.Enemies
         }
         public override void Update(GameTime gameTime)
         {
-            ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-            if(ElapsedTime > UpdateTimer)
-            {
-                ElapsedTime = 0;
-                Direction = EnemyUtils.RandDirection(ref DirectionName);
+            if (!IsFrozen)
+            {   
+                Position += MovementBehavior.Move(gameTime);
             }
-            Position += (this.Direction * this.MovementSpeed);
+
             Sprite.Update(gameTime);
         }
         public override void Draw(SpriteBatch sb)

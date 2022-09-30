@@ -34,6 +34,7 @@ namespace Sprint0
 
         public string[] EnemyNames;
         public IEnemy CurrentEnemy{ get; set; }
+        public int CurrentEnemyIndex { get; set; }
         public EnemyFactory EnemyFactory;
         public Vector2 DefaultEnemyPosition;
 
@@ -75,8 +76,9 @@ namespace Sprint0
 
             currentItem = 0;
             currentBlock = 0;
+            CurrentEnemyIndex = 0;
 
-            this.EnemyFactory = new EnemyFactory();
+            EnemyFactory = new EnemyFactory();
             DefaultEnemyPosition = new Vector2(500, 200);
 
             controllers = new List<IController>
