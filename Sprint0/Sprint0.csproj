@@ -11,6 +11,9 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Enemies\Weapons\IWeapon.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
     <None Remove="Player\" />
@@ -34,6 +37,9 @@
     <Folder Include="Commands\Player\" />
     <Folder Include="Sprites\Player\Attack\" />
     <Folder Include="Sprites\Player\Attack\SwordAttack\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Enemies\Interfaces\IWeapon.cs" />
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />
