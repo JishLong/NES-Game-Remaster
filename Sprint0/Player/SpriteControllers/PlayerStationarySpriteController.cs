@@ -16,7 +16,7 @@ namespace Sprint0.Player.SpriteControllers
         {
             this.stateController = stateController;
             // default sprite
-            this.currentSprite = new PlayerFacingDown(stateController.GetState().GetPosition());
+            this.currentSprite = new PlayerFacingDown(stateController);
         }
 
         public static PlayerStationarySpriteController GetInstance(PlayerStateController stateController)
@@ -35,19 +35,19 @@ namespace Sprint0.Player.SpriteControllers
 
             if (state.FacingUp())
             {
-                currentSprite = new PlayerFacingUp(state.GetPosition());
+                currentSprite = new PlayerFacingUp(stateController);
             }
             else if (state.FacingDown())
             {
-                currentSprite = new PlayerFacingDown(state.GetPosition());
+                currentSprite = new PlayerFacingDown(stateController);
             }
             else if (state.FacingRight())
             {
-                currentSprite = new PlayerFacingRight(state.GetPosition());
+                currentSprite = new PlayerFacingRight(stateController);
             }
             else
             {
-                currentSprite = new PlayerFacingLeft(state.GetPosition());
+                currentSprite = new PlayerFacingLeft(stateController);
             }
         }
 
@@ -59,7 +59,7 @@ namespace Sprint0.Player.SpriteControllers
         // resets to the default sprite
         public void Reset()
         {
-            this.currentSprite = new PlayerFacingDown(stateController.GetState().GetPosition());
+            this.currentSprite = new PlayerFacingDown(stateController);
         }
     }
 }

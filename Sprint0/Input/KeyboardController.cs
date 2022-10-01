@@ -12,12 +12,12 @@ namespace Sprint0.Controllers
         // Comparing these two keyboard states can be utilized to handle more specific keyboard input
         private KeyboardState prevState = Keyboard.GetState();
         private KeyboardState currentState;
-        
+
         // A list of every keyboard control mapping
         private Dictionary<KeyMap, ICommand> keyMap;
 
-        public KeyboardController(Game1 game, PlayerStateController playerStateController) 
-        { 
+        public KeyboardController(Game1 game, PlayerStateController playerStateController)
+        {
             keyMap = new Dictionary<KeyMap, ICommand>
             {
                 // Player movement controls
@@ -42,6 +42,10 @@ namespace Sprint0.Controllers
                 { new KeyMap(KeyMap.KeyState.HELD, Keys.Z, Keys.N),
                     new PlayerSwordAttackCommand(playerStateController) },
 
+                // Player damage control
+                { new KeyMap(KeyMap.KeyState.PRESSED, Keys.E),
+                    new PlayerTakeDamageCommand(playerStateController) },
+
                 // Item switching controls
                 { new KeyMap(KeyMap.KeyState.PRESSED, Keys.U),
                     new PrevItemCommand(game) },
@@ -55,7 +59,7 @@ namespace Sprint0.Controllers
                     new NextEnemyCommand(game) },
 
                 // Block switching controls
-                { new KeyMap(KeyMap.KeyState.PRESSED, Keys.T), 
+                { new KeyMap(KeyMap.KeyState.PRESSED, Keys.T),
                     new PrevBlockCommand(game) },
                 { new KeyMap(KeyMap.KeyState.PRESSED, Keys.Y),
                     new NextBlockCommand(game) }
@@ -66,15 +70,15 @@ namespace Sprint0.Controllers
         {
             currentState = Keyboard.GetState();
 
-            foreach (var mapping in keyMap) 
+            foreach (var mapping in keyMap)
             {
-                if (mapping.Key.IsActivated(prevState, currentState)) 
+                if (mapping.Key.IsActivated(prevState, currentState))
                 {
                     mapping.Value.Execute();
                 }
             }
 
             prevState = currentState;
-        } 
+        }
     }
 }

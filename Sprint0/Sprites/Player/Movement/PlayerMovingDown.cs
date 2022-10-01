@@ -33,8 +33,14 @@ namespace Sprint0.Sprites.Player.Movement
             var position = stateController.GetState().GetPosition();
             Rectangle sourceRectangle;
             Rectangle destinationRectangle;
+            Color color = Color.White;
 
-            if(animationFrame < 15)
+            if (stateController.GetState().IsDamaged())
+            {
+                color = Color.Red;
+            }
+
+            if (animationFrame < 15)
             {
                 sourceRectangle = new Rectangle(1, 11, 15, 16);
                 destinationRectangle = new Rectangle((int)position.X, (int)position.Y, spriteScale * 15, spriteScale * 16);
@@ -47,7 +53,7 @@ namespace Sprint0.Sprites.Player.Movement
 
             
 
-            sb.Draw(LinkSpriteSheet.GetSpriteSheet(), destinationRectangle, sourceRectangle, Color.White);
+            sb.Draw(LinkSpriteSheet.GetSpriteSheet(), destinationRectangle, sourceRectangle, color);
         }
 
         public void Update()

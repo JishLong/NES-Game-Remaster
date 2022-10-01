@@ -7,6 +7,7 @@ namespace Sprint0.Player.State
         private readonly PlayerState state = new();
 
         private int attackFrameCounter = 0;
+        private int damageFrameCounter = 0;
 
         public PlayerStateController()
         {
@@ -46,6 +47,18 @@ namespace Sprint0.Player.State
             {
                 attackFrameCounter = 0;
                 state.StopAttacking();
+            }
+
+            // how often the player can take damage
+            if (state.IsDamaged())
+            {
+                damageFrameCounter++;
+            }
+
+            if(damageFrameCounter > 40)
+            {
+                damageFrameCounter = 0;
+                state.StopDamage();
             }
         }
 

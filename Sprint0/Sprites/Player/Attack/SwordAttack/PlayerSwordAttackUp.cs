@@ -39,6 +39,13 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
             Rectangle sourceRectangle;
             Rectangle destinationRectangle;
 
+            Color color = Color.White;
+
+            if (stateController.GetState().IsDamaged())
+            {
+                color = Color.Red;
+            }
+
             if (frame == 0)
             {
                 sourceRectangle = new Rectangle(95, 109, 15, 15);
@@ -60,7 +67,7 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
                 destinationRectangle = new Rectangle((int)position.X, (int)position.Y - 9, spriteScale * 12, spriteScale * 19);
             }
 
-            sb.Draw(LinkSpriteSheet.GetSpriteSheet(), destinationRectangle, sourceRectangle, Color.White);
+            sb.Draw(LinkSpriteSheet.GetSpriteSheet(), destinationRectangle, sourceRectangle, color);
         }
     }
 }

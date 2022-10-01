@@ -31,7 +31,6 @@ namespace Sprint0.Player.SpriteControllers
 
         public void Update()
         {
-            int attackFrame = stateController.GetAttackFrame();
             var state = stateController.GetState();
 
             if (state.FacingDown())

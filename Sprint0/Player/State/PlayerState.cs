@@ -118,6 +118,11 @@ namespace Sprint0.Player
             this.isDamaged = true;
         }
 
+        public void StopDamage()
+        {
+            this.isDamaged = false;
+        }
+
         public bool FacingUp()
         {
             return facingDirection == FacingDirection.up;
