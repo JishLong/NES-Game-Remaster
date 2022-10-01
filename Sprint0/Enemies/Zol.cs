@@ -7,21 +7,21 @@ using static Sprint0.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Enemies
 {
-    public class Skeleton : AbstractEnemy
+    public class Zol : AbstractEnemy
     {
-        public Skeleton(Vector2 position, float movementSpeed = 2, Direction direction = Direction.Right)
+        public Zol(Vector2 position, float movementSpeed = 1, Direction direction = Direction.Right)
         {
             // Combat
             Health = 1;
 
             // Movement
-            Position = position;
             Direction = direction;
+            Position = position;
             MovementBehavior = new OrthogonalMovementBehavior(movementSpeed, Direction);
 
             // Update related fields
-            Sprite = new SkeletonSprite();
-        }   
+            Sprite = new ZolSprite();
+        }
         public override void Destroy()
         {
             throw new NotImplementedException();

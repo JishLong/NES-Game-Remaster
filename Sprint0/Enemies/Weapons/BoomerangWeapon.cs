@@ -17,7 +17,7 @@ namespace Sprint0.Enemies.Weapons
         private Vector2 Position;
         private Direction Direction;
         private Vector2 DirectionVector;
-        public BoomerangWeapon(Vector2 position, Direction direction)
+        public BoomerangWeapon(Vector2 position, Direction direction, float projectileSpeed)
         {
             ElapsedTime = 0;
             UpdateTimer = 1000;
@@ -26,7 +26,7 @@ namespace Sprint0.Enemies.Weapons
             Position = position;
             Direction = direction;
             DirectionVector = ToVector(Direction);
-            ProjectileSpeed = 5f;
+            ProjectileSpeed = projectileSpeed;
             Sprite = new BoomerangSprite();
         }
 
@@ -53,15 +53,18 @@ namespace Sprint0.Enemies.Weapons
             bool ReturnInterval = (ElapsedTime - (UpdateTimer / 2)) > 0 && ((ElapsedTime - UpdateTimer) < 0);
 
             Sprite.Update(gameTime); 
-            if (ThrowOutInterval)   // Time before it starts to return.
+            if (ThrowOutInterval)               
             {
+                // Moving away.
                 Position += (DirectionVector * ProjectileSpeed);
             } else if (ReturnInterval)
             {
+                // Moving towards.
                 Position -= (DirectionVector * ProjectileSpeed);
             }
             else
             {
+                // After the timer is up, disable the boomerang.
                 Disable();
             }
         }

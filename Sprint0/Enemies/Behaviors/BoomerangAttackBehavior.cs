@@ -10,26 +10,18 @@ namespace Sprint0.Enemies.Behaviors
     public class BoomerangAttackBehavior : IAttackBehavior
     {
         private IEnemy Enemy;
-        private double ElapsedTime;
-        private double UpdateTimer;
-        private Vector2 Position;
-        private Direction Direction;
-        private float ProjectileSpeed;
-        private double ProjectileTimer;
         private IWeapon Boomerang;
+        private float ProjectileSpeed;
         public BoomerangAttackBehavior(IEnemy enemy, float projectileSpeed, double attackFreq = 3000)
         {
             Enemy = enemy;
             Boomerang = new NoWeapon();
             ProjectileSpeed = projectileSpeed;
-            ProjectileTimer = 1000;
-            UpdateTimer = attackFreq;
         }
         public void Attack(Vector2 position, Direction direction)
         {
             Enemy.Freeze();
-            Boomerang = new BoomerangWeapon(position, direction);
-
+            Boomerang = new BoomerangWeapon(position, direction, ProjectileSpeed);
         }
         public void Update(GameTime gameTime)
         {

@@ -25,6 +25,9 @@ namespace Sprint0.Enemies.Utils
                 case "RED_GORIYA":
                     return new RedGoriya(position);
 
+                case "ZOL":
+                    return new Zol(position);
+
                 default:
                     Console.Error.Write("The concrete type " + enemyType + " could not be instantiated by the Enemy Factory. Does this type exist?");
                     return null;

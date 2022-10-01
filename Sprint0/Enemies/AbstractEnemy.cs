@@ -18,7 +18,7 @@ namespace Sprint0.Enemies
         protected Vector2 Position;
         protected EnemyUtils.Direction Direction;
         protected int MovementSpeed;
-        protected bool IsFrozen;
+        protected bool IsFrozen = false;
 
         // Sprite related fields.
         protected IEnemySprite Sprite;

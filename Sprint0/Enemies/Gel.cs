@@ -9,40 +9,31 @@ namespace Sprint0.Enemies
 {
     public class Gel : AbstractEnemy
     {
-        int ElapsedTime;
-        int UpdateTimer;
-
-        public Gel(Vector2 position, float movementSpeed = 1)
+        public Gel(Vector2 position, float movementSpeed = 1, Direction direction = Direction.Right)
         {
             // Combat
             Health = 1;
 
             // Movement
-            Direction = Direction.Right;
-            MovementBehavior = new OrthogonalMovementBehavior(movementSpeed, Direction);
-            IsFrozen = false;
+            Direction = direction;
             Position = position;
+            MovementBehavior = new OrthogonalMovementBehavior(movementSpeed, Direction);
 
             // Update related fields
             Sprite = new GelSprite();
         }
-
         public override void Destroy()
         {
             throw new NotImplementedException();
         }
-
         public override void Update(GameTime gameTime)
         {
-        
             if (!IsFrozen)
             {   
                 Position += MovementBehavior.Move(gameTime);
             }
-
             Sprite.Update(gameTime);
         }
-
         public override void Draw(SpriteBatch sb)
         {
             Sprite.Draw(sb, Position);

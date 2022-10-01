@@ -12,16 +12,15 @@ namespace Sprint0.Enemies
 
     public class Bat : AbstractEnemy
     {
-        public Bat(Vector2 position, float movementSpeed = 2)
+        public Bat(Vector2 position, float movementSpeed = 2, Direction direction = Direction.Left)
         {
             // Combat
             Health = 1;
 
             // Movement
-            Direction = Direction.Right;
-            MovementBehavior = new OmniDirectionalMovementBehavior(movementSpeed, Direction);
-            IsFrozen = false;
+            Direction = direction;
             Position = position;
+            MovementBehavior = new OmniDirectionalMovementBehavior(movementSpeed, Direction);
 
             // Update related fields
             Sprite = new Sprites.Enemies.BatSprite();
@@ -36,7 +35,6 @@ namespace Sprint0.Enemies
             {   
                 Position += MovementBehavior.Move(gameTime);
             }
-
             Sprite.Update(gameTime);
         }
         public override void Draw(SpriteBatch sb)

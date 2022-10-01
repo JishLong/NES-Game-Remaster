@@ -34,11 +34,10 @@ namespace Sprint0.Enemies
         {
             // Combat
             Health = 1;
-            ProjectileSpeed = 3;
+            ProjectileSpeed = 5f;
             AttackBehavior = new BoomerangAttackBehavior(this, ProjectileSpeed);
 
             // Movement
-            IsFrozen = false;
             Position = position;
             Direction = direction;
             MovementBehavior = new OrthogonalMovementBehavior(movementSpeed, Direction);
@@ -46,7 +45,7 @@ namespace Sprint0.Enemies
             // Update related fields
             Sprite = DirectionSprites[MovementBehavior.GetDirection()];
             ElapsedTime = 0;
-            AttackTimer = 3000;
+            AttackTimer = 2500;
 
         }
         public override void Destroy()

@@ -6,8 +6,8 @@ namespace Sprint0.Enemies.Behaviors
 {
     public class OrthogonalMovementBehavior : IMovementBehavior
     {
-        private float ElapsedTime;
-        private float UpdateTimer;
+        private double ElapsedTime;
+        private double UpdateTimer;
         private Direction Direction;
         private Vector2 DirectionVector;
         private float MovementSpeed;
@@ -36,8 +36,8 @@ namespace Sprint0.Enemies.Behaviors
         /// <returns></returns>
         public Vector2 Move(GameTime gameTime)
         {
-            ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-            if (ElapsedTime > UpdateTimer)
+            ElapsedTime += gameTime.ElapsedGameTime.TotalMilliseconds;
+            if ((ElapsedTime - UpdateTimer) > 0)
             {
                 ElapsedTime = 0;
                 Direction = RandOrthogDirection(Direction);

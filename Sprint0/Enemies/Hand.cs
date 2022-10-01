@@ -1,51 +1,38 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Enemies.Utils;
+using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Enemies;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Sprint0.Enemies.Behaviors;
+using static Sprint0.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Enemies
 {
     public class Hand : AbstractEnemy
     {
-        int ElapsedTime;
-        int UpdateTimer;
-        public Hand(Vector2 position, int updateTimer = 1000, string initialDirection = "UP")
+        public Hand(Vector2 position, float movementSpeed = 2, Direction direction = Direction.Up)
         {
             // Combat
-            this.Health = 1;
+            Health = 1;
 
             // Movement
-            this.Position = position;
-            //this.Direction= EnemyUtils.OrthogonalVectors[DirectionName];
-            this.MovementSpeed = 2;
+            Position = position;
+            Direction = direction;
+            MovementBehavior = new SquareMovementBehavior(movementSpeed, Direction);
 
             // Update related fields
-            this.UpdateTimer = updateTimer;
-            this.Sprite = new HandSprite();
-
+            Sprite = new HandSprite();
         }
         public override void Destroy()
         {
             throw new NotImplementedException();
         }
-
-
         public override void Update(GameTime gameTime)
         {
-            /*ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-            if(ElapsedTime > UpdateTimer)
-            {
-                ElapsedTime = 0;
-                Direction = EnemyUtils.RotateByAngle(Direction, 90);
+            if (!IsFrozen)
+            {   
+                Position += MovementBehavior.Move(gameTime);
             }
-
-            Position += (this.Direction * this.MovementSpeed);
-            Sprite.Update(gameTime);*/
+            Sprite.Update(gameTime);
         }
         public override void Draw(SpriteBatch sb)
         {
