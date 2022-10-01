@@ -6,8 +6,8 @@ namespace Sprint0.Enemies.Interfaces
 {
     public interface IAttackBehavior
     {
-        void Attack(GameTime gameTime, Direction direction);
-
+        void Attack(Vector2 position, Direction direction);
+        void Update(GameTime gameTime);
         void Draw(SpriteBatch sb);
     }
 

@@ -33,12 +33,12 @@ namespace Sprint0.Enemies
         }
         public void Freeze()
         {
-            this.IsFrozen = true;
+            IsFrozen = true;
         }
 
         public void Unfreeze()
         {
-            this.IsFrozen = false;
+            IsFrozen = false;
         }
         public abstract void Destroy();
         public abstract void Update(GameTime gameTime);

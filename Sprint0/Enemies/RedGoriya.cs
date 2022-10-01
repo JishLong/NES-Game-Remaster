@@ -5,7 +5,6 @@ using System;
 using Sprint0.Enemies.Behaviors;
 using System.Collections.Generic;
 using static Sprint0.Enemies.Utils.EnemyUtils;
-using Sprint0.Npcs;
 
 namespace Sprint0.Enemies
 {
@@ -19,13 +18,24 @@ namespace Sprint0.Enemies
             {Direction.Right, new RedGoriyaRightSprite()},
         };
 
+        private Dictionary<Direction, IEnemySprite> AttackSprites = new Dictionary<Direction, IEnemySprite>() 
+        {
+            {Direction.Up, new RedGoriyaUpSprite()},
+            {Direction.Down, new RedGoriyaDownSprite()},
+            {Direction.Left, new RedGoriyaLeftSprite()},
+            {Direction.Right, new RedGoriyaRightSprite()},
+        };
+
         private float ProjectileSpeed;
+
+        private double ElapsedTime;
+        private double AttackTimer;
         public RedGoriya(Vector2 position, Direction direction = Direction.Right, float movementSpeed = 2) 
         {
             // Combat
             Health = 1;
             ProjectileSpeed = 3;
-            AttackBehavior = new BoomerangAttackBehavior(ProjectileSpeed);
+            AttackBehavior = new BoomerangAttackBehavior(this, ProjectileSpeed);
 
             // Movement
             IsFrozen = false;
@@ -35,6 +45,9 @@ namespace Sprint0.Enemies
 
             // Update related fields
             Sprite = DirectionSprites[MovementBehavior.GetDirection()];
+            ElapsedTime = 0;
+            AttackTimer = 3000;
+
         }
         public override void Destroy()
         {
@@ -42,16 +55,33 @@ namespace Sprint0.Enemies
         }
         public override void Update(GameTime gameTime)
         {
-            if (!IsFrozen)  // If not, this enemy can move, attack, etc...
+            ElapsedTime += gameTime.ElapsedGameTime.TotalMilliseconds;
+            if (!IsFrozen)  // If not frozen, this enemy can move.
             {
-                // Adds the total movement for this frame to the current position.
-                Position += MovementBehavior.Move(gameTime);
-                Direction = MovementBehavior.GetDirection();
-                Sprite = DirectionSprites[Direction];
-
-                AttackBehavior.Attack(gameTime, Direction);
+                DoMove(gameTime);
             }
+           
+            if((ElapsedTime - AttackTimer) > 0)
+            {
+                ElapsedTime = 0;
+                DoAttack(gameTime);
+            }
+
+            AttackBehavior.Update(gameTime);
             Sprite.Update(gameTime);
+        }
+
+        private void DoMove(GameTime gameTime)
+        {
+            // Adds the total movement for this frame to the current position.
+            Position += MovementBehavior.Move(gameTime);
+            Direction = MovementBehavior.GetDirection();
+            Sprite = DirectionSprites[Direction];
+        }
+        private void DoAttack(GameTime gameTime)
+        {
+            AttackBehavior.Attack(Position, Direction);
+            Sprite = AttackSprites[Direction];
         }
         public override void Draw(SpriteBatch sb)
         {
