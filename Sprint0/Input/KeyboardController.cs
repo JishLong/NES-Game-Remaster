@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Sprint0.Commands.Player;
+using Sprint0.Commands.Items;
 using Sprint0.Commands.Enemies;
 using Sprint0.Player.State;
 using System.Collections.Generic;
@@ -62,7 +63,11 @@ namespace Sprint0.Controllers
                 { new KeyMap(KeyMap.KeyState.PRESSED, Keys.T),
                     new PrevBlockCommand(game) },
                 { new KeyMap(KeyMap.KeyState.PRESSED, Keys.Y),
-                    new NextBlockCommand(game) }
+                    new NextBlockCommand(game) },
+
+                // Misc. controls
+                { new KeyMap(KeyMap.KeyState.PRESSED, Keys.Q),
+                    new QuitCommand(game) }
             };
         }
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Enemies.Utils;
 
 namespace Sprint0.Commands.Enemies
 {
@@ -12,10 +13,10 @@ namespace Sprint0.Commands.Enemies
             this.game = game;
             this.DefaultEnemyPosition = new Vector2(500, 200);
         }
+
         public void Execute()
         {
-            game.currentEnemyIndex = (game.currentEnemyIndex - 1 + game.EnemyNames.Length) % game.EnemyNames.Length;
-            game.CurrentEnemy = game.EnemyFactory.GetEnemy(game.EnemyNames[game.currentEnemyIndex], DefaultEnemyPosition);
+            game.CurrentEnemy = EnemyFactory.GetInstance().GetPrevEnemy(DefaultEnemyPosition);
         }
     }
 }

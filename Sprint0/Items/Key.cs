@@ -1,34 +1,13 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Player;
 
 namespace Sprint0.Items
 {
-    public class Key : IItem
+    public class Key : AbstractItem
     {
-        // Sprite
-        private ISprite sprite;
-
-        // Coordinates and dimensions
-        private int x, y, w, h;
-
-        public Key(int x, int y)
+        public Key(Vector2 Position) : base(Position)
         {
             sprite = new KeySprite();
-
-            this.x = x;
-            this.y = y;
-            w = 64;
-            h = 64;
-        }
-
-        public void Draw(SpriteBatch sb)
-        {
-            sprite.Draw(sb, x, y, w, h);
-        }
-
-        public void Update()
-        {
-            // Nothing here?
         }
     }
 }
