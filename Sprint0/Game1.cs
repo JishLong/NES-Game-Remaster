@@ -116,6 +116,7 @@ namespace Sprint0
                 "HAND",
                 "GEL",
                 "RED_GORIYA",
+                "ZOL"
             };
 
             items = new IItem[] {
