@@ -1,32 +1,47 @@
 ﻿using System;
+using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.State;
 using Sprint0.Sprites.Player;
 
 namespace Sprint0.Player.SpriteControllers
 {
-    public class PlayerAttackingSpriteController
+    public class PlayerAttackingSpriteController : ISpriteController
     {
-        private PlayerStateController stateController;
-        private PlayerSwordAttackingSpriteController swordController;
+        // singleton instance
+        private static PlayerAttackingSpriteController instance;
 
-        public PlayerAttackingSpriteController(PlayerStateController stateController)
+        private readonly PlayerStateController stateController;
+        private ISpriteController currentController;
+
+        private PlayerAttackingSpriteController(PlayerStateController stateController)
         {
             this.stateController = stateController;
-            this.swordController = new PlayerSwordAttackingSpriteController(stateController);
+            this.currentController = PlayerSwordAttackingSpriteController.GetInstance(stateController);
         }
 
-        public ISprite GetSprite()
+        public static PlayerAttackingSpriteController GetInstance(PlayerStateController stateController)
         {
-            var state = stateController.GetState();
-            if (state.SwordEquipped())
+            if (instance == null)
             {
-                return swordController.GetSprite();
+                instance = new PlayerAttackingSpriteController(stateController);
             }
-            else
-            {
-                //TODO: temporary
-                return new PlayerAttackingDownFrame0(state.GetPosition());
-            }
+
+            return instance;
+        }
+
+        public void Update()
+        {
+            currentController.Update();
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            currentController.Draw(spriteBatch);
+        }
+
+        public void Reset()
+        {
+
         }
     }
 }

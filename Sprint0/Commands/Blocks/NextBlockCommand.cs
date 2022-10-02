@@ -9,14 +9,7 @@
         }
         public void Execute()
         {
-            if (game.currentBlock < game.blocks.Length - 1)
-            {
-                game.currentBlock++;
-            }
-            else
-            {
-                game.currentBlock = 0;
-            }
+            game.currentBlock = (game.currentBlock + 1) % game.blocks.Length;
         }
     }
 }

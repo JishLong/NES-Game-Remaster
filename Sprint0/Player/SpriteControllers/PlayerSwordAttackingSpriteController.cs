@@ -1,101 +1,62 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.State;
 using Sprint0.Sprites.Player;
+using Sprint0.Sprites.Player.Attack.SwordAttack;
 
 namespace Sprint0.Player.SpriteControllers
 {
-    public class PlayerSwordAttackingSpriteController
+    public class PlayerSwordAttackingSpriteController : ISpriteController
     {
-        private PlayerStateController stateController;
+        // singleton instance
+        private static PlayerSwordAttackingSpriteController instance;
 
-        public PlayerSwordAttackingSpriteController(PlayerStateController stateController)
+        private readonly PlayerStateController stateController;
+        private ISprite currentSprite;
+
+        public static PlayerSwordAttackingSpriteController GetInstance(PlayerStateController stateController)
         {
-            this.stateController = stateController;
+            if (instance == null)
+            {
+                instance = new PlayerSwordAttackingSpriteController(stateController);
+            }
+
+            return instance;
         }
 
-        public ISprite GetSprite()
+        private PlayerSwordAttackingSpriteController(PlayerStateController stateController)
         {
-            int attackFrame = stateController.GetAttackFrame();
+            this.stateController = stateController;
+            currentSprite = PlayerSwordAttackDown.GetInstance(stateController);
+        }
+
+        public void Update()
+        {
             var state = stateController.GetState();
 
             if (state.FacingDown())
             {
-                if (attackFrame == 0)
-                {
-                    return new PlayerAttackingDownFrame0(state.GetPosition());
-                }
-                else if (attackFrame == 1)
-                {
-                    return new PlayerSwordAttackingDownFrame1(state.GetPosition());
-                }
-                else if (attackFrame == 2)
-                {
-                    return new PlayerSwordAttackingDownFrame2(state.GetPosition());
-                }
-                else
-                {
-                    return new PlayerSwordAttackingDownFrame3(state.GetPosition());
-                }
+                currentSprite = PlayerSwordAttackDown.GetInstance(stateController);
             }
             else if (state.FacingRight())
             {
-                if (attackFrame == 0)
-                {
-                    return new PlayerAttackingRightFrame0(state.GetPosition());
-                }
-                else if (attackFrame == 1)
-                {
-                    return new PlayerSwordAttackingRightFrame1(state.GetPosition());
-                }
-                else if (attackFrame == 2)
-                {
-                    return new PlayerSwordAttackingRightFrame2(state.GetPosition());
-                }
-                else
-                {
-                    return new PlayerSwordAttackingRightFrame3(state.GetPosition());
-                }
+                currentSprite = PlayerSwordAttackRight.GetInstance(stateController);
             }
             else if (state.FacingUp())
             {
-                if (attackFrame == 0)
-                {
-                    return new PlayerAttackingUpFrame0(state.GetPosition());
-                }
-                else if (attackFrame == 1)
-                {
-                    return new PlayerSwordAttackingUpFrame1(state.GetPosition());
-                }
-                else if (attackFrame == 2)
-                {
-                    return new PlayerSwordAttackingUpFrame2(state.GetPosition());
-                }
-                else
-                {
-                    return new PlayerSwordAttackingUpFrame3(state.GetPosition());
-                }
+                currentSprite = PlayerSwordAttackUp.GetInstance(stateController);
             }
             // when facing left
             else
             {
-                if (attackFrame == 0)
-                {
-                    return new PlayerAttackingLeftFrame0(state.GetPosition());
-                }
-                else if (attackFrame == 1)
-                {
-                    return new PlayerSwordAttackingLeftFrame1(state.GetPosition());
-                }
-                else if (attackFrame == 2)
-                {
-                    return new PlayerSwordAttackingLeftFrame2(state.GetPosition());
-                }
-                else
-                {
-                    return new PlayerSwordAttackingLeftFrame3(state.GetPosition());
-                }
+                currentSprite = PlayerSwordAttackLeft.GetInstance(stateController);
             }
         }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            currentSprite.Draw(spriteBatch, 0, 0, 0, 0);
+        }
+
+        public void Reset() { }
     }
 }
-

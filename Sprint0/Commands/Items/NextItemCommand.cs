@@ -11,13 +11,7 @@
 
         public void Execute()
         {
-            if (game.currentItem < game.items.Length - 1)
-            {
-                game.currentItem++;
-            }
-            else {
-                game.currentItem = 0;
-            }
+            game.currentItem = (game.currentItem + 1) % game.items.Length;
         }
     }
 }

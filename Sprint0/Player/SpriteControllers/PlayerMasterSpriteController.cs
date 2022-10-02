@@ -1,34 +1,37 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.SpriteControllers;
 using Sprint0.Player.State;
-using Sprint0.Sprites.Player;
 
 namespace Sprint0.Player
 {
-    public class PlayerMasterSpriteController
+    public class PlayerMasterSpriteController : ISpriteController
     {
+        // singleton instance
+        private static PlayerMasterSpriteController instance;
+
         private readonly PlayerStateController stateController;
-        private ISprite currentSprite;
-        private int animationFrame = 0;
+        private ISpriteController currentController;
 
-        // other sprite controllers
-        private readonly PlayerMovementSpriteController movementController;
-        private readonly PlayerStationarySpriteController stationaryController;
-        private readonly PlayerAttackingSpriteController attackingController;
+        // singleton getter
+        public static PlayerMasterSpriteController GetInstance(PlayerStateController stateController)
+        {
+            if (instance == null)
+            {
+                instance = new PlayerMasterSpriteController(stateController);
+            }
 
-        public PlayerMasterSpriteController(PlayerStateController stateController, Game1 game)
+            return instance;
+        }
+
+        private PlayerMasterSpriteController(PlayerStateController stateController)
         {
             this.stateController = stateController;
-            this.movementController = new PlayerMovementSpriteController(stateController);
-            this.stationaryController = new PlayerStationarySpriteController(stateController);
-            this.attackingController = new PlayerAttackingSpriteController(stateController);
-
-            this.currentSprite = new PlayerFacingDownwardFrame0(stateController.GetState().GetPosition());
+            this.currentController = PlayerStationarySpriteController.GetInstance(stateController);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            currentSprite.Draw(spriteBatch, 0, 0, 0, 0);
+            currentController.Draw(spriteBatch);
         }
 
         public void Update()
@@ -37,28 +40,24 @@ namespace Sprint0.Player
 
             if (state.IsMoving())
             {
-                movementController.Update();
-                this.currentSprite = movementController.GetSprite();
+                currentController = PlayerMovementSpriteController.GetInstance(stateController);
             }
             else
             {
-                movementController.Reset();
-                this.currentSprite = stationaryController.GetSprite();
+                currentController = PlayerStationarySpriteController.GetInstance(stateController);
             }            
 
             if (state.IsAttacking())
             {
-                this.currentSprite = attackingController.GetSprite();
+                currentController = PlayerAttackingSpriteController.GetInstance(stateController);
             }
 
-            if(animationFrame > 30)
-            {
-                animationFrame = 0;
-            }
-            else
-            {
-                animationFrame++;
-            }
+            currentController.Update();
+        }
+
+        public void Reset()
+        {
+            // not a useful method for this controller
         }
     }
 }

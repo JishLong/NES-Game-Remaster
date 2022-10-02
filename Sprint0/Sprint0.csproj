@@ -22,6 +22,8 @@
     <None Remove="Commands\Player\" />
     <None Remove="Sprites\Player\Attack\" />
     <None Remove="Sprites\Player\Attack\SwordAttack\" />
+    <None Remove="Sprites\Player\Stationary\" />
+    <None Remove="Sprites\Player\Movement\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -37,6 +39,8 @@
     <Folder Include="Commands\Player\" />
     <Folder Include="Sprites\Player\Attack\" />
     <Folder Include="Sprites\Player\Attack\SwordAttack\" />
+    <Folder Include="Sprites\Player\Stationary\" />
+    <Folder Include="Sprites\Player\Movement\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Enemies\Interfaces\IWeapon.cs" />

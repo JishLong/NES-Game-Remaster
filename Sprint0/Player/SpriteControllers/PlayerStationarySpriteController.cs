@@ -1,37 +1,65 @@
-﻿using Sprint0.Player.State;
-using Sprint0.Sprites.Player;
+﻿using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Player.State;
+using Sprint0.Sprites.Player.Stationary;
 
 namespace Sprint0.Player.SpriteControllers
 {
-    public class PlayerStationarySpriteController
+    public class PlayerStationarySpriteController : ISpriteController
     {
-        readonly PlayerStateController stateController;
+        // singleton instance
+        private static PlayerStationarySpriteController instance;
 
-        public PlayerStationarySpriteController(PlayerStateController stateController)
+        private readonly PlayerStateController stateController;
+        private ISprite currentSprite;
+
+        private PlayerStationarySpriteController(PlayerStateController stateController)
         {
             this.stateController = stateController;
+            // default sprite
+            this.currentSprite = new PlayerFacingDown(stateController);
         }
 
-        public ISprite GetSprite()
+        public static PlayerStationarySpriteController GetInstance(PlayerStateController stateController)
+        {
+            if (instance == null)
+            {
+                instance = new PlayerStationarySpriteController(stateController);
+            }
+
+            return instance;
+        }
+
+        public void Update()
         {
             var state = stateController.GetState();
 
             if (state.FacingUp())
             {
-                return new PlayerFacingUpFrame0(state.GetPosition());
+                currentSprite = new PlayerFacingUp(stateController);
             }
             else if (state.FacingDown())
             {
-                return new PlayerFacingDownwardFrame0(state.GetPosition());
+                currentSprite = new PlayerFacingDown(stateController);
             }
             else if (state.FacingRight())
             {
-                return new PlayerFacingRightFrame0(state.GetPosition());
+                currentSprite = new PlayerFacingRight(stateController);
             }
             else
             {
-                return new PlayerFacingLeftFrame0(state.GetPosition());
+                currentSprite = new PlayerFacingLeft(stateController);
             }
+        }
+
+        public void Draw(SpriteBatch sb)
+        {
+            currentSprite.Draw(sb, 0, 0, 0, 0);
+        }
+
+        // resets to the default sprite
+        public void Reset()
+        {
+            this.currentSprite = new PlayerFacingDown(stateController);
         }
     }
 }

@@ -32,9 +32,10 @@ namespace Sprint0
         public int currentItem { get; set; }
         public int currentBlock { get; set; }
 
+        public int currentEnemyIndex { get; set; }
+
         public string[] EnemyNames;
         public IEnemy CurrentEnemy{ get; set; }
-        public int CurrentEnemyIndex { get; set; }
         public EnemyFactory EnemyFactory;
         public Vector2 DefaultEnemyPosition;
 
@@ -76,15 +77,15 @@ namespace Sprint0
 
             currentItem = 0;
             currentBlock = 0;
-            CurrentEnemyIndex = 0;
+            currentEnemyIndex = 0;
 
-            EnemyFactory = new EnemyFactory();
+            this.EnemyFactory = new EnemyFactory();
             DefaultEnemyPosition = new Vector2(500, 200);
 
             controllers = new List<IController>
             {
                 new KeyboardController(this, player.GetStateController()),
-                new MouseController(this, g)
+                new MouseController(this)
             };
 
             base.Initialize();
@@ -115,7 +116,6 @@ namespace Sprint0
                 "HAND",
                 "GEL",
                 "RED_GORIYA",
-                "ZOL",
             };
 
             items = new IItem[] {
@@ -187,9 +187,8 @@ namespace Sprint0
         {
             GraphicsDevice.Clear(Color.BlueViolet);
 
-            player.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
-
             sb.Begin(samplerState: SamplerState.PointClamp);
+            player.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
             items[currentItem].Draw(sb);
             blocks[currentBlock].Draw(sb);
             CurrentEnemy.Draw(sb);
