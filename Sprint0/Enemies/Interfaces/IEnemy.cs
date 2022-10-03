@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Enemies.Interfaces
 {
-    public interface IEnemy
+    public interface IEnemy : ICharacter
     {
         void TakeDamage(int damage);
         void Freeze();

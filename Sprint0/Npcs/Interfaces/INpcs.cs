@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Npcs.Interfaces
 {
-    public interface INpc
+    public interface INpc : ICharacter
     {
         //void Freeze();
         //void Unfreeze();

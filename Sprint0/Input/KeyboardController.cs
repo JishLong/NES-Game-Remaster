@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Sprint0.Commands.Player;
 using Sprint0.Commands.Enemies;
+using Sprint0.Commands;
 using Sprint0.Player.State;
 using System.Collections.Generic;
 using Sprint0.Commands.Blocks;
@@ -52,11 +53,18 @@ namespace Sprint0.Controllers
                 { new KeyMap(KeyMap.KeyState.PRESSED, Keys.I),
                     new NextItemCommand(game) },
 
+                //// Enemy switching controls
+                //{ new KeyMap(KeyMap.KeyState.PRESSED, Keys.O),
+                //    new PrevEnemyCommand(game) },
+                //{ new KeyMap(KeyMap.KeyState.PRESSED, Keys.P),
+                //    new NextEnemyCommand(game) },
+                
                 // Enemy switching controls
                 { new KeyMap(KeyMap.KeyState.PRESSED, Keys.O),
-                    new PrevEnemyCommand(game) },
+                    new PrevCharacterCommand(game) },
+                
                 { new KeyMap(KeyMap.KeyState.PRESSED, Keys.P),
-                    new NextEnemyCommand(game) },
+                    new NextCharacterCommand(game) },
 
                 // Block switching controls
                 { new KeyMap(KeyMap.KeyState.PRESSED, Keys.T),
