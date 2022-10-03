@@ -1,34 +1,13 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Player;
 
 namespace Sprint0.Items
 {
-    public class Arrow : IItem
+    public class Arrow : AbstractItem
     {
-        // Sprite
-        private ISprite sprite;
-
-        // Coordinates and dimensions
-        private int x, y, w, h;
-
-        public Arrow(int x, int y)
+        public Arrow(Vector2 position) : base(position)
         {
-            sprite = new ArrowSprite();
-
-            this.x = x;
-            this.y = y;
-            w = 64;
-            h = 64;
-        }
-
-        public void Draw(SpriteBatch sb)
-        {
-            sprite.Draw(sb, x, y, w, h);
-        }
-
-        public void Update()
-        {
-            // Nothing here?
+            Sprite = new ArrowSprite();
         }
     }
 }

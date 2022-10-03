@@ -1,18 +1,19 @@
-﻿namespace Sprint0.Commands.Player
+﻿using Sprint0.Items.Utils;
+
+namespace Sprint0.Commands.Items
 {
     public class NextItemCommand : ICommand
     {
-        private Game1 game;
+        private Game1 Game;
 
         public NextItemCommand(Game1 game)
         {
-            this.game = game;
+            Game = game;
         }
 
         public void Execute()
         {
-            game.currentItem = (game.currentItem + 1) % game.items.Length;
+            Game.CurrentItem = ItemFactory.GetInstance().GetNextItem(ItemFactory.DefaultItemPosition);
         }
     }
 }
-

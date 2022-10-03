@@ -1,11 +1,17 @@
-﻿namespace Sprint0.Sprites.Player
+﻿using Microsoft.Xna.Framework.Graphics;
+
+namespace Sprint0.Sprites.Player
 {
     public class HeartSprite : AnimatedSprite
     {
-        public HeartSprite() : base(Resources.heartItemSheet, 2)
+        public HeartSprite() : base(2, 8)
         {
-            speed = 10;
+
+        }
+
+        protected override Texture2D GetSpriteSheet()
+        {
+            return Resources.HeartSpriteSheet;
         }
     }
 }
-

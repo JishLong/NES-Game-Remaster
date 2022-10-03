@@ -1,21 +1,18 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Sprint0.Enemies.Utils;
 
 namespace Sprint0.Commands.Enemies
 {
     public class NextEnemyCommand: ICommand
     {
-        private Game1 game;
-        private Vector2 DefaultEnemyPosition;
+        private Game1 Game;
 
         public NextEnemyCommand(Game1 game)
         {
-            this.game = game;
-            this.DefaultEnemyPosition = new Vector2(500, 200);
+            Game = game;
         }
         public void Execute()
         {
-            game.currentEnemyIndex = (game.currentEnemyIndex + 1) % game.EnemyNames.Length;
-            game.CurrentEnemy = game.EnemyFactory.GetEnemy(game.EnemyNames[game.currentEnemyIndex], DefaultEnemyPosition);
+            Game.CurrentEnemy = EnemyFactory.GetInstance().GetNextEnemy(EnemyFactory.DefaultEnemyPosition);
         }
     }
 }

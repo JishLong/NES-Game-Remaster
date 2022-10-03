@@ -1,15 +1,19 @@
-﻿namespace Sprint0.Commands.Blocks
+﻿using Sprint0.Blocks.Utils;
+
+namespace Sprint0.Commands.Blocks
 {
     public class NextBlockCommand : ICommand
     {
-        private Game1 game;
+        private Game1 Game;
+
         public NextBlockCommand(Game1 game)
         {
-            this.game = game;
+            Game = game;
         }
+
         public void Execute()
         {
-            game.currentBlock = (game.currentBlock + 1) % game.blocks.Length;
+            Game.CurrentBlock = BlockFactory.GetInstance().GetNextBlock(BlockFactory.DefaultBlockPosition);
         }
     }
 }

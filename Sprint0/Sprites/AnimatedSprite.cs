@@ -3,51 +3,39 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites
 {
-    public class AnimatedSprite : ISprite
+    public abstract class AnimatedSprite : ISprite
     {
-        private Texture2D spriteSheet;
-        private Rectangle[] frames;
-        protected int speed;
-        private int currentFrame, timer;
+        /* [NumFrames] is the number of frames this sprite has
+           [Speed] is many game ticks it takes to cycle through one frame */
+        private int NumFrames, Speed, CurrentFrame, Timer;
 
-        public AnimatedSprite(Texture2D spriteSheet, int numFrames)
+        public AnimatedSprite(int numFrames, int speed)
         {
-            this.spriteSheet = spriteSheet;
-            CreateFrames(spriteSheet, numFrames);
-            currentFrame = 0;
-            speed = 0;
-            timer = 0;
+            NumFrames = numFrames;
+            Speed = speed;
+
+            CurrentFrame = 0;
+            Timer = 0;
         }
 
-        private void CreateFrames(Texture2D spriteSheet, int numFrames)
-        {
-            int SsWidth = spriteSheet.Width;
-            int SsHeight = spriteSheet.Height;
-
-            frames = new Rectangle[numFrames];
-
-            for (int i = 0; i < numFrames; i++)
-            {
-                frames[i] = new Rectangle(i * SsWidth / numFrames, 0, SsWidth / numFrames, SsHeight);
-            }
-        }
+        protected abstract Texture2D GetSpriteSheet();
 
         public void Draw(SpriteBatch spriteBatch, int x, int y, int w, int h)
         {
-            spriteBatch.Draw(spriteSheet, new Rectangle(x, y, w, h), frames[currentFrame], Color.White);
+            Texture2D spriteSheet = GetSpriteSheet();
+            int SsWidth = spriteSheet.Width;
+            int SsHeight = spriteSheet.Height;
+            Rectangle frame = new Rectangle(CurrentFrame * SsWidth / NumFrames, 0, SsWidth / NumFrames, SsHeight);
+
+            spriteBatch.Draw(spriteSheet, new Rectangle(x, y, w, h), frame, Color.White);
         }
 
         public void Update()
         {
-            timer++;
-            if (timer >= speed)
+            Timer = (Timer + 1) % Speed;
+            if (Timer == 0)
             {
-                timer = 0;
-                currentFrame++;
-                if (currentFrame >= frames.Length)
-                {
-                    currentFrame = 0;
-                }
+                CurrentFrame = (CurrentFrame + 1) % NumFrames;
             }
         }
     }

@@ -7,100 +7,70 @@ namespace Sprint0
     public static class Resources
     {
         // Sprite sheets for blocks
-        public static Texture2D blocksSpriteSheet;
-        public static Texture2D fireSpriteSheet;
-        public static Texture2D weaponsAndItemsSpriteSheet;
+        public static Texture2D BlocksSpriteSheet;
+        public static Texture2D FireSpriteSheet;
+        public static Texture2D WeaponsAndItemsSpriteSheet;
 
         // Sprite sheets for items
-        public static Texture2D stillItemsSheet;
-        public static Texture2D fairyItemSheet;
-        public static Texture2D heartItemSheet;
-        public static Texture2D rupeeItemSheet;
-        public static Texture2D triforcePieceItemSheet;
+        public static Texture2D StillItemsSpriteSheet;
+        public static Texture2D FairySpriteSheet;
+        public static Texture2D HeartSpriteSheet;
+        public static Texture2D RupeeSpriteSheet;
+        public static Texture2D TriforcePieceSpriteSheet;
 
         public static Texture2D BossEnemiesSpriteSheet;
         public static Texture2D NpcsSpriteSheet;
         public static Texture2D LinkItemsSpriteSheet;
 
-        public static SpriteFont creditsFont;
+        public static SpriteFont CreditsFont;
         // Sprite sheets for enemies
         public static Texture2D DungeonEnemySpriteSheet;
 
         // Sprite sheet positions for all blocks
-        public static Rectangle fireBlock;
-        public static Rectangle blueTile;
-        public static Rectangle blueWall;
-        public static Rectangle blueGap;
-        public static Rectangle blueStatueLeft;
-        public static Rectangle blueStatueRight;
-        public static Rectangle blueStairs;
-        public static Rectangle blueSand;
-        public static Rectangle greyBricks;
-        public static Rectangle whiteBars;
-        public static Rectangle ladderBlock;
-
+        public static readonly Rectangle FireBlock = new Rectangle(0, 0, 16, 16);
+        public static readonly Rectangle BlueTile = new Rectangle(4, 11, 16, 16);
+        public static readonly Rectangle BlueWall = new Rectangle(21, 11, 16, 16);
+        public static readonly Rectangle BlueGap = new Rectangle(38, 28, 16, 16);
+        public static readonly Rectangle BlueStatueLeft = new Rectangle(38, 11, 16, 16);
+        public static readonly Rectangle BlueStatueRight = new Rectangle(55, 11, 16, 16);
+        public static readonly Rectangle BlueStairs = new Rectangle(55, 28, 16, 16);
+        public static readonly Rectangle BlueSand = new Rectangle(21, 28, 16, 16);
+        public static readonly Rectangle GreyBricks = new Rectangle(4, 45, 16, 16);
+        public static readonly Rectangle WhiteBars = new Rectangle(21, 45, 16, 16);
+        public static readonly Rectangle LadderBlock = new Rectangle(280, 12, 16, 16);
 
         // Sprite sheet positions for still items
-        public static Rectangle compass;
-        public static Rectangle map;
-        public static Rectangle key;
-        public static Rectangle heartContainer;
-        public static Rectangle woodenBoomerang;
-        public static Rectangle bow;
-        public static Rectangle arrow;
-        public static Rectangle bomb;
-        public static Rectangle clock;
-        public static Rectangle blueCandle;
-        public static Rectangle bluePotion;
+        public static readonly Rectangle Compass = new Rectangle(0, 0, 16, 16);
+        public static readonly Rectangle Map = new Rectangle(16, 0, 16, 16);
+        public static readonly Rectangle Key = new Rectangle(32, 0, 16, 16);
+        public static readonly Rectangle HeartContainer = new Rectangle(48, 0, 16, 16);
+        public static readonly Rectangle WoodenBoomerang = new Rectangle(64, 0, 16, 16);
+        public static readonly Rectangle Bow = new Rectangle(80, 0, 16, 16);
+        public static readonly Rectangle Arrow = new Rectangle(96, 0, 16, 16);
+        public static readonly Rectangle Bomb = new Rectangle(112, 0, 16, 16);
+        public static readonly Rectangle Clock = new Rectangle(128, 0, 16, 16);
+        public static readonly Rectangle BlueCandle = new Rectangle(144, 0, 16, 16);
+        public static readonly Rectangle BluePotion = new Rectangle(160, 0, 16, 16);
 
         public static void LoadContent(ContentManager c) 
         {
-
             // Load enemy sprite sheets
             DungeonEnemySpriteSheet = c.Load<Texture2D>("DungeonEnemies");
 
             // Load item sprite sheets
-            stillItemsSheet = c.Load<Texture2D>("stillItems");
-            fairyItemSheet = c.Load<Texture2D>("fairyItem");
-            heartItemSheet = c.Load<Texture2D>("heartItem");
-            rupeeItemSheet = c.Load<Texture2D>("rupeeItem");
-            triforcePieceItemSheet = c.Load<Texture2D>("triforcePieceItem");
+            StillItemsSpriteSheet = c.Load<Texture2D>("stillItems");
+            FairySpriteSheet = c.Load<Texture2D>("fairyItem");
+            HeartSpriteSheet = c.Load<Texture2D>("heartItem");
+            RupeeSpriteSheet = c.Load<Texture2D>("rupeeItem");
+            TriforcePieceSpriteSheet = c.Load<Texture2D>("triforcePieceItem");
             BossEnemiesSpriteSheet = c.Load<Texture2D>("BossEnemies");
             NpcsSpriteSheet = c.Load<Texture2D>("Npcs");
             LinkItemsSpriteSheet = c.Load<Texture2D>("Link+items");
 
             // Load block sprite sheets
-            blocksSpriteSheet = c.Load<Texture2D>("dungeonBlocks");
-            fireSpriteSheet = c.Load<Texture2D>("fireBlock");
-            weaponsAndItemsSpriteSheet = c.Load<Texture2D>("weaponsAndItems");
-
-            // Load positions for all blocks
-            fireBlock = new Rectangle(0, 0, 16, 16);
-            blueTile = new Rectangle(4, 11, 16, 16);
-            blueWall = new Rectangle(21, 11, 16, 16);
-            blueGap = new Rectangle(38, 28, 16, 16);
-            blueStatueLeft = new Rectangle(38, 11, 16, 16);
-            blueStatueRight = new Rectangle(55, 11, 16, 16);
-            blueStairs = new Rectangle(55, 28, 16, 16);
-            blueSand = new Rectangle(21, 28, 16, 16);
-            greyBricks = new Rectangle(4, 45, 16, 16);
-            whiteBars = new Rectangle(21, 45, 16, 16);
-            ladderBlock = new Rectangle(280, 12, 16, 16);
-
-
-
-            // Load exact position of still items
-            compass = new Rectangle(0, 0, 16, 16);
-            map = new Rectangle(16, 0, 16, 16);
-            key = new Rectangle(32, 0, 16, 16);
-            heartContainer = new Rectangle(48, 0, 16, 16);
-            woodenBoomerang = new Rectangle(64, 0, 16, 16);
-            bow = new Rectangle(80, 0, 16, 16);
-            arrow = new Rectangle(96, 0, 16, 16);
-            bomb = new Rectangle(112, 0, 16, 16);
-            clock = new Rectangle(128, 0, 16, 16);
-            blueCandle = new Rectangle(144, 0, 16, 16);
-            bluePotion = new Rectangle(160, 0, 16, 16);
+            BlocksSpriteSheet = c.Load<Texture2D>("dungeonBlocks");
+            FireSpriteSheet = c.Load<Texture2D>("fireBlock");
+            WeaponsAndItemsSpriteSheet = c.Load<Texture2D>("weaponsAndItems");      
         }
     }
 }

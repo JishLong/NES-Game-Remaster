@@ -1,34 +1,13 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Player;
 
 namespace Sprint0.Items
 {
-    public class Map : IItem
+    public class Map : AbstractItem
     {
-        // Sprite
-        private ISprite sprite;
-
-        // Coordinates and dimensions
-        private int x, y, w, h;
-
-        public Map(int x, int y)
+        public Map(Vector2 position) : base(position)
         {
-            sprite = new MapSprite();
-
-            this.x = x;
-            this.y = y;
-            w = 64;
-            h = 64;
-        }
-
-        public void Draw(SpriteBatch sb)
-        {
-            sprite.Draw(sb, x, y, w, h);
-        }
-
-        public void Update()
-        {
-            // Nothing here?
+            Sprite = new MapSprite();
         }
     }
 }

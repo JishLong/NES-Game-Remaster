@@ -1,9 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 
 namespace Sprint0.Blocks
 {
@@ -11,6 +7,7 @@ namespace Sprint0.Blocks
     {
         public void Draw(SpriteBatch sb);
 
+        // Will possibly be useful in the future - currently sees very limited use
         public void Update();
     }
 }

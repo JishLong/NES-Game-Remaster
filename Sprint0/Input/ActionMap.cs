@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 namespace Sprint0.Controllers
 {
     // Maps a command to one or more keyboard keys
-    public class KeyMap
+    public class ActionMap
     {
         /* Used to reference the circumstance that activates a key map
          * 
@@ -14,23 +14,23 @@ namespace Sprint0.Controllers
          * [RELEASED]: at least one of the keys in the mapping has *JUST NOW* been released */
         public enum KeyState {HELD, UP, PRESSED, RELEASED};
 
-        private KeyState state;
-        private Keys[] keys;
+        private KeyState State;
+        private Keys[] KeyList;
 
-        public KeyMap(KeyState state, params Keys[] keys)
+        public ActionMap(KeyState state, params Keys[] keyList)
         {
-            this.state = state;
-            this.keys = keys;
+            State = state;
+            KeyList = keyList;
         }
 
         public Boolean IsActivated(KeyboardState prevState, KeyboardState currentState)
         {
-            foreach (var key in keys)
+            foreach (var key in KeyList)
             {
-                if (state == KeyState.HELD && currentState.IsKeyDown(key)
-                    || state == KeyState.UP && currentState.IsKeyUp(key)
-                    || state == KeyState.PRESSED && currentState.IsKeyDown(key) && prevState.IsKeyUp(key)
-                    || state == KeyState.RELEASED && currentState.IsKeyUp(key) && prevState.IsKeyDown(key))
+                if (State == KeyState.HELD && currentState.IsKeyDown(key)
+                    || State == KeyState.UP && currentState.IsKeyUp(key)
+                    || State == KeyState.PRESSED && currentState.IsKeyDown(key) && prevState.IsKeyUp(key)
+                    || State == KeyState.RELEASED && currentState.IsKeyUp(key) && prevState.IsKeyDown(key))
                 {
                     return true;
                 }

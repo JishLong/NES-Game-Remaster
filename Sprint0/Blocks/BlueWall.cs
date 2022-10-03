@@ -1,34 +1,13 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Blocks;
 
 namespace Sprint0.Blocks
 {
-    public class BlueWall : IBlock
+    public class BlueWall : AbstractBlock
     {
-        // Sprite
-        private ISprite sprite;
-
-        // Coordinates and dimensions
-        private int x, y, w, h;
-
-        public BlueWall(int x, int y)
+        public BlueWall(Vector2 position) : base(position)
         {
-            sprite = new BlueWallSprite();
-
-            this.x = x;
-            this.y = y;
-            w = 64;
-            h = 64;
-        }
-
-        public void Draw(SpriteBatch sb)
-        {
-            sprite.Draw(sb, x, y, w, h);
-        }
-
-        public void Update()
-        {
-            // Nothing here?
+            Sprite = new BlueWallSprite();
         }
     }
 }

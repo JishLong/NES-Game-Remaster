@@ -1,20 +1,19 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Sprint0.Items.Utils;
 
-namespace Sprint0.Commands.Player
+namespace Sprint0.Commands.Items
 {
     public class PrevItemCommand : ICommand
     {
-        private Game1 game;
+        private Game1 Game;
 
         public PrevItemCommand(Game1 game)
         {
-            this.game = game;
+            Game = game;
         }
 
         public void Execute()
         {
-            game.currentItem = (game.currentItem - 1 + game.items.Length) % game.items.Length;
+            Game.CurrentItem = ItemFactory.GetInstance().GetPrevItem(ItemFactory.DefaultItemPosition);
         }
     }
 }
-

@@ -1,56 +1,57 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Sprint0.Commands.Player;
+using Sprint0.Commands.Items;
 using Sprint0.Commands.Enemies;
 using Sprint0.Commands;
 using Sprint0.Player.State;
 using System.Collections.Generic;
 using Sprint0.Commands.Blocks;
+using Sprint0.Commands;
 
 namespace Sprint0.Controllers
 {
     public class KeyboardController : IController
     {
-        // Comparing these two keyboard states can be utilized to handle more specific keyboard input
-        private KeyboardState prevState = Keyboard.GetState();
-        private KeyboardState currentState;
+        // Can be utilized to handle more specific keyboard input
+        private KeyboardState PrevState = Keyboard.GetState();
 
-        // A list of every keyboard control mapping
-        private Dictionary<KeyMap, ICommand> keyMap;
+        // A list of every mapping of keyboard key(s) to actions
+        private Dictionary<ActionMap, ICommand> ActionMaps;
 
         public KeyboardController(Game1 game, PlayerStateController playerStateController)
         {
-            keyMap = new Dictionary<KeyMap, ICommand>
+            ActionMaps = new Dictionary<ActionMap, ICommand>
             {
                 // Player movement controls
-                { new KeyMap(KeyMap.KeyState.HELD, Keys.W, Keys.Up),
+                { new ActionMap(ActionMap.KeyState.HELD, Keys.W, Keys.Up),
                     new PlayerUpInputCommand(playerStateController) },
-                { new KeyMap(KeyMap.KeyState.HELD, Keys.S, Keys.Down),
+                { new ActionMap(ActionMap.KeyState.HELD, Keys.S, Keys.Down),
                     new PlayerDownInputCommand(playerStateController) },
-                { new KeyMap(KeyMap.KeyState.HELD, Keys.A, Keys.Left),
+                { new ActionMap(ActionMap.KeyState.HELD, Keys.A, Keys.Left),
                     new PlayerLeftInputCommand(playerStateController) },
-                { new KeyMap(KeyMap.KeyState.HELD, Keys.D, Keys.Right),
+                { new ActionMap(ActionMap.KeyState.HELD, Keys.D, Keys.Right),
                     new PlayerRightInputCommand(playerStateController) },
-                { new KeyMap(KeyMap.KeyState.RELEASED, Keys.W, Keys.Up),
+                { new ActionMap(ActionMap.KeyState.RELEASED, Keys.W, Keys.Up),
                     new PlayerStopMovingCommand(playerStateController) },
-                { new KeyMap(KeyMap.KeyState.RELEASED, Keys.S, Keys.Down),
+                { new ActionMap(ActionMap.KeyState.RELEASED, Keys.S, Keys.Down),
                     new PlayerStopMovingCommand(playerStateController) },
-                { new KeyMap(KeyMap.KeyState.RELEASED, Keys.A, Keys.Left),
+                { new ActionMap(ActionMap.KeyState.RELEASED, Keys.A, Keys.Left),
                     new PlayerStopMovingCommand(playerStateController) },
-                { new KeyMap(KeyMap.KeyState.RELEASED, Keys.D, Keys.Right),
+                { new ActionMap(ActionMap.KeyState.RELEASED, Keys.D, Keys.Right),
                     new PlayerStopMovingCommand(playerStateController) },
 
                 // Player attack controls
-                { new KeyMap(KeyMap.KeyState.HELD, Keys.Z, Keys.N),
+                { new ActionMap(ActionMap.KeyState.HELD, Keys.Z, Keys.N),
                     new PlayerSwordAttackCommand(playerStateController) },
 
                 // Player damage control
-                { new KeyMap(KeyMap.KeyState.PRESSED, Keys.E),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.E),
                     new PlayerTakeDamageCommand(playerStateController) },
 
                 // Item switching controls
-                { new KeyMap(KeyMap.KeyState.PRESSED, Keys.U),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.U),
                     new PrevItemCommand(game) },
-                { new KeyMap(KeyMap.KeyState.PRESSED, Keys.I),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.I),
                     new NextItemCommand(game) },
 
                 //// Enemy switching controls
@@ -67,26 +68,30 @@ namespace Sprint0.Controllers
                     new NextCharacterCommand(game) },
 
                 // Block switching controls
-                { new KeyMap(KeyMap.KeyState.PRESSED, Keys.T),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.T),
                     new PrevBlockCommand(game) },
-                { new KeyMap(KeyMap.KeyState.PRESSED, Keys.Y),
-                    new NextBlockCommand(game) }
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Y),
+                    new NextBlockCommand(game) },
+
+                // Misc. controls
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
+                    new QuitCommand(game) }
             };
         }
 
         public void Update()
         {
-            currentState = Keyboard.GetState();
+            KeyboardState currentState = Keyboard.GetState();
 
-            foreach (var mapping in keyMap)
+            foreach (var mapping in ActionMaps)
             {
-                if (mapping.Key.IsActivated(prevState, currentState))
+                if (mapping.Key.IsActivated(PrevState, currentState))
                 {
                     mapping.Value.Execute();
                 }
             }
 
-            prevState = currentState;
+            PrevState = currentState;
         }
     }
 }
