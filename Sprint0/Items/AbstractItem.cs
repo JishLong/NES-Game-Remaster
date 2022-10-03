@@ -11,19 +11,15 @@ namespace Sprint0.Items
 
         // Coordinates and dimensions
         protected Vector2 Position;
-        protected int Width, Height;
 
         protected AbstractItem(Vector2 position)
         {
             Position = position;
-
-            Width = 64;
-            Height = 64;
         }
 
         public void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, (int)Position.X, (int)Position.Y, Width, Height);
+            Sprite.Draw(sb, Position);
         }
 
         public void Update()

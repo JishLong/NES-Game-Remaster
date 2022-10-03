@@ -32,7 +32,7 @@ namespace Sprint0.Enemies
             {   
                 Position += MovementBehavior.Move(gameTime);
             }
-            Sprite.Update(gameTime);
+            Sprite.Update();
         }
         public override void Draw(SpriteBatch sb)
         {

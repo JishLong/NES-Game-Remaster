@@ -3,19 +3,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Blocks
 {
-    internal class BlueTileSprite : ISprite
+    public class BlueTileSprite : StillSprite
     {
-        public void Draw(SpriteBatch sb, int x, int y, int w, int h)
-        {
-            Texture2D SpriteSheet = Resources.BlocksSpriteSheet;
-            Rectangle SheetPosition = Resources.BlueTile;
+        protected override Texture2D GetSpriteSheet() => Resources.BlocksSpriteSheet;
 
-            sb.Draw(SpriteSheet, new Rectangle(x, y, w, h), SheetPosition, Color.White);
-        }
-
-        public void Update()
-        {
-            //Nothing Needed
-        }
+        protected override Rectangle GetFrame() => Resources.BlueTile;
     }
 }

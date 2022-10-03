@@ -13,6 +13,14 @@ namespace Sprint0
         public static Texture2D CharactersSpriteSheet;
         public static Texture2D LinkSpriteSheet;
 
+        // Old sprite sheets - just in case someone needs to implement something using these at first
+        public static Texture2D BossEnemiesSheet;
+        public static Texture2D DungeonEnemiesSheet;
+        public static Texture2D EnemyDeathSheet;
+        public static Texture2D LinkAndItemsSheet;
+        public static Texture2D NpcsSheet;
+        public static Texture2D WeaponsAndItemsSheet;
+
         // Sprite sheet positions for all blocks
         public static readonly Rectangle FireBlock = new Rectangle(32, 32, 16, 16);
         public static readonly Rectangle BlueTile = new Rectangle(0, 0, 16, 16);
@@ -84,7 +92,14 @@ namespace Sprint0
             ItemsSpriteSheet = c.Load<Texture2D>("items");
             WeaponsAndProjSpriteSheet = c.Load<Texture2D>("weaponsAndProj");
             CharactersSpriteSheet = c.Load<Texture2D>("characters");
-            LinkSpriteSheet = c.Load<Texture2D>("link");      
+            LinkSpriteSheet = c.Load<Texture2D>("link");
+
+            BossEnemiesSheet = c.Load<Texture2D>("BossEnemies");
+            DungeonEnemiesSheet = c.Load<Texture2D>("DungeonEnemies");
+            EnemyDeathSheet = c.Load<Texture2D>("EnemyDeath");
+            LinkAndItemsSheet = c.Load<Texture2D>("Link+Items");
+            NpcsSheet = c.Load<Texture2D>("Npcs");
+            WeaponsAndItemsSheet = c.Load<Texture2D>("weaponsAndItems");
         }
     }
 }

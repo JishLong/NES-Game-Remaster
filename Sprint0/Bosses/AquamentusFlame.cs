@@ -59,7 +59,7 @@ namespace Sprint0.Bosses
             }
             Position += (this.Direction * this.MovementSpeed);
 
-            sprite.Update(gameTime);
+            sprite.Update();
         }
 
         public override void Draw(SpriteBatch sb)

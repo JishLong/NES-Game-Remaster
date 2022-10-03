@@ -3,24 +3,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player
 {
-    public class BluePotionSprite : ISprite
+    public class BluePotionSprite : StillSprite
     {
-        public BluePotionSprite()
-        {
+        protected override Texture2D GetSpriteSheet() => Resources.ItemsSpriteSheet;
 
-        }
-
-        public void Draw(SpriteBatch sb, int x, int y, int w, int h)
-        {
-            Texture2D spriteSheet = Resources.StillItemsSpriteSheet;
-            Rectangle sheetPosition = Resources.BluePotion;
-
-            sb.Draw(spriteSheet, new Rectangle(x, y, w, h), sheetPosition, Color.White);
-        }
-
-        public void Update()
-        {
-            // Nothing here!
-        }
+        protected override Rectangle GetFrame() => Resources.BluePotion;
     }
 }

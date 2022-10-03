@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.State;
 using Sprint0.Sprites;
-using Sprint0.Sprites.Player;
+using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Player.Movement;
 
 namespace Sprint0.Player.SpriteControllers
@@ -17,7 +17,7 @@ namespace Sprint0.Player.SpriteControllers
         private PlayerMovementSpriteController(PlayerStateController stateController)
         {
             this.stateController = stateController;
-            this.currentSprite = PlayerMovingDown.GetInstance(stateController);
+            this.currentSprite = PlayerMovingDown.GetInstance();
         }
 
         public static PlayerMovementSpriteController GetInstance(PlayerStateController stateController)
@@ -32,7 +32,14 @@ namespace Sprint0.Player.SpriteControllers
 
         public void Draw(SpriteBatch sb)
         {
-            currentSprite.Draw(sb, 0, 0, 0, 0);
+            if (stateController.GetState().IsDamaged())
+            {
+                currentSprite.Draw(sb, stateController.GetState().GetPosition(), Color.Red);
+            }
+            else
+            {
+                currentSprite.Draw(sb, stateController.GetState().GetPosition());
+            }
         }
 
         public void Update()
@@ -42,28 +49,25 @@ namespace Sprint0.Player.SpriteControllers
 
             if (state.FacingUp())
             {
-                currentSprite = PlayerMovingUp.GetInstance(stateController);
+                currentSprite = PlayerMovingUp.GetInstance();
             }
             else if (state.FacingDown())
             {
-                currentSprite = PlayerMovingDown.GetInstance(stateController);
+                currentSprite = PlayerMovingDown.GetInstance();
             }
             else if (state.FacingRight())
             {
-                currentSprite = PlayerMovingRight.GetInstance(stateController);
+                currentSprite = PlayerMovingRight.GetInstance();
             }
             else
             {
-                currentSprite = PlayerMovingLeft.GetInstance(stateController);
+                currentSprite = PlayerMovingLeft.GetInstance();
             }
-
-          
         }
 
         public void Reset()
         {
-            currentSprite = PlayerMovingDown.GetInstance(stateController);
+            currentSprite = PlayerMovingDown.GetInstance();
         }
     }
 }
-

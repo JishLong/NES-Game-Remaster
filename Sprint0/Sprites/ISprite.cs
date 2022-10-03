@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites
 {
@@ -6,6 +7,8 @@ namespace Sprint0.Sprites
     {
         void Update();
 
-        void Draw(SpriteBatch sb, int x, int y, int w, int h);
+        void Draw(SpriteBatch sb, Vector2 position);
+
+        void Draw(SpriteBatch sb, Vector2 position, Color color);
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Enemies.Interfaces;
 using Sprint0.Enemies.Utils;
 using Sprint0.Sprites.Enemies;
+using Sprint0.Sprites;
 
 namespace Sprint0.Enemies
 {
@@ -21,7 +22,7 @@ namespace Sprint0.Enemies
         protected bool IsFrozen = false;
 
         // Sprite related fields.
-        protected IEnemySprite Sprite;
+        protected ISprite Sprite;
         public void TakeDamage(int damage)
         {
             Health -= damage;

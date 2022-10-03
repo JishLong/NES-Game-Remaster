@@ -1,73 +1,29 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Player.State;
 
 namespace Sprint0.Sprites.Player.Attack.SwordAttack
 {
-    public class PlayerSwordAttackDown : ISprite
+    public class PlayerSwordAttackDown : AnimatedSprite
     {
         // singleton instance
         private static PlayerSwordAttackDown instance;
 
-        private readonly PlayerStateController stateController;
-        private readonly int spriteScale = 3;
-
-        public static PlayerSwordAttackDown GetInstance(PlayerStateController stateController)
+        public static PlayerSwordAttackDown GetInstance()
         {
             if (instance == null)
             {
-                instance = new PlayerSwordAttackDown(stateController);
+                instance = new PlayerSwordAttackDown();
             }
-
             return instance;
         }
 
-        private PlayerSwordAttackDown(PlayerStateController stateController)
+        private PlayerSwordAttackDown() : base(4, 8)
         {
-            this.stateController = stateController;
+            
         }
 
-        public void Update()
-        {
+        protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 
-        }
-
-        public void Draw(SpriteBatch sb, int x, int y, int w, int h)
-        {
-            var position = stateController.GetState().GetPosition();
-            var frame = stateController.GetAttackFrame();
-            Rectangle sourceRectangle;
-            Rectangle destinationRectangle;
-            Color color = Color.White;
-
-            if (stateController.GetState().IsDamaged())
-            {
-                color = Color.Red;
-            }
-
-            if (frame == 0)
-            {
-                sourceRectangle = new Rectangle(94, 47, 15, 15);
-                destinationRectangle = new Rectangle((int)position.X, (int)position.Y, spriteScale * 15, spriteScale * 15);
-            }
-            else if (frame == 1)
-            {
-                sourceRectangle = new Rectangle(111, 47, 15, 27);
-                destinationRectangle = new Rectangle((int)position.X, (int)position.Y, spriteScale * 15, spriteScale * 27);
-            }
-            else if (frame == 2)
-            {
-                sourceRectangle = new Rectangle(128, 47, 15, 23);
-                destinationRectangle = new Rectangle((int)position.X, (int)position.Y, spriteScale * 15, spriteScale * 23);
-            }
-            else
-            {
-                sourceRectangle = new Rectangle(145, 47, 15, 19);
-                destinationRectangle = new Rectangle((int)position.X, (int)position.Y, spriteScale * 15, spriteScale * 19);
-            }
-
-            sb.Draw(LinkSpriteSheet.GetSpriteSheet(), destinationRectangle, sourceRectangle, color);
-        }
+        protected override Rectangle GetFirstFrame() => Resources.LinkSwordDown;
     }
 }
-
