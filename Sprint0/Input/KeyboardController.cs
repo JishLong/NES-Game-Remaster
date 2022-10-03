@@ -2,6 +2,7 @@
 using Sprint0.Commands.Player;
 using Sprint0.Commands.Items;
 using Sprint0.Commands.Enemies;
+using Sprint0.Commands;
 using Sprint0.Player.State;
 using System.Collections.Generic;
 using Sprint0.Commands.Blocks;
@@ -53,11 +54,18 @@ namespace Sprint0.Controllers
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.I),
                     new NextItemCommand(game) },
 
+                //// Enemy switching controls
+                //{ new KeyMap(KeyMap.KeyState.PRESSED, Keys.O),
+                //    new PrevEnemyCommand(game) },
+                //{ new KeyMap(KeyMap.KeyState.PRESSED, Keys.P),
+                //    new NextEnemyCommand(game) },
+                
                 // Enemy switching controls
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.O),
-                    new PrevEnemyCommand(game) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.P),
-                    new NextEnemyCommand(game) },
+                { new KeyMap(KeyMap.KeyState.PRESSED, Keys.O),
+                    new PrevCharacterCommand(game) },
+                
+                { new KeyMap(KeyMap.KeyState.PRESSED, Keys.P),
+                    new NextCharacterCommand(game) },
 
                 // Block switching controls
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.T),

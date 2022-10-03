@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Bosses.Interfaces
 {
-    public interface IBoss
+    public interface IBoss : ICharacter
     {
         void TakeDamage(int damage);
         //void Freeze();
