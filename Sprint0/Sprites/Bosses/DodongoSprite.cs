@@ -40,15 +40,16 @@ namespace Sprint0.Sprites.Bosses
         {
             Target = new Rectangle((int)position.X, (int)position.Y, Width * SpriteScale, Height * SpriteScale);
             Source = MovAnimation.CurrentRect();
+            Vector2 origin = new Vector2(0, 0);
 
-            if (MovAnimation.CurrentFrame == 0 & false)
+            if (MovAnimation.CurrentFrame == 0)
             {
-                // TODO: draw logic
+                SpriteEffects flip = SpriteEffects.FlipHorizontally;
+                sb.Draw(Sheet, Target, Source, Color.White, 0f, origin, flip, 0f);
             }
             else
             {
-                sb.Draw(Sheet, Target, Source, Color.White);
-
+                sb.Draw(Sheet, Target, Source, Color.White, 0f, origin, SpriteEffects.None, 0f);
             }
         }
     }
