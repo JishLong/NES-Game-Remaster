@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.State;
+using Sprint0.Sprites;
 using Sprint0.Sprites.Player.Stationary;
 
 namespace Sprint0.Player.SpriteControllers

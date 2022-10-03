@@ -3,19 +3,16 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Blocks
 {
-    internal class BlueGapSprite : ISprite
-    {
-        public void Draw(SpriteBatch sb, int x, int y, int w, int h)
+    public class BlueGapSprite : StillSprite
+    { 
+        protected override Rectangle GetFrame()
         {
-            Texture2D SpriteSheet = Resources.BlocksSpriteSheet;
-            Rectangle SheetPosition = Resources.BlueGap;
-
-            sb.Draw(SpriteSheet, new Rectangle(x, y, w, h), SheetPosition, Color.White);
+            return Resources.BlueGap;
         }
 
-        public void Update()
+        protected override Texture2D GetSpriteSheet()
         {
-            //Nothing Needed
+            return Resources.BlocksSpriteSheet;
         }
     }
 }

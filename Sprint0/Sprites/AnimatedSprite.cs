@@ -20,14 +20,17 @@ namespace Sprint0.Sprites
 
         protected abstract Texture2D GetSpriteSheet();
 
+        protected abstract Rectangle GetFirstFrame();
+
         public void Draw(SpriteBatch spriteBatch, int x, int y, int w, int h)
         {
-            Texture2D spriteSheet = GetSpriteSheet();
-            int SsWidth = spriteSheet.Width;
-            int SsHeight = spriteSheet.Height;
-            Rectangle frame = new Rectangle(CurrentFrame * SsWidth / NumFrames, 0, SsWidth / NumFrames, SsHeight);
+            Rectangle frame = GetFirstFrame();
+            if (CurrentFrame != 0)
+            {
+                frame = new Rectangle(CurrentFrame * frame.Width / NumFrames, 0, frame.Width / NumFrames, frame.Height);
+            }
 
-            spriteBatch.Draw(spriteSheet, new Rectangle(x, y, w, h), frame, Color.White);
+            spriteBatch.Draw(GetSpriteSheet(), new Rectangle(x, y, w, h), frame, Color.White);
         }
 
         public void Update()
