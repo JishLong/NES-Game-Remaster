@@ -5,9 +5,9 @@ namespace Sprint0.Items
 {
     public class Map : AbstractItem
     {
-        public Map(Vector2 Position) : base(Position)
+        public Map(Vector2 position) : base(position)
         {
-            sprite = new MapSprite();
+            Sprite = new MapSprite();
         }
     }
 }

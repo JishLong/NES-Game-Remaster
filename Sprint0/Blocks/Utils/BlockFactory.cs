@@ -5,15 +5,16 @@ namespace Sprint0.Blocks.Utils
 {
     public class BlockFactory
     {
-        private Types.Block[] blocks = (Types.Block[])Enum.GetValues(typeof(Types.Block));
-        private int index = 0;
+        public static readonly Vector2 DefaultBlockPosition = new Vector2(100, 200);
 
-        private static BlockFactory instance;
+        // Single point of use
+        private static BlockFactory Instance;
 
-        private BlockFactory()
-        {
+        // Used for switching between different blocks in-game
+        private Types.Block[] Blocks = (Types.Block[])Enum.GetValues(typeof(Types.Block));
+        private int CurrentBlock = 0;
 
-        }
+        private BlockFactory() { }
 
         public IBlock GetBlock(Types.Block blockType, Vector2 position)
         {
@@ -42,30 +43,33 @@ namespace Sprint0.Blocks.Utils
                 case Types.Block.WHITE_BARS:
                     return new WhiteBars(position);
                 default:
-                    Console.Error.Write("The concrete type " + blockType + " could not be instantiated by the Block Factory. Does this type exist?");
+                    Console.Error.Write("The block of type " + blockType.ToString() + 
+                        " could not be instantiated by the Block Factory. Does this type exist?");
                     return null;
             }
         }
 
+        // Returns an instance of the next block type in the [Blocks] array
         public IBlock GetNextBlock(Vector2 position)
         {
-            index = (index + 1) % blocks.Length;
-            return GetBlock(blocks[index], position);
+            CurrentBlock = (CurrentBlock + 1) % Blocks.Length;
+            return GetBlock(Blocks[CurrentBlock], position);
         }
 
+        // Returns an instance of the previous block type in the [Blocks] array
         public IBlock GetPrevBlock(Vector2 position)
         {
-            index = (index - 1 + blocks.Length) % blocks.Length;
-            return GetBlock(blocks[index], position);
+            CurrentBlock = (CurrentBlock - 1 + Blocks.Length) % Blocks.Length;
+            return GetBlock(Blocks[CurrentBlock], position);
         }
 
         public static BlockFactory GetInstance()
         {
-            if (instance == null)
+            if (Instance == null)
             {
-                instance = new BlockFactory();
+                Instance = new BlockFactory();
             }
-            return instance;
+            return Instance;
         }
     }
 }

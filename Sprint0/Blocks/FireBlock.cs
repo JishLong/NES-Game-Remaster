@@ -5,10 +5,9 @@ namespace Sprint0.Blocks
 {
     public class FireBlock : AbstractBlock
     {
-        public FireBlock(Vector2 pos) : base(pos)
+        public FireBlock(Vector2 position) : base(position)
         {
-            sprite = new FireBlockSprite();
+            Sprite = new FireBlockSprite();
         }
     }
 }
-

@@ -5,10 +5,9 @@ namespace Sprint0.Blocks
 {
     public class BlueTile : AbstractBlock
     {
-        public BlueTile(Vector2 pos) : base(pos)
+        public BlueTile(Vector2 position) : base(position)
         {
-            sprite = new BlueTileSprite();
+            Sprite = new BlueTileSprite();
         }
     }
 }
-

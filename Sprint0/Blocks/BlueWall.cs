@@ -5,9 +5,9 @@ namespace Sprint0.Blocks
 {
     public class BlueWall : AbstractBlock
     {
-        public BlueWall(Vector2 pos) : base(pos)
+        public BlueWall(Vector2 position) : base(position)
         {
-            sprite = new BlueWallSprite();
+            Sprite = new BlueWallSprite();
         }
     }
 }

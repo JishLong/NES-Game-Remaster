@@ -1,4 +1,4 @@
-﻿namespace Sprint0
+﻿namespace Sprint0.Commands
 {
     public interface ICommand
     {

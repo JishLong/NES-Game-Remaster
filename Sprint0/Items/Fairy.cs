@@ -5,9 +5,9 @@ namespace Sprint0.Items
 {
     public class Fairy : AbstractItem
     {
-        public Fairy(Vector2 Position) : base(Position)
+        public Fairy(Vector2 position) : base(position)
         {
-            sprite = new FairySprite();
+            Sprite = new FairySprite();
         }
     }
 }

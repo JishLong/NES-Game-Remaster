@@ -5,9 +5,9 @@ namespace Sprint0.Items
 {
     public class Bow : AbstractItem
     {
-        public Bow(Vector2 Position) : base(Position)
+        public Bow(Vector2 position) : base(position)
         {
-            sprite = new BowSprite();
+            Sprite = new BowSprite();
         }
     }
 }

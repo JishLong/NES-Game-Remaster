@@ -5,9 +5,9 @@ namespace Sprint0.Blocks
 {
     public class BlueGap : AbstractBlock
     {
-        public BlueGap(Vector2 pos) : base(pos)
+        public BlueGap(Vector2 position) : base(position)
         {
-            sprite = new BlueGapSprite();
+            Sprite = new BlueGapSprite();
         }
     }
 }

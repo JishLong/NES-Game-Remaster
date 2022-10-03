@@ -1,11 +1,17 @@
-﻿namespace Sprint0.Sprites.Player
+﻿using Microsoft.Xna.Framework.Graphics;
+
+namespace Sprint0.Sprites.Player
 {
     public class TriforcePieceSprite : AnimatedSprite
     {
-        public TriforcePieceSprite() : base(Resources.triforcePieceItemSheet, 2)
+        public TriforcePieceSprite() : base(2, 8)
         {
-            speed = 10;
+ 
+        }
+
+        protected override Texture2D GetSpriteSheet()
+        {
+            return Resources.TriforcePieceSpriteSheet;
         }
     }
 }
-

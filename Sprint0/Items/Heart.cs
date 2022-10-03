@@ -5,9 +5,9 @@ namespace Sprint0.Items
 {
     public class Heart : AbstractItem
     {
-        public Heart(Vector2 Position) : base(Position)
+        public Heart(Vector2 position) : base(position)
         {
-            sprite = new HeartSprite();
+            Sprite = new HeartSprite();
         }
     }
 }

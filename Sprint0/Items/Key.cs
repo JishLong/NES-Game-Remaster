@@ -5,9 +5,9 @@ namespace Sprint0.Items
 {
     public class Key : AbstractItem
     {
-        public Key(Vector2 Position) : base(Position)
+        public Key(Vector2 position) : base(position)
         {
-            sprite = new KeySprite();
+            Sprite = new KeySprite();
         }
     }
 }

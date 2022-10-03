@@ -5,9 +5,9 @@ namespace Sprint0.Blocks
 {
     public class WhiteBars : AbstractBlock
     {
-        public WhiteBars(Vector2 pos) : base(pos)
+        public WhiteBars(Vector2 position) : base(position)
         {
-            sprite = new WhiteBarsSprite();
+            Sprite = new WhiteBarsSprite();
         }
     }
 }

@@ -5,9 +5,9 @@ namespace Sprint0.Items
 {
     public class Bomb : AbstractItem
     {
-        public Bomb(Vector2 Position) : base(Position)
+        public Bomb(Vector2 position) : base(position)
         {
-            sprite = new BombSprite();
+            Sprite = new BombSprite();
         }
     }
 }

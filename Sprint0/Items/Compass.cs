@@ -5,9 +5,9 @@ namespace Sprint0.Items
 {
     public class Compass : AbstractItem
     {
-        public Compass(Vector2 Position) : base(Position) 
+        public Compass(Vector2 position) : base(position) 
         {
-            sprite = new CompassSprite();
+            Sprite = new CompassSprite();
         }
     }
 }

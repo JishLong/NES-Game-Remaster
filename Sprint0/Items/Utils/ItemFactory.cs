@@ -5,15 +5,16 @@ namespace Sprint0.Items.Utils
 {
     public class ItemFactory
     {
-        private Types.Item[] Items = (Types.Item[])Enum.GetValues(typeof(Types.Item));
-        private int Index = 0;
+        public static readonly Vector2 DefaultItemPosition = new Vector2(600, 200);
 
+        // Single point of use
         private static ItemFactory Instance;
 
-        private ItemFactory()
-        {
+        // Used for switching between different items in-game
+        private Types.Item[] Items = (Types.Item[])Enum.GetValues(typeof(Types.Item));
+        private int CurrentItem = 0;
 
-        }
+        private ItemFactory() { }
 
         public IItem GetItem(Types.Item itemType, Vector2 position)
         {
@@ -50,21 +51,24 @@ namespace Sprint0.Items.Utils
                 case Types.Item.WOODEN_BOOMERANG:
                     return new WoodenBoomerang(position);
                 default:
-                    Console.Error.Write("The concrete type " + itemType + " could not be instantiated by the Block Factory. Does this type exist?");
+                    Console.Error.Write("The item of type " + itemType.ToString() +
+                        " could not be instantiated by the Item Factory. Does this type exist?");
                     return null;
             }
         }
 
+        // Returns an instance of the next enemy type in the [Items] array
         public IItem GetNextItem(Vector2 position)
         {
-            Index = (Index + 1) % Items.Length;
-            return GetItem(Items[Index], position);
+            CurrentItem = (CurrentItem + 1) % Items.Length;
+            return GetItem(Items[CurrentItem], position);
         }
 
+        // Returns an instance of the previous enemy type in the [Items] array
         public IItem GetPrevItem(Vector2 position)
         {
-            Index = (Index - 1 + Items.Length) % Items.Length;
-            return GetItem(Items[Index], position);
+            CurrentItem = (CurrentItem - 1 + Items.Length) % Items.Length;
+            return GetItem(Items[CurrentItem], position);
         }
 
         public static ItemFactory GetInstance()

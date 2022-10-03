@@ -5,9 +5,9 @@ namespace Sprint0.Items
 {
     public class Clock : AbstractItem
     {
-        public Clock(Vector2 Position) : base(Position)
+        public Clock(Vector2 position) : base(position)
         {
-            sprite = new ClockSprite();
+            Sprite = new ClockSprite();
         }
     }
 }

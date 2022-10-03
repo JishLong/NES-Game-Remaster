@@ -5,9 +5,9 @@ namespace Sprint0.Items
 {
     public class BluePotion : AbstractItem
     {
-        public BluePotion(Vector2 Position) : base(Position)
+        public BluePotion(Vector2 position) : base(position)
         {
-            sprite = new BluePotionSprite();
+            Sprite = new BluePotionSprite();
         }
     }
 }

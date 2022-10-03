@@ -5,9 +5,9 @@ namespace Sprint0.Blocks
 {
     public class BlueSand : AbstractBlock
     {
-        public BlueSand(Vector2 pos) : base(pos)
+        public BlueSand(Vector2 position) : base(position)
         {
-            sprite = new BlueSandSprite();
+            Sprite = new BlueSandSprite();
         }
     }
 }

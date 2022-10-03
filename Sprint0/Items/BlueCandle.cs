@@ -5,9 +5,9 @@ namespace Sprint0.Items
 {
     public class BlueCandle : AbstractItem
     {
-        public BlueCandle(Vector2 Position) : base(Position)
+        public BlueCandle(Vector2 position) : base(position)
         {
-            sprite = new BlueCandleSprite();
+            Sprite = new BlueCandleSprite();
         }
     }
 }

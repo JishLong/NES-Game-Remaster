@@ -3,15 +3,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Controllers;
 using Sprint0.Items;
 using Sprint0.Player;
-using Sprint0.Enemies;
-using Sprint0.Bosses;
 using Sprint0.Bosses.Interfaces;
 using Sprint0.Bosses.Utils;
-using Sprint0.Npcs;
 using Sprint0.Npcs.Interfaces;
 using Sprint0.Npcs.Utils;
 using Sprint0.Sprites;
-using System.Collections.Generic;
 using Sprint0.Enemies.Interfaces;
 using Sprint0.Enemies.Utils;
 using Sprint0.Blocks;
@@ -22,16 +18,19 @@ namespace Sprint0
 {
     public class Game1 : Game
     {
-        private GraphicsDeviceManager g;
-        private SpriteBatch sb;
+        private GraphicsDeviceManager Graphics;
+        private SpriteBatch SBatch;
+        private IController Keyboard;
 
-        private List<IController> controllers;
-        public IBoss[] Bosses;
-        public IPlayer player;
+        public IPlayer Player;
+
+        // Current instantiations of items, blocks, enemies
         public IItem CurrentItem { get; set; }
         public IBlock CurrentBlock { get; set; }
         public IEnemy CurrentEnemy { get; set; }
 
+        // Boss stuff
+        public IBoss[] Bosses;
         public string[] BossTypes;
         public IBoss CurrentBoss { get; set; }
         public BossFactory BossFactory;
@@ -39,43 +38,50 @@ namespace Sprint0
         public IBoss CurrentBossProj1 { get; set; }
         public IBoss CurrentBossProj2 { get; set; }
         public IBoss CurrentBossProj3 { get; set; }
+
+        // NPC stuff
         public string[] NpcTypes;
         public INpc CurrentNpc { get; set; }
         public NpcFactory NpcFactory;
         public Vector2 NpcPosition;
 
- 
-
         public Game1()
         {
-            g = new GraphicsDeviceManager(this);
+            Graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
         protected override void Initialize()
-        {     
-            player = new Player.Player(this);
+        {       
+            // Player initialization
+            Player = new Player.Player(this);
             LinkSpriteSheet.Init(this);
+            
+            // Item and block initialization
+            CurrentItem = ItemFactory.GetInstance().GetNextItem(ItemFactory.DefaultItemPosition);
+            CurrentBlock = BlockFactory.GetInstance().GetNextBlock(BlockFactory.DefaultBlockPosition);
+
+            // Boss and NPC stuff
             this.BossFactory = new BossFactory();
             this.NpcFactory = new NpcFactory();
             BossPosition = new Vector2(600, 200);
             NpcPosition = new Vector2(0, 200);
 
-            controllers = new List<IController>
-            {
-                new KeyboardController(this, player.GetStateController()),
-                new MouseController(this)
-            };
+            Keyboard = new KeyboardController(this, Player.GetStateController());
 
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            sb = new SpriteBatch(GraphicsDevice);
-
+            SBatch = new SpriteBatch(GraphicsDevice);
             Resources.LoadContent(Content);
+
+            // Enemy currently instantiated here because of texture loading issue - soon to be fixed
+            CurrentEnemy = EnemyFactory.GetInstance().GetNextEnemy(EnemyFactory.DefaultEnemyPosition);
+
+            // Boss and NPC stuff
             BossTypes = new string[]
             {
                 "DODONGO",
@@ -89,11 +95,7 @@ namespace Sprint0
                 "BOMBPROJ",
             };
 
-            CurrentEnemy = EnemyFactory.GetInstance().GetNextEnemy(new Vector2(500, 200));
-            CurrentItem = ItemFactory.GetInstance().GetNextItem(new Vector2(300, 300));
-            CurrentBlock = BlockFactory.GetInstance().GetNextBlock(new Vector2(200, 200));
-
-            CurrentBoss = this.BossFactory.GetBoss(BossTypes[1], BossPosition);
+            CurrentBoss = this.BossFactory.GetBoss(BossTypes[0], BossPosition);
             CurrentNpc = this.NpcFactory.GetNpc(NpcTypes[1], NpcPosition);
 
             // For Aquamentus flames - need to refactor later
@@ -104,23 +106,23 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
-            foreach (IController controller in controllers)
-            {
-                controller.Update();
-            }
-            // controllers MUST be updated before player
-            player.Update();
+            // Keyboard should be updated before everything else, especially the player
+            Keyboard.Update();
 
+            Player.Update();
+
+            // Update the item, block, and enemy
+            CurrentItem.Update();
+            CurrentBlock.Update();
+            CurrentEnemy.Update(gameTime);
+
+            // Boss and NPC stuff
             CurrentBoss.Update(gameTime);
             CurrentNpc.Update(gameTime);
             CurrentBossProj1.Update(gameTime);
             CurrentBossProj2.Update(gameTime);
             CurrentBossProj3.Update(gameTime);
-            player.Update();
-
-            CurrentItem.Update();
-            CurrentBlock.Update();
-            CurrentEnemy.Update(gameTime);
+            Player.Update();
 
             base.Update(gameTime);
         }
@@ -128,18 +130,23 @@ namespace Sprint0
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.BlueViolet);
+            SBatch.Begin(samplerState: SamplerState.PointClamp);
 
-            sb.Begin(samplerState: SamplerState.PointClamp);
-            player.Draw(sb, g.PreferredBackBufferWidth, g.PreferredBackBufferHeight);
-            CurrentItem.Draw(sb);
-            CurrentBlock.Draw(sb);
-            CurrentEnemy.Draw(sb);
-            CurrentBossProj1.Draw(sb);
-            CurrentBossProj2.Draw(sb);
-            CurrentBossProj3.Draw(sb);
-            CurrentBoss.Draw(sb);
-            CurrentNpc.Draw(sb);
-            sb.End();
+            Player.Draw(SBatch, Graphics.PreferredBackBufferWidth, Graphics.PreferredBackBufferHeight);
+
+            // Draw the item, block, and enemy
+            CurrentItem.Draw(SBatch);
+            CurrentBlock.Draw(SBatch);
+            CurrentEnemy.Draw(SBatch);
+
+            // Boss and NPC stuff
+            CurrentBossProj1.Draw(SBatch);
+            CurrentBossProj2.Draw(SBatch);
+            CurrentBossProj3.Draw(SBatch);
+            CurrentBoss.Draw(SBatch);
+            CurrentNpc.Draw(SBatch);
+
+            SBatch.End();
 
             base.Draw(gameTime);
         }

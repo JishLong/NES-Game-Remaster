@@ -5,9 +5,9 @@ namespace Sprint0.Blocks
 {
     public class BlueStatueRight : AbstractBlock
     {
-        public BlueStatueRight(Vector2 pos) : base(pos)
+        public BlueStatueRight(Vector2 position) : base(position)
         {
-            sprite = new BlueStatueRightSprite();
+            Sprite = new BlueStatueRightSprite();
         }
     }
 }

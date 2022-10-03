@@ -6,27 +6,28 @@ namespace Sprint0.Blocks
     public abstract class AbstractBlock : IBlock
     {
         // Sprite
-        protected ISprite sprite;
+        protected ISprite Sprite;
 
         // Coordinates and dimensions
-        protected Vector2 Pos;
-        protected int W, H;
+        protected Vector2 Position;
+        protected int Width, Height;
 
-        protected AbstractBlock (Vector2 pos) 
+        protected AbstractBlock (Vector2 position) 
         {
-            Pos = pos;
-            W = 64;
-            H = 64;
+            Position = position;
+
+            Width = 64;
+            Height = 64;
         }
 
         public void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, (int)Pos.X, (int)Pos.Y, W, H);
+            Sprite.Draw(sb, (int)Position.X, (int)Position.Y, Width, Height);
         }
 
         public void Update()
         {
-            // Nothing here?
+            Sprite.Update();
         }
     }
 }

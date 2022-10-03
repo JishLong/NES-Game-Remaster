@@ -6,15 +6,16 @@ namespace Sprint0.Enemies.Utils
 {
     public class EnemyFactory
     {
-        private Types.Enemy[] enemies = (Types.Enemy[])Enum.GetValues(typeof(Types.Enemy));
-        private int index = 0;
+        public static readonly Vector2 DefaultEnemyPosition = new Vector2(350, 200);
 
-        private static EnemyFactory instance;
+        // Single point of use
+        private static EnemyFactory Instance;
 
-        private EnemyFactory() 
-        {
-        
-        }
+        // Used for switching between different enemies in-game
+        private Types.Enemy[] Enemies = (Types.Enemy[])Enum.GetValues(typeof(Types.Enemy));
+        private int CurrentEnemy = 0;
+
+        private EnemyFactory() { }
 
         public IEnemy GetEnemy(Types.Enemy enemyType, Vector2 position)
         {
@@ -33,30 +34,33 @@ namespace Sprint0.Enemies.Utils
                 case Types.Enemy.ZOL:
                     return new Zol(position);
                 default:
-                    Console.Error.Write("The concrete type " + enemyType + " could not be instantiated by the Enemy Factory. Does this type exist?");
+                    Console.Error.Write("The enemy of type " + enemyType.ToString() +
+                        " could not be instantiated by the Enemy Factory. Does this type exist?");
                     return null;
             }
         }
 
+        // Returns an instance of the next enemy type in the [Enemies] array
         public IEnemy GetNextEnemy(Vector2 position) 
         {
-            index = (index + 1) % enemies.Length;
-            return GetEnemy(enemies[index], position);
+            CurrentEnemy = (CurrentEnemy + 1) % Enemies.Length;
+            return GetEnemy(Enemies[CurrentEnemy], position);
         }
 
+        // Returns an instance of the previous enemy type in the [Enemies] array
         public IEnemy GetPrevEnemy(Vector2 position) 
         {
-            index = (index - 1 + enemies.Length) % enemies.Length;
-            return GetEnemy(enemies[index], position);
+            CurrentEnemy = (CurrentEnemy - 1 + Enemies.Length) % Enemies.Length;
+            return GetEnemy(Enemies[CurrentEnemy], position);
         }
 
         public static EnemyFactory GetInstance()
         {
-            if (instance == null)
+            if (Instance == null)
             {
-                instance = new EnemyFactory();
+                Instance = new EnemyFactory();
             }
-            return instance;
+            return Instance;
         }
     }
 }

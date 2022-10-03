@@ -5,9 +5,9 @@ namespace Sprint0.Items
 {
     public class TriforcePiece : AbstractItem
     {
-        public TriforcePiece(Vector2 Position) : base(Position)
+        public TriforcePiece(Vector2 position) : base(position)
         {
-            sprite = new TriforcePieceSprite();
+            Sprite = new TriforcePieceSprite();
         }
     }
 }

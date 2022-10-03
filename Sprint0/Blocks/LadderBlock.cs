@@ -5,10 +5,9 @@ namespace Sprint0.Blocks
 {
     public class LadderBlock : AbstractBlock
     {
-        public LadderBlock(Vector2 pos) : base(pos)
+        public LadderBlock(Vector2 position) : base(position)
         {
-            sprite = new LadderBlockSprite();
+            Sprite = new LadderBlockSprite();
         }
     }
 }
-

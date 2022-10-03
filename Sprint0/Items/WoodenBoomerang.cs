@@ -5,9 +5,9 @@ namespace Sprint0.Items
 {
     public class WoodenBoomerang : AbstractItem
     {
-        public WoodenBoomerang(Vector2 Position) : base(Position)
+        public WoodenBoomerang(Vector2 position) : base(position)
         {
-            sprite = new WoodenBoomerangSprite();
+            Sprite = new WoodenBoomerangSprite();
         }
     }
 }

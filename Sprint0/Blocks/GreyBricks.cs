@@ -5,9 +5,9 @@ namespace Sprint0.Blocks
 {
     public class GreyBricks : AbstractBlock
     {
-        public GreyBricks(Vector2 pos) : base(pos)
+        public GreyBricks(Vector2 position) : base(position)
         {
-            sprite = new GreyBricksSprite();
+            Sprite = new GreyBricksSprite();
         }
     }
 }
