@@ -5,7 +5,7 @@ namespace Sprint0.Sprites.Player.Movement
 {
     public class PlayerMovingLeft : AnimatedSprite
     {
-        // singleton instance
+        // Singleton instance
         private static PlayerMovingLeft instance;
 
         public static PlayerMovingLeft GetInstance()

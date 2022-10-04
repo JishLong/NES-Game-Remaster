@@ -65,7 +65,5 @@ namespace Sprint0.Player.SpriteControllers
                 currentSprite.Draw(spriteBatch, stateController.GetState().GetPosition());
             }           
         }
-
-        public void Reset() { }
     }
 }

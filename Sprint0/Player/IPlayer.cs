@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.State;
 
 namespace Sprint0.Player
@@ -13,4 +12,3 @@ namespace Sprint0.Player
         public PlayerStateController GetStateController();
     }
 }
-

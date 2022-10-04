@@ -1,5 +1,4 @@
-﻿using System;
-namespace Sprint0.Player.State
+﻿namespace Sprint0.Player.State
 {
     // This class can handle state transitions.  This should be the only class to modify the state object.
     public class PlayerStateController
@@ -101,7 +100,6 @@ namespace Sprint0.Player.State
             }
         }
 
-
         public void HandleDownInput()
         {
             if (!state.IsMoving() && !state.IsAttacking())
@@ -156,4 +154,3 @@ namespace Sprint0.Player.State
         }
     }
 }
-

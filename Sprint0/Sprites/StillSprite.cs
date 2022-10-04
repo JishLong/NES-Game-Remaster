@@ -5,6 +5,9 @@ namespace Sprint0.Sprites
 {
     public abstract class StillSprite : ISprite
     {
+        /* [SizeScale]: multiplicative factor for sprite's width and height
+         * [xOffset]: multiplicative factor for sprite's x-coordinate
+         * [yOffset]: multiplicative factor for sprite's y-coordinate */
         protected float SizeScale, xOffset, yOffset;
 
         public StillSprite()

@@ -1,9 +1,9 @@
-using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 namespace Sprint0.Sprites
 {
+    // Note: this class is either not in use at all or has very limited use; it is useful for quick implementation of features
     public class Animation
     {
         private List<Rectangle> SourceRects; // X pos, Y pos, width, height
@@ -97,4 +97,3 @@ namespace Sprint0.Sprites
         }
     }
 }
-

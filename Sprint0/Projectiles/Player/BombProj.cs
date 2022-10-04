@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
-using Sprint0.Sprites.Npcs;
+using Sprint0.Sprites.Characters.Npcs;
+using Sprint0.Sprites.Projectiles.Player;
 
 namespace Sprint0.Projectiles.Player_Projectiles
 {

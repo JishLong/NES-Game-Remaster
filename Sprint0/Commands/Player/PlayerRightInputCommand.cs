@@ -1,5 +1,4 @@
-﻿using System;
-using Sprint0.Player.State;
+﻿using Sprint0.Player.State;
 
 namespace Sprint0.Commands.Player
 {
@@ -18,4 +17,3 @@ namespace Sprint0.Commands.Player
         }
     }
 }
-

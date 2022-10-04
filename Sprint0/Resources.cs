@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0
 {
+    // Contains spritesheets and exact positions of desirable items on them
     public static class Resources
     {
         // Sprite sheets for blocks

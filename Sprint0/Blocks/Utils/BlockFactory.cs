@@ -63,6 +63,7 @@ namespace Sprint0.Blocks.Utils
             return GetBlock(Blocks[CurrentBlock], position);
         }
 
+        // Returns an instance of the beginning block type in the [Blocks] array
         public IBlock GetBeginningBlock(Vector2 position) 
         {
             CurrentBlock = 0;
