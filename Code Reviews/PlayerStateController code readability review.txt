@@ -1,0 +1,7 @@
+Hayden Gray
+10/3/22
+Sprint 2
+PlayerStateController.cs
+Paul Fierman, Ethan Powers
+Everything is named appropriately and is easy to follow. Nothing is cryptic or mysterious. 
+However, the class could use some helper methods or subclasses to streamline its readability.

@@ -1,0 +1,6 @@
+Hayden Gray
+10/3/22
+Sprint 2
+AnimatedSprite.cs
+Josh Long
+Excellent use of reuse makes sprite classes simple to implement and read. Could maybe use slightly more flexibility.
