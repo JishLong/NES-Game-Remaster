@@ -55,6 +55,8 @@ namespace Sprint0
         // Sprite sheet positions for all weapons/projectiles
         public static readonly Rectangle BoomerangProj = new Rectangle(0, 0, 8, 8);
         public static readonly Rectangle BombWeapon = new Rectangle(24, 0, 16, 16);
+        public static readonly Rectangle ArrowWeapon = new Rectangle(93, 32, 5, 16);
+        public static readonly Rectangle FlameProjectile = new Rectangle(191, 12, 16, 16);
         public static readonly Rectangle BossProj = new Rectangle(0, 16, 8, 10);
 
         // Sprite sheet positions for all characters

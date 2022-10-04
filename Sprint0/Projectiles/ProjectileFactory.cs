@@ -19,7 +19,10 @@ namespace Sprint0.Projectiles
                 case Types.Projectile.BOSSPROJ:
                     return new BossProjectile(position, velocity);
                 case Types.Projectile.BOMBPROJ:
-                    return new BombProj(position, velocity);
+                    return new BombProjectile(position, velocity);
+                case Types.Projectile.ARROWPROJ:
+                    return new ArrowProjectile(position, velocity);
+
                 default:
                     Console.Error.Write("The projectile of type " + projectileType.ToString() +
                         " could not be instantiated by the Projectile Factory. Does this type exist?");

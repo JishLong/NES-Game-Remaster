@@ -12,7 +12,7 @@
         public enum Block { BLUE_GAP, BLUE_SAND, BLUE_STAIRS, BLUE_STATUE_LEFT, BLUE_STATUE_RIGHT, BLUE_TILE, BLUE_WALL, 
         FIRE_BLOCK, GREY_BRICKS, LADDER_BLOCK, WHITE_BARS};
 
-        public enum Projectile { BOMBPROJ, BOSSPROJ };
+        public enum Projectile { BOMBPROJ, BOSSPROJ, ARROWPROJ, FLAMEPROJ};
 
         // To be utilized soon
         public enum Direction {UP, DOWN, LEFT, RIGHT};
