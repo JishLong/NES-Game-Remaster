@@ -68,9 +68,9 @@ namespace Sprint0.Bosses
                 IProjectile proj3 = ProjectileFactory.GetInstance().GetProjectile(
                     Types.Projectile.BOSSPROJ, Position, new Vector2(-3, -3));
 
-                ProjectileManager.GetInstance().addProjectile(proj1);
-                ProjectileManager.GetInstance().addProjectile(proj2);
-                ProjectileManager.GetInstance().addProjectile(proj3);
+                ProjectileManager.GetInstance().AddProjectile(proj1);
+                ProjectileManager.GetInstance().AddProjectile(proj2);
+                ProjectileManager.GetInstance().AddProjectile(proj3);
             }
 
             sprite.Update();

@@ -8,40 +8,45 @@ namespace Sprint0.Projectiles
         // Single point of use
         private static ProjectileManager Instance;
 
-        private LinkedList<IProjectile> projectiles;
-        private LinkedList<IProjectile> toBeRemoved;
+        private LinkedList<IProjectile> Projectiles;
+        private LinkedList<IProjectile> ToBeRemoved;
 
         private ProjectileManager()
         {
-            projectiles = new LinkedList<IProjectile>();
-            toBeRemoved = new LinkedList<IProjectile>();
+            Projectiles = new LinkedList<IProjectile>();
+            ToBeRemoved = new LinkedList<IProjectile>();
         }
 
-        public void addProjectile(IProjectile projectile) 
+        public void AddProjectile(IProjectile projectile) 
         {
-            projectiles.AddFirst(projectile);
+            Projectiles.AddFirst(projectile);
+        }
+
+        public void RemoveAllProjectiles() 
+        {
+            Projectiles.Clear();
         }
 
         public void Update() 
         {
-            foreach (var projectile in projectiles) 
+            foreach (var projectile in Projectiles) 
             {
                 projectile.Update();
                 if (projectile.TimeIsUp()) 
                 {
-                    toBeRemoved.AddFirst(projectile);
+                    ToBeRemoved.AddFirst(projectile);
                 }
             }
-            foreach (var projectile in toBeRemoved) 
+            foreach (var projectile in ToBeRemoved) 
             {
-                projectiles.Remove(projectile);
+                Projectiles.Remove(projectile);
             }
-            toBeRemoved.Clear();
+            ToBeRemoved.Clear();
         }
 
         public void Draw(SpriteBatch sb) 
         {
-            foreach (var projectile in projectiles)
+            foreach (var projectile in Projectiles)
             {
                 projectile.Draw(sb);
             }

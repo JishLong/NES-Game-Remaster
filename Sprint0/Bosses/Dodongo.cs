@@ -1,8 +1,6 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Bosses.Utils;
-using Sprint0.Sprites.Bosses;
 
 namespace Sprint0.Bosses
 {

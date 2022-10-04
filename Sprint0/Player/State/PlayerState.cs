@@ -162,6 +162,15 @@ namespace Sprint0.Player
         {
             this.facingDirection = FacingDirection.right;
         }
+
+        public void Reset() 
+        {
+            this.facingDirection = FacingDirection.right;
+            position = new Vector2(0, 0);
+            isMoving = false;
+            isAttacking = false;
+            isDamaged = false;
+            currentWeapon = Weapon.Sword;
+        }
     }
 }
-

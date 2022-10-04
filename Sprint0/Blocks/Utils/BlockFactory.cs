@@ -63,6 +63,12 @@ namespace Sprint0.Blocks.Utils
             return GetBlock(Blocks[CurrentBlock], position);
         }
 
+        public IBlock GetBeginningBlock(Vector2 position) 
+        {
+            CurrentBlock = 0;
+            return GetBlock(Blocks[CurrentBlock], position);
+        }
+
         public static BlockFactory GetInstance()
         {
             if (Instance == null)

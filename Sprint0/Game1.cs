@@ -17,7 +17,7 @@ namespace Sprint0
         private SpriteBatch SBatch;
         private IController Keyboard;
 
-        public IPlayer Player;
+        public IPlayer Player { get; set; }
 
         // Current instantiations of items, blocks, enemies
         public IItem CurrentItem { get; set; }
@@ -37,9 +37,9 @@ namespace Sprint0
             Player = new Player.Player(this);
 
             // Item and block initialization
-            CurrentItem = ItemFactory.GetInstance().GetNextItem(ItemFactory.DefaultItemPosition);
-            CurrentBlock = BlockFactory.GetInstance().GetNextBlock(BlockFactory.DefaultBlockPosition);
-            CurrentCharacter = CharacterFactory.GetInstance().GetNextCharacter(CharacterFactory.DefaultCharacterPosition);
+            CurrentItem = ItemFactory.GetInstance().GetBeginningItem(ItemFactory.DefaultItemPosition);
+            CurrentBlock = BlockFactory.GetInstance().GetBeginningBlock(BlockFactory.DefaultBlockPosition);
+            CurrentCharacter = CharacterFactory.GetInstance().GetBeginningCharacter(CharacterFactory.DefaultCharacterPosition);
 
             Keyboard = new KeyboardController(this, Player.GetStateController());
 

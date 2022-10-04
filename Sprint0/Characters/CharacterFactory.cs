@@ -64,6 +64,12 @@ namespace Sprint0.Characters
             return GetCharacter(Enemies[CurrentCharacter], position);
         }
 
+        public ICharacter GetBeginningCharacter(Vector2 position) 
+        {
+            CurrentCharacter = 0;
+            return GetCharacter(Enemies[CurrentCharacter], position);
+        }
+
         public static CharacterFactory GetInstance()
         {
             if (Instance == null)

@@ -71,6 +71,12 @@ namespace Sprint0.Items.Utils
             return GetItem(Items[CurrentItem], position);
         }
 
+        public IItem GetBeginningItem(Vector2 position) 
+        {
+            CurrentItem = 0;
+            return GetItem(Items[CurrentItem], position);
+        }
+
         public static ItemFactory GetInstance()
         {
             if (Instance == null)

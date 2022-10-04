@@ -62,7 +62,7 @@ namespace Sprint0.Controllers
                 // Enemy switching controls
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.O),
                     new PrevCharacterCommand(game) },
-                
+
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.P),
                     new NextCharacterCommand(game) },
 
@@ -74,7 +74,9 @@ namespace Sprint0.Controllers
 
                 // Misc. controls
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
-                    new QuitCommand(game) }
+                    new QuitCommand(game) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.R),
+                    new ResetCommand(game, playerStateController) }
             };
         }
 

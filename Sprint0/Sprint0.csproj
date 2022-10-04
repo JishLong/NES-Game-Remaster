@@ -34,6 +34,7 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Bosses\Utils\" />
     <Folder Include="Player\" />
     <Folder Include="Player\State\" />
     <Folder Include="Commands\Player\" />

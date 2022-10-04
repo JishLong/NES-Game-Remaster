@@ -149,6 +149,11 @@ namespace Sprint0.Player.State
         {
             state.TakeDamage();
         }
+
+        public void Reset() 
+        {
+            state.Reset();
+        }
     }
 }
 
