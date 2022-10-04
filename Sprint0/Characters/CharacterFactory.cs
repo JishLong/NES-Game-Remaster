@@ -14,7 +14,7 @@ namespace Sprint0.Characters
         private static CharacterFactory Instance;
 
         // Used for switching between different enemies in-game
-        private Types.Character[] Enemies = (Types.Character[])Enum.GetValues(typeof(Types.Character));
+        private Types.Character[] Characters = (Types.Character[])Enum.GetValues(typeof(Types.Character));
         private int CurrentCharacter = 0;
 
         private CharacterFactory() { }
@@ -44,30 +44,31 @@ namespace Sprint0.Characters
                 case Types.Character.OLDMAN:
                     return new OldMan(position);
                 default:
-                    Console.Error.Write("The enemy of type " + characterType.ToString() +
+                    Console.Error.Write("The character of type " + characterType.ToString() +
                         " could not be instantiated by the Character Factory. Does this type exist?");
                     return null;
             }
         }
 
-        // Returns an instance of the next enemy type in the [Enemies] array
+        // Returns an instance of the next enemy type in the [Characters] array
         public ICharacter GetNextCharacter(Vector2 position)
         {
-            CurrentCharacter = (CurrentCharacter + 1) % Enemies.Length;
-            return GetCharacter(Enemies[CurrentCharacter], position);
+            CurrentCharacter = (CurrentCharacter + 1) % Characters.Length;
+            return GetCharacter(Characters[CurrentCharacter], position);
         }
 
-        // Returns an instance of the previous enemy type in the [Enemies] array
+        // Returns an instance of the previous enemy type in the [Characters] array
         public ICharacter GetPrevCharacter(Vector2 position)
         {
-            CurrentCharacter = (CurrentCharacter - 1 + Enemies.Length) % Enemies.Length;
-            return GetCharacter(Enemies[CurrentCharacter], position);
+            CurrentCharacter = (CurrentCharacter - 1 + Characters.Length) % Characters.Length;
+            return GetCharacter(Characters[CurrentCharacter], position);
         }
 
+        // Returns an instance of the beginning character type in the [Characters] array
         public ICharacter GetBeginningCharacter(Vector2 position) 
         {
             CurrentCharacter = 0;
-            return GetCharacter(Enemies[CurrentCharacter], position);
+            return GetCharacter(Characters[CurrentCharacter], position);
         }
 
         public static CharacterFactory GetInstance()

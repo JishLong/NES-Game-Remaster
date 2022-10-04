@@ -1,7 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Sprites.Bosses;
 using Sprint0.Sprites;
-using System;
 using Microsoft.Xna.Framework;
 
 namespace Sprint0.Projectiles

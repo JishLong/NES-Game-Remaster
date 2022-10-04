@@ -18,8 +18,6 @@ namespace Sprint0
         private IController Keyboard;
 
         public IPlayer Player { get; set; }
-
-        // Current instantiations of items, blocks, enemies
         public IItem CurrentItem { get; set; }
         public IBlock CurrentBlock { get; set; }
         public ICharacter CurrentCharacter { get; set; }
@@ -33,10 +31,7 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            // Player initialization
             Player = new Player.Player(this);
-
-            // Item and block initialization
             CurrentItem = ItemFactory.GetInstance().GetBeginningItem(ItemFactory.DefaultItemPosition);
             CurrentBlock = BlockFactory.GetInstance().GetBeginningBlock(BlockFactory.DefaultBlockPosition);
             CurrentCharacter = CharacterFactory.GetInstance().GetBeginningCharacter(CharacterFactory.DefaultCharacterPosition);
@@ -49,6 +44,7 @@ namespace Sprint0
         protected override void LoadContent()
         {
             SBatch = new SpriteBatch(GraphicsDevice);
+
             Resources.LoadContent(Content);
         }
 
@@ -56,17 +52,12 @@ namespace Sprint0
         {
             // Keyboard should be updated before everything else, especially the player
             Keyboard.Update();
-
-            Player.Update();
-
-            // Update the item, block, and enemy
-            CurrentItem.Update();
-            CurrentBlock.Update();
-            CurrentCharacter.Update(gameTime);
-
             ProjectileManager.GetInstance().Update();
 
             Player.Update();
+            CurrentItem.Update();
+            CurrentBlock.Update();
+            CurrentCharacter.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -77,8 +68,6 @@ namespace Sprint0
             SBatch.Begin(samplerState: SamplerState.PointClamp);
 
             Player.Draw(SBatch, Graphics.PreferredBackBufferWidth, Graphics.PreferredBackBufferHeight);
-
-            // Draw the item, block, and character.
             CurrentItem.Draw(SBatch);
             CurrentBlock.Draw(SBatch);
             CurrentCharacter.Draw(SBatch);

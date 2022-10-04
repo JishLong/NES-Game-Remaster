@@ -64,11 +64,5 @@ namespace Sprint0.Player.SpriteControllers
                 currentSprite.Draw(sb, stateController.GetState().GetPosition());
             }
         }
-
-        // resets to the default sprite
-        public void Reset()
-        {
-            this.currentSprite = new PlayerFacingDown();
-        }
     }
 }

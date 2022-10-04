@@ -5,7 +5,7 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
 {
     public class PlayerSwordAttackLeft : AnimatedSprite
     {
-        // singleton instance
+        // Singleton instance
         private static PlayerSwordAttackLeft instance;
 
         public static PlayerSwordAttackLeft GetInstance()

@@ -1,7 +1,5 @@
-﻿using System;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.State;
-using Sprint0.Sprites.Player;
 
 namespace Sprint0.Player.SpriteControllers
 {
@@ -10,12 +8,10 @@ namespace Sprint0.Player.SpriteControllers
         // singleton instance
         private static PlayerAttackingSpriteController instance;
 
-        private readonly PlayerStateController stateController;
         private ISpriteController currentController;
 
         private PlayerAttackingSpriteController(PlayerStateController stateController)
         {
-            this.stateController = stateController;
             this.currentController = PlayerSwordAttackingSpriteController.GetInstance(stateController);
         }
 
@@ -38,11 +34,5 @@ namespace Sprint0.Player.SpriteControllers
         {
             currentController.Draw(spriteBatch);
         }
-
-        public void Reset()
-        {
-
-        }
     }
 }
-

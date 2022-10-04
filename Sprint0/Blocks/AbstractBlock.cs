@@ -6,10 +6,7 @@ namespace Sprint0.Blocks
 {
     public abstract class AbstractBlock : IBlock
     {
-        // Sprite
         protected ISprite Sprite;
-
-        // Coordinates and dimensions
         protected Vector2 Position;
 
         protected AbstractBlock (Vector2 position) 

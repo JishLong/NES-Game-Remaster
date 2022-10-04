@@ -64,10 +64,5 @@ namespace Sprint0.Player.SpriteControllers
                 currentSprite = PlayerMovingLeft.GetInstance();
             }
         }
-
-        public void Reset()
-        {
-            currentSprite = PlayerMovingDown.GetInstance();
-        }
     }
 }

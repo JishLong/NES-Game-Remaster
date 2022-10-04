@@ -54,10 +54,5 @@ namespace Sprint0.Player
 
             currentController.Update();
         }
-
-        public void Reset()
-        {
-            // not a useful method for this controller
-        }
     }
 }
