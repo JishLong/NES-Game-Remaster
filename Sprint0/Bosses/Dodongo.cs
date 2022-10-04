@@ -8,28 +8,32 @@ namespace Sprint0.Bosses
 {
     public class Dodongo : AbstractBoss
     {
-        // milliseconds
         int ElapsedTime;
         int UpdateTimer;
-
         Random RNG;
 
         public Dodongo(Vector2 position, int updateTimer = 1000)
         {
-            this.Health = 1;    // Data here: https://strategywiki.org/wiki/The_Legend_of_Zelda/Bosses
-            this.Damage = 2;    // Damage dealt
-            this.CanMove = true;
-            this.Position = position;
-            this.Direction = new Vector2(0, 0); // Starts standing still.
-            this.MovementSpeed = 2;
-            this.UpdateTimer = updateTimer;
-            this.RNG = new Random();
-            this.sprite = new Sprites.Bosses.DodongoSprite();
+            // Data
+            Health = 1;    // Data here: https://strategywiki.org/wiki/The_Legend_of_Zelda/Bosses
+            Damage = 2;    // Damage dealt
+
+            // Movement
+            CanMove = true;
+            Position = position;
+            Direction = new Vector2(0, 0); // Starts standing still.
+            MovementSpeed = 2;
+
+            // Update
+            Sprite = new Sprites.Bosses.DodongoSprite();
+            UpdateTimer = updateTimer;
+            RNG = new Random();
         }
 
+        // no functionality 
         public override void Destroy()
         {
-            // no functionality 
+
             throw new NotImplementedException();
         }
         public override void Update(GameTime gameTime)
@@ -60,12 +64,12 @@ namespace Sprint0.Bosses
             }
             Position += (this.Direction * this.MovementSpeed);
 
-            sprite.Update(gameTime);
+            Sprite.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, Position);
+            Sprite.Draw(sb, Position);
         }
 
     }

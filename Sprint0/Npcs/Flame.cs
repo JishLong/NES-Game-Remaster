@@ -8,19 +8,18 @@ namespace Sprint0.Npcs
 {
     public class Flame : AbstractNpc
     {
-        // milliseconds
         int ElapsedTime;
         int UpdateTimer;
         bool isProjectile;
-
         public Flame(Vector2 position, int updateTimer = 1000)
         {
-            this.Health = 1;
-            //this.IsProjectile = true;
-            this.Position = position;
-            this.Direction = new Vector2(0, 0); // Starts standing still.
-            this.UpdateTimer = updateTimer;
-            this.sprite = new Sprites.Npcs.FlameSprite();
+            // Movement
+            Position = position;
+            Direction = new Vector2(0, 0);
+
+            // Update
+            UpdateTimer = updateTimer;
+            Sprite = new Sprites.Npcs.FlameSprite();
         }
 
         // public override bool IsProjectile()
@@ -39,12 +38,12 @@ namespace Sprint0.Npcs
             {
                 ElapsedTime = 0;
             }
-            sprite.Update(gameTime);
+            Sprite.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, Position);
+            Sprite.Draw(sb, Position);
         }
     }
 }

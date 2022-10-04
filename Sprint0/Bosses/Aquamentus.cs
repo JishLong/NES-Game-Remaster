@@ -2,42 +2,77 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Linq;
-using Sprint0.Bosses.Utils;
+using Sprint0.Bosses;
 using Sprint0.Sprites.Bosses;
+using System.ComponentModel;
+using Sprint0.Bosses.Behaviors;
 
 namespace Sprint0.Bosses
 {
     public class Aquamentus : AbstractBoss
     {
-        // milliseconds
         int ElapsedTime;
         int UpdateTimer;
-
+        int CooldownTimer;
         Random RNG;
 
+        AquamentusFlame Flame1;
+        AquamentusFlame Flame2;
+        AquamentusFlame Flame3;
+
+        private float ProjectileSpeed;
         public Aquamentus(Vector2 position, int updateTimer = 1000)
         {
-            this.Health = 6;    // Data here: https://strategywiki.org/wiki/The_Legend_of_Zelda/Bosses
-            this.Damage = 2;    // Damage dealt
-            this.CanMove = true;
-            this.Position = position;
-            this.Direction = new Vector2(0, 0); // Starts standing still.
-            this.MovementSpeed = 2;
-            this.UpdateTimer = updateTimer;
-            this.RNG = new Random();
-            this.sprite = new Sprites.Bosses.AquamentusSprite();
+            // Data
+            Health = 6;    // Data here: https://strategywiki.org/wiki/The_Legend_of_Zelda/Bosses
+            Damage = 2;    // Damage dealt
+            Flame1 = new AquamentusFlame(1, position);
+            Flame2 = new AquamentusFlame(2, position);
+            Flame3 = new AquamentusFlame(3, position);
+            ProjectileSpeed = 4f;
+            BossAttackBehavior = new AquamentusFlameBehavior(this, ProjectileSpeed);
+
+            // Movement
+            CanMove = true;
+            Position = position;
+            Direction = new Vector2(0, 0);
+            MovementSpeed = 2;
+
+            // Update 
+            Sprite = new Sprites.Bosses.AquamentusSprite();
+            UpdateTimer = updateTimer;
+            CooldownTimer = 2500;
+            RNG = new Random();
         }
 
         public override void Destroy()
         {
-            // no functionality 
             throw new NotImplementedException();
         }
+
         public override void Update(GameTime gameTime)
         {
             ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
+
+            BossAttackBehavior = new AquamentusFlameBehavior(this, ProjectileSpeed);
+
+            Flame1.Update(gameTime);
+            Flame2.Update(gameTime);
+            Flame3.Update(gameTime);
+
             if (ElapsedTime > UpdateTimer)
             {
+                //if (ElapsedTime - CooldownTimer > 0)
+                if (true)
+                {
+                    ElapsedTime = 0;
+                    BossAttackBehavior = new AquamentusFlameBehavior(this, ProjectileSpeed);
+                    Flame1.Update(gameTime);
+                    Flame2.Update(gameTime);
+                    Flame3.Update(gameTime);
+
+                }
+                System.Diagnostics.Debug.WriteLine("mov");
                 ElapsedTime = 0;
 
                 int randDirection = this.RNG.Next(0, 3);
@@ -59,14 +94,20 @@ namespace Sprint0.Bosses
                         break;
                 }
             }
-            Position += (this.Direction * this.MovementSpeed);
 
-            sprite.Update(gameTime);
+
+            Position += (Direction * MovementSpeed);
+            //ElapsedTime = 0;
+
+            Sprite.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, Position);
+            Sprite.Draw(sb, Position);
+            Flame1.Draw(sb);
+            Flame2.Draw(sb);
+            Flame3.Draw(sb);
         }
 
     }

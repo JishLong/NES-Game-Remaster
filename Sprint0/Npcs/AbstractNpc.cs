@@ -8,17 +8,17 @@ namespace Sprint0.Npcs
     public abstract class AbstractNpc : INpc
     {
         // Combat related fields.
-        public int Health { get; set; }
+        protected int Health { get; set; }
 
         // Movement related fields.
-        public Vector2 Position;
-        public Vector2 Direction;
-        public string DirectionName;
-        public int MovementSpeed;
-        public bool CanMove;
+        protected Vector2 Position;
+        protected Vector2 Direction;
+        protected string DirectionName;
+        protected int MovementSpeed;
+        protected bool CanMove;
 
         // Sprite related fields.
-        public INpcSprite sprite { get; set; }
+        protected INpcSprite Sprite { get; set; }
         public void TakeDamage(int damage)
         {
             Health -= damage;
@@ -30,15 +30,13 @@ namespace Sprint0.Npcs
         }
         public void Freeze()
         {
-            this.CanMove = false;
+            CanMove = false;
         }
 
         public void Unfreeze()
         {
-            this.CanMove = true;
+            CanMove = true;
         }
-        // need for projectile logic
-        // public abstract bool IsProjectile();
         public abstract void Destroy();
         public abstract void Update(GameTime gameTime);
         public abstract void Draw(SpriteBatch sb);

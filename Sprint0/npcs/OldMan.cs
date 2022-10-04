@@ -8,25 +8,21 @@ namespace Sprint0.Npcs
 {
 	public class OldMan : AbstractNpc
 	{
-		// milliseconds
 		int ElapsedTime;
 		int UpdateTimer;
 		bool isProjectile;
 
 		public OldMan(Vector2 position, int updateTimer = 1000)
 		{
-			this.Health = 1;
-			//this.IsProjectile = false;
-			this.Position = position;
-			this.Direction = new Vector2(0, 0); // Starts standing still.
-			this.UpdateTimer = updateTimer;
-			this.sprite = new Sprites.Npcs.OldManSprite();
+			// Data
+			Position = position;
+			Direction = new Vector2(0, 0);
+
+			// Update
+			UpdateTimer = updateTimer;
+			Sprite = new Sprites.Npcs.OldManSprite();
 		}
 
-	//	public override bool IsProjectile()
-	//	{
-	//		return this.IsProjectile;
-	//	}
 		public override void Destroy()
 		{
 			// no functionality 
@@ -39,12 +35,12 @@ namespace Sprint0.Npcs
 			{
 				ElapsedTime = 0;
 			}
-			sprite.Update(gameTime);
+			Sprite.Update(gameTime);
 		}
 
 		public override void Draw(SpriteBatch sb)
 		{
-			sprite.Draw(sb, Position);
+			Sprite.Draw(sb, Position);
 		}
 	}
 }

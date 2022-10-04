@@ -14,8 +14,8 @@ namespace Sprint0.Bosses.Utils
                     return new Dodongo(position);
                 case "AQUAMENTUS":
                     return new Aquamentus(position);
-                case "AQUAMENTUSFLAME":
-                    return new AquamentusFlame(position);
+                //case "AQUAMENTUSFLAME":
+                    //return new AquamentusFlame(position);
 
                 default:
                     Console.Error.Write("Type " + bossType + " does not exist.");

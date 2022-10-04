@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Bosses.Interfaces;
+using Sprint0.Enemies.Interfaces;
 using Sprint0.Sprites.Bosses;
 
 namespace Sprint0.Bosses
@@ -8,18 +9,19 @@ namespace Sprint0.Bosses
 	public abstract class AbstractBoss : IBoss
 	{
 		// Combat related fields.
-		public int Health { get; set; }
-		public int Damage { get; set; }
+		protected int Health { get; set; }
+        protected int Damage { get; set; }
+		protected IBossAttackBehavior BossAttackBehavior;
 
-		// Movement related fields.
-		public Vector2 Position;
-		public Vector2 Direction;
-		public string DirectionName;
-		public int MovementSpeed;
-		public bool CanMove;
+        // Movement related fields.
+        protected Vector2 Position;
+        protected Vector2 Direction;
+		//public string DirectionName;
+        protected int MovementSpeed;
+        protected bool CanMove;
 
-		// Sprite related fields.
-		public IBossSprite sprite { get; set; }
+        // Sprite related fields.
+        protected IBossSprite Sprite { get; set; }
 		public void TakeDamage(int damage)
 		{
 			Health -= damage;

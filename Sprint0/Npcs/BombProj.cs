@@ -8,7 +8,6 @@ namespace Sprint0.Npcs
 {
     public class BombProj : AbstractNpc
     {
-        // milliseconds
         int ElapsedTime;
         int UpdateTimer;
 
@@ -16,20 +15,17 @@ namespace Sprint0.Npcs
 
         public BombProj(Vector2 position, int updateTimer = 1000)
         {
-            //this.IsProjectile = true;
-            this.Position = position;
-            this.Direction = new Vector2(0, 0); // Starts standing still.
-            this.UpdateTimer = updateTimer;
-            this.sprite = new Sprites.Npcs.BombProjSprite();
+            // Movement
+            Position = position;
+            Direction = new Vector2(0, 0);
+
+            // Update
+            UpdateTimer = updateTimer;
+            Sprite = new Sprites.Npcs.BombProjSprite();
         }
 
-        // public override bool IsProjectile()
-        // {
-        //     return this.IsProjectile;
-        // }
         public override void Destroy()
         {
-            // no functionality 
             throw new NotImplementedException();
         }
         public override void Update(GameTime gameTime)
@@ -40,12 +36,12 @@ namespace Sprint0.Npcs
             {
                 ElapsedTime = 0;
             }
-                sprite.Update(gameTime);
+                Sprite.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, Position);
+            Sprite.Draw(sb, Position);
         }
     }
 }

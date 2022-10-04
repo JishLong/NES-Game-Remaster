@@ -96,9 +96,9 @@ namespace Sprint0
             CurrentCharacter.Update(gameTime);
 
             // Boss projectiles.
-            CurrentBossProj1.Update(gameTime);
-            CurrentBossProj2.Update(gameTime);
-            CurrentBossProj3.Update(gameTime);
+            //CurrentBossProj1.Update(gameTime);
+           //CurrentBossProj2.Update(gameTime);
+           // CurrentBossProj3.Update(gameTime);
 
             Player.Update();
 
@@ -118,9 +118,9 @@ namespace Sprint0
             CurrentCharacter.Draw(SBatch);
 
             // Boss projectiles.
-            CurrentBossProj1.Draw(SBatch);
-            CurrentBossProj2.Draw(SBatch);
-            CurrentBossProj3.Draw(SBatch);
+            //CurrentBossProj1.Draw(SBatch);
+            //CurrentBossProj2.Draw(SBatch);
+            //CurrentBossProj3.Draw(SBatch);
 
             SBatch.End();
 
