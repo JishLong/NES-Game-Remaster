@@ -3,13 +3,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Controllers;
 using Sprint0.Items;
 using Sprint0.Player;
-using Sprint0.Bosses.Interfaces;
-using Sprint0.Bosses.Utils;
-using Sprint0.Sprites;
 using Sprint0.Blocks;
 using Sprint0.Blocks.Utils;
 using Sprint0.Items.Utils;
 using Sprint0.Characters;
+using Sprint0.Projectiles;
 
 namespace Sprint0
 {
@@ -26,15 +24,6 @@ namespace Sprint0
         public IBlock CurrentBlock { get; set; }
         public ICharacter CurrentCharacter { get; set; }
 
-        // Boss stuff
-        //public IBoss[] Bosses;
-        public string[] BossTypes;
-        public BossFactory BossFactory;
-        public Vector2 BossPosition;
-        public IBoss CurrentBossProj1 { get; set; }
-        public IBoss CurrentBossProj2 { get; set; }
-        public IBoss CurrentBossProj3 { get; set; }
-
         public Game1()
         {
             Graphics = new GraphicsDeviceManager(this);
@@ -50,10 +39,7 @@ namespace Sprint0
             // Item and block initialization
             CurrentItem = ItemFactory.GetInstance().GetNextItem(ItemFactory.DefaultItemPosition);
             CurrentBlock = BlockFactory.GetInstance().GetNextBlock(BlockFactory.DefaultBlockPosition);
-
-            // Boss and NPC stuff
-            BossFactory = new BossFactory();
-            BossPosition = new Vector2(600, 200);
+            CurrentCharacter = CharacterFactory.GetInstance().GetNextCharacter(CharacterFactory.DefaultCharacterPosition);
 
             Keyboard = new KeyboardController(this, Player.GetStateController());
 
@@ -64,22 +50,6 @@ namespace Sprint0
         {
             SBatch = new SpriteBatch(GraphicsDevice);
             Resources.LoadContent(Content);
-
-
-            BossTypes = new string[]
-            {
-                "DODONGO",
-                "AQUAMENTUS",
-                "AQUAMENTUSFLAME",
-            };
-
-            // Character currently instantiated here because of texture loading issue - soon to be fixed
-            CurrentCharacter = CharacterFactory.GetInstance().GetNextCharacter(CharacterFactory.DefaultCharacterPosition);
-
-            // For Aquamentus flames - need to refactor later
-            CurrentBossProj1 = this.BossFactory.GetBoss(BossTypes[2], BossPosition);
-            CurrentBossProj2 = this.BossFactory.GetBoss(BossTypes[2], BossPosition);
-            CurrentBossProj3 = this.BossFactory.GetBoss(BossTypes[2], BossPosition);
         }
 
         protected override void Update(GameTime gameTime)
@@ -94,10 +64,7 @@ namespace Sprint0
             CurrentBlock.Update();
             CurrentCharacter.Update(gameTime);
 
-            // Boss projectiles.
-            CurrentBossProj1.Update(gameTime);
-            CurrentBossProj2.Update(gameTime);
-            CurrentBossProj3.Update(gameTime);
+            ProjectileManager.GetInstance().Update();
 
             Player.Update();
 
@@ -116,10 +83,7 @@ namespace Sprint0
             CurrentBlock.Draw(SBatch);
             CurrentCharacter.Draw(SBatch);
 
-            // Boss projectiles.
-            CurrentBossProj1.Draw(SBatch);
-            CurrentBossProj2.Draw(SBatch);
-            CurrentBossProj3.Draw(SBatch);
+            ProjectileManager.GetInstance().Draw(SBatch);
 
             SBatch.End();
 

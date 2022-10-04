@@ -1,9 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Linq;
-using Sprint0.Bosses.Utils;
-using Sprint0.Sprites.Bosses;
+using Sprint0.Projectiles;
 
 namespace Sprint0.Bosses
 {
@@ -60,6 +58,20 @@ namespace Sprint0.Bosses
                 }
             }
             Position += (this.Direction * this.MovementSpeed);
+
+            if (RNG.Next(0, 120) == 0) 
+            {
+                IProjectile proj1 = ProjectileFactory.GetInstance().GetProjectile(
+                    Types.Projectile.BOSSPROJ, Position, new Vector2(-3, 0));
+                IProjectile proj2 = ProjectileFactory.GetInstance().GetProjectile(
+                    Types.Projectile.BOSSPROJ, Position, new Vector2(-3, 3));
+                IProjectile proj3 = ProjectileFactory.GetInstance().GetProjectile(
+                    Types.Projectile.BOSSPROJ, Position, new Vector2(-3, -3));
+
+                ProjectileManager.GetInstance().addProjectile(proj1);
+                ProjectileManager.GetInstance().addProjectile(proj2);
+                ProjectileManager.GetInstance().addProjectile(proj3);
+            }
 
             sprite.Update();
         }

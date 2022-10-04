@@ -16,9 +16,6 @@ namespace Sprint0.Npcs.Utils
 				case "FLAME":
 
 					return new Flame(position);
-				case "BOMBPROJ":
-
-					return new BombProj(position);
 
 				default:
 					Console.Error.Write("Type " + npcType + " does not exist.");

@@ -3,8 +3,10 @@
     public static class Types
     {
 
-        public enum Character { BAT, GEL, HAND, RED_GORIYA, SKELETON, ZOL, AQUAMENTUS, DODONGO, BOMBPROJ, FLAME, OLDMAN}
+        public enum Character { BAT, GEL, HAND, RED_GORIYA, SKELETON, ZOL, AQUAMENTUS, DODONGO, FLAME, OLDMAN}
         public enum Enemy {BAT, GEL, HAND, RED_GORIYA, SKELETON, ZOL};
+
+        public enum Projectile { BOMBPROJ, BOSSPROJ };
 
         public enum Item {ARROW, BLUE_CANDLE, BLUE_POTION, BOMB, BOW, CLOCK, COMPASS, FAIRY, HEART, HEART_CONTAINER, 
         KEY, MAP, RUPEE, TRIFORCE_PIECE, WOODEN_BOOMERANG};

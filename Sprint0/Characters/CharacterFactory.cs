@@ -39,8 +39,6 @@ namespace Sprint0.Characters
                     return new Aquamentus(position);
                 case Types.Character.DODONGO:
                     return new Dodongo(position);
-                case Types.Character.BOMBPROJ:
-                    return new BombProj(position);
                 case Types.Character.FLAME:
                     return new Flame(position);
                 case Types.Character.OLDMAN:
