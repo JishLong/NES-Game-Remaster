@@ -1,10 +1,10 @@
-
+﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Bosses
 {
-    public class DodongoSprite : IBossSprite
+    public class DodongoUpSprite : IBossSprite
     {
         private Texture2D Sheet;
 
@@ -18,12 +18,12 @@ namespace Sprint0.Sprites.Bosses
         private Animation MovAnimation;
         private int AnimationSpd = 1;
 
-        public DodongoSprite()
+        public DodongoUpSprite()
         {
             Sheet = Resources.BossEnemiesSpriteSheet;
             MovAnimation = new Animation(Width, Height, AnimationSpd);
-            MovAnimation.AddFrame(1, 58);
-            MovAnimation.AddFrame(1, 58);
+            MovAnimation.AddFrame(35, 58);
+            MovAnimation.AddFrame(35, 58);
         }
         public void Update(GameTime gameTime)
         {

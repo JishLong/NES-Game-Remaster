@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Bosses.Utils;
 using Sprint0.Sprites.Bosses;
+using Sprint0.Sprites.Enemies;
+using static Sprint0.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Bosses
 {
@@ -47,17 +50,21 @@ namespace Sprint0.Bosses
                 {
                     case 0:
                         Direction = new Vector2(1, 0); // right
+                        Sprite = new Sprites.Bosses.DodongoRightSprite();
                         break;
 
                     case 1:
                         Direction = new Vector2(0, -1); // down
+                        Sprite = new Sprites.Bosses.DodongoUpSprite();
                         break;
 
                     case 2:
                         Direction = new Vector2(-1, 0); // left
+                        Sprite = new Sprites.Bosses.DodongoLeftSprite();
                         break;
                     case 3:
                         Direction = new Vector2(0, 1); // up
+                        Sprite = new Sprites.Bosses.DodongoSprite();
                         break;
                 }
             }
