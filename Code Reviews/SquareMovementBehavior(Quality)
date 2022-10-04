@@ -1,0 +1,10 @@
+(Quality)
+Paul Fierman
+10/3/2022
+Sprint2
+SquareMovementBehavior.cs
+Hayden Grey
+Public fields are organized by relation of type with very descriptive names. List of 4 directional movements, up, down, left, right. Constructor to great square movement sequence based on timer for frequency of change. Vector math method to move enemy when the elapsed time is greater than the running update timer. 
+
+  Could relatively easily add a random num variable between 1 and DirectionalSequence.count and replace as current direction index. This would allow any enemy’s that utilize this behavior to have a sporadic random movement and will bring an added level of difficulty and uncertainty to the enemies.
+
