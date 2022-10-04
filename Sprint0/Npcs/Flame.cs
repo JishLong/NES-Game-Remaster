@@ -1,7 +1,6 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Linq;
 using Sprint0.Sprites.Npcs;
 
 namespace Sprint0.Npcs
@@ -20,7 +19,7 @@ namespace Sprint0.Npcs
             this.Position = position;
             this.Direction = new Vector2(0, 0); // Starts standing still.
             this.UpdateTimer = updateTimer;
-            this.sprite = new Sprites.Blocks.FireBlockSprite();
+            this.sprite = new FlameSprite();
         }
 
         // public override bool IsProjectile()
