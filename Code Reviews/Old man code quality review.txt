@@ -1,0 +1,9 @@
+Hanebal Aseged
+10/3/22
+Sprint 2
+OldMan.cs
+Alfia Zhang
+There's some unused code that looks like it could be deleted. 
+Hard coded value in constructor is not necessary.
+A hypothetical change is to have the old man hold some text dialgoue.
+This would be an easy update for the current implementation as there is room for another method.
