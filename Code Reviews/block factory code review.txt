@@ -1,0 +1,9 @@
+Author of code review: Ethan Powers
+Date of code review: 03 Oct. 2022
+Sprint 2
+Reviewing: BlockFactory.cs
+Author of BlockFactory.cs: Hanebal
+Reviewing for: Maintainability
+Time for review: 10 mins
+
+Notes: The main issue with maintainability with the BlockFactory class is that it uses a CurrentBlock variable to track the current type of block.  This becomes undesired behavior in future sprints, meaning that most methods in the class will need to be rewritted. Itis also the main benefit to using the singleton pattern with this class, which I believe will become unnecessary in the near future, though it may be more convenient to leave it as-is with the singleton pattern, though bnot strictly necessary.   
