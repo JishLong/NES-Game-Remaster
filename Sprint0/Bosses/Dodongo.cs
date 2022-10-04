@@ -30,7 +30,6 @@ namespace Sprint0.Bosses
             RNG = new Random();
         }
 
-        // no functionality 
         public override void Destroy()
         {
 
@@ -43,7 +42,7 @@ namespace Sprint0.Bosses
             {
                 ElapsedTime = 0;
 
-                int randDirection = this.RNG.Next(0, 3);
+                int randDirection = RNG.Next(0, 3);
                 switch (randDirection)
                 {
                     case 0:
@@ -62,7 +61,7 @@ namespace Sprint0.Bosses
                         break;
                 }
             }
-            Position += (this.Direction * this.MovementSpeed);
+            Position += (Direction * MovementSpeed);
 
             Sprite.Update(gameTime);
         }

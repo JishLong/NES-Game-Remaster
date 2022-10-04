@@ -1,7 +1,6 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Linq;
 using Sprint0.Bosses.Utils;
 using Sprint0.Sprites.Bosses;
 using Sprint0.Characters;
@@ -14,7 +13,7 @@ namespace Sprint0.Bosses
         int ElapsedTime;
         int UpdateTimer;
 
-        Random RNG;
+        // Tracks 1 of 3 flames
         int FlameNum;
         Vector2 firingPosition;
 
@@ -34,7 +33,6 @@ namespace Sprint0.Bosses
 
         public override void Destroy()
         {
-            // no functionality 
             throw new NotImplementedException();
         }
         public override void Update(GameTime gameTime)
@@ -69,7 +67,6 @@ namespace Sprint0.Bosses
 
         public override void Draw(SpriteBatch sb)
         {
-            System.Diagnostics.Debug.WriteLine("drawing from Flame: " + Position);
             Sprite.Draw(sb, Position);
         }
 

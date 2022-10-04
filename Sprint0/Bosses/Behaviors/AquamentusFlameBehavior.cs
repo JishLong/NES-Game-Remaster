@@ -12,7 +12,7 @@ namespace Sprint0.Bosses.Behaviors
         private float ProjectileSpeed;
         public AquamentusFlameBehavior(IBoss boss, float projectileSpeed)
         {
-            Boss = boss;
+
         }
         public void Attack(Vector2 position, Direction direction)
         {

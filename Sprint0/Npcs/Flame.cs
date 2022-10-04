@@ -22,13 +22,8 @@ namespace Sprint0.Npcs
             Sprite = new Sprites.Npcs.FlameSprite();
         }
 
-        // public override bool IsProjectile()
-        // {
-        //      return this.IsProjectile;
-        // }
         public override void Destroy()
         {
-            // no functionality 
             throw new NotImplementedException();
         }
         public override void Update(GameTime gameTime)

@@ -11,13 +11,12 @@ namespace Sprint0.Npcs.Utils
 			switch (npcType)
 			{
 				case "OLDMAN":
-
 					return new OldMan(position);
+
 				case "FLAME":
-
 					return new Flame(position);
-				case "BOMBPROJ":
 
+				case "BOMBPROJ":
 					return new BombProj(position);
 
 				default:

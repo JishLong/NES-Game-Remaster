@@ -12,7 +12,6 @@ namespace Sprint0.Npcs
         int UpdateTimer;
 
         bool isProjectile;
-
         public BombProj(Vector2 position, int updateTimer = 1000)
         {
             // Movement

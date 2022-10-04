@@ -1,10 +1,8 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Linq;
 using Sprint0.Bosses;
 using Sprint0.Sprites.Bosses;
-using System.ComponentModel;
 using Sprint0.Bosses.Behaviors;
 
 namespace Sprint0.Bosses
@@ -62,20 +60,13 @@ namespace Sprint0.Bosses
 
             if (ElapsedTime > UpdateTimer)
             {
-                //if (ElapsedTime - CooldownTimer > 0)
-                if (true)
-                {
-                    ElapsedTime = 0;
-                    BossAttackBehavior = new AquamentusFlameBehavior(this, ProjectileSpeed);
-                    Flame1.Update(gameTime);
-                    Flame2.Update(gameTime);
-                    Flame3.Update(gameTime);
-
-                }
-                System.Diagnostics.Debug.WriteLine("mov");
                 ElapsedTime = 0;
+                BossAttackBehavior = new AquamentusFlameBehavior(this, ProjectileSpeed);
+                Flame1.Update(gameTime);
+                Flame2.Update(gameTime);
+                Flame3.Update(gameTime);
 
-                int randDirection = this.RNG.Next(0, 3);
+                int randDirection = RNG.Next(0, 3);
                 switch (randDirection)
                 {
                     case 0:
@@ -95,10 +86,7 @@ namespace Sprint0.Bosses
                 }
             }
 
-
             Position += (Direction * MovementSpeed);
-            //ElapsedTime = 0;
-
             Sprite.Update(gameTime);
         }
 
@@ -109,6 +97,5 @@ namespace Sprint0.Bosses
             Flame2.Draw(sb);
             Flame3.Draw(sb);
         }
-
     }
 }
