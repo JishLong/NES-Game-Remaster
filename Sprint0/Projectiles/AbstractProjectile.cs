@@ -31,6 +31,7 @@ namespace Sprint0.Projectiles
 
         public void Update()
         {
+            Sprite.Update();
             FramesPassed++;
             Position += Velocity;
         }
