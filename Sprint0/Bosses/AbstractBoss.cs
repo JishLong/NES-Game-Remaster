@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Bosses.Interfaces;
 using Sprint0.Sprites.Bosses;
+using Sprint0.Sprites;
 
 namespace Sprint0.Bosses
 {
@@ -19,7 +20,7 @@ namespace Sprint0.Bosses
 		public bool CanMove;
 
 		// Sprite related fields.
-		public IBossSprite sprite { get; set; }
+		public ISprite sprite { get; set; }
 		public void TakeDamage(int damage)
 		{
 			Health -= damage;

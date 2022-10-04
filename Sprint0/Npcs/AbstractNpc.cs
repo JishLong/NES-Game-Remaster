@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Npcs.Interfaces;
-using Sprint0.Sprites.Npcs;
+using Sprint0.Sprites;
 
 namespace Sprint0.Npcs
 {
@@ -18,7 +18,7 @@ namespace Sprint0.Npcs
         public bool CanMove;
 
         // Sprite related fields.
-        public INpcSprite sprite { get; set; }
+        public ISprite sprite { get; set; }
         public void TakeDamage(int damage)
         {
             Health -= damage;

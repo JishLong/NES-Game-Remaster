@@ -46,7 +46,6 @@ namespace Sprint0
         {
             // Player initialization
             Player = new Player.Player(this);
-            LinkSpriteSheet.Init(this);
 
             // Item and block initialization
             CurrentItem = ItemFactory.GetInstance().GetNextItem(ItemFactory.DefaultItemPosition);

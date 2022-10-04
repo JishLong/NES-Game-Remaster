@@ -1,7 +1,8 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.State;
-using Sprint0.Sprites.Player;
+using Sprint0.Sprites;
 using Sprint0.Sprites.Player.Attack.SwordAttack;
+using Microsoft.Xna.Framework;
 
 namespace Sprint0.Player.SpriteControllers
 {
@@ -26,35 +27,43 @@ namespace Sprint0.Player.SpriteControllers
         private PlayerSwordAttackingSpriteController(PlayerStateController stateController)
         {
             this.stateController = stateController;
-            currentSprite = PlayerSwordAttackDown.GetInstance(stateController);
+            currentSprite = PlayerSwordAttackDown.GetInstance();
         }
 
         public void Update()
         {
             var state = stateController.GetState();
+            currentSprite.Update();
 
             if (state.FacingDown())
             {
-                currentSprite = PlayerSwordAttackDown.GetInstance(stateController);
+                currentSprite = PlayerSwordAttackDown.GetInstance();
             }
             else if (state.FacingRight())
             {
-                currentSprite = PlayerSwordAttackRight.GetInstance(stateController);
+                currentSprite = PlayerSwordAttackRight.GetInstance();
             }
             else if (state.FacingUp())
             {
-                currentSprite = PlayerSwordAttackUp.GetInstance(stateController);
+                currentSprite = PlayerSwordAttackUp.GetInstance();
             }
             // when facing left
             else
             {
-                currentSprite = PlayerSwordAttackLeft.GetInstance(stateController);
+                currentSprite = PlayerSwordAttackLeft.GetInstance();
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            currentSprite.Draw(spriteBatch, 0, 0, 0, 0);
+            if (stateController.GetState().IsDamaged())
+            {
+                currentSprite.Draw(spriteBatch, stateController.GetState().GetPosition(), Color.Red);
+            }
+            else
+            {
+                currentSprite.Draw(spriteBatch, stateController.GetState().GetPosition());
+            }           
         }
 
         public void Reset() { }

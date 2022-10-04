@@ -3,19 +3,15 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Blocks
 {
-    internal class FireBlockSprite : ISprite
+    public class FireBlockSprite : AnimatedSprite
     {
-        public void Draw(SpriteBatch sb, int x, int y, int w, int h)
+        public FireBlockSprite() : base(2, 8)
         {
-            Texture2D SpriteSheet = Resources.FireSpriteSheet;
-            Rectangle SheetPosition = Resources.FireBlock;
 
-            sb.Draw(SpriteSheet, new Rectangle(x, y, w, h), SheetPosition, Color.White);
         }
 
-        public void Update()
-        {
-            //Nothing Needed
-        }
+        protected override Texture2D GetSpriteSheet() => Resources.BlocksSpriteSheet;
+
+        protected override Rectangle GetFirstFrame() => Resources.FireBlock;
     }
 }

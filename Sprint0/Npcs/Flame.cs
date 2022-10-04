@@ -20,7 +20,7 @@ namespace Sprint0.Npcs
             this.Position = position;
             this.Direction = new Vector2(0, 0); // Starts standing still.
             this.UpdateTimer = updateTimer;
-            this.sprite = new Sprites.Npcs.FlameSprite();
+            this.sprite = new Sprites.Blocks.FireBlockSprite();
         }
 
         // public override bool IsProjectile()
@@ -39,7 +39,7 @@ namespace Sprint0.Npcs
             {
                 ElapsedTime = 0;
             }
-            sprite.Update(gameTime);
+            sprite.Update();
         }
 
         public override void Draw(SpriteBatch sb)

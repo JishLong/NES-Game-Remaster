@@ -40,7 +40,7 @@ namespace Sprint0.Npcs
             {
                 ElapsedTime = 0;
             }
-                sprite.Update(gameTime);
+                sprite.Update();
         }
 
         public override void Draw(SpriteBatch sb)

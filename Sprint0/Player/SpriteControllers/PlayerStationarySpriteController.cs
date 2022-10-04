@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.State;
+using Sprint0.Sprites;
 using Sprint0.Sprites.Player.Stationary;
+using Microsoft.Xna.Framework;
 
 namespace Sprint0.Player.SpriteControllers
 {
@@ -16,7 +18,7 @@ namespace Sprint0.Player.SpriteControllers
         {
             this.stateController = stateController;
             // default sprite
-            this.currentSprite = new PlayerFacingDown(stateController);
+            this.currentSprite = new PlayerFacingDown();
         }
 
         public static PlayerStationarySpriteController GetInstance(PlayerStateController stateController)
@@ -35,32 +37,38 @@ namespace Sprint0.Player.SpriteControllers
 
             if (state.FacingUp())
             {
-                currentSprite = new PlayerFacingUp(stateController);
+                currentSprite = new PlayerFacingUp();
             }
             else if (state.FacingDown())
             {
-                currentSprite = new PlayerFacingDown(stateController);
+                currentSprite = new PlayerFacingDown();
             }
             else if (state.FacingRight())
             {
-                currentSprite = new PlayerFacingRight(stateController);
+                currentSprite = new PlayerFacingRight();
             }
             else
             {
-                currentSprite = new PlayerFacingLeft(stateController);
+                currentSprite = new PlayerFacingLeft();
             }
         }
 
         public void Draw(SpriteBatch sb)
         {
-            currentSprite.Draw(sb, 0, 0, 0, 0);
+            if (stateController.GetState().IsDamaged())
+            {
+                currentSprite.Draw(sb, stateController.GetState().GetPosition(), Color.Red);
+            }
+            else
+            {
+                currentSprite.Draw(sb, stateController.GetState().GetPosition());
+            }
         }
 
         // resets to the default sprite
         public void Reset()
         {
-            this.currentSprite = new PlayerFacingDown(stateController);
+            this.currentSprite = new PlayerFacingDown();
         }
     }
 }
-

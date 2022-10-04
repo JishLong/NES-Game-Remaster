@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Sprites;
 using Sprint0.Sprites.Enemies;
 using System;
 using Sprint0.Enemies.Behaviors;
@@ -10,7 +11,7 @@ namespace Sprint0.Enemies
 {
     public class RedGoriya : AbstractEnemy 
     {
-        private Dictionary<Direction, IEnemySprite> DirectionSprites = new Dictionary<Direction, IEnemySprite>()
+        private Dictionary<Direction, ISprite> DirectionSprites = new Dictionary<Direction, ISprite>()
         {
             {Direction.Up, new RedGoriyaUpSprite()},
             {Direction.Down, new RedGoriyaDownSprite()},
@@ -18,7 +19,7 @@ namespace Sprint0.Enemies
             {Direction.Right, new RedGoriyaRightSprite()},
         };
 
-        private Dictionary<Direction, IEnemySprite> AttackSprites = new Dictionary<Direction, IEnemySprite>() 
+        private Dictionary<Direction, ISprite> AttackSprites = new Dictionary<Direction, ISprite>() 
         {
             {Direction.Up, new RedGoriyaUpSprite()},
             {Direction.Down, new RedGoriyaDownSprite()},
@@ -67,7 +68,7 @@ namespace Sprint0.Enemies
             }
 
             AttackBehavior.Update(gameTime);
-            Sprite.Update(gameTime);
+            Sprite.Update();
         }
 
         private void DoMove(GameTime gameTime)

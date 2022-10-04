@@ -1,4 +1,4 @@
-﻿using Sprint0.Sprites.Enemies;
+﻿using Sprint0.Sprites;
 using Sprint0.Sprites.Weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,7 +11,7 @@ namespace Sprint0.Enemies.Weapons
         private double ElapsedTime;
         private double UpdateTimer;
 
-        private IWeaponSprite Sprite;
+        private ISprite Sprite;
         private bool Enabled;
         private float ProjectileSpeed;
         private Vector2 Position;
@@ -52,7 +52,7 @@ namespace Sprint0.Enemies.Weapons
             bool ThrowOutInterval = (ElapsedTime - (UpdateTimer / 2)) < 0;
             bool ReturnInterval = (ElapsedTime - (UpdateTimer / 2)) > 0 && ((ElapsedTime - UpdateTimer) < 0);
 
-            Sprite.Update(gameTime); 
+            Sprite.Update(); 
             if (ThrowOutInterval)               
             {
                 // Moving away.
