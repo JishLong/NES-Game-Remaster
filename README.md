@@ -1,5 +1,18 @@
-# CSE-3902-Project
+# CSE-3902-Project - Sprint 2
 
-##Player
-----Utilized state pattern, simple one line state methods for each possible action or state of player and a controller class set that implements all method headers. 
----Sprites categories for handling stationary player state, walking direction and attacking directions. 
+This README file contains brief instructions/information regarding this project as well as its documentative efforts.
+
+Firstly, here is a quick and explicit review of the game controls:
+
+- Arrows, WASD: movement of Link
+- Z, N: sword attack
+- E: become damaged
+
+- T, Y: cycle between items
+- U, I: cycle between blocks
+- O, P: cycle between enemies, bosses, and NPCs
+
+- R: reset the game
+- Q: quit the game
+
+As of writing this document, no known bugs have been found during playtesting. However, seeing as this is a work-in-progress, this does not guarantee the absence of bugs.
