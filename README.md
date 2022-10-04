@@ -21,7 +21,7 @@ As of writing this document, no known bugs have been found during playtesting. H
 ##Player
 ----Utilized state pattern, simple one line state methods for each possible action or state of player and a controller class set that implements all method headers. 
 ----Sprites categories for handling stationary player state, walking direction and attacking directions. 
-----Command Pattern for input, movement and damage execution
+----Command Pattern for input, movement and damage execution.
 ##Blocks
 ----Command pattern for block type swapping
 ----Factory, block switch case for all block types.
