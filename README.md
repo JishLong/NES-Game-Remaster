@@ -14,3 +14,5 @@ Firstly, here is a quick and explicit review of the game controls:
 
 - R: reset the game
 - Q: quit the game
+
+As of writing this document, no known bugs have been found during playtesting. However, seeing as this is a work-in-progress, this does not guarantee the absence of bugs.
