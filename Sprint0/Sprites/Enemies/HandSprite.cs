@@ -5,7 +5,7 @@ namespace Sprint0.Sprites.Enemies
 {
     public class HandSprite : AnimatedSprite
     {
-        public HandSprite() : base(2, 8)
+        public HandSprite() : base(2, 16)
         {
 
         }

@@ -43,6 +43,8 @@ namespace Sprint0.Characters
                     return new Flame(position);
                 case Types.Character.OLDMAN:
                     return new OldMan(position);
+                case Types.Character.SNAKE:
+                    return new Snake(position);
                 default:
                     Console.Error.Write("The enemy of type " + characterType.ToString() +
                         " could not be instantiated by the Character Factory. Does this type exist?");

@@ -5,7 +5,7 @@ namespace Sprint0.Sprites.Enemies
 {
     public class RedGoriyaRightSprite : AnimatedSprite
     {
-        public RedGoriyaRightSprite() : base(2, 8)
+        public RedGoriyaRightSprite() : base(2, 16)
         {
 
         }

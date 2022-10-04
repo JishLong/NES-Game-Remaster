@@ -3,15 +3,15 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Sprites.Enemies
 {
-    public class GelSprite : AnimatedSprite
+    public class SnakeRightSprite: AnimatedSprite
     {
-        public GelSprite() : base(2, 2)
+        public SnakeRightSprite() : base(2, 12)
         {
 
         }
 
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 
-        protected override Rectangle GetFirstFrame() => Resources.Gel;
+        protected override Rectangle GetFirstFrame() => Resources.SnakeRight;
     }
 }

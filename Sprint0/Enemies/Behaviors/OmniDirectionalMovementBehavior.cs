@@ -1,4 +1,5 @@
 ﻿using System;
+using Sprint0.Characters;
 using Sprint0.Enemies.Interfaces;
 using Microsoft.Xna.Framework;
 using static Sprint0.Enemies.Utils.EnemyUtils;
@@ -18,7 +19,7 @@ namespace Sprint0.Enemies.Behaviors
         /// </summary>
         /// <param name="directionChangeFreq">A direction change will after this many milliseconds.</param>
         public OmniDirectionalMovementBehavior(float movementSpeed, Direction direction, float directionChangeFreq = 1000)
-        {
+        { 
             Direction = direction;
             DirectionVector = ToVector(Direction);
             UpdateTimer = directionChangeFreq;
