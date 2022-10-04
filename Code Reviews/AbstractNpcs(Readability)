@@ -1,0 +1,7 @@
+Paul Fierman
+10/3/2022
+Sprint2
+AbstractNpcs.cs
+Alfie Zhang
+12
+Public fields are organized by relation of type with very descriptive names. Take damage method is descriptive in header name and simply decrements the health field and destroys when health arrives at 0. Freeze and Unfreeze methods to flip Boolean that allows NPC to move. 
