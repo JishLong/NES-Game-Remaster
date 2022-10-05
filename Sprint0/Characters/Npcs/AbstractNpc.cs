@@ -8,17 +8,17 @@ namespace Sprint0.Npcs
     public abstract class AbstractNpc : INpc
     {
         // Combat related fields.
-        public int Health { get; set; }
+        protected int Health { get; set; }
 
         // Movement related fields.
-        public Vector2 Position;
-        public Vector2 Direction;
-        public string DirectionName;
-        public int MovementSpeed;
-        public bool CanMove;
+        protected Vector2 Position;
+        protected Vector2 Direction;
+        protected string DirectionName;
+        protected int MovementSpeed;
+        protected bool CanMove = false;
 
         // Sprite related fields.
-        public ISprite sprite { get; set; }
+        protected ISprite sprite { get; set; }
 
         public void TakeDamage(int damage)
         {

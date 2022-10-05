@@ -10,21 +10,18 @@ namespace Sprint0.Npcs
 	{
 		int ElapsedTime;
 		int UpdateTimer;
-		bool isProjectile;
 
 		public OldMan(Vector2 position, int updateTimer = 1000)
 		{
-			this.Health = 1;
-			//this.IsProjectile = false;
-			this.Position = position;
-			this.Direction = new Vector2(0, 0); // Starts standing still.
-			this.UpdateTimer = updateTimer;
-			this.sprite = new OldManSprite();
+			Health = 1;
+			Position = position;
+			Direction = new Vector2(0, 0);
+			UpdateTimer = updateTimer;
+			sprite = new OldManSprite();
 		}
 
 		public override void Destroy()
 		{
-			// no functionality 
 			throw new NotImplementedException();
 		}
 

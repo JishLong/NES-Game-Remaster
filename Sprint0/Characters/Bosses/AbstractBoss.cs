@@ -19,7 +19,7 @@ namespace Sprint0.Bosses
         protected Vector2 Direction;
 		//public string DirectionName;
         protected int MovementSpeed;
-        protected bool CanMove;
+        protected bool CanMove = true;
 
 		// Sprite related fields.
 		protected ISprite Sprite { get; set; }

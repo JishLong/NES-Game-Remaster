@@ -9,15 +9,13 @@ namespace Sprint0.Npcs
     {
         int ElapsedTime;
         int UpdateTimer;
-        bool isProjectile;
         public Flame(Vector2 position, int updateTimer = 1000)
         {
-            this.Health = 1;
-            //this.IsProjectile = true;
-            this.Position = position;
-            this.Direction = new Vector2(0, 0); // Starts standing still.
-            this.UpdateTimer = updateTimer;
-            this.sprite = new FlameSprite();
+            Health = 1;
+            Position = position;
+            Direction = new Vector2(0, 0);
+            UpdateTimer = updateTimer;
+            sprite = new FlameSprite();
         }
 
         public override void Destroy()
