@@ -32,12 +32,12 @@ namespace Sprint0.Npcs
 
         public void Freeze()
         {
-            this.CanMove = false;
+            CanMove = false;
         }
 
         public void Unfreeze()
         {
-            this.CanMove = true;
+            CanMove = true;
         }
 
         // need for projectile logic

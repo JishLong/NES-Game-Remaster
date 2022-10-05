@@ -7,11 +7,9 @@ namespace Sprint0.Npcs
 {
     public class Flame : AbstractNpc
     {
-        // milliseconds
         int ElapsedTime;
         int UpdateTimer;
         bool isProjectile;
-
         public Flame(Vector2 position, int updateTimer = 1000)
         {
             this.Health = 1;
@@ -22,13 +20,8 @@ namespace Sprint0.Npcs
             this.sprite = new FlameSprite();
         }
 
-        // public override bool IsProjectile()
-        // {
-        //      return this.IsProjectile;
-        // }
         public override void Destroy()
         {
-            // no functionality 
             throw new NotImplementedException();
         }
 

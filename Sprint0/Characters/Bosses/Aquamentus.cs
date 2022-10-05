@@ -8,7 +8,6 @@ namespace Sprint0.Bosses
 {
     public class Aquamentus : AbstractBoss
     {
-        // milliseconds
         int ElapsedTime;
         int UpdateTimer;
 
@@ -16,30 +15,32 @@ namespace Sprint0.Bosses
 
         public Aquamentus(Vector2 position, int updateTimer = 1000)
         {
-            this.Health = 6;    // Data here: https://strategywiki.org/wiki/The_Legend_of_Zelda/Bosses
-            this.Damage = 2;    // Damage dealt
-            this.CanMove = true;
-            this.Position = position;
-            this.Direction = new Vector2(0, 0); // Starts standing still.
-            this.MovementSpeed = 2;
-            this.UpdateTimer = updateTimer;
-            this.RNG = new Random();
-            this.sprite = new AquamentusSprite();
+            // Combat
+            Health = 6;    // Data here: https://strategywiki.org/wiki/The_Legend_of_Zelda/Bosses
+            Damage = 2;    // Damage dealt
+            CanMove = true;
+            
+            // Movement
+            Position = position;
+            Direction = new Vector2(0, 0); 
+            MovementSpeed = 2;
+            UpdateTimer = updateTimer;
+            RNG = new Random();
+            Sprite = new AquamentusSprite();
         }
 
         public override void Destroy()
         {
-            // no functionality 
             throw new NotImplementedException();
         }
+
         public override void Update(GameTime gameTime)
         {
             ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
             if (ElapsedTime > UpdateTimer)
             {
                 ElapsedTime = 0;
-
-                int randDirection = this.RNG.Next(0, 3);
+                int randDirection = RNG.Next(0, 4);
                 switch (randDirection)
                 {
                     case 0:
@@ -56,9 +57,9 @@ namespace Sprint0.Bosses
                     case 3:
                         Direction = new Vector2(0, 1); // up
                         break;
+                        
                 }
             }
-            Position += (this.Direction * this.MovementSpeed);
 
             if (RNG.Next(0, 120) == 0) 
             {
@@ -73,13 +74,13 @@ namespace Sprint0.Bosses
                 ProjectileManager.GetInstance().AddProjectile(proj2);
                 ProjectileManager.GetInstance().AddProjectile(proj3);
             }
-
-            sprite.Update();
+            Position += (Direction * MovementSpeed);
+            Sprite.Update();
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, Position);
+            Sprite.Draw(sb, Position);
         }
     }
 }

@@ -18,8 +18,6 @@ namespace Sprint0.Projectiles
             {
                 case Types.Projectile.BOSSPROJ:
                     return new BossProjectile(position, velocity);
-                case Types.Projectile.BOMBPROJ:
-                    return new BombProjectile(position, velocity);
                 case Types.Projectile.ARROWPROJ:
                     return new ArrowProjectile(position, velocity);
 
