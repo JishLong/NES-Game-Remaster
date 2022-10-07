@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Enemies.Utils;
+using Sprint0.Characters.Enemies.Utils;
 
 namespace Sprint0.Enemies.Interfaces
 {

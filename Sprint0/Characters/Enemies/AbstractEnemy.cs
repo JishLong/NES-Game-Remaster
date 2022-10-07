@@ -1,52 +1,34 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Characters.Enemies.Interfaces;
+using Sprint0.Characters.Enemies.States;
+using Sprint0.Characters.Enemies.Utils;
 using Sprint0.Enemies.Interfaces;
-using Sprint0.Enemies.Utils;
 using Sprint0.Sprites;
 
-namespace Sprint0.Enemies
+namespace Sprint0.Characters.Enemies;
+public abstract class AbstractEnemy : IEnemy
 {
-    public abstract class AbstractEnemy : IEnemy
+    // State
+    public IEnemyState State { get; set; }
+
+    // Combat related fields.
+    protected int Health;  
+
+    // Movement related fields.
+    public Vector2 Position { get; set;}
+    protected EnemyUtils.Direction Direction;
+    protected int MovementSpeed;
+    protected bool IsFrozen = false;
+
+    // Sprite related fields.
+    protected ISprite Sprite;
+
+    public void TakeDamage(int damage)
     {
-        // Combat related fields.
-        protected int Health;  
-        protected IStunBehavior StunBehavior;
-        protected IMovementBehavior MovementBehavior;
-        protected IAttackBehavior AttackBehavior;
-
-        // Movement related fields.
-        protected Vector2 Position;
-        protected EnemyUtils.Direction Direction;
-        protected int MovementSpeed;
-        protected bool IsFrozen = false;
-
-        // Sprite related fields.
-        protected ISprite Sprite;
-
-        public void TakeDamage(int damage)
-        {
-            Health -= damage;
-
-            if (Health <= 0)
-            {
-                Destroy();
-            }
-        }
-
-        public void Freeze()
-        {
-            IsFrozen = true;
-        }
-
-        public void Unfreeze()
-        {
-            IsFrozen = false;
-        }
-
-        public abstract void Destroy();
-
-        public abstract void Update(GameTime gameTime);
-
-        public abstract void Draw(SpriteBatch sb);
+        Health -= damage;
     }
+    public abstract void Update(GameTime gameTime);
+
+    public abstract void Draw(SpriteBatch sb);
 }

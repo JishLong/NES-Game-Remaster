@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using static Sprint0.Enemies.Utils.EnemyUtils;
+using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Enemies.Weapons
 {

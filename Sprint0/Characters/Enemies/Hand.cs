@@ -2,10 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Sprint0.Enemies.Behaviors;
-using static Sprint0.Enemies.Utils.EnemyUtils;
+using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 using Sprint0.Sprites.Characters.Enemies;
 
-namespace Sprint0.Enemies
+namespace Sprint0.Characters.Enemies
 {
     public class Hand : AbstractEnemy
     {
@@ -17,26 +17,15 @@ namespace Sprint0.Enemies
             // Movement
             Position = position;
             Direction = direction;
-            MovementBehavior = new SquareMovementBehavior(movementSpeed, Direction);
 
             // Update related fields
             Sprite = new HandSprite();
         }
 
-        public override void Destroy()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void Update(GameTime gameTime)
         {
-            if (!IsFrozen)
-            {   
-                Position += MovementBehavior.Move(gameTime);
-            }
-            Sprite.Update();
+            
         }
-
         public override void Draw(SpriteBatch sb)
         {
             Sprite.Draw(sb, Position);

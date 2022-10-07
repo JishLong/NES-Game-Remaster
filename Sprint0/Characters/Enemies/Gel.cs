@@ -2,10 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Sprint0.Enemies.Behaviors;
-using static Sprint0.Enemies.Utils.EnemyUtils;
+using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 using Sprint0.Sprites.Characters.Enemies;
 
-namespace Sprint0.Enemies
+namespace Sprint0.Characters.Enemies
 {
     public class Gel : AbstractEnemy
     {
@@ -17,24 +17,13 @@ namespace Sprint0.Enemies
             // Movement
             Direction = direction;
             Position = position;
-            MovementBehavior = new OrthogonalMovementBehavior(movementSpeed, Direction);
 
             // Update related fields
             Sprite = new GelSprite();
         }
 
-        public override void Destroy()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void Update(GameTime gameTime)
         {
-            if (!IsFrozen)
-            {   
-                Position += MovementBehavior.Move(gameTime);
-            }
-            Sprite.Update();
         }
 
         public override void Draw(SpriteBatch sb)

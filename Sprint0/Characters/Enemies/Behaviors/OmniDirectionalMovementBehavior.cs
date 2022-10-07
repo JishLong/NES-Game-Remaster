@@ -2,7 +2,7 @@
 using Sprint0.Characters;
 using Sprint0.Enemies.Interfaces;
 using Microsoft.Xna.Framework;
-using static Sprint0.Enemies.Utils.EnemyUtils;
+using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Enemies.Behaviors
 {

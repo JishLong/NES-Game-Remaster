@@ -1,97 +1,54 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Sprites;
-using System;
-using Sprint0.Enemies.Behaviors;
-using System.Collections.Generic;
-using static Sprint0.Enemies.Utils.EnemyUtils;
-using Sprint0.Sprites.Characters.Enemies;
+using Sprint0.Characters.Enemies.RedGoriyaStates;
 
-namespace Sprint0.Enemies
+namespace Sprint0.Characters.Enemies
 {
-    public class RedGoriya : AbstractEnemy 
+    public class RedGoriya : AbstractEnemy
     {
-        private Dictionary<Direction, ISprite> DirectionSprites = new Dictionary<Direction, ISprite>()
+        private double AttackTimer = 0;
+        private double AttackDelay = 5000;  // Attack every 5 seconds.
+        private double MoveTimer = 0;
+        private double MoveDelay = 2000;    // Move every 3 seconds.
+        public RedGoriya(Vector2 position)
         {
-            {Direction.Up, new RedGoriyaUpSprite()},
-            {Direction.Down, new RedGoriyaDownSprite()},
-            {Direction.Left, new RedGoriyaLeftSprite()},
-            {Direction.Right, new RedGoriyaRightSprite()},
-        };
+            Position = position;
+            State = new RedGoriyaMovingRightState(this);
 
-        private Dictionary<Direction, ISprite> AttackSprites = new Dictionary<Direction, ISprite>() 
-        {
-            {Direction.Up, new RedGoriyaUpSprite()},
-            {Direction.Down, new RedGoriyaDownSprite()},
-            {Direction.Left, new RedGoriyaLeftSprite()},
-            {Direction.Right, new RedGoriyaRightSprite()},
-        };
-
-        private float ProjectileSpeed;
-
-        private double ElapsedTime;
-        private double AttackTimer;
-
-        public RedGoriya(Vector2 position, Direction direction = Direction.Right, float movementSpeed = 2) 
-        {
             // Combat
             Health = 1;
-            ProjectileSpeed = 5f;
-            AttackBehavior = new BoomerangAttackBehavior(this, ProjectileSpeed);
 
             // Movement
             Position = position;
-            Direction = direction;
-            MovementBehavior = new OrthogonalMovementBehavior(movementSpeed, Direction);
-
-            // Update related fields
-            Sprite = DirectionSprites[MovementBehavior.GetDirection()];
-            ElapsedTime = 0;
-            AttackTimer = 2500;
-
-        }
-
-        public override void Destroy()
-        {
-            throw new NotImplementedException();
         }
 
         public override void Update(GameTime gameTime)
         {
-            ElapsedTime += gameTime.ElapsedGameTime.TotalMilliseconds;
-            if (!IsFrozen)  // If not frozen, this enemy can move.
+            double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
+            AttackTimer += elapsedTime;
+            MoveTimer += elapsedTime; 
+
+            if((AttackTimer - AttackDelay) > 0)
             {
-                DoMove(gameTime);
-            }
-           
-            if((ElapsedTime - AttackTimer) > 0)
-            {
-                ElapsedTime = 0;
-                DoAttack(gameTime);
+                AttackTimer = 0;
+                State.Attack();
             }
 
-            AttackBehavior.Update(gameTime);
-            Sprite.Update();
+            if ((MoveTimer - MoveDelay) > 0)
+            {
+                MoveTimer = 0;
+                State.ChangeDirection();
+            }
+            State.Update(gameTime);
         }
 
-        private void DoMove(GameTime gameTime)
+        public void Freeze()
         {
-            // Adds the total movement for this frame to the current position.
-            Position += MovementBehavior.Move(gameTime);
-            Direction = MovementBehavior.GetDirection();
-            Sprite = DirectionSprites[Direction];
+           State.Freeze();
         }
-
-        private void DoAttack(GameTime gameTime)
-        {
-            AttackBehavior.Attack(Position, Direction);
-            Sprite = AttackSprites[Direction];
-        }
-
         public override void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position);
-            AttackBehavior.Draw(sb);
+            State.Draw(sb, Position);
         }
     }
 }

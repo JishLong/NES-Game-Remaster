@@ -1,8 +1,8 @@
-﻿using Sprint0.Enemies.Interfaces;
-using static Sprint0.Enemies.Utils.EnemyUtils;
+﻿using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 using Sprint0.Enemies.Weapons;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Characters.Enemies.Interfaces;
 
 namespace Sprint0.Enemies.Behaviors
 {
@@ -21,7 +21,7 @@ namespace Sprint0.Enemies.Behaviors
 
         public void Attack(Vector2 position, Direction direction)
         {
-            Enemy.Freeze();
+            //Enemy.Freeze();
             Boomerang = new BoomerangWeapon(position, direction, ProjectileSpeed);
         }
 
@@ -30,7 +30,7 @@ namespace Sprint0.Enemies.Behaviors
             if (!Boomerang.IsEnabled())
             {
                 Boomerang = new NoWeapon(); // Assign the weapon to the none type.
-                Enemy.Unfreeze();
+               // Enemy.Unfreeze();
             }
             Boomerang.Update(gameTime);
         }

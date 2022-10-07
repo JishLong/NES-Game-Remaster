@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Enemies.Behaviors;
 using Sprint0.Sprites.Characters.Enemies;
 using System;
-using static Sprint0.Enemies.Utils.EnemyUtils;
+using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
-namespace Sprint0.Enemies
+namespace Sprint0.Characters.Enemies
 {
     public class Bat : AbstractEnemy
     {
@@ -17,24 +17,13 @@ namespace Sprint0.Enemies
             // Movement
             Direction = direction;
             Position = position;
-            MovementBehavior = new OmniDirectionalMovementBehavior(movementSpeed, Direction);
 
             // Update related fields
             Sprite = new BatSprite();
         }
 
-        public override void Destroy()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void Update(GameTime gameTime)
         {
-            if (!IsFrozen)
-            {   
-                Position += MovementBehavior.Move(gameTime);
-            }
-            Sprite.Update();
         }
 
         public override void Draw(SpriteBatch sb)

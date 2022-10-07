@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
-namespace Sprint0.Enemies.Utils
+namespace Sprint0.Characters.Enemies.Utils
 {
     public static class EnemyUtils
     {
@@ -39,7 +39,7 @@ namespace Sprint0.Enemies.Utils
             Matrix rotationMatrix = Matrix.CreateRotationZ(angle);
             return Vector2.Transform(vector, rotationMatrix);
         }
-        
+
         public static Vector2 ToVector(Direction direction)
         {
             return DirectionVectors[direction];
@@ -52,9 +52,9 @@ namespace Sprint0.Enemies.Utils
         public static Direction RandOrthogDirection(Direction direction)
         {
             Direction newDirection = direction;
-            while(newDirection == direction)
+            while (newDirection == direction)
             {
-                newDirection = (Direction)RNG.Next(0,4);
+                newDirection = (Direction)RNG.Next(0, 4);
             }
             return newDirection;
         }
@@ -67,9 +67,9 @@ namespace Sprint0.Enemies.Utils
         public static Direction RandOmniDirection(Direction direction)
         {
             Direction newDirection = direction;
-            while(newDirection == direction)
+            while (newDirection == direction)
             {
-                newDirection = (Direction)RNG.Next(0,8);
+                newDirection = (Direction)RNG.Next(0, 8);
             }
             return newDirection;
         }

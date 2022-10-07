@@ -5,9 +5,9 @@ using Sprint0.Sprites.Characters.Enemies;
 using System.Collections.Generic;
 using Sprint0.Sprites;
 using System;
-using static Sprint0.Enemies.Utils.EnemyUtils;
+using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
-namespace Sprint0.Enemies
+namespace Sprint0.Characters.Enemies
 {
     public class Snake : AbstractEnemy
     {
@@ -26,26 +26,13 @@ namespace Sprint0.Enemies
             // Movement
             Direction = direction;
             Position = position;
-            MovementBehavior = new OrthogonalMovementBehavior(movementSpeed, Direction);
 
             // Update related fields
             Sprite = new BatSprite();
         }
 
-        public override void Destroy()
-        {
-            throw new NotImplementedException();
-        }
-
         public override void Update(GameTime gameTime)
         {
-            if (!IsFrozen)
-            {   
-                Position += MovementBehavior.Move(gameTime);
-                Direction = MovementBehavior.GetDirection();
-                Sprite = DirectionSprites[Direction];
-            }
-            Sprite.Update();
         }
 
         public override void Draw(SpriteBatch sb)
