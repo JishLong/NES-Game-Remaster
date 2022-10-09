@@ -7,7 +7,7 @@ namespace Sprint0.Characters.Enemies
     public class Skeleton : AbstractEnemy
     {
         private double DirectionTimer = 0;
-        private double DirectionDelay = 1000;    // Change direction every this many milliseconds.
+        private double DirectionDelay = 1500;    // Change direction every this many milliseconds.
         public float MovementSpeed { get; set; }
         public Skeleton(Vector2 position)
         {
@@ -18,7 +18,7 @@ namespace Sprint0.Characters.Enemies
 
             // Movement
             Position = position;
-            MovementSpeed = 2;
+            MovementSpeed = 1.5f;
         }
 
         public override void Update(GameTime gameTime)

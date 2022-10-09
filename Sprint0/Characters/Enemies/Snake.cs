@@ -7,7 +7,7 @@ namespace Sprint0.Characters.Enemies
     public class Snake : AbstractEnemy
     {
         private double DirectionTimer = 0;
-        private double DirectionDelay = 1000;    // Change direction every this many milliseconds.
+        private double DirectionDelay = 2500;    // Change direction every this many milliseconds.
         public Snake(Vector2 position)
         {
             // State
