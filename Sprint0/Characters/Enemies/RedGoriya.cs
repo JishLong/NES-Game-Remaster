@@ -7,12 +7,12 @@ namespace Sprint0.Characters.Enemies
     public class RedGoriya : AbstractEnemy
     {
         private double AttackTimer = 0;
-        private double AttackDelay = 5000;  // Attack every 5 seconds.
-        private double MoveTimer = 0;
-        private double MoveDelay = 2000;    // Move every 3 seconds.
+        private double AttackDelay = 4000;  // Attack every this many milliseconds.
+        private double DirectionTimer = 0;
+        private double DirectionDelay = 1500;    // Change direction every this many milliseconds.
         public RedGoriya(Vector2 position)
         {
-            Position = position;
+            // State
             State = new RedGoriyaMovingRightState(this);
 
             // Combat
@@ -26,7 +26,7 @@ namespace Sprint0.Characters.Enemies
         {
             double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
             AttackTimer += elapsedTime;
-            MoveTimer += elapsedTime; 
+            DirectionTimer += elapsedTime; 
 
             if((AttackTimer - AttackDelay) > 0)
             {
@@ -34,9 +34,9 @@ namespace Sprint0.Characters.Enemies
                 State.Attack();
             }
 
-            if ((MoveTimer - MoveDelay) > 0)
+            if ((DirectionTimer - DirectionDelay) > 0)
             {
-                MoveTimer = 0;
+                DirectionTimer = 0;
                 State.ChangeDirection();
             }
             State.Update(gameTime);

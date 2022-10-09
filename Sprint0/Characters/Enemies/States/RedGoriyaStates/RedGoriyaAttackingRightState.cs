@@ -21,7 +21,7 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
             Sprite = new RedGoriyaRightSprite();
             BoomerangPosition = Goriya.Position;
             BoomerangVelocity = ToVector(Direction.Right);
-            Boomerang = ProjectileFactory.GetInstance().GetProjectile(Types.Projectile.BOSSPROJ, BoomerangPosition, BoomerangVelocity);
+            Boomerang = ProjectileFactory.GetInstance().GetProjectile(Types.Projectile.BOOMERANGPROJ, BoomerangPosition, BoomerangVelocity);
             ProjectileManager.GetInstance().AddProjectile(Boomerang);
         }
         

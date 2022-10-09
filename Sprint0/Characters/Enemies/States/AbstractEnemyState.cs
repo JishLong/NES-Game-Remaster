@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites;
-using Sprint0.Characters.Enemies.Interfaces;
 using System;
 
 namespace Sprint0.Characters.Enemies.States

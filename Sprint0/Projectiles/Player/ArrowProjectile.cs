@@ -13,5 +13,11 @@ namespace Sprint0.Projectiles.Player_Projectiles
 
             Sprite = new ArrowProjectileSprite();
         }
+        public override void Update()
+        {
+            Sprite.Update();
+            FramesPassed++;
+            Position += Velocity;
+        }
     }
 }
