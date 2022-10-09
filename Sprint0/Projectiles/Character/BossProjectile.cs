@@ -12,5 +12,11 @@ namespace Sprint0.Projectiles.Character_Projectiles
 
             Sprite = new BossProjSprite();
         }
+        public override void Update()
+        {
+            Sprite.Update();
+            FramesPassed++;
+            Position += Velocity;
+        }
     }
 }

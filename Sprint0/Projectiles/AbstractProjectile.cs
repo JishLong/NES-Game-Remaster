@@ -10,6 +10,7 @@ namespace Sprint0.Projectiles
 
         protected Vector2 Position, Velocity;
         protected int FramesAlive, FramesPassed;
+        public abstract void Update();
 
         public AbstractProjectile(Vector2 position, Vector2 velocity)
         {
@@ -25,13 +26,6 @@ namespace Sprint0.Projectiles
         public bool TimeIsUp()
         {
             return FramesPassed > FramesAlive;
-        }
-
-        public void Update()
-        {
-            Sprite.Update();
-            FramesPassed++;
-            Position += Velocity;
         }
     }
 }

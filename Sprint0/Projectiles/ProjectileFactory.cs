@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Projectiles.Character;
 using Sprint0.Projectiles.Character_Projectiles;
 using Sprint0.Projectiles.Player_Projectiles;
 using System;
@@ -20,6 +21,8 @@ namespace Sprint0.Projectiles
                     return new BossProjectile(position, velocity);
                 case Types.Projectile.ARROWPROJ:
                     return new ArrowProjectile(position, velocity);
+                case Types.Projectile.BOOMERANGPROJ:
+                    return new GoriyaBoomerangProjectile(position, velocity);
 
                 default:
                     Console.Error.Write("The projectile of type " + projectileType.ToString() +

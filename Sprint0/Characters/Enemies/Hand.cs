@@ -1,45 +1,43 @@
-﻿using System;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using Sprint0.Enemies.Behaviors;
-using static Sprint0.Enemies.Utils.EnemyUtils;
-using Sprint0.Sprites.Characters.Enemies;
+using Sprint0.Characters.Enemies.States.HandStates;
 
-namespace Sprint0.Enemies
+namespace Sprint0.Characters.Enemies
 {
     public class Hand : AbstractEnemy
     {
-        public Hand(Vector2 position, float movementSpeed = 2, Direction direction = Direction.Up)
+        private double DirectionTimer = 0;
+        private double DirectionDelay = 1000;    // Change direction every this many milliseconds.
+        public float MovementSpeed { get; set; }
+        private bool ClockWise = false;
+        public Hand(Vector2 position)
         {
+            // State
+            State = new HandMovingUpState(this, ClockWise);
             // Combat
             Health = 1;
 
             // Movement
             Position = position;
-            Direction = direction;
-            MovementBehavior = new SquareMovementBehavior(movementSpeed, Direction);
-
-            // Update related fields
-            Sprite = new HandSprite();
-        }
-
-        public override void Destroy()
-        {
-            throw new NotImplementedException();
+            MovementSpeed = 2;
         }
 
         public override void Update(GameTime gameTime)
         {
-            if (!IsFrozen)
-            {   
-                Position += MovementBehavior.Move(gameTime);
+            double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
+            DirectionTimer += elapsedTime;
+            if ((DirectionTimer - DirectionDelay) > 0)
+            {
+                DirectionTimer = 0;
+                State.ChangeDirection();
             }
-            Sprite.Update();
+
+            State.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position);
+            State.Draw(sb, Position);
         }
     }
 }
