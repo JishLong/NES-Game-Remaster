@@ -15,7 +15,7 @@ namespace Sprint0.Player
         private FacingDirection facingDirection = FacingDirection.right;
 
         //TODO: determine exactly what weapons Link needs to have
-        private enum Weapon { Sword, Bow, MagicStaff }
+        private enum Weapon { Sword, Bow, MagicStaff, Bomb, Boomerang }
         private Weapon currentWeapon;
 
         public PlayerState()
@@ -88,6 +88,16 @@ namespace Sprint0.Player
             return currentWeapon == Weapon.Sword;
         }
 
+        public void EquipBomb()
+        {
+            currentWeapon = Weapon.Bomb;
+        }
+
+        public bool BombEquipped()
+        {
+            return currentWeapon == Weapon.Bomb;
+        }
+
         public void EquipBow()
         {
             currentWeapon = Weapon.Bow;
@@ -96,6 +106,16 @@ namespace Sprint0.Player
         public bool BowEquipped()
         {
             return currentWeapon == Weapon.Bow;
+        }
+
+        public void EquipBoomerang()
+        {
+            currentWeapon = Weapon.Boomerang;
+        }
+
+        public bool BoomEquipped()
+        {
+            return currentWeapon == Weapon.Boomerang;
         }
 
         public void EquipStaff()
@@ -163,7 +183,7 @@ namespace Sprint0.Player
             this.facingDirection = FacingDirection.right;
         }
 
-        public void Reset() 
+        public void Reset()
         {
             this.facingDirection = FacingDirection.right;
             position = new Vector2(0, 0);
