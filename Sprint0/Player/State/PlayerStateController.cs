@@ -54,7 +54,7 @@
                 damageFrameCounter++;
             }
 
-            if(damageFrameCounter > 40)
+            if (damageFrameCounter > 40)
             {
                 damageFrameCounter = 0;
                 state.StopDamage();
@@ -116,7 +116,7 @@
                 state.FaceLeft();
                 state.StartMoving();
             }
-                
+
         }
 
         public void HandleRightInput()
@@ -138,6 +138,37 @@
             }
         }
 
+        public void HandleBombAttackInput()
+        {
+            if (!state.IsAttacking())
+            {
+                state.EquipBomb();
+                state.StartAttacking();
+                state.StopMoving();
+            }
+        }
+
+        public void HandleArrowAttackInput()
+        {
+            if (!state.IsAttacking())
+            {
+                state.EquipBow();
+                state.StartAttacking();
+                state.StopMoving();
+            }
+        }
+
+        public void HandleBoommerangAttackInput()
+        {
+            if (!state.IsAttacking())
+            {
+                state.EquipBow();
+                state.StartAttacking();
+                state.StopMoving();
+            }
+        }
+
+
         public void HandleStopMoving()
         {
             state.StopMoving();
@@ -148,7 +179,7 @@
             state.TakeDamage();
         }
 
-        public void Reset() 
+        public void Reset()
         {
             state.Reset();
         }
