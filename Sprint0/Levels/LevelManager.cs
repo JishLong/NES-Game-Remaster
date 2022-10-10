@@ -3,40 +3,31 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
 using Sprint0.Blocks.Utils;
 using Sprint0.Characters;
-using System;
+using Sprint0.Items;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sprint0.Levels
 {
     public class LevelManager
     {
         private LevelLoader LevelLoader;
-        private List<IBlock> LevelBlocks;
-        private List<ICharacter> LevelCharacters;
+        private List<Level> Levels;
+
         public LevelManager()
         {
-            LevelBlocks = new List<IBlock>();
-            LevelCharacters = new List<ICharacter>();
             LevelLoader = new LevelLoader(this);
+            Levels = new List<Level>();
         }
 
-        public void AddBlock(Types.Block block, Vector2 position)
+        public void AddRoomToLevel()
         {
-            LevelBlocks.Add(BlockFactory.GetInstance().GetBlock(block, position));
+            // implement this.
         }
-        public void AddCharacter(Types.Character character, Vector2 position)
-        {
-            LevelCharacters.Add(CharacterFactory.GetInstance().GetCharacter(character, position));
-        }
-
         public void Update(GameTime gameTime)
         {
-            foreach (IBlock block in LevelBlocks)
+            foreach (Level level in Levels)
             {
-                block.Update();
+                level.Update();
             }
 
             foreach (ICharacter character in LevelCharacters)

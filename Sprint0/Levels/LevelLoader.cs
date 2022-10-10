@@ -20,13 +20,12 @@ namespace Sprint0.Levels
         private LevelManager LevelManager;
         private LevelResources LevelResources;
         private TextFieldParser Parser;
-        //private string RootPath = "Sprint0/Levels/";
 
-        public LevelLoader(LevelManager manager)
+        public LevelLoader(LevelManager manager, string level)
         {
             LevelManager = manager;
             LevelResources = LevelResources.GetInstance();
-            //LoadLevel(RootPath + "Level1/Room1.csv");
+            // TODO: use the 'level' param instead of hard coded paths.
             LoadBlocks("../../../Levels/Level1/Room1_Blocks.csv");
             LoadCharacters("../../../Levels/Level1/Room1_Characters.csv");
         }

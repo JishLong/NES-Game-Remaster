@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Sprint0.Levels
 {
-    internal class Level
+
+    public class Level
     {
-    }
+        List<Room> rooms;
+        public Level()
+        {
+            rooms = new List<Room>();
+        }
+    }   
 }
