@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Levels;
 using Sprint0.Controllers;
 using Sprint0.Items;
 using Sprint0.Player;
@@ -16,6 +17,7 @@ namespace Sprint0
         private GraphicsDeviceManager Graphics;
         private SpriteBatch SBatch;
         private IController Keyboard;
+        private LevelManager LevelManager;
 
         public IPlayer Player { get; set; }
         public IItem CurrentItem { get; set; }
@@ -36,6 +38,8 @@ namespace Sprint0
             CurrentBlock = BlockFactory.GetInstance().GetBeginningBlock(BlockFactory.DefaultBlockPosition);
             CurrentCharacter = CharacterFactory.GetInstance().GetBeginningCharacter(CharacterFactory.DefaultCharacterPosition);
 
+            LevelManager = new LevelManager();
+
             Keyboard = new KeyboardController(this, Player.GetStateController());
 
             base.Initialize();
@@ -54,6 +58,7 @@ namespace Sprint0
             Keyboard.Update();
             ProjectileManager.GetInstance().Update();
 
+            LevelManager.Update(gameTime);
             Player.Update();
             CurrentItem.Update();
             CurrentBlock.Update();
@@ -67,10 +72,12 @@ namespace Sprint0
             GraphicsDevice.Clear(Color.BlueViolet);
             SBatch.Begin(samplerState: SamplerState.PointClamp);
 
+            LevelManager.Draw(SBatch);
             Player.Draw(SBatch, Graphics.PreferredBackBufferWidth, Graphics.PreferredBackBufferHeight);
             CurrentItem.Draw(SBatch);
             CurrentBlock.Draw(SBatch);
             CurrentCharacter.Draw(SBatch);
+
 
             ProjectileManager.GetInstance().Draw(SBatch);
 
