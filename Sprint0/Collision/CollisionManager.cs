@@ -19,20 +19,19 @@ namespace Sprint0.Collision
      */
     public class CollisionManager
     {
-        private ItemPlayerCollisionHandler ItemPlayerHandler;
+        private PlayerItemCollisionHandler PlayerItemHandler;
 
         // Other handlers...
 
         public CollisionManager(Room room) 
         {
-            ItemPlayerHandler = new ItemPlayerCollisionHandler(room);
+            PlayerItemHandler = new PlayerItemCollisionHandler(room);
 
             // Instantiation of other handlers...
         }
 
         public void HandleCollision(ICollidable affectedCollidable, ICollidable actingCollidable, Types.Direction affectedSide) 
         {
-            int index = 0;
             if (affectedCollidable.GetType() == typeof(IPlayer) && actingCollidable.GetType() == typeof(ICharacter))
             {
                 // Call the player-character handler
@@ -47,13 +46,9 @@ namespace Sprint0.Collision
             }
             else if (affectedCollidable.GetType() == typeof(IPlayer) && actingCollidable.GetType() == typeof(IItem))
             {
-                // Call the player-item handler
+                PlayerItemHandler.HandleCollision((IPlayer)actingCollidable, (IItem)affectedCollidable, affectedSide);
             }
-            else if (affectedCollidable.GetType() == typeof(ICharacter) && actingCollidable.GetType() == typeof(IPlayer))
-            {
-                // Call the character-player handler
-            }
-            if (affectedCollidable.GetType() == typeof(ICharacter) && actingCollidable.GetType() == typeof(IBlock))
+            else if (affectedCollidable.GetType() == typeof(ICharacter) && actingCollidable.GetType() == typeof(IBlock))
             {
                 // Call the character-block handler
             }
@@ -61,29 +56,13 @@ namespace Sprint0.Collision
             {
                 // Call the character-projectile handler
             }
-            else if (affectedCollidable.GetType() == typeof(IProjectile) && actingCollidable.GetType() == typeof(IPlayer))
-            {
-                // Call the projectile-player handler
-            }
-            else if (affectedCollidable.GetType() == typeof(IProjectile) && actingCollidable.GetType() == typeof(ICharacter))
-            {
-                // Call the projectile-character handler
-            }
             else if (affectedCollidable.GetType() == typeof(IProjectile) && actingCollidable.GetType() == typeof(IBlock))
             {
                 // Call the projectile-block handler
             }
-            else if (affectedCollidable.GetType() == typeof(IBlock) && actingCollidable.GetType() == typeof(IPlayer))
-            {
-                // Call the block-player handler
-            }
             else if (affectedCollidable.GetType() == typeof(IBlock) && actingCollidable.GetType() == typeof(IBlock))
             {
                 // Call the block-block handler
-            }
-            else if (affectedCollidable.GetType() == typeof(IItem) && actingCollidable.GetType() == typeof(IPlayer))
-            {
-                ItemPlayerHandler.HandleCollision((IItem)affectedCollidable, (IPlayer)actingCollidable, affectedSide);
             }
         }
     }

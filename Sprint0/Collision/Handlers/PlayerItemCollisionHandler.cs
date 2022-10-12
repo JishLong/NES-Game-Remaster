@@ -6,11 +6,11 @@ using Sprint0.Player;
 namespace Sprint0.Collision.Handlers
 {
     // Handles all collisions where the affected object is an item and the acting object is the player
-    public class ItemPlayerCollisionHandler
+    public class PlayerItemCollisionHandler
     {
         private Room Room;
 
-        public ItemPlayerCollisionHandler(Room room) 
+        public PlayerItemCollisionHandler(Room room) 
         {
             Room = room;
         }
@@ -19,7 +19,7 @@ namespace Sprint0.Collision.Handlers
          * at least I think... I'll keep it in the parameters for a while just in case...
          * 
          */
-        public void HandleCollision(IItem item, IPlayer player, Types.Direction itemSide) 
+        public void HandleCollision(IPlayer player, IItem item, Types.Direction itemSide) 
         {
             new RemoveItemCommand(Room, item).Execute();
 
