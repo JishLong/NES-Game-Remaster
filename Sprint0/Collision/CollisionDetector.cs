@@ -9,15 +9,11 @@ namespace Sprint0.Collision
      * 
      * The collision detector's job is to obtain a list of everything currently on screen (or more specifically, in the
      * current room) that is collidable and determine every collision that is occurring between the objects in this list
-     * 
-     * The detector distinguishes between two different objects in each collision case:
-     *   - The "affected" object - the object that will be affected or changed in some way by the collision
-     *   - The "acting" object - the object that is "doing" the colliding (and in turn, affecting the "affected" object in some way)
-     *       - The acting object should NOT be affected or changed in any way by the collision
-     *   
+     *  
      * Upon finding a collision and determining the affected vs. acting objects, the detector then finds which side of the affected
      * object is involved. The two objects and this side are then sent off to the Collision Manager for the collision response.
      * 
+     * DO NOT WORRY ABOUT "affected" vs. "acting" collidables, these names were used for something else and will be phased out
      */
     public class CollisionDetector
     {
@@ -63,10 +59,6 @@ namespace Sprint0.Collision
         {
             //List<Collidables> = room.GetCollidables(); ???? woah woah looks like we prolly need this guy
 
-            /* NOTE: due to the logic of this nested loop, every colliding object is always involved in a pair of collision
-             * cases - one in which it is the affected object, and one in which it is the acting object
-             * 
-             */
             foreach (ICollidable affectedCollidable in Collidables) 
             {
                 foreach (ICollidable actingCollidable in Collidables) 
