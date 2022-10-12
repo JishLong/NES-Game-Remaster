@@ -8,6 +8,7 @@ using System.Collections.Generic;
 
 namespace Sprint0.Levels
 {
+    // Many things have been ommented out for now to fix errors caused by things that aren't implemented yet
     public class LevelManager
     {
         private LevelLoader LevelLoader;
@@ -15,7 +16,7 @@ namespace Sprint0.Levels
 
         public LevelManager()
         {
-            LevelLoader = new LevelLoader(this);
+            //LevelLoader = new LevelLoader(this);
             Levels = new List<Level>();
         }
 
@@ -25,7 +26,7 @@ namespace Sprint0.Levels
         }
         public void Update(GameTime gameTime)
         {
-            foreach (Level level in Levels)
+            /*foreach (Level level in Levels)
             {
                 level.Update();
             }
@@ -33,11 +34,11 @@ namespace Sprint0.Levels
             foreach (ICharacter character in LevelCharacters)
             {
                 character.Update(gameTime);
-            }
+            }*/
         }
         public void Draw(SpriteBatch sb)
         {
-            foreach (IBlock block in LevelBlocks)
+            /*foreach (IBlock block in LevelBlocks)
             {
                 block.Draw(sb);
             }
@@ -45,7 +46,7 @@ namespace Sprint0.Levels
             foreach (ICharacter character in LevelCharacters)
             {
                 character.Draw(sb);
-            }
+            }*/
         }
     }
 }
