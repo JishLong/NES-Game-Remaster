@@ -1,4 +1,5 @@
-﻿using Sprint0.Items;
+﻿using Sprint0.Commands.Levels;
+using Sprint0.Items;
 using Sprint0.Levels;
 using Sprint0.Player;
 
@@ -20,19 +21,15 @@ namespace Sprint0.Collision.Handlers
          */
         public void HandleCollision(IItem item, IPlayer player, Types.Direction itemSide) 
         {
-            /* Here are some potential things that may happen here:
-             * 
-             * room.RemoveItem(item);
-             * 
-             * Or perhaps, suppose Player has a method to add an item to their inventory which returns true upon success...
+            new RemoveItemCommand(Room, item).Execute();
+
+            /* Or for later, some logic like:
              * 
              * if (player.AddToInventory(item) == true)
              * {
              *     room.RemoveItem(item);
              * }
-             *
-             * Of course, all that sorta logic should be encapsulated in a command object
-             *
+             * 
              */
         }
     }

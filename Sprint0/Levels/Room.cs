@@ -20,8 +20,10 @@ namespace Sprint0.Levels
         {
             RoomCharacters.Add(CharacterFactory.GetInstance().GetCharacter(character, position));
         }
+
+        public void RemoveItemFromRoom(IItem item) 
+        {
+            RoomItems.Remove(item);
+        }
     }
-
-
-
 }
