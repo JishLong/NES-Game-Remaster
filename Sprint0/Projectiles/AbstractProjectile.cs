@@ -27,5 +27,10 @@ namespace Sprint0.Projectiles
         {
             return FramesPassed > FramesAlive;
         }
+
+        public Rectangle GetHitbox() 
+        {
+            return Sprite.GetDrawbox(Position);
+        }
     }
 }

@@ -10,5 +10,7 @@ namespace Sprint0.Sprites
         void Draw(SpriteBatch sb, Vector2 position);
 
         void Draw(SpriteBatch sb, Vector2 position, Color color);
+
+        Rectangle GetDrawbox(Vector2 position);
     }
 }
