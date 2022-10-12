@@ -73,8 +73,8 @@ namespace Sprint0.Collision
                 {
                     if (affectedCollidable != actingCollidable) 
                     {
-                        Rectangle AffectedHitbox = affectedCollidable.getHitbox();
-                        Rectangle ActingHitbox = actingCollidable.getHitbox();
+                        Rectangle AffectedHitbox = affectedCollidable.GetHitbox();
+                        Rectangle ActingHitbox = actingCollidable.GetHitbox();
 
                         if (AffectedHitbox.Intersects(ActingHitbox)) 
                         {

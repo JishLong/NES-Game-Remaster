@@ -1,9 +1,10 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Collision;
 using Sprint0.Player.State;
 
 namespace Sprint0.Player
 {
-    public interface IPlayer
+    public interface IPlayer : ICollidable
     {
         public void Update();
 

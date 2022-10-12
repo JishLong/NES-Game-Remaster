@@ -20,14 +20,14 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
 
         private PlayerSwordAttackLeft() : base(4, 8)
         {
-            
+            xOffsetPixels = -12;
         }
 
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 
         protected override Rectangle GetFirstFrame() => Resources.LinkSwordRight;
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             Rectangle frame = GetFirstFrame();
             if (CurrentFrame != 0)
@@ -35,9 +35,9 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
                 frame = new Rectangle(frame.X + CurrentFrame * frame.Width, frame.Y, frame.Width, frame.Height);
             }
 
-            Vector2 spritePos = new Vector2(position.X - 12 * SizeScale, position.Y);
+            Vector2 spritePos = new Vector2(position.X + (xOffsetPixels * SizeScale), position.Y);
 
-            spriteBatch.Draw(GetSpriteSheet(), spritePos, frame, Color.White, 0,
+            spriteBatch.Draw(GetSpriteSheet(), spritePos, frame, color, 0,
                 Vector2.Zero, new Vector2(3, 3), SpriteEffects.FlipHorizontally, 0);
         }
     }

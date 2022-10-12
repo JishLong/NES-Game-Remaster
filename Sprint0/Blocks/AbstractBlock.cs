@@ -23,5 +23,10 @@ namespace Sprint0.Blocks
         {
             Sprite.Update();
         }
+
+        public Rectangle GetHitbox() 
+        {
+            return Sprite.GetDrawbox(Position);
+        }
     }
 }

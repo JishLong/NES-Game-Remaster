@@ -4,6 +4,6 @@ namespace Sprint0.Collision
 {
     public interface ICollidable
     {
-        public Rectangle getHitbox();
+        public Rectangle GetHitbox();
     }
 }
