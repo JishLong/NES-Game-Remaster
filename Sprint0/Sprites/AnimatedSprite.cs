@@ -12,7 +12,8 @@ namespace Sprint0.Sprites
         /* [SizeScale]: multiplicative factor for sprite's width and height
          * [xOffset]: multiplicative factor for sprite's x-coordinate
          * [yOffset]: multiplicative factor for sprite's y-coordinate */
-        protected float SizeScale, xOffset, yOffset;
+        protected float SizeScale;
+        protected int xOffsetPixels, yOffsetPixels;
 
         public AnimatedSprite(int numFrames, int speed)
         {
@@ -22,8 +23,8 @@ namespace Sprint0.Sprites
             CurrentFrame = 0;
             Timer = 0;
             SizeScale = 3;
-            xOffset = 0;
-            yOffset = 0;
+            xOffsetPixels = 0;
+            yOffsetPixels = 0;
         }
 
         protected abstract Texture2D GetSpriteSheet();
@@ -32,19 +33,10 @@ namespace Sprint0.Sprites
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            Rectangle frame = GetFirstFrame();
-            if (CurrentFrame != 0)
-            {
-                frame = new Rectangle(frame.X + CurrentFrame * frame.Width, frame.Y, frame.Width, frame.Height);
-            }
-
-            spriteBatch.Draw(GetSpriteSheet(), new Rectangle((int)(position.X + frame.Width * xOffset * SizeScale), 
-                (int)(position.Y + frame.Height * yOffset * SizeScale),
-                (int)(frame.Width * SizeScale), (int)(frame.Height * SizeScale)),
-                frame, Color.White);
+            Draw(spriteBatch, position, Color.White);
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
+        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             Rectangle frame = GetFirstFrame();
             if (CurrentFrame != 0)
@@ -52,10 +44,7 @@ namespace Sprint0.Sprites
                 frame = new Rectangle(frame.X + CurrentFrame * frame.Width, frame.Y, frame.Width, frame.Height);
             }
 
-            spriteBatch.Draw(GetSpriteSheet(), new Rectangle((int)(position.X + frame.Width * xOffset * SizeScale),
-                (int)(position.Y + frame.Height * yOffset * SizeScale),
-                (int)(frame.Width * SizeScale), (int)(frame.Height * SizeScale)),
-                frame, color);
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame, color);
         }
 
         public void Update()
@@ -65,6 +54,14 @@ namespace Sprint0.Sprites
             {
                 CurrentFrame = (CurrentFrame + 1) % NumFrames;
             }
+        }
+
+        public Rectangle GetDrawbox(Vector2 position)
+        {
+            Rectangle frame = GetFirstFrame();
+
+            return new Rectangle((int)(position.X + (xOffsetPixels * SizeScale)), (int)(position.Y + (yOffsetPixels * SizeScale)),
+                (int)(frame.Width * SizeScale), (int)(frame.Height * SizeScale));
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Player.SpriteControllers;
 using Sprint0.Player.State;
 
@@ -30,6 +31,11 @@ namespace Sprint0.Player
         public PlayerStateController GetStateController()
         {
             return this.stateController;
+        }
+
+        public Rectangle GetHitbox() 
+        {
+            return Rectangle.Empty;
         }
     }
 }

@@ -31,16 +31,17 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Player\" />
     <Folder Include="Player\State\" />
-    <Folder Include="Commands\Player\" />
     <Folder Include="Sprites\Player\Attack\" />
     <Folder Include="Sprites\Player\Attack\SwordAttack\" />
     <Folder Include="Sprites\Player\Stationary\" />
     <Folder Include="Sprites\Player\Movement\" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Levels\Level1\Room1_Characters.csv">
+    <None Update="Levels\Level1\Room1\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room1\Characters.csv">
       <SubType>Component</SubType>
     </None>
   </ItemGroup>

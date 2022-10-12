@@ -39,6 +39,7 @@ namespace Sprint0
             CurrentCharacter = CharacterFactory.GetInstance().GetBeginningCharacter(CharacterFactory.DefaultCharacterPosition);
 
             LevelManager = new LevelManager();
+            LevelManager.LoadLevel("Level1");
 
             Keyboard = new KeyboardController(this, Player.GetStateController());
 

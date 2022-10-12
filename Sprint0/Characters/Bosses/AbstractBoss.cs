@@ -45,5 +45,10 @@ namespace Sprint0.Bosses
 		public abstract void Destroy();
 		public abstract void Update(GameTime gameTime);
 		public abstract void Draw(SpriteBatch sb);
+
+		public Rectangle GetHitbox() 
+		{
+			return Sprite.GetDrawbox(Position);
+		}
 	}
 }

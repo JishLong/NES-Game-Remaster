@@ -20,8 +20,26 @@ namespace Sprint0.Levels
         {
             RoomCharacters.Add(CharacterFactory.GetInstance().GetCharacter(character, position));
         }
+
+        public void RemoveItemFromRoom(IItem item) 
+        {
+            RoomItems.Remove(item);
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            foreach(IBlock block in RoomBlocks)
+            {
+                block.Update();
+            }
+            foreach(ICharacter character in RoomCharacters)
+            {
+                character.Update(gameTime);
+            }
+            foreach(IBlock item in RoomItems)
+            {
+                item.Update();
+            }
+        }
     }
-
-
-
 }

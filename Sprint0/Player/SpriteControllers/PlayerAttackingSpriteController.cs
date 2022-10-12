@@ -12,7 +12,10 @@ namespace Sprint0.Player.SpriteControllers
 
         private PlayerAttackingSpriteController(PlayerStateController stateController)
         {
+            //How can we differentiate when to call sword attack and arrow attack controller???
             this.currentController = PlayerSwordAttackingSpriteController.GetInstance(stateController);
+
+            //this.currentController = PlayerArrowAttackingSpriteController.GetInstance(stateController);
         }
 
         public static PlayerAttackingSpriteController GetInstance(PlayerStateController stateController)

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player.Attack.SwordAttack
 {
+    // NOTE: this class is using new draw logic that is not yet implemented in most other sprite classes
     public class PlayerSwordAttackUp : AnimatedSprite
     {
         // Singleton instance
@@ -19,7 +20,7 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
 
         private PlayerSwordAttackUp() : base(4, 8)
         {
-            yOffset = -0.5f;
+            yOffsetPixels = -12;
         }
 
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;

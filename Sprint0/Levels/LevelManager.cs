@@ -13,39 +13,33 @@ namespace Sprint0.Levels
         private LevelLoader LevelLoader;
         private List<Level> Levels;
 
+        private Level CurrentLevel;
+
         public LevelManager()
         {
             LevelLoader = new LevelLoader(this);
             Levels = new List<Level>();
         }
 
-        public void AddRoomToLevel()
+        public void TransitionRooms()
         {
-            // implement this.
+            
+        }
+        
+        public void LoadLevel(string levelName)
+        {
+            CurrentLevel = LevelLoader.LoadLevelFromFile(levelName);
         }
         public void Update(GameTime gameTime)
         {
             foreach (Level level in Levels)
             {
-                level.Update();
-            }
-
-            foreach (ICharacter character in LevelCharacters)
-            {
-                character.Update(gameTime);
+                level.Update(gameTime);
             }
         }
         public void Draw(SpriteBatch sb)
         {
-            foreach (IBlock block in LevelBlocks)
-            {
-                block.Draw(sb);
-            }
-
-            foreach (ICharacter character in LevelCharacters)
-            {
-                character.Draw(sb);
-            }
+            CurrentLevel.Draw(sb);
         }
     }
 }

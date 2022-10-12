@@ -26,4 +26,9 @@ public abstract class AbstractEnemy : IEnemy
     public abstract void Update(GameTime gameTime);
 
     public abstract void Draw(SpriteBatch sb);
+
+    public Rectangle GetHitbox() 
+    {
+        return Sprite.GetDrawbox(Position);
+    }
 }

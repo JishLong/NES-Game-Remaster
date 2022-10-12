@@ -32,6 +32,11 @@ namespace Sprint0.Levels.Utils
                 {"skel", Types.Character.SKELETON },
                 {"bat", Types.Character.BAT },
             };
+
+            ItemMap = new Dictionary<string, Types.Item>()
+            {
+                {"comp", Types.Item.COMPASS },
+            };
         }
         public static LevelResources GetInstance()
         {
