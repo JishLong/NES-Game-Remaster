@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace Sprint0.Levels
 {
+    // Many things have been ommented out for now to fix errors caused by things that aren't implemented yet
+
     /// <summary>
     /// The loader's job is to parse and load game entities from the level csv files.
     /// (Loading involves using the corresponding entity types factory to create a new instance of that entity.)
@@ -45,7 +47,7 @@ namespace Sprint0.Levels
                     int x = LevelResources.BlockWidth * col;
                     int y = LevelResources.BlockHeight * row;
                     Vector2 position = new Vector2(x, y);
-                    LevelManager.AddBlock(block, position);
+                    //LevelManager.AddBlock(block, position);
                     col++;
                 }
                 row++;
@@ -69,7 +71,7 @@ namespace Sprint0.Levels
                         int x = LevelResources.BlockWidth * col;
                         int y = LevelResources.BlockHeight * row;
                         Vector2 position = new Vector2(x, y);
-                        LevelManager.AddCharacter(character, position);
+                        //LevelManager.AddCharacter(character, position);
                     }
                     col++;
                 }

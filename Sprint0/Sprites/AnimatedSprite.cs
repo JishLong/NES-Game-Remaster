@@ -30,7 +30,7 @@ namespace Sprint0.Sprites
 
         protected abstract Rectangle GetFirstFrame();
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Rectangle frame = GetFirstFrame();
             if (CurrentFrame != 0)
