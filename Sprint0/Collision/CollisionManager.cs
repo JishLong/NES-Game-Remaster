@@ -30,39 +30,72 @@ namespace Sprint0.Collision
             // Instantiation of other handlers...
         }
 
-        public void HandleCollision(ICollidable affectedCollidable, ICollidable actingCollidable, Types.Direction affectedSide) 
+        public void HandleCollision(ICollidable CollidableA, ICollidable CollidableB, Types.Direction SideA) 
         {
-            if (affectedCollidable.GetType() == typeof(IPlayer) && actingCollidable.GetType() == typeof(ICharacter))
+            // Needed so that the collidable types can be checked more effectively
+            FormatCollidables(CollidableA, CollidableB);
+
+            if (CollidableA.GetType() == typeof(IPlayer) && CollidableB.GetType() == typeof(ICharacter))
             {
                 // Call the player-character handler
             }
-            else if (affectedCollidable.GetType() == typeof(IPlayer) && actingCollidable.GetType() == typeof(IProjectile)) 
+            else if (CollidableA.GetType() == typeof(IPlayer) && CollidableB.GetType() == typeof(IProjectile)) 
             {
                 // Call the player-projectile handler
             }
-            else if (affectedCollidable.GetType() == typeof(IPlayer) && actingCollidable.GetType() == typeof(IBlock))
+            else if (CollidableA.GetType() == typeof(IPlayer) && CollidableB.GetType() == typeof(IBlock))
             {
                 // Call the player-block handler
             }
-            else if (affectedCollidable.GetType() == typeof(IPlayer) && actingCollidable.GetType() == typeof(IItem))
+            else if (CollidableA.GetType() == typeof(IPlayer) && CollidableB.GetType() == typeof(IItem))
             {
-                PlayerItemHandler.HandleCollision((IPlayer)actingCollidable, (IItem)affectedCollidable, affectedSide);
+                PlayerItemHandler.HandleCollision((IPlayer)CollidableB, (IItem)CollidableA, SideA);
             }
-            else if (affectedCollidable.GetType() == typeof(ICharacter) && actingCollidable.GetType() == typeof(IBlock))
+            else if (CollidableA.GetType() == typeof(ICharacter) && CollidableB.GetType() == typeof(IBlock))
             {
                 // Call the character-block handler
             }
-            else if (affectedCollidable.GetType() == typeof(ICharacter) && actingCollidable.GetType() == typeof(IProjectile))
+            else if (CollidableA.GetType() == typeof(ICharacter) && CollidableB.GetType() == typeof(IProjectile))
             {
                 // Call the character-projectile handler
             }
-            else if (affectedCollidable.GetType() == typeof(IProjectile) && actingCollidable.GetType() == typeof(IBlock))
+            else if (CollidableA.GetType() == typeof(IProjectile) && CollidableB.GetType() == typeof(IBlock))
             {
                 // Call the projectile-block handler
             }
-            else if (affectedCollidable.GetType() == typeof(IBlock) && actingCollidable.GetType() == typeof(IBlock))
+            else if (CollidableA.GetType() == typeof(IBlock) && CollidableB.GetType() == typeof(IBlock))
             {
                 // Call the block-block handler
+            }
+        }
+
+        // This doesn't exist don't look here
+        private void SwapCollidables(ICollidable CollidableA, ICollidable CollidableB)
+        {
+            ICollidable Temp = CollidableA;
+            CollidableA = CollidableB;
+            CollidableB = Temp;
+        }
+
+        // Why are you looking down here?????
+        private void FormatCollidables(ICollidable CollidableA, ICollidable CollidableB)
+        {
+            if (CollidableB.GetType() == typeof(IPlayer))
+            {
+                SwapCollidables(CollidableA, CollidableB);
+            }
+            else if (CollidableA.GetType() == typeof(IItem))
+            {
+                SwapCollidables(CollidableA, CollidableB);
+            }
+            else if (CollidableB.GetType() == typeof(ICharacter) && CollidableA.GetType() != typeof(IPlayer))
+            {
+                SwapCollidables(CollidableA, CollidableB);
+            }
+            else if (CollidableB.GetType() == typeof(IProjectile) &&
+                (CollidableA.GetType() == typeof(IBlock) || CollidableA.GetType() == typeof(IItem)))
+            {
+                SwapCollidables(CollidableA, CollidableB);
             }
         }
     }
