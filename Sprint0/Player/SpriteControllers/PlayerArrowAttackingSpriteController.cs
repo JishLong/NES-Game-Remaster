@@ -43,7 +43,7 @@ namespace Sprint0.Player.SpriteControllers
         private PlayerArrowAttackingSpriteController(PlayerStateController stateController)
         {
             this.stateController = stateController;
-            currentSprite = PlayerSwordAttackDown.GetInstance();
+            currentSprite = PlayerSwordAttackDown.GetInstance(stateController);
 
 
         }
