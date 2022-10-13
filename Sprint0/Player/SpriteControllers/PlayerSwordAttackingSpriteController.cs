@@ -27,7 +27,7 @@ namespace Sprint0.Player.SpriteControllers
         private PlayerSwordAttackingSpriteController(PlayerStateController stateController)
         {
             this.stateController = stateController;
-            currentSprite = PlayerSwordAttackDown.GetInstance();
+            currentSprite = PlayerSwordAttackDown.GetInstance(stateController);
         }
 
         public void Update()
@@ -37,20 +37,20 @@ namespace Sprint0.Player.SpriteControllers
 
             if (state.FacingDown())
             {
-                currentSprite = PlayerSwordAttackDown.GetInstance();
+                currentSprite = PlayerSwordAttackDown.GetInstance(stateController);
             }
             else if (state.FacingRight())
             {
-                currentSprite = PlayerSwordAttackRight.GetInstance();
+                currentSprite = PlayerSwordAttackRight.GetInstance(stateController);
             }
             else if (state.FacingUp())
             {
-                currentSprite = PlayerSwordAttackUp.GetInstance();
+                currentSprite = PlayerSwordAttackUp.GetInstance(stateController);
             }
             // when facing left
             else
             {
-                currentSprite = PlayerSwordAttackLeft.GetInstance();
+                currentSprite = PlayerSwordAttackLeft.GetInstance(stateController);
             }
         }
 

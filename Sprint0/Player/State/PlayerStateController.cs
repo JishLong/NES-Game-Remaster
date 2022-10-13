@@ -36,18 +36,6 @@
                 }
             }
 
-            // how often the player can attack is an arbitrary choice
-            if (state.IsAttacking())
-            {
-                attackFrameCounter++;
-            }
-
-            if (attackFrameCounter > 40)
-            {
-                attackFrameCounter = 0;
-                state.StopAttacking();
-            }
-
             // how often the player can take damage
             if (state.IsDamaged())
             {

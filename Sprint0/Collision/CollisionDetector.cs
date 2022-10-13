@@ -10,10 +10,9 @@ namespace Sprint0.Collision
      * The collision detector's job is to obtain a list of everything currently on screen (or more specifically, in the
      * current room) that is collidable and determine every collision that is occurring between the objects in this list
      *  
-     * Upon finding a collision and determining the affected vs. acting objects, the detector then finds which side of the affected
-     * object is involved. The two objects and this side are then sent off to the Collision Manager for the collision response.
-     * 
-     * DO NOT WORRY ABOUT "affected" vs. "acting" collidables, these names were used for something else and will be phased out
+     * Upon finding a collision and determining the objects A and B that were involved, the detector then finds which side 
+     * of hitbox A was involved. The two objects and this side are then sent off to the Collision Manager for the collision
+     * response.
      */
     public class CollisionDetector
     {
@@ -29,19 +28,18 @@ namespace Sprint0.Collision
             CollisionManager = new CollisionManager(room);
         }
 
-        /* Returns the side of the affected object that is involved in the given collision case
+        /* Returns the side of object A that is involved in the given collision case
          * 
          * FOR CLARITY: Direction.UP indicates the top side, and Direction.DOWN indicates the bottom side
-         * 
          */
-        private Types.Direction GetCollisionSide(Rectangle affectedHitbox, Rectangle actingHitbox) 
+        private Types.Direction GetCollisionSide(Rectangle hitboxA, Rectangle hitboxB) 
         {
             Types.Direction CollisionSide;
 
             /* This involves something called Minkowski Addition - it's some mathy stuff that's pretty interesting.
              * Look it up on google (I read about it on wikipedia) if you want, it's pretty cool. */
-            float wy = (affectedHitbox.Width + actingHitbox.Width) * (affectedHitbox.Center.Y - actingHitbox.Center.Y);
-            float hx = (affectedHitbox.Height + actingHitbox.Height) * (affectedHitbox.Center.X - actingHitbox.Center.X);
+            float wy = (hitboxA.Width + hitboxB.Width) * (hitboxA.Center.Y - hitboxB.Center.Y);
+            float hx = (hitboxA.Height + hitboxB.Height) * (hitboxA.Center.X - hitboxB.Center.X);
 
             if (wy > hx)
             {
@@ -59,20 +57,20 @@ namespace Sprint0.Collision
         {
             //List<Collidables> = room.GetCollidables(); ???? woah woah looks like we prolly need this guy
 
-            foreach (ICollidable affectedCollidable in Collidables) 
+            for (int i = 0; i < Collidables.Count - 1; i++) 
             {
-                foreach (ICollidable actingCollidable in Collidables) 
-                {
-                    if (affectedCollidable != actingCollidable) 
-                    {
-                        Rectangle AffectedHitbox = affectedCollidable.GetHitbox();
-                        Rectangle ActingHitbox = actingCollidable.GetHitbox();
+                ICollidable CollidableA = Collidables[i];
+                Rectangle HitboxA = CollidableA.GetHitbox();
 
-                        if (AffectedHitbox.Intersects(ActingHitbox)) 
-                        {
-                            CollisionManager.HandleCollision(affectedCollidable, actingCollidable,
-                                GetCollisionSide(AffectedHitbox, ActingHitbox));
-                        }
+                for (int j = i + 1; j < Collidables.Count; j++) 
+                {
+                    ICollidable CollidableB = Collidables[j];
+                    Rectangle HitboxB = CollidableB.GetHitbox();
+
+                    if (HitboxA.Intersects(HitboxB))
+                    {
+                        CollisionManager.HandleCollision(CollidableA, CollidableB,
+                            GetCollisionSide(HitboxA, HitboxB));
                     }
                 }
             }

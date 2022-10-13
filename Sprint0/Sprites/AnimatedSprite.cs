@@ -31,7 +31,7 @@ namespace Sprint0.Sprites
 
         protected abstract Rectangle GetFirstFrame();
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Draw(spriteBatch, position, Color.White);
         }
@@ -47,7 +47,7 @@ namespace Sprint0.Sprites
             spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame, color);
         }
 
-        public void Update()
+        public virtual void Update()
         {
             Timer = (Timer + 1) % Speed;
             if (Timer == 0)

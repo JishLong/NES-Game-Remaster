@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Player.State;
 
 namespace Sprint0.Sprites.Player.Attack.SwordAttack
 {
@@ -9,19 +10,22 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
         // Singleton instance
         private static PlayerSwordAttackLeft instance;
 
-        public static PlayerSwordAttackLeft GetInstance()
+        public static PlayerSwordAttackLeft GetInstance(PlayerStateController stateController)
         {
             if (instance == null)
             {
-                instance = new PlayerSwordAttackLeft();
+                instance = new PlayerSwordAttackLeft(stateController);
             }
             return instance;
         }
 
-        private PlayerSwordAttackLeft() : base(4, 8)
+        private PlayerSwordAttackLeft(PlayerStateController stateController) : base(4, 8)
         {
             xOffsetPixels = -12;
+            this.stateController = stateController;
         }
+
+        private readonly PlayerStateController stateController;
 
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 
@@ -39,6 +43,20 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
 
             spriteBatch.Draw(GetSpriteSheet(), spritePos, frame, color, 0,
                 Vector2.Zero, new Vector2(3, 3), SpriteEffects.FlipHorizontally, 0);
+        }
+
+        public override void Update()
+        {
+            Timer = (Timer + 1) % Speed;
+            if (Timer == 0)
+            {
+                CurrentFrame++;
+                if (CurrentFrame == NumFrames - 1)
+                {
+                    CurrentFrame = 0;
+                    stateController.GetState().StopAttacking();
+                }
+            }
         }
     }
 }
