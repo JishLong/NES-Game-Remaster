@@ -1,23 +1,45 @@
 using Microsoft.Xna.Framework;
-using Sprint0.Sprites.Characters.Npcs;
+using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.Projectiles.Player;
 
 namespace Sprint0.Projectiles.Player_Projectiles
 {
     public class ArrowProjectile : AbstractProjectile
     {
-        public ArrowProjectile(Vector2 position, Vector2 velocity) : base(position, velocity)
+        private readonly static Vector2 MovementSpeed = new Vector2(15, 15);
+
+        private readonly float rotation;
+
+        public ArrowProjectile(Vector2 position, Types.Direction direction) :
+            base(position, MovementSpeed * Utils.DirectionToVector(direction))
         {
             FramesAlive = 60;
             FramesPassed = 0;
 
             Sprite = new ArrowProjectileSprite();
+
+            switch (direction)
+            {
+                case Types.Direction.LEFT:
+                    rotation = MathHelper.ToRadians(270);
+                    break;
+                case Types.Direction.RIGHT:
+                    rotation = MathHelper.ToRadians(90);
+                    break;
+                case Types.Direction.UP:
+                    rotation = 0;
+                    break;
+                case Types.Direction.DOWN:
+                    rotation = MathHelper.ToRadians(180);
+                    break;
+                default:
+                    break;
+            }
         }
-        public override void Update()
+
+        public override void Draw(SpriteBatch sb)
         {
-            Sprite.Update();
-            FramesPassed++;
-            Position += Velocity;
+            Sprite.Draw(sb, Position, Color.White, rotation);
         }
     }
 }

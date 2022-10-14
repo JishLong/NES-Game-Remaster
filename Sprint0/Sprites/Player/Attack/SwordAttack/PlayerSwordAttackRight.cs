@@ -6,24 +6,10 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
 {
     public class PlayerSwordAttackRight : AnimatedSprite
     {
-        // Singleton instance
-        private static PlayerSwordAttackRight instance;
-
-        public static PlayerSwordAttackRight GetInstance(PlayerStateController stateController)
+        public PlayerSwordAttackRight() : base(4, 8)
         {
-            if (instance == null)
-            {
-                instance = new PlayerSwordAttackRight(stateController);
-            }
-            return instance;
-        }
 
-        private PlayerSwordAttackRight(PlayerStateController stateController) : base(4, 8)
-        {
-            this.stateController = stateController;
         }
-
-        private readonly PlayerStateController stateController;
 
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 
@@ -38,7 +24,6 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
                 if (CurrentFrame == NumFrames - 1)
                 {
                     CurrentFrame = 0;
-                    stateController.GetState().StopAttacking();
                 }
             }
         }

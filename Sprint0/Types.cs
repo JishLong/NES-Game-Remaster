@@ -16,5 +16,7 @@
 
         // To be utilized soon
         public enum Direction {UP, DOWN, LEFT, RIGHT};
+
+        public enum PlayerWeapon { SWORD, BOW, STAFF, BOMB, BOOMERANG };
     }
 }

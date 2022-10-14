@@ -5,19 +5,7 @@ namespace Sprint0.Sprites.Player.Movement
 {
     public class PlayerMovingUp : AnimatedSprite
     {
-        // Singleton instance
-        private static PlayerMovingUp instance;
-
-        public static PlayerMovingUp GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new PlayerMovingUp();
-            }
-            return instance;
-        }
-
-        private PlayerMovingUp() : base(2, 8)
+        public PlayerMovingUp() : base(2, 8)
         {
 
         }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Collision;
-using Sprint0.Player.State;
 
 namespace Sprint0.Player
 {
@@ -8,8 +7,18 @@ namespace Sprint0.Player
     {
         public void Update();
 
-        public void Draw(SpriteBatch spriteBatch, int screenWidth, int screenHeight);
+        public void Draw(SpriteBatch spriteBatch);
 
-        public PlayerStateController GetStateController();
+        public void ChangeDirection(Types.Direction direction);
+
+        public void StopAction();
+
+        public void DoPrimaryAttack();
+
+        public void DoSecondaryAttack();
+
+        public void TakeDamage();
+
+        public void Reset();
     }
 }

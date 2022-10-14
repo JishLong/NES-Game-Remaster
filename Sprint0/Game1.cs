@@ -40,7 +40,7 @@ namespace Sprint0
 
             LevelManager = new LevelManager();
 
-            Keyboard = new KeyboardController(this, Player.GetStateController());
+            Keyboard = new KeyboardController(this, Player);
 
             base.Initialize();
         }
@@ -73,7 +73,7 @@ namespace Sprint0
             SBatch.Begin(samplerState: SamplerState.PointClamp);
 
             LevelManager.Draw(SBatch);
-            Player.Draw(SBatch, Graphics.PreferredBackBufferWidth, Graphics.PreferredBackBufferHeight);
+            Player.Draw(SBatch);
             CurrentItem.Draw(SBatch);
             CurrentBlock.Draw(SBatch);
             CurrentCharacter.Draw(SBatch);

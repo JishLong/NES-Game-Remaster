@@ -38,13 +38,19 @@ namespace Sprint0.Sprites
 
         public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
+            Draw(spriteBatch, position, color, 0);
+        }
+
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation)
+        {
             Rectangle frame = GetFirstFrame();
             if (CurrentFrame != 0)
             {
                 frame = new Rectangle(frame.X + CurrentFrame * frame.Width, frame.Y, frame.Width, frame.Height);
             }
 
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame, color);
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame, color, rotation, Vector2.Zero,
+                SpriteEffects.None, 0);
         }
 
         public virtual void Update()
@@ -62,6 +68,11 @@ namespace Sprint0.Sprites
 
             return new Rectangle((int)(position.X + (xOffsetPixels * SizeScale)), (int)(position.Y + (yOffsetPixels * SizeScale)),
                 (int)(frame.Width * SizeScale), (int)(frame.Height * SizeScale));
+        }
+
+        public int GetAnimationTime() 
+        {
+            return NumFrames * Speed;
         }
     }
 }

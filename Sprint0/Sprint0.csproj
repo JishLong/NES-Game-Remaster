@@ -31,8 +31,6 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Player\State\" />
-    <Folder Include="Sprites\Player\Attack\" />
     <Folder Include="Sprites\Player\Attack\SwordAttack\" />
     <Folder Include="Sprites\Player\Stationary\" />
     <Folder Include="Sprites\Player\Movement\" />

@@ -1,41 +1,70 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Player.SpriteControllers;
 using Sprint0.Player.State;
+using Sprint0.Player.State.Idle;
 
 namespace Sprint0.Player
 {
     public class Player : IPlayer
     {
-        private readonly PlayerStateController stateController;
-
-        private readonly ISpriteController spriteController;
+        public IPlayerState State { get; set; }
+        public Vector2 Position { get; set; }
+        public Vector2 MovementSpeed { get; set; }
+        public Color Color { get; set; }
+        public Types.PlayerWeapon SecondaryWeapon { get; set; }
 
         public Player(Game1 game)
         {
-            stateController = new PlayerStateController();
-            spriteController = PlayerMasterSpriteController.GetInstance(stateController);
+            Reset();
+            MovementSpeed = new Vector2(2, 2);
         }
 
-        public void Draw(SpriteBatch spriteBatch, int screenWidth, int screenHeight)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            this.spriteController.Draw(spriteBatch);
+            State.Draw(spriteBatch, Position);
         }
 
         public void Update()
         {
-            spriteController.Update();
-            stateController.Update();
-        }
-
-        public PlayerStateController GetStateController()
-        {
-            return this.stateController;
+            State.Update();
         }
 
         public Rectangle GetHitbox() 
         {
-            return Rectangle.Empty;
+            return State.GetHitbox();
+        }
+
+        public void ChangeDirection(Types.Direction direction) 
+        {
+            State.ChangeDirection(direction);
+        }
+
+        public void StopAction() 
+        {
+            State.StopAction();
+        }
+
+        public void DoPrimaryAttack() 
+        {
+            State.DoPrimaryAttack();
+        }
+
+        public void DoSecondaryAttack() 
+        {
+            State.DoSecondaryAttack();
+        }
+
+        public void TakeDamage() 
+        {
+            State.TakeDamage();
+        }
+
+        public void Reset() 
+        {
+            State = new PlayerFacingRightState(this);
+            Position = new Vector2(0, 0);
+            Color = Color.White;
+            SecondaryWeapon = Types.PlayerWeapon.BOW;
         }
     }
 }

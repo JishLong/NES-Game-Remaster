@@ -7,25 +7,10 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
     // NOTE: this class is using new draw logic that is not yet implemented in most other sprite classes
     public class PlayerSwordAttackLeft : AnimatedSprite
     {
-        // Singleton instance
-        private static PlayerSwordAttackLeft instance;
-
-        public static PlayerSwordAttackLeft GetInstance(PlayerStateController stateController)
-        {
-            if (instance == null)
-            {
-                instance = new PlayerSwordAttackLeft(stateController);
-            }
-            return instance;
-        }
-
-        private PlayerSwordAttackLeft(PlayerStateController stateController) : base(4, 8)
+        public PlayerSwordAttackLeft() : base(4, 8)
         {
             xOffsetPixels = -12;
-            this.stateController = stateController;
         }
-
-        private readonly PlayerStateController stateController;
 
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 
@@ -54,7 +39,6 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
                 if (CurrentFrame == NumFrames - 1)
                 {
                     CurrentFrame = 0;
-                    stateController.GetState().StopAttacking();
                 }
             }
         }

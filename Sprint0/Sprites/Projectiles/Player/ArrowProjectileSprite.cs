@@ -3,15 +3,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Projectiles.Player
 {
-    public class ArrowProjectileSprite : AnimatedSprite
+    public class ArrowProjectileSprite : StillSprite
     {
-        public ArrowProjectileSprite() : base(4, 8)
-        {
-
-        }
-
         protected override Texture2D GetSpriteSheet() => Resources.ItemsSpriteSheet;
 
-        protected override Rectangle GetFirstFrame() => Resources.ArrowWeapon;
+        protected override Rectangle GetFrame() => Resources.Arrow;
     }
 }
