@@ -49,12 +49,12 @@ namespace Sprint0.Projectiles.Player_Projectiles
             Sprite.Update();
             FramesPassed++;
 
-            if (FramesPassed == FramesAlive - ExplosionFrames)
+            if (FramesPassed == FramesAlive - ExplosionFrames + 1)
             {
                 Sprite = new ArrowExplosionProjSprite();
                 Rotation = 0;
             }
-            if (FramesPassed < FramesAlive - ExplosionFrames)
+            if (FramesPassed < FramesAlive - ExplosionFrames + 1)
             {
                 Position += Velocity;
             }
@@ -63,7 +63,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
         public override Rectangle GetHitbox()
         {
             // Incorrect for now - also needs to rotate
-            Rectangle retVal = (FramesPassed < FramesAlive - ExplosionFrames) ? Sprite.GetDrawbox(Position) : Rectangle.Empty;
+            Rectangle retVal = (FramesPassed < FramesAlive - ExplosionFrames + 1) ? Sprite.GetDrawbox(Position) : Rectangle.Empty;
             return retVal;
         }
     }

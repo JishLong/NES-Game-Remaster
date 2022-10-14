@@ -14,7 +14,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
         {
             FramesAlive = 60;
             FramesPassed = 0;
-            StillFrames = 20;
+            StillFrames = 30;
 
             Sprite = new FlameProjSprite();
         }
@@ -24,7 +24,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
             Sprite.Update();
             FramesPassed++;
 
-            if (FramesPassed < FramesAlive - StillFrames)
+            if (FramesPassed < FramesAlive - StillFrames + 1)
             {
                 Position += Velocity;
             }
