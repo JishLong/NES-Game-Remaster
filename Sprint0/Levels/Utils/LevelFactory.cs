@@ -1,0 +1,36 @@
+﻿using Microsoft.Xna.Framework;
+using System;
+
+namespace Sprint0.Levels.Utils
+{
+    /*public class LevelFactory 
+    {
+        // Single point of use
+        private static LevelFactory Instance;
+
+        private LevelFactory() { }
+
+        public Level GetLevel(Types.Level levelType)
+        {
+            switch (levelType)
+            {
+                case Types.Block.BLUE_GAP:
+                    return new Level("Level1");
+                case Types.Block.BLUE_SAND:
+                    return new BlueSand(position);
+                default:
+                    Console.Error.Write("The level of type " + levelType.ToString() +
+                        " could not be instantiated by the Level Factory. Does this type exist?");
+                    return null;
+            }
+        }
+        public static LevelFactory GetInstance()
+        {
+            if (Instance == null)
+            {
+                Instance = new LevelFactory();
+            }
+            return Instance;
+        }
+    }*/
+}

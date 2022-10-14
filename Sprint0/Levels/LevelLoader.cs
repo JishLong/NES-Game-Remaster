@@ -1,23 +1,19 @@
 ﻿using Microsoft.VisualBasic.FileIO;
 using Microsoft.Xna.Framework;
 using Sprint0.Levels.Utils;
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Sprint0.Levels
 {
-    // Many things have been ommented out for now to fix errors caused by things that aren't implemented yet
+    // Abandon all hope, ye who enter here.
 
     /// <summary>
-    /// The loader's job is to parse and load game entities from the level csv files.
-    /// (Loading involves using the corresponding entity types factory to create a new instance of that entity.)
-    /// These entities are then added to the owning object's collections (the level manager.)
+    /// The loader's job is to parse and load game entities from the level's csv files (which are really owned by individual rooms).
+    /// Loading involves using the corresponding entity type's factory to create a new instance of that entity and then adding those
+    /// entities to the corresponding Room object's collections.
     /// </summary>
     public class LevelLoader
     {
@@ -30,33 +26,42 @@ namespace Sprint0.Levels
         {
             LevelManager = manager;
             LevelResources = LevelResources.GetInstance();
-            RootPath = "../../../Levels/";
+            RootPath = "../../../Levels/";  // TODO: There is probably a better way to do this than with relative paths...
         }
-        public Level LoadLevelFromFile(string levelName)
+        public Level LoadLevelFromDir(string levelDirName)
         {
             // Get level directory and list of room files.
-            DirectoryInfo dir = new DirectoryInfo(RootPath + levelName);
+            DirectoryInfo dir = new DirectoryInfo(RootPath + levelDirName);
             DirectoryInfo[] RoomDirs = dir.GetDirectories();
+                
+            // Create new level.
+            Level level = new Level(levelDirName);
 
-            // List of rooms to add to the level.
-            List<Room> rooms = new List<Room>();
-            Level level = new Level();
+            // For each room, load their entities and add the room to the level.
+            for (int row = 0; row < level.Map.MapArray.Length; row++)
+            {
+                for (int col = 0; col < level.Map.MapArray.Length; col ++)
+                {
+                    
+                }
+            }
 
-            // For each room file, load their corresponding items.
             foreach (DirectoryInfo dirInfo in RoomDirs)
             {
-                Room room = new Room();
-                string roomName = dirInfo.Name;
-
-                // Load blocks, characters and items.
-                LoadBlocks(room, RootPath + roomName + "/Blocks.csv");
-                LoadCharacters(room, RootPath + roomName + "/Characters.csv");
-                LoadBlocks(room, RootPath + roomName + "/Blocks.csv");
-
-                level.AddRoom(room);
+                string roomDirName = dirInfo.Name;
+                level.AddRoom(LoadRoomFromDir(level, levelDirName, roomDirName));
             }
 
             return level;
+        }
+        public Room LoadRoomFromDir(Level level, string levelDirName, string roomDirName)
+        {
+            Room room = new Room(level);
+            // Load blocks, characters and items.
+            LoadBlocks(room, RootPath + levelDirName + "/" + roomDirName + "/Blocks.csv");
+            LoadCharacters(room, RootPath + levelDirName + "/" + roomDirName + "/Characters.csv");
+            LoadBlocks(room, RootPath + levelDirName + "/" + roomDirName + "/Blocks.csv");
+            return room;
         }
         public void LoadBlocks(Room room, string roomName)
         {
@@ -80,7 +85,6 @@ namespace Sprint0.Levels
                 row++;
             }
         }
-
         public void LoadCharacters(Room room, string roomName)
         {
             Parser = new TextFieldParser(roomName);
@@ -98,7 +102,7 @@ namespace Sprint0.Levels
                         int x = LevelResources.BlockWidth * col;
                         int y = LevelResources.BlockHeight * row;
                         Vector2 position = new Vector2(x, y);
-                        //LevelManager.AddCharacter(character, position);
+                        room.AddCharacterToRoom(character, position);
                     }
                     col++;
                 }
@@ -119,17 +123,16 @@ namespace Sprint0.Levels
                 {
                     if(LevelResources.CharacterMap.ContainsKey(field))
                     {
-                        Types.Character character = LevelResources.CharacterMap[field];
+                        Types.Item item = LevelResources.ItemMap[field];
                         int x = LevelResources.BlockWidth * col;
                         int y = LevelResources.BlockHeight * row;
                         Vector2 position = new Vector2(x, y);
-                        //LevelManager.AddCharacter(character, position);
+                        room.AddItemToRoom(item, position);
                     }
                     col++;
                 }
                 row++;
             }
-
         }
     }
 }

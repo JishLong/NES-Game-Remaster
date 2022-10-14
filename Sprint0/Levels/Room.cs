@@ -1,45 +1,97 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
 using Sprint0.Blocks.Utils;
 using Sprint0.Characters;
 using Sprint0.Items;
+using Sprint0.Items.Utils;
 using System.Collections.Generic;
+using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
+using static Sprint0.Types;
 
 namespace Sprint0.Levels
 {
     public class Room
     {
-        private List<IBlock> RoomBlocks;
-        private List<ICharacter> RoomCharacters;
-        private List<IItem> RoomItems;
+        public List<IBlock> Blocks { get;}
+        public List<ICharacter> Characters { get;}
+        public List<IItem> Items { get;}
+
+        private Dictionary<RoomTransition, Room> AdjacentRooms;
+
+        private Level Context;
+        public Room(Level level)
+        {
+            Context = level;
+            Blocks = new List<IBlock>();
+            Characters = new List<ICharacter>();
+            Items = new List<IItem>();
+            AdjacentRooms = new Dictionary<RoomTransition, Room>()
+            {
+                {RoomTransition.UP, null },
+                {RoomTransition.RIGHT, null },
+                {RoomTransition.DOWN, null },
+                {RoomTransition.LEFT, null },
+                {RoomTransition.SECRET, null },
+            };
+        }
+        public void AddTransition(Room room, RoomTransition direction)
+        {
+            AdjacentRooms[direction] = room;
+        }
+        public void MakeTransition(RoomTransition direction)
+        {
+            if (AdjacentRooms[direction] != null)   // If there is a valid adjacent room in this direction.
+            {
+                Context.CurrentRoom = AdjacentRooms[direction]; // Set the owning level's current room to this adjacent room.
+            } 
+        }
         public void AddBlockToRoom(Types.Block block, Vector2 position)
         {
-            RoomBlocks.Add(BlockFactory.GetInstance().GetBlock(block, position));
+            Blocks.Add(BlockFactory.GetInstance().GetBlock(block, position));
         }
         public void AddCharacterToRoom(Types.Character character, Vector2 position)
         {
-            RoomCharacters.Add(CharacterFactory.GetInstance().GetCharacter(character, position));
+            Characters.Add(CharacterFactory.GetInstance().GetCharacter(character, position));
         }
-
+        public void AddItemToRoom(Types.Item item, Vector2 position)
+        {
+            Items.Add(ItemFactory.GetInstance().GetItem(item, position));
+        }
         public void RemoveItemFromRoom(IItem item) 
         {
-            RoomItems.Remove(item);
+            Items.Remove(item);
         }
-
         public void Update(GameTime gameTime)
         {
-            foreach(IBlock block in RoomBlocks)
+            foreach(IBlock block in Blocks)
             {
                 block.Update();
             }
-            foreach(ICharacter character in RoomCharacters)
+            foreach(ICharacter character in Characters)
             {
                 character.Update(gameTime);
             }
-            foreach(IBlock item in RoomItems)
+            foreach(IItem item in Items)
             {
                 item.Update();
             }
+        }
+        public void Draw(SpriteBatch sb)
+        {
+            foreach(IBlock block in Blocks)
+            {
+                block.Draw(sb);
+            }
+            foreach(ICharacter character in Characters)
+            {
+                character.Draw(sb);
+            }
+            foreach(IItem item in Items)
+            {
+                item.Draw(sb);
+            }
+
         }
     }
 }

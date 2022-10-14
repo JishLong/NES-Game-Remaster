@@ -1,10 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
-using Sprint0.Blocks.Utils;
-using Sprint0.Characters;
-using Sprint0.Items;
 using System.Collections.Generic;
+using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
+using static Sprint0.Types;
 
 namespace Sprint0.Levels
 {
@@ -12,30 +11,28 @@ namespace Sprint0.Levels
     {
         private LevelLoader LevelLoader;
         private List<Level> Levels;
-
         private Level CurrentLevel;
-
         public LevelManager()
         {
             LevelLoader = new LevelLoader(this);
             Levels = new List<Level>();
         }
-
-        public void TransitionRooms()
-        {
-            
-        }
         
+        public List<IBlock> GetCurrentRoomBlocks()
+        {
+            return CurrentLevel.CurrentRoom.Blocks;
+        }
+        public void MakeRoomTransition(RoomTransition direction)
+        {
+            CurrentLevel.MakeRoomTransition(direction);
+        }
         public void LoadLevel(string levelName)
         {
-            CurrentLevel = LevelLoader.LoadLevelFromFile(levelName);
+            CurrentLevel = LevelLoader.LoadLevelFromDir(levelName);
         }
         public void Update(GameTime gameTime)
         {
-            foreach (Level level in Levels)
-            {
-                level.Update(gameTime);
-            }
+            CurrentLevel.Update(gameTime);
         }
         public void Draw(SpriteBatch sb)
         {
