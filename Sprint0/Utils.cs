@@ -10,19 +10,14 @@ namespace Sprint0
             {
                 case Types.Direction.LEFT:
                     return new Vector2(-1, 0);
-                    break;
                 case Types.Direction.RIGHT:
                     return new Vector2(1, 0);
-                    break;
                 case Types.Direction.UP:
                     return new Vector2(0, -1);
-                    break;
                 case Types.Direction.DOWN:
                     return new Vector2(0, 1);
-                    break;
                 default:
                     return new Vector2(0, 0);
-                    break;
             }
         }
     }

@@ -9,9 +9,17 @@ namespace Sprint0.Player.State
         public Player Player { get; }
         public int DamageFrameCounter { get; set; }
 
-        protected ISprite Sprite;
+        protected ISprite Sprite { get; set; }
 
-        // Used for control logic
+        /* Used for logic in determining when to switch states
+         * 
+         * [IsChangingDirection]: whether the player is changing direction; set to false instantly so that the player can effectively
+         * change direction only once per game frame
+         * 
+         * [IsAttacking]: whether the user isa initiating some input that would cause the player to attack
+         * 
+         * [FramesPassed]: the number of game frames that have passed since this state has been active
+         */
         protected static bool IsChangingDirection, IsAttacking;
         protected int FramesPassed;
 
@@ -22,7 +30,7 @@ namespace Sprint0.Player.State
             FramesPassed = 0;
         }
 
-        // Copy constructor
+        // Copy constructor used for switching states
         public AbstractPlayerState(IPlayerState state) 
         {
             Player = state.Player;
@@ -64,11 +72,16 @@ namespace Sprint0.Player.State
         {
             Sprite.Update();
 
+            // Update some of the logical variables
             IsChangingDirection = false;
             FramesPassed++;
 
+            // If the player is damaged, check to see if they should no longer be damaged
             if (Player.Color == Color.Red) 
             {
+                /* The "40" here is a magic number and is the number of frames the player is damaged for;
+                 * I got it from the old player logic, not sure if we should make it into a variable so it's not a magic number?
+                 */
                 DamageFrameCounter = (DamageFrameCounter + 1) % 40;
                 if (DamageFrameCounter == 0) 
                 {

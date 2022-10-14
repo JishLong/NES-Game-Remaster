@@ -15,6 +15,7 @@ namespace Sprint0.Player
 
         public Player(Game1 game)
         {
+            // Reset() here is essentially just initializing the 4 other fields
             Reset();
             MovementSpeed = new Vector2(2, 2);
         }
@@ -27,22 +28,12 @@ namespace Sprint0.Player
         public void Update()
         {
             State.Update();
-        }
-
-        public Rectangle GetHitbox() 
-        {
-            return State.GetHitbox();
-        }
+        }       
 
         public void ChangeDirection(Types.Direction direction) 
         {
             State.ChangeDirection(direction);
-        }
-
-        public void StopAction() 
-        {
-            State.StopAction();
-        }
+        }     
 
         public void DoPrimaryAttack() 
         {
@@ -52,6 +43,11 @@ namespace Sprint0.Player
         public void DoSecondaryAttack() 
         {
             State.DoSecondaryAttack();
+        }
+
+        public void StopAction()
+        {
+            State.StopAction();
         }
 
         public void TakeDamage() 
@@ -65,6 +61,11 @@ namespace Sprint0.Player
             Position = new Vector2(0, 0);
             Color = Color.White;
             SecondaryWeapon = Types.PlayerWeapon.BOW;
+        }
+
+        public Rectangle GetHitbox()
+        {
+            return State.GetHitbox();
         }
     }
 }

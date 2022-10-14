@@ -16,7 +16,10 @@ namespace Sprint0.Player.State.Idle
         }
 
         public override void ChangeDirection(Types.Direction direction)
-        {  
+        {
+            /* If the user is holding down multiple movement keys, we don't want the player to be constantly changing direction;
+             * This would cause the sprites to appear frozen since new states would be instantiated every game frame
+             */
             if (IsChangingDirection || FramesPassed % ((AnimatedSprite)Sprite).GetAnimationTime() != 0) return;
             base.ChangeDirection(direction);
 
@@ -40,6 +43,12 @@ namespace Sprint0.Player.State.Idle
         {
             base.Update();
 
+            /* We don't want the player's sword attack animation to be abruptly cut off, so we switch the state only after a
+             * full sword animation has played through
+             * 
+             * NOTE: potential coupling/abstraction break issue here - we're casting an interface to an extra abstract class,
+             * might be something to fix in the future but works okay for now
+             */
             if (FramesPassed % ((AnimatedSprite)Sprite).GetAnimationTime() == 0 && !IsAttacking) 
             {
                 Player.State = new PlayerFacingLeftState(this);

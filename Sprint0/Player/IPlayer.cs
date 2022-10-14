@@ -11,11 +11,11 @@ namespace Sprint0.Player
 
         public void ChangeDirection(Types.Direction direction);
 
-        public void StopAction();
-
         public void DoPrimaryAttack();
 
         public void DoSecondaryAttack();
+
+        public void StopAction();
 
         public void TakeDamage();
 
