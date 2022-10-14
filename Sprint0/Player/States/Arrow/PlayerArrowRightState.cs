@@ -6,29 +6,30 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Player.State.Arrow
 {
-    public class PlayerBowUpState : AbstractPlayerState
+    public class PlayerArrowRightState : AbstractPlayerState
     {
-        public PlayerBowUpState(Player player) : base(player)
+        public PlayerArrowRightState(Player player) : base(player)
         {
-            Sprite = new PlayerUseItemUpSprite();
+            Sprite = new PlayerUseItemRightSprite();
 
             SpawnArrow();
         }
 
-        public PlayerBowUpState(IPlayerState state) : base(state)
+        public PlayerArrowRightState(IPlayerState state) : base(state)
         {
-            Sprite = new PlayerUseItemUpSprite();
+            Sprite = new PlayerUseItemRightSprite();
 
             SpawnArrow();
         }
 
-        private void SpawnArrow()
+        private void SpawnArrow() 
         {
-            float ArrowX = Player.GetHitbox().Center.X;
-            float ArrowY = Player.GetHitbox().Top;
+            // Magic numbers for position for now
+            float ArrowX = Player.GetHitbox().Right;
+            float ArrowY = Player.GetHitbox().Center.Y - Resources.ArrowProj.Height / 2;
 
             ProjectileManager.GetInstance().AddProjectile(new ArrowProjectile(
-            new Vector2(ArrowX, ArrowY), Types.Direction.UP));
+            new Vector2(ArrowX, ArrowY), Types.Direction.RIGHT));
         }
 
         public override void Update()
@@ -43,7 +44,7 @@ namespace Sprint0.Player.State.Arrow
              */
             if ((FramesPassed + 1) % 40 == 0)
             {
-                Player.State = new PlayerFacingUpState(this);
+                Player.State = new PlayerFacingRightState(this);
             }
         }
     }

@@ -6,29 +6,30 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Player.State.Arrow
 {
-    public class PlayerBowRightState : AbstractPlayerState
+    public class PlayerArrowDownState : AbstractPlayerState
     {
-        public PlayerBowRightState(Player player) : base(player)
+        public PlayerArrowDownState(Player player) : base(player)
         {
-            Sprite = new PlayerUseItemRightSprite();
+            Sprite = new PlayerUseItemDownSprite();
 
             SpawnArrow();
         }
 
-        public PlayerBowRightState(IPlayerState state) : base(state)
+        public PlayerArrowDownState(IPlayerState state) : base(state)
         {
-            Sprite = new PlayerUseItemRightSprite();
+            Sprite = new PlayerUseItemDownSprite();
 
             SpawnArrow();
         }
 
-        private void SpawnArrow() 
+        private void SpawnArrow()
         {
-            float ArrowX = Player.GetHitbox().Right;
-            float ArrowY = Player.GetHitbox().Center.Y;
+            // Magic numbers for position for now
+            float ArrowX = Player.GetHitbox().Center.X + Resources.ArrowProj.Width * 3 / 2;
+            float ArrowY = Player.GetHitbox().Bottom;
 
             ProjectileManager.GetInstance().AddProjectile(new ArrowProjectile(
-            new Vector2(ArrowX, ArrowY), Types.Direction.RIGHT));
+            new Vector2(ArrowX, ArrowY), Types.Direction.DOWN));
         }
 
         public override void Update()
@@ -41,9 +42,9 @@ namespace Sprint0.Player.State.Arrow
              * Should we make a variable for this so it's not a magic number? Also, is there an actual value for this number that
              * is accurate to the game? 40 seemed to work somewhat well but like I said it's just arbitrary
              */
-            if ((FramesPassed + 1) % 40 == 0)
+            if (FramesPassed % 40 == 0)
             {
-                Player.State = new PlayerFacingRightState(this);
+                Player.State = new PlayerFacingDownState(this);
             }
         }
     }

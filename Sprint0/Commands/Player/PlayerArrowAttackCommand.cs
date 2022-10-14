@@ -13,7 +13,8 @@ namespace Sprint0.Commands.Player
 
         public void Execute()
         {
-            // soon
+            Player.SecondaryWeapon = Types.PlayerWeapon.ARROW;
+            new PlayerSecondaryAttackCommand(Player).Execute();
         }
     }
 }

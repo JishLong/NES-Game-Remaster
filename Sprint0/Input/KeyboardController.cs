@@ -38,7 +38,15 @@ namespace Sprint0.Controllers
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.Z, Keys.N),
                     new PlayerSwordAttackCommand(player) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D1),
-                    new PlayerSecondaryAttackCommand(player) },
+                    new PlayerArrowAttackCommand(player) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D2),
+                    new PlayerBlueArrowAttackCommand(player) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D3),
+                    new PlayerBoomerangAttackCommand(player) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D4),
+                    new PlayerFlameAttackCommand(player) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D5),
+                    new PlayerBombAttackCommand(player) },
 
                 // Player damage control
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.E),

@@ -60,7 +60,7 @@ namespace Sprint0.Player
             State = new PlayerFacingRightState(this);
             Position = new Vector2(0, 0);
             Color = Color.White;
-            SecondaryWeapon = Types.PlayerWeapon.BOW;
+            SecondaryWeapon = Types.PlayerWeapon.ARROW;
         }
 
         public Rectangle GetHitbox()

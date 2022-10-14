@@ -1,5 +1,9 @@
 ﻿using Sprint0.Sprites.Player.Stationary;
 using Sprint0.Player.State.Bow;
+using Sprint0.Player.States.BlueArrow;
+using Sprint0.Player.States.Flame;
+using Sprint0.Player.States.Boomerang;
+using Sprint0.Player.State.Arrow;
 
 namespace Sprint0.Player.State.Idle
 {
@@ -45,17 +49,20 @@ namespace Sprint0.Player.State.Idle
         {
             switch (Player.SecondaryWeapon)
             {
-                case Types.PlayerWeapon.BOW:
-                    Player.State = new PlayerBowLeftState(this);
+                case Types.PlayerWeapon.ARROW:
+                    Player.State = new PlayerArrowLeftState(this);
                     break;
-                case Types.PlayerWeapon.STAFF:
-                    //Player.State = new PlayerStaffLeftState(this);
+                case Types.PlayerWeapon.BLUEARROW:
+                    Player.State = new PlayerBlueArrowLeftState(this);
                     break;
                 case Types.PlayerWeapon.BOMB:
-                    //Player.State = new PlayerBombLeftState(this);
+                    Player.State = new PlayerBombLeftState(this);
                     break;
                 case Types.PlayerWeapon.BOOMERANG:
-                    //Player.State = new PlayerBoomerangLeftState(this);
+                    Player.State = new PlayerBoomerangLeftState(this);
+                    break;
+                case Types.PlayerWeapon.FLAME:
+                    Player.State = new PlayerFlameLeftState(this);
                     break;
                 default:
                     break;

@@ -41,7 +41,7 @@ namespace Sprint0.Sprites
             Draw(spriteBatch, position, color, 0);
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation)
+        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation)
         {
             Rectangle frame = GetFirstFrame();
             if (CurrentFrame != 0)

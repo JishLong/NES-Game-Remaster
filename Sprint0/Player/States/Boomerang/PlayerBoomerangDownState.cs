@@ -1,34 +1,36 @@
 ﻿using Sprint0.Player.State.Idle;
-using Sprint0.Sprites.Player.Attack.UseItem;
+using Sprint0.Player.State;
 using Sprint0.Projectiles;
-using Sprint0.Projectiles.Player_Projectiles;
+using Sprint0.Sprites.Player.Attack.UseItem;
 using Microsoft.Xna.Framework;
+using Sprint0.Projectiles.Player;
 
-namespace Sprint0.Player.State.Arrow
+namespace Sprint0.Player.States.Boomerang
 {
-    public class PlayerBowDownState : AbstractPlayerState
+    public class PlayerBoomerangDownState : AbstractPlayerState
     {
-        public PlayerBowDownState(Player player) : base(player)
+        public PlayerBoomerangDownState(Player player) : base(player)
         {
             Sprite = new PlayerUseItemDownSprite();
 
-            SpawnArrow();
+            SpawnBoomerang();
         }
 
-        public PlayerBowDownState(IPlayerState state) : base(state)
+        public PlayerBoomerangDownState(IPlayerState state) : base(state)
         {
             Sprite = new PlayerUseItemDownSprite();
 
-            SpawnArrow();
+            SpawnBoomerang();
         }
 
-        private void SpawnArrow()
+        private void SpawnBoomerang()
         {
-            float ArrowX = Player.GetHitbox().Center.X;
-            float ArrowY = Player.GetHitbox().Bottom;
+            // Magic numbers for position for now
+            float BoomerangX = Player.GetHitbox().Center.X - Resources.BoomerangProj.Width * 3 / 2;
+            float BoomerangY = Player.GetHitbox().Bottom;
 
-            ProjectileManager.GetInstance().AddProjectile(new ArrowProjectile(
-            new Vector2(ArrowX, ArrowY), Types.Direction.DOWN));
+            ProjectileManager.GetInstance().AddProjectile(new PlayerBoomerangProjectile(
+            new Vector2(BoomerangX, BoomerangY), Types.Direction.DOWN));
         }
 
         public override void Update()

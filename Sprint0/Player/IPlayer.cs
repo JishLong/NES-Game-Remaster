@@ -5,6 +5,8 @@ namespace Sprint0.Player
 {
     public interface IPlayer : ICollidable
     {
+        public Types.PlayerWeapon SecondaryWeapon { get; set; }
+
         public void Update();
 
         public void Draw(SpriteBatch spriteBatch);

@@ -20,7 +20,7 @@ namespace Sprint0.Player.State
          * 
          * [FramesPassed]: the number of game frames that have passed since this state has been active
          */
-        protected static bool IsChangingDirection, IsAttacking;
+        protected static bool IsChangingDirection, IsPrimaryAttacking;
         protected int FramesPassed;
 
         public AbstractPlayerState(Player player) 
@@ -45,17 +45,17 @@ namespace Sprint0.Player.State
 
         public virtual void StopAction() 
         {
-            IsAttacking = false;
+            IsPrimaryAttacking = false;
         }
 
         public virtual void DoPrimaryAttack() 
         {
-            IsAttacking = true;
+            IsPrimaryAttacking = true;
         }
 
         public virtual void DoSecondaryAttack() 
         {
-            IsAttacking = true;
+            // Empty, but nice since it doesn't need to be declared in all the subclasses
         }
 
         public void TakeDamage() 

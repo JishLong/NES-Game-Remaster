@@ -3,15 +3,15 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Projectiles.Player
 {
-    public class BombProjSprite : AnimatedSprite
+    public class BombProjSprite : StillSprite
     {
-        public BombProjSprite() : base(4, 8)
+        public BombProjSprite()
         {
 
         }
 
         protected override Texture2D GetSpriteSheet() => Resources.WeaponsAndProjSpriteSheet;
 
-        protected override Rectangle GetFirstFrame() => Resources.BombWeapon;
+        protected override Rectangle GetFrame() => Resources.BombProj;
     }
 }

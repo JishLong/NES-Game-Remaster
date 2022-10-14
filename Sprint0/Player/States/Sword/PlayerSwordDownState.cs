@@ -49,7 +49,7 @@ namespace Sprint0.Player.State.Idle
              * NOTE: potential coupling/abstraction break issue here - we're casting an interface to an extra abstract class,
              * might be something to fix in the future but works okay for now
              */
-            if (FramesPassed % ((AnimatedSprite)Sprite).GetAnimationTime() == 0 && !IsAttacking) 
+            if (FramesPassed % ((AnimatedSprite)Sprite).GetAnimationTime() == 0 && !IsPrimaryAttacking) 
             {
                 Player.State = new PlayerFacingDownState(this);
             }

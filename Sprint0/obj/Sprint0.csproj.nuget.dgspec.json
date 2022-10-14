@@ -11,7 +11,7 @@
         "projectName": "Sprint0",
         "projectPath": "C:\\Users\\josh\\source\\repos\\CSE-3902-Project\\Sprint0\\Sprint0.csproj",
         "packagesPath": "C:\\Users\\josh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\josh\\Source\\Repos\\CSE-3902-Project\\Sprint0\\obj\\",
+        "outputPath": "C:\\Users\\josh\\source\\repos\\CSE-3902-Project\\Sprint0\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
