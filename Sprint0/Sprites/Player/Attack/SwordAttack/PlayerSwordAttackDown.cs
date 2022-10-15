@@ -13,18 +13,5 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 
         protected override Rectangle GetFirstFrame() => Resources.LinkSwordDown;
-
-        public override void Update()
-        {
-            Timer = (Timer + 1) % Speed;
-            if (Timer == 0)
-            {
-                CurrentFrame++;
-                if (CurrentFrame == NumFrames - 1)
-                {
-                    CurrentFrame = 0;
-                }
-            }
-        }
     }
 }

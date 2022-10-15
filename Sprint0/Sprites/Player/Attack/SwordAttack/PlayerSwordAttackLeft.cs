@@ -29,18 +29,5 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
             spriteBatch.Draw(GetSpriteSheet(), spritePos, frame, color, 0,
                 Vector2.Zero, new Vector2(3, 3), SpriteEffects.FlipHorizontally, 0);
         }
-
-        public override void Update()
-        {
-            Timer = (Timer + 1) % Speed;
-            if (Timer == 0)
-            {
-                CurrentFrame++;
-                if (CurrentFrame == NumFrames - 1)
-                {
-                    CurrentFrame = 0;
-                }
-            }
-        }
     }
 }
