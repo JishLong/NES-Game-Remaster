@@ -60,13 +60,13 @@ namespace Sprint0.Controllers
                     new NextItemCommand(game) },
 
                 // Room switching controls
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad4),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad4, Keys.D7),
                     new LeftRoomTransitionCommand(game)},
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad6),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad6, Keys.D8),
                     new RightRoomTransitionCommand(game)},
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad8),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad8, Keys.D0),
                     new UpRoomTransitionCommand(game)},
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad2),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad2, Keys.D9),
                     new DownRoomTransitionCommand(game)},
 
                 //// Enemy switching controls
