@@ -8,8 +8,6 @@ using Sprint0.Levels.Utils;
 
 namespace Sprint0.Levels
 {
-    // Abandon all hope, ye who enter here.
-
     /// <summary>
     /// The loader's job is to parse and load game entities from the level's csv files (which are really owned by individual rooms).
     /// Loading involves using the corresponding entity type's factory to create a new instance of that entity and then adding those
