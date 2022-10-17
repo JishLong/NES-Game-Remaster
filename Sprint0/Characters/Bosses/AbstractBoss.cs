@@ -1,25 +1,26 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Bosses.Interfaces;
 using Sprint0.Sprites.Projectiles;
 using Sprint0.Sprites;
+using Sprint0.Characters.Bosses;
+using Sprint0.Characters.Bosses.States;
 
-
-namespace Sprint0.Bosses
+namespace Sprint0.Characters.Bosses
 {
-	public abstract class AbstractBoss : IBoss
+    public abstract class AbstractBoss : IBoss
 	{
+		// State fields.
+		public IBossState State { get; set; }
+
 		// Combat related fields.
 		protected int Health { get; set; }
         protected int Damage { get; set; }
-		//protected IAttackBehavior BossAttackBehavior;
 
         // Movement related fields.
-        protected Vector2 Position;
-        protected Vector2 Direction;
-		//public string DirectionName;
-        protected int MovementSpeed;
-        protected bool CanMove = true;
+        public  Vector2 Position;
+        //protected Vector2 Direction;
+
+        //protected int MovementSpeed;
 
 		// Sprite related fields.
 		protected ISprite Sprite { get; set; }
@@ -30,17 +31,9 @@ namespace Sprint0.Bosses
 
 			if (Health <= 0)
 			{
+				// not implemented
 				Destroy();
 			}
-		}
-		public void Freeze()
-		{
-			this.CanMove = false;
-		}
-
-		public void Unfreeze()
-		{
-			this.CanMove = true;
 		}
 		public abstract void Destroy();
 		public abstract void Update(GameTime gameTime);

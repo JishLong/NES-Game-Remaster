@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.Projectiles.Character;
 
-namespace Sprint0.Bosses
+namespace Sprint0.Characters.Bosses
 {
     // This class is currently not used at the moment, but may be useful in the future
     public class AquamentusFlame : AbstractBoss
@@ -16,10 +16,10 @@ namespace Sprint0.Bosses
         {
             Health = 9999;    // Data here: https://strategywiki.org/wiki/The_Legend_of_Zelda/Bosses
             Damage = 1;    // Damage dealt
-            CanMove = true;
+
             Position = position;
-            Direction = new Vector2(0, 0); 
-            MovementSpeed = 3;
+            //Direction = new Vector2(0, 0); 
+           // MovementSpeed = 3;
             UpdateTimer = updateTimer;
             Sprite = new BossProjSprite();
         }
