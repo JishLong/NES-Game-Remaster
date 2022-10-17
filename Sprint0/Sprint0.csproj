@@ -36,7 +36,154 @@
     <Folder Include="Sprites\Player\Movement\" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Levels\Level1\Room1_Characters.csv">
+    <None Update="Levels\Level1\Room17\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room17\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room17\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room16\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room16\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room16\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room15\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room15\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room15\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room14\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room14\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room14\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room13\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room13\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room13\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room12\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room12\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room12\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room11\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room11\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room11\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room10\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room10\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room10\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room9\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room9\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room9\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room8\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room8\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room8\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room7\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room7\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room7\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room6\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room6\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room6\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room5\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room5\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room5\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room4\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room4\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room4\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room3\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room3\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room3\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room2\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room2\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room2\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room1\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room1\Characters.csv">
       <SubType>Component</SubType>
     </None>
   </ItemGroup>

@@ -1,39 +1,67 @@
 ﻿using Microsoft.VisualBasic.FileIO;
 using Microsoft.Xna.Framework;
-using Sprint0.Levels.Utils;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
+using System.IO;
+using Sprint0.Levels.Utils;
 
 
 namespace Sprint0.Levels
 {
-    // Many things have been ommented out for now to fix errors caused by things that aren't implemented yet
-
     /// <summary>
-    /// The loader's job is to parse and load game entities from the level csv files.
-    /// (Loading involves using the corresponding entity types factory to create a new instance of that entity.)
-    /// These entities are then added to the owning object's collections (the level manager.)
+    /// The loader's job is to parse and load game entities from the level's csv files (which are really owned by individual rooms).
+    /// Loading involves using the corresponding entity type's factory to create a new instance of that entity and then adding those
+    /// entities to the corresponding Room object's collections.
     /// </summary>
     public class LevelLoader
     {
         private LevelManager LevelManager;
         private LevelResources LevelResources;
+        private RoomLinker RoomLinker;
+        private string RootPath;
         private TextFieldParser Parser;
 
-        public LevelLoader(LevelManager manager, string level)
+        public LevelLoader(LevelManager manager)
         {
             LevelManager = manager;
             LevelResources = LevelResources.GetInstance();
-            // TODO: use the 'level' param instead of hard coded paths.
-            LoadBlocks("../../../Levels/Level1/Room1_Blocks.csv");
-            LoadCharacters("../../../Levels/Level1/Room1_Characters.csv");
+            RoomLinker = new RoomLinker();
+            RootPath = "../../../Levels/";  // TODO: There is probably a better way to do this than with relative paths...
         }
-        public void LoadBlocks(string levelName)
+        public Level LoadLevelFromDir(Types.Level levelType)
         {
-            Parser = new TextFieldParser(levelName);
+            // Create new level.
+            Level level = LevelFactory.GetInstance().GetLevel(levelType);
+            string levelDirName = level.LevelName;
+
+            // Get level directory and list of room files.
+            DirectoryInfo dir = new DirectoryInfo(RootPath + levelDirName);
+            DirectoryInfo[] RoomDirs = dir.GetDirectories();
+
+            // Load each room for this level.
+            foreach (DirectoryInfo dirInfo in RoomDirs)
+            {
+                string roomDirName = dirInfo.Name;
+                level.AddRoom(LoadRoomFromDir(level, levelDirName, roomDirName));
+            }
+
+            // Link rooms together using map.
+            RoomLinker.LinkRooms(level);
+
+            return level;
+        }
+        public Room LoadRoomFromDir(Level level, string levelDirName, string roomDirName)
+        {
+            Room room = new Room(level, roomDirName);
+            // Load blocks, characters and items.
+            LoadBlocks(room, RootPath + levelDirName + "/" + roomDirName + "/Blocks.csv");
+            LoadCharacters(room, RootPath + levelDirName + "/" + roomDirName + "/Characters.csv");
+            LoadItems(room, RootPath + levelDirName + "/" + roomDirName + "/Items.csv");
+            return room;
+        }
+        public void LoadBlocks(Room room, string roomName)
+        {
+            Parser = new TextFieldParser(roomName);
             Parser.SetDelimiters(",");
             var row = 0;
             while (!Parser.EndOfData)
@@ -42,21 +70,22 @@ namespace Sprint0.Levels
                 string[] fields = Parser.ReadFields();
                 foreach (string field in fields)
                 {
-                    //TODO: Add some protection here. Fields may have been typed incorrectly.
-                    Types.Block block = LevelResources.BlockMap[field];
-                    int x = LevelResources.BlockWidth * col;
-                    int y = LevelResources.BlockHeight * row;
-                    Vector2 position = new Vector2(x, y);
-                    //LevelManager.AddBlock(block, position);
-                    col++;
+                    if (LevelResources.BlockMap.ContainsKey(field))
+                    {
+                        Types.Block block = LevelResources.BlockMap[field];
+                        int x = LevelResources.BlockWidth * col;
+                        int y = LevelResources.BlockHeight * row;
+                        Vector2 position = new Vector2(x, y);
+                        room.AddBlockToRoom(block, position);
+                        col++;
+                    }
                 }
                 row++;
             }
         }
-
-        public void LoadCharacters(string levelName)
+        public void LoadCharacters(Room room, string roomName)
         {
-            Parser = new TextFieldParser(levelName);
+            Parser = new TextFieldParser(roomName);
             Parser.SetDelimiters(",");
             var row = 0;
             while (!Parser.EndOfData)
@@ -65,19 +94,43 @@ namespace Sprint0.Levels
                 string[] fields = Parser.ReadFields();
                 foreach (string field in fields)
                 {
-                    if(LevelResources.CharacterMap.ContainsKey(field))
+                    if (LevelResources.CharacterMap.ContainsKey(field))
                     {
                         Types.Character character = LevelResources.CharacterMap[field];
                         int x = LevelResources.BlockWidth * col;
                         int y = LevelResources.BlockHeight * row;
                         Vector2 position = new Vector2(x, y);
-                        //LevelManager.AddCharacter(character, position);
+                        room.AddCharacterToRoom(character, position);
                     }
                     col++;
                 }
                 row++;
             }
 
+        }
+        public void LoadItems(Room room, string roomName)
+        {
+            Parser = new TextFieldParser(roomName);
+            Parser.SetDelimiters(",");
+            var row = 0;
+            while (!Parser.EndOfData)
+            {
+                var col = 0;
+                string[] fields = Parser.ReadFields();
+                foreach (string field in fields)
+                {
+                    if (LevelResources.ItemMap.ContainsKey(field))
+                    {
+                        Types.Item item = LevelResources.ItemMap[field];
+                        int x = LevelResources.BlockWidth * col;
+                        int y = LevelResources.BlockHeight * row;
+                        Vector2 position = new Vector2(x, y);
+                        room.AddItemToRoom(item, position);
+                    }
+                    col++;
+                }
+                row++;
+            }
         }
     }
 }

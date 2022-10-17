@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Levels;
 using Sprint0.Controllers;
 using Sprint0.Items;
 using Sprint0.Player;
@@ -9,6 +8,7 @@ using Sprint0.Blocks.Utils;
 using Sprint0.Items.Utils;
 using Sprint0.Characters;
 using Sprint0.Projectiles;
+using Sprint0.Levels;
 
 namespace Sprint0
 {
@@ -17,8 +17,7 @@ namespace Sprint0
         private GraphicsDeviceManager Graphics;
         private SpriteBatch SBatch;
         private IController Keyboard;
-        private LevelManager LevelManager;
-
+        public LevelManager LevelManager { get; set; }
         public IPlayer Player { get; set; }
         public IItem CurrentItem { get; set; }
         public IBlock CurrentBlock { get; set; }
@@ -39,6 +38,7 @@ namespace Sprint0
             CurrentCharacter = CharacterFactory.GetInstance().GetBeginningCharacter(CharacterFactory.DefaultCharacterPosition);
 
             LevelManager = new LevelManager();
+            LevelManager.LoadLevel(Types.Level.LEVEL1);
 
             Keyboard = new KeyboardController(this, Player);
 

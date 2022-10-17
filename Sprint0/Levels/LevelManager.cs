@@ -1,52 +1,42 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
-using Sprint0.Blocks.Utils;
-using Sprint0.Characters;
-using Sprint0.Items;
 using System.Collections.Generic;
+using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
+using static Sprint0.Types;
 
 namespace Sprint0.Levels
 {
-    // Many things have been ommented out for now to fix errors caused by things that aren't implemented yet
     public class LevelManager
     {
         private LevelLoader LevelLoader;
         private List<Level> Levels;
-
+        public Level CurrentLevel { get; set; }
         public LevelManager()
         {
-            //LevelLoader = new LevelLoader(this);
+            LevelLoader = new LevelLoader(this);
             Levels = new List<Level>();
         }
 
-        public void AddRoomToLevel()
+        public List<IBlock> GetCurrentRoomBlocks()
         {
-            // implement this.
+            return CurrentLevel.CurrentRoom.Blocks;
+        }
+        public void MakeRoomTransition(RoomTransition direction)
+        {
+            CurrentLevel.MakeRoomTransition(direction);
+        }
+        public void LoadLevel(Types.Level levelType)
+        {
+            CurrentLevel = LevelLoader.LoadLevelFromDir(levelType);
         }
         public void Update(GameTime gameTime)
         {
-            /*foreach (Level level in Levels)
-            {
-                level.Update();
-            }
-
-            foreach (ICharacter character in LevelCharacters)
-            {
-                character.Update(gameTime);
-            }*/
+            CurrentLevel.Update(gameTime);
         }
         public void Draw(SpriteBatch sb)
         {
-            /*foreach (IBlock block in LevelBlocks)
-            {
-                block.Draw(sb);
-            }
-
-            foreach (ICharacter character in LevelCharacters)
-            {
-                character.Draw(sb);
-            }*/
+            CurrentLevel.Draw(sb);
         }
     }
 }
