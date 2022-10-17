@@ -16,10 +16,10 @@ namespace Sprint0.Characters.Bosses
         {
             Health = 9999;    // Data here: https://strategywiki.org/wiki/The_Legend_of_Zelda/Bosses
             Damage = 1;    // Damage dealt
-            CanMove = true;
+
             Position = position;
-            Direction = new Vector2(0, 0); 
-            MovementSpeed = 3;
+            //Direction = new Vector2(0, 0); 
+           // MovementSpeed = 3;
             UpdateTimer = updateTimer;
             Sprite = new BossProjSprite();
         }

@@ -18,10 +18,9 @@ namespace Sprint0.Characters.Bosses
 
         // Movement related fields.
         public  Vector2 Position;
-        protected Vector2 Direction;
+        //protected Vector2 Direction;
 
-        protected int MovementSpeed;
-        protected bool CanMove = true;
+        //protected int MovementSpeed;
 
 		// Sprite related fields.
 		protected ISprite Sprite { get; set; }
@@ -32,18 +31,10 @@ namespace Sprint0.Characters.Bosses
 
 			if (Health <= 0)
 			{
+				// not implemented
 				Destroy();
 			}
 		}
-		//public void Freeze()
-		//{
-			//this.CanMove = false;
-		//}
-
-		//public void Unfreeze()
-		//{
-			//this.CanMove = true;
-		//}
 		public abstract void Destroy();
 		public abstract void Update(GameTime gameTime);
 		public abstract void Draw(SpriteBatch sb);

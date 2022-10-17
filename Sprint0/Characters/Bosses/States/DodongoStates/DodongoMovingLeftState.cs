@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Characters.Bosses;
 using System;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
+using static Sprint0.Characters.Bosses.Utils.BossUtils;
 using Sprint0.Characters.Bosses.States.DodongoStates;
 
 namespace Sprint0.Characters.Bosses.States.DodongoStates
@@ -27,7 +27,7 @@ namespace Sprint0.Characters.Bosses.States.DodongoStates
         }
         public override void Freeze()
         {
-            Dodongo.State = new DodongoFrozenUpState(Dodongo);
+            Dodongo.State = new DodongoFrozenLeftState(Dodongo);
         }
         public override void ChangeDirection()
         {

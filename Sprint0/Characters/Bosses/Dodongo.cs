@@ -1,72 +1,53 @@
 using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Characters.Bosses.States.DodongoStates;
 using Sprint0.Sprites.Characters.Bosses;
 
 namespace Sprint0.Characters.Bosses
 {
     public class Dodongo : AbstractBoss
     {
-        int ElapsedTime;
-        int UpdateTimer;
-        Random RNG;
+        private double ElapsedTime;
+        private double DirectionDelay = 1000;    // Change direction every this many milliseconds.
 
         public Dodongo(Vector2 position, int updateTimer = 1000)
         {
+            // State fields
+            State = new DodongoMovingLeftState(this);
+
+            // Combat fields
             Health = 1;    // Data here: https://strategywiki.org/wiki/The_Legend_of_Zelda/Bosses
             Damage = 2;    // Damage dealt
-            CanMove = true;
+
+            // Movement fields
             Position = position;
-            Direction = new Vector2(0, 0);
-            MovementSpeed = 2;
-            UpdateTimer = updateTimer;
-            RNG = new Random();
-            Sprite = new DodongoSprite();
         }
 
         public override void Destroy()
         {
-
             throw new NotImplementedException();
         }
         public override void Update(GameTime gameTime)
         {
-            ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-            if (ElapsedTime > UpdateTimer)
+            ElapsedTime += gameTime.ElapsedGameTime.TotalMilliseconds;
+            if ((ElapsedTime - DirectionDelay) > 0)
             {
                 ElapsedTime = 0;
-
-                int randDirection = RNG.Next(0, 4);
-                switch (randDirection)
-                {
-                    case 0:
-                        Direction = new Vector2(1, 0); // right
-                        Sprite = new DodongoRightSprite();
-                        break;
-
-                    case 1:
-                        Direction = new Vector2(0, -1); // up
-                        Sprite = new DodongoUpSprite();
-                        break;
-
-                    case 2:
-                        Direction = new Vector2(-1, 0); // left
-                        Sprite = new DodongoLeftSprite();
-                        break;
-                    case 3:
-                        Direction = new Vector2(0, 1); // down
-                        Sprite = new DodongoDownSprite();
-                        break;
-                }
+                State.ChangeDirection();
             }
-            Position += (Direction * MovementSpeed);
-            Sprite.Update();
+
+            State.Update(gameTime);
+        }
+
+        public void Freeze()
+        {
+            State.Freeze();
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position);
+            State.Draw(sb, Position);
         }
 
     }

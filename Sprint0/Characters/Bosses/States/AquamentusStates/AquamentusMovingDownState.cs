@@ -8,19 +8,19 @@ using static Sprint0.Characters.Bosses.Utils.BossUtils;
 namespace Sprint0.Characters.Bosses.AquamentusStates
 {
     // [NOTE]: Aquamentus only has a left facing sprite for movement.
-    public class AquamentusMovingLeftState : AbstractBossState
+    public class AquamentusMovingDownState : AbstractBossState
     {
         private Aquamentus Aquamentus;
-        private Vector2 DirectionVector = ToVector(Direction.Left);
+        private Vector2 DirectionVector = ToVector(Direction.Down);
         private float MovementSpeed = 2f;
-        public AquamentusMovingLeftState(Aquamentus aquamentus)
+        public AquamentusMovingDownState(Aquamentus aquamentus)
         {
             Aquamentus = aquamentus;
             Sprite = new AquamentusSprite();
         }
         public override void Attack()
         {
-            Aquamentus.State = new AquamentusMovingLeftState(Aquamentus);
+            Aquamentus.State = new AquamentusMovingDownState(Aquamentus);
         }
         public override void Move()
         {
@@ -33,17 +33,17 @@ namespace Sprint0.Characters.Bosses.AquamentusStates
         public override void ChangeDirection()
         {
             // UpLeft for logic purposes.
-            Direction direction = RandOrthogDirection(Direction.Left);
+            Direction direction = RandOrthogDirection(Direction.Down);
             switch (direction)
             {
+                case Direction.Left:
+                    Aquamentus.State = new AquamentusMovingLeftState(Aquamentus);
+                    break;
                 case Direction.Right:
                     Aquamentus.State = new AquamentusMovingRightState(Aquamentus);
                     break;
                 case Direction.Up:
                     Aquamentus.State = new AquamentusMovingUpState(Aquamentus);
-                    break;
-                case Direction.Down:
-                    Aquamentus.State = new AquamentusMovingDownState(Aquamentus);
                     break;
             }
         }
