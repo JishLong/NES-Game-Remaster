@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters;
 
-namespace Sprint0.Bosses.Interfaces
+namespace Sprint0.Characters.Bosses
 {
     public interface IBoss : ICharacter
     {

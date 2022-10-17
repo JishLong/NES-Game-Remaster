@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.Projectiles.Character;
 
-namespace Sprint0.Bosses
+namespace Sprint0.Characters.Bosses
 {
     // This class is currently not used at the moment, but may be useful in the future
     public class AquamentusFlame : AbstractBoss

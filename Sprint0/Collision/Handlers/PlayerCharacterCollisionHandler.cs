@@ -1,5 +1,5 @@
-﻿using Sprint0.Bosses.Interfaces;
-using Sprint0.Characters;
+﻿using Sprint0.Characters;
+using Sprint0.Characters.Bosses;
 using Sprint0.Characters.Enemies;
 using Sprint0.Commands.Levels;
 using Sprint0.Items;

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.Characters.Bosses;
 
-namespace Sprint0.Bosses
+namespace Sprint0.Characters.Bosses
 {
     public class Dodongo : AbstractBoss
     {

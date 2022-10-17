@@ -3,8 +3,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Projectiles;
 using Sprint0.Sprites.Characters.Bosses;
+using Sprint0.Characters.Bosses.AquamentusStates;
 
-namespace Sprint0.Bosses
+namespace Sprint0.Characters.Bosses
 {
     public class Aquamentus : AbstractBoss
     {
@@ -76,6 +77,10 @@ namespace Sprint0.Bosses
             }
             Position += (Direction * MovementSpeed);
             Sprite.Update();
+        }
+        public void Freeze()
+        {
+            State.Freeze();
         }
 
         public override void Draw(SpriteBatch sb)
