@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Bosses;
+using Sprint0.Characters.Bosses;
 using Sprint0.Characters.Enemies;
 using Sprint0.Npcs;
 using System;

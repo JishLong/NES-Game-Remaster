@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Npcs.Interfaces;
+using Sprint0.Characters.Npcs;
 using Sprint0.Sprites;
 
 namespace Sprint0.Npcs
