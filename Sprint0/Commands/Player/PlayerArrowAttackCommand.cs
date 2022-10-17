@@ -1,19 +1,20 @@
-﻿using Sprint0.Player.State;
+﻿using Sprint0.Player;
 
 namespace Sprint0.Commands.Player
 {
     public class PlayerArrowAttackCommand : ICommand
     {
-        private readonly PlayerStateController stateController;
+        private readonly IPlayer Player;
 
-        public PlayerArrowAttackCommand(PlayerStateController stateController)
+        public PlayerArrowAttackCommand(IPlayer player)
         {
-            this.stateController = stateController;
+            Player = player;
         }
 
         public void Execute()
         {
-            this.stateController.HandleArrowAttackInput();
+            Player.SecondaryWeapon = Types.PlayerWeapon.ARROW;
+            new PlayerSecondaryAttackCommand(Player).Execute();
         }
     }
 }

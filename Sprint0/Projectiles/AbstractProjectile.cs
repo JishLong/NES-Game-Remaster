@@ -10,7 +10,6 @@ namespace Sprint0.Projectiles
 
         protected Vector2 Position, Velocity;
         protected int FramesAlive, FramesPassed;
-        public abstract void Update();
 
         public AbstractProjectile(Vector2 position, Vector2 velocity)
         {
@@ -18,9 +17,16 @@ namespace Sprint0.Projectiles
             Velocity = velocity;
         }
 
-        public void Draw(SpriteBatch sb)
+        public virtual void Draw(SpriteBatch sb)
         {
             Sprite.Draw(sb, Position);
+        }
+
+        public virtual void Update()
+        {
+            Sprite.Update();
+            FramesPassed++;
+            Position += Velocity;
         }
 
         public bool TimeIsUp()
@@ -28,7 +34,7 @@ namespace Sprint0.Projectiles
             return FramesPassed > FramesAlive;
         }
 
-        public Rectangle GetHitbox() 
+        public virtual Rectangle GetHitbox() 
         {
             return Sprite.GetDrawbox(Position);
         }

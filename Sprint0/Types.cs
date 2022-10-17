@@ -18,5 +18,7 @@
         public enum Direction {UP, DOWN, LEFT, RIGHT};
         public enum RoomTransition {UP, DOWN, LEFT, RIGHT, SECRET};
         public enum Level{LEVEL1};
+
+        public enum PlayerWeapon { SWORD, ARROW, BLUEARROW, FLAME, BOMB, BOOMERANG };
     }
 }

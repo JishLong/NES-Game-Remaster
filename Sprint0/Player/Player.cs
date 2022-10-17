@@ -1,41 +1,73 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Player.SpriteControllers;
 using Sprint0.Player.State;
+using Sprint0.Player.State.Idle;
 
 namespace Sprint0.Player
 {
     public class Player : IPlayer
     {
-        private readonly PlayerStateController stateController;
-
-        private readonly ISpriteController spriteController;
+        public IPlayerState State { get; set; }
+        public Vector2 Position { get; set; }
+        public Vector2 MovementSpeed { get; set; }
+        public Color Color { get; set; }
+        public Types.PlayerWeapon SecondaryWeapon { get; set; }
+        public bool IsAttacking { get; set; }
+        public Types.Direction FacingDirection { get; set; }
 
         public Player(Game1 game)
         {
-            stateController = new PlayerStateController();
-            spriteController = PlayerMasterSpriteController.GetInstance(stateController);
+            // Reset() here is essentially just initializing the 4 other fields
+            Reset();
+            MovementSpeed = new Vector2(2, 2);
         }
 
-        public void Draw(SpriteBatch spriteBatch, int screenWidth, int screenHeight)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            this.spriteController.Draw(spriteBatch);
+            State.Draw(spriteBatch, Position);
         }
 
         public void Update()
         {
-            spriteController.Update();
-            stateController.Update();
+            State.Update();
+        }       
+
+        public void ChangeDirection(Types.Direction direction) 
+        {
+            State.ChangeDirection(direction);
+        }     
+
+        public void DoPrimaryAttack() 
+        {
+            State.DoPrimaryAttack();
         }
 
-        public PlayerStateController GetStateController()
+        public void DoSecondaryAttack() 
         {
-            return this.stateController;
+            State.DoSecondaryAttack();
         }
 
-        public Rectangle GetHitbox() 
+        public void StopAction()
         {
-            return Rectangle.Empty;
+            State.StopAction();
+        }
+
+        public void TakeDamage() 
+        {
+            State.TakeDamage();
+        }
+
+        public void Reset() 
+        {
+            State = new PlayerFacingRightState(this);
+            Position = new Vector2(0, 0);
+            Color = Color.White;
+            SecondaryWeapon = Types.PlayerWeapon.ARROW;
+        }
+
+        public Rectangle GetHitbox()
+        {
+            return State.GetHitbox();
         }
     }
 }

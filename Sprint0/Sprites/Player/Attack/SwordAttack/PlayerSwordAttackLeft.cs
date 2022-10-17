@@ -1,24 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Player.State;
 
 namespace Sprint0.Sprites.Player.Attack.SwordAttack
 {
     // NOTE: this class is using new draw logic that is not yet implemented in most other sprite classes
     public class PlayerSwordAttackLeft : AnimatedSprite
     {
-        // Singleton instance
-        private static PlayerSwordAttackLeft instance;
-
-        public static PlayerSwordAttackLeft GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new PlayerSwordAttackLeft();
-            }
-            return instance;
-        }
-
-        private PlayerSwordAttackLeft() : base(4, 8)
+        public PlayerSwordAttackLeft() : base(4, 8)
         {
             xOffsetPixels = -12;
         }

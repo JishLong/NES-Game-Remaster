@@ -31,7 +31,12 @@ namespace Sprint0.Sprites
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetFrame(), color);
+            Draw(spriteBatch, position, color, 0);
+        }
+
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation)
+        {
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetFrame(), color, rotation, Vector2.Zero, SpriteEffects.None, 0);
         }
 
         public void Update()
