@@ -1,19 +1,19 @@
-﻿using Sprint0.Player.State;
+﻿using Sprint0.Player;
 
 namespace Sprint0.Commands.Player
 {
     public class PlayerTakeDamageCommand : ICommand
     {
-        private readonly PlayerStateController stateController;
+        private readonly IPlayer Player;
 
-        public PlayerTakeDamageCommand(PlayerStateController stateController)
+        public PlayerTakeDamageCommand(IPlayer player)
         {
-            this.stateController = stateController;
+            Player = player;
         }
 
         public void Execute()
         {
-            this.stateController.HandleTakeDamage();
+            Player.TakeDamage();
         }
     }
 }

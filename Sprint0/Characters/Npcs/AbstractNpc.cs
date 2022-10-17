@@ -45,5 +45,10 @@ namespace Sprint0.Npcs
         public abstract void Destroy();
         public abstract void Update(GameTime gameTime);
         public abstract void Draw(SpriteBatch sb);
+
+        public Rectangle GetHitbox() 
+        {
+            return sprite.GetDrawbox(Position);
+        }
     }
 }

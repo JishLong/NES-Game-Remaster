@@ -3,7 +3,7 @@ using Sprint0.Commands.Player;
 using Sprint0.Commands.Items;
 using Sprint0.Commands.Characters;
 using Sprint0.Commands;
-using Sprint0.Player.State;
+using Sprint0.Player;
 using System.Collections.Generic;
 using Sprint0.Commands.Blocks;
 
@@ -17,35 +17,40 @@ namespace Sprint0.Controllers
         // A list of every mapping of keyboard key(s) to actions
         private Dictionary<ActionMap, ICommand> ActionMaps;
 
-        public KeyboardController(Game1 game, PlayerStateController playerStateController)
+        public KeyboardController(Game1 game, IPlayer player)
         {
             ActionMaps = new Dictionary<ActionMap, ICommand>
             {
                 // Player movement controls
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.W, Keys.Up),
-                    new PlayerUpInputCommand(playerStateController) },
+                    new PlayerMoveUpCommand(player) },
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.S, Keys.Down),
-                    new PlayerDownInputCommand(playerStateController) },
+                    new PlayerMoveDownCommand(player) },
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.A, Keys.Left),
-                    new PlayerLeftInputCommand(playerStateController) },
+                    new PlayerMoveLeftCommand(player) },
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.D, Keys.Right),
-                    new PlayerRightInputCommand(playerStateController) },
-                { new ActionMap(ActionMap.KeyState.RELEASED, Keys.W, Keys.Up),
-                    new PlayerStopMovingCommand(playerStateController) },
-                { new ActionMap(ActionMap.KeyState.RELEASED, Keys.S, Keys.Down),
-                    new PlayerStopMovingCommand(playerStateController) },
-                { new ActionMap(ActionMap.KeyState.RELEASED, Keys.A, Keys.Left),
-                    new PlayerStopMovingCommand(playerStateController) },
-                { new ActionMap(ActionMap.KeyState.RELEASED, Keys.D, Keys.Right),
-                    new PlayerStopMovingCommand(playerStateController) },
+                    new PlayerMoveRightCommand(player) },
+                { new ActionMap(ActionMap.KeyState.RELEASED, Keys.W, Keys.Up, Keys.S, Keys.Down, Keys.A, Keys.Left,
+                Keys.D, Keys.Right, Keys.Z, Keys.N, Keys.D1),
+                    new PlayerStopActionCommand(player) },
 
                 // Player attack controls
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.Z, Keys.N),
-                    new PlayerSwordAttackCommand(playerStateController) },
+                    new PlayerSwordAttackCommand(player) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D1),
+                    new PlayerArrowAttackCommand(player) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D2),
+                    new PlayerBlueArrowAttackCommand(player) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D3),
+                    new PlayerBoomerangAttackCommand(player) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D4),
+                    new PlayerFlameAttackCommand(player) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D5),
+                    new PlayerBombAttackCommand(player) },
 
                 // Player damage control
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.E),
-                    new PlayerTakeDamageCommand(playerStateController) },
+                    new PlayerTakeDamageCommand(player) },
 
                 // Item switching controls
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.U),
@@ -76,7 +81,7 @@ namespace Sprint0.Controllers
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
                     new QuitCommand(game) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.R),
-                    new ResetCommand(game, playerStateController) }
+                    new ResetCommand(game, player) }
             };
         }
 

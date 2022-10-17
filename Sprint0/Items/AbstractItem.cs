@@ -23,5 +23,10 @@ namespace Sprint0.Items
         {
             Sprite.Update();
         }
+
+        public Rectangle GetHitbox() 
+        {
+            return Sprite.GetDrawbox(Position);
+        }
     }
 }

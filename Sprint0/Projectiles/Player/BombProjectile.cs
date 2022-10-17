@@ -1,23 +1,39 @@
 using Microsoft.Xna.Framework;
-using Sprint0.Sprites.Characters.Npcs;
+using Sprint0.Sprites;
 using Sprint0.Sprites.Projectiles.Player;
 
 namespace Sprint0.Projectiles.Player_Projectiles
 {
-    public class BombProj : AbstractProjectile
+    public class BombProjectile : AbstractProjectile
     {
-        public BombProj(Vector2 position, Vector2 velocity) : base(position, velocity)
+        private ISprite BombExplosion;
+        private int ExplosionTime;
+
+        public BombProjectile(Vector2 position) : base(position, Vector2.Zero)
         {
             FramesAlive = 60;
             FramesPassed = 0;
 
             Sprite = new BombProjSprite();
+            BombExplosion = new BombExplosionProjSprite();
+            ExplosionTime = ((AnimatedSprite)BombExplosion).GetAnimationTime();
         }
+
         public override void Update()
         {
             Sprite.Update();
             FramesPassed++;
-            Position += Velocity;
+
+            if (FramesPassed == FramesAlive - ExplosionTime + 1)
+            {
+                Sprite = BombExplosion;
+            }
+        }
+
+        public override Rectangle GetHitbox()
+        {
+            Rectangle retVal = (FramesPassed < FramesAlive - ExplosionTime + 1) ? Rectangle.Empty : Sprite.GetDrawbox(Position);
+            return retVal;
         }
     }
 }

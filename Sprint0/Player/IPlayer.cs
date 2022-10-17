@@ -1,14 +1,28 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Player.State;
+using Sprint0.Collision;
 
 namespace Sprint0.Player
 {
-    public interface IPlayer
+    public interface IPlayer : ICollidable
     {
+        public Types.PlayerWeapon SecondaryWeapon { get; set; }
+        public bool IsAttacking { get; set; }
+        public Types.Direction FacingDirection { get; set; }
+
         public void Update();
 
-        public void Draw(SpriteBatch spriteBatch, int screenWidth, int screenHeight);
+        public void Draw(SpriteBatch spriteBatch);
 
-        public PlayerStateController GetStateController();
+        public void ChangeDirection(Types.Direction direction);
+
+        public void DoPrimaryAttack();
+
+        public void DoSecondaryAttack();
+
+        public void StopAction();
+
+        public void TakeDamage();
+
+        public void Reset();
     }
 }

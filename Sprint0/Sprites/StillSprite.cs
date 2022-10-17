@@ -6,15 +6,18 @@ namespace Sprint0.Sprites
     public abstract class StillSprite : ISprite
     {
         /* [SizeScale]: multiplicative factor for sprite's width and height
-         * [xOffset]: multiplicative factor for sprite's x-coordinate
-         * [yOffset]: multiplicative factor for sprite's y-coordinate */
-        protected float SizeScale, xOffset, yOffset;
+         * [xOffsetPixels]: a number of pixels the sprite's x-coordinate is offset by (scales with SizeScale)
+         * [yOffset]: a number of pixels the sprite's y-coordinate is offset by (scales with SizeScale)
+         *
+         */
+        protected float SizeScale;
+        protected int xOffsetPixels, yOffsetPixels;
 
         public StillSprite()
         {
             SizeScale = 3;
-            xOffset = 0;
-            yOffset = 0;
+            xOffsetPixels = 0;
+            yOffsetPixels = 0;
         }
 
         protected abstract Texture2D GetSpriteSheet();
@@ -23,28 +26,30 @@ namespace Sprint0.Sprites
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
-            Texture2D spriteSheet = GetSpriteSheet();
-            Rectangle frame = GetFrame();
-
-            spriteBatch.Draw(GetSpriteSheet(), new Rectangle((int)(position.X + frame.Width * xOffset * SizeScale),
-                (int)(position.Y + frame.Height * yOffset * SizeScale),
-                (int)(frame.Width * SizeScale), (int)(frame.Height * SizeScale)),
-                frame, Color.White);
+            Draw(spriteBatch, position, Color.White);
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
-            Rectangle frame = GetFrame();
+            Draw(spriteBatch, position, color, 0);
+        }
 
-            spriteBatch.Draw(GetSpriteSheet(), new Rectangle((int)(position.X + frame.Width * xOffset * SizeScale),
-                (int)(position.Y + frame.Height * yOffset * SizeScale),
-                (int)(frame.Width * SizeScale), (int)(frame.Height * SizeScale)),
-                frame, color);
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation)
+        {
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetFrame(), color, rotation, Vector2.Zero, SpriteEffects.None, 0);
         }
 
         public void Update()
         {
             // Nothing here!
+        }
+
+        public Rectangle GetDrawbox(Vector2 position) 
+        {
+            Rectangle frame = GetFrame();
+
+            return new Rectangle((int)(position.X + (xOffsetPixels * SizeScale)), (int)(position.Y + (yOffsetPixels * SizeScale)),
+                (int)(frame.Width * SizeScale), (int)(frame.Height * SizeScale));
         }
     }
 }
