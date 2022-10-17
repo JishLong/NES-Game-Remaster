@@ -17,5 +17,6 @@
         // To be utilized soon
         public enum Direction {UP, DOWN, LEFT, RIGHT};
         public enum RoomTransition {UP, DOWN, LEFT, RIGHT, SECRET};
+        public enum Level{LEVEL1};
     }
 }

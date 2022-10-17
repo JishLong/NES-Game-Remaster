@@ -11,13 +11,13 @@ namespace Sprint0.Levels
     {
         private LevelLoader LevelLoader;
         private List<Level> Levels;
-        private Level CurrentLevel;
+        public Level CurrentLevel { get; set; }
         public LevelManager()
         {
             LevelLoader = new LevelLoader(this);
             Levels = new List<Level>();
         }
-        
+
         public List<IBlock> GetCurrentRoomBlocks()
         {
             return CurrentLevel.CurrentRoom.Blocks;
@@ -26,9 +26,9 @@ namespace Sprint0.Levels
         {
             CurrentLevel.MakeRoomTransition(direction);
         }
-        public void LoadLevel(string levelName)
+        public void LoadLevel(Types.Level levelType)
         {
-            CurrentLevel = LevelLoader.LoadLevelFromDir(levelName);
+            CurrentLevel = LevelLoader.LoadLevelFromDir(levelType);
         }
         public void Update(GameTime gameTime)
         {

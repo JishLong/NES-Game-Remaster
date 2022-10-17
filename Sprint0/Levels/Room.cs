@@ -20,12 +20,15 @@ namespace Sprint0.Levels
         private Dictionary<RoomTransition, Room> AdjacentRooms;
 
         private Level Context;
-        public Room(Level level)
+
+        public string RoomName;
+        public Room(Level level, string roomName)
         {
             Context = level;
             Blocks = new List<IBlock>();
             Characters = new List<ICharacter>();
             Items = new List<IItem>();
+            RoomName = roomName;
             AdjacentRooms = new Dictionary<RoomTransition, Room>()
             {
                 {RoomTransition.UP, null },

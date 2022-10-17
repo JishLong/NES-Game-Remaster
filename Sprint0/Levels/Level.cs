@@ -14,22 +14,21 @@ namespace Sprint0.Levels
 
     public class Level
     {
-        private List<Room> Rooms;
+        public List<Room> Rooms { get; set; }
         public Room CurrentRoom { get; set; }
-        private string LevelName;
+        public int StartingRoomIndex;
+        public string LevelName { get; }
         public LevelMap Map { get; set; }
-        public Level(string levelName)
+        public Level(string levelName, int startingRoomIndex)
         {
-            Rooms = new List<Room>();
             LevelName = levelName;
+            Rooms = new List<Room>();
             Map = new LevelMap(LevelName);
+            StartingRoomIndex = startingRoomIndex;
         }
         public void AddRoom(Room room)
         {
             Rooms.Add(room);
-           
-            //TODO: This is NOT how current room should be set...
-            CurrentRoom = room;
         }
         public void MakeRoomTransition(RoomTransition direction)
         {

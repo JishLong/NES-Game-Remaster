@@ -6,6 +6,7 @@ using Sprint0.Commands;
 using Sprint0.Player.State;
 using System.Collections.Generic;
 using Sprint0.Commands.Blocks;
+using Sprint0.Commands.Levels;
 
 namespace Sprint0.Controllers
 {
@@ -52,6 +53,16 @@ namespace Sprint0.Controllers
                     new PrevItemCommand(game) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.I),
                     new NextItemCommand(game) },
+
+                // Room switching controls
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad4),
+                    new LeftRoomTransitionCommand(game)},
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad6),
+                    new RightRoomTransitionCommand(game)},
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad8),
+                    new UpRoomTransitionCommand(game)},
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad2),
+                    new DownRoomTransitionCommand(game)},
 
                 //// Enemy switching controls
                 //{ new KeyMap(KeyMap.KeyState.PRESSED, Keys.O),

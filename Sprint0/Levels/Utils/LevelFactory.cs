@@ -3,7 +3,7 @@ using System;
 
 namespace Sprint0.Levels.Utils
 {
-    /*public class LevelFactory 
+    public class LevelFactory 
     {
         // Single point of use
         private static LevelFactory Instance;
@@ -14,10 +14,8 @@ namespace Sprint0.Levels.Utils
         {
             switch (levelType)
             {
-                case Types.Block.BLUE_GAP:
-                    return new Level("Level1");
-                case Types.Block.BLUE_SAND:
-                    return new BlueSand(position);
+                case Types.Level.LEVEL1:
+                    return new Level("Level1", 2);
                 default:
                     Console.Error.Write("The level of type " + levelType.ToString() +
                         " could not be instantiated by the Level Factory. Does this type exist?");
@@ -32,5 +30,5 @@ namespace Sprint0.Levels.Utils
             }
             return Instance;
         }
-    }*/
+    }
 }
