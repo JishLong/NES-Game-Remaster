@@ -6,6 +6,8 @@ namespace Sprint0.Player
     public interface IPlayer : ICollidable
     {
         public Types.PlayerWeapon SecondaryWeapon { get; set; }
+        public bool IsAttacking { get; set; }
+        public Types.Direction FacingDirection { get; set; }
 
         public void Update();
 

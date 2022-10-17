@@ -12,6 +12,8 @@ namespace Sprint0.Player
         public Vector2 MovementSpeed { get; set; }
         public Color Color { get; set; }
         public Types.PlayerWeapon SecondaryWeapon { get; set; }
+        public bool IsAttacking { get; set; }
+        public Types.Direction FacingDirection { get; set; }
 
         public Player(Game1 game)
         {
