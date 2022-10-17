@@ -2,21 +2,21 @@
 using Sprint0.Sprites.Characters.Bosses;
 using System;
 using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
-using Sprint0.Characters.Bosses.AquamentusStates;
+using Sprint0.Characters.Bosses.States.DodongoStates;
 
-namespace Sprint0.Characters.Bosses.States.AquamentusStates
+namespace Sprint0.Characters.Bosses.States.DodongoStates
 {
-    public class AquamentusFrozenState : AbstractBossState
+    public class DodongoFrozenUpState : AbstractBossState
     {
-        private Aquamentus Aquamentus;
+        private Dodongo Dodongo;
         private Direction ResumeMovementDirection;
         private double FrozenTimer;
         private double FrozenDelay = 5000;
-        public AquamentusFrozenState(Aquamentus aquamentus)
+        public DodongoFrozenUpState(Dodongo dodongo)
         {
-            Aquamentus = aquamentus;
+            Dodongo = dodongo;
             //ResumeMovementDirection = direction;
-            Sprite = new AquamentusSprite();
+            Sprite = new DodongoUpSprite();
         }
         public override void Attack()
         {
@@ -24,7 +24,7 @@ namespace Sprint0.Characters.Bosses.States.AquamentusStates
         }
         public override void Move()
         {
-            Aquamentus.State = new AquamentusMovingLeftState(Aquamentus);
+            Dodongo.State = new DodongoMovingUpState(Dodongo);
         }
         public override void Freeze()
         {

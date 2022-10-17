@@ -36,6 +36,9 @@ namespace Sprint0.Characters.Bosses.AquamentusStates
             Direction direction = RandOrthogDirection(Direction.Left);
             switch (direction)
             {
+                case Direction.Left:
+                    Aquamentus.State = new AquamentusMovingLeftState(Aquamentus);
+                    break;
                 case Direction.Right:
                     Aquamentus.State = new AquamentusMovingLeftState(Aquamentus);
                     break;
