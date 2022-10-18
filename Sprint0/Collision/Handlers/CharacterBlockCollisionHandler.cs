@@ -2,11 +2,12 @@
 using Sprint0.Items;
 using Sprint0.Levels;
 using Sprint0.Player;
-using Sprint0.Characters;
-using Sprint0.Characters.Enemies;
 using Sprint0.Blocks;
+using Sprint0.Characters;
 using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.States;
+using Sprint0.Characters.Bosses;
+using Sprint0.Characters.Enemies;
+using Sprint0.Commands.Characters;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -14,7 +15,6 @@ namespace Sprint0.Collision.Handlers
     public class CharacterBlockCollisionHandler
     {
         private Room Room;
-        IEnemyState enemyState;
 
         public CharacterBlockCollisionHandler(Room room) 
         {
@@ -37,33 +37,46 @@ namespace Sprint0.Collision.Handlers
          */
         public void HandleCollision(ICharacter character, IBlock block, Types.Direction itemSide, Room room) 
         {
-            
-            //int blockX = block.GetHitbox().X;
-            //int blockY = block.GetHitbox().Y;
-            //Vector2 blockV = new Vector2(blockX, blockY);
+            //x,y,vector of block's hitbox
+            int blockX = block.GetHitbox().X;
+            int blockY = block.GetHitbox().Y;
+            Vector2 blockV = new Vector2(blockX, blockY);
 
-            //enemyState.Freeze();
-            switch (itemSide)
-            { 
-                case (Types.Direction.DOWN):
-                    //enemy.y = item.y
-                    //^swap enemy y with block y            
-                    break;
-                case (Types.Direction.UP):
-                    //enemy.y = item.y
-                    //^swap enemy y with block y       
-                    break;
-                case (Types.Direction.RIGHT):
-                    //enemy.x = item.x
-                    //^swap enemy x with block x    
-                    break;
-                default:
-                    //(LEFT)
-                    //enemy.x = item.x
-                    //^swap enemy x with block x 
-                    break;
+            //types of blocks character cannot walk through
+            if (block.GetType().IsAssignableTo(typeof(BlueWall)) ||
+                block.GetType().IsAssignableTo(typeof(BlueStatueLeft)) ||
+                block.GetType().IsAssignableTo(typeof(BlueStatueRight)) ||
+                block.GetType().IsAssignableTo(typeof(BlueGap)))
+            {
+                //if (character.GetType().IsAssignableTo(typeof(IEnemy)))
+                //{
+                //    //cast character as IEnemy   
+                //}
+                //else if (character.GetType().IsAssignableTo(typeof(IBoss)))
+                //{
+                //    //cast character as IBoss  
+                //}
+                //switch (itemSide)
+                //{
+                //    case (Types.Direction.DOWN):
+                //        //enemy.y = item.y
+                //        //^swap enemy y with block y            
+                //        break;
+                //    case (Types.Direction.UP):
+                //        //enemy.y = item.y
+                //        //^swap enemy y with block y       
+                //        break;
+                //    case (Types.Direction.RIGHT):
+                //        //enemy.x = item.x
+                //        //^swap enemy x with block x    
+                //        break;
+                //    default:
+                //        //(LEFT)
+                //        //enemy.x = item.x
+                //        //^swap enemy x with block x 
+                //        break;
+                //}
             }
-            //enemy.Update() --- not too sure but ill keep it commented until level loading is in
         }
     }
 }

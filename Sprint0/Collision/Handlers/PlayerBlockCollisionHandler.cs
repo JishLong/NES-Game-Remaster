@@ -6,6 +6,8 @@ using Sprint0.Player;
 using Sprint0.Player.State;
 using Sprint0.Blocks;
 using Microsoft.Xna.Framework;
+using Sprint0.Characters.Enemies;
+using static Sprint0.Types;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -34,34 +36,51 @@ namespace Sprint0.Collision.Handlers
          */
         public void HandleCollision(IPlayer player, IBlock block, Types.Direction itemSide, Room room) 
         {
-            //int blockX = block.GetHitbox().X;
-            //int blockY = block.GetHitbox().Y;
-            //Vector2 blockV = new Vector2(blockX, blockY);
+            //x,y,vector of block's hitbox
+            int blockX = block.GetHitbox().X;
+            int blockY = block.GetHitbox().Y;
+            Vector2 blockV = new Vector2(blockX, blockY);
 
-            new PlayerStopActionCommand(player).Execute();
-            
-            //switch (itemSide)
-            //{
-                
-            //    case (Types.Direction.DOWN):
-            //        //player.y = item.y
-            //        //^swap player y with block y
-            //        break;
-            //    case (Types.Direction.UP):
-            //        //player.y = item.y
-            //        //^swap player y with block y
-            //        break;
-            //    case (Types.Direction.RIGHT):
-            //        //player.x = item.x
-            //        //^swap player x with block x
-            //        break;
-            //    default:
-            //        //(LEFT)
-            //        //player.x = item.x
-            //        //^swap player x with block x
-            //        break;
-            //    //block: if pushable -> block.push
-            //}
+            //types of blocks player cannot walk through
+            if (block.GetType().IsAssignableTo(typeof(BlueWall)) ||
+                block.GetType().IsAssignableTo(typeof(BlueStatueLeft)) ||
+                block.GetType().IsAssignableTo(typeof(BlueStatueRight)) ||
+                block.GetType().IsAssignableTo(typeof(BlueGap)))
+            {
+                //new PlayerRelocate(player, blockV).Execute();
+                //player.Reset();
+                //player.StopAction();
+                //player.location(blockV);
+
+                switch (itemSide)
+                {
+                    case (Types.Direction.DOWN):
+                        player.StopAction();
+                        new PlayerRelocate(player, new Vector2(blockX, blockY-50)).Execute();
+                        //player.y = item.y
+                        //^swap player y with block y
+                        break;
+                    case (Types.Direction.UP):
+                        player.StopAction();
+                        new PlayerRelocate(player, new Vector2(blockX, blockY+50)).Execute();
+                        //player.y = item.y
+                        //^swap player y with block y
+                        break;
+                    case (Types.Direction.RIGHT):
+                        player.StopAction();
+                        new PlayerRelocate(player, new Vector2(blockX+50, blockY)).Execute();
+                        //player.x = item.x
+                        //^swap player x with block x
+                        break;
+                    case (Types.Direction.LEFT):
+                        player.StopAction();
+                        new PlayerRelocate(player, new Vector2(blockX-50, blockY)).Execute();
+                        //player.x = item.x
+                        //^swap player x with block x
+                        break;
+                        //block: if pushable -> block.push
+                }
+            }
         }
     }
 }
