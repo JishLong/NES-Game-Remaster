@@ -7,6 +7,7 @@ namespace Sprint0.Player
     {
         public Types.PlayerWeapon SecondaryWeapon { get; set; }
         public bool IsPrimaryAttacking { get; set; }
+        public bool IsStationary { get; set; }
         public Types.Direction FacingDirection { get; set; }
 
         public void Update();

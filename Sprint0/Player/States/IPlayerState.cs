@@ -22,6 +22,7 @@ namespace Sprint0.Player.State
         public void DoSecondaryAttack();
 
         public void StopAction();
+        public void SetToStationary();
 
         public void TakeDamage();
 

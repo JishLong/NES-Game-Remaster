@@ -50,6 +50,10 @@ namespace Sprint0.Player.State
             IsPrimaryAttacking = false;
         }
 
+        public virtual void SetToStationary()
+        {
+            Player.IsStationary = true;
+        }
         public virtual void DoPrimaryAttack() 
         {
             Player.IsPrimaryAttacking = true;

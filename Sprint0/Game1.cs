@@ -41,7 +41,8 @@ namespace Sprint0
 
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
-            LevelManager.CurrentLevel.CurrentRoom.AddItemToRoom(Types.Item.KEY, new Vector2(200, 200));
+            // Temp testing Aquamentus projectile collisions
+            LevelManager.CurrentLevel.CurrentRoom.AddCharacterToRoom(Types.Character.AQUAMENTUS, new Vector2(200, 200));
             Collisions = new CollisionDetector(LevelManager.CurrentLevel.CurrentRoom, Player); 
 
             Keyboard = new KeyboardController(this, Player);
