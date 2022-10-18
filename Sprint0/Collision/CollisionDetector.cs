@@ -1,7 +1,8 @@
 ﻿using Sprint0.Levels;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using System;
+using Sprint0.Player;
+using Sprint0.Projectiles;
 
 namespace Sprint0.Collision
 {
@@ -21,10 +22,12 @@ namespace Sprint0.Collision
 
         // Setting the current room essentially sets the list of collidables the detector deals with
         public Room CurrentRoom { get;  set; }
+        private IPlayer Player;
 
-        public CollisionDetector(Room room) 
+        public CollisionDetector(Room room, IPlayer player) 
         {
             CurrentRoom = room;
+            Player = player;
             CollisionManager = new CollisionManager(room);
         }
 
@@ -55,7 +58,12 @@ namespace Sprint0.Collision
 
         public void Update() 
         {
-            //List<Collidables> = room.GetCollidables(); ???? woah woah looks like we prolly need this guy
+            Collidables = new List<ICollidable>();
+            Collidables.Add(Player);
+            Collidables.AddRange(CurrentRoom.Characters);
+            Collidables.AddRange(ProjectileManager.GetInstance().GetProjectiles());
+            Collidables.AddRange(CurrentRoom.Blocks);
+            Collidables.AddRange(CurrentRoom.Items);
 
             for (int i = 0; i < Collidables.Count - 1; i++) 
             {

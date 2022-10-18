@@ -9,6 +9,7 @@ using Sprint0.Items.Utils;
 using Sprint0.Characters;
 using Sprint0.Projectiles;
 using Sprint0.Levels;
+using Sprint0.Collision;
 
 namespace Sprint0
 {
@@ -17,6 +18,7 @@ namespace Sprint0
         private GraphicsDeviceManager Graphics;
         private SpriteBatch SBatch;
         private IController Keyboard;
+        private CollisionDetector Collisions;
         public LevelManager LevelManager { get; set; }
         public IPlayer Player { get; set; }
         public IItem CurrentItem { get; set; }
@@ -39,6 +41,8 @@ namespace Sprint0
 
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
+            LevelManager.CurrentLevel.CurrentRoom.AddItemToRoom(Types.Item.HEART, new Vector2(200, 200));
+            Collisions = new CollisionDetector(LevelManager.CurrentLevel.CurrentRoom, Player);
 
             Keyboard = new KeyboardController(this, Player);
 
@@ -63,6 +67,8 @@ namespace Sprint0
             CurrentItem.Update();
             CurrentBlock.Update();
             CurrentCharacter.Update(gameTime);
+
+            Collisions.Update();
 
             base.Update(gameTime);
         }
