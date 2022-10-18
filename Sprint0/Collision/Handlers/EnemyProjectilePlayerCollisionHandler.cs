@@ -31,7 +31,7 @@ namespace Sprint0.Collision.Handlers
         {
             // Remove projectile
             ProjectileManager = ProjectileManager.GetInstance();
-            ProjectileManager.AddProjectileToRemove(projectile);
+            ProjectileManager.RemoveProjectile(projectile);
             ProjectileManager.Update();
             // Add shield logic
             if (player.IsStationary && player.FacingDirection == projectileSide)

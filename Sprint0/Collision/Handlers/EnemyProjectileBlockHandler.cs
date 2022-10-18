@@ -20,7 +20,7 @@ namespace Sprint0.Collision.Handlers
         {
             // Remove projectile
             ProjectileManager = ProjectileManager.GetInstance();
-            ProjectileManager.AddProjectileToRemove(projectile);
+            ProjectileManager.RemoveProjectile(projectile);
             ProjectileManager.Update();
         }
     }
