@@ -23,6 +23,7 @@ namespace Sprint0.Collision
         private PlayerItemCollisionHandler PlayerItemHandler;
         private EnemyProjectilePlayerCollisionHandler EnemyProjectilePlayerHandler;
         private EnemyProjectileBlockCollisionHandler EnemyProjectileBlockHandler;
+        private PlayerProjBlockCollisionHandler PlayerProjectileBlockHandler;
 
         // Other handlers...
 
@@ -32,6 +33,7 @@ namespace Sprint0.Collision
             PlayerItemHandler = new PlayerItemCollisionHandler(room);
             EnemyProjectilePlayerHandler = new EnemyProjectilePlayerCollisionHandler(room);
             EnemyProjectileBlockHandler = new EnemyProjectileBlockCollisionHandler(room);
+            PlayerProjectileBlockHandler = new PlayerProjBlockCollisionHandler();
 
             // Instantiation of other handlers...
         }
@@ -75,6 +77,7 @@ namespace Sprint0.Collision
                 CollidableB.GetType().IsAssignableTo(typeof(IBlock)))
             {
                 //EnemyProjectileBlockCollisionHandler.HandleCollision((IProjectile)CollidableA, (IBlock)CollidableB, SideA, room);
+                PlayerProjectileBlockHandler.HandleCollision((IProjectile)CollidableA);
             }
 
             else if (CollidableA.GetType().IsAssignableTo(typeof(IBlock)) && 

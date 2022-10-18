@@ -27,6 +27,11 @@ namespace Sprint0.Projectiles
             Projectiles.Clear();
         }
 
+        public void RemoveProjectile(IProjectile projectile)
+        {
+            Projectiles.Remove(projectile);
+        }
+
         public List<IProjectile> GetProjectiles()
         {
             return Projectiles;
