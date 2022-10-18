@@ -11,5 +11,7 @@ namespace Sprint0.Projectiles
         void Draw(SpriteBatch sb);
 
         Boolean TimeIsUp();
+
+        bool FromPlayer();
     }
 }

@@ -13,7 +13,6 @@ namespace Sprint0.Collision.Handlers
     public class PlayerBlockCollisionHandler
     {
         private Room Room;
-        private PlayerStateController stateController;
 
         public PlayerBlockCollisionHandler(Room room) 
         {

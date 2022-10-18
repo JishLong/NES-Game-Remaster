@@ -42,7 +42,7 @@ namespace Sprint0.Collision.Handlers
             //int blockY = block.GetHitbox().Y;
             //Vector2 blockV = new Vector2(blockX, blockY);
 
-            enemyState.Freeze();
+            //enemyState.Freeze();
             switch (itemSide)
             { 
                 case (Types.Direction.DOWN):

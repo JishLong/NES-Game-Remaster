@@ -29,5 +29,10 @@ namespace Sprint0.Projectiles.Player
                 Position -= Velocity;
             }
         }
+
+        public override bool FromPlayer()
+        {
+            return true;
+        }
     }
 }

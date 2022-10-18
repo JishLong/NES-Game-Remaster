@@ -71,5 +71,10 @@ namespace Sprint0.Projectiles.Player
             Rectangle retVal = (FramesPassed < FramesAlive - ExplosionFrames + 1) ? Sprite.GetDrawbox(Position) : Rectangle.Empty;
             return retVal;
         }
+
+        public override bool FromPlayer()
+        {
+            return true;
+        }
     }
 }

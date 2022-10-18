@@ -38,5 +38,10 @@ namespace Sprint0.Projectiles
         {
             return Sprite.GetDrawbox(Position);
         }
+
+        public virtual bool FromPlayer()
+        {
+            return false;
+        }
     }
 }
