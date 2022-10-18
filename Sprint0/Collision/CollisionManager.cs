@@ -23,7 +23,8 @@ namespace Sprint0.Collision
         private PlayerItemCollisionHandler PlayerItemHandler;
         private EnemyProjectilePlayerCollisionHandler EnemyProjectilePlayerHandler;
         private EnemyProjectileBlockCollisionHandler EnemyProjectileBlockHandler;
-        private PlayerProjBlockCollisionHandler PlayerProjectileBlockHandler;
+        private PlayerBlockCollisionHandler PlayerBlockHandler;
+        private CharacterBlockCollisionHandler CharacterBlockHandler;
 
         // Other handlers...
 
@@ -33,7 +34,8 @@ namespace Sprint0.Collision
             PlayerItemHandler = new PlayerItemCollisionHandler(room);
             EnemyProjectilePlayerHandler = new EnemyProjectilePlayerCollisionHandler(room);
             EnemyProjectileBlockHandler = new EnemyProjectileBlockCollisionHandler(room);
-            PlayerProjectileBlockHandler = new PlayerProjBlockCollisionHandler();
+            PlayerBlockHandler = new PlayerBlockCollisionHandler(room);
+            CharacterBlockHandler = new CharacterBlockCollisionHandler(room);
 
             // Instantiation of other handlers...
         }
@@ -56,7 +58,7 @@ namespace Sprint0.Collision
             else if (CollidableA.GetType().IsAssignableTo(typeof(IPlayer)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IBlock)))
             {
-                // Call the player-block handler
+                PlayerBlockHandler.HandleCollision((IPlayer)CollidableA, (IBlock)CollidableB, SideA, room);
             }
             else if (CollidableA.GetType().IsAssignableTo(typeof(IPlayer)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IItem)))
@@ -66,7 +68,7 @@ namespace Sprint0.Collision
             else if (CollidableA.GetType().IsAssignableTo(typeof(ICharacter)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IBlock)))
             {
-                // Call the character-block handler
+                CharacterBlockHandler.HandleCollision((ICharacter)CollidableA, (IBlock)CollidableB, SideA, room);
             }
             else if (CollidableA.GetType().IsAssignableTo(typeof(ICharacter)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IProjectile)))
@@ -77,7 +79,6 @@ namespace Sprint0.Collision
                 CollidableB.GetType().IsAssignableTo(typeof(IBlock)))
             {
                 //EnemyProjectileBlockCollisionHandler.HandleCollision((IProjectile)CollidableA, (IBlock)CollidableB, SideA, room);
-                PlayerProjectileBlockHandler.HandleCollision((IProjectile)CollidableA);
             }
 
             else if (CollidableA.GetType().IsAssignableTo(typeof(IBlock)) && 
