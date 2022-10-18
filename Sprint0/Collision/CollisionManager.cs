@@ -86,8 +86,14 @@ namespace Sprint0.Collision
             else if (CollidableA.GetType().IsAssignableTo(typeof(IProjectile)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IBlock)))
             {
-                //EnemyProjectileBlockCollisionHandler.HandleCollision((IProjectile)CollidableA, (IBlock)CollidableB, SideA, room);
-                PlayerProjBlockHandler.HandleCollision((IProjectile)CollidableA);
+                if (!((IProjectile)CollidableA).FromPlayer())
+                {
+                    //EnemyProjectileBlockHandler.HandleCollision((IProjectile)CollidableA, (IBlock)CollidableB, SideA, room);
+                }
+                else
+                {
+                    PlayerProjBlockHandler.HandleCollision((IProjectile)CollidableA);
+                }
             }
 
             else if (CollidableA.GetType().IsAssignableTo(typeof(IBlock)) && 
