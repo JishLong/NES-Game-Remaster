@@ -31,10 +31,12 @@ namespace Sprint0.Collision.Handlers
                 if (character.GetType().IsAssignableTo(typeof(IEnemy)))
                 {
                     new EnemyTakeDamageCommand((IEnemy)character, 1).Execute();
+                    System.Diagnostics.Debug.WriteLine("Player has hit an enemy...");
                 }
                 else if (character.GetType().IsAssignableTo(typeof(IBoss))) 
                 {
                     new BossTakeDamageCommand((IBoss)character, 1).Execute();
+                    System.Diagnostics.Debug.WriteLine("Player has hit a boss...");
                 }
             }
             else 
