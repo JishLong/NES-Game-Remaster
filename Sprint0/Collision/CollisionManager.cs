@@ -49,7 +49,6 @@ namespace Sprint0.Collision
             else if (CollidableA.GetType().IsAssignableTo(typeof(IPlayer)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IProjectile))) 
             {
-                System.Diagnostics.Debug.WriteLine("COLLISION");
                 EnemyProjectilePlayerHandler.HandleCollision((IPlayer)CollidableA, (IProjectile)CollidableB, SideA, room);
             }
             else if (CollidableA.GetType().IsAssignableTo(typeof(IPlayer)) && 
