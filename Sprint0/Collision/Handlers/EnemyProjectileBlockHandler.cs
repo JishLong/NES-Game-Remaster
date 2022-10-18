@@ -1,12 +1,6 @@
 ﻿
 using Sprint0.Blocks;
-using Sprint0.Characters;
-using Sprint0.Characters.Enemies;
-using Sprint0.Commands.Levels;
-using Sprint0.Items;
-using Sprint0.Blocks;
 using Sprint0.Levels;
-using Sprint0.Player;
 using Sprint0.Projectiles;
 
 namespace Sprint0.Collision.Handlers
@@ -15,15 +9,19 @@ namespace Sprint0.Collision.Handlers
     public class EnemyProjectileBlockCollisionHandler
     {
         private Room Room;
-
+        private ProjectileManager ProjectileManager;
         public EnemyProjectileBlockCollisionHandler(Room room)
         {
             Room = room;
         }
+        // Side is not used in this context.
 
         public void HandleCollision(IProjectile projectile, IBlock block, Types.Direction playerSide, Room room)
         {
-            projectile.TimeIsUp();
+            // Remove projectile
+            ProjectileManager = ProjectileManager.GetInstance();
+            ProjectileManager.AddProjectileToRemove(projectile);
+            ProjectileManager.Update();
         }
     }
 }
