@@ -17,6 +17,7 @@ namespace Sprint0.Collision.Handlers
     public class EnemyProjectilePlayerCollisionHandler
     {
         private Room Room;
+        private ProjectileManager ProjectileManager;
 
         public EnemyProjectilePlayerCollisionHandler(Room room)
         {
@@ -29,16 +30,14 @@ namespace Sprint0.Collision.Handlers
         public void HandleCollision(IPlayer player, IProjectile projectile, Types.Direction projectileSide, Room room)
         {
             // Remove projectile
-            projectile.TimeIsUp();
+            ProjectileManager = ProjectileManager.GetInstance();
+            ProjectileManager.AddProjectileToRemove(projectile);
+            ProjectileManager.Update();
             // Add shield logic
             if (player.IsStationary && player.FacingDirection == projectileSide)
             {
-                // Damage blocked
-                // Need to fix: Link continues to take damage as porjectile passes through shield
-                System.Diagnostics.Debug.WriteLine("BLOCK!");
-                projectile.TimeIsUp();
+                // Need to fix: Link continues to take damage as projectile passes through shield
             }
-            // Add logic if shield if implemented
             else
             { 
                 new PlayerTakeDamageCommand(player).Execute();
