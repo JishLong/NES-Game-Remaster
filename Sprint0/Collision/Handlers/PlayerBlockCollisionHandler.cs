@@ -13,7 +13,7 @@ namespace Sprint0.Collision.Handlers
     public class PlayerBlockCollisionHandler
     {
         private Room Room;
-        private PlayerStateController stateController;
+        //private PlayerStateController stateController;
 
         public PlayerBlockCollisionHandler(Room room) 
         {
@@ -39,7 +39,7 @@ namespace Sprint0.Collision.Handlers
             //int blockY = block.GetHitbox().Y;
             //Vector2 blockV = new Vector2(blockX, blockY);
 
-            new PlayerStopMovingCommand(stateController).Execute();
+            //new PlayerStopMovingCommand(stateController).Execute();
             
             switch (itemSide)
             {

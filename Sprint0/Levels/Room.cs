@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
 using Sprint0.Blocks.Utils;
 using Sprint0.Characters;
+using Sprint0.Collision;
 using Sprint0.Items;
 using Sprint0.Items.Utils;
 using System.Collections.Generic;
@@ -65,6 +66,7 @@ namespace Sprint0.Levels
         {
             Items.Remove(item);
         }
+
         public void Update(GameTime gameTime)
         {
             foreach(IBlock block in Blocks)

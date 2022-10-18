@@ -35,35 +35,43 @@ namespace Sprint0.Collision
             // Needed so that the collidable types can be checked more effectively
             FormatCollidables(CollidableA, CollidableB);
 
-            if (CollidableA.GetType() == typeof(IPlayer) && CollidableB.GetType() == typeof(ICharacter))
+            if (CollidableA.GetType().IsAssignableTo(typeof(IPlayer)) && 
+                CollidableB.GetType().IsAssignableTo(typeof(ICharacter)))
             {
                 // Call the player-character handler
             }
-            else if (CollidableA.GetType() == typeof(IPlayer) && CollidableB.GetType() == typeof(IProjectile)) 
+            else if (CollidableA.GetType().IsAssignableTo(typeof(IPlayer)) && 
+                CollidableB.GetType().IsAssignableTo(typeof(IProjectile))) 
             {
                 // Call the player-projectile handler
             }
-            else if (CollidableA.GetType() == typeof(IPlayer) && CollidableB.GetType() == typeof(IBlock))
+            else if (CollidableA.GetType().IsAssignableTo(typeof(IPlayer)) && 
+                CollidableB.GetType().IsAssignableTo(typeof(IBlock)))
             {
                 // Call the player-block handler
             }
-            else if (CollidableA.GetType() == typeof(IPlayer) && CollidableB.GetType() == typeof(IItem))
+            else if (CollidableA.GetType().IsAssignableTo(typeof(IPlayer)) && 
+                CollidableB.GetType().IsAssignableTo(typeof(IItem)))
             {
-                PlayerItemHandler.HandleCollision((IPlayer)CollidableB, (IItem)CollidableA, SideA);
+                PlayerItemHandler.HandleCollision((IPlayer)CollidableA, (IItem)CollidableB, SideA);
             }
-            else if (CollidableA.GetType() == typeof(ICharacter) && CollidableB.GetType() == typeof(IBlock))
+            else if (CollidableA.GetType().IsAssignableTo(typeof(ICharacter)) && 
+                CollidableB.GetType().IsAssignableTo(typeof(IBlock)))
             {
                 // Call the character-block handler
             }
-            else if (CollidableA.GetType() == typeof(ICharacter) && CollidableB.GetType() == typeof(IProjectile))
+            else if (CollidableA.GetType().IsAssignableTo(typeof(ICharacter)) && 
+                CollidableB.GetType().IsAssignableTo(typeof(IProjectile)))
             {
                 // Call the character-projectile handler
             }
-            else if (CollidableA.GetType() == typeof(IProjectile) && CollidableB.GetType() == typeof(IBlock))
+            else if (CollidableA.GetType().IsAssignableTo(typeof(IProjectile)) && 
+                CollidableB.GetType().IsAssignableTo(typeof(IBlock)))
             {
                 // Call the projectile-block handler
             }
-            else if (CollidableA.GetType() == typeof(IBlock) && CollidableB.GetType() == typeof(IBlock))
+            else if (CollidableA.GetType().IsAssignableTo(typeof(IBlock)) && 
+                CollidableB.GetType().IsAssignableTo(typeof(IBlock)))
             {
                 // Call the block-block handler
             }
@@ -80,20 +88,21 @@ namespace Sprint0.Collision
         // Why are you looking down here?????
         private void FormatCollidables(ICollidable CollidableA, ICollidable CollidableB)
         {
-            if (CollidableB.GetType() == typeof(IPlayer))
+            if (CollidableB.GetType().IsAssignableTo(typeof(IPlayer)))
             {
                 SwapCollidables(CollidableA, CollidableB);
             }
-            else if (CollidableA.GetType() == typeof(IItem))
+            else if (CollidableA.GetType().IsAssignableTo(typeof(IItem)))
             {
                 SwapCollidables(CollidableA, CollidableB);
             }
-            else if (CollidableB.GetType() == typeof(ICharacter) && CollidableA.GetType() != typeof(IPlayer))
+            else if (CollidableB.GetType().IsAssignableTo(typeof(ICharacter)) && 
+                !(CollidableA.GetType().IsAssignableTo(typeof(IPlayer))))
             {
                 SwapCollidables(CollidableA, CollidableB);
             }
-            else if (CollidableB.GetType() == typeof(IProjectile) &&
-                (CollidableA.GetType() == typeof(IBlock) || CollidableA.GetType() == typeof(IItem)))
+            else if (CollidableB.GetType().IsAssignableTo(typeof(IProjectile)) &&
+                (CollidableA.GetType().IsAssignableTo(typeof(IBlock)) || CollidableA.GetType().IsAssignableTo(typeof(IItem))))
             {
                 SwapCollidables(CollidableA, CollidableB);
             }

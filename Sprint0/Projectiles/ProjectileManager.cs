@@ -8,23 +8,28 @@ namespace Sprint0.Projectiles
         // Single point of use
         private static ProjectileManager Instance;
 
-        private LinkedList<IProjectile> Projectiles;
-        private LinkedList<IProjectile> ToBeRemoved;
+        private List<IProjectile> Projectiles;
+        private List<IProjectile> ToBeRemoved;
 
         private ProjectileManager()
         {
-            Projectiles = new LinkedList<IProjectile>();
-            ToBeRemoved = new LinkedList<IProjectile>();
+            Projectiles = new List<IProjectile>();
+            ToBeRemoved = new List<IProjectile>();
         }
 
         public void AddProjectile(IProjectile projectile) 
         {
-            Projectiles.AddFirst(projectile);
+            Projectiles.Add(projectile);
         }
 
         public void RemoveAllProjectiles() 
         {
             Projectiles.Clear();
+        }
+
+        public List<IProjectile> GetProjectiles()
+        {
+            return Projectiles;
         }
 
         public void Update() 
@@ -34,7 +39,7 @@ namespace Sprint0.Projectiles
                 projectile.Update();
                 if (projectile.TimeIsUp()) 
                 {
-                    ToBeRemoved.AddFirst(projectile);
+                    ToBeRemoved.Add(projectile);
                 }
             }
             foreach (var projectile in ToBeRemoved) 
