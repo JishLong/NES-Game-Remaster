@@ -19,18 +19,20 @@ namespace Sprint0.Collision
      */
     public class CollisionManager
     {
+        private PlayerCharacterCollisionHandler PlayerCharacterHandler;
         private PlayerItemCollisionHandler PlayerItemHandler;
 
         // Other handlers...
 
         public CollisionManager(Room room) 
         {
+            PlayerCharacterHandler = new PlayerCharacterCollisionHandler(room);
             PlayerItemHandler = new PlayerItemCollisionHandler(room);
 
             // Instantiation of other handlers...
         }
 
-        public void HandleCollision(ICollidable CollidableA, ICollidable CollidableB, Types.Direction SideA) 
+        public void HandleCollision(ICollidable CollidableA, ICollidable CollidableB, Types.Direction SideA, Room room) 
         {
             // Needed so that the collidable types can be checked more effectively
             FormatCollidables(CollidableA, CollidableB);
@@ -38,7 +40,7 @@ namespace Sprint0.Collision
             if (CollidableA.GetType().IsAssignableTo(typeof(IPlayer)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(ICharacter)))
             {
-                // Call the player-character handler
+                PlayerCharacterHandler.HandleCollision((IPlayer)CollidableA, (ICharacter)CollidableB, SideA, room);
             }
             else if (CollidableA.GetType().IsAssignableTo(typeof(IPlayer)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IProjectile))) 
@@ -53,7 +55,7 @@ namespace Sprint0.Collision
             else if (CollidableA.GetType().IsAssignableTo(typeof(IPlayer)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IItem)))
             {
-                PlayerItemHandler.HandleCollision((IPlayer)CollidableA, (IItem)CollidableB, SideA);
+                PlayerItemHandler.HandleCollision((IPlayer)CollidableA, (IItem)CollidableB, SideA, room);
             }
             else if (CollidableA.GetType().IsAssignableTo(typeof(ICharacter)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IBlock)))

@@ -21,6 +21,8 @@ namespace Sprint0.Player.State.Idle
 
         public override void ChangeDirection(Types.Direction direction)
         {
+            base.ChangeDirection(direction);
+
             switch (direction)
             {
                 case Types.Direction.LEFT:
@@ -42,6 +44,7 @@ namespace Sprint0.Player.State.Idle
 
         public override void DoPrimaryAttack()
         {
+            base.DoPrimaryAttack();
             Player.State = new PlayerSwordLeftState(this);
         }
 

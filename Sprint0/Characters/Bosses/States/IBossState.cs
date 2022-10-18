@@ -11,5 +11,7 @@ namespace Sprint0.Characters.Bosses.States
         void ChangeDirection();
         void Update(GameTime gameTime);
         void Draw(SpriteBatch sb, Vector2 position);
+
+        Rectangle GetHitbox(Vector2 position);
     }
 }

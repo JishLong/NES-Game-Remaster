@@ -29,6 +29,6 @@ public abstract class AbstractEnemy : IEnemy
 
     public Rectangle GetHitbox() 
     {
-        return Sprite.GetDrawbox(Position);
+        return State.GetHitbox(Position);
     }
 }

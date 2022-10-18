@@ -17,5 +17,10 @@ namespace Sprint0.Characters.Bosses.States
         {
             Sprite.Draw(sb, position);
         }
+
+        public Rectangle GetHitbox(Vector2 position) 
+        {
+            return Sprite.GetDrawbox(position);
+        }
     }
 }

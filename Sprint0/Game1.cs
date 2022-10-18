@@ -41,8 +41,8 @@ namespace Sprint0
 
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
-            LevelManager.CurrentLevel.CurrentRoom.AddItemToRoom(Types.Item.HEART, new Vector2(200, 200));
-            Collisions = new CollisionDetector(LevelManager.CurrentLevel.CurrentRoom, Player);
+            LevelManager.CurrentLevel.CurrentRoom.AddItemToRoom(Types.Item.KEY, new Vector2(200, 200));
+            Collisions = new CollisionDetector(LevelManager.CurrentLevel.CurrentRoom, Player); 
 
             Keyboard = new KeyboardController(this, Player);
 
@@ -68,6 +68,7 @@ namespace Sprint0
             CurrentBlock.Update();
             CurrentCharacter.Update(gameTime);
 
+            Collisions.CurrentRoom = LevelManager.CurrentLevel.CurrentRoom;
             Collisions.Update();
 
             base.Update(gameTime);

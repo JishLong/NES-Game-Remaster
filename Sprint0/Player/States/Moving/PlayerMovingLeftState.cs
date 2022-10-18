@@ -45,6 +45,7 @@ namespace Sprint0.Player.State.Idle
 
         public override void DoPrimaryAttack()
         {
+            base.DoPrimaryAttack();
             Player.State = new PlayerSwordLeftState(this);
         }
 
@@ -74,6 +75,7 @@ namespace Sprint0.Player.State.Idle
 
         public override void StopAction()
         {
+            base.StopAction();
             Player.State = new PlayerFacingLeftState(this);
         }
 
