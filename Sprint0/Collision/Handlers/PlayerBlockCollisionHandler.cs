@@ -37,6 +37,7 @@ namespace Sprint0.Collision.Handlers
         public void HandleCollision(IPlayer player, IBlock block, Types.Direction itemSide, Room room) 
         {
             //x,y,vector of block's hitbox
+            Vector2 playerPosition = player.GetPosition();
             int blockX = block.GetHitbox().X;
             int blockY = block.GetHitbox().Y;
             Vector2 blockV = new Vector2(blockX, blockY);
@@ -56,25 +57,25 @@ namespace Sprint0.Collision.Handlers
                 {
                     case (Types.Direction.DOWN):
                         player.StopAction();
-                        new PlayerRelocate(player, new Vector2(blockX, blockY-50)).Execute();
+                        new PlayerRelocate(player, new Vector2(playerPosition.X, blockY-50)).Execute();
                         //player.y = item.y
                         //^swap player y with block y
                         break;
                     case (Types.Direction.UP):
                         player.StopAction();
-                        new PlayerRelocate(player, new Vector2(blockX, blockY+50)).Execute();
+                        new PlayerRelocate(player, new Vector2(playerPosition.X, blockY+50)).Execute();
                         //player.y = item.y
                         //^swap player y with block y
                         break;
                     case (Types.Direction.RIGHT):
                         player.StopAction();
-                        new PlayerRelocate(player, new Vector2(blockX+50, blockY)).Execute();
+                        new PlayerRelocate(player, new Vector2(blockX+50, playerPosition.Y)).Execute();
                         //player.x = item.x
                         //^swap player x with block x
                         break;
                     case (Types.Direction.LEFT):
                         player.StopAction();
-                        new PlayerRelocate(player, new Vector2(blockX-50, blockY)).Execute();
+                        new PlayerRelocate(player, new Vector2(blockX-50, playerPosition.Y)).Execute();
                         //player.x = item.x
                         //^swap player x with block x
                         break;
