@@ -13,6 +13,7 @@ namespace Sprint0.Player
         public Color Color { get; set; }
         public Types.PlayerWeapon SecondaryWeapon { get; set; }
         public bool IsPrimaryAttacking { get; set; }
+        public bool IsStationary { get; set; }
         public Types.Direction FacingDirection { get; set; }
 
         public Player(Game1 game)

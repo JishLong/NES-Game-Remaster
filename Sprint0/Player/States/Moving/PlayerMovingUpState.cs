@@ -11,6 +11,7 @@ namespace Sprint0.Player.State.Idle
         public PlayerMovingUpState(Player player) : base(player)
         {
             Sprite = new PlayerMovingUp();
+            player.IsStationary = false;
         }
 
         public PlayerMovingUpState(IPlayerState state) : base(state)

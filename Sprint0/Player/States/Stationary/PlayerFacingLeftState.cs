@@ -12,6 +12,7 @@ namespace Sprint0.Player.State.Idle
         public PlayerFacingLeftState(Player player) : base(player)
         {
             Sprite = new PlayerFacingLeft();
+            player.IsStationary = true;
         }
 
         public PlayerFacingLeftState(IPlayerState state) : base(state)

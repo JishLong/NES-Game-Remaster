@@ -21,6 +21,8 @@ namespace Sprint0.Collision
     {
         private PlayerCharacterCollisionHandler PlayerCharacterHandler;
         private PlayerItemCollisionHandler PlayerItemHandler;
+        private EnemyProjectilePlayerCollisionHandler EnemyProjectilePlayerHandler;
+        private EnemyProjectileBlockCollisionHandler EnemyProjectileBlockHandler;
 
         // Other handlers...
 
@@ -28,6 +30,8 @@ namespace Sprint0.Collision
         {
             PlayerCharacterHandler = new PlayerCharacterCollisionHandler(room);
             PlayerItemHandler = new PlayerItemCollisionHandler(room);
+            EnemyProjectilePlayerHandler = new EnemyProjectilePlayerCollisionHandler(room);
+            EnemyProjectileBlockHandler = new EnemyProjectileBlockCollisionHandler(room);
 
             // Instantiation of other handlers...
         }
@@ -45,7 +49,8 @@ namespace Sprint0.Collision
             else if (CollidableA.GetType().IsAssignableTo(typeof(IPlayer)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IProjectile))) 
             {
-                // Call the player-projectile handler
+                System.Diagnostics.Debug.WriteLine("COLLISION");
+                EnemyProjectilePlayerHandler.HandleCollision((IPlayer)CollidableA, (IProjectile)CollidableB, SideA, room);
             }
             else if (CollidableA.GetType().IsAssignableTo(typeof(IPlayer)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IBlock)))
@@ -70,8 +75,9 @@ namespace Sprint0.Collision
             else if (CollidableA.GetType().IsAssignableTo(typeof(IProjectile)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IBlock)))
             {
-                // Call the projectile-block handler
+                //EnemyProjectileBlockCollisionHandler.HandleCollision((IProjectile)CollidableA, (IBlock)CollidableB, SideA, room);
             }
+
             else if (CollidableA.GetType().IsAssignableTo(typeof(IBlock)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IBlock)))
             {
@@ -88,6 +94,7 @@ namespace Sprint0.Collision
         }
 
         // Why are you looking down here?????
+        // Forbidden fruit tastes the sweetest
         private void FormatCollidables(ICollidable CollidableA, ICollidable CollidableB)
         {
             if (CollidableB.GetType().IsAssignableTo(typeof(IPlayer)))
