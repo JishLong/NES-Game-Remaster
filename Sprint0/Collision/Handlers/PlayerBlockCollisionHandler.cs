@@ -13,7 +13,7 @@ namespace Sprint0.Collision.Handlers
     public class PlayerBlockCollisionHandler
     {
         private Room Room;
-        //private PlayerStateController stateController;
+        private PlayerStateController stateController;
 
         public PlayerBlockCollisionHandler(Room room) 
         {
@@ -33,37 +33,36 @@ namespace Sprint0.Collision.Handlers
          * player not running into block: switch case for hitting top,bottom,left and right of block and reset x and y values accordingly 
          * 
          */
-        public void HandleCollision(IPlayer player, IBlock block, Types.Direction itemSide) 
+        public void HandleCollision(IPlayer player, IBlock block, Types.Direction itemSide, Room room) 
         {
             //int blockX = block.GetHitbox().X;
             //int blockY = block.GetHitbox().Y;
             //Vector2 blockV = new Vector2(blockX, blockY);
 
-            //new PlayerStopMovingCommand(stateController).Execute();
+            new PlayerStopActionCommand(player).Execute();
             
-            switch (itemSide)
-            {
+            //switch (itemSide)
+            //{
                 
-                case (Types.Direction.DOWN):
-                    //player.y = item.y
-                    //^swap player y with block y
-                    break;
-                case (Types.Direction.UP):
-                    //player.y = item.y
-                    //^swap player y with block y
-                    break;
-                case (Types.Direction.RIGHT):
-                    //player.x = item.x
-                    //^swap player x with block x
-                    break;
-                default:
-                    //(LEFT)
-                    //player.x = item.x
-                    //^swap player x with block x
-                    break;
-                //block: if pushable -> block.push
-            }
-            //player.Update() --- not too sure but ill keep it commented until level loading is in
+            //    case (Types.Direction.DOWN):
+            //        //player.y = item.y
+            //        //^swap player y with block y
+            //        break;
+            //    case (Types.Direction.UP):
+            //        //player.y = item.y
+            //        //^swap player y with block y
+            //        break;
+            //    case (Types.Direction.RIGHT):
+            //        //player.x = item.x
+            //        //^swap player x with block x
+            //        break;
+            //    default:
+            //        //(LEFT)
+            //        //player.x = item.x
+            //        //^swap player x with block x
+            //        break;
+            //    //block: if pushable -> block.push
+            //}
         }
     }
 }
