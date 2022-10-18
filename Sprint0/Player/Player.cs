@@ -15,7 +15,7 @@ namespace Sprint0.Player
         public bool IsPrimaryAttacking { get; set; }
         public bool IsStationary { get; set; }
         public Types.Direction FacingDirection { get; set; }
-
+        
         public Player(Game1 game)
         {
             // Reset() here is essentially just initializing the 4 other fields
@@ -56,6 +56,11 @@ namespace Sprint0.Player
         public void TakeDamage() 
         {
             State.TakeDamage();
+        }
+
+        public void location(Vector2 newLoc)
+        {
+            this.Position = newLoc;
         }
 
         public void Reset() 
