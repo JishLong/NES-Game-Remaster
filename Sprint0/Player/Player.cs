@@ -63,6 +63,11 @@ namespace Sprint0.Player
             this.Position = newLoc;
         }
 
+        public Vector2 GetPosition()
+        {
+            return Position;
+        }
+
         public void Reset() 
         {
             State = new PlayerFacingRightState(this);
