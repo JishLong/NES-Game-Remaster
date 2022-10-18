@@ -41,7 +41,7 @@ namespace Sprint0.Characters.Bosses
 
 		public Rectangle GetHitbox() 
 		{
-			return Sprite.GetDrawbox(Position);
+			return State.GetHitbox(Position);
 		}
 	}
 }

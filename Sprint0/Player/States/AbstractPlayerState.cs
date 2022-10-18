@@ -41,15 +41,18 @@ namespace Sprint0.Player.State
         public virtual void ChangeDirection(Types.Direction direction) 
         {
             IsChangingDirection = true;
+            Player.FacingDirection = direction;
         }
 
         public virtual void StopAction() 
         {
+            Player.IsPrimaryAttacking = false;
             IsPrimaryAttacking = false;
         }
 
         public virtual void DoPrimaryAttack() 
         {
+            Player.IsPrimaryAttacking = true;
             IsPrimaryAttacking = true;
         }
 

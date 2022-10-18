@@ -78,7 +78,7 @@ namespace Sprint0.Collision
                     if (HitboxA.Intersects(HitboxB))
                     {
                         CollisionManager.HandleCollision(CollidableA, CollidableB,
-                            GetCollisionSide(HitboxA, HitboxB));
+                            GetCollisionSide(HitboxA, HitboxB), CurrentRoom);
                     }
                 }
             }

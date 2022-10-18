@@ -24,7 +24,7 @@ namespace Sprint0.Collision.Handlers
          */
         public void HandleCollision(IPlayer player, IProjectile projectile, Types.Direction playerSide)
         {
-            if (player.IsAttacking && player.FacingDirection == playerSide)
+            if (player.IsPrimaryAttacking && player.FacingDirection == playerSide)
             {
                 //if (character.GetType().IsAssignableTo(typeof(IEnemy)))
                // {
