@@ -4,22 +4,49 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Projectiles
 {
+    /* A default implementation of an IProjectile - cannot be instantiated
+     */
     public abstract class AbstractProjectile : IProjectile
     {
         protected ISprite Sprite;
 
         protected Vector2 Position, Velocity;
+
+        /* [FramesAlive]: the number of game frames this projectile should ideally last for
+         * [FramesPassed]: the number of game frames that this projectile has been alive (and updated) for
+         */
         protected int FramesAlive, FramesPassed;
 
-        public AbstractProjectile(Vector2 position, Vector2 velocity)
+        protected AbstractProjectile(Vector2 position, Vector2 movementSpeed, Types.Direction direction)
         {
             Position = position;
-            Velocity = velocity;
+            Velocity = Utils.DirectionToVector(direction) * movementSpeed;
+            FramesPassed = 0;
+        }
+
+        public virtual void DeathAction() 
+        {
+            // Nothing here! But nice that it doens't necessarily have to be declared in concrete classes!
         }
 
         public virtual void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position);
+            if (Sprite != null) Sprite.Draw(sb, Position);
+        }
+
+        public virtual bool FromPlayer()
+        {
+            return false;
+        }
+
+        public virtual Rectangle GetHitbox()
+        {
+            return Sprite.GetDrawbox(Position);
+        }
+
+        public virtual bool TimeIsUp()
+        {
+            return FramesPassed > FramesAlive;
         }
 
         public virtual void Update()
@@ -27,21 +54,6 @@ namespace Sprint0.Projectiles
             Sprite.Update();
             FramesPassed++;
             Position += Velocity;
-        }
-
-        public bool TimeIsUp()
-        {
-            return FramesPassed > FramesAlive;
-        }
-
-        public virtual Rectangle GetHitbox() 
-        {
-            return Sprite.GetDrawbox(Position);
-        }
-
-        public virtual bool FromPlayer()
-        {
-            return false;
         }
     }
 }

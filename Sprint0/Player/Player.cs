@@ -20,7 +20,7 @@ namespace Sprint0.Player
         {
             // Reset() here is essentially just initializing the 4 other fields
             Reset();
-            MovementSpeed = new Vector2(2, 2);
+            MovementSpeed = new Vector2(4, 4);
         }
 
         public void Draw(SpriteBatch spriteBatch)

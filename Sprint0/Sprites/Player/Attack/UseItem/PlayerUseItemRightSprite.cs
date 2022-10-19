@@ -7,6 +7,6 @@ namespace Sprint0.Sprites.Player.Attack.UseItem
     {
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 
-        protected override Rectangle GetFrame() => Resources.LinkSwordRight;
+        protected override Rectangle GetFrame() => Resources.LinkSwordSideways;
     }
 }

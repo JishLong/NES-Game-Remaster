@@ -6,12 +6,14 @@ namespace Sprint0.Projectiles
 {
     public interface IProjectile : ICollidable
     {
-        void Update();
+        void DeathAction();
 
         void Draw(SpriteBatch sb);
 
-        Boolean TimeIsUp();
-
         bool FromPlayer();
+
+        bool TimeIsUp();
+
+        void Update();
     }
 }

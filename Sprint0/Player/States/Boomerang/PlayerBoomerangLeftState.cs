@@ -1,9 +1,9 @@
 ﻿using Sprint0.Player.State.Idle;
 using Sprint0.Player.State;
-using Sprint0.Projectiles;
 using Sprint0.Sprites.Player.Attack.UseItem;
 using Microsoft.Xna.Framework;
 using Sprint0.Projectiles.Player;
+using Sprint0.Projectiles.Tools;
 
 namespace Sprint0.Player.States.Boomerang
 {
@@ -26,11 +26,11 @@ namespace Sprint0.Player.States.Boomerang
         private void SpawnBoomerang()
         {
             // Magic numbers for position for now
-            float BoomerangX = Player.GetHitbox().Left - Resources.BoomerangProj.Width * 3;
-            float BoomerangY = Player.GetHitbox().Center.Y - Resources.BoomerangProj.Height * 3 / 2;
+            float BoomerangX = Player.GetHitbox().Left - Resources.BoomerangProj.Width * Utils.GameScale;
+            float BoomerangY = Player.GetHitbox().Center.Y - Resources.BoomerangProj.Height * Utils.GameScale / 2;
 
-            ProjectileManager.GetInstance().AddProjectile(new PlayerBoomerangProjectile(
-            new Vector2(BoomerangX, BoomerangY), Types.Direction.LEFT));
+            ProjectileManager.GetInstance().AddProjectile(
+                Types.Projectile.PLAYERBOOMERANGPROJ, new Vector2(BoomerangX, BoomerangY), Types.Direction.LEFT);
         }
 
         public override void Update()

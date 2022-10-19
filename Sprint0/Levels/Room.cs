@@ -6,6 +6,8 @@ using Sprint0.Characters;
 using Sprint0.Collision;
 using Sprint0.Items;
 using Sprint0.Items.Utils;
+using Sprint0.Projectiles;
+using Sprint0.Projectiles.Tools;
 using System.Collections.Generic;
 using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 using static Sprint0.Types;
@@ -18,6 +20,8 @@ namespace Sprint0.Levels
         public List<ICharacter> Characters { get;}
         public List<IItem> Items { get;}
 
+        public ProjectileHandler Projectiles { get;}
+
         private Dictionary<RoomTransition, Room> AdjacentRooms;
 
         private Level Context;
@@ -29,6 +33,7 @@ namespace Sprint0.Levels
             Blocks = new List<IBlock>();
             Characters = new List<ICharacter>();
             Items = new List<IItem>();
+            Projectiles = new ProjectileHandler();
             RoomName = roomName;
             AdjacentRooms = new Dictionary<RoomTransition, Room>()
             {
@@ -54,9 +59,17 @@ namespace Sprint0.Levels
         {
             Blocks.Add(BlockFactory.GetInstance().GetBlock(block, position));
         }
+        public void RemoveItemFromRoom(IBlock block)
+        {
+            Blocks.Remove(block);
+        }
         public void AddCharacterToRoom(Types.Character character, Vector2 position)
         {
             Characters.Add(CharacterFactory.GetInstance().GetCharacter(character, position));
+        }
+        public void RemoveCharacterFromRoom(ICharacter character)
+        {
+            Characters.Remove(character);
         }
         public void AddItemToRoom(Types.Item item, Vector2 position)
         {
@@ -65,6 +78,14 @@ namespace Sprint0.Levels
         public void RemoveItemFromRoom(IItem item) 
         {
             Items.Remove(item);
+        }
+        public void AddProjectileToRoom(Types.Projectile proj, Vector2 position, Types.Direction direction) 
+        {
+            Projectiles.AddProjectile(ProjectileFactory.GetInstance().GetProjectile(proj, position, direction));
+        }
+        public void RemoveProjectileFromRoom(IProjectile proj) 
+        {
+            Projectiles.RemoveProjectile(proj);
         }
 
         public void Update(GameTime gameTime)
@@ -81,6 +102,7 @@ namespace Sprint0.Levels
             {
                 item.Update();
             }
+            Projectiles.Update();
         }
         public void Draw(SpriteBatch sb)
         {
@@ -96,7 +118,7 @@ namespace Sprint0.Levels
             {
                 item.Draw(sb);
             }
-
+            Projectiles.Draw(sb);
         }
     }
 }

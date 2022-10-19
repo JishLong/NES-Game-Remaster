@@ -7,6 +7,6 @@ namespace Sprint0.Sprites.Player.Stationary
     {
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 
-        protected override Rectangle GetFrame() => Resources.LinkRight;
+        protected override Rectangle GetFrame() => Resources.LinkSideways;
     }
 }

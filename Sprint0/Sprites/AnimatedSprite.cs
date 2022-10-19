@@ -9,10 +9,8 @@ namespace Sprint0.Sprites
            [Speed] is many game ticks it takes to cycle through one frame */
         protected int NumFrames, Speed, CurrentFrame, Timer;
 
-        /* [SizeScale]: multiplicative factor for sprite's width and height
-         * [xOffset]: multiplicative factor for sprite's x-coordinate
+        /* [xOffset]: multiplicative factor for sprite's x-coordinate
          * [yOffset]: multiplicative factor for sprite's y-coordinate */
-        protected float SizeScale;
         protected int xOffsetPixels, yOffsetPixels;
 
         public AnimatedSprite(int numFrames, int speed)
@@ -22,7 +20,6 @@ namespace Sprint0.Sprites
 
             CurrentFrame = 0;
             Timer = 0;
-            SizeScale = 3;
             xOffsetPixels = 0;
             yOffsetPixels = 0;
         }
@@ -30,6 +27,16 @@ namespace Sprint0.Sprites
         protected abstract Texture2D GetSpriteSheet();
 
         protected abstract Rectangle GetFirstFrame();
+
+        private Rectangle GetCurrentFrame() 
+        {
+            Rectangle frame = GetFirstFrame();
+            if (CurrentFrame != 0)
+            {
+                frame = new Rectangle(frame.X + CurrentFrame * frame.Width, frame.Y, frame.Width, frame.Height);
+            }
+            return frame;
+        }
 
         public virtual void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
@@ -43,14 +50,18 @@ namespace Sprint0.Sprites
 
         public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation)
         {
-            Rectangle frame = GetFirstFrame();
-            if (CurrentFrame != 0)
-            {
-                frame = new Rectangle(frame.X + CurrentFrame * frame.Width, frame.Y, frame.Width, frame.Height);
-            }
+            Rectangle frame = GetCurrentFrame();
 
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame, color, rotation, Vector2.Zero,
-                SpriteEffects.None, 0);
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame,
+                color, rotation, Vector2.Zero, SpriteEffects.None, 0);
+        }
+
+        protected void DrawSideways(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation) 
+        {
+            Rectangle frame = GetCurrentFrame();
+
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame,
+                color, rotation, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
         }
 
         public virtual void Update()
@@ -66,8 +77,10 @@ namespace Sprint0.Sprites
         {
             Rectangle frame = GetFirstFrame();
 
-            return new Rectangle((int)(position.X + (xOffsetPixels * SizeScale)), (int)(position.Y + (yOffsetPixels * SizeScale)),
-                (int)(frame.Width * SizeScale), (int)(frame.Height * SizeScale));
+            return new Rectangle((int)(position.X + (xOffsetPixels * Utils.GameScale)),
+                (int)(position.Y + (yOffsetPixels * Utils.GameScale)),
+                (int)(frame.Width * Utils.GameScale),
+                (int)(frame.Height * Utils.GameScale));
         }
 
         public int GetAnimationTime() 

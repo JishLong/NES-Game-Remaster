@@ -8,11 +8,10 @@ namespace Sprint0.Projectiles.Player
         private readonly static Vector2 MovementSpeed = new Vector2(5, 5);
 
         public PlayerBoomerangProjectile(Vector2 position, Types.Direction direction) : 
-            base(position, MovementSpeed * Utils.DirectionToVector(direction))
+            base(position, MovementSpeed, direction)
         {
-            FramesAlive = 75;
-            FramesPassed = 0;
             Sprite = new PlayerBoomerangSprite();
+            FramesAlive = 75;   
         }
 
         public override void Update()

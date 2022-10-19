@@ -12,10 +12,11 @@
         public enum Block { BLUE_GAP, BLUE_SAND, BLUE_STAIRS, BLUE_STATUE_LEFT, BLUE_STATUE_RIGHT, BLUE_TILE, BLUE_WALL, 
         FIRE_BLOCK, GREY_BRICKS, LADDER_BLOCK, WHITE_BARS};
 
-        public enum Projectile { BOMBPROJ, BOSSPROJ, ARROWPROJ, FLAMEPROJ, BOOMERANGPROJ};
+        public enum Projectile { ARROWEXPLOSIONPROJ, ARROWPROJ, BLUEARROWPROJ, BOMBEXPLOSIONPROJ, BOMBPROJ, BOSSPROJ, FLAMEPROJ, 
+            GORIYABOOMERANGPROJ, PLAYERBOOMERANGPROJ};
 
         // To be utilized soon
-        public enum Direction {UP, DOWN, LEFT, RIGHT};
+        public enum Direction {UP, DOWN, LEFT, RIGHT, UPLEFT, UPRIGHT, DOWNLEFT, DOWNRIGHT};
         public enum RoomTransition {UP, DOWN, LEFT, RIGHT, SECRET};
         public enum Level{LEVEL1};
 

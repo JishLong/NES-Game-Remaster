@@ -1,9 +1,9 @@
 ﻿using Sprint0.Player.State.Idle;
 using Sprint0.Player.State;
 using Sprint0.Projectiles.Player_Projectiles;
-using Sprint0.Projectiles;
 using Sprint0.Sprites.Player.Attack.UseItem;
 using Microsoft.Xna.Framework;
+using Sprint0.Projectiles.Tools;
 
 namespace Sprint0.Player.States.Flame
 {
@@ -26,11 +26,11 @@ namespace Sprint0.Player.States.Flame
         private void SpawnFlame()
         {
             // Magic numbers for position for now
-            float FlameX = Player.GetHitbox().Center.X - Resources.FlameProj.Width * 3 / 2;
+            float FlameX = Player.GetHitbox().Center.X - Resources.FlameProj.Width * Utils.GameScale / 2;
             float FlameY = Player.GetHitbox().Bottom;
 
-            ProjectileManager.GetInstance().AddProjectile(new FlameProjectile(
-            new Vector2(FlameX, FlameY), Types.Direction.DOWN));
+            ProjectileManager.GetInstance().AddProjectile(
+                Types.Projectile.FLAMEPROJ, new Vector2(FlameX, FlameY), Types.Direction.DOWN);
         }
 
         public override void Update()

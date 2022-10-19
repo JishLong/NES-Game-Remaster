@@ -7,16 +7,11 @@ namespace Sprint0.Projectiles.Player_Projectiles
     {
         private readonly static Vector2 MovementSpeed = new Vector2(5, 5);
 
-        private int StillFrames;
-
         public FlameProjectile(Vector2 position, Types.Direction direction) : 
-            base(position, MovementSpeed * Utils.DirectionToVector(direction))
+            base(position, MovementSpeed, direction)
         {
-            FramesAlive = 60;
-            FramesPassed = 0;
-            StillFrames = 30;
-
             Sprite = new FlameProjSprite();
+            FramesAlive = 100;  
         }
 
         public override void Update()
@@ -24,7 +19,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
             Sprite.Update();
             FramesPassed++;
 
-            if (FramesPassed < FramesAlive - StillFrames + 1)
+            if (FramesPassed < FramesAlive / 3)
             {
                 Position += Velocity;
             }

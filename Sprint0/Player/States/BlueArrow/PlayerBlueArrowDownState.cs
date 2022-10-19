@@ -1,9 +1,9 @@
 ﻿using Sprint0.Player.State.Idle;
 using Sprint0.Player.State;
-using Sprint0.Projectiles;
 using Sprint0.Sprites.Player.Attack.UseItem;
 using Microsoft.Xna.Framework;
 using Sprint0.Projectiles.Player;
+using Sprint0.Projectiles.Tools;
 
 namespace Sprint0.Player.States.BlueArrow
 {
@@ -26,11 +26,11 @@ namespace Sprint0.Player.States.BlueArrow
         private void SpawnArrow()
         {
             // Magic numbers for position for now
-            float ArrowX = Player.GetHitbox().Center.X + Resources.BlueArrowProj.Width * 3 / 2;
+            float ArrowX = Player.GetHitbox().Center.X + Resources.BlueArrowProj.Width * Utils.GameScale / 2;
             float ArrowY = Player.GetHitbox().Bottom;
 
-            ProjectileManager.GetInstance().AddProjectile(new BlueArrowProjectile(
-            new Vector2(ArrowX, ArrowY), Types.Direction.DOWN));
+            ProjectileManager.GetInstance().AddProjectile(
+                Types.Projectile.BLUEARROWPROJ, new Vector2(ArrowX, ArrowY), Types.Direction.DOWN);
         }
 
         public override void Update()
