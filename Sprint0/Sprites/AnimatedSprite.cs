@@ -28,6 +28,16 @@ namespace Sprint0.Sprites
 
         protected abstract Rectangle GetFirstFrame();
 
+        private Rectangle GetCurrentFrame() 
+        {
+            Rectangle frame = GetFirstFrame();
+            if (CurrentFrame != 0)
+            {
+                frame = new Rectangle(frame.X + CurrentFrame * frame.Width, frame.Y, frame.Width, frame.Height);
+            }
+            return frame;
+        }
+
         public virtual void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Draw(spriteBatch, position, Color.White);
@@ -40,14 +50,18 @@ namespace Sprint0.Sprites
 
         public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation)
         {
-            Rectangle frame = GetFirstFrame();
-            if (CurrentFrame != 0)
-            {
-                frame = new Rectangle(frame.X + CurrentFrame * frame.Width, frame.Y, frame.Width, frame.Height);
-            }
+            Rectangle frame = GetCurrentFrame();
 
             spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame,
                 color, rotation, Vector2.Zero, SpriteEffects.None, 0);
+        }
+
+        protected void DrawSideways(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation) 
+        {
+            Rectangle frame = GetCurrentFrame();
+
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame,
+                color, rotation, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
         }
 
         public virtual void Update()

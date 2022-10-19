@@ -13,6 +13,6 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
 
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 
-        protected override Rectangle GetFirstFrame() => Resources.LinkSwordRight;
+        protected override Rectangle GetFirstFrame() => Resources.LinkSwordSideways;
     }
 }

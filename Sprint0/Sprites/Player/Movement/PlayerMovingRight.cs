@@ -12,6 +12,6 @@ namespace Sprint0.Sprites.Player.Movement
 
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 
-        protected override Rectangle GetFirstFrame() => Resources.LinkRight;
+        protected override Rectangle GetFirstFrame() => Resources.LinkSideways;
     }
 }

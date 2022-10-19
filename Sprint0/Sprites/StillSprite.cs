@@ -20,20 +20,26 @@ namespace Sprint0.Sprites
 
         protected abstract Rectangle GetFrame();
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             Draw(spriteBatch, position, Color.White);
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
+        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             Draw(spriteBatch, position, color, 0);
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation)
+        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation)
         {
             spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetFrame(), 
                 color, rotation, Vector2.Zero, SpriteEffects.None, 0);
+        }
+
+        protected void DrawSideways(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation)
+        {
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetFrame(),
+                color, rotation, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
         }
 
         public void Update()

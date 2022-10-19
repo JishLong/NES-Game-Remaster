@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Player.State;
 
 namespace Sprint0.Sprites.Player.Attack.SwordAttack
 {
@@ -14,20 +13,11 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
 
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 
-        protected override Rectangle GetFirstFrame() => Resources.LinkSwordRight;
+        protected override Rectangle GetFirstFrame() => Resources.LinkSwordSideways;
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
-            Rectangle frame = GetFirstFrame();
-            if (CurrentFrame != 0)
-            {
-                frame = new Rectangle(frame.X + CurrentFrame * frame.Width, frame.Y, frame.Width, frame.Height);
-            }
-
-            Vector2 spritePos = new Vector2(position.X + (xOffsetPixels * Utils.GameScale), position.Y);
-
-            spriteBatch.Draw(GetSpriteSheet(), spritePos, frame, color, 0,
-                Vector2.Zero, new Vector2(3, 3), SpriteEffects.FlipHorizontally, 0);
+            DrawSideways(spriteBatch, position, color, 0);
         }
     }
 }

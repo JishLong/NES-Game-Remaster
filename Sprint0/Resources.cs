@@ -82,14 +82,12 @@ namespace Sprint0
         public static readonly Rectangle Aquamentus = new Rectangle(0, 48, 24, 32);
 
         // Sprite sheet positions for link sprites
-        public static readonly Rectangle LinkDown = new Rectangle(0, 0, 15, 16);
-        public static readonly Rectangle LinkUp = new Rectangle(30, 0, 12, 16);
-        public static readonly Rectangle LinkRight = new Rectangle(54, 0, 15, 16);
-        public static readonly Rectangle LinkLeft = new Rectangle(84, 0, 15, 16);
+        public static readonly Rectangle LinkDown = new Rectangle(0, 0, 16, 16);
+        public static readonly Rectangle LinkUp = new Rectangle(32, 0, 16, 16);
+        public static readonly Rectangle LinkSideways = new Rectangle(64, 0, 16, 16);
         public static readonly Rectangle LinkSwordDown = new Rectangle(0, 16, 16, 27);
         public static readonly Rectangle LinkSwordUp = new Rectangle(64, 16, 16, 28);
-        public static readonly Rectangle LinkSwordRight = new Rectangle(0, 45, 27, 15);
-        public static readonly Rectangle LinkSwordLeft = new Rectangle(0, 61, 27, 15);
+        public static readonly Rectangle LinkSwordSideways = new Rectangle(0, 44, 27, 16);
 
         public static void LoadContent(ContentManager c) 
         {
