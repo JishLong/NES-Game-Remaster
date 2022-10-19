@@ -24,7 +24,7 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
                 frame = new Rectangle(frame.X + CurrentFrame * frame.Width, frame.Y, frame.Width, frame.Height);
             }
 
-            Vector2 spritePos = new Vector2(position.X + (xOffsetPixels * SizeScale), position.Y);
+            Vector2 spritePos = new Vector2(position.X + (xOffsetPixels * Utils.GameScale), position.Y);
 
             spriteBatch.Draw(GetSpriteSheet(), spritePos, frame, color, 0,
                 Vector2.Zero, new Vector2(3, 3), SpriteEffects.FlipHorizontally, 0);

@@ -26,8 +26,8 @@ namespace Sprint0.Player.States.Boomerang
         private void SpawnBoomerang()
         {
             // Magic numbers for position for now
-            float BoomerangX = Player.GetHitbox().Center.X - Resources.BoomerangProj.Width * 3 / 2;
-            float BoomerangY = Player.GetHitbox().Top - Resources.BoomerangProj.Height * 3;
+            float BoomerangX = Player.GetHitbox().Center.X - Resources.BoomerangProj.Width * Utils.GameScale / 2;
+            float BoomerangY = Player.GetHitbox().Top - Resources.BoomerangProj.Height * Utils.GameScale;
 
             ProjectileManager.GetInstance().AddProjectile(new PlayerBoomerangProjectile(
             new Vector2(BoomerangX, BoomerangY), Types.Direction.UP));

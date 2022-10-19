@@ -25,8 +25,8 @@ namespace Sprint0.Player.State.Arrow
         private void SpawnBomb()
         {
             // Magic numbers for position for now
-            float BombX = Player.GetHitbox().Center.X - Resources.BombProj.Width * 3 / 2;
-            float BombY = Player.GetHitbox().Top - Resources.BombProj.Height * 3;
+            float BombX = Player.GetHitbox().Center.X - Resources.BombProj.Width * Utils.GameScale / 2;
+            float BombY = Player.GetHitbox().Top - Resources.BombProj.Height * Utils.GameScale;
 
             ProjectileManager.GetInstance().AddProjectile(new BombProjectile(new Vector2(BombX, BombY)));
         }

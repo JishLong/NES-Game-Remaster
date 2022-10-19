@@ -4,6 +4,9 @@ namespace Sprint0
 {
     public static class Utils
     {
+        // How big everything on the screen is - essentially used to "scale up" or "scale down" images
+        public static readonly float GameScale = 3;
+
         public static Vector2 DirectionToVector(Types.Direction direction) 
         {
             switch (direction) 

@@ -26,8 +26,8 @@ namespace Sprint0.Player.States.BlueArrow
         private void SpawnArrow()
         {
             // Magic numbers for position for now
-            float ArrowX = Player.GetHitbox().Center.X - Resources.BlueArrowProj.Width * 3 / 2;
-            float ArrowY = Player.GetHitbox().Top - Resources.BlueArrowProj.Height * 3;
+            float ArrowX = Player.GetHitbox().Center.X - Resources.BlueArrowProj.Width * Utils.GameScale / 2;
+            float ArrowY = Player.GetHitbox().Top - Resources.BlueArrowProj.Height * Utils.GameScale;
 
             ProjectileManager.GetInstance().AddProjectile(new BlueArrowProjectile(
             new Vector2(ArrowX, ArrowY), Types.Direction.UP));

@@ -26,7 +26,7 @@ namespace Sprint0.Player.States.Flame
         private void SpawnFlame()
         {
             // Magic numbers for position for now
-            float FlameX = Player.GetHitbox().Center.X - Resources.FlameProj.Width * 3 / 2;
+            float FlameX = Player.GetHitbox().Center.X - Resources.FlameProj.Width * Utils.GameScale / 2;
             float FlameY = Player.GetHitbox().Bottom;
 
             ProjectileManager.GetInstance().AddProjectile(new FlameProjectile(

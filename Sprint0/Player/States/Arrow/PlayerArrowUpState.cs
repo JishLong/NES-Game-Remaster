@@ -25,8 +25,8 @@ namespace Sprint0.Player.State.Arrow
         private void SpawnArrow()
         {
             // Magic numbers for position for now
-            float ArrowX = Player.GetHitbox().Center.X - Resources.ArrowProj.Width * 3 / 2;
-            float ArrowY = Player.GetHitbox().Top - Resources.ArrowProj.Height * 3;
+            float ArrowX = Player.GetHitbox().Center.X - Resources.ArrowProj.Width * Utils.GameScale / 2;
+            float ArrowY = Player.GetHitbox().Top - Resources.ArrowProj.Height * Utils.GameScale;
 
             ProjectileManager.GetInstance().AddProjectile(new ArrowProjectile(
             new Vector2(ArrowX, ArrowY), Types.Direction.UP));

@@ -27,7 +27,7 @@ namespace Sprint0.Player.States.Flame
         {
             // Magic numbers for position for now
             float FlameX = Player.GetHitbox().Right;
-            float FlameY = Player.GetHitbox().Center.Y - Resources.FlameProj.Height * 3 / 2;
+            float FlameY = Player.GetHitbox().Center.Y - Resources.FlameProj.Height * Utils.GameScale / 2;
 
             ProjectileManager.GetInstance().AddProjectile(new FlameProjectile(
             new Vector2(FlameX, FlameY), Types.Direction.RIGHT));
