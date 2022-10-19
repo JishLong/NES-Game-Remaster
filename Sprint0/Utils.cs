@@ -19,8 +19,41 @@ namespace Sprint0
                     return new Vector2(0, -1);
                 case Types.Direction.DOWN:
                     return new Vector2(0, 1);
+                case Types.Direction.UPLEFT:
+                    return new Vector2(-1, -1);
+                case Types.Direction.UPRIGHT:
+                    return new Vector2(1, -1);
+                case Types.Direction.DOWNLEFT:
+                    return new Vector2(-1, 1);
+                case Types.Direction.DOWNRIGHT:
+                    return new Vector2(1, 1);
                 default:
                     return new Vector2(0, 0);
+            }
+        }
+
+        public static float DirectionToRadians(Types.Direction direction) 
+        {
+            switch (direction)
+            {
+                case Types.Direction.LEFT:
+                    return MathHelper.ToRadians(270);
+                case Types.Direction.RIGHT:
+                    return MathHelper.ToRadians(90);
+                case Types.Direction.UP:
+                    return 0;
+                case Types.Direction.DOWN:
+                    return MathHelper.ToRadians(180);
+                case Types.Direction.UPLEFT:
+                    return MathHelper.ToRadians(315);
+                case Types.Direction.UPRIGHT:
+                    return MathHelper.ToRadians(45);
+                case Types.Direction.DOWNLEFT:
+                    return MathHelper.ToRadians(225);
+                case Types.Direction.DOWNRIGHT:
+                    return MathHelper.ToRadians(135);
+                default:
+                    return -1;
             }
         }
     }

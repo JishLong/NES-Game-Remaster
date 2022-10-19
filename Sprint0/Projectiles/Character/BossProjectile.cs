@@ -5,18 +5,12 @@ namespace Sprint0.Projectiles.Character_Projectiles
 {
     public class BossProjectile : AbstractProjectile
     {
-        public BossProjectile(Vector2 position, Vector2 velocity) : base(position, velocity)
-        {
-            FramesAlive = 180;
-            FramesPassed = 0;
+        private readonly static Vector2 MovementSpeed = new Vector2(3, 3);
 
-            Sprite = new BossProjSprite();
-        }
-        public override void Update()
+        public BossProjectile(Vector2 position, Types.Direction direction) : base(position, MovementSpeed, direction)
         {
-            Sprite.Update();
-            FramesPassed++;
-            Position += Velocity;
+            Sprite = new BossProjSprite();
+            FramesAlive = 180;
         }
     }
 }

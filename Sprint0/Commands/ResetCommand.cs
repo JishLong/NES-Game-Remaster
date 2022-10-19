@@ -20,7 +20,6 @@ namespace Sprint0.Commands
         public void Execute()
         {
             Player.Reset();
-            ProjectileManager.GetInstance().RemoveAllProjectiles();
         }
     }
 }

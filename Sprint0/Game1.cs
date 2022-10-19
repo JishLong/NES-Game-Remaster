@@ -5,6 +5,7 @@ using Sprint0.Player;
 using Sprint0.Projectiles;
 using Sprint0.Levels;
 using Sprint0.Collision;
+using Sprint0.Projectiles.Tools;
 
 namespace Sprint0
 {
@@ -13,7 +14,7 @@ namespace Sprint0
         private GraphicsDeviceManager Graphics;
         private SpriteBatch SBatch;
 
-        private IController Keyboard, Mouse;
+        private IController Keyboard, Mouse, Projectiles;
         private CollisionDetector Collisions;
         public LevelManager LevelManager { get; set; }
         
@@ -37,6 +38,7 @@ namespace Sprint0
 
             Keyboard = new KeyboardController(this, Player);
             Mouse = new MouseController(this);
+            Projectiles = new ProjectileController(LevelManager);
 
             Collisions = new CollisionDetector(LevelManager.CurrentLevel.CurrentRoom, Player);
 
@@ -55,12 +57,9 @@ namespace Sprint0
             // Input should be updated before everything else, especially the player
             Keyboard.Update();
             Mouse.Update();
+            Projectiles.Update();
 
-            
-
-            LevelManager.Update(gameTime);
-
-            ProjectileManager.GetInstance().Update();
+            LevelManager.Update(gameTime);   
       
             Player.Update();
 
@@ -77,8 +76,6 @@ namespace Sprint0
             SBatch.Begin(samplerState: SamplerState.PointClamp);
 
             LevelManager.Draw(SBatch);
-
-            ProjectileManager.GetInstance().Draw(SBatch);
 
             Player.Draw(SBatch);
         

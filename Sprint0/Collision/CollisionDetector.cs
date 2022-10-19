@@ -61,7 +61,7 @@ namespace Sprint0.Collision
             Collidables = new List<ICollidable>();
             Collidables.Add(Player);
             Collidables.AddRange(CurrentRoom.Characters);
-            Collidables.AddRange(ProjectileManager.GetInstance().GetProjectiles());
+            Collidables.AddRange(CurrentRoom.Projectiles.GetProjectiles());
             Collidables.AddRange(CurrentRoom.Blocks);
             Collidables.AddRange(CurrentRoom.Items);
 

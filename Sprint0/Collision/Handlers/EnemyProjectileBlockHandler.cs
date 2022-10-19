@@ -2,6 +2,7 @@
 using Sprint0.Blocks;
 using Sprint0.Levels;
 using Sprint0.Projectiles;
+using Sprint0.Projectiles.Tools;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -21,7 +22,6 @@ namespace Sprint0.Collision.Handlers
             // Remove projectile
             ProjectileManager = ProjectileManager.GetInstance();
             ProjectileManager.RemoveProjectile(projectile);
-            ProjectileManager.Update();
         }
     }
 }

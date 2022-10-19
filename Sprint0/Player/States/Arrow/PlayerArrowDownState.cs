@@ -1,8 +1,9 @@
 ﻿using Sprint0.Player.State.Idle;
 using Sprint0.Sprites.Player.Attack.UseItem;
-using Sprint0.Projectiles;
 using Sprint0.Projectiles.Player_Projectiles;
 using Microsoft.Xna.Framework;
+using Sprint0.Npcs;
+using Sprint0.Projectiles.Tools;
 
 namespace Sprint0.Player.State.Arrow
 {
@@ -28,8 +29,8 @@ namespace Sprint0.Player.State.Arrow
             float ArrowX = Player.GetHitbox().Center.X + Resources.ArrowProj.Width * Utils.GameScale / 2;
             float ArrowY = Player.GetHitbox().Bottom;
 
-            ProjectileManager.GetInstance().AddProjectile(new ArrowProjectile(
-            new Vector2(ArrowX, ArrowY), Types.Direction.DOWN));
+            ProjectileManager.GetInstance().AddProjectile(
+                Types.Projectile.ARROWPROJ, new Vector2(ArrowX, ArrowY), Types.Direction.DOWN);
         }
 
         public override void Update()

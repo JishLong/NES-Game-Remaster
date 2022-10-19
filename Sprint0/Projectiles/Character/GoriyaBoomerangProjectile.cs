@@ -1,24 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Sprites.Player;
 using Sprint0.Sprites.Projectiles.Character;
-using Sprint0.Sprites.Projectiles.Player;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sprint0.Projectiles.Character
 {
     public class GoriyaBoomerangProjectile : AbstractProjectile
     {
+        private readonly static Vector2 MovementSpeed = new Vector2(5, 5);
 
-        public GoriyaBoomerangProjectile(Vector2 position, Vector2 velocity) : base(position, velocity)
+        public GoriyaBoomerangProjectile(Vector2 position, Types.Direction direction) : 
+            base(position, MovementSpeed, direction)
         {
-            FramesAlive = 300;
-            FramesPassed = 0;
-            Velocity = velocity * 2;
             Sprite = new GoriyaBoomerangSprite();
+            FramesAlive = 300;       
         }
 
         public override void Update()
@@ -29,7 +22,8 @@ namespace Sprint0.Projectiles.Character
             if(FramesPassed < (FramesAlive / 2))
             {
                 Position += Velocity;
-            } else if(FramesPassed >= FramesAlive / 2)
+            }
+            else if(FramesPassed >= FramesAlive / 2)
             {
                 Position -= Velocity;
             }

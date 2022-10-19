@@ -9,6 +9,7 @@ using Sprint0.Commands.Player;
 using Sprint0.Levels;
 using Sprint0.Player;
 using Sprint0.Projectiles;
+using Sprint0.Projectiles.Tools;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -32,7 +33,6 @@ namespace Sprint0.Collision.Handlers
             // Remove projectile
             ProjectileManager = ProjectileManager.GetInstance();
             ProjectileManager.RemoveProjectile(projectile);
-            ProjectileManager.Update();
             // Add shield logic
             if (player.IsStationary && player.FacingDirection == projectileSide)
             {
