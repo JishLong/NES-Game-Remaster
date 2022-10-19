@@ -19,9 +19,6 @@ namespace Sprint0.Commands
 
         public void Execute()
         {
-            Game.CurrentBlock = BlockFactory.GetInstance().GetBeginningBlock(BlockFactory.DefaultBlockPosition);
-            Game.CurrentItem = ItemFactory.GetInstance().GetBeginningItem(ItemFactory.DefaultItemPosition);
-            Game.CurrentCharacter = CharacterFactory.GetInstance().GetBeginningCharacter(CharacterFactory.DefaultCharacterPosition);
             Player.Reset();
             ProjectileManager.GetInstance().RemoveAllProjectiles();
         }

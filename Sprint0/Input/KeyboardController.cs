@@ -1,11 +1,8 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Sprint0.Commands.Player;
-using Sprint0.Commands.Items;
-using Sprint0.Commands.Characters;
 using Sprint0.Commands;
 using Sprint0.Player;
 using System.Collections.Generic;
-using Sprint0.Commands.Blocks;
 using Sprint0.Commands.Levels;
 
 namespace Sprint0.Controllers
@@ -51,13 +48,7 @@ namespace Sprint0.Controllers
 
                 // Player damage control
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.E),
-                    new PlayerTakeDamageCommand(player) },
-
-                // Item switching controls
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.U),
-                    new PrevItemCommand(game) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.I),
-                    new NextItemCommand(game) },
+                    new PlayerTakeDamageCommand(player) },             
 
                 // Room switching controls
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad4, Keys.D7),
@@ -68,25 +59,6 @@ namespace Sprint0.Controllers
                     new UpRoomTransitionCommand(game)},
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad2, Keys.D9),
                     new DownRoomTransitionCommand(game)},
-
-                //// Enemy switching controls
-                //{ new KeyMap(KeyMap.KeyState.PRESSED, Keys.O),
-                //    new PrevEnemyCommand(game) },
-                //{ new KeyMap(KeyMap.KeyState.PRESSED, Keys.P),
-                //    new NextEnemyCommand(game) },
-                
-                // Character switching controls
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.O),
-                    new PrevCharacterCommand(game) },
-
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.P),
-                    new NextCharacterCommand(game) },
-
-                // Block switching controls
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.T),
-                    new PrevBlockCommand(game) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Y),
-                    new NextBlockCommand(game) },
 
                 // Misc. controls
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),

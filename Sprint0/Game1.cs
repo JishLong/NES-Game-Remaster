@@ -1,12 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Controllers;
-using Sprint0.Items;
 using Sprint0.Player;
-using Sprint0.Blocks;
-using Sprint0.Blocks.Utils;
-using Sprint0.Items.Utils;
-using Sprint0.Characters;
 using Sprint0.Projectiles;
 using Sprint0.Levels;
 using Sprint0.Collision;
@@ -17,13 +12,12 @@ namespace Sprint0
     {
         private GraphicsDeviceManager Graphics;
         private SpriteBatch SBatch;
-        private IController Keyboard;
+
+        private IController Keyboard, Mouse;
         private CollisionDetector Collisions;
         public LevelManager LevelManager { get; set; }
+        
         public IPlayer Player { get; set; }
-        public IItem CurrentItem { get; set; }
-        public IBlock CurrentBlock { get; set; }
-        public ICharacter CurrentCharacter { get; set; }
 
         public Game1()
         {
@@ -34,18 +28,17 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            Player = new Player.Player(this);
-            CurrentItem = ItemFactory.GetInstance().GetBeginningItem(ItemFactory.DefaultItemPosition);
-            CurrentBlock = BlockFactory.GetInstance().GetBeginningBlock(BlockFactory.DefaultBlockPosition);
-            CurrentCharacter = CharacterFactory.GetInstance().GetBeginningCharacter(CharacterFactory.DefaultCharacterPosition);
-
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
             // Temp testing Aquamentus projectile collisions
             LevelManager.CurrentLevel.CurrentRoom.AddCharacterToRoom(Types.Character.AQUAMENTUS, new Vector2(200, 200));
-            Collisions = new CollisionDetector(LevelManager.CurrentLevel.CurrentRoom, Player); 
+
+            Player = new Player.Player(this);   
 
             Keyboard = new KeyboardController(this, Player);
+            Mouse = new MouseController(this);
+
+            Collisions = new CollisionDetector(LevelManager.CurrentLevel.CurrentRoom, Player);
 
             base.Initialize();
         }
@@ -59,16 +52,19 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
-            // Keyboard should be updated before everything else, especially the player
+            // Input should be updated before everything else, especially the player
             Keyboard.Update();
-            ProjectileManager.GetInstance().Update();
+            Mouse.Update();
+
+            
 
             LevelManager.Update(gameTime);
-            Player.Update();
-            CurrentItem.Update();
-            CurrentBlock.Update();
-            CurrentCharacter.Update(gameTime);
 
+            ProjectileManager.GetInstance().Update();
+      
+            Player.Update();
+
+            // Best for collisions to be updated last so that every collision for this frame is cleaned up
             Collisions.CurrentRoom = LevelManager.CurrentLevel.CurrentRoom;
             Collisions.Update();
 
@@ -81,14 +77,11 @@ namespace Sprint0
             SBatch.Begin(samplerState: SamplerState.PointClamp);
 
             LevelManager.Draw(SBatch);
-            Player.Draw(SBatch);
-            CurrentItem.Draw(SBatch);
-            CurrentBlock.Draw(SBatch);
-            CurrentCharacter.Draw(SBatch);
-
 
             ProjectileManager.GetInstance().Draw(SBatch);
 
+            Player.Draw(SBatch);
+        
             SBatch.End();
 
             base.Draw(gameTime);

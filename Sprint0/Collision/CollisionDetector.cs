@@ -46,11 +46,11 @@ namespace Sprint0.Collision
 
             if (wy > hx)
             {
-                CollisionSide = (wy > -hx) ? Types.Direction.UP : Types.Direction.LEFT;
+                CollisionSide = (wy > -hx) ? Types.Direction.UP : Types.Direction.RIGHT;
             }
             else 
             {
-                CollisionSide = (wy > -hx) ? Types.Direction.RIGHT : Types.Direction.DOWN;
+                CollisionSide = (wy > -hx) ? Types.Direction.LEFT : Types.Direction.DOWN;
             }
 
             return CollisionSide;

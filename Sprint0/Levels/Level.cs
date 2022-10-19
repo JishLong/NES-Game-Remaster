@@ -1,9 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
@@ -33,6 +35,18 @@ namespace Sprint0.Levels
         public void MakeRoomTransition(RoomTransition direction)
         {
             CurrentRoom.MakeTransition(direction);
+        }
+        public void GoToNextRoom() 
+        {
+            int Index = Rooms.FindIndex(a => a == CurrentRoom);
+            Index = (Index + 1) % Rooms.Count();
+            CurrentRoom = Rooms[Index];
+        }
+        public void GoToPreviousRoom() 
+        {
+            int Index = Rooms.FindIndex(a => a == CurrentRoom);
+            Index = (Index + Rooms.Count() - 1) % Rooms.Count();
+            CurrentRoom = Rooms[Index];
         }
         public void Update(GameTime gameTime)
         {
