@@ -4,7 +4,7 @@ using Sprint0.Characters.Enemies.States.ZolStates;
 
 namespace Sprint0.Characters.Enemies
 {
-    public class Zol : AbstractEnemy
+    public class Zol : AbstractCharacter
     {
         private double DirectionTimer = 0;
         private double DirectionDelay = 1000;    // Change direction every this many milliseconds.
@@ -32,11 +32,6 @@ namespace Sprint0.Characters.Enemies
             }
 
             State.Update(gameTime);
-        }
-
-        public override void Draw(SpriteBatch sb)
-        {
-            State.Draw(sb, Position);
         }
     }
 }

@@ -1,20 +1,19 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Characters.Enemies.Utils;
 using Sprint0.Sprites.Characters.Enemies;
-using System;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies.States.GelStates
 {
-    public class GelMovingDownState : AbstractEnemyState
+    public class GelMovingDownState : AbstractCharacterState
     {
         private Gel Gel;
-        private Direction StateDirection;
+        private Types.Direction StateDirection;
         private Vector2 DirectionVector;
         public GelMovingDownState(Gel gel)
         {
             Gel = gel;
-            StateDirection = Direction.Down;
-            DirectionVector = ToVector(StateDirection);
+            StateDirection = Types.Direction.DOWN;
+            DirectionVector = Sprint0.Utils.DirectionToVector(StateDirection);
             Sprite = new GelSprite();
         }
 
@@ -25,16 +24,16 @@ namespace Sprint0.Characters.Enemies.States.GelStates
 
         public override void ChangeDirection()
         {
-            Direction direction = RandOrthogDirection(StateDirection);
+            Types.Direction direction = CharacterUtils.RandOrthogDirection(StateDirection);
             switch (direction)
             {
-                case Direction.Left:
+                case Types.Direction.LEFT:
                     Gel.State = new GelMovingLeftState(Gel);
                     break;
-                case Direction.Right:
+                case Types.Direction.RIGHT:
                     Gel.State = new GelMovingRightState(Gel);
                     break;
-                case Direction.Up:
+                case Types.Direction.UP:
                     Gel.State = new GelMovingUpState(Gel);
                     break;
             }

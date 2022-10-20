@@ -45,23 +45,20 @@ namespace Sprint0.Sprites
 
         public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
-            Draw(spriteBatch, position, color, 0);
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetCurrentFrame(),
+                color, 0, Vector2.Zero, SpriteEffects.None, 0);
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation)
+        protected void DrawFlippedHorz(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
-            Rectangle frame = GetCurrentFrame();
-
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame,
-                color, rotation, Vector2.Zero, SpriteEffects.None, 0);
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetCurrentFrame(),
+                color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
         }
 
-        protected void DrawSideways(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation) 
+        protected void DrawFlippedVert(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
-            Rectangle frame = GetCurrentFrame();
-
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame,
-                color, rotation, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetCurrentFrame(),
+                color, 0, Vector2.Zero, SpriteEffects.FlipVertically, 0);
         }
 
         public virtual void Update()

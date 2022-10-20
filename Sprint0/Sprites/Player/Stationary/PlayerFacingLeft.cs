@@ -11,7 +11,7 @@ namespace Sprint0.Sprites.Player.Stationary
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
-            DrawSideways(spriteBatch, position, color, 0);
+            DrawFlippedHorz(spriteBatch, position, color);
         }
     }
 }

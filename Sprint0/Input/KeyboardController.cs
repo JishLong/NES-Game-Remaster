@@ -33,7 +33,7 @@ namespace Sprint0.Controllers
                     new PlayerStopActionCommand(player) },
 
                 // Player attack controls
-                { new ActionMap(ActionMap.KeyState.HELD, Keys.Z, Keys.N),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Z, Keys.N),
                     new PlayerSwordAttackCommand(player) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D1),
                     new PlayerArrowAttackCommand(player) },

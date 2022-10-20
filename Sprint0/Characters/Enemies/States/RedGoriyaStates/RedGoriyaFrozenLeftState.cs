@@ -1,12 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Characters.Enemies.States;
 using Sprint0.Sprites.Characters.Enemies;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies.RedGoriyaStates
 {
-    public class RedGoriyaFrozenLeftState : AbstractEnemyState
+    public class RedGoriyaFrozenLeftState : AbstractCharacterState
     {
         private RedGoriya Goriya;
         private double FrozenTimer;

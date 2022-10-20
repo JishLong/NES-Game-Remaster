@@ -1,15 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Characters.Enemies.States;
+using Sprint0.Characters.Enemies.Utils;
 using Sprint0.Sprites.Characters.Enemies;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies.RedGoriyaStates
 {
-    public class RedGoriyaMovingDownState : AbstractEnemyState
+    public class RedGoriyaMovingDownState : AbstractCharacterState
     {
         private RedGoriya Goriya;
-        private Vector2 DirectionVector = ToVector(Direction.Down);
+        private Vector2 DirectionVector = Sprint0.Utils.DirectionToVector(Types.Direction.DOWN);
         private float MovementSpeed = 2f;
         public RedGoriyaMovingDownState(RedGoriya goriya)
         {
@@ -30,16 +28,16 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
         }
         public override void ChangeDirection()
         {
-            Direction direction = RandOrthogDirection(Direction.Down);
+            Types.Direction direction = CharacterUtils.RandOrthogDirection(Types.Direction.DOWN);
             switch (direction)
             {
-                case Direction.Right:
+                case Types.Direction.RIGHT:
                     Goriya.State = new RedGoriyaMovingRightState(Goriya);
                     break;
-                case Direction.Up:
+                case Types.Direction.UP:
                     Goriya.State = new RedGoriyaMovingUpState(Goriya);
                     break;
-                case Direction.Left:
+                case Types.Direction.LEFT:
                     Goriya.State = new RedGoriyaMovingLeftState(Goriya);
                     break;
             }

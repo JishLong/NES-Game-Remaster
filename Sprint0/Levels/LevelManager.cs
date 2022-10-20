@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
 using System.Collections.Generic;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 using static Sprint0.Types;
 
 namespace Sprint0.Levels

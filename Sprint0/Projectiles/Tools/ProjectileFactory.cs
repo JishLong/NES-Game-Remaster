@@ -21,17 +21,19 @@ namespace Sprint0.Projectiles.Tools
         {
             switch (projectileType)
             {
-                case Types.Projectile.ARROWEXPLOSIONPROJ:
-                    return new ArrowExplosionProjectile(position);
+                case Types.Projectile.ARROWEXPLOSIONPARTICLE:
+                    return new ArrowExplosionParticle(position);
                 case Types.Projectile.ARROWPROJ:
                     return new ArrowProjectile(position, direction);
                 case Types.Projectile.BLUEARROWPROJ:
                     return new BlueArrowProjectile(position, direction);
-                case Types.Projectile.BOMBEXPLOSIONPROJ:
-                    return new BombExplosionProjectile(position);
+                case Types.Projectile.BOMBEXPLOSIONPARTICLE:
+                    return new BombExplosionParticle(position);
                 case Types.Projectile.BOMBPROJ:
                     return new BombProjectile(position);
                 case Types.Projectile.BOSSPROJ:
+                case Types.Projectile.DEATHPARTICLE:
+                    return new DeathParticle(position);
                     return new BossProjectile(position, direction);           
                 case Types.Projectile.FLAMEPROJ:
                     return new FlameProjectile(position, direction);
@@ -39,6 +41,8 @@ namespace Sprint0.Projectiles.Tools
                     return new GoriyaBoomerangProjectile(position, direction);
                 case Types.Projectile.PLAYERBOOMERANGPROJ:
                     return new PlayerBoomerangProjectile(position, direction);
+                case Types.Projectile.SWORDMELEE:
+                    return new SwordMelee(position, direction);
                 default:
                     Console.Error.Write("The projectile of type " + projectileType.ToString() +
                         " could not be instantiated by the Projectile Factory. Does this type exist?");

@@ -1,10 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters.Enemies.RedGoriyaStates;
 
 namespace Sprint0.Characters.Enemies
 {
-    public class RedGoriya : AbstractEnemy
+    public class RedGoriya : AbstractCharacter
     {
         private double AttackTimer = 0;
         private double AttackDelay = 4000;  // Attack every this many milliseconds.
@@ -45,10 +44,6 @@ namespace Sprint0.Characters.Enemies
         public void Freeze()
         {
            State.Freeze();
-        }
-        public override void Draw(SpriteBatch sb)
-        {
-            State.Draw(sb, Position);
         }
     }
 }

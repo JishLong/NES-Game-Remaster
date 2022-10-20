@@ -1,17 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Characters.Enemies;
-using System;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies.States.SkeletonStates
 {
-    public class SkeletonFrozenState: AbstractEnemyState
+    public class SkeletonFrozenState: AbstractCharacterState
     {
         private Skeleton Skeleton;
-        private Direction ResumeMovementDirection;
+        private Types.Direction ResumeMovementDirection;
         private double FrozenTimer;
         private double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
-        public SkeletonFrozenState(Skeleton skeleton, Direction direction)
+        public SkeletonFrozenState(Skeleton skeleton, Types.Direction direction)
         {
             Skeleton = skeleton;
             ResumeMovementDirection = direction;
@@ -26,16 +24,16 @@ namespace Sprint0.Characters.Enemies.States.SkeletonStates
         {
             switch (ResumeMovementDirection)
             {
-                case Direction.Left:
+                case Types.Direction.LEFT:
                     Skeleton.State = new SkeletonMovingLeftState(Skeleton);
                     break;
-                case Direction.Right:
+                case Types.Direction.RIGHT:
                     Skeleton.State = new SkeletonMovingRightState(Skeleton);
                     break;
-                case Direction.Down:
+                case Types.Direction.DOWN:
                     Skeleton.State = new SkeletonMovingDownState(Skeleton);
                     break;
-                case Direction.Up:
+                case Types.Direction.UP:
                     Skeleton.State = new SkeletonMovingUpState(Skeleton);
                     break;
             }

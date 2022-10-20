@@ -14,7 +14,7 @@ namespace Sprint0.Collision.Handlers
     public class EnemyItemCollisionHandler
     {
         private Room Room;
-        IEnemyState enemyState;
+        ICharacterState enemyState;
 
         public EnemyItemCollisionHandler(Room room) 
         {
@@ -35,7 +35,7 @@ namespace Sprint0.Collision.Handlers
          * 
          * 
          */
-        public void HandleCollision(IEnemy enemy, IBlock block, Types.Direction itemSide) 
+        public void HandleCollision(ICharacter enemy, IBlock block, Types.Direction itemSide) 
         {
             
             //int blockX = block.GetHitbox().X;

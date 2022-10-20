@@ -1,17 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Characters.Enemies;
-using System;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies.States.ZolStates
 {
-    public class ZolFrozenState: AbstractEnemyState
+    public class ZolFrozenState: AbstractCharacterState
     {
         private Zol Zol;
-        private Direction ResumeMovementDirection;
+        private Types.Direction ResumeMovementDirection;
         private double FrozenTimer;
         private double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
-        public ZolFrozenState(Zol zol, Direction direction)
+        public ZolFrozenState(Zol zol, Types.Direction direction)
         {
             Zol = zol;
             ResumeMovementDirection = direction;
@@ -26,16 +24,16 @@ namespace Sprint0.Characters.Enemies.States.ZolStates
         {
             switch (ResumeMovementDirection)
             {
-                case Direction.Left:
+                case Types.Direction.LEFT:
                     Zol.State = new ZolMovingLeftState(Zol);
                     break;
-                case Direction.Right:
+                case Types.Direction.RIGHT:
                     Zol.State = new ZolMovingRightState(Zol);
                     break;
-                case Direction.Down:
+                case Types.Direction.DOWN:
                     Zol.State = new ZolMovingDownState(Zol);
                     break;
-                case Direction.Up:
+                case Types.Direction.UP:
                     Zol.State = new ZolMovingUpState(Zol);
                     break;
             }

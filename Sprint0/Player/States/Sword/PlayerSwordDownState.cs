@@ -1,5 +1,7 @@
-﻿using Sprint0.Sprites;
+﻿using Sprint0.Projectiles.Tools;
+using Sprint0.Sprites;
 using Sprint0.Sprites.Player.Attack.SwordAttack;
+using System;
 
 namespace Sprint0.Player.State.Idle
 {
@@ -8,35 +10,22 @@ namespace Sprint0.Player.State.Idle
         public PlayerSwordDownState(Player player) : base(player)
         {
             Sprite = new PlayerSwordAttackDown();
+            SpawnSwordMelee();
         }
 
         public PlayerSwordDownState(IPlayerState state) : base(state)
         {
             Sprite = new PlayerSwordAttackDown();
+            SpawnSwordMelee();    
         }
 
-        public override void ChangeDirection(Types.Direction direction)
+        private void SpawnSwordMelee() 
         {
-            /* If the user is holding down multiple movement keys, we don't want the player to be constantly changing direction;
-             * This would cause the sprites to appear frozen since new states would be instantiated every game frame
-             */
-            if (IsChangingDirection || FramesPassed % ((AnimatedSprite)Sprite).GetAnimationTime() != 0) return;
-            base.ChangeDirection(direction);
+            float SwordX = Player.Position.X;
+            float SwordY = Player.Position.Y + Player.GetHitbox().Height;
 
-            switch (direction)
-            {
-                case Types.Direction.RIGHT:
-                    Player.State = new PlayerSwordRightState(this);
-                    break;
-                case Types.Direction.LEFT:
-                    Player.State = new PlayerSwordLeftState(this);
-                    break;
-                case Types.Direction.UP:
-                    Player.State = new PlayerSwordUpState(this);
-                    break;
-                default:
-                    break;
-            }
+            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORDMELEE,
+                new Microsoft.Xna.Framework.Vector2(SwordX, SwordY), Types.Direction.DOWN);
         }
 
         public override void Update()
@@ -49,7 +38,7 @@ namespace Sprint0.Player.State.Idle
              * NOTE: potential coupling/abstraction break issue here - we're casting an interface to an extra abstract class,
              * might be something to fix in the future but works okay for now
              */
-            if (FramesPassed % ((AnimatedSprite)Sprite).GetAnimationTime() == 0 && !IsPrimaryAttacking) 
+            if (FramesPassed % ((AnimatedSprite)Sprite).GetAnimationTime() == 0) 
             {
                 Player.State = new PlayerFacingDownState(this);
             }

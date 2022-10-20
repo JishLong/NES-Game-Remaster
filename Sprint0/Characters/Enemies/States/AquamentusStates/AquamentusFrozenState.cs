@@ -1,0 +1,49 @@
+﻿using Microsoft.Xna.Framework;
+using Sprint0.Sprites.Characters.Bosses;
+using Sprint0.Characters.Bosses.AquamentusStates;
+using Sprint0.Characters.Enemies;
+
+namespace Sprint0.Characters.Bosses.States.AquamentusStates
+{
+    public class AquamentusFrozenState : AbstractCharacterState
+    {
+        private Aquamentus Aquamentus;
+        private Types.Direction ResumeMovementDirection;
+        private double FrozenTimer;
+        private double FrozenDelay = 5000;
+        public AquamentusFrozenState(Aquamentus aquamentus)
+        {
+            Aquamentus = aquamentus;
+            //ResumeMovementDirection = direction;
+            Sprite = new AquamentusSprite();
+        }
+        public override void Attack()
+        {
+            // Do nothing. (Cant attack after frozen.)
+        }
+        public override void Move()
+        {
+            Aquamentus.State = new AquamentusMovingLeftState(Aquamentus);
+        }
+        public override void Freeze()
+        {
+            // Already frozen.
+        }
+        public override void ChangeDirection()
+        {
+            // Do nothing. Cant change direction while frozen.
+        }
+        public override void Update(GameTime gameTime)
+        {
+            double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
+            FrozenTimer += elapsedTime;
+
+            if ((FrozenTimer - FrozenDelay) > 0)
+            {
+                ChangeDirection();
+            }
+            Sprite.Update();
+        }
+    }
+}
+

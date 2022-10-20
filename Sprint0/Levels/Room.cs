@@ -3,13 +3,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
 using Sprint0.Blocks.Utils;
 using Sprint0.Characters;
-using Sprint0.Collision;
 using Sprint0.Items;
 using Sprint0.Items.Utils;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Tools;
 using System.Collections.Generic;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 using static Sprint0.Types;
 
 namespace Sprint0.Levels

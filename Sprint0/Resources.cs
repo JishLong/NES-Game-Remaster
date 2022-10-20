@@ -55,12 +55,17 @@ namespace Sprint0
         // Sprite sheet positions for all weapons/projectiles
         public static readonly Rectangle BoomerangProj = new Rectangle(0, 0, 8, 8);
         public static readonly Rectangle BombProj = new Rectangle(24, 0, 16, 16);
-        public static readonly Rectangle BombExplosionProj = new Rectangle(40, 0, 16, 16);
-        public static readonly Rectangle ArrowProj = new Rectangle(0, 16, 5, 16);
-        public static readonly Rectangle BlueArrowProj = new Rectangle(5, 16, 5, 16);
-        public static readonly Rectangle ArrowExplosionProj = new Rectangle(10, 20, 8, 8);
-        public static readonly Rectangle FlameProj = new Rectangle(18, 16, 16, 16);
-        public static readonly Rectangle BossProj = new Rectangle(34, 16, 8, 10);
+        public static readonly Rectangle BombExplosionParticle = new Rectangle(40, 0, 16, 16);
+        public static readonly Rectangle ArrowProjVert = new Rectangle(0, 16, 5, 16);
+        public static readonly Rectangle ArrowProjHorz = new Rectangle(10, 16, 16, 5);
+        public static readonly Rectangle BlueArrowProjVert = new Rectangle(5, 16, 5, 16);
+        public static readonly Rectangle BlueArrowProjHorz = new Rectangle(10, 21, 16, 5);
+        public static readonly Rectangle ArrowExplosionParticle = new Rectangle(26, 20, 8, 8);
+        public static readonly Rectangle FlameProj = new Rectangle(34, 16, 16, 16);
+        public static readonly Rectangle BossProj = new Rectangle(50, 16, 8, 10);
+        public static readonly Rectangle CharacterDeathParticle = new Rectangle(0, 32, 15, 16);
+        public static readonly Rectangle SwordMeleeHorz = new Rectangle(61, 32, 12, 15);
+        public static readonly Rectangle SwordMeleeVert = new Rectangle(74, 32, 15, 12);
 
         // Sprite sheet positions for all characters
         public static readonly Rectangle Bat = new Rectangle(0, 0, 16, 10);

@@ -1,20 +1,19 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Characters.Enemies.Utils;
 using Sprint0.Sprites.Characters.Enemies;
-using System;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies.States.SnakeStates
 {
-    public class SnakeFacingRightMovingUpState: AbstractEnemyState
+    public class SnakeFacingRightMovingUpState: AbstractCharacterState
     {
         private Snake Snake;
-        private Direction StateDirection;
-        private Vector2 DirectionVector = ToVector(Direction.Up);
+        private Types.Direction StateDirection;
+        private Vector2 DirectionVector = Sprint0.Utils.DirectionToVector(Types.Direction.UP);
         private float MovementSpeed = 2f;
         public SnakeFacingRightMovingUpState(Snake snake)
         {
             Snake = snake;
-            StateDirection = Direction.Up;
+            StateDirection = Types.Direction.UP;
             Sprite = new SnakeRightSprite();
         }
 
@@ -25,16 +24,16 @@ namespace Sprint0.Characters.Enemies.States.SnakeStates
 
         public override void ChangeDirection()
         {
-            Direction direction = RandOrthogDirection(StateDirection);
+            Types.Direction direction = CharacterUtils.RandOrthogDirection(StateDirection);
             switch (direction)
             {
-                case Direction.Left:
+                case Types.Direction.LEFT:
                     Snake.State = new SnakeMovingLeftState(Snake);
                     break;
-                case Direction.Right:
+                case Types.Direction.RIGHT:
                     Snake.State = new SnakeMovingRightState(Snake);
                     break;
-                case Direction.Down:
+                case Types.Direction.DOWN:
                     Snake.State = new SnakeFacingRightMovingDownState(Snake);
                     break;
             }
