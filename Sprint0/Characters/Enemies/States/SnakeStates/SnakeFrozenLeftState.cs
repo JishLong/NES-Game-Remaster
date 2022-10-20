@@ -1,17 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Characters.Enemies;
-using System;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies.States.SnakeStates
 {
-    public class SnakeFrozenLeftState: AbstractEnemyState
+    public class SnakeFrozenLeftState: AbstractCharacterState
     {
         private Snake Snake;
-        private Direction ResumeMovementDirection;
+        private Types.Direction ResumeMovementDirection;
         private double FrozenTimer;
         private double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
-        public SnakeFrozenLeftState(Snake snake, Direction direction)
+        public SnakeFrozenLeftState(Snake snake, Types.Direction direction)
         {
             Snake = snake;
             ResumeMovementDirection = direction;
@@ -27,13 +25,13 @@ namespace Sprint0.Characters.Enemies.States.SnakeStates
         {
             switch (ResumeMovementDirection)
             {
-                case Direction.Left:
+                case Types.Direction.LEFT:
                     Snake.State = new SnakeMovingLeftState(Snake);
                     break;
-                case Direction.Up:
+                case Types.Direction.UP:
                     Snake.State = new SnakeFacingLeftMovingUpState(Snake);
                     break;
-                case Direction.Down:
+                case Types.Direction.DOWN:
                     Snake.State = new SnakeFacingLeftMovingDownState(Snake);
                     break;
             }

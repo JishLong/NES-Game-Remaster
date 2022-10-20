@@ -1,15 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Characters.Enemies.States;
 using Sprint0.Projectiles;
-using Sprint0.Projectiles.Character;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites.Characters.Enemies;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies.RedGoriyaStates
 {
-    public class RedGoriyaAttackingLeftState : AbstractEnemyState
+    public class RedGoriyaAttackingLeftState : AbstractCharacterState
     {
         private RedGoriya Goriya;
         private IProjectile Boomerang;

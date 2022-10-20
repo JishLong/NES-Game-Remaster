@@ -1,13 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters.Enemies.States.BatStates;
-using Sprint0.Sprites.Characters.Enemies;
-using System;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies
 {
-    public class Bat : AbstractEnemy
+    public class Bat : AbstractCharacter
     {
         private double DirectionTimer = 0;
         private double DirectionDelay = 1000;    // Change direction every this many milliseconds.
@@ -36,11 +32,6 @@ namespace Sprint0.Characters.Enemies
             }
 
             State.Update(gameTime);
-        }
-
-        public override void Draw(SpriteBatch sb)
-        {
-            State.Draw(sb, Position);
         }
     }
 }

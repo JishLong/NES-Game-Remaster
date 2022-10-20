@@ -1,21 +1,20 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Characters.Enemies.Utils;
 using Sprint0.Sprites.Characters.Enemies;
-using System;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies.States.BatStates
 {
-    public class BatMovingDownLeftState : AbstractEnemyState
+    public class BatMovingDownLeftState : AbstractCharacterState
     {
         private Bat Bat;
-        private Direction StateDirection;
+        private Types.Direction StateDirection;
         private Vector2 DirectionVector;
         private float MovementSpeed = 2f;
         public BatMovingDownLeftState(Bat bat)
         {
             Bat = bat;
-            StateDirection = Direction.DownLeft;
-            DirectionVector = ToVector(StateDirection);
+            StateDirection = Types.Direction.DOWNLEFT;
+            DirectionVector = Sprint0.Utils.DirectionToVector(StateDirection);
             Sprite = new BatSprite();
 
         }
@@ -26,28 +25,28 @@ namespace Sprint0.Characters.Enemies.States.BatStates
 
         public override void ChangeDirection()
         {
-            Direction direction = RandOmniDirection(StateDirection);
+            Types.Direction direction = CharacterUtils.RandOmniDirection(StateDirection);
             switch (direction)
             {
-                case Direction.Left:
+                case Types.Direction.LEFT:
                     Bat.State = new BatMovingLeftState(Bat);
                     break;
-                case Direction.UpLeft:
+                case Types.Direction.UPLEFT:
                     Bat.State = new BatMovingUpLeftState(Bat);
                     break;
-                case Direction.Up:
+                case Types.Direction.UP:
                     Bat.State = new BatMovingUpState(Bat);
                     break;
-                case Direction.UpRight:
+                case Types.Direction.UPRIGHT:
                     Bat.State = new BatMovingUpRightState(Bat);
                     break;
-                case Direction.Right:
+                case Types.Direction.RIGHT:
                     Bat.State = new BatMovingRightState(Bat);
                     break;
-                case Direction.DownRight:
+                case Types.Direction.DOWNRIGHT:
                     Bat.State = new BatMovingDownRightState(Bat);
                     break;
-                case Direction.Down:
+                case Types.Direction.DOWN:
                     Bat.State = new BatMovingDownState(Bat);
                     break;
             }

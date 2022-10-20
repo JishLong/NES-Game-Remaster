@@ -1,21 +1,19 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Characters.Enemies;
-using System;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies.States.HandStates
 {
-    public class HandMovingUpState : AbstractEnemyState
+    public class HandMovingUpState : AbstractCharacterState
     {
         private Hand Hand;
-        private Direction StateDirection;
+        private Types.Direction StateDirection;
         private Vector2 DirectionVector;
         private bool ClockWise;
         public HandMovingUpState(Hand hand, bool clockWise)
         {
             Hand = hand;
-            StateDirection = Direction.Up;
-            DirectionVector = ToVector(StateDirection);
+            StateDirection = Types.Direction.UP;
+            DirectionVector = Sprint0.Utils.DirectionToVector(StateDirection);
             ClockWise = clockWise;
             Sprite = new HandSprite();
         }

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters.Npcs;
+using Sprint0.Levels;
 using Sprint0.Sprites;
 
 namespace Sprint0.Npcs
@@ -20,7 +21,7 @@ namespace Sprint0.Npcs
         // Sprite related fields.
         protected ISprite sprite { get; set; }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(int damage, Room room)
         {
             Health -= damage;
 

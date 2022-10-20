@@ -1,18 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Characters.Enemies;
-using System;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies.States.HandStates
 {
-    public class HandFrozenState: AbstractEnemyState
+    public class HandFrozenState: AbstractCharacterState
     {
         private Hand Hand;
-        private Direction ResumeMovementDirection;
+        private Types.Direction ResumeMovementDirection;
         private bool ClockWise;
         private double FrozenTimer;
         private double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
-        public HandFrozenState(Hand hand, Direction direction, bool clockWise)
+        public HandFrozenState(Hand hand, Types.Direction direction, bool clockWise)
         {
             Hand = hand;
             ResumeMovementDirection = direction;
@@ -28,16 +26,16 @@ namespace Sprint0.Characters.Enemies.States.HandStates
         {
             switch (ResumeMovementDirection)
             {
-                case Direction.Left:
+                case Types.Direction.LEFT:
                     Hand.State = new HandMovingLeftState(Hand, ClockWise);
                     break;
-                case Direction.Right:
+                case Types.Direction.RIGHT:
                     Hand.State = new HandMovingRightState(Hand, ClockWise);
                     break;
-                case Direction.Down:
+                case Types.Direction.DOWN:
                     Hand.State = new HandMovingDownState(Hand, ClockWise);
                     break;
-                case Direction.Up:
+                case Types.Direction.UP:
                     Hand.State = new HandMovingUpState(Hand, ClockWise);
                     break;
             }

@@ -72,7 +72,11 @@ namespace Sprint0.Player.State
 
         public Rectangle GetHitbox() 
         {
-            return Sprite.GetDrawbox(Player.Position);
+            Rectangle NormalLink = Resources.LinkDown;
+            Rectangle SpriteDrawbox = Sprite.GetDrawbox(Player.Position);
+
+            return new Rectangle((int)Player.Position.X, (int)Player.Position.Y,
+                (int)(NormalLink.Width * Utils.GameScale), (int)(NormalLink.Height * Utils.GameScale));
         }
 
         public virtual void Update() 

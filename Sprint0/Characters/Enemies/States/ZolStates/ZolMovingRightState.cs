@@ -1,20 +1,19 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Characters.Enemies.Utils;
 using Sprint0.Sprites.Characters.Enemies;
-using System;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies.States.ZolStates
 {
-    public class ZolMovingRightState: AbstractEnemyState
+    public class ZolMovingRightState: AbstractCharacterState
     {
         private Zol Zol;
-        private Direction StateDirection;
+        private Types.Direction StateDirection;
         private Vector2 DirectionVector;
         public ZolMovingRightState(Zol zol)
         {
             Zol = zol;
-            StateDirection = Direction.Right;
-            DirectionVector = ToVector(StateDirection);
+            StateDirection = Types.Direction.RIGHT;
+            DirectionVector = Sprint0.Utils.DirectionToVector(StateDirection);
             Sprite = new ZolSprite();
         }
 
@@ -25,16 +24,16 @@ namespace Sprint0.Characters.Enemies.States.ZolStates
 
         public override void ChangeDirection()
         {
-            Direction direction = RandOrthogDirection(StateDirection);
+            Types.Direction direction = CharacterUtils.RandOrthogDirection(StateDirection);
             switch (direction)
             {
-                case Direction.Left:
+                case Types.Direction.LEFT:
                     Zol.State = new ZolMovingLeftState(Zol);
                     break;
-                case Direction.Down:
+                case Types.Direction.DOWN:
                     Zol.State = new ZolMovingDownState(Zol);
                     break;
-                case Direction.Up:
+                case Types.Direction.UP:
                     Zol.State = new ZolMovingUpState(Zol);
                     break;
             }

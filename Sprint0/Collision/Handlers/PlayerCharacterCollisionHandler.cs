@@ -1,6 +1,7 @@
 ﻿using Sprint0.Characters;
 using Sprint0.Characters.Bosses;
 using Sprint0.Characters.Enemies;
+using Sprint0.Characters.Npcs;
 using Sprint0.Commands.Characters;
 using Sprint0.Commands.Player;
 using Sprint0.Levels;
@@ -28,24 +29,15 @@ namespace Sprint0.Collision.Handlers
         {
             if (player.IsPrimaryAttacking && player.FacingDirection == playerSide)
             {
-                if (character.GetType().IsAssignableTo(typeof(IEnemy)))
+                if (!character.GetType().IsAssignableTo(typeof(INpc)))
                 {
-                    new EnemyTakeDamageCommand((IEnemy)character, 1).Execute();
+                    new CharacterTakeDamageCommand(character, 1, room).Execute();
                     System.Diagnostics.Debug.WriteLine("Player has hit an enemy...");
-                }
-                else if (character.GetType().IsAssignableTo(typeof(IBoss))) 
-                {
-                    new BossTakeDamageCommand((IBoss)character, 1).Execute();
-                    System.Diagnostics.Debug.WriteLine("Player has hit a boss...");
                 }
             }
             else 
             {             
-                if (character.GetType().IsAssignableTo(typeof(IEnemy)))
-                {
-                    new PlayerTakeDamageCommand(player).Execute();
-                }
-                else if (character.GetType().IsAssignableTo(typeof(IBoss)))
+                if (!character.GetType().IsAssignableTo(typeof(INpc)))
                 {
                     new PlayerTakeDamageCommand(player).Execute();
                 }

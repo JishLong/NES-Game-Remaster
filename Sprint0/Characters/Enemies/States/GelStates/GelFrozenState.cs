@@ -1,17 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Characters.Enemies;
-using System;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies.States.GelStates
 {
-    public class GelFrozenState: AbstractEnemyState
+    public class GelFrozenState: AbstractCharacterState
     {
         private Gel Gel;
-        private Direction ResumeMovementDirection;
+        private Types.Direction ResumeMovementDirection;
         private double FrozenTimer;
         private double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
-        public GelFrozenState(Gel gel, Direction direction)
+        public GelFrozenState(Gel gel, Types.Direction direction)
         {
             Gel = gel;
             ResumeMovementDirection = direction;
@@ -26,16 +24,16 @@ namespace Sprint0.Characters.Enemies.States.GelStates
         {
             switch (ResumeMovementDirection)
             {
-                case Direction.Left:
+                case Types.Direction.LEFT:
                     Gel.State = new GelMovingLeftState(Gel);
                     break;
-                case Direction.Right:
+                case Types.Direction.RIGHT:
                     Gel.State = new GelMovingRightState(Gel);
                     break;
-                case Direction.Down:
+                case Types.Direction.DOWN:
                     Gel.State = new GelMovingDownState(Gel);
                     break;
-                case Direction.Up:
+                case Types.Direction.UP:
                     Gel.State = new GelMovingUpState(Gel);
                     break;
             }

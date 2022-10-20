@@ -14,17 +14,15 @@ namespace Sprint0.Sprites.Projectiles.Player
 
         protected override Rectangle GetFirstFrame() => Resources.FlameProj;
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float rotation)
-        {
-            Rectangle frame = GetFirstFrame();
-            SpriteEffects Effects = SpriteEffects.None;
+        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
+        {         
             if (CurrentFrame != 0)
             {
-                Effects = SpriteEffects.FlipHorizontally;
+                Rectangle frame = GetFirstFrame();
+                spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame, color, 0, Vector2.Zero,
+                SpriteEffects.FlipHorizontally, 0);
             }
-
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame, color, rotation, Vector2.Zero,
-                Effects, 0);
+            else base.Draw(spriteBatch, position, color); 
         }
     }
 }

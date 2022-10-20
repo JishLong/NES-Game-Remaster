@@ -8,7 +8,7 @@ namespace Sprint0.Collision.Handlers
     // Handles all collisions players and items
     public class PlayerItemCollisionHandler
     {
-        public PlayerItemCollisionHandler(Room room) 
+        public PlayerItemCollisionHandler() 
         {
             
         }

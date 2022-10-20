@@ -22,24 +22,22 @@ namespace Sprint0.Collision
         private PlayerCharacterCollisionHandler PlayerCharacterHandler;
         private PlayerItemCollisionHandler PlayerItemHandler;
         private EnemyProjectilePlayerCollisionHandler EnemyProjectilePlayerHandler;
-        private EnemyProjectileBlockCollisionHandler EnemyProjectileBlockHandler;
         private PlayerBlockCollisionHandler PlayerBlockHandler;
         private CharacterBlockCollisionHandler CharacterBlockHandler;
         private PlayerProjEnemyCollisionHandler PlayerProjEnemyHandler;
-        private PlayerProjBlockCollisionHandler PlayerProjBlockHandler;
+        private ProjectileBlockCollisionHandler ProjectileBlockHandler;
 
         // Other handlers...
 
         public CollisionManager(Room room) 
         {
             PlayerCharacterHandler = new PlayerCharacterCollisionHandler(room);
-            PlayerItemHandler = new PlayerItemCollisionHandler(room);
+            PlayerItemHandler = new PlayerItemCollisionHandler();
             EnemyProjectilePlayerHandler = new EnemyProjectilePlayerCollisionHandler(room);
-            EnemyProjectileBlockHandler = new EnemyProjectileBlockCollisionHandler(room);
             PlayerBlockHandler = new PlayerBlockCollisionHandler(room);
             CharacterBlockHandler = new CharacterBlockCollisionHandler(room);
             PlayerProjEnemyHandler = new PlayerProjEnemyCollisionHandler();
-            PlayerProjBlockHandler = new PlayerProjBlockCollisionHandler();
+            ProjectileBlockHandler = new ProjectileBlockCollisionHandler();
 
             // Instantiation of other handlers...
         }
@@ -81,19 +79,20 @@ namespace Sprint0.Collision
                 CollidableB.GetType().IsAssignableTo(typeof(IProjectile)))
             {
                 // Call the character-projectile handler
-                PlayerProjEnemyHandler.HandleCollision((IProjectile)CollidableB, (ICharacter)CollidableA);
+                PlayerProjEnemyHandler.HandleCollision((IProjectile)CollidableB, (ICharacter)CollidableA, room);
             }
             else if (CollidableA.GetType().IsAssignableTo(typeof(IProjectile)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IBlock)))
             {
-                if (!((IProjectile)CollidableA).FromPlayer())
+                /*if (!((IProjectile)CollidableA).FromPlayer())
                 {
                     //EnemyProjectileBlockHandler.HandleCollision((IProjectile)CollidableA, (IBlock)CollidableB, SideA, room);
                 }
                 else
                 {
                     PlayerProjBlockHandler.HandleCollision((IProjectile)CollidableA);
-                }
+                }*/
+                ProjectileBlockHandler.HandleCollision((IProjectile)CollidableA, (IBlock)CollidableB, SideA, room);
             }
 
             else if (CollidableA.GetType().IsAssignableTo(typeof(IBlock)) && 

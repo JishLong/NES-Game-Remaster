@@ -1,20 +1,19 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Characters.Enemies.Utils;
 using Sprint0.Sprites.Characters.Enemies;
-using System;
-using static Sprint0.Characters.Enemies.Utils.EnemyUtils;
 
 namespace Sprint0.Characters.Enemies.States.SkeletonStates
 {
-    public class SkeletonMovingUpState : AbstractEnemyState
+    public class SkeletonMovingUpState : AbstractCharacterState
     {
         private Skeleton Skeleton;
-        private Direction StateDirection;
+        private Types.Direction StateDirection;
         private Vector2 DirectionVector;
         public SkeletonMovingUpState(Skeleton skeleton)
         {
             Skeleton = skeleton;
-            StateDirection = Direction.Up;
-            DirectionVector = ToVector(StateDirection);
+            StateDirection = Types.Direction.UP;
+            DirectionVector = Sprint0.Utils.DirectionToVector(StateDirection);
             Sprite = new SkeletonSprite();
         }
 
@@ -25,16 +24,16 @@ namespace Sprint0.Characters.Enemies.States.SkeletonStates
 
         public override void ChangeDirection()
         {
-            Direction direction = RandOrthogDirection(StateDirection);
+            Types.Direction direction = CharacterUtils.RandOrthogDirection(StateDirection);
             switch (direction)
             {
-                case Direction.Left:
+                case Types.Direction.LEFT:
                     Skeleton.State = new SkeletonMovingLeftState(Skeleton);
                     break;
-                case Direction.Right:
+                case Types.Direction.RIGHT:
                     Skeleton.State = new SkeletonMovingRightState(Skeleton);
                     break;
-                case Direction.Down:
+                case Types.Direction.DOWN:
                     Skeleton.State = new SkeletonMovingDownState(Skeleton);
                     break;
             }
