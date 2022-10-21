@@ -8,6 +8,7 @@ namespace Sprint0.Player.State
     {
         public Player Player { get; }
         public int DamageFrameCounter { get; set; }
+        protected Vector2 Knockback { get; set; }
 
         protected ISprite Sprite { get; set; }
 
@@ -28,6 +29,7 @@ namespace Sprint0.Player.State
             Player = player;
             DamageFrameCounter = 0;
             FramesPassed = 0;
+            Knockback = new Vector2(-15, -15);
         }
 
         // Copy constructor used for switching states
@@ -36,6 +38,7 @@ namespace Sprint0.Player.State
             Player = state.Player;
             DamageFrameCounter = state.DamageFrameCounter;
             FramesPassed = 0;
+            Knockback = new Vector2(-15, -15);
         }
 
         public virtual void ChangeDirection(Types.Direction direction) 
@@ -68,6 +71,7 @@ namespace Sprint0.Player.State
         public void TakeDamage() 
         {
             Player.Color = Color.Red;
+            Player.Position += Utils.DirectionToVector(Player.FacingDirection) * Knockback;
         }
 
         public Rectangle GetHitbox() 

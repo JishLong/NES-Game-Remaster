@@ -39,7 +39,7 @@ namespace Sprint0.Collision.Handlers
             {             
                 if (!character.GetType().IsAssignableTo(typeof(INpc)))
                 {
-                    new PlayerTakeDamageCommand(player).Execute();
+                    new PlayerTakeDamageCommand(player, playerSide).Execute();
                 }
             }
         }

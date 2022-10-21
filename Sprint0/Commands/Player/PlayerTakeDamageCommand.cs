@@ -6,9 +6,10 @@ namespace Sprint0.Commands.Player
     {
         private readonly IPlayer Player;
 
-        public PlayerTakeDamageCommand(IPlayer player)
+        public PlayerTakeDamageCommand(IPlayer player, Types.Direction playerSide)
         {
             Player = player;
+            player.FacingDirection = playerSide;
         }
 
         public void Execute()

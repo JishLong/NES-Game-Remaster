@@ -40,7 +40,7 @@ namespace Sprint0.Collision.Handlers
             }
             else
             { 
-                new PlayerTakeDamageCommand(player).Execute();
+                new PlayerTakeDamageCommand(player, projectileSide).Execute();
             }
         }
     }

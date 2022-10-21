@@ -48,7 +48,7 @@ namespace Sprint0.Controllers
 
                 // Player damage control
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.E),
-                    new PlayerTakeDamageCommand(player) },             
+                    new PlayerTakeDamageCommand(player, player.FacingDirection) },             
 
                 // Room switching controls
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad4, Keys.D7),
