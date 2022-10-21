@@ -8,6 +8,8 @@ namespace Sprint0.Blocks
         public BlueStatueRight(Vector2 position) : base(position)
         {
             Sprite = new BlueStatueRightSprite();
+            Pushable = false;
+            Walkable = false;
         }
     }
 }

@@ -8,6 +8,8 @@ namespace Sprint0.Blocks
         public LadderBlock(Vector2 position) : base(position)
         {
             Sprite = new LadderBlockSprite();
+            Pushable = false;
+            Walkable = true;
         }
     }
 }

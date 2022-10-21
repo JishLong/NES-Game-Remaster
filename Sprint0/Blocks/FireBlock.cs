@@ -8,6 +8,8 @@ namespace Sprint0.Blocks
         public FireBlock(Vector2 position) : base(position)
         {
             Sprite = new FireBlockSprite();
+            Pushable = false;
+            Walkable = true;
         }
     }
 }

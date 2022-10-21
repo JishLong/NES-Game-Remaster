@@ -24,10 +24,7 @@ namespace Sprint0.Collision.Handlers
         public void HandleCollision(IPlayer player, IBlock block, Types.Direction playerSide, Room room)
         {
             //types of blocks player cannot walk through
-            if (block.GetType() == typeof(BlueWall) ||
-                block.GetType() == typeof(BlueStatueLeft) ||
-                block.GetType() == typeof(BlueStatueRight) ||
-                block.GetType() == typeof(BlueGap))
+            if (!block.IsWalkable())
             {
                 player.StopAction();
                 Rectangle PHitbox = player.GetHitbox();

@@ -43,10 +43,7 @@ namespace Sprint0.Collision.Handlers
             Vector2 blockV = new Vector2(blockX, blockY);
 
             //types of blocks character cannot walk through
-            if (block.GetType().IsAssignableTo(typeof(BlueWall)) ||
-                block.GetType().IsAssignableTo(typeof(BlueStatueLeft)) ||
-                block.GetType().IsAssignableTo(typeof(BlueStatueRight)) ||
-                block.GetType().IsAssignableTo(typeof(BlueGap)))
+            if (!block.IsWalkable())
             {
                 //if (character.GetType().IsAssignableTo(typeof(IEnemy)))
                 //{

@@ -8,10 +8,22 @@ namespace Sprint0.Blocks
     {
         protected ISprite Sprite;
         protected Vector2 Position;
+        protected bool Pushable;
+        protected bool Walkable;
 
         protected AbstractBlock (Vector2 position) 
         {
             Position = position;
+            Pushable = false;
+            Walkable = true;
+        }
+        public bool IsPushable()
+        {
+            return Pushable;
+        }
+        public bool IsWalkable()
+        {
+            return Walkable;
         }
 
         public void Draw(SpriteBatch sb)

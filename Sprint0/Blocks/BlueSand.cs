@@ -8,6 +8,8 @@ namespace Sprint0.Blocks
         public BlueSand(Vector2 position) : base(position)
         {
             Sprite = new BlueSandSprite();
+            Pushable = false;
+            Walkable = true;
         }
     }
 }
