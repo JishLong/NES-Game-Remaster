@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters.Enemies.States;
 using Sprint0.Levels;
+using Sprint0.Player;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 
@@ -21,16 +22,18 @@ public abstract class AbstractCharacter : ICharacter
 
     // Movement related fields.
     public Vector2 Position { get; set; }
+    protected Vector2 Knockback = new(-16, 16);
 
     // Sprite related fields.
     protected ISprite Sprite;
 
-    public void TakeDamage(int damage, Room room)
+    public void TakeDamage(Types.Direction damageSide, int damage, Room room)
     {
         if (Color != Color.Red) 
         {
             Color = Color.Red;
             Health -= damage;
+            Position += Utils.DirectionToVector(damageSide) * Knockback;
             if (Health <= 0)
             {
                 DeathAction();

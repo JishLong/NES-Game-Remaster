@@ -21,7 +21,7 @@ namespace Sprint0.Npcs
         // Sprite related fields.
         protected ISprite sprite { get; set; }
 
-        public void TakeDamage(int damage, Room room)
+        public void TakeDamage(Types.Direction damageSide, int damage, Room room)
         {
             Health -= damage;
 

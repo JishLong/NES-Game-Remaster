@@ -12,6 +12,7 @@ namespace Sprint0.Characters
         public abstract void Move();
         public abstract void Freeze();
         public abstract void ChangeDirection();
+
         public abstract void Update(GameTime gameTime);
         public void Draw(SpriteBatch sb, Vector2 position, Color color)
         {

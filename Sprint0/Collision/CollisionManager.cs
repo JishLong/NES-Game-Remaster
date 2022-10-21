@@ -79,7 +79,7 @@ namespace Sprint0.Collision
                 CollidableB.GetType().IsAssignableTo(typeof(IProjectile)))
             {
                 // Call the character-projectile handler
-                PlayerProjEnemyHandler.HandleCollision((IProjectile)CollidableB, (ICharacter)CollidableA, room);
+                PlayerProjEnemyHandler.HandleCollision((IProjectile)CollidableB, (ICharacter)CollidableA, SideA, room);
             }
             else if (CollidableA.GetType().IsAssignableTo(typeof(IProjectile)) && 
                 CollidableB.GetType().IsAssignableTo(typeof(IBlock)))

@@ -38,7 +38,7 @@ namespace Sprint0.Player.State
             Player = state.Player;
             DamageFrameCounter = state.DamageFrameCounter;
             FramesPassed = 0;
-            Knockback = new Vector2(-15, -15);
+                        Knockback = new Vector2(-15, -15);
         }
 
         public virtual void ChangeDirection(Types.Direction direction) 

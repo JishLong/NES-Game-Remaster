@@ -31,7 +31,7 @@ namespace Sprint0.Collision.Handlers
             {
                 if (!character.GetType().IsAssignableTo(typeof(INpc)))
                 {
-                    new CharacterTakeDamageCommand(character, 1, room).Execute();
+                    new CharacterTakeDamageCommand(character, playerSide, 1, room).Execute();
                     System.Diagnostics.Debug.WriteLine("Player has hit an enemy...");
                 }
             }
