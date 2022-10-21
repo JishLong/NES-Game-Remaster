@@ -8,6 +8,8 @@ namespace Sprint0.Blocks
         public BlueGap(Vector2 position) : base(position)
         {
             Sprite = new BlueGapSprite();
+            Pushable = false;
+            Walkable = false;
         }
     }
 }

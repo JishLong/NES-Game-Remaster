@@ -8,6 +8,8 @@ namespace Sprint0.Blocks
         public WhiteBars(Vector2 position) : base(position)
         {
             Sprite = new WhiteBarsSprite();
+            Pushable = false;
+            Walkable = false;
         }
     }
 }

@@ -8,6 +8,8 @@ namespace Sprint0.Blocks
         public BlueStairs(Vector2 position) : base(position)
         {
             Sprite = new BlueStairsSprite();
+            Pushable = false;
+            Walkable = true;
         }
     }
 }

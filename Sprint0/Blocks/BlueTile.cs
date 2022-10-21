@@ -8,6 +8,8 @@ namespace Sprint0.Blocks
         public BlueTile(Vector2 position) : base(position)
         {
             Sprite = new BlueTileSprite();
+            Pushable = false;
+            Walkable = true;
         }
     }
 }

@@ -8,6 +8,8 @@ namespace Sprint0.Blocks
         public GreyBricks(Vector2 position) : base(position)
         {
             Sprite = new GreyBricksSprite();
+            Pushable = false;
+            Walkable = true;
         }
     }
 }
