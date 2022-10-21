@@ -12,9 +12,9 @@ namespace Sprint0.Collision.Handlers
         {
         }
 
-        public void HandleCollision(IProjectile projectile, ICharacter character, Room room)
+        public void HandleCollision(IProjectile projectile, ICharacter character, Types.Direction projectileSide, Room room)
         {
-            character.TakeDamage(1, room);
+            character.TakeDamage(projectileSide, 1, room);
             ProjectileManager.GetInstance().RemoveProjectile(projectile);
         }
     }

@@ -60,7 +60,7 @@ namespace Sprint0.Player
 
         public void location(Vector2 newLoc)
         {
-            this.Position = newLoc;
+            Position = newLoc;
         }
 
         public Vector2 GetPosition()

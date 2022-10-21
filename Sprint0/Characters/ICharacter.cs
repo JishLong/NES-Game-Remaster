@@ -9,7 +9,7 @@ namespace Sprint0.Characters
     {
         void Draw(SpriteBatch sb);
 
-        void TakeDamage(int damage, Room room);
+        void TakeDamage(Types.Direction damageSide, int damage, Room room);
 
         void Update(GameTime gameTime);
         
