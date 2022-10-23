@@ -85,6 +85,7 @@ namespace Sprint0
         public static readonly Rectangle DodongoRight = new Rectangle(60, 32, 28, 16);
         public static readonly Rectangle DodongoLeft = new Rectangle(116, 32, 28, 16);
         public static readonly Rectangle Aquamentus = new Rectangle(0, 48, 24, 32);
+        public static readonly Rectangle BladeTrap = new Rectangle(96, 48, 16, 16);
 
         // Sprite sheet positions for link sprites
         public static readonly Rectangle LinkDown = new Rectangle(0, 0, 16, 16);

@@ -6,21 +6,9 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Collision.Handlers
 {
-    // Handles all collisions where the affected object is an item and the acting object is the player
+    // Handles all collisions between players and blocks
     public class PlayerBlockCollisionHandler
     {
-        private Room Room;
-
-        public PlayerBlockCollisionHandler(Room room) 
-        {
-            Room = room;
-        }
-
-        /* For block: if pushable -> block.push
-         * 
-         * IMPORTANT NOTE: does not work correctly if link sword attacks into a block - this will be fixed later
-         * This is due to how link's hitbox works
-         */
         public void HandleCollision(IPlayer player, IBlock block, Types.Direction playerSide, Room room)
         {
             //types of blocks player cannot walk through

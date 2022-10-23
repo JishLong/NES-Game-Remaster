@@ -2,10 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Controllers;
 using Sprint0.Player;
-using Sprint0.Projectiles;
 using Sprint0.Levels;
 using Sprint0.Collision;
 using Sprint0.Projectiles.Tools;
+using System.Collections.Generic;
 
 namespace Sprint0
 {
@@ -14,10 +14,8 @@ namespace Sprint0
         private GraphicsDeviceManager Graphics;
         private SpriteBatch SBatch;
 
-        private IController Keyboard, Mouse, Projectiles;
-        private CollisionDetector Collisions;
+        private List<IController> Controllers;
         public LevelManager LevelManager { get; set; }
-        
         public IPlayer Player { get; set; }
 
         public Game1()
@@ -31,16 +29,14 @@ namespace Sprint0
         {
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
-            // Temp testing Aquamentus projectile collisions
-            LevelManager.CurrentLevel.CurrentRoom.AddCharacterToRoom(Types.Character.AQUAMENTUS, new Vector2(200, 200));
-
-            Player = new Player.Player(this);   
-
-            Keyboard = new KeyboardController(this, Player);
-            Mouse = new MouseController(this);
-            Projectiles = new ProjectileController(LevelManager);
-
-            Collisions = new CollisionDetector(LevelManager.CurrentLevel.CurrentRoom, Player);
+            Player = new Player.Player(this);
+            Controllers = new List<IController>()
+            {
+                new KeyboardController(this, Player),
+                new MouseController(this),
+                new ProjectileController(LevelManager),
+                new CollisionController(LevelManager, Player)
+            };
 
             base.Initialize();
         }
@@ -54,18 +50,12 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
-            // Input should be updated before everything else, especially the player
-            Keyboard.Update();
-            Mouse.Update();
-            Projectiles.Update();
-
             LevelManager.Update(gameTime);   
-      
             Player.Update();
-
-            // Best for collisions to be updated last so that every collision for this frame is cleaned up
-            Collisions.CurrentRoom = LevelManager.CurrentLevel.CurrentRoom;
-            Collisions.Update();
+            foreach (var controller in Controllers)
+            {
+                controller.Update();
+            }
 
             base.Update(gameTime);
         }
@@ -76,11 +66,9 @@ namespace Sprint0
             SBatch.Begin(samplerState: SamplerState.PointClamp);
 
             LevelManager.Draw(SBatch);
-
             Player.Draw(SBatch);
         
             SBatch.End();
-
             base.Draw(gameTime);
         }
     }
