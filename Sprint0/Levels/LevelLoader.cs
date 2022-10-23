@@ -79,8 +79,8 @@ namespace Sprint0.Levels
                         int y = LevelResources.BlockHeight * row;
                         Vector2 position = new Vector2(x + BorderOffset, y + BorderOffset);
                         room.AddBlockToRoom(block, position);
-                        col++;
                     }
+                    col++;
                 }
                 row++;
             }
