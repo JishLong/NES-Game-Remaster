@@ -10,6 +10,7 @@ using System.Collections.Generic;
 
 namespace Sprint0.Collision.Handlers
 {
+    // Handles all collisions between projectiles and blocks
     public class ProjectileBlockCollisionHandler
     {
         List<System.Type> AffectedProjectiles;
@@ -37,30 +38,6 @@ namespace Sprint0.Collision.Handlers
                 projectile.DeathAction();
                 ProjectileManager.GetInstance().RemoveProjectile(projectile);
             }
-            
-            /*bool ProjAffected = false;
-            bool BlockAffected = false;
-            foreach (var p in AffectedProjectiles) 
-            {
-                if (projectile.GetType().IsAssignableFrom(p)) 
-                {
-                    ProjAffected = true;
-                    break;
-                }
-            }
-            foreach (var b in AffectedBlocks)
-            {
-                if (projectile.GetType().IsAssignableFrom(b))
-                {
-                    BlockAffected = true;
-                    break;
-                }
-            }
-            if (ProjAffected && BlockAffected) 
-            {
-                projectile.DeathAction();
-                ProjectileManager.GetInstance().RemoveProjectile(projectile);
-            }*/
         }
     }
 }

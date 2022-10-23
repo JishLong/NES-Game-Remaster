@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Projectiles;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites.Characters.Enemies;
 
@@ -9,17 +8,14 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
     public class RedGoriyaAttackingRightState : AbstractCharacterState
     {
         private RedGoriya Goriya;
-        private IProjectile Boomerang;
-        private Vector2 BoomerangPosition;
+        private int BoomerangFrames;
         
         public RedGoriyaAttackingRightState(RedGoriya goriya)
         {
             Goriya = goriya;
             Sprite = new RedGoriyaRightSprite();
-            BoomerangPosition = Goriya.Position;
-
-            Boomerang = ProjectileFactory.GetInstance().GetProjectile(
-                Types.Projectile.GORIYABOOMERANGPROJ, BoomerangPosition, Types.Direction.RIGHT);
+            BoomerangFrames = 0;
+            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.GORIYABOOMERANGPROJ, Goriya.Position, Types.Direction.RIGHT);
         }
         
         public override void Attack()
@@ -43,8 +39,9 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
 
         public override void Update(GameTime gameTime)
         {
-            Boomerang.Update();
-            if (Boomerang.TimeIsUp())
+            BoomerangFrames++;
+            // Hard-coded value :(
+            if (BoomerangFrames == 300)
             {
                 Move(); // Resume moving.
             }
@@ -54,7 +51,6 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
         public void Draw(SpriteBatch sb)
         {
             Sprite.Draw(sb, Goriya.Position);
-            Boomerang.Draw(sb);
         }
     }
 }
