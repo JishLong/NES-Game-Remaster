@@ -71,7 +71,7 @@ namespace Sprint0.Player
         public void Reset() 
         {
             State = new PlayerFacingRightState(this);
-            Position = new Vector2(0, 0);
+            Position = new Vector2(200, 200);
             Color = Color.White;
             SecondaryWeapon = Types.PlayerWeapon.ARROW;
             IsPrimaryAttacking = false;

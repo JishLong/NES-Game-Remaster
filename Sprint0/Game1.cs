@@ -38,6 +38,10 @@ namespace Sprint0
                 new CollisionController(LevelManager, Player)
             };
 
+            Graphics.PreferredBackBufferWidth = 256*3;
+            Graphics.PreferredBackBufferHeight = 176*3;
+            Graphics.ApplyChanges();
+
             base.Initialize();
         }
 

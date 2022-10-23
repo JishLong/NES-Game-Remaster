@@ -20,12 +20,14 @@ namespace Sprint0.Levels
         private RoomLinker RoomLinker;
         private string RootPath;
         private TextFieldParser Parser;
+        private int BorderOffset;
 
         public LevelLoader(LevelManager manager)
         {
             LevelManager = manager;
             LevelResources = LevelResources.GetInstance();
             RoomLinker = new RoomLinker();
+            BorderOffset = LevelResources.BlockWidth;
             RootPath = "../../../Levels/";  // TODO: There is probably a better way to do this than with relative paths...
         }
         public Level LoadLevelFromDir(Types.Level levelType)
@@ -75,7 +77,7 @@ namespace Sprint0.Levels
                         Types.Block block = LevelResources.BlockMap[field];
                         int x = LevelResources.BlockWidth * col;
                         int y = LevelResources.BlockHeight * row;
-                        Vector2 position = new Vector2(x, y);
+                        Vector2 position = new Vector2(x + BorderOffset, y + BorderOffset);
                         room.AddBlockToRoom(block, position);
                         col++;
                     }
@@ -99,7 +101,7 @@ namespace Sprint0.Levels
                         Types.Character character = LevelResources.CharacterMap[field];
                         int x = LevelResources.BlockWidth * col;
                         int y = LevelResources.BlockHeight * row;
-                        Vector2 position = new Vector2(x, y);
+                        Vector2 position = new Vector2(x + BorderOffset, y + BorderOffset);
                         room.AddCharacterToRoom(character, position);
                     }
                     col++;
@@ -124,7 +126,7 @@ namespace Sprint0.Levels
                         Types.Item item = LevelResources.ItemMap[field];
                         int x = LevelResources.BlockWidth * col;
                         int y = LevelResources.BlockHeight * row;
-                        Vector2 position = new Vector2(x, y);
+                        Vector2 position = new Vector2(x+BorderOffset, y+BorderOffset);
                         room.AddItemToRoom(item, position);
                     }
                     col++;

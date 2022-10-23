@@ -7,12 +7,13 @@ namespace Sprint0
     // Contains spritesheets and exact positions of desirable items on them
     public static class Resources
     {
-        // Sprite sheets for blocks
+        // Sprite sheets
         public static Texture2D BlocksSpriteSheet;
         public static Texture2D ItemsSpriteSheet;
         public static Texture2D WeaponsAndProjSpriteSheet;
         public static Texture2D CharactersSpriteSheet;
         public static Texture2D LinkSpriteSheet;
+        public static Texture2D Level1SpriteSheet;
 
         // Old sprite sheets - just in case someone needs to implement something using these at first
         public static Texture2D BossEnemiesSheet;
@@ -34,6 +35,9 @@ namespace Sprint0
         public static readonly Rectangle GreyBricks = new Rectangle(0, 32, 16, 16);
         public static readonly Rectangle WhiteBars = new Rectangle(16, 32, 16, 16);
         public static readonly Rectangle LadderBlock = new Rectangle(0, 16, 16, 16);
+
+        // Sprite sheet positions for all borders
+        public static readonly Rectangle Level1Border = new Rectangle(521, 11, 256, 176);
 
         // Sprite sheet positions for all items
         public static readonly Rectangle Compass = new Rectangle(0, 0, 11, 12);
@@ -103,6 +107,7 @@ namespace Sprint0
             WeaponsAndProjSpriteSheet = c.Load<Texture2D>("weaponsAndProj");
             CharactersSpriteSheet = c.Load<Texture2D>("characters");
             LinkSpriteSheet = c.Load<Texture2D>("link");
+            Level1SpriteSheet = c.Load<Texture2D>("level1");
 
             BossEnemiesSheet = c.Load<Texture2D>("BossEnemies");
             DungeonEnemiesSheet = c.Load<Texture2D>("DungeonEnemies");
