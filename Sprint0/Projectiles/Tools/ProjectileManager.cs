@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Collision;
 using Sprint0.Levels;
 
 namespace Sprint0.Projectiles.Tools
@@ -23,9 +24,9 @@ namespace Sprint0.Projectiles.Tools
             return Instance;
         }
 
-        public void AddProjectile(Types.Projectile proj, Vector2 position, Types.Direction direction)
+        public void AddProjectile(Types.Projectile proj, Vector2 position, Types.Direction direction, ICollidable user)
         {
-            CurrentRoom.AddProjectileToRoom(proj, position, direction);
+            CurrentRoom.AddProjectileToRoom(proj, position, direction, user);
         }
 
         public void RemoveProjectile(IProjectile proj)

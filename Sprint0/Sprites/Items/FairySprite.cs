@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Sprites.Player
 {
-    public class FairySprite : AnimatedSprite
+    public class FairySprite : AbstractAnimatedSprite
     {
         public FairySprite() : base(2, 8)
         {

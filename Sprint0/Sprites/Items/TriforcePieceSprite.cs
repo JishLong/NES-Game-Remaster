@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Sprites.Player
 {
-    public class TriforcePieceSprite : AnimatedSprite
+    public class TriforcePieceSprite : AbstractAnimatedSprite
     {
         public TriforcePieceSprite() : base(2, 8)
         {

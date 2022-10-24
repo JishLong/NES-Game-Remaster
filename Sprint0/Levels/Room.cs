@@ -3,12 +3,14 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
 using Sprint0.Blocks.Utils;
 using Sprint0.Characters;
+using Sprint0.Collision;
 using Sprint0.Items;
 using Sprint0.Items.Utils;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 using static Sprint0.Types;
 
 namespace Sprint0.Levels
@@ -84,9 +86,9 @@ namespace Sprint0.Levels
         {
             Items.Remove(item);
         }
-        public void AddProjectileToRoom(Types.Projectile proj, Vector2 position, Types.Direction direction) 
+        public void AddProjectileToRoom(Types.Projectile proj, Vector2 position, Types.Direction direction, ICollidable user) 
         {
-            Projectiles.AddProjectile(ProjectileFactory.GetInstance().GetProjectile(proj, position, direction));
+            Projectiles.AddProjectile(ProjectileFactory.GetInstance().GetProjectile(proj, position, direction, user));
         }
         public void RemoveProjectileFromRoom(IProjectile proj) 
         {
@@ -99,13 +101,13 @@ namespace Sprint0.Levels
             {
                 block.Update();
             }
-            foreach(ICharacter character in Characters)
-            {
-                character.Update(gameTime);
-            }
-            foreach(IItem item in Items)
+            foreach (IItem item in Items)
             {
                 item.Update();
+            }
+            foreach (ICharacter character in Characters)
+            {
+                character.Update(gameTime);
             }
             Projectiles.Update();
             Border.Update();
@@ -116,13 +118,13 @@ namespace Sprint0.Levels
             {
                 block.Draw(sb);
             }
-            foreach(ICharacter character in Characters)
-            {
-                character.Draw(sb);
-            }
-            foreach(IItem item in Items)
+            foreach (IItem item in Items)
             {
                 item.Draw(sb);
+            }
+            foreach (ICharacter character in Characters)
+            {
+                character.Draw(sb);
             }
             Projectiles.Draw(sb);
             Border.Draw(sb);

@@ -91,16 +91,11 @@ C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/ref/Sprint
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/link.xnb
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/weaponsAndProj.xnb
 C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\blocks.xnb
-C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\BossEnemies.xnb
 C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\characters.xnb
-C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\DungeonEnemies.xnb
 C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\EnemyDeath.xnb
 C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\File.xnb
 C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\items.xnb
-C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Link+Items.xnb
 C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\link.xnb
-C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Npcs.xnb
-C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\weaponsAndItems.xnb
 C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\weaponsAndProj.xnb
 C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.exe
 C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.deps.json

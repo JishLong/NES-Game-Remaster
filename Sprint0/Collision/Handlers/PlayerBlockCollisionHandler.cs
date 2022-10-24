@@ -3,6 +3,7 @@ using Sprint0.Levels;
 using Sprint0.Player;
 using Sprint0.Blocks;
 using Microsoft.Xna.Framework;
+using Sprint0.Commands.Blocks;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -14,6 +15,11 @@ namespace Sprint0.Collision.Handlers
             //types of blocks player cannot walk through
             if (!block.IsWalkable())
             {
+                if (block is AbstractPushableBlock && playerSide == (block as AbstractPushableBlock).Direction) 
+                {
+                    new PushPushableBlockCommand(block as AbstractPushableBlock).Execute();
+                }
+                
                 player.StopAction();
                 Rectangle PHitbox = player.GetHitbox();
                 Rectangle BHitbox = block.GetHitbox();

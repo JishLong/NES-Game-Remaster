@@ -7,7 +7,7 @@ namespace Sprint0.Projectiles.Character_Projectiles
     {
         private readonly static Vector2 MovementSpeed = new Vector2(3, 3);
 
-        public BossProjectile(Vector2 position, Types.Direction direction) : base(position, MovementSpeed, direction)
+        public BossProjectile(Vector2 position, Types.Direction direction) : base(position, MovementSpeed, direction, null)
         {
             Sprite = new BossProjSprite();
             FramesAlive = 180;

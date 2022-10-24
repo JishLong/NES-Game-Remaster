@@ -1,4 +1,5 @@
-﻿using Sprint0.Projectiles.Tools;
+﻿using Microsoft.Xna.Framework;
+using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 using Sprint0.Sprites.Player.Attack.SwordAttack;
 
@@ -24,7 +25,7 @@ namespace Sprint0.Player.State.Idle
             float SwordY = Player.Position.Y - Resources.SwordMeleeVert.Height * Utils.GameScale;
 
             ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORDMELEE,
-                new Microsoft.Xna.Framework.Vector2(SwordX, SwordY), Types.Direction.LEFT);
+                new Vector2(SwordX, SwordY), Types.Direction.LEFT, null);
         }
 
         public override void Update()
@@ -37,9 +38,15 @@ namespace Sprint0.Player.State.Idle
              * NOTE: potential coupling/abstraction break issue here - we're casting an interface to an extra abstract class,
              * might be something to fix in the future but works okay for now
              */
-            if (FramesPassed % ((AnimatedSprite)Sprite).GetAnimationTime() == 0) 
+            if (FramesPassed % ((AbstractAnimatedSprite)Sprite).GetAnimationTime() == 0) 
             {
                 Player.State = new PlayerFacingUpState(this);
+                if (Player.Health == Player.MaxHealth)
+                {
+                    float SwordX = Player.Position.X + Player.GetHitbox().Width / 2 - Resources.SwordProjVert.Width * Utils.GameScale / 2;
+                    float SwordY = Player.Position.Y - Resources.SwordProjVert.Height * Utils.GameScale;
+                    ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORDPROJ, new Vector2(SwordX, SwordY), Types.Direction.UP, null);
+                }
             }
         }
     }

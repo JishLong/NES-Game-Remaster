@@ -1,8 +1,5 @@
 ﻿using Sprint0.Sprites.Player.Movement;
-using Sprint0.Player.State.Arrow;
 using Sprint0.Player.States.BlueArrow;
-using Sprint0.Player.States.Flame;
-using Sprint0.Player.States.Boomerang;
 
 namespace Sprint0.Player.State.Idle
 {
@@ -51,26 +48,7 @@ namespace Sprint0.Player.State.Idle
 
         public override void DoSecondaryAttack()
         {
-            switch (Player.SecondaryWeapon)
-            {
-                case Types.PlayerWeapon.ARROW:
-                    Player.State = new PlayerArrowUpState(this);
-                    break;
-                case Types.PlayerWeapon.BLUEARROW:
-                    Player.State = new PlayerBlueArrowUpState(this);
-                    break;
-                case Types.PlayerWeapon.BOMB:
-                    Player.State = new PlayerBombUpState(this);
-                    break;
-                case Types.PlayerWeapon.BOOMERANG:
-                    Player.State = new PlayerBoomerangUpState(this);
-                    break;
-                case Types.PlayerWeapon.FLAME:
-                    Player.State = new PlayerFlameUpState(this);
-                    break;
-                default:
-                    break;
-            }
+            Player.State = new PlayerUseItemUpState(this);
         }
 
         public override void StopAction()

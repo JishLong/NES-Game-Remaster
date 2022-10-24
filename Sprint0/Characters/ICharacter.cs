@@ -12,6 +12,9 @@ namespace Sprint0.Characters
         void TakeDamage(Types.Direction damageSide, int damage, Room room);
 
         void Update(GameTime gameTime);
-        
+
+        public void location(Vector2 newLoc);
+
+        public Vector2 GetPosition();
     }
 }

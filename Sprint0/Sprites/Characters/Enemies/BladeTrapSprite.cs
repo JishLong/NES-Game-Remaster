@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class BladeTrapSprite : StillSprite
+    public class BladeTrapSprite : AbstractStillSprite
     {
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class SnakeLeftSprite : AnimatedSprite
+    public class SnakeLeftSprite : AbstractAnimatedSprite
     {
         public SnakeLeftSprite() : base(2, 12)
         {
@@ -12,6 +12,11 @@ namespace Sprint0.Sprites.Characters.Enemies
 
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 
-        protected override Rectangle GetFirstFrame() => Resources.SnakeLeft;
+        protected override Rectangle GetFirstFrame() => Resources.Snake;
+
+        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
+        {
+            DrawFlippedHorz(spriteBatch, position, color);
+        }
     }
 }

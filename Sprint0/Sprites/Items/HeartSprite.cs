@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Sprites.Player
 {
-    public class HeartSprite : AnimatedSprite
+    public class HeartSprite : AbstractAnimatedSprite
     {
         public HeartSprite() : base(2, 8)
         {

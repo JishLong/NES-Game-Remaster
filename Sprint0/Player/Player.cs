@@ -15,12 +15,23 @@ namespace Sprint0.Player
         public bool IsPrimaryAttacking { get; set; }
         public bool IsStationary { get; set; }
         public Types.Direction FacingDirection { get; set; }
+        public float Health { get; }
+        public float MaxHealth { get; }
+        public Inventory Inventory { get; }
         
         public Player(Game1 game)
         {
             // Reset() here is essentially just initializing the 4 other fields
-            Reset();
+            State = new PlayerFacingRightState(this);
+            Position = new Vector2(0, 0);
+            Color = Color.White;
+            SecondaryWeapon = Types.PlayerWeapon.ARROW;
+            IsPrimaryAttacking = false;
+            FacingDirection = Types.Direction.RIGHT;
             MovementSpeed = new Vector2(4, 4);
+            Health = 3;
+            MaxHealth = 3;
+            Inventory = new Inventory();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -66,16 +77,6 @@ namespace Sprint0.Player
         public Vector2 GetPosition()
         {
             return Position;
-        }
-
-        public void Reset() 
-        {
-            State = new PlayerFacingRightState(this);
-            Position = new Vector2(200, 200);
-            Color = Color.White;
-            SecondaryWeapon = Types.PlayerWeapon.ARROW;
-            IsPrimaryAttacking = false;
-            FacingDirection = Types.Direction.RIGHT;
         }
 
         public Rectangle GetHitbox()
