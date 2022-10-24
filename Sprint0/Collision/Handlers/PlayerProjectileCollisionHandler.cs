@@ -23,14 +23,25 @@ namespace Sprint0.Collision.Handlers
         {
             if (AffectedProjectiles.Contains(projectile.GetType())) 
             {
-                // We likely don't want to destroy the boomerangs
-                if (!(projectile is GoriyaBoomerangProjectile)) 
+                if (player.IsStationary && player.FacingDirection == playerSide)
                 {
-                    projectile.DeathAction();
-                    ProjectileManager.GetInstance().RemoveProjectile(projectile);
-                }               
-                if (!(player.IsStationary && player.FacingDirection == playerSide))
+                    if (projectile is GoriyaBoomerangProjectile)
+                    {
+                        (projectile as GoriyaBoomerangProjectile).ReturnBoomerang();
+                    }
+                    else 
+                    {
+                        projectile.DeathAction();
+                        ProjectileManager.GetInstance().RemoveProjectile(projectile);
+                    }                   
+                }
+                else 
                 {
+                    if (!(projectile is GoriyaBoomerangProjectile))
+                    {
+                        projectile.DeathAction();
+                        ProjectileManager.GetInstance().RemoveProjectile(projectile);
+                    }
                     new PlayerTakeDamageCommand(player, playerSide).Execute();
                 }
             }

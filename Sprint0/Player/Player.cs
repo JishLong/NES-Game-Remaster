@@ -23,7 +23,7 @@ namespace Sprint0.Player
         {
             // Reset() here is essentially just initializing the 4 other fields
             State = new PlayerFacingRightState(this);
-            Position = new Vector2(0, 0);
+            Position = new Vector2(Resources.BlueTile.Width * Utils.GameScale * 8, Resources.BlueTile.Height * Utils.GameScale * 8);
             Color = Color.White;
             SecondaryWeapon = Types.PlayerWeapon.ARROW;
             IsPrimaryAttacking = false;
