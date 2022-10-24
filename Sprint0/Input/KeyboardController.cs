@@ -10,14 +10,15 @@ namespace Sprint0.Controllers
     public class KeyboardController : IController
     {
         // Can be utilized to handle more specific keyboard input
-        private KeyboardState PrevState = Keyboard.GetState();
+        private KeyboardState PrevState;
 
-        // A list of every mapping of keyboard key(s) to actions
-        private Dictionary<ActionMap, ICommand> ActionMaps;
+        // A list of every mapping of action maps to commands
+        private Dictionary<ActionMap, ICommand> CommandMappings;
 
         public KeyboardController(Game1 game, IPlayer player)
         {
-            ActionMaps = new Dictionary<ActionMap, ICommand>
+            PrevState = Keyboard.GetState();
+            CommandMappings = new Dictionary<ActionMap, ICommand>
             {
                 // Player movement controls
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.W, Keys.Up),
@@ -29,8 +30,7 @@ namespace Sprint0.Controllers
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.D, Keys.Right),
                     new PlayerMoveRightCommand(player) },
                 { new ActionMap(ActionMap.KeyState.RELEASED, Keys.W, Keys.Up, Keys.S, Keys.Down, Keys.A, Keys.Left,
-                Keys.D, Keys.Right, Keys.Z, Keys.N, Keys.D1),
-                    new PlayerStopActionCommand(player) },
+                Keys.D, Keys.Right), new PlayerStopActionCommand(player) },
 
                 // Player attack controls
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Z, Keys.N),
@@ -70,7 +70,7 @@ namespace Sprint0.Controllers
         {
             KeyboardState currentState = Keyboard.GetState();
 
-            foreach (var mapping in ActionMaps)
+            foreach (var mapping in CommandMappings)
             {
                 if (mapping.Key.IsActivated(PrevState, currentState))
                 {

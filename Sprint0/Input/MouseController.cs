@@ -5,7 +5,7 @@ namespace Sprint0.Controllers
 {
     public class MouseController : IController
     {
-        private Game1 Game;
+        private readonly Game1 Game;
 
         // Used so that only the "pulse" of the mouse is registered rather than just looking for the button held down
         private MouseState PrevState;
@@ -13,7 +13,6 @@ namespace Sprint0.Controllers
         public MouseController(Game1 game)
         {
             Game = game;
-
             PrevState = Mouse.GetState();
         }
 
