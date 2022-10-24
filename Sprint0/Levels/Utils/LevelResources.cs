@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Sprint0;
+using System.Collections.Generic;
+using static Sprint0.Utils;
 
 namespace Sprint0.Levels.Utils
 {
@@ -9,9 +11,8 @@ namespace Sprint0.Levels.Utils
         public Dictionary<string, Types.Character> CharacterMap;
         public Dictionary<string, Types.Item> ItemMap;
 
-        private static int Scale = 3;  // This seems to be universal, need to find a way to centralize it.
-        public int BlockWidth = 16 * Scale;
-        public int BlockHeight = 16 * Scale;
+        public int BlockWidth = 16 * (int) GameScale;
+        public int BlockHeight = 16 * (int) GameScale;
 
         private LevelResources()
         {
