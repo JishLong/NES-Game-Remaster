@@ -3,10 +3,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Projectiles.Player
 {
-    public class SwordFlameProjSprite : AnimatedSprite
+    public class SwordFlameProjSprite : AbstractAnimatedSprite
     {
-        private Types.Direction Direction;
-        private Rectangle Drawbox;
+        private readonly Types.Direction Direction;
+        private readonly Rectangle Drawbox;
 
         public SwordFlameProjSprite(Types.Direction direction) : base(2, 2)
         {
@@ -14,14 +14,12 @@ namespace Sprint0.Sprites.Projectiles.Player
             switch (direction)
             {
                 case Types.Direction.UPLEFT:
-                    xOffsetPixels = -8;
                     Drawbox = Resources.SwordFlameProjUp;
                     break;
                 case Types.Direction.UPRIGHT:
                     Drawbox = Resources.SwordFlameProjUp;
                     break;
                 case Types.Direction.DOWNLEFT:
-                    xOffsetPixels = -8;
                     Drawbox = Resources.SwordFlameProjDown;
                     break;
                 case Types.Direction.DOWNRIGHT:

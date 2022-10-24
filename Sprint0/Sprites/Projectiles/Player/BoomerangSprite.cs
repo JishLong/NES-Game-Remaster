@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Projectiles.Player
 {
-    public class PlayerBoomerangSprite : AnimatedSprite
+    public class BoomerangSprite : AbstractAnimatedSprite
     {
-        public PlayerBoomerangSprite() : base(3, 12)
+        public BoomerangSprite() : base(3, 12)
         {
 
         }

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player.Movement
 {
-    public class PlayerMovingRight : AnimatedSprite
+    public class PlayerMovingRight : AbstractAnimatedSprite
     {
         public PlayerMovingRight() : base(2, 8)
         {

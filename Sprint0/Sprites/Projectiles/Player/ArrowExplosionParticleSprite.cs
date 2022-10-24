@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Projectiles.Player
 {
-    public class ArrowExplosionParticleSprite : StillSprite
+    public class ArrowExplosionParticleSprite : AbstractStillSprite
     {
         protected override Texture2D GetSpriteSheet() => Resources.WeaponsAndProjSpriteSheet;
 

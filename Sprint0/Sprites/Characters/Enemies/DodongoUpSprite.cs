@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Sprint0.Sprites.Characters.Bosses
+namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class DodongoUpSprite : AnimatedSprite
+    public class DodongoUpSprite : AbstractAnimatedSprite
     {
         public DodongoUpSprite() : base(2, 16)
         {

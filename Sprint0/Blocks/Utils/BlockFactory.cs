@@ -35,8 +35,6 @@ namespace Sprint0.Blocks.Utils
                     return new BlueTile(position);
                 case Types.Block.BLUE_WALL:
                     return new BlueWall(position);
-                case Types.Block.FIRE_BLOCK:
-                    return new FireBlock(position);
                 case Types.Block.GREY_BRICKS:
                     return new GreyBricks(position);
                 case Types.Block.LADDER_BLOCK:

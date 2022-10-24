@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player.Attack.UseItem
 {
-    public class PlayerUseItemLeftSprite : StillSprite
+    public class PlayerUseItemLeftSprite : AbstractStillSprite
     {
         public PlayerUseItemLeftSprite()
         {

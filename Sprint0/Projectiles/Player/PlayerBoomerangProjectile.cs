@@ -11,7 +11,7 @@ namespace Sprint0.Projectiles.Player
         public PlayerBoomerangProjectile(Vector2 position, Types.Direction direction, ICollidable player) : 
             base(position, MovementSpeed, direction, player)
         {
-            Sprite = new PlayerBoomerangSprite();
+            Sprite = new BoomerangSprite();
             FramesAlive = 75;   
         }
 

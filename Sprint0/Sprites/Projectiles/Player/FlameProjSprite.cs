@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Projectiles.Player
 {
-    public class FlameProjSprite: AnimatedSprite
+    public class FlameProjSprite: AbstractAnimatedSprite
     {
         public FlameProjSprite() : base(2, 8)
         {

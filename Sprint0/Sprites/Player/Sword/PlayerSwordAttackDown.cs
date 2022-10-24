@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player.Attack.SwordAttack
 {
-    public class PlayerSwordAttackDown : AnimatedSprite
+    public class PlayerSwordAttackDown : AbstractAnimatedSprite
     {
         public PlayerSwordAttackDown() : base(4, 8)
         {

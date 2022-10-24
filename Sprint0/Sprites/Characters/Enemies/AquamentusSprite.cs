@@ -1,11 +1,11 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Sprint0.Sprites.Characters.Bosses
+namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class AquamentusSprite : AnimatedSprite
+    public class AquamentusSprite : AbstractAnimatedSprite
     {
-        public AquamentusSprite() : base(2, 8)
+        public AquamentusSprite() : base(4, 8)
         {
 
         }

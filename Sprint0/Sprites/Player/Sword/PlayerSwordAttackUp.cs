@@ -1,18 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Player.State;
 
 namespace Sprint0.Sprites.Player.Attack.SwordAttack
 {
-    public class PlayerSwordAttackRight : AnimatedSprite
+    public class PlayerSwordAttackUp : AbstractAnimatedSprite
     {
-        public PlayerSwordAttackRight() : base(4, 8)
+        public PlayerSwordAttackUp() : base(4, 8)
         {
-
+            yOffsetPixels = -12;
         }
 
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 
-        protected override Rectangle GetFirstFrame() => Resources.LinkSwordSideways;
+        protected override Rectangle GetFirstFrame() => Resources.LinkSwordUp;
     }
 }

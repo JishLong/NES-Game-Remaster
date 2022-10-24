@@ -3,14 +3,14 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Sprites
 {
-    public abstract class StillSprite : ISprite
+    public abstract class AbstractStillSprite : ISprite
     {
-        /* [xOffsetPixels]: a number of pixels the sprite's x-coordinate is offset by (scales with SizeScale)
-         * [yOffset]: a number of pixels the sprite's y-coordinate is offset by (scales with SizeScale)
+        /* [xOffsetPixels]: a number of pixels the sprite's x-coordinate is offset by (scales automatically with GameScale)
+         * [yOffset]: a number of pixels the sprite's y-coordinate is offset by (scales automatically ywith GameScale)
          */
         protected int xOffsetPixels, yOffsetPixels;
 
-        public StillSprite()
+        protected AbstractStillSprite()
         {
             xOffsetPixels = 0;
             yOffsetPixels = 0;
@@ -56,6 +56,11 @@ namespace Sprint0.Sprites
                 (int)(position.Y + (yOffsetPixels * Utils.GameScale)),
                 (int)(frame.Width * Utils.GameScale), 
                 (int)(frame.Height * Utils.GameScale));
+        }
+
+        public int GetAnimationTime() 
+        {
+            return 0;
         }
     }
 }

@@ -26,8 +26,8 @@ namespace Sprint0.Collision.Handlers
         {
             if (AffectedProjectiles.Contains(projectile.GetType()) && !(character is OldMan) && !(character is Flame))
             {           
-                // For boomerangs, we likely want the boomerang to keep going; we don't want it to get used up
-                if (!(projectile is PlayerBoomerangProjectile)) 
+                // For boomerangs/flame, we likely don't want it to get used up
+                if (!(projectile is PlayerBoomerangProjectile) && !(projectile is FlameProjectile))
                 {
                     projectile.DeathAction();
                     ProjectileManager.GetInstance().RemoveProjectile(projectile);

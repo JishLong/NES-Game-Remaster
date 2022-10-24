@@ -3,17 +3,18 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites
 {
-    public abstract class AnimatedSprite : ISprite
+    public abstract class AbstractAnimatedSprite : ISprite
     {
         /* [NumFrames] is the number of frames this sprite has
            [Speed] is many game ticks it takes to cycle through one frame */
-        protected int NumFrames, Speed, CurrentFrame, Timer;
+        private readonly int NumFrames, Speed;
+        protected int CurrentFrame, Timer;
 
         /* [xOffset]: multiplicative factor for sprite's x-coordinate
          * [yOffset]: multiplicative factor for sprite's y-coordinate */
         protected int xOffsetPixels, yOffsetPixels;
 
-        public AnimatedSprite(int numFrames, int speed)
+        protected AbstractAnimatedSprite(int numFrames, int speed)
         {
             NumFrames = numFrames;
             Speed = speed;

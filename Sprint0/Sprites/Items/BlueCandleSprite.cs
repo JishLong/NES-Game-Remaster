@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player
 {
-    public class BlueCandleSprite : StillSprite
+    public class BlueCandleSprite : AbstractStillSprite
     {
         protected override Texture2D GetSpriteSheet() => Resources.ItemsSpriteSheet;
 

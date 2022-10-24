@@ -3,10 +3,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Projectiles.Player
 {
-    public class BlueArrowProjSprite : StillSprite
+    public class BlueArrowProjSprite : AbstractStillSprite
     {
-        private Types.Direction Direction;
-        private Rectangle Drawbox;
+        private readonly Types.Direction Direction;
+        private readonly Rectangle Drawbox;
 
         public BlueArrowProjSprite(Types.Direction direction)
         {

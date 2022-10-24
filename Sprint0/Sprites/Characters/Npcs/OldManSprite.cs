@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Characters.Npcs
 {
-    public class OldManSprite : AnimatedSprite
+    public class OldManSprite : AbstractAnimatedSprite
     {
         public OldManSprite() : base(2, 8)
         {

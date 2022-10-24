@@ -1,10 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using static Sprint0.Types;
 
 namespace Sprint0.Sprites.Projectiles.Player
 {
-    public class SwordMeleeSprite : StillSprite
+    public class SwordMeleeSprite : AbstractStillSprite
     {
         private Rectangle Drawbox;
 
@@ -14,11 +13,11 @@ namespace Sprint0.Sprites.Projectiles.Player
             {
                 case Types.Direction.DOWN:
                 case Types.Direction.UP:
-                    Drawbox = Resources.ArrowProjVert;
+                    Drawbox = Resources.SwordMeleeVert;
                     break;
                 case Types.Direction.LEFT:
                 case Types.Direction.RIGHT:
-                    Drawbox = Resources.ArrowProjHorz;
+                    Drawbox = Resources.SwordMeleeHorz;
                     break;
                 default:
                     break;
@@ -27,6 +26,6 @@ namespace Sprint0.Sprites.Projectiles.Player
 
         protected override Texture2D GetSpriteSheet() => Resources.WeaponsAndProjSpriteSheet;
 
-        protected override Rectangle GetFrame() => Resources.SwordMeleeHorz;
+        protected override Rectangle GetFrame() => Drawbox;
     }
 }

@@ -18,7 +18,6 @@
     <None Remove="Player\State\" />
     <None Remove="Commands\Player\" />
     <None Remove="Sprites\Player\Attack\" />
-    <None Remove="Sprites\Player\Attack\SwordAttack\" />
     <None Remove="Sprites\Player\Stationary\" />
     <None Remove="Sprites\Player\Movement\" />
   </ItemGroup>
@@ -31,9 +30,9 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Sprites\Player\Attack\SwordAttack\" />
+    <Folder Include="Sprites\Player\Sword\" />
     <Folder Include="Sprites\Player\Stationary\" />
-    <Folder Include="Sprites\Player\Movement\" />
+    <Folder Include="Sprites\Player\Moving\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Levels\Level1\Room17\Blocks.csv">

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class HandSprite : AnimatedSprite
+    public class HandSprite : AbstractAnimatedSprite
     {
         public HandSprite() : base(2, 16)
         {

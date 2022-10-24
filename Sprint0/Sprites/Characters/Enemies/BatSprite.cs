@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class BatSprite : AnimatedSprite
+    public class BatSprite : AbstractAnimatedSprite
     {
         public BatSprite() : base(2, 8)
         {

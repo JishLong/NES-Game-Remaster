@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Sprint0.Sprites.Characters.Bosses
+namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class DodongoRightSprite : AnimatedSprite
+    public class DodongoRightSprite : AbstractAnimatedSprite
     {
         public DodongoRightSprite() : base(2, 16)
         {
@@ -12,6 +12,6 @@ namespace Sprint0.Sprites.Characters.Bosses
 
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 
-        protected override Rectangle GetFirstFrame() => Resources.DodongoRight;
+        protected override Rectangle GetFirstFrame() => Resources.DodongoSide;
     }
 }
