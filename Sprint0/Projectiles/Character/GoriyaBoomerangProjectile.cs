@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Collision;
 using Sprint0.Sprites.Projectiles.Character;
 
 namespace Sprint0.Projectiles.Character
@@ -8,8 +9,8 @@ namespace Sprint0.Projectiles.Character
         private readonly static Vector2 MovementSpeed = new Vector2(5, 5);
         private bool IsReturning;
 
-        public GoriyaBoomerangProjectile(Vector2 position, Types.Direction direction) : 
-            base(position, MovementSpeed, direction, null)
+        public GoriyaBoomerangProjectile(Vector2 position, Types.Direction direction, ICollidable goriya) : 
+            base(position, MovementSpeed, direction, goriya)
         {
             Sprite = new GoriyaBoomerangSprite();
             FramesAlive = 300;
@@ -22,13 +23,15 @@ namespace Sprint0.Projectiles.Character
             FramesPassed++;
             IsReturning = false;
 
-            if(FramesPassed < (FramesAlive / 2))
+            Vector2 EndPos = Utils.CenterRectangles(User.GetHitbox(), GetHitbox());
+
+            if (FramesPassed < (FramesAlive / 2))
             {
                 Position += Velocity;
             }
             else if(FramesPassed >= FramesAlive / 2)
             {
-                Position -= Velocity;
+                Position += (EndPos - Position) / (FramesAlive - FramesPassed);
             }
         }
 

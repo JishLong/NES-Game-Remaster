@@ -13,7 +13,7 @@ namespace Sprint0.Characters.Enemies.States.BatStates
         public BatMovingUpState(Bat bat)
         {
             Bat = bat;
-            StateDirection = Types.Direction.Up;
+            StateDirection = Types.Direction.UP;
             DirectionVector = Sprint0.Utils.DirectionToVector(StateDirection);
             Sprite = new BatSprite();
 

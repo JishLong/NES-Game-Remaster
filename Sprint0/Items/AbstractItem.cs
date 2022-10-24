@@ -6,11 +6,12 @@ namespace Sprint0.Items
 {
     public abstract class AbstractItem : IItem
     {
-        protected ISprite Sprite;
-        protected Vector2 Position;
+        private readonly ISprite Sprite;
+        private readonly Vector2 Position;
 
-        protected AbstractItem(Vector2 position)
+        protected AbstractItem(ISprite sprite, Vector2 position)
         {
+            Sprite = sprite;
             Position = position;
         }
 
@@ -19,14 +20,14 @@ namespace Sprint0.Items
             Sprite.Draw(sb, Position);
         }
 
+        public Rectangle GetHitbox()
+        {
+            return Sprite.GetDrawbox(Position);
+        }
+
         public void Update()
         {
             Sprite.Update();
-        }
-
-        public Rectangle GetHitbox() 
-        {
-            return Sprite.GetDrawbox(Position);
         }
     }
 }

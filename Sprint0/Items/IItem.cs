@@ -5,8 +5,8 @@ namespace Sprint0.Items
 {
     public interface IItem : ICollidable
     {
-        public void Draw(SpriteBatch sb);
+        void Draw(SpriteBatch sb);
 
-        public void Update();
+        void Update();
     }
 }

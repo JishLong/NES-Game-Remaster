@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Blocks.Blocks;
 using Sprint0.Blocks.PushableBlocks;
 using System;
 
@@ -6,14 +7,7 @@ namespace Sprint0.Blocks.Utils
 {
     public class BlockFactory
     {
-        public static readonly Vector2 DefaultBlockPosition = new Vector2(100, 200);
-
-        // Single point of use
         private static BlockFactory Instance;
-
-        // Used for switching between different blocks in-game
-        private Types.Block[] Blocks = (Types.Block[])Enum.GetValues(typeof(Types.Block));
-        private int CurrentBlock = 0;
 
         private BlockFactory() { }
 
@@ -21,8 +15,8 @@ namespace Sprint0.Blocks.Utils
         {
             switch (blockType)
             {
-                case Types.Block.BLUE_GAP:
-                    return new BlueGap(position);
+                case Types.Block.WATER:
+                    return new Water(position);
                 case Types.Block.BLUE_SAND:
                     return new BlueSand(position);
                 case Types.Block.BLUE_STAIRS:
@@ -37,13 +31,13 @@ namespace Sprint0.Blocks.Utils
                     return new BlueWall(position);
                 case Types.Block.GREY_BRICKS:
                     return new GreyBricks(position);
-                case Types.Block.LADDER_BLOCK:
-                    return new LadderBlock(position);
+                case Types.Block.LADDER:
+                    return new Ladder(position);
                 case Types.Block.WHITE_BARS:
                     return new WhiteBars(position);
                 case Types.Block.PUSHABLE_BLOCK_UP:
                     return new PushableBlockUp(position);
-                case Types.Block.BORDERBLOCK:
+                case Types.Block.BORDER_BLOCK:
                     return new BorderBlock(position);
                 default:
                     Console.Error.Write("The block of type " + blockType.ToString() + 
@@ -52,33 +46,9 @@ namespace Sprint0.Blocks.Utils
             }
         }
 
-        // Returns an instance of the next block type in the [Blocks] array
-        public IBlock GetNextBlock(Vector2 position)
-        {
-            CurrentBlock = (CurrentBlock + 1) % Blocks.Length;
-            return GetBlock(Blocks[CurrentBlock], position);
-        }
-
-        // Returns an instance of the previous block type in the [Blocks] array
-        public IBlock GetPrevBlock(Vector2 position)
-        {
-            CurrentBlock = (CurrentBlock - 1 + Blocks.Length) % Blocks.Length;
-            return GetBlock(Blocks[CurrentBlock], position);
-        }
-
-        // Returns an instance of the beginning block type in the [Blocks] array
-        public IBlock GetBeginningBlock(Vector2 position) 
-        {
-            CurrentBlock = 0;
-            return GetBlock(Blocks[CurrentBlock], position);
-        }
-
         public static BlockFactory GetInstance()
         {
-            if (Instance == null)
-            {
-                Instance = new BlockFactory();
-            }
+            Instance ??= new BlockFactory();
             return Instance;
         }
     }

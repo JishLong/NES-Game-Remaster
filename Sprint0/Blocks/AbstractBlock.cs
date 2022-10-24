@@ -6,24 +6,15 @@ namespace Sprint0.Blocks
 {
     public abstract class AbstractBlock : IBlock
     {
-        protected ISprite Sprite;
+        protected readonly ISprite Sprite;
         protected Vector2 Position;
-        protected bool Pushable;
-        protected bool Walkable;
+        private readonly bool BlockIsWall;
 
-        protected AbstractBlock (Vector2 position) 
+        protected AbstractBlock (ISprite sprite, Vector2 position, bool isWall) 
         {
+            Sprite = sprite;
             Position = position;
-            Pushable = false;
-            Walkable = true;
-        }
-        public bool IsPushable()
-        {
-            return Pushable;
-        }
-        public bool IsWalkable()
-        {
-            return Walkable;
+            BlockIsWall = isWall;
         }
 
         public virtual void Draw(SpriteBatch sb)
@@ -31,16 +22,19 @@ namespace Sprint0.Blocks
             Sprite.Draw(sb, Position);
         }
 
+        public virtual Rectangle GetHitbox()
+        {
+            return Sprite.GetDrawbox(Position);
+        }
+
+        public bool IsWall()
+        {
+            return BlockIsWall;
+        }
+
         public virtual void Update()
         {
             Sprite.Update();
-        }
-
-        public virtual Rectangle GetHitbox() 
-        {
-            Rectangle ActualHitbox = Sprite.GetDrawbox(Position);
-            int ReducedHeight = ActualHitbox.Height / 4;
-            return new Rectangle(ActualHitbox.X, ActualHitbox.Y, ActualHitbox.Width, ReducedHeight);
-        }
+        }   
     }
 }

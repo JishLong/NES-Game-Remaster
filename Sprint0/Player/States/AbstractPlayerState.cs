@@ -21,7 +21,7 @@ namespace Sprint0.Player.State
          * 
          * [FramesPassed]: the number of game frames that have passed since this state has been active
          */
-        protected static bool IsChangingDirection, IsPrimaryAttacking;
+        protected static bool IsChangingDirection, IsPrimaryAttacking, IsTakingDamage;
         protected int FramesPassed;
 
         public AbstractPlayerState(Player player) 
@@ -38,7 +38,7 @@ namespace Sprint0.Player.State
             Player = state.Player;
             DamageFrameCounter = state.DamageFrameCounter;
             FramesPassed = 0;
-                        Knockback = new Vector2(-15, -15);
+            Knockback = new Vector2(-15, -15);
         }
 
         public virtual void ChangeDirection(Types.Direction direction) 
@@ -70,23 +70,27 @@ namespace Sprint0.Player.State
 
         public void TakeDamage() 
         {
-            Player.Color = Color.Red;
-            Player.Position += Utils.DirectionToVector(Player.FacingDirection) * Knockback;
+            if (!IsTakingDamage) 
+            {
+                IsTakingDamage = true;
+                Player.Color = Color.Red;
+                Player.Position += Utils.DirectionToVector(Player.FacingDirection) * Knockback;
+            }     
         }
 
         public Rectangle GetHitbox() 
         {
-            /*Rectangle ActualHitbox = new Rectangle((int)Player.Position.X, (int)Player.Position.Y,
+            Rectangle ActualHitbox = new Rectangle((int)Player.Position.X, (int)Player.Position.Y,
                 (int)(Resources.LinkDown.Width * Utils.GameScale), (int)(Resources.LinkDown.Height * Utils.GameScale));
             int ReducedWidth = ActualHitbox.Width * 2 / 3;
             int ReducedHeight = ActualHitbox.Height * 2 / 3;
             Vector2 ReducedHitboxPosition = Utils.CenterRectangles(ActualHitbox, new Rectangle(0, 0, ReducedWidth, ReducedHeight));
-            return new Rectangle((int)(ReducedHitboxPosition.X), (int)(ReducedHitboxPosition.Y), ReducedWidth, ReducedHeight);*/
-            Rectangle NormalLink = Resources.LinkDown;
+            return new Rectangle((int)(ReducedHitboxPosition.X), (int)(ReducedHitboxPosition.Y), ReducedWidth, ReducedHeight);
+            /*Rectangle NormalLink = Resources.LinkDown;
             Rectangle SpriteDrawbox = Sprite.GetDrawbox(Player.Position);
 
             return new Rectangle((int)Player.Position.X, (int)Player.Position.Y,
-                (int)(NormalLink.Width * Utils.GameScale), (int)(NormalLink.Height * Utils.GameScale));
+                (int)(NormalLink.Width * Utils.GameScale), (int)(NormalLink.Height * Utils.GameScale));*/
         }
 
         public virtual void Update() 
@@ -109,6 +113,7 @@ namespace Sprint0.Player.State
                 DamageFrameCounter = (DamageFrameCounter + 1) % 40;
                 if (DamageFrameCounter == 0) 
                 {
+                    IsTakingDamage = false;
                     Player.Color = Color.White;
                 }
             }

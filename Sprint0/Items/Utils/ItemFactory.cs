@@ -1,18 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Items.Items;
 using System;
 
 namespace Sprint0.Items.Utils
 {
     public class ItemFactory
     {
-        public static readonly Vector2 DefaultItemPosition = new Vector2(600, 200);
-
         // Single point of use
         private static ItemFactory Instance;
-
-        // Used for switching between different items in-game
-        private Types.Item[] Items = (Types.Item[])Enum.GetValues(typeof(Types.Item));
-        private int CurrentItem = 0;
 
         private ItemFactory() { }
 
@@ -57,33 +52,9 @@ namespace Sprint0.Items.Utils
             }
         }
 
-        // Returns an instance of the next item type in the [Items] array
-        public IItem GetNextItem(Vector2 position)
-        {
-            CurrentItem = (CurrentItem + 1) % Items.Length;
-            return GetItem(Items[CurrentItem], position);
-        }
-
-        // Returns an instance of the previous item type in the [Items] array
-        public IItem GetPrevItem(Vector2 position)
-        {
-            CurrentItem = (CurrentItem - 1 + Items.Length) % Items.Length;
-            return GetItem(Items[CurrentItem], position);
-        }
-
-        // Returns an instance of the beginning item type in the [Items array]
-        public IItem GetBeginningItem(Vector2 position) 
-        {
-            CurrentItem = 0;
-            return GetItem(Items[CurrentItem], position);
-        }
-
         public static ItemFactory GetInstance()
         {
-            if (Instance == null)
-            {
-                Instance = new ItemFactory();
-            }
+            Instance ??= new ItemFactory();
             return Instance;
         }
     }

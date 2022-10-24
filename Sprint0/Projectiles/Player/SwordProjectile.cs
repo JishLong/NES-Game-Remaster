@@ -23,8 +23,8 @@ namespace Sprint0.Projectiles.Player_Projectiles
         {
             ProjectileManager PM = ProjectileManager.GetInstance();
             Rectangle r = Resources.SwordFlameProjDown;
-            Rectangle ProjHitbox = new Rectangle(r.X, r.Y, (int)(r.Width * Utils.GameScale), (int)(r.Height * Utils.GameScale));
-            Vector2 ProjPosition = Utils.CenterOnEdge(Sprite.GetDrawbox(Position), ProjHitbox, Direction);
+            Vector2 ProjPosition = Utils.CenterOnEdge(Sprite.GetDrawbox(Position), (int)(r.Width * Utils.GameScale), (int)(r.Height * Utils.GameScale),
+                Direction);
 
             PM.AddProjectile(Types.Projectile.SWORDFLAMEPROJ, ProjPosition, Types.Direction.UPLEFT, null);
             PM.AddProjectile(Types.Projectile.SWORDFLAMEPROJ, ProjPosition, Types.Direction.UPRIGHT, null);
