@@ -6,6 +6,7 @@ using Sprint0.Projectiles.Player_Projectiles;
 using Sprint0.Projectiles.Player;
 using Sprint0.Characters;
 using Sprint0.Commands.Characters;
+using Sprint0.Npcs;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -23,7 +24,7 @@ namespace Sprint0.Collision.Handlers
 
         public void HandleCollision(ICharacter character, IProjectile projectile, Types.Direction characterSide, Room room)
         {
-            if (AffectedProjectiles.Contains(projectile.GetType()))
+            if (AffectedProjectiles.Contains(projectile.GetType()) && !(character is OldMan) && !(character is Flame))
             {           
                 // For boomerangs, we likely want the boomerang to keep going; we don't want it to get used up
                 if (!(projectile is PlayerBoomerangProjectile)) 

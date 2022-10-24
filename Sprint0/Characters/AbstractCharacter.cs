@@ -27,7 +27,7 @@ public abstract class AbstractCharacter : ICharacter
     // Sprite related fields.
     protected ISprite Sprite;
 
-    public void TakeDamage(Types.Direction damageSide, int damage, Room room)
+    public virtual void TakeDamage(Types.Direction damageSide, int damage, Room room)
     {
         if (Color != Color.Red) 
         {
@@ -62,12 +62,12 @@ public abstract class AbstractCharacter : ICharacter
         State.Update(gameTime);
     }
 
-    public void Draw(SpriteBatch sb)
+    public virtual void Draw(SpriteBatch sb)
     {
         State.Draw(sb, Position, Color);
     }
 
-    public Rectangle GetHitbox()
+    public virtual Rectangle GetHitbox()
     {
         return State.GetHitbox(Position);
     }
