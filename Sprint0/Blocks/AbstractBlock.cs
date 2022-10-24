@@ -38,9 +38,7 @@ namespace Sprint0.Blocks
 
         public virtual Rectangle GetHitbox() 
         {
-            Rectangle ActualHitbox = Sprite.GetDrawbox(Position);
-            int ReducedHeight = ActualHitbox.Height / 4;
-            return new Rectangle(ActualHitbox.X, ActualHitbox.Y, ActualHitbox.Width, ReducedHeight);
+            return Sprite.GetDrawbox(Position);
         }
     }
 }

@@ -12,21 +12,22 @@ namespace Sprint0
          * the point (as a Vector2) at which we would have to draw rectangle B for this to occur.
          * 
          * [hitbox]: analogous to rectangle A
-         * [centeredHitbox]: analogous to rectangle B
+         * [centeredHitboxWidth]: analogous to rectangle B's width
+         * [centeredHitboxHeight]: analogous to rectangle B's height
          * [hitboxEdge]: the edge of A on which we want to center rectangle B
-         */        
-        public static Vector2 CenterOnEdge(Rectangle hitbox, Rectangle centeredHitbox, Types.Direction hitboxEdge) 
+         */
+        public static Vector2 CenterOnEdge(Rectangle hitbox, int centeredHitboxWidth, int centeredHitboxHeight, Types.Direction hitboxEdge) 
         {
             switch (hitboxEdge) 
             {
                 case Types.Direction.LEFT:
-                    return new Vector2(hitbox.Left - centeredHitbox.Width / 2, hitbox.Y + hitbox.Height / 2 - centeredHitbox.Height / 2);
+                    return new Vector2(hitbox.Left - centeredHitboxWidth / 2, hitbox.Y + hitbox.Height / 2 - centeredHitboxHeight / 2);
                 case Types.Direction.RIGHT:
-                    return new Vector2(hitbox.Right - centeredHitbox.Width / 2, hitbox.Y + hitbox.Height / 2 - centeredHitbox.Height / 2);
+                    return new Vector2(hitbox.Right - centeredHitboxWidth / 2, hitbox.Y + hitbox.Height / 2 - centeredHitboxHeight / 2);
                 case Types.Direction.UP:
-                    return new Vector2(hitbox.X + hitbox.Width / 2 - centeredHitbox.Width / 2, hitbox.Top - centeredHitbox.Height / 2);
+                    return new Vector2(hitbox.X + hitbox.Width / 2 - centeredHitboxWidth / 2, hitbox.Top - centeredHitboxHeight / 2);
                 case Types.Direction.DOWN:
-                    return new Vector2(hitbox.X + hitbox.Width / 2 - centeredHitbox.Width / 2, hitbox.Bottom - centeredHitbox.Height / 2);
+                    return new Vector2(hitbox.X + hitbox.Width / 2 - centeredHitboxWidth / 2, hitbox.Bottom - centeredHitboxHeight / 2);
                 default:
                     return new Vector2(0, 0);
             }

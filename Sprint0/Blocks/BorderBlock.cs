@@ -11,10 +11,5 @@ namespace Sprint0.Blocks
             Pushable = false;
             Walkable = false;
         }
-
-        public override Rectangle GetHitbox()
-        {
-            return Sprite.GetDrawbox(Position);
-        }
     } 
 }

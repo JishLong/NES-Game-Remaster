@@ -22,11 +22,10 @@ namespace Sprint0.Projectiles.Player
         public override void DeathAction()
         {
             Rectangle r = Resources.ArrowExplosionParticle;
-            Rectangle ParticleHitbox = new Rectangle(r.X, r.Y, (int)(r.Width * Utils.GameScale), (int)(r.Height * Utils.GameScale));
 
             ProjectileManager.GetInstance().AddProjectile(
                 Types.Projectile.ARROWEXPLOSIONPARTICLE,
-                Utils.CenterOnEdge(Sprite.GetDrawbox(Position), ParticleHitbox, Direction),
+                Utils.CenterOnEdge(Sprite.GetDrawbox(Position), (int)(r.Width * Utils.GameScale), (int)(r.Height * Utils.GameScale), Direction),
                 Direction, null);
         }
 

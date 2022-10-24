@@ -8,10 +8,5 @@ namespace Sprint0.Blocks.PushableBlocks
         {
         
         }
-
-        public override Rectangle GetHitbox()
-        {
-            return Sprite.GetDrawbox(Position);
-        }
     }
 }

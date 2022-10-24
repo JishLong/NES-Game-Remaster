@@ -11,5 +11,14 @@ namespace Sprint0.Blocks
             Pushable = false;
             Walkable = false;
         }
+
+        public override Rectangle GetHitbox()
+        {
+            Rectangle ActualHitbox = Sprite.GetDrawbox(Position);
+            int ReducedWidth = ActualHitbox.Width / 2;
+            int ReducedHeight = ActualHitbox.Height / 2;
+            Vector2 hitboxPosition = Sprint0.Utils.CenterOnEdge(ActualHitbox, ReducedWidth, ReducedHeight, Types.Direction.UP);
+            return new Rectangle((int)hitboxPosition.X, (int)hitboxPosition.Y, ReducedWidth, ReducedHeight);
+        }
     }
 }
