@@ -17,6 +17,7 @@ namespace Sprint0.Player
         public Types.Direction FacingDirection { get; set; }
         public float Health { get; }
         public float MaxHealth { get; }
+        public Inventory Inventory { get; }
         
         public Player(Game1 game)
         {
@@ -30,6 +31,7 @@ namespace Sprint0.Player
             MovementSpeed = new Vector2(4, 4);
             Health = 3;
             MaxHealth = 3;
+            Inventory = new Inventory();
         }
 
         public void Draw(SpriteBatch spriteBatch)

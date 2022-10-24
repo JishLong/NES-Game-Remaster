@@ -32,6 +32,17 @@ namespace Sprint0
             }
         }
 
+        /* Suppose we have two rectangles A and B. Let's say we want to move rectangle B such that A's origin = B's origin. This method
+         * allows us to to do that by returning the point (as a Vector2) at which we would have to draw rectangle B for this to occur.
+         * 
+         * [hitbox]: analogous to rectangle A
+         * [centeredHitbox]: analogous to rectangle B
+         */
+        public static Vector2 CenterRectangles(Rectangle hitbox, Rectangle centeredHitbox) 
+        {
+            return new Vector2(hitbox.X + hitbox.Width / 2 - centeredHitbox.Width / 2, hitbox.Y + hitbox.Height / 2 - centeredHitbox.Height / 2);
+        }
+
         public static Vector2 DirectionToVector(Types.Direction direction) 
         {
             switch (direction) 

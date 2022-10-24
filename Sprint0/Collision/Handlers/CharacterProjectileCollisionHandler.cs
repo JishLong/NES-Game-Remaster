@@ -13,7 +13,7 @@ namespace Sprint0.Collision.Handlers
     // Handles all collisions between characters and projectiles
     public class CharacterProjectileCollisionHandler
     {
-        List<System.Type> AffectedProjectiles;
+        private List<System.Type> AffectedProjectiles;
 
         public CharacterProjectileCollisionHandler()
         {

@@ -11,6 +11,8 @@ namespace Sprint0.Player
         public bool IsStationary { get; set; }
         public Types.Direction FacingDirection { get; set; }
 
+        public Inventory Inventory { get; }
+
         public void Update();
 
         public void Draw(SpriteBatch spriteBatch);
