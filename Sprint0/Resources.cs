@@ -66,6 +66,10 @@ namespace Sprint0
         public static readonly Rectangle CharacterDeathParticle = new Rectangle(0, 32, 15, 16);
         public static readonly Rectangle SwordMeleeHorz = new Rectangle(61, 32, 12, 15);
         public static readonly Rectangle SwordMeleeVert = new Rectangle(74, 32, 15, 12);
+        public static readonly Rectangle SwordProjHorz = new Rectangle(14, 48, 16, 7);
+        public static readonly Rectangle SwordProjVert = new Rectangle(0, 48, 7, 16);
+        public static readonly Rectangle SwordFlameProjUp = new Rectangle(46, 48, 8, 10);
+        public static readonly Rectangle SwordFlameProjDown = new Rectangle(62, 48, 8, 10);
 
         // Sprite sheet positions for all characters
         public static readonly Rectangle Bat = new Rectangle(0, 0, 16, 10);

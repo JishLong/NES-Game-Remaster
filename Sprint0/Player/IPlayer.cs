@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Collision;
 
@@ -29,7 +28,5 @@ namespace Sprint0.Player
         public void location(Vector2 newLoc);
 
         public Vector2 GetPosition();
-
-        public void Reset();
     }
 }

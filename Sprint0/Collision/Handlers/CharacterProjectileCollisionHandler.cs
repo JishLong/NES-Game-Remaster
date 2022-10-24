@@ -17,7 +17,8 @@ namespace Sprint0.Collision.Handlers
         public CharacterProjectileCollisionHandler()
         {
             AffectedProjectiles = new List<System.Type> { typeof(ArrowProjectile), typeof(BlueArrowProjectile),
-            typeof(FlameProjectile), typeof(PlayerBoomerangProjectile), typeof(SwordMelee) };
+            typeof(FlameProjectile), typeof(PlayerBoomerangProjectile), typeof(SwordMelee), typeof(SwordProjectile),
+                typeof(SwordFlameProjectile) };
         }
 
         public void HandleCollision(ICharacter character, IProjectile projectile, Types.Direction characterSide, Room room)

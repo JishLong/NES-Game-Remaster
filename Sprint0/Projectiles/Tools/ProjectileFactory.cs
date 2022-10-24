@@ -43,6 +43,10 @@ namespace Sprint0.Projectiles.Tools
                     return new PlayerBoomerangProjectile(position, direction);
                 case Types.Projectile.SWORDMELEE:
                     return new SwordMelee(position, direction);
+                case Types.Projectile.SWORDPROJ:
+                    return new SwordProjectile(position, direction);
+                case Types.Projectile.SWORDFLAMEPROJ:
+                    return new SwordFlameProjectile(position, direction);
                 default:
                     Console.Error.Write("The projectile of type " + projectileType.ToString() +
                         " could not be instantiated by the Projectile Factory. Does this type exist?");

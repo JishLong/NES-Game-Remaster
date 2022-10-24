@@ -30,12 +30,6 @@ namespace Sprint0.Projectiles.Player_Projectiles
         public override bool FromPlayer()
         {
             return true;
-        }
-
-        public override Rectangle GetHitbox()
-        {
-            // Incorrect for now - also needs to rotate
-            return Sprite.GetDrawbox(Position);
-        }  
+        } 
     }
 }
