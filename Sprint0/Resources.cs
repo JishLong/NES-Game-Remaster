@@ -26,6 +26,7 @@ namespace Sprint0
         public static readonly Rectangle GreyBricks = new Rectangle(0, 32, 16, 16);
         public static readonly Rectangle WhiteBars = new Rectangle(16, 32, 16, 16);
         public static readonly Rectangle LadderBlock = new Rectangle(0, 16, 16, 16);
+        public static readonly Rectangle BorderBlock = new Rectangle(33, 33, 16, 16);
 
         // Sprite sheet positions for all borders
         public static readonly Rectangle Level1Border = new Rectangle(521, 11, 256, 176);

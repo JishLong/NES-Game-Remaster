@@ -43,6 +43,8 @@ namespace Sprint0.Blocks.Utils
                     return new WhiteBars(position);
                 case Types.Block.PUSHABLE_BLOCK_UP:
                     return new PushableBlockUp(position);
+                case Types.Block.BORDERBLOCK:
+                    return new BorderBlock(position);
                 default:
                     Console.Error.Write("The block of type " + blockType.ToString() + 
                         " could not be instantiated by the Block Factory. Does this type exist?");

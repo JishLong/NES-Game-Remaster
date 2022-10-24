@@ -118,6 +118,7 @@ namespace Sprint0.Levels
             {
                 block.Draw(sb);
             }
+            Border.Draw(sb);
             foreach (IItem item in Items)
             {
                 item.Draw(sb);
@@ -126,8 +127,7 @@ namespace Sprint0.Levels
             {
                 character.Draw(sb);
             }
-            Projectiles.Draw(sb);
-            Border.Draw(sb);
+            Projectiles.Draw(sb);       
         }
     }
 }

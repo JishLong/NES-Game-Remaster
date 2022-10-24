@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 
 namespace Sprint0.Player.State
@@ -77,6 +76,12 @@ namespace Sprint0.Player.State
 
         public Rectangle GetHitbox() 
         {
+            /*Rectangle ActualHitbox = new Rectangle((int)Player.Position.X, (int)Player.Position.Y,
+                (int)(Resources.LinkDown.Width * Utils.GameScale), (int)(Resources.LinkDown.Height * Utils.GameScale));
+            int ReducedWidth = ActualHitbox.Width * 2 / 3;
+            int ReducedHeight = ActualHitbox.Height * 2 / 3;
+            Vector2 ReducedHitboxPosition = Utils.CenterRectangles(ActualHitbox, new Rectangle(0, 0, ReducedWidth, ReducedHeight));
+            return new Rectangle((int)(ReducedHitboxPosition.X), (int)(ReducedHitboxPosition.Y), ReducedWidth, ReducedHeight);*/
             Rectangle NormalLink = Resources.LinkDown;
             Rectangle SpriteDrawbox = Sprite.GetDrawbox(Player.Position);
 

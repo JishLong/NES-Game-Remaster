@@ -68,7 +68,7 @@ namespace Sprint0
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.BlueViolet);
+            GraphicsDevice.Clear(Color.Black);
             SBatch.Begin(samplerState: SamplerState.PointClamp);
 
             LevelManager.Draw(SBatch);
