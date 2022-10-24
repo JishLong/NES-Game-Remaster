@@ -4,7 +4,6 @@ using Sprint0.Player;
 using Sprint0.Blocks;
 using Microsoft.Xna.Framework;
 using Sprint0.Commands.Blocks;
-using System.Security.Principal;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -14,7 +13,7 @@ namespace Sprint0.Collision.Handlers
         public void HandleCollision(IPlayer player, IBlock block, Types.Direction playerSide, Room room)
         {
             //types of blocks player cannot walk through
-            if (!block.IsWalkable())
+            if (block.IsWall())
             {
                 if (block is AbstractPushableBlock && playerSide == (block as AbstractPushableBlock).Direction) 
                 {
@@ -49,7 +48,6 @@ namespace Sprint0.Collision.Handlers
                         Y = PHitbox.Y - (int)PHitboxOffset.Y;
                         new PlayerRelocate(player, new Vector2(X, Y)).Execute();
                         break;
-                        //block: if pushable -> block.push
                 }
             }
         }

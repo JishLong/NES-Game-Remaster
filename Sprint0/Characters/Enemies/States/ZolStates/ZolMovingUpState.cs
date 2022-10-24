@@ -12,7 +12,7 @@ namespace Sprint0.Characters.Enemies.States.ZolStates
         public ZolMovingUpState(Zol zol)
         {
             Zol = zol;
-            StateDirection = Types.Direction.Up;
+            StateDirection = Types.Direction.UP;
             DirectionVector = Sprint0.Utils.DirectionToVector(StateDirection);
             Sprite = new ZolSprite();
         }

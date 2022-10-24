@@ -12,6 +12,7 @@ namespace Sprint0.Player
         public Types.Direction FacingDirection { get; set; }
 
         public Inventory Inventory { get; }
+        public float Damage { get; }
 
         public void Update();
 

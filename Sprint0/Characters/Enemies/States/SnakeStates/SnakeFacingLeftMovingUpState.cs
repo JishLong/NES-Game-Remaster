@@ -13,7 +13,7 @@ namespace Sprint0.Characters.Enemies.States.SnakeStates
         public SnakeFacingLeftMovingUpState(Snake snake)
         {
             Snake = snake;
-            StateDirection = Types.Direction.Up;
+            StateDirection = Types.Direction.UP;
             DirectionVector = Sprint0.Utils.DirectionToVector(StateDirection);
             Sprite = new SnakeLeftSprite();
         }

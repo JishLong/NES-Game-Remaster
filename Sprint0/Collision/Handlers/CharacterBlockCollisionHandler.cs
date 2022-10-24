@@ -14,7 +14,7 @@ namespace Sprint0.Collision.Handlers
         public void HandleCollision(ICharacter character, IBlock block, Types.Direction characterSide, Room room) 
         {
             //types of blocks player cannot walk through
-            if (!block.IsWalkable())
+            if (block.IsWall())
             {
                 //character.changedirection
                 Rectangle PHitbox = character.GetHitbox();
