@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Sprites.Characters.Bosses;
 using Sprint0.Characters.Bosses.AquamentusStates;
 using Sprint0.Characters.Enemies;
+using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Bosses.States.AquamentusStates
 {

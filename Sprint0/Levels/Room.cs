@@ -94,13 +94,13 @@ namespace Sprint0.Levels
             {
                 block.Update();
             }
-            foreach(ICharacter character in Characters)
-            {
-                character.Update(gameTime);
-            }
-            foreach(IItem item in Items)
+            foreach (IItem item in Items)
             {
                 item.Update();
+            }
+            foreach (ICharacter character in Characters)
+            {
+                character.Update(gameTime);
             }
             Projectiles.Update();
         }
@@ -110,13 +110,13 @@ namespace Sprint0.Levels
             {
                 block.Draw(sb);
             }
-            foreach(ICharacter character in Characters)
-            {
-                character.Draw(sb);
-            }
-            foreach(IItem item in Items)
+            foreach (IItem item in Items)
             {
                 item.Draw(sb);
+            }
+            foreach (ICharacter character in Characters)
+            {
+                character.Draw(sb);
             }
             Projectiles.Draw(sb);
         }

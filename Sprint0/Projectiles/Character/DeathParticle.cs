@@ -12,7 +12,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
             base(position, MovementSpeed, Types.Direction.UP, null)
         {
             Sprite = new DeathParticleSprite();
-            FramesAlive = ((AnimatedSprite)Sprite).GetAnimationTime() - 1;
+            FramesAlive = ((AbstractAnimatedSprite)Sprite).GetAnimationTime() - 1;
         }
     }
 }

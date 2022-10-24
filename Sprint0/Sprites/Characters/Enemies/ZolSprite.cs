@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class ZolSprite : AnimatedSprite
+    public class ZolSprite : AbstractAnimatedSprite
     {
         public ZolSprite() : base(2, 8)
         {
