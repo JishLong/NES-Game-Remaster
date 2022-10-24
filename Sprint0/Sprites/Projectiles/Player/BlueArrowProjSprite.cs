@@ -14,16 +14,10 @@ namespace Sprint0.Sprites.Projectiles.Player
             switch (direction)
             {
                 case Types.Direction.DOWN:
-                    xOffsetPixels = -5;
-                    Drawbox = Resources.BlueArrowProjVert;
-                    break;
                 case Types.Direction.UP:
                     Drawbox = Resources.BlueArrowProjVert;
                     break;
                 case Types.Direction.LEFT:
-                    yOffsetPixels = -5;
-                    Drawbox = Resources.BlueArrowProjHorz;
-                    break;
                 case Types.Direction.RIGHT:
                     Drawbox = Resources.BlueArrowProjHorz;
                     break;
