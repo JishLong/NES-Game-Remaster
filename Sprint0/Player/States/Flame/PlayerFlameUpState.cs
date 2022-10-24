@@ -30,7 +30,7 @@ namespace Sprint0.Player.States.Flame
             float FlameY = Player.GetHitbox().Top - Resources.FlameProj.Height * Utils.GameScale;
 
             ProjectileManager.GetInstance().AddProjectile(
-                Types.Projectile.FLAMEPROJ, new Vector2(FlameX, FlameY), Types.Direction.UP);
+                Types.Projectile.FLAMEPROJ, new Vector2(FlameX, FlameY), Types.Direction.UP, null);
         }
 
         public override void Update()

@@ -40,11 +40,11 @@ namespace Sprint0.Characters.Enemies
             if (RNG.Next(0, 120) == 0)
             {
                 IProjectile proj1 = ProjectileFactory.GetInstance().GetProjectile(
-                    Types.Projectile.BOSSPROJ, Position, Types.Direction.LEFT);
+                    Types.Projectile.BOSSPROJ, Position, Types.Direction.LEFT, null);
                 IProjectile proj2 = ProjectileFactory.GetInstance().GetProjectile(
-                    Types.Projectile.BOSSPROJ, Position, Types.Direction.DOWNLEFT);
+                    Types.Projectile.BOSSPROJ, Position, Types.Direction.DOWNLEFT, null);
                 IProjectile proj3 = ProjectileFactory.GetInstance().GetProjectile(
-                    Types.Projectile.BOSSPROJ, Position, Types.Direction.DOWNRIGHT);
+                    Types.Projectile.BOSSPROJ, Position, Types.Direction.DOWNRIGHT, null);
 
                 //ProjectileManager.GetInstance().AddProjectile(proj1);
                 //ProjectileManager.GetInstance().AddProjectile(proj2);

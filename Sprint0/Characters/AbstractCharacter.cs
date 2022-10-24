@@ -53,7 +53,8 @@ public abstract class AbstractCharacter : ICharacter
         ProjectileManager.GetInstance().AddProjectile(
             Types.Projectile.DEATHPARTICLE, 
             Utils.CenterRectangles(GetHitbox(), ParticleHitbox), 
-            Types.Direction.UP);
+            Types.Direction.UP,
+            null);
     }
 
     public virtual void Update(GameTime gameTime)

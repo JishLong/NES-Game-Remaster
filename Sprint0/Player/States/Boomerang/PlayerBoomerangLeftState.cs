@@ -30,7 +30,7 @@ namespace Sprint0.Player.States.Boomerang
             float BoomerangY = Player.GetHitbox().Center.Y - Resources.BoomerangProj.Height * Utils.GameScale / 2;
 
             ProjectileManager.GetInstance().AddProjectile(
-                Types.Projectile.PLAYERBOOMERANGPROJ, new Vector2(BoomerangX, BoomerangY), Types.Direction.LEFT);
+                Types.Projectile.PLAYERBOOMERANGPROJ, new Vector2(BoomerangX, BoomerangY), Types.Direction.LEFT, Player);
         }
 
         public override void Update()

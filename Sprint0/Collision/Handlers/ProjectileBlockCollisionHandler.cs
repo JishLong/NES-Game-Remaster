@@ -20,7 +20,7 @@ namespace Sprint0.Collision.Handlers
         public ProjectileBlockCollisionHandler()
         {
             AffectedProjectiles = new List<System.Type>{ typeof(BossProjectile), typeof(GoriyaBoomerangProjectile),
-                typeof(ArrowProjectile), typeof(BlueArrowProjectile), typeof(FlameProjectile), typeof(PlayerBoomerangProjectile) };
+                typeof(ArrowProjectile), typeof(BlueArrowProjectile), typeof(FlameProjectile) };
 
             AffectedBlocks = new List<System.Type> { typeof(BlueStatueLeft), typeof(BlueStatueRight),
             typeof(BlueWall), typeof(GreyBricks), typeof(WhiteBars), typeof(PushableBlockUp) };
@@ -34,10 +34,18 @@ namespace Sprint0.Collision.Handlers
          */
         public void HandleCollision(IProjectile projectile, IBlock block, Types.Direction itemSide, Room room)
         {
-            if (AffectedProjectiles.Contains(projectile.GetType()) && AffectedBlocks.Contains(block.GetType())) 
+            if (AffectedProjectiles.Contains(projectile.GetType()) && AffectedBlocks.Contains(block.GetType()))
             {
                 projectile.DeathAction();
                 ProjectileManager.GetInstance().RemoveProjectile(projectile);
+            }
+            else if (projectile is PlayerBoomerangProjectile && AffectedBlocks.Contains(block.GetType())) 
+            {
+                (projectile as PlayerBoomerangProjectile).ReturnBoomerang();
+            }
+            else if (projectile is GoriyaBoomerangProjectile && AffectedBlocks.Contains(block.GetType()))
+            {
+                (projectile as GoriyaBoomerangProjectile).ReturnBoomerang();
             }
         }
     }

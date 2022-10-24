@@ -29,7 +29,7 @@ namespace Sprint0.Player.States.Boomerang
             float BoomerangY = Player.GetHitbox().Bottom;
 
             ProjectileManager.GetInstance().AddProjectile(
-                Types.Projectile.PLAYERBOOMERANGPROJ, new Vector2(BoomerangX, BoomerangY), Types.Direction.DOWN);
+                Types.Projectile.PLAYERBOOMERANGPROJ, new Vector2(BoomerangX, BoomerangY), Types.Direction.DOWN, Player);
         }
 
         public override void Update()

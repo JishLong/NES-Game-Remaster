@@ -12,7 +12,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
         private readonly Types.Direction Direction;
 
         public SwordProjectile(Vector2 position, Types.Direction direction) :
-            base(position, MovementSpeed, direction)
+            base(position, MovementSpeed, direction, null)
         {
             Sprite = new SwordProjSprite(direction);
             FramesAlive = 1000;
@@ -26,10 +26,10 @@ namespace Sprint0.Projectiles.Player_Projectiles
             Rectangle ProjHitbox = new Rectangle(r.X, r.Y, (int)(r.Width * Utils.GameScale), (int)(r.Height * Utils.GameScale));
             Vector2 ProjPosition = Utils.CenterOnEdge(Sprite.GetDrawbox(Position), ProjHitbox, Direction);
 
-            PM.AddProjectile(Types.Projectile.SWORDFLAMEPROJ, ProjPosition, Types.Direction.UPLEFT);
-            PM.AddProjectile(Types.Projectile.SWORDFLAMEPROJ, ProjPosition, Types.Direction.UPRIGHT);
-            PM.AddProjectile(Types.Projectile.SWORDFLAMEPROJ, ProjPosition, Types.Direction.DOWNLEFT);
-            PM.AddProjectile(Types.Projectile.SWORDFLAMEPROJ, ProjPosition, Types.Direction.DOWNRIGHT);
+            PM.AddProjectile(Types.Projectile.SWORDFLAMEPROJ, ProjPosition, Types.Direction.UPLEFT, null);
+            PM.AddProjectile(Types.Projectile.SWORDFLAMEPROJ, ProjPosition, Types.Direction.UPRIGHT, null);
+            PM.AddProjectile(Types.Projectile.SWORDFLAMEPROJ, ProjPosition, Types.Direction.DOWNLEFT, null);
+            PM.AddProjectile(Types.Projectile.SWORDFLAMEPROJ, ProjPosition, Types.Direction.DOWNRIGHT, null);
         }
 
         public override void Draw(SpriteBatch sb)

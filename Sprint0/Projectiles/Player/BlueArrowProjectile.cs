@@ -12,7 +12,7 @@ namespace Sprint0.Projectiles.Player
         private readonly Types.Direction Direction;
 
         public BlueArrowProjectile(Vector2 position, Types.Direction direction) :
-            base(position, MovementSpeed, direction)
+            base(position, MovementSpeed, direction, null)
         {
             Sprite = new BlueArrowProjSprite(direction);
             FramesAlive = 40;
@@ -27,7 +27,7 @@ namespace Sprint0.Projectiles.Player
             ProjectileManager.GetInstance().AddProjectile(
                 Types.Projectile.ARROWEXPLOSIONPARTICLE,
                 Utils.CenterOnEdge(Sprite.GetDrawbox(Position), ParticleHitbox, Direction),
-                Direction);
+                Direction, null);
         }
 
         public override void Draw(SpriteBatch sb)

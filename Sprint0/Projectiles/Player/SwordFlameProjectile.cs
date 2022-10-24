@@ -9,7 +9,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
         private readonly static Vector2 MovementSpeed = new Vector2(4, 4);
 
         public SwordFlameProjectile(Vector2 position, Types.Direction direction) :
-            base(position, MovementSpeed, direction)
+            base(position, MovementSpeed, direction, null)
         {
             Sprite = new SwordFlameProjSprite(direction);
             FramesAlive = 20;

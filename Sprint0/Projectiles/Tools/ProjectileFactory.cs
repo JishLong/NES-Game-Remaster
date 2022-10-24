@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Collision;
 using Sprint0.Projectiles.Character;
 using Sprint0.Projectiles.Character_Projectiles;
 using Sprint0.Projectiles.Player;
@@ -17,7 +18,7 @@ namespace Sprint0.Projectiles.Tools
 
         private ProjectileFactory() { }
 
-        public IProjectile GetProjectile(Types.Projectile projectileType, Vector2 position, Types.Direction direction)
+        public IProjectile GetProjectile(Types.Projectile projectileType, Vector2 position, Types.Direction direction, ICollidable user)
         {
             switch (projectileType)
             {
@@ -32,15 +33,15 @@ namespace Sprint0.Projectiles.Tools
                 case Types.Projectile.BOMBPROJ:
                     return new BombProjectile(position);
                 case Types.Projectile.BOSSPROJ:
+                    return new BossProjectile(position, direction);
                 case Types.Projectile.DEATHPARTICLE:
-                    return new DeathParticle(position);
-                    return new BossProjectile(position, direction);           
+                    return new DeathParticle(position);                  
                 case Types.Projectile.FLAMEPROJ:
                     return new FlameProjectile(position, direction);
                 case Types.Projectile.GORIYABOOMERANGPROJ:
                     return new GoriyaBoomerangProjectile(position, direction);
                 case Types.Projectile.PLAYERBOOMERANGPROJ:
-                    return new PlayerBoomerangProjectile(position, direction);
+                    return new PlayerBoomerangProjectile(position, direction, user);
                 case Types.Projectile.SWORDMELEE:
                     return new SwordMelee(position, direction);
                 case Types.Projectile.SWORDPROJ:

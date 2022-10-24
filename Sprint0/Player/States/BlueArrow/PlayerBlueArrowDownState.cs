@@ -29,7 +29,7 @@ namespace Sprint0.Player.States.BlueArrow
             float ArrowY = Player.GetHitbox().Bottom;
 
             ProjectileManager.GetInstance().AddProjectile(
-                Types.Projectile.BLUEARROWPROJ, new Vector2(ArrowX, ArrowY), Types.Direction.DOWN);
+                Types.Projectile.BLUEARROWPROJ, new Vector2(ArrowX, ArrowY), Types.Direction.DOWN, null);
         }
 
         public override void Update()
