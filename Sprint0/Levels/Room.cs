@@ -8,6 +8,7 @@ using Sprint0.Items;
 using Sprint0.Items.Utils;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Tools;
+using Sprint0.Sprites;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
 using static Sprint0.Types;
@@ -24,6 +25,8 @@ namespace Sprint0.Levels
 
         private Dictionary<RoomTransition, Room> AdjacentRooms;
 
+        private RoomBorder Border;
+
         private Level Context;
 
         public string RoomName;
@@ -34,6 +37,10 @@ namespace Sprint0.Levels
             Characters = new List<ICharacter>();
             Items = new List<IItem>();
             Projectiles = new ProjectileHandler();
+            // TODO: This needs to take an argument so that it knows which border to construct.
+            // This should probably be based off of room name or level name.
+            Border = new RoomBorder();
+
             RoomName = roomName;
             AdjacentRooms = new Dictionary<RoomTransition, Room>()
             {
@@ -103,6 +110,7 @@ namespace Sprint0.Levels
                 character.Update(gameTime);
             }
             Projectiles.Update();
+            Border.Update();
         }
         public void Draw(SpriteBatch sb)
         {
@@ -119,6 +127,7 @@ namespace Sprint0.Levels
                 character.Draw(sb);
             }
             Projectiles.Draw(sb);
+            Border.Draw(sb);
         }
     }
 }

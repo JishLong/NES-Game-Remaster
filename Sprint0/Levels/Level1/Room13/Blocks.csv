@@ -1,7 +1,9 @@
-water,water,water,water,water,bt,bt,water,water,water,water,water
-water,bt,bt,bt,water,bt,bt,bt,bt,bt,bt,water
-water,bt,water,bt,water,bt,water,water,bt,bt,bt,water
-bt,bt,water,bt,water,bt,bt,water,bt,bt,bt,bt
-water,bt,water,bt,water,water,bt,water,bt,bt,bt,water
-water,bt,water,bt,bt,bt,bt,water,bt,bt,bt,water
-water,water,water,water,water,bt,bt,water,water,water,water,water
+bw,bw,bw,bw,bw,bw,bw,bw,bw,bw,bw,bw,bw,bw
+bw,water,water,water,water,water,bt,bt,water,water,water,water,water,bw
+bw,water,bt,bt,bt,water,bt,bt,bt,bt,bt,bt,water,bw
+bw,water,bt,water,bt,water,bt,water,water,bt,bt,bt,water,bw
+bw,bt,bt,water,bt,water,bt,bt,water,bt,bt,bt,bt,bw
+bw,water,bt,water,bt,water,water,bt,water,bt,bt,bt,water,bw
+bw,water,bt,water,bt,bt,bt,bt,water,bt,bt,bt,water,bw
+bw,water,water,water,water,water,bt,bt,water,water,water,water,water,bw
+bw,bw,bw,bw,bw,bw,bw,bw,bw,bw,bw,bw,bw,bw

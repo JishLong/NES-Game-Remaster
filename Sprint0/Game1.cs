@@ -4,6 +4,7 @@ using Sprint0.Controllers;
 using Sprint0.Player;
 using Sprint0.Levels;
 using Sprint0.Collision;
+using static Sprint0.Utils;
 using Sprint0.Projectiles.Tools;
 using System.Collections.Generic;
 
@@ -37,6 +38,11 @@ namespace Sprint0
                 new ProjectileController(LevelManager),
                 new CollisionController(LevelManager, Player)
             };
+
+            // Set display resolution.
+            Graphics.PreferredBackBufferWidth = 256 * (int) GameScale;
+            Graphics.PreferredBackBufferHeight = 176 * (int) GameScale;
+            Graphics.ApplyChanges();
 
             base.Initialize();
         }
