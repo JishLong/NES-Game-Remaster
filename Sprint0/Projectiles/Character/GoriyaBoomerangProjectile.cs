@@ -8,7 +8,7 @@ namespace Sprint0.Projectiles.Character
         private readonly static Vector2 MovementSpeed = new Vector2(5, 5);
 
         public GoriyaBoomerangProjectile(Vector2 position, Types.Direction direction) : 
-            base(position, MovementSpeed, direction)
+            base(position, MovementSpeed, direction, null)
         {
             Sprite = new GoriyaBoomerangSprite();
             FramesAlive = 300;       
@@ -27,6 +27,11 @@ namespace Sprint0.Projectiles.Character
             {
                 Position -= Velocity;
             }
+        }
+
+        public void ReturnBoomerang()
+        {
+            FramesPassed = FramesAlive - FramesPassed;
         }
     }
 }

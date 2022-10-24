@@ -1,41 +1,38 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Characters;
+using Sprint0.Levels;
 using Sprint0.Sprites.Characters.Npcs;
 
 namespace Sprint0.Npcs
 {
-    public class Flame : AbstractNpc
+    public class Flame : AbstractCharacter
     {
-        int ElapsedTime;
-        int UpdateTimer;
         public Flame(Vector2 position, int updateTimer = 1000)
         {
             Health = 1;
             Position = position;
-            Direction = new Vector2(0, 0);
-            UpdateTimer = updateTimer;
-            sprite = new FlameSprite();
+            Sprite = new FlameSprite();
         }
 
-        public override void Destroy()
+        public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
         {
-            throw new NotImplementedException();
+            // You can't kill fire :D
         }
 
         public override void Update(GameTime gameTime)
         {
-            ElapsedTime += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
-            if (ElapsedTime > UpdateTimer)
-            {
-                ElapsedTime = 0;
-            }
-            sprite.Update();
+            Sprite.Update();
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, Position);
+            Sprite.Draw(sb, Position);
+        }
+
+        public override Rectangle GetHitbox()
+        {
+            return Sprite.GetDrawbox(Position);
         }
     }
 }

@@ -27,24 +27,34 @@ public abstract class AbstractCharacter : ICharacter
     // Sprite related fields.
     protected ISprite Sprite;
 
-    public void TakeDamage(Types.Direction damageSide, int damage, Room room)
+    public virtual void TakeDamage(Types.Direction damageSide, int damage, Room room)
     {
-        if (Color != Color.Red) 
+        if (Color != Color.Red)
         {
-            Color = Color.Red;
             Health -= damage;
-            Position += Utils.DirectionToVector(damageSide) * Knockback;
             if (Health <= 0)
             {
                 DeathAction();
                 room.RemoveCharacterFromRoom(this);
             }
+            else 
+            {
+                Color = Color.Red;
+                Position += Utils.DirectionToVector(damageSide) * Knockback;
+            }    
         }        
     }
 
     private void DeathAction()
     {
-        ProjectileManager.GetInstance().AddProjectile(Types.Projectile.DEATHPARTICLE, Position, Types.Direction.UP);
+        Rectangle r = Resources.CharacterDeathParticle;
+        Rectangle ParticleHitbox = new Rectangle(r.X, r.Y, (int)(r.Width * Utils.GameScale), (int)(r.Height * Utils.GameScale));
+
+        ProjectileManager.GetInstance().AddProjectile(
+            Types.Projectile.DEATHPARTICLE, 
+            Utils.CenterRectangles(GetHitbox(), ParticleHitbox), 
+            Types.Direction.UP,
+            null);
     }
 
     public virtual void Update(GameTime gameTime)
@@ -62,12 +72,12 @@ public abstract class AbstractCharacter : ICharacter
         State.Update(gameTime);
     }
 
-    public void Draw(SpriteBatch sb)
+    public virtual void Draw(SpriteBatch sb)
     {
         State.Draw(sb, Position, Color);
     }
 
-    public Rectangle GetHitbox()
+    public virtual Rectangle GetHitbox()
     {
         return State.GetHitbox(Position);
     }

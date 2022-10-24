@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Collision;
 
@@ -11,6 +10,8 @@ namespace Sprint0.Player
         public bool IsPrimaryAttacking { get; set; }
         public bool IsStationary { get; set; }
         public Types.Direction FacingDirection { get; set; }
+
+        public Inventory Inventory { get; }
 
         public void Update();
 
@@ -29,7 +30,5 @@ namespace Sprint0.Player
         public void location(Vector2 newLoc);
 
         public Vector2 GetPosition();
-
-        public void Reset();
     }
 }

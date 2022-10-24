@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 
 namespace Sprint0.Player.State
@@ -90,6 +91,9 @@ namespace Sprint0.Player.State
             // Update some of the logical variables
             IsChangingDirection = false;
             FramesPassed++;
+
+            Rectangle r = Resources.CharacterDeathParticle;
+            Rectangle ParticleHitbox = new Rectangle(r.X, r.Y, (int)(r.Width * Utils.GameScale), (int)(r.Height * Utils.GameScale));
 
             // If the player is damaged, check to see if they should no longer be damaged
             if (Player.Color == Color.Red) 

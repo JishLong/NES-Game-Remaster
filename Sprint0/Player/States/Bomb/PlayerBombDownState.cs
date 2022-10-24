@@ -30,7 +30,7 @@ namespace Sprint0.Player.State.Arrow
             float BombY = Player.GetHitbox().Bottom;
 
             ProjectileManager.GetInstance().AddProjectile(
-                Types.Projectile.BOMBPROJ, new Vector2(BombX, BombY), Types.Direction.DOWN);
+                Types.Projectile.BOMBPROJ, new Vector2(BombX, BombY), Types.Direction.DOWN, null);
         }
 
         public override void Update()

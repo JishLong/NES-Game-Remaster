@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites;
 using Microsoft.Xna.Framework;
+using Sprint0.Collision;
 
 namespace Sprint0.Projectiles
 {
@@ -9,6 +10,7 @@ namespace Sprint0.Projectiles
     public abstract class AbstractProjectile : IProjectile
     {
         protected ISprite Sprite;
+        protected ICollidable User;
 
         protected Vector2 Position, Velocity;
 
@@ -17,12 +19,13 @@ namespace Sprint0.Projectiles
          */
         protected int FramesAlive, FramesPassed;
 
-        protected AbstractProjectile(Vector2 position, Vector2 movementSpeed, Types.Direction direction)
+        protected AbstractProjectile(Vector2 position, Vector2 movementSpeed, Types.Direction direction, ICollidable user)
         {
             Position = position;
             Velocity = Utils.DirectionToVector(direction) * movementSpeed;
             FramesPassed = 0;
-        }
+            User = user;
+        }    
 
         public virtual void DeathAction() 
         {
