@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Blocks.PushableBlocks;
 using System;
 
 namespace Sprint0.Blocks.Utils
@@ -42,6 +43,8 @@ namespace Sprint0.Blocks.Utils
                     return new LadderBlock(position);
                 case Types.Block.WHITE_BARS:
                     return new WhiteBars(position);
+                case Types.Block.PUSHABLE_BLOCK_UP:
+                    return new PushableBlockUp(position);
                 default:
                     Console.Error.Write("The block of type " + blockType.ToString() + 
                         " could not be instantiated by the Block Factory. Does this type exist?");

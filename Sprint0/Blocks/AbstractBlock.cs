@@ -26,12 +26,12 @@ namespace Sprint0.Blocks
             return Walkable;
         }
 
-        public void Draw(SpriteBatch sb)
+        public virtual void Draw(SpriteBatch sb)
         {
             Sprite.Draw(sb, Position);
         }
 
-        public void Update()
+        public virtual void Update()
         {
             Sprite.Update();
         }

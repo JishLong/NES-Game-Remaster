@@ -1,4 +1,5 @@
 ﻿using Sprint0.Blocks;
+using Sprint0.Blocks.PushableBlocks;
 using Sprint0.Levels;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Character;
@@ -22,7 +23,7 @@ namespace Sprint0.Collision.Handlers
                 typeof(ArrowProjectile), typeof(BlueArrowProjectile), typeof(FlameProjectile), typeof(PlayerBoomerangProjectile) };
 
             AffectedBlocks = new List<System.Type> { typeof(BlueStatueLeft), typeof(BlueStatueRight),
-            typeof(BlueWall), typeof(GreyBricks), typeof(WhiteBars) };
+            typeof(BlueWall), typeof(GreyBricks), typeof(WhiteBars), typeof(PushableBlockUp) };
         }
 
         /* This type of collision is very simple - certain projectiles get destroyed upon hitting certain blocks;
