@@ -17,8 +17,7 @@ namespace Sprint0.Blocks
             Rectangle ActualHitbox = Sprite.GetDrawbox(Position);
             int ReducedWidth = ActualHitbox.Width / 2;
             int ReducedHeight = ActualHitbox.Height / 2;
-            Vector2 hitboxPosition = Sprint0.Utils.CenterOnEdge(ActualHitbox, ReducedWidth, ReducedHeight, Types.Direction.UP);
-            return new Rectangle((int)hitboxPosition.X, (int)hitboxPosition.Y, ReducedWidth, ReducedHeight);
+            return new Rectangle(ActualHitbox.Center.X - ReducedWidth / 2, ActualHitbox.Y, ReducedWidth, ReducedHeight);
         }
     }
 }

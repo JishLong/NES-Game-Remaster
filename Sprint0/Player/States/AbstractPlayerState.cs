@@ -21,7 +21,7 @@ namespace Sprint0.Player.State
          * 
          * [FramesPassed]: the number of game frames that have passed since this state has been active
          */
-        protected static bool IsChangingDirection, IsPrimaryAttacking;
+        protected static bool IsChangingDirection, IsPrimaryAttacking, IsTakingDamage;
         protected int FramesPassed;
 
         public AbstractPlayerState(Player player) 
@@ -38,7 +38,7 @@ namespace Sprint0.Player.State
             Player = state.Player;
             DamageFrameCounter = state.DamageFrameCounter;
             FramesPassed = 0;
-                        Knockback = new Vector2(-15, -15);
+            Knockback = new Vector2(-15, -15);
         }
 
         public virtual void ChangeDirection(Types.Direction direction) 
@@ -70,8 +70,12 @@ namespace Sprint0.Player.State
 
         public void TakeDamage() 
         {
-            Player.Color = Color.Red;
-            Player.Position += Utils.DirectionToVector(Player.FacingDirection) * Knockback;
+            if (!IsTakingDamage) 
+            {
+                IsTakingDamage = true;
+                Player.Color = Color.Red;
+                Player.Position += Utils.DirectionToVector(Player.FacingDirection) * Knockback;
+            }     
         }
 
         public Rectangle GetHitbox() 
@@ -109,6 +113,7 @@ namespace Sprint0.Player.State
                 DamageFrameCounter = (DamageFrameCounter + 1) % 40;
                 if (DamageFrameCounter == 0) 
                 {
+                    IsTakingDamage = false;
                     Player.Color = Color.White;
                 }
             }

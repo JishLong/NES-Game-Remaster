@@ -31,7 +31,11 @@ namespace Sprint0.Collision.Handlers
                 {
                     projectile.DeathAction();
                     ProjectileManager.GetInstance().RemoveProjectile(projectile);
-                }          
+                }
+                if (projectile is PlayerBoomerangProjectile) 
+                {
+                    (projectile as PlayerBoomerangProjectile).ReturnBoomerang();
+                }
                 new CharacterTakeDamageCommand(character, characterSide, 1, room).Execute();
             }
         }

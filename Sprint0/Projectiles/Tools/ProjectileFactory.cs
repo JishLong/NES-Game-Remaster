@@ -39,7 +39,7 @@ namespace Sprint0.Projectiles.Tools
                 case Types.Projectile.FLAMEPROJ:
                     return new FlameProjectile(position, direction);
                 case Types.Projectile.GORIYABOOMERANGPROJ:
-                    return new GoriyaBoomerangProjectile(position, direction);
+                    return new GoriyaBoomerangProjectile(position, direction, user);
                 case Types.Projectile.PLAYERBOOMERANGPROJ:
                     return new PlayerBoomerangProjectile(position, direction, user);
                 case Types.Projectile.SWORDMELEE:
