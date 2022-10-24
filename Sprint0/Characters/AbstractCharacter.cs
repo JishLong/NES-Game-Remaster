@@ -23,6 +23,7 @@ public abstract class AbstractCharacter : ICharacter
     // Movement related fields.
     public Vector2 Position { get; set; }
     protected Vector2 Knockback = new(-16, 16);
+    
 
     // Sprite related fields.
     protected ISprite Sprite;
@@ -80,5 +81,15 @@ public abstract class AbstractCharacter : ICharacter
     public virtual Rectangle GetHitbox()
     {
         return State.GetHitbox(Position);
+    }
+
+    public void location(Vector2 newLoc)
+    {
+        Position = newLoc;
+    }
+
+    public Vector2 GetPosition()
+    {
+        return Position;
     }
 }
