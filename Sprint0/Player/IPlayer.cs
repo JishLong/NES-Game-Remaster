@@ -6,30 +6,24 @@ namespace Sprint0.Player
 {
     public interface IPlayer : ICollidable
     {
-        public Types.PlayerWeapon SecondaryWeapon { get; set; }
-        public bool IsPrimaryAttacking { get; set; }
-        public bool IsStationary { get; set; }
-        public Types.Direction FacingDirection { get; set; }
+        public Vector2 Position { get; set; }
+        Types.PlayerWeapon SecondaryWeapon { get; set; }
+        bool IsPrimaryAttacking { get; set; }
+        bool IsStationary { get; set; }
+        Types.Direction FacingDirection { get; set; }
 
-        public Inventory Inventory { get; }
-        public float Damage { get; }
+        void ChangeDirection(Types.Direction direction);
 
-        public void Update();
+        void DoPrimaryAttack();
 
-        public void Draw(SpriteBatch spriteBatch);
+        void DoSecondaryAttack();
 
-        public void ChangeDirection(Types.Direction direction);
+        void Draw(SpriteBatch spriteBatch);
 
-        public void DoPrimaryAttack();
+        void StopAction();
 
-        public void DoSecondaryAttack();
+        void TakeDamage(int damage);
 
-        public void StopAction();
-
-        public void TakeDamage();
-
-        public void location(Vector2 newLoc);
-
-        public Vector2 GetPosition();
+        void Update();
     }
 }

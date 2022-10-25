@@ -16,7 +16,7 @@ namespace Sprint0.Commands.Player
 
         public void Execute()
         {
-            Player.location(NewLoc);
+            Player.ChangePosition(NewLoc);
         }
     }
 }

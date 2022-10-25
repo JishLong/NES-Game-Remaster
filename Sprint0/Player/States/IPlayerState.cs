@@ -1,31 +1,26 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Sprites;
 
 namespace Sprint0.Player.State
 {
     public interface IPlayerState
     {
-        public Player Player { get; }
+        Player Player { get; }
 
-        // When the player takes damage, this is used to determine when the player should no longer appear damaged
-        public int DamageFrameCounter { get; set; }
+        void ChangeDirection(Types.Direction direction);
 
-        public void Draw(SpriteBatch sb, Vector2 position);
+        void DoPrimaryAttack();
 
-        public void Update();
+        void DoSecondaryAttack();
 
-        public void ChangeDirection(Types.Direction direction);        
+        void Draw(SpriteBatch sb, Vector2 position);
 
-        public void DoPrimaryAttack();
+        Rectangle GetHitbox();
 
-        public void DoSecondaryAttack();
+        void StopAction();
 
-        public void StopAction();
-        public void SetToStationary();
+        void TakeDamage(int damage);     
 
-        public void TakeDamage();
-
-        public Rectangle GetHitbox();       
+        void Update();
     }
 }
