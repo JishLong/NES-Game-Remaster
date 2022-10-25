@@ -3,12 +3,12 @@ using Sprint0.Characters;
 
 namespace Sprint0.Commands.Character
 {
-    public class CharacterRelocate : ICommand
+    public class CharacterRelocateCommand : ICommand
     {
         private readonly ICharacter Character;
-        private Vector2 NewLoc;
+        private readonly Vector2 NewLoc;
 
-        public CharacterRelocate(ICharacter character, Vector2 newLoc)
+        public CharacterRelocateCommand(ICharacter character, Vector2 newLoc)
         {
             Character = character;
             NewLoc = newLoc;
@@ -16,7 +16,7 @@ namespace Sprint0.Commands.Character
 
         public void Execute()
         {
-            Character.location(this.NewLoc);
+            Character.location(NewLoc);
         }
     }
 }

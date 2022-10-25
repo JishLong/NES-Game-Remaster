@@ -15,7 +15,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
         public override void DeathAction()
         {
             ProjectileManager.GetInstance().AddProjectile(
-                Types.Projectile.BOMBEXPLOSIONPARTICLE, Position, Types.Direction.UP, null);
+                Types.Projectile.BOMB_EXPLOSION_PARTICLE, Position, Types.Direction.UP, null);
         }
 
         public override bool FromPlayer()

@@ -26,10 +26,10 @@ namespace Sprint0.Projectiles.Player_Projectiles
             Vector2 ProjPosition = Utils.CenterOnEdge(Sprite.GetDrawbox(Position), (int)(r.Width * Utils.GameScale), (int)(r.Height * Utils.GameScale),
                 Direction);
 
-            PM.AddProjectile(Types.Projectile.SWORDFLAMEPROJ, ProjPosition, Types.Direction.UPLEFT, null);
-            PM.AddProjectile(Types.Projectile.SWORDFLAMEPROJ, ProjPosition, Types.Direction.UPRIGHT, null);
-            PM.AddProjectile(Types.Projectile.SWORDFLAMEPROJ, ProjPosition, Types.Direction.DOWNLEFT, null);
-            PM.AddProjectile(Types.Projectile.SWORDFLAMEPROJ, ProjPosition, Types.Direction.DOWNRIGHT, null);
+            PM.AddProjectile(Types.Projectile.SWORD_FLAME_PROJ, ProjPosition, Types.Direction.UPLEFT, null);
+            PM.AddProjectile(Types.Projectile.SWORD_FLAME_PROJ, ProjPosition, Types.Direction.UPRIGHT, null);
+            PM.AddProjectile(Types.Projectile.SWORD_FLAME_PROJ, ProjPosition, Types.Direction.DOWNLEFT, null);
+            PM.AddProjectile(Types.Projectile.SWORD_FLAME_PROJ, ProjPosition, Types.Direction.DOWNRIGHT, null);
         }
 
         public override void Draw(SpriteBatch sb)

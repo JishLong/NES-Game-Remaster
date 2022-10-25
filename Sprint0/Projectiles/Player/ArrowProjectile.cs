@@ -23,7 +23,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
             Rectangle r = Resources.ArrowExplosionParticle;
 
             ProjectileManager.GetInstance().AddProjectile(
-                Types.Projectile.ARROWEXPLOSIONPARTICLE,
+                Types.Projectile.ARROW_EXPLOSION_PARTICLE,
                 Utils.CenterOnEdge(Sprite.GetDrawbox(Position), (int)(r.Width * Utils.GameScale), (int)(r.Height * Utils.GameScale), Direction),
                 Direction, null);
         }

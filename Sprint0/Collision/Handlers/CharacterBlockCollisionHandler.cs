@@ -26,22 +26,22 @@ namespace Sprint0.Collision.Handlers
                     case (Types.Direction.DOWN):
                         X = PHitbox.X;
                         Y = BHitbox.Y - PHitbox.Height;
-                        new CharacterRelocate(character, new Vector2(X, Y)).Execute();
+                        new CharacterRelocateCommand(character, new Vector2(X, Y)).Execute();
                         break;
                     case (Types.Direction.UP):
                         X = PHitbox.X;
                         Y = BHitbox.Y + BHitbox.Height;
-                        new CharacterRelocate(character, new Vector2(X, Y)).Execute();
+                        new CharacterRelocateCommand(character, new Vector2(X, Y)).Execute();
                         break;
                     case (Types.Direction.RIGHT):
                         X = BHitbox.X - PHitbox.Width;
                         Y = PHitbox.Y;
-                        new CharacterRelocate(character, new Vector2(X, Y)).Execute();
+                        new CharacterRelocateCommand(character, new Vector2(X, Y)).Execute();
                         break;
                     case (Types.Direction.LEFT):
                         X = BHitbox.X + BHitbox.Width;
                         Y = PHitbox.Y;
-                        new CharacterRelocate(character, new Vector2(X, Y)).Execute();
+                        new CharacterRelocateCommand(character, new Vector2(X, Y)).Execute();
                         break;
                 }
             }

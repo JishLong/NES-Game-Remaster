@@ -52,7 +52,7 @@ public abstract class AbstractCharacter : ICharacter
         Rectangle ParticleHitbox = new Rectangle(r.X, r.Y, (int)(r.Width * Utils.GameScale), (int)(r.Height * Utils.GameScale));
 
         ProjectileManager.GetInstance().AddProjectile(
-            Types.Projectile.DEATHPARTICLE, 
+            Types.Projectile.DEATH_PARTICLE, 
             Utils.CenterRectangles(GetHitbox(), ParticleHitbox), 
             Types.Direction.UP,
             null);

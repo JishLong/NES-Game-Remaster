@@ -1,23 +1,19 @@
-﻿using Sprint0.Items;
-using Sprint0.Levels;
-
-namespace Sprint0.Commands.Levels
+﻿namespace Sprint0.Commands.Levels
 {
     public class UpRoomTransitionCommand: ICommand
     {
-        private Game1 Game;
-        private Room Room;
-        private Types.RoomTransition Direction = Types.RoomTransition.UP;
+        private readonly Game1 Game;
+        private readonly Types.RoomTransition Direction;
 
         public UpRoomTransitionCommand(Game1 game)
         {
             Game = game;
+            Direction = Types.RoomTransition.UP;
         }
 
         public void Execute()
         {
-            Room = Game.LevelManager.CurrentLevel.CurrentRoom;
-            Room.MakeTransition(Direction);
+            Game.LevelManager.CurrentLevel.CurrentRoom.MakeTransition(Direction);
         }
     }
 }

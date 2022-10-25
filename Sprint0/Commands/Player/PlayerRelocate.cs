@@ -6,7 +6,7 @@ namespace Sprint0.Commands.Player
     public class PlayerRelocate : ICommand
     {
         private readonly IPlayer Player;
-        private Vector2 NewLoc;
+        private readonly Vector2 NewLoc;
 
         public PlayerRelocate(IPlayer player, Vector2 newLoc)
         {
@@ -16,7 +16,7 @@ namespace Sprint0.Commands.Player
 
         public void Execute()
         {
-            Player.location(this.NewLoc);
+            Player.location(NewLoc);
         }
     }
 }
