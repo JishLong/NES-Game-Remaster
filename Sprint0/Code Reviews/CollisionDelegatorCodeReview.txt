@@ -1,0 +1,19 @@
+﻿Author of code review: Ethan Powers
+Date of code review: 24 Oct. 2022
+Sprint #: 3
+Name of .cs file: CollisionDelegator.cs
+Author of .cs file: Josh Long
+Mins for review: 7 mins
+
+The CollisionDelegator has very high cohesion (and coupling), but that is not
+the focus of this code review.  We are here to review the readability of
+the class.  The comment at the top of the file is helpful, but it is the only
+comment in the file, which is unfortunate.  The class has a constructor and
+one method.  The constructor is straightforward enough; it just calls the
+constructors of the class fields.  The DelegateCollision method however is not
+readable at all.  For one, there is no use of whitespace to make the file
+less visually dense.  For two, there are lots of compound expressions within
+the if-blocks, with no explanation.  For me, looking at a visually dense section
+of code is rather challenging, simply because of my bad eyesight and I have to
+squint to read the code, and it tends to just run together.  The code itself is
+not very difficult to understand once thouroughly read.
