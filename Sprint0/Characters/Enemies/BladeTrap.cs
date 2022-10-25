@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Sprint0.Characters.Enemies
 {
-    internal class BladeTrap : AbstractCharacter
+    public class BladeTrap : AbstractCharacter
     {
         public BladeTrap(Vector2 position)
         {

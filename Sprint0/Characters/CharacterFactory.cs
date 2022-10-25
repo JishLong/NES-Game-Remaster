@@ -45,6 +45,8 @@ namespace Sprint0.Characters
                     return new OldMan(position);
                 case Types.Character.SNAKE:
                     return new Snake(position);
+                case Types.Character.BLADE_TRAP:
+                    return new BladeTrap(position);
                 default:
                     Console.Error.Write("The character of type " + characterType.ToString() +
                         " could not be instantiated by the Character Factory. Does this type exist?");

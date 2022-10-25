@@ -36,6 +36,7 @@ namespace Sprint0.Levels.Utils
                 {"gel", Types.Character.GEL },
                 {"rgoriya", Types.Character.RED_GORIYA},
                 {"hand", Types.Character.HAND },
+                {"blade", Types.Character.BLADE_TRAP },
                 {"aqua", Types.Character.AQUAMENTUS},
                 {"oldman", Types.Character.OLDMAN },
                 {"flame", Types.Character.FLAME },

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Sprint0.Characters.Enemies.States.BladeTrapStates
 {
-    internal class BladeTrapStillState : AbstractCharacterState
+    public class BladeTrapStillState : AbstractCharacterState
     {
         private BladeTrap BladeTrap;
         private Types.Direction StateDirection;
@@ -36,7 +36,7 @@ namespace Sprint0.Characters.Enemies.States.BladeTrapStates
 
         public override void Move()
         {
-            throw new NotImplementedException();
+            // Doesn't move
         }
 
         public override void Update(GameTime gameTime)
