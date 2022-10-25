@@ -6,7 +6,7 @@ namespace Sprint0.Characters.Enemies
     public class Dodongo : AbstractCharacter
     {
         private double ElapsedTime;
-        private double DirectionDelay = 1000;    // Change direction every this many milliseconds.
+        private readonly double DirectionDelay = 1000;    // Change direction every this many milliseconds.
 
         public Dodongo(Vector2 position, int updateTimer = 1000)
         {
@@ -21,6 +21,11 @@ namespace Sprint0.Characters.Enemies
             Position = position;
         }
 
+        public void Freeze()
+        {
+            State.Freeze();
+        }
+
         public override void Update(GameTime gameTime)
         {
             ElapsedTime += gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -31,11 +36,6 @@ namespace Sprint0.Characters.Enemies
             }
 
             State.Update(gameTime);
-        }
-
-        public void Freeze()
-        {
-            State.Freeze();
-        }
+        }    
     }
 }

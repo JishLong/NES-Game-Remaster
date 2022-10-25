@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters.Enemies.States.SnakeStates;
 
 namespace Sprint0.Characters.Enemies
@@ -7,7 +6,7 @@ namespace Sprint0.Characters.Enemies
     public class Snake : AbstractCharacter
     {
         private double DirectionTimer = 0;
-        private double DirectionDelay = 2500;    // Change direction every this many milliseconds.
+        private readonly double DirectionDelay = 2500;    // Change direction every this many milliseconds.
         public Snake(Vector2 position)
         {
             // State

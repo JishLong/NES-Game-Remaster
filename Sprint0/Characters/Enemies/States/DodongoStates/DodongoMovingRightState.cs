@@ -1,15 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Characters.Enemies;
 using Sprint0.Characters.Enemies;
-using Sprint0.Characters.Enemies.Utils;
+using Sprint0.Characters.Utils;
 
 namespace Sprint0.Characters.Bosses.States.DodongoStates
 {
     public class DodongoMovingRightState : AbstractCharacterState
     {
-        private Dodongo Dodongo;
-        private Vector2 DirectionVector = Utils.DirectionToVector(Types.Direction.RIGHT);
-        private float MovementSpeed = 2f;
+        private readonly Dodongo Dodongo;
+        private readonly Vector2 DirectionVector = Sprint0.Utils.DirectionToVector(Types.Direction.RIGHT);
+        private readonly float MovementSpeed = 2f;
         public DodongoMovingRightState(Dodongo dodongo)
         {
             Dodongo = dodongo;

@@ -1,15 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.Utils;
+using Sprint0.Characters.Utils;
 using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.States.SnakeStates
 {
     public class SnakeFacingRightMovingUpState: AbstractCharacterState
     {
-        private Snake Snake;
-        private Types.Direction StateDirection;
-        private Vector2 DirectionVector = Sprint0.Utils.DirectionToVector(Types.Direction.UP);
-        private float MovementSpeed = 2f;
+        private readonly Snake Snake;
+        private readonly Types.Direction StateDirection;
+        private readonly Vector2 DirectionVector = Sprint0.Utils.DirectionToVector(Types.Direction.UP);
+        private readonly float MovementSpeed = 2f;
         public SnakeFacingRightMovingUpState(Snake snake)
         {
             Snake = snake;

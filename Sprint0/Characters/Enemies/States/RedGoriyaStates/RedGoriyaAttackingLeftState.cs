@@ -7,7 +7,7 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
 {
     public class RedGoriyaAttackingLeftState : AbstractCharacterState
     {
-        private RedGoriya Goriya;
+        private readonly RedGoriya Goriya;
         private int BoomerangFrames;
         
         public RedGoriyaAttackingLeftState(RedGoriya goriya)

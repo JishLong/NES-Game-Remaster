@@ -1,6 +1,5 @@
 using System;
 using Microsoft.Xna.Framework;
-using Sprint0.Projectiles;
 using Sprint0.Characters.Bosses.AquamentusStates;
 using Sprint0.Projectiles.Tools;
 
@@ -9,9 +8,9 @@ namespace Sprint0.Characters.Enemies
     public class Aquamentus : AbstractCharacter
     {
         private double ElapsedTime;
-        private double DirectionDelay = 1000;    // Change direction every this many milliseconds.
+        private readonly double DirectionDelay = 1000;    // Change direction every this many milliseconds.
 
-        Random RNG;
+        private readonly Random RNG;
 
         public Aquamentus(Vector2 position, int updateTimer = 1000)
         {
@@ -28,6 +27,11 @@ namespace Sprint0.Characters.Enemies
             RNG = new Random();
         }
 
+        public void Freeze()
+        {
+            State.Freeze();
+        }
+
         public override void Update(GameTime gameTime)
         {
             ElapsedTime += gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -39,22 +43,12 @@ namespace Sprint0.Characters.Enemies
 
             if (RNG.Next(0, 120) == 0)
             {
-                IProjectile proj1 = ProjectileFactory.GetInstance().GetProjectile(
-                    Types.Projectile.BOSS_PROJ, Position, Types.Direction.LEFT, null);
-                IProjectile proj2 = ProjectileFactory.GetInstance().GetProjectile(
-                    Types.Projectile.BOSS_PROJ, Position, Types.Direction.DOWNLEFT, null);
-                IProjectile proj3 = ProjectileFactory.GetInstance().GetProjectile(
-                    Types.Projectile.BOSS_PROJ, Position, Types.Direction.DOWNRIGHT, null);
-
-                //ProjectileManager.GetInstance().AddProjectile(proj1);
-                //ProjectileManager.GetInstance().AddProjectile(proj2);
-                //ProjectileManager.GetInstance().AddProjectile(proj3);
+                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, Position, Types.Direction.LEFT, null);
+                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, Position, Types.Direction.DOWNLEFT, null);
+                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, Position, Types.Direction.UPLEFT, null);
             }
+
             base.Update(gameTime);
-        }
-        public void Freeze()
-        {
-            State.Freeze();
         }
     }
 }

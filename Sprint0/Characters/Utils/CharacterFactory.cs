@@ -1,21 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Bosses;
 using Sprint0.Characters.Enemies;
 using Sprint0.Npcs;
 using System;
 
-namespace Sprint0.Characters
+namespace Sprint0.Characters.Utils
 {
     public class CharacterFactory
     {
-        public static readonly Vector2 DefaultCharacterPosition = new Vector2(350, 200);
-
         // Single point of use
         private static CharacterFactory Instance;
-
-        // Used for switching between different enemies in-game
-        private Types.Character[] Characters = (Types.Character[])Enum.GetValues(typeof(Types.Character));
-        private int CurrentCharacter = 0;
 
         private CharacterFactory() { }
 
@@ -52,33 +45,9 @@ namespace Sprint0.Characters
             }
         }
 
-        // Returns an instance of the next enemy type in the [Characters] array
-        public ICharacter GetNextCharacter(Vector2 position)
-        {
-            CurrentCharacter = (CurrentCharacter + 1) % Characters.Length;
-            return GetCharacter(Characters[CurrentCharacter], position);
-        }
-
-        // Returns an instance of the previous enemy type in the [Characters] array
-        public ICharacter GetPrevCharacter(Vector2 position)
-        {
-            CurrentCharacter = (CurrentCharacter - 1 + Characters.Length) % Characters.Length;
-            return GetCharacter(Characters[CurrentCharacter], position);
-        }
-
-        // Returns an instance of the beginning character type in the [Characters] array
-        public ICharacter GetBeginningCharacter(Vector2 position) 
-        {
-            CurrentCharacter = 0;
-            return GetCharacter(Characters[CurrentCharacter], position);
-        }
-
         public static CharacterFactory GetInstance()
         {
-            if (Instance == null)
-            {
-                Instance = new CharacterFactory();
-            }
+            Instance ??= new CharacterFactory();
             return Instance;
         }
     }

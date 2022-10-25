@@ -6,17 +6,17 @@ namespace Sprint0.Commands.Character
     public class CharacterRelocateCommand : ICommand
     {
         private readonly ICharacter Character;
-        private readonly Vector2 NewLoc;
+        private readonly Vector2 NewPosition;
 
-        public CharacterRelocateCommand(ICharacter character, Vector2 newLoc)
+        public CharacterRelocateCommand(ICharacter character, Vector2 newPosition)
         {
             Character = character;
-            NewLoc = newLoc;
+            NewPosition = newPosition;
         }
 
         public void Execute()
         {
-            Character.location(NewLoc);
+            Character.Position = NewPosition;
         }
     }
 }

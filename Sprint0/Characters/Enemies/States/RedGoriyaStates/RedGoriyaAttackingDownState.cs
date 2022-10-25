@@ -7,7 +7,7 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
 {
     public class RedGoriyaAttackingDownState : AbstractCharacterState
     {
-        private RedGoriya Goriya;
+        private readonly RedGoriya Goriya;
         private int BoomerangFrames;
         
         public RedGoriyaAttackingDownState(RedGoriya goriya)
@@ -40,7 +40,7 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
         public override void Update(GameTime gameTime)
         {
             BoomerangFrames++;
-            // Hard-coded value :(
+            // Hard-coded value for now :(
             if (BoomerangFrames == 300)
             {
                 Move(); // Resume moving.

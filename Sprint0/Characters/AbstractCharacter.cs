@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Characters.Enemies.States;
 using Sprint0.Levels;
-using Sprint0.Player;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 
@@ -22,11 +20,33 @@ public abstract class AbstractCharacter : ICharacter
 
     // Movement related fields.
     public Vector2 Position { get; set; }
-    protected Vector2 Knockback = new(-16, 16);
-    
+    protected Vector2 Knockback = new(-16, 16);  
 
     // Sprite related fields.
     protected ISprite Sprite;
+
+    private void DeathAction()
+    {
+        // Spawn a "death particle" upon death
+        Rectangle r = Resources.CharacterDeathParticle;
+        Rectangle ParticleHitbox = new Rectangle(r.X, r.Y, (int)(r.Width * Sprint0.Utils.GameScale), (int)(r.Height * Sprint0.Utils.GameScale));
+
+        ProjectileManager.GetInstance().AddProjectile(
+            Types.Projectile.DEATH_PARTICLE, 
+            Sprint0.Utils.CenterRectangles(GetHitbox(), ParticleHitbox), 
+            Types.Direction.UP,
+            this);
+    }
+
+    public virtual void Draw(SpriteBatch sb)
+    {
+        State.Draw(sb, Position, Color);
+    }
+
+    public virtual Rectangle GetHitbox()
+    {
+        return State.GetHitbox(Position);
+    }
 
     public virtual void TakeDamage(Types.Direction damageSide, int damage, Room room)
     {
@@ -38,24 +58,12 @@ public abstract class AbstractCharacter : ICharacter
                 DeathAction();
                 room.RemoveCharacterFromRoom(this);
             }
-            else 
+            else
             {
                 Color = Color.Red;
-                Position += Utils.DirectionToVector(damageSide) * Knockback;
-            }    
-        }        
-    }
-
-    private void DeathAction()
-    {
-        Rectangle r = Resources.CharacterDeathParticle;
-        Rectangle ParticleHitbox = new Rectangle(r.X, r.Y, (int)(r.Width * Utils.GameScale), (int)(r.Height * Utils.GameScale));
-
-        ProjectileManager.GetInstance().AddProjectile(
-            Types.Projectile.DEATH_PARTICLE, 
-            Utils.CenterRectangles(GetHitbox(), ParticleHitbox), 
-            Types.Direction.UP,
-            this);
+                Position += Sprint0.Utils.DirectionToVector(damageSide) * Knockback;
+            }
+        }
     }
 
     public virtual void Update(GameTime gameTime)
@@ -71,25 +79,5 @@ public abstract class AbstractCharacter : ICharacter
         }
 
         State.Update(gameTime);
-    }
-
-    public virtual void Draw(SpriteBatch sb)
-    {
-        State.Draw(sb, Position, Color);
-    }
-
-    public virtual Rectangle GetHitbox()
-    {
-        return State.GetHitbox(Position);
-    }
-
-    public void location(Vector2 newLoc)
-    {
-        Position = newLoc;
-    }
-
-    public Vector2 GetPosition()
-    {
-        return Position;
-    }
+    } 
 }

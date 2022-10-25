@@ -5,10 +5,11 @@ namespace Sprint0.Characters.Enemies.States.HandStates
 {
     public class HandMovingUpState : AbstractCharacterState
     {
-        private Hand Hand;
-        private Types.Direction StateDirection;
-        private Vector2 DirectionVector;
-        private bool ClockWise;
+        private readonly Hand Hand;
+        private readonly Types.Direction StateDirection;
+        private readonly Vector2 DirectionVector;
+        private readonly bool ClockWise;
+
         public HandMovingUpState(Hand hand, bool clockWise)
         {
             Hand = hand;

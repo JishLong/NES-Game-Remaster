@@ -1,14 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.Utils;
+using Sprint0.Characters.Utils;
 using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.States.ZolStates
 {
     public class ZolMovingLeftState: AbstractCharacterState
     {
-        private Zol Zol;
-        private Types.Direction StateDirection;
-        private Vector2 DirectionVector;
+        private readonly Zol Zol;
+        private readonly Types.Direction StateDirection;
+        private readonly Vector2 DirectionVector;
         public ZolMovingLeftState(Zol zol)
         {
             Zol = zol;
