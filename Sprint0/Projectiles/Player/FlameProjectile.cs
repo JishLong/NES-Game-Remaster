@@ -5,13 +5,10 @@ namespace Sprint0.Projectiles.Player_Projectiles
 {
     public class FlameProjectile : AbstractProjectile
     {
-        private readonly static Vector2 MovementSpeed = new Vector2(5, 5);
-
         public FlameProjectile(Vector2 position, Types.Direction direction) : 
-            base(position, MovementSpeed, direction, null)
+            base(new FlameProjSprite(), null, position, new Vector2(5, 5), direction)
         {
-            Sprite = new FlameProjSprite();
-            FramesAlive = 100;  
+            MaxFramesAlive = 100;  
         }
 
         public override void Update()
@@ -19,13 +16,13 @@ namespace Sprint0.Projectiles.Player_Projectiles
             Sprite.Update();
             FramesPassed++;
 
-            if (FramesPassed < FramesAlive / 3)
+            if (FramesPassed < MaxFramesAlive / 3)
             {
                 Position += Velocity;
             }
         }
 
-        public override bool FromPlayer()
+        public override bool IsFromPlayer()
         {
             return true;
         }

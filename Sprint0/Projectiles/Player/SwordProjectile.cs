@@ -2,20 +2,17 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites.Projectiles.Player;
-using static Sprint0.Types;
 
 namespace Sprint0.Projectiles.Player_Projectiles
 {
     public class SwordProjectile : AbstractProjectile
     {
-        private readonly static Vector2 MovementSpeed = new Vector2(10, 10);
         private readonly Types.Direction Direction;
 
         public SwordProjectile(Vector2 position, Types.Direction direction) :
-            base(position, MovementSpeed, direction, null)
+            base(new SwordProjSprite(direction), null, position, new Vector2(10, 10), direction)
         {
-            Sprite = new SwordProjSprite(direction);
-            FramesAlive = 1000;
+            MaxFramesAlive = 1000;
             Direction = direction;
         }
 
@@ -37,7 +34,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
             Sprite.Draw(sb, Position, Color.White);
         }
 
-        public override bool FromPlayer()
+        public override bool IsFromPlayer()
         {
             return true;
         }

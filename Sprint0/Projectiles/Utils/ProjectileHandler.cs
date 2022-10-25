@@ -9,9 +9,9 @@ namespace Sprint0.Projectiles.Tools
      */
     public class ProjectileHandler : IController
     {
-        private List<IProjectile> Projectiles;
-        // This second list is used so that concurrent modification exceptions can be avoided
-        private List<IProjectile> ToBeRemoved;
+        private readonly List<IProjectile> Projectiles;
+        // This second list is used so that concurrent modification isn't an issue
+        private readonly List<IProjectile> ToBeRemoved;
 
         public ProjectileHandler()
         {
@@ -26,12 +26,8 @@ namespace Sprint0.Projectiles.Tools
 
         public void RemoveProjectile(IProjectile projectile)
         {
+            projectile.DeathAction();
             Projectiles.Remove(projectile);
-        }
-
-        public void RemoveAllProjectiles()
-        {
-            Projectiles.Clear();
         }
 
         public List<IProjectile> GetProjectiles()
@@ -44,15 +40,14 @@ namespace Sprint0.Projectiles.Tools
             foreach (var projectile in Projectiles)
             {
                 projectile.Update();
-                if (projectile.TimeIsUp())
+                if (projectile.IsTimeUp())
                 {
                     ToBeRemoved.Add(projectile);
                 }
             }
             foreach (var projectile in ToBeRemoved)
             {
-                projectile.DeathAction();
-                Projectiles.Remove(projectile);
+                RemoveProjectile(projectile);
             }
             ToBeRemoved.Clear();
         }

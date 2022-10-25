@@ -7,14 +7,12 @@ namespace Sprint0.Projectiles.Player_Projectiles
 {
     public class ArrowProjectile : AbstractProjectile
     {
-        private readonly static Vector2 MovementSpeed = new Vector2(15, 15);
         private readonly Types.Direction Direction;
 
         public ArrowProjectile(Vector2 position, Types.Direction direction) :
-            base(position, MovementSpeed, direction, null)
+            base(new ArrowProjSprite(direction), null, position, new Vector2(15, 15), direction)
         {
-            Sprite = new ArrowProjSprite(direction);
-            FramesAlive = 20;
+            MaxFramesAlive = 20;
             Direction = direction;
         }
 
@@ -28,14 +26,14 @@ namespace Sprint0.Projectiles.Player_Projectiles
                 Direction, null);
         }
 
+        public override bool IsFromPlayer()
+        {
+            return true;
+        }
+
         public override void Draw(SpriteBatch sb)
         {
             Sprite.Draw(sb, Position, Color.White);
-        }
-
-        public override bool FromPlayer()
-        {
-            return true;
         } 
     }
 }

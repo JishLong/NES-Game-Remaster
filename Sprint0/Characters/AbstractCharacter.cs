@@ -55,7 +55,7 @@ public abstract class AbstractCharacter : ICharacter
             Types.Projectile.DEATH_PARTICLE, 
             Utils.CenterRectangles(GetHitbox(), ParticleHitbox), 
             Types.Direction.UP,
-            null);
+            this);
     }
 
     public virtual void Update(GameTime gameTime)

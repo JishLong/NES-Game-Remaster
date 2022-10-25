@@ -5,16 +5,13 @@ namespace Sprint0.Projectiles.Player_Projectiles
 {
     public class SwordMelee : AbstractProjectile
     {
-        private readonly static Vector2 MovementSpeed = new Vector2(0, 0);
-
         public SwordMelee(Vector2 position, Types.Direction direction) :
-            base(position, MovementSpeed, direction, null)
+            base(new SwordMeleeSprite(direction), null, position, Vector2.Zero, Types.Direction.NO_DIRECTION)
         {
-            Sprite = new SwordMeleeSprite(direction);
-            FramesAlive = 32;
+            MaxFramesAlive = 32;
         }
 
-        public override bool FromPlayer()
+        public override bool IsFromPlayer()
         {
             return true;
         }

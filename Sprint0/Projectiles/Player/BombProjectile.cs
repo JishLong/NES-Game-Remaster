@@ -6,10 +6,10 @@ namespace Sprint0.Projectiles.Player_Projectiles
 {
     public class BombProjectile : AbstractProjectile
     {
-        public BombProjectile(Vector2 position) : base(position, Vector2.Zero, Types.Direction.UP, null)
+        public BombProjectile(Vector2 position) : 
+            base(new BombProjSprite(), null, position, Vector2.Zero, Types.Direction.NO_DIRECTION)
         {
-            Sprite = new BombProjSprite();
-            FramesAlive = 100;       
+            MaxFramesAlive = 100;       
         }
 
         public override void DeathAction()
@@ -18,7 +18,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
                 Types.Projectile.BOMB_EXPLOSION_PARTICLE, Position, Types.Direction.UP, null);
         }
 
-        public override bool FromPlayer()
+        public override bool IsFromPlayer()
         {
             return true;
         }

@@ -35,13 +35,13 @@ namespace Sprint0.Projectiles.Tools
                 case Types.Projectile.BOSS_PROJ:
                     return new BossProjectile(position, direction);
                 case Types.Projectile.DEATH_PARTICLE:
-                    return new DeathParticle(position);                  
+                    return new DeathParticle(user);                  
                 case Types.Projectile.FLAME_PROJ:
                     return new FlameProjectile(position, direction);
                 case Types.Projectile.GORIYA_BOOMERANG_PROJ:
-                    return new GoriyaBoomerangProjectile(position, direction, user);
+                    return new GoriyaBoomerangProjectile(user, direction);
                 case Types.Projectile.PLAYER_BOOMERANG_PROJ:
-                    return new PlayerBoomerangProjectile(position, direction, user);
+                    return new PlayerBoomerangProjectile(user, direction);
                 case Types.Projectile.SWORD_MELEE:
                     return new SwordMelee(position, direction);
                 case Types.Projectile.SWORD_PROJ:
@@ -57,10 +57,7 @@ namespace Sprint0.Projectiles.Tools
 
         public static ProjectileFactory GetInstance()
         {
-            if (Instance == null)
-            {
-                Instance = new ProjectileFactory();
-            }
+            Instance ??= new ProjectileFactory();
             return Instance;
         }
     }
