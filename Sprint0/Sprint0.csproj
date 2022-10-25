@@ -20,6 +20,7 @@
     <None Remove="Sprites\Player\Attack\" />
     <None Remove="Sprites\Player\Stationary\" />
     <None Remove="Sprites\Player\Movement\" />
+    <None Remove="Code Reviews\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -33,6 +34,7 @@
     <Folder Include="Sprites\Player\Sword\" />
     <Folder Include="Sprites\Player\Stationary\" />
     <Folder Include="Sprites\Player\Moving\" />
+    <Folder Include="Code Reviews\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Levels\Level1\Room17\Blocks.csv">
