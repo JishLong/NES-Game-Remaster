@@ -1,7 +1,0 @@
-Hanebal Aseged
-10/3/22
-Sprint 2
-Skeleton.cs
-Hayden Gray
-10
-Everything here feels very simple and readable, nice use of abstract class
