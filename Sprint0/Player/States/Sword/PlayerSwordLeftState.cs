@@ -44,7 +44,7 @@ namespace Sprint0.Player.State.Idle
                 if (Player.Health == Player.MaxHealth)
                 {
                     float SwordX = Player.Position.X - Resources.SwordProjHorz.Width * Utils.GameScale;
-                    float SwordY = Player.Position.Y + Player.GetHitbox().Height / 2 - Resources.SwordProjHorz.Height * Utils.GameScale / 2;
+                    float SwordY = Player.Position.Y + Resources.LinkSideways.Height * Utils.GameScale / 2 - Resources.SwordProjHorz.Height * Utils.GameScale / 2;
                     ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_PROJ, new Vector2(SwordX, SwordY), Types.Direction.LEFT, null);
                 }
             }

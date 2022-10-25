@@ -22,7 +22,7 @@ namespace Sprint0.Player.State.Idle
         private void SpawnSwordMelee() 
         {
             float SwordX = Player.Position.X;
-            float SwordY = Player.Position.Y + Player.GetHitbox().Height;
+            float SwordY = Player.Position.Y + Resources.LinkDown.Height * Utils.GameScale;
 
             ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_MELEE,
                 new Vector2(SwordX, SwordY), Types.Direction.DOWN, null);
@@ -43,8 +43,8 @@ namespace Sprint0.Player.State.Idle
                 Player.State = new PlayerFacingDownState(this);
                 if (Player.Health == Player.MaxHealth) 
                 {
-                    float SwordX = Player.Position.X + Player.GetHitbox().Width / 2 - Resources.SwordProjVert.Width * Utils.GameScale / 2;
-                    float SwordY = Player.Position.Y + Player.GetHitbox().Height;
+                    float SwordX = Player.Position.X + Resources.LinkDown.Width * Utils.GameScale / 2 - Resources.SwordProjVert.Width * Utils.GameScale / 2;
+                    float SwordY = Player.Position.Y + Resources.LinkDown.Height * Utils.GameScale;
                     ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_PROJ, new Vector2(SwordX, SwordY), Types.Direction.DOWN, null);
                 }
             }
