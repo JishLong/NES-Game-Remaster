@@ -2,28 +2,21 @@
 using Sprint0.Player.State;
 using Sprint0.Sprites.Player.Attack.UseItem;
 using Microsoft.Xna.Framework;
-using Sprint0.Projectiles.Player;
 using Sprint0.Projectiles.Tools;
 
 namespace Sprint0.Player.States.BlueArrow
 {
     public class PlayerUseItemDownState : AbstractPlayerState
     {
-        private readonly int UseFrames;
-
         public PlayerUseItemDownState(Player player) : base(player)
         {
             Sprite = new PlayerUseItemDownSprite();
-            UseFrames = 20;
-
             SpawnProjectile();
         }
 
         public PlayerUseItemDownState(IPlayerState state) : base(state)
         {
             Sprite = new PlayerUseItemDownSprite();
-            UseFrames = 20;
-
             SpawnProjectile();
         }
 

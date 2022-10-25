@@ -22,7 +22,7 @@ namespace Sprint0.Collision.Handlers
         {
             if (InventoryItems.Contains(item.GetType()))
             {
-                player.Inventory.AddToInventory(item, 1);
+                //player.AddToInventory
                 new RemoveItemCommand(room, item).Execute();
             }
             else if (item is Heart)

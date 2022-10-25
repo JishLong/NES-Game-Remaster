@@ -8,9 +8,8 @@ namespace Sprint0.Player
     {
         public Vector2 Position { get; set; }
         Types.PlayerWeapon SecondaryWeapon { get; set; }
-        bool IsPrimaryAttacking { get; set; }
-        bool IsStationary { get; set; }
         Types.Direction FacingDirection { get; set; }
+        bool IsStationary { get; set; }
 
         void ChangeDirection(Types.Direction direction);
 

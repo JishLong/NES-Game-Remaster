@@ -8,7 +8,6 @@ namespace Sprint0.Player.State.Idle
         public PlayerFacingUpState(Player player) : base(player)
         {
             Sprite = new PlayerFacingUp();
-            player.IsStationary = true;
         }
 
         public PlayerFacingUpState(IPlayerState state) : base(state)
@@ -47,6 +46,7 @@ namespace Sprint0.Player.State.Idle
 
         public override void DoSecondaryAttack()
         {
+            base.DoSecondaryAttack();
             Player.State = new PlayerUseItemUpState(this);
         }
     }

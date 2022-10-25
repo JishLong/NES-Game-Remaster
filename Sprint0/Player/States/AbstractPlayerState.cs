@@ -7,21 +7,14 @@ namespace Sprint0.Player.State
     public abstract class AbstractPlayerState : IPlayerState
     {
         public Player Player { get; }
-        protected static readonly Vector2 Knockback = new(-15, -15);
-
         protected ISprite Sprite { get; set; }
 
-        /* Used for logic in determining when to switch states
-         * 
-         * [IsChangingDirection]: whether the player is changing direction; set to false instantly so that the player can effectively
-         * change direction only once per game frame
-         * 
-         * [IsAttacking]: whether the user is initiating some input that would cause the player to attack
-         * 
-         * [FramesPassed]: the number of game frames that have passed since this state has been active
-         */
-        protected int DamageFrameCounter; 
-        protected int FramesPassed;
+        private static readonly Vector2 Knockback = new(-15, -15);
+        private static readonly int InvincibilityFrames = 40;
+        protected static readonly int UseFrames = 20;
+
+        // The number of frames that have passed since this state has been in use
+        protected int FramesPassed;       
 
         public AbstractPlayerState(Player player) 
         {
@@ -33,33 +26,31 @@ namespace Sprint0.Player.State
         public AbstractPlayerState(IPlayerState state) 
         {
             Player = state.Player;
-            DamageFrameCounter = state.DamageFrameCounter;
             FramesPassed = 0;
         }
 
         public virtual void ChangeDirection(Types.Direction direction) 
         {
             Player.IsChangingDirection = true;
-            Player.FacingDirection = direction;
+            Player.IsStationary = false;
+            Player.FacingDirection = direction;          
         }
 
         public virtual void StopAction() 
         {
             Player.IsPrimaryAttacking = false;
-        }
-
-        public virtual void SetToStationary()
-        {
             Player.IsStationary = true;
         }
+
         public virtual void DoPrimaryAttack() 
         {
             Player.IsPrimaryAttacking = true;
+            Player.IsStationary = false;
         }
 
         public virtual void DoSecondaryAttack() 
         {
-            // Empty, but nice since it doesn't need to be declared in all the subclasses
+            Player.IsStationary = false;
         }
 
         public void TakeDamage(int damage) 
@@ -102,11 +93,8 @@ namespace Sprint0.Player.State
             // If the player is damaged, check to see if they should no longer be damaged
             if (Player.IsTakingDamage) 
             {
-                /* The "40" here is a magic number and is the number of frames the player is damaged for;
-                 * I got it from the old player logic, not sure if we should make it into a variable so it's not a magic number?
-                 */
-                DamageFrameCounter = (DamageFrameCounter + 1) % 40;
-                if (DamageFrameCounter == 0) 
+                Player.DamageFramesPassed = (Player.DamageFramesPassed + 1) % InvincibilityFrames;
+                if (Player.DamageFramesPassed == 0) 
                 {
                     Player.IsTakingDamage = false;
                 }
@@ -115,7 +103,8 @@ namespace Sprint0.Player.State
 
         public void Draw(SpriteBatch sb, Vector2 position) 
         {
-            Sprite.Draw(sb, position, Player.Color);
+            Color PlayerColor = (Player.IsTakingDamage) ? Color.Red : Color.White;
+            Sprite.Draw(sb, position, PlayerColor);
         }
     }
 }

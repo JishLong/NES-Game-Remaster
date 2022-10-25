@@ -25,8 +25,9 @@ namespace Sprint0.Player
         public bool IsChangingDirection { get; set; }
         public bool IsPrimaryAttacking { get; set; }
         public bool IsTakingDamage { get; set; }
+        public int DamageFramesPassed { get; set; }
 
-        // An inventory to hold all the player's items
+        // An inventory to hold all the player's items - not yet in use
         private Inventory Inventory;
         
         public Player(Game1 game)
@@ -86,7 +87,7 @@ namespace Sprint0.Player
 
         public void TakeDamage(int damage) 
         {
-            State.TakeDamage();
+            State.TakeDamage(damage);
         }
 
         public void Update()

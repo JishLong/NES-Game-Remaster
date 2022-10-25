@@ -12,7 +12,7 @@ namespace Sprint0.Collision.Handlers
         // NOTE: enemies still need to have different contact attack damage amounts; this is not yet accounted for here
         public void HandleCollision(IPlayer player, ICharacter character, Types.Direction playerSide, Room room)
         {
-            if (!(character is OldMan) && !(character is Flame)) new PlayerTakeDamageCommand(player, playerSide).Execute();
+            if (!(character is OldMan) && !(character is Flame)) new PlayerTakeDamageCommand(player, playerSide, 1).Execute();
         }
     }
 }

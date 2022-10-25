@@ -25,7 +25,7 @@ namespace Sprint0.Collision.Handlers
             {
                 if (!(player.IsStationary && player.FacingDirection == playerSide))
                 {
-                    new PlayerTakeDamageCommand(player, playerSide).Execute();                
+                    new PlayerTakeDamageCommand(player, playerSide, 1).Execute();                
                 }
                 if (projectile is GoriyaBoomerangProjectile)
                 {

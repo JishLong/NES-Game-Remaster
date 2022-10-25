@@ -8,21 +8,15 @@ namespace Sprint0.Player.States.BlueArrow
 {
     public class PlayerUseItemLeftState : AbstractPlayerState
     {
-        private readonly int UseFrames;
-
         public PlayerUseItemLeftState(Player player) : base(player)
         {
             Sprite = new PlayerUseItemLeftSprite();
-            UseFrames = 20;
-
             SpawnProjectile();
         }
 
         public PlayerUseItemLeftState(IPlayerState state) : base(state)
         {
             Sprite = new PlayerUseItemLeftSprite();
-            UseFrames = 20;
-
             SpawnProjectile();
         }
 
