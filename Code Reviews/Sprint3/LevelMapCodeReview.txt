@@ -1,0 +1,13 @@
+Review Author: Hanebal Aseged
+Date: 10/24/22
+Sprint 3
+Name of .cs file: LevelMap.cs
+.cs Author: Hayden Gray
+Time: 10 min
+
+The purpose of this class is to create a map that is used for linking the different rooms in the level. 
+It takes the map file of the levels and transforms it into a 2d array that is easy to manipulate and read in the code. 
+I see no issues in the quality of the code, it is a pretty short file that doesn't deal with too many things.
+
+The only concern I see is the use of relative paths to get to the levels folder, I'm not entirely sure how to go about fixing this but 
+it does create a little bit of concern in that it could potentially cause errors when being run in a different environment then the current one.
