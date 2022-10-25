@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class RedGoriyaUpSprite : AnimatedSprite
+    public class RedGoriyaUpSprite : AbstractAnimatedSprite
     {
         public RedGoriyaUpSprite() : base(2, 16)
         {

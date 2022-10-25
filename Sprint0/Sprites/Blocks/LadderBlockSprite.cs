@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Blocks
 {
-    public class LadderBlockSprite : StillSprite
+    public class LadderBlockSprite : AbstractStillSprite
     {
         protected override Texture2D GetSpriteSheet() => Resources.BlocksSpriteSheet;
 

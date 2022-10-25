@@ -63,8 +63,6 @@ namespace Sprint0.Controllers
                 // Misc. controls
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
                     new QuitCommand(game) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.R),
-                    new ResetCommand(game, player) }
             };
         }
 

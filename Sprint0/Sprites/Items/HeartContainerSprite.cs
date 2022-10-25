@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player
 {
-    public class HeartContainerSprite : StillSprite
+    public class HeartContainerSprite : AbstractStillSprite
     {
         protected override Texture2D GetSpriteSheet() => Resources.ItemsSpriteSheet;
 

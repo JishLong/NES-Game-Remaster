@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Projectiles.Character
 {
-    public class BossProjSprite : AnimatedSprite
+    public class BossProjSprite : AbstractAnimatedSprite
     {
         public BossProjSprite() : base(4, 8)
         {

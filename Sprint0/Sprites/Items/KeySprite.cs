@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player
 {
-    public class KeySprite : StillSprite
+    public class KeySprite : AbstractStillSprite
     {
         protected override Texture2D GetSpriteSheet() => Resources.ItemsSpriteSheet;
 

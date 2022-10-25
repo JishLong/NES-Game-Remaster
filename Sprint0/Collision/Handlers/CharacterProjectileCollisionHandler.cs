@@ -6,26 +6,28 @@ using Sprint0.Projectiles.Player_Projectiles;
 using Sprint0.Projectiles.Player;
 using Sprint0.Characters;
 using Sprint0.Commands.Characters;
+using Sprint0.Npcs;
 
 namespace Sprint0.Collision.Handlers
 {
     // Handles all collisions between characters and projectiles
     public class CharacterProjectileCollisionHandler
     {
-        List<System.Type> AffectedProjectiles;
+        private List<System.Type> AffectedProjectiles;
 
         public CharacterProjectileCollisionHandler()
         {
             AffectedProjectiles = new List<System.Type> { typeof(ArrowProjectile), typeof(BlueArrowProjectile),
-            typeof(FlameProjectile), typeof(PlayerBoomerangProjectile), typeof(SwordMelee) };
+            typeof(FlameProjectile), typeof(PlayerBoomerangProjectile), typeof(SwordMelee), typeof(SwordProjectile),
+                typeof(SwordFlameProjectile) };
         }
 
         public void HandleCollision(ICharacter character, IProjectile projectile, Types.Direction characterSide, Room room)
         {
-            if (AffectedProjectiles.Contains(projectile.GetType()))
+            if (AffectedProjectiles.Contains(projectile.GetType()) && !(character is OldMan) && !(character is Flame))
             {           
-                // For boomerangs, we likely want the boomerang to keep going; we don't want it to get used up
-                if (!(projectile is PlayerBoomerangProjectile)) 
+                // For boomerangs/flame, we likely don't want it to get used up
+                if (!(projectile is PlayerBoomerangProjectile) && !(projectile is FlameProjectile))
                 {
                     projectile.DeathAction();
                     ProjectileManager.GetInstance().RemoveProjectile(projectile);

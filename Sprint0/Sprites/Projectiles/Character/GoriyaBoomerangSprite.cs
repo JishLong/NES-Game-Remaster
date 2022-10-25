@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Projectiles.Character
 {
-    public class GoriyaBoomerangSprite: AnimatedSprite
+    public class GoriyaBoomerangSprite: AbstractAnimatedSprite
     {
         public GoriyaBoomerangSprite() : base(3, 12)
         {

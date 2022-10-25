@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class GelSprite : AnimatedSprite
+    public class GelSprite : AbstractAnimatedSprite
     {
         public GelSprite() : base(2, 2)
         {

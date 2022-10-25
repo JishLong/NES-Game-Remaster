@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class RedGoriyaRightSprite : AnimatedSprite
+    public class RedGoriyaRightSprite : AbstractAnimatedSprite
     {
         public RedGoriyaRightSprite() : base(2, 16)
         {
@@ -12,6 +12,6 @@ namespace Sprint0.Sprites.Characters.Enemies
 
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 
-        protected override Rectangle GetFirstFrame() => Resources.RedGoriyaRight;
+        protected override Rectangle GetFirstFrame() => Resources.RedGoriyaSide;
     }
 }

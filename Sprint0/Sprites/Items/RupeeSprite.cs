@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Sprint0.Sprites.Player
 {
-    public class RupeeSprite : AnimatedSprite
+    public class RupeeSprite : AbstractAnimatedSprite
     {
         public RupeeSprite() : base(2, 8)
         {

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player.Stationary
 {
-    public class PlayerFacingDown : StillSprite
+    public class PlayerFacingDown : AbstractStillSprite
     {
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 

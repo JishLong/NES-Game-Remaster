@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player
 {
-    public class CompassSprite : StillSprite
+    public class CompassSprite : AbstractStillSprite
     {
         protected override Texture2D GetSpriteSheet() => Resources.ItemsSpriteSheet;
 

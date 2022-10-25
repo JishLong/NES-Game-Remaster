@@ -76,6 +76,12 @@ namespace Sprint0.Player.State
 
         public Rectangle GetHitbox() 
         {
+            /*Rectangle ActualHitbox = new Rectangle((int)Player.Position.X, (int)Player.Position.Y,
+                (int)(Resources.LinkDown.Width * Utils.GameScale), (int)(Resources.LinkDown.Height * Utils.GameScale));
+            int ReducedWidth = ActualHitbox.Width * 2 / 3;
+            int ReducedHeight = ActualHitbox.Height * 2 / 3;
+            Vector2 ReducedHitboxPosition = Utils.CenterRectangles(ActualHitbox, new Rectangle(0, 0, ReducedWidth, ReducedHeight));
+            return new Rectangle((int)(ReducedHitboxPosition.X), (int)(ReducedHitboxPosition.Y), ReducedWidth, ReducedHeight);*/
             Rectangle NormalLink = Resources.LinkDown;
             Rectangle SpriteDrawbox = Sprite.GetDrawbox(Player.Position);
 
@@ -90,6 +96,9 @@ namespace Sprint0.Player.State
             // Update some of the logical variables
             IsChangingDirection = false;
             FramesPassed++;
+
+            Rectangle r = Resources.CharacterDeathParticle;
+            Rectangle ParticleHitbox = new Rectangle(r.X, r.Y, (int)(r.Width * Utils.GameScale), (int)(r.Height * Utils.GameScale));
 
             // If the player is damaged, check to see if they should no longer be damaged
             if (Player.Color == Color.Red) 

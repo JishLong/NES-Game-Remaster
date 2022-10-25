@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Projectiles.Player
 {
-    public class DeathParticleSprite : AnimatedSprite
+    public class DeathParticleSprite : AbstractAnimatedSprite
     {
         public DeathParticleSprite() : base(4, 8)
         {

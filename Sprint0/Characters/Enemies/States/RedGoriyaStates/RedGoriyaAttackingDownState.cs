@@ -15,7 +15,7 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
             Goriya = goriya;
             Sprite = new RedGoriyaDownSprite();
             BoomerangFrames = 0;
-            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.GORIYABOOMERANGPROJ, Goriya.Position, Types.Direction.DOWN);
+            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.GORIYABOOMERANGPROJ, Goriya.Position, Types.Direction.DOWN, null);
         }
         
         public override void Attack()

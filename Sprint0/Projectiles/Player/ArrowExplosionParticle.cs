@@ -8,7 +8,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
         private readonly static Vector2 MovementSpeed = new Vector2(0, 0);
 
         public ArrowExplosionParticle(Vector2 position) :
-            base(position, MovementSpeed, Types.Direction.UP)
+            base(position, MovementSpeed, Types.Direction.UP, null)
         {
             Sprite = new ArrowExplosionParticleSprite();
             FramesAlive = 10;         

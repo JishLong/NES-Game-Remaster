@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Blocks
 {
-    public class BlueStatueLeftSprite : StillSprite
+    public class BlueStatueLeftSprite : AbstractStillSprite
     {
         protected override Texture2D GetSpriteSheet() => Resources.BlocksSpriteSheet;
 
