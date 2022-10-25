@@ -1,4 +1,4 @@
-# CSE-3902-Project - Sprint 2
+# CSE-3902-Project - Sprint 3
 
 This README file contains brief instructions/information regarding this project as well as its documentative efforts.
 
@@ -6,48 +6,32 @@ Firstly, here is a quick and explicit review of the game controls:
 
 - Arrows, WASD: movement of Link
 - Z, N: sword attack
+- 1: normal arrow attack
+- 2: blue arrow attack
+- 3: boomerang attack
+- 4: flame attack
+- 5: bomb attack
 - E: become damaged
 
-- T, Y: cycle between items
-- U, I: cycle between blocks
-- O, P: cycle between enemies, bosses, and NPCs
+- Left Click: teleport to previous room
+- Right Click: teleport to next room
+- The 7, 8, 9, and 0 keys also teleport you to rooms direction-wise (if you happen to know the map)
 
-- R: reset the game
 - Q: quit the game
 
-As of writing this document, no known bugs have been found during playtesting. However, seeing as this is a work-in-progress, this does not guarantee the absence of bugs.
+Additionally, here are some extra features that might be hard to miss:
+- Link's sword attack (Z, N) will create a projectile if he hasn't yet been damaged
+- The boomerangs for both Link and the Goriyas will home back to the user, and are able to bounce off blocks indefinitely
 
-
-- ##Player
-- ----- Utilized state pattern, simple one line state methods for each possible action or state of player and a controller class set that implements all method headers. 
-- -----Sprites categories for handling stationary player state, walking direction and attacking directions. 
-- -----Command Pattern for input, movement and damage execution.
-- ##Blocks
-- -----Command pattern for block type swapping
-- -----Factory, block switch case for all block types.
-- -----Abstract block class, all various blocks extend functionality... seperate classes to load each block sprite.
-- ##Bosses
-- -----abstract class for common damage logic.
-- -----individual boss classes for individual behaviors and movements.
-- ##Items
-- -----Command pattern for item type swapping
-- -----Factory, item switch case for all item types.
-- -----Abstract item class, all various item extend functionality... seperate classes to load each item sprite.
-- ##Input
-- -----Action map relating keystates by 4 key enums, HELD,UP,PRESSED,RELEASED.
-- -----Current keystate distinctation logic.
-- ##Enemies
-- -----Weapon+non-weapon weilding enemy interface implimentation.
-- -----Seperate enemy classes to distinguish unique movements and sprites
-- -----Behaviors for Attacks(Kills+Stuns) and Various movements(Omnidirectional,Orthogonal,Square).
+As of writing this document, no known major bugs have been found during playtesting. However, seeing as this is a work-in-progress, this does not guarantee the absence of bugs. There are some small bugs involving collision with blocks - sometimes Link can get stuck in blocks due to a knockback mechanic that is not yet fully implemented. Boomerangs can also get into blocks on their way back to their user. Both of these minor issues will be fixed in the near future.
 
 Finally, here are the various ways in which the development of this project has been documented:
 
-- Task tracking (on GitHub) - below is a link to a GitHub page which contains all the tasks that the team was assigned for Sprint 2. In the case this link is faulty or requires a login to GitHub, etc., three pictures have been placed in the Documentation folder as an alternative viewing method.
+- Task tracking (on GitHub) - below is a link to a GitHub page which contains all the tasks that the team was assigned for Sprint 3. There are also screenshots of the task board at different dates during the sprint - these can all be found in the Documentation folder.
 
-https://github.com/orgs/Code-Commanders/projects/2/views/4
+https://github.com/orgs/Code-Commanders/projects/3/views/2
 
-- Code metrics analysis - the code metrics for the final state of the Sprint 2 solution was calculated using Visual Studio's analyze menu. A picture of the results can be found in the Documentation folder.
+- Code metrics analysis - the code metrics the Sprint3 solution were calculated using Visual Studio's analyze menu. This was done at various dates during the sprint - pictures of the displayed results can be found in the Documentation folder.
 
 - Code reviews - various code reviews with focuses on code readability and maintainability can be found in the Code Reviews folder.
 
