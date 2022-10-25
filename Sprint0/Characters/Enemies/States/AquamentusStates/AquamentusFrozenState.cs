@@ -7,14 +7,12 @@ namespace Sprint0.Characters.Bosses.States.AquamentusStates
 {
     public class AquamentusFrozenState : AbstractCharacterState
     {
-        private Aquamentus Aquamentus;
-        private Types.Direction ResumeMovementDirection;
+        private readonly Aquamentus Aquamentus;
         private double FrozenTimer;
-        private double FrozenDelay = 5000;
+        private readonly double FrozenDelay = 5000;
         public AquamentusFrozenState(Aquamentus aquamentus)
         {
             Aquamentus = aquamentus;
-            //ResumeMovementDirection = direction;
             Sprite = new AquamentusSprite();
         }
         public override void Attack()
@@ -40,7 +38,7 @@ namespace Sprint0.Characters.Bosses.States.AquamentusStates
 
             if ((FrozenTimer - FrozenDelay) > 0)
             {
-                ChangeDirection();
+                Move();
             }
             Sprite.Update();
         }

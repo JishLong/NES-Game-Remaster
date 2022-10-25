@@ -6,12 +6,17 @@ namespace Sprint0.Characters
     public interface ICharacterState
     {
         void Attack();
-        void Move();
-        void Freeze();
+
         void ChangeDirection();
-        void Update(GameTime gameTime);
+
         void Draw(SpriteBatch sb, Vector2 position, Color color);
 
+        void Freeze();
+
         Rectangle GetHitbox(Vector2 position);
+
+        void Move();
+ 
+        void Update(GameTime gameTime);        
     }
 }

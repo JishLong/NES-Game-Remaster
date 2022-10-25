@@ -5,10 +5,11 @@ namespace Sprint0.Characters.Enemies.States.GelStates
 {
     public class GelFrozenState: AbstractCharacterState
     {
-        private Gel Gel;
-        private Types.Direction ResumeMovementDirection;
+        private readonly Gel Gel;
+        private readonly Types.Direction ResumeMovementDirection;
         private double FrozenTimer;
-        private double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
+        private readonly double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
+
         public GelFrozenState(Gel gel, Types.Direction direction)
         {
             Gel = gel;

@@ -1,15 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.Utils;
+using Sprint0.Characters.Utils;
 using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.States.BatStates
 {
     public class BatMovingUpLeftState : AbstractCharacterState
     {
-        private Bat Bat;
-        private Types.Direction StateDirection;
-        private Vector2 DirectionVector;
-        private float MovementSpeed = 2f;
+        private readonly Bat Bat;
+        private readonly Types.Direction StateDirection;
+        private readonly Vector2 DirectionVector;
+
         public BatMovingUpLeftState(Bat bat)
         {
             Bat = bat;

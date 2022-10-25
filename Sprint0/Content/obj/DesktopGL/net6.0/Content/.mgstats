@@ -1,2 +1,7 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/josh/Source/Repos/CSE-3902-Project/Sprint0/Content/blocks.png","C:/Users/josh/Source/Repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/blocks.xnb","TextureProcessor","Texture2DContent",1199,12885,0.1206009
+"C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/blocks.png","C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/blocks.xnb","TextureProcessor","Texture2DContent",1199,12885,0.1148551
+"C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/characters.png","C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/characters.xnb","TextureProcessor","Texture2DContent",3099,49365,0.0031978
+"C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/items.png","C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/items.xnb","TextureProcessor","Texture2DContent",1710,11989,0.0019499
+"C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/Level1.png","C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Level1.xnb","TextureProcessor","Texture2DContent",90768,5826381,0.1981373
+"C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/link.png","C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/link.xnb","TextureProcessor","Texture2DContent",2405,30805,0.0029728
+"C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/weaponsAndProj.png","C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/weaponsAndProj.xnb","TextureProcessor","Texture2DContent",2474,23125,0.0018095

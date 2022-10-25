@@ -8,7 +8,6 @@ namespace Sprint0.Player.State.Idle
         public PlayerMovingRightState(Player player) : base(player)
         {
             Sprite = new PlayerMovingRight();
-            player.IsStationary = false;
         }
 
         public PlayerMovingRightState(IPlayerState state) : base(state)
@@ -21,7 +20,7 @@ namespace Sprint0.Player.State.Idle
             /* If the user is holding down multiple movement keys, we don't want the player to be constantly changing direction;
              * This would cause the sprites to appear frozen since new states would be instantiated every game frame
              */
-            if (IsChangingDirection) return;
+            if (Player.IsChangingDirection) return;
             base.ChangeDirection(direction);
 
             switch (direction)
@@ -48,6 +47,7 @@ namespace Sprint0.Player.State.Idle
 
         public override void DoSecondaryAttack()
         {
+            base.DoSecondaryAttack();
             Player.State = new PlayerUseItemRightState(this);
         }
 
@@ -61,7 +61,6 @@ namespace Sprint0.Player.State.Idle
         {
             base.Update();
 
-            // Grabs a directional vector and scales it according to the player's movement speed
             Player.Position += Utils.DirectionToVector(Types.Direction.RIGHT) * Player.MovementSpeed;
         }
     }

@@ -2,28 +2,21 @@
 using Sprint0.Player.State;
 using Sprint0.Sprites.Player.Attack.UseItem;
 using Microsoft.Xna.Framework;
-using Sprint0.Projectiles.Player;
 using Sprint0.Projectiles.Tools;
 
 namespace Sprint0.Player.States.BlueArrow
 {
     public class PlayerUseItemDownState : AbstractPlayerState
     {
-        private readonly int UseFrames;
-
         public PlayerUseItemDownState(Player player) : base(player)
         {
             Sprite = new PlayerUseItemDownSprite();
-            UseFrames = 20;
-
             SpawnProjectile();
         }
 
         public PlayerUseItemDownState(IPlayerState state) : base(state)
         {
             Sprite = new PlayerUseItemDownSprite();
-            UseFrames = 20;
-
             SpawnProjectile();
         }
 
@@ -35,27 +28,27 @@ namespace Sprint0.Player.States.BlueArrow
             switch (Player.SecondaryWeapon) 
             {
                 case Types.PlayerWeapon.ARROW:
-                    Projectile = Types.Projectile.ARROWPROJ;
+                    Projectile = Types.Projectile.ARROW_PROJ;
                     ProjectileDrawbox = Resources.ArrowProjVert;
                     break;
-                case Types.PlayerWeapon.BLUEARROW:
-                    Projectile = Types.Projectile.BLUEARROWPROJ;
+                case Types.PlayerWeapon.BLUE_ARROW:
+                    Projectile = Types.Projectile.BLUE_ARROW_PROJ;
                     ProjectileDrawbox = Resources.BlueArrowProjVert;
                     break;
                 case Types.PlayerWeapon.BOOMERANG:
-                    Projectile = Types.Projectile.PLAYERBOOMERANGPROJ;
+                    Projectile = Types.Projectile.PLAYER_BOOMERANG_PROJ;
                     ProjectileDrawbox = Resources.BoomerangProj;
                     break;
                 case Types.PlayerWeapon.FLAME:
-                    Projectile = Types.Projectile.FLAMEPROJ;
+                    Projectile = Types.Projectile.FLAME_PROJ;
                     ProjectileDrawbox = Resources.FlameProj;
                     break;
                 case Types.PlayerWeapon.BOMB:
-                    Projectile = Types.Projectile.BOMBPROJ;
+                    Projectile = Types.Projectile.BOMB_PROJ;
                     ProjectileDrawbox = Resources.BombProj;
                     break;
                 default:
-                    Projectile = Types.Projectile.SWORDMELEE;
+                    Projectile = Types.Projectile.SWORD_MELEE;
                     ProjectileDrawbox = Rectangle.Empty;
                     break;
             }

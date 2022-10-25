@@ -1,14 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.Utils;
+using Sprint0.Characters.Utils;
 using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.RedGoriyaStates
 {
     public class RedGoriyaMovingRightState : AbstractCharacterState
     {
-        private RedGoriya Goriya;
-        private Vector2 DirectionVector = Sprint0.Utils.DirectionToVector(Types.Direction.RIGHT);
-        private float MovementSpeed = 2f;
+        private readonly RedGoriya Goriya;
+        private readonly Vector2 DirectionVector = Sprint0.Utils.DirectionToVector(Types.Direction.RIGHT);
+        private readonly float MovementSpeed = 2f;
         public RedGoriyaMovingRightState(RedGoriya goriya)
         {
             Goriya = goriya;

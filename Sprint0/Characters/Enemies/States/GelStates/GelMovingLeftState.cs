@@ -1,14 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.Utils;
+using Sprint0.Characters.Utils;
 using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.States.GelStates
 {
     public class GelMovingLeftState: AbstractCharacterState
     {
-        private Gel Gel;
-        private Types.Direction StateDirection;
-        private Vector2 DirectionVector;
+        private readonly Gel Gel;
+        private readonly Types.Direction StateDirection;
+        private readonly Vector2 DirectionVector;
+
         public GelMovingLeftState(Gel gel)
         {
             Gel = gel;

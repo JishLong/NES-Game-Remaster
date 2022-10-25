@@ -8,7 +8,7 @@ namespace Sprint0.Npcs
 {
 	public class OldMan : AbstractCharacter
 	{
-		public OldMan(Vector2 position, int updateTimer = 1000)
+		public OldMan(Vector2 position)
 		{
 			Health = 1;
 			Position = position;

@@ -1,21 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Sprites;
 using Sprint0.Sprites.Projectiles.Player;
 
 namespace Sprint0.Projectiles.Player_Projectiles
 {
     public class BombExplosionParticle : AbstractProjectile
     {
-        private readonly static Vector2 MovementSpeed = new Vector2(0, 0);
-
         public BombExplosionParticle(Vector2 position) :
-            base(position, MovementSpeed, Types.Direction.UP, null)
+            base(new BombExplosionParticleSprite(), null, position, Vector2.Zero, Types.Direction.NO_DIRECTION)
         {
-            Sprite = new BombExplosionParticleSprite();
-            FramesAlive = ((AbstractAnimatedSprite)Sprite).GetAnimationTime() - 1;
+            MaxFramesAlive = Sprite.GetAnimationTime() - 1;
         }
 
-        public override bool FromPlayer()
+        public override bool IsFromPlayer()
         {
             return true;
         }

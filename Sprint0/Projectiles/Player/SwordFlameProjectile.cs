@@ -6,13 +6,10 @@ namespace Sprint0.Projectiles.Player_Projectiles
 {
     public class SwordFlameProjectile : AbstractProjectile
     {
-        private readonly static Vector2 MovementSpeed = new Vector2(4, 4);
-
         public SwordFlameProjectile(Vector2 position, Types.Direction direction) :
-            base(position, MovementSpeed, direction, null)
+            base(new SwordFlameProjSprite(direction), null, position, new Vector2(4, 4), direction)
         {
-            Sprite = new SwordFlameProjSprite(direction);
-            FramesAlive = 20;
+            MaxFramesAlive = 20;
         }
 
         public override void Draw(SpriteBatch sb)
@@ -20,7 +17,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
             Sprite.Draw(sb, Position, Color.White);
         }
 
-        public override bool FromPlayer()
+        public override bool IsFromPlayer()
         {
             return true;
         }

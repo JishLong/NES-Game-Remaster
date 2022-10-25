@@ -1,8 +1,8 @@
-﻿namespace Sprint0.Commands.Player
+﻿namespace Sprint0.Commands.Misc
 {
     public class QuitCommand : ICommand
     {
-        private Game1 Game;
+        private readonly Game1 Game;
 
         public QuitCommand(Game1 game)
         {

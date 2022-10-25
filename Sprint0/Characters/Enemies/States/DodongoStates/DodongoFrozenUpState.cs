@@ -6,10 +6,10 @@ namespace Sprint0.Characters.Bosses.States.DodongoStates
 {
     public class DodongoFrozenUpState : AbstractCharacterState
     {
-        private Dodongo Dodongo;
-        private Types.Direction ResumeMovementDirection;
+        private readonly Dodongo Dodongo;
         private double FrozenTimer;
-        private double FrozenDelay = 5000;
+        private readonly double FrozenDelay = 5000;
+
         public DodongoFrozenUpState(Dodongo dodongo)
         {
             Dodongo = dodongo;
@@ -39,7 +39,7 @@ namespace Sprint0.Characters.Bosses.States.DodongoStates
 
             if ((FrozenTimer - FrozenDelay) > 0)
             {
-                ChangeDirection();
+                Move();
             }
             Sprite.Update();
         }
