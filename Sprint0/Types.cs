@@ -3,8 +3,8 @@
     // Contains various useful enumerations that are used throughout the code
     public static class Types
     {
-        public enum Character { BAT, GEL, HAND, RED_GORIYA, SKELETON, ZOL, SNAKE, AQUAMENTUS, DODONGO, FLAME, OLDMAN }
 
+        public enum Character { BAT, GEL, HAND, RED_GORIYA, SKELETON, ZOL, SNAKE, BLADE_TRAP, AQUAMENTUS, DODONGO, FLAME, OLDMAN}
         public enum Item { ARROW, BLUE_CANDLE, BLUE_POTION, BOMB, BOW, CLOCK, COMPASS, FAIRY, HEART, HEART_CONTAINER, 
         KEY, MAP, RUPEE, TRIFORCE_PIECE, WOODEN_BOOMERANG };
 
