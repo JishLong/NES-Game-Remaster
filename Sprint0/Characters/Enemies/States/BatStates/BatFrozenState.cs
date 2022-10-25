@@ -5,10 +5,10 @@ namespace Sprint0.Characters.Enemies.States.BatStates
 {
     public class BatFrozenState: AbstractCharacterState
     {
-        private Bat Bat;
-        private Types.Direction ResumeMovementDirection;
+        private readonly Bat Bat;
+        private readonly Types.Direction ResumeMovementDirection;
         private double FrozenTimer;
-        private double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
+        private readonly double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
         public BatFrozenState(Bat bat, Types.Direction direction)
         {
             Bat = bat;

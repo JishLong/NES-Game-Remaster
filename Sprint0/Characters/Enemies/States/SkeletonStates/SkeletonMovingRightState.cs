@@ -1,14 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.Utils;
+using Sprint0.Characters.Utils;
 using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.States.SkeletonStates
 {
     public class SkeletonMovingRightState : AbstractCharacterState
     {
-        private Skeleton Skeleton;
-        private Types.Direction StateDirection;
-        private Vector2 DirectionVector;
+        private readonly Skeleton Skeleton;
+        private readonly Types.Direction StateDirection;
+        private readonly Vector2 DirectionVector;
         public SkeletonMovingRightState(Skeleton skeleton)
         {
             Skeleton = skeleton;

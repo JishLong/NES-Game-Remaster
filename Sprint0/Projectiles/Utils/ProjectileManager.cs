@@ -20,7 +20,7 @@ namespace Sprint0.Projectiles.Tools
 
         public static ProjectileManager GetInstance()
         {
-            if (Instance == null) Instance = new ProjectileManager();
+            Instance ??= new ProjectileManager();
             return Instance;
         }
 

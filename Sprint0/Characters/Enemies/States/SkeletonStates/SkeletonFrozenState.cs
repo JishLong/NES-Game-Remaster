@@ -5,10 +5,10 @@ namespace Sprint0.Characters.Enemies.States.SkeletonStates
 {
     public class SkeletonFrozenState: AbstractCharacterState
     {
-        private Skeleton Skeleton;
-        private Types.Direction ResumeMovementDirection;
+        private readonly Skeleton Skeleton;
+        private readonly Types.Direction ResumeMovementDirection;
         private double FrozenTimer;
-        private double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
+        private readonly double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
         public SkeletonFrozenState(Skeleton skeleton, Types.Direction direction)
         {
             Skeleton = skeleton;

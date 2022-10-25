@@ -15,8 +15,8 @@ namespace Sprint0.Collision.Handlers
     // Handles all collisions between projectiles and blocks
     public class ProjectileBlockCollisionHandler
     {
-        List<System.Type> AffectedProjectiles;
-        List<System.Type> AffectedBlocks;
+        private readonly List<System.Type> AffectedProjectiles;
+        private readonly List<System.Type> AffectedBlocks;
 
         public ProjectileBlockCollisionHandler()
         {
@@ -27,20 +27,17 @@ namespace Sprint0.Collision.Handlers
             typeof(BlueWall), typeof(GreyBricks), typeof(WhiteBars), typeof(PushableBlockUp), typeof(BorderBlock)};
         }
 
-        /* This type of collision is very simple - certain projectiles get destroyed upon hitting certain blocks;
-         * We can just make a list of the projectiles that get destroyed and the blocks that destroy them
-         * 
-         * Upon hitting a block, a projectile will be forced to prematurely invoke its "death action" (particle effect,
-         * spawning more projectiles, etc.) and is then subsequently removed
-         */
         public void HandleCollision(IProjectile projectile, IBlock block, Types.Direction itemSide, Room room)
         {
+            /* For now, most projectiles are simply destroyed upon hitting a block;
+             * Later, projectiles such as link's flame will likely behave differently (such as simply stopping at the wall)
+             */
             if (AffectedProjectiles.Contains(projectile.GetType()) && AffectedBlocks.Contains(block.GetType())
                 || projectile is SwordProjectile && block is BorderBlock)
             {
-                projectile.DeathAction();
                 ProjectileManager.GetInstance().RemoveProjectile(projectile);
             }
+            // Boomerangs will bounce off of blocks
             else if (projectile is PlayerBoomerangProjectile && AffectedBlocks.Contains(block.GetType()))
             {
                 (projectile as PlayerBoomerangProjectile).ReturnBoomerang();

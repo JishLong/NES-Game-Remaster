@@ -8,7 +8,7 @@ namespace Sprint0.Npcs
 {
     public class Flame : AbstractCharacter
     {
-        public Flame(Vector2 position, int updateTimer = 1000)
+        public Flame(Vector2 position)
         {
             Health = 1;
             Position = position;

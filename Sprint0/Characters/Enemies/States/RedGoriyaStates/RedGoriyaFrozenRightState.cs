@@ -5,9 +5,9 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
 {
     public class RedGoriyaFrozenRightState : AbstractCharacterState
     {
-        private RedGoriya Goriya;
+        private readonly RedGoriya Goriya;
         private double FrozenTimer;
-        private double FrozenDelay = 5000;  // Stay frozen for 5 seconds.
+        private readonly double FrozenDelay = 5000;  // Stay frozen for 5 seconds.
 
         public RedGoriyaFrozenRightState(RedGoriya goriya)
         {

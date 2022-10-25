@@ -1,11 +1,11 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace Sprint0.Characters.Enemies.Utils
+namespace Sprint0.Characters.Utils
 {
     public static class CharacterUtils
     {
-        public static Random RNG = new Random();
+        private readonly static Random RNG = new Random();
 
         // Only being used by hand, will probably create a new movement behavior and axe this.
         public static Vector2 RotateByAngle(Vector2 vector, float angle)

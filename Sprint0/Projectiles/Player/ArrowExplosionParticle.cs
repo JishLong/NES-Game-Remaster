@@ -5,16 +5,13 @@ namespace Sprint0.Projectiles.Player_Projectiles
 {
     public class ArrowExplosionParticle : AbstractProjectile
     {
-        private readonly static Vector2 MovementSpeed = new Vector2(0, 0);
-
         public ArrowExplosionParticle(Vector2 position) :
-            base(position, MovementSpeed, Types.Direction.UP, null)
+            base(new ArrowExplosionParticleSprite(), null, position, Vector2.Zero, Types.Direction.NO_DIRECTION)
         {
-            Sprite = new ArrowExplosionParticleSprite();
-            FramesAlive = 10;         
+            MaxFramesAlive = 10;         
         }
 
-        public override bool FromPlayer()
+        public override bool IsFromPlayer()
         {
             return true;
         }

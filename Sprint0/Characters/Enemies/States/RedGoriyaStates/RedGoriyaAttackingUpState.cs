@@ -7,7 +7,7 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
 {
     public class RedGoriyaAttackingUpState : AbstractCharacterState
     {
-        private RedGoriya Goriya;
+        private readonly RedGoriya Goriya;
         private int BoomerangFrames;
         
         public RedGoriyaAttackingUpState(RedGoriya goriya)
@@ -15,7 +15,7 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
             Goriya = goriya;
             Sprite = new RedGoriyaUpSprite();
             BoomerangFrames = 0;
-            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.GORIYABOOMERANGPROJ, Goriya.Position, Types.Direction.RIGHT, Goriya);
+            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.GORIYA_BOOMERANG_PROJ, Goriya.Position, Types.Direction.RIGHT, Goriya);
         }
         
         public override void Attack()

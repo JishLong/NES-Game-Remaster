@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.States.ZolStates;
 
 namespace Sprint0.Characters.Enemies
@@ -7,7 +6,7 @@ namespace Sprint0.Characters.Enemies
     public class Zol : AbstractCharacter
     {
         private double DirectionTimer = 0;
-        private double DirectionDelay = 1000;    // Change direction every this many milliseconds.
+        private readonly double DirectionDelay = 1000;    // Change direction every this many milliseconds.
         public float MovementSpeed { get; set; }
         public Zol(Vector2 position)
         {

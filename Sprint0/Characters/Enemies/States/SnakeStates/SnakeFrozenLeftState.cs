@@ -5,10 +5,10 @@ namespace Sprint0.Characters.Enemies.States.SnakeStates
 {
     public class SnakeFrozenLeftState: AbstractCharacterState
     {
-        private Snake Snake;
-        private Types.Direction ResumeMovementDirection;
+        private readonly Snake Snake;
+        private readonly Types.Direction ResumeMovementDirection;
         private double FrozenTimer;
-        private double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
+        private readonly double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
         public SnakeFrozenLeftState(Snake snake, Types.Direction direction)
         {
             Snake = snake;

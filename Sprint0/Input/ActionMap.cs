@@ -1,21 +1,21 @@
-﻿using System;
-using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework.Input;
 
 namespace Sprint0.Controllers
 {
-    // Maps a command to one or more keyboard keys
+    // Maps one or more keyboard keys to some method of user keyboard input
     public class ActionMap
     {
-        /* Used to reference the circumstance that activates a key map
+        /* Used to reference the method of keyboard input that activates a key map
          * 
          * [HELD]: any of the keys in the mapping are being held down
          * [UP]: any of the keys in the mapping are not being held down
          * [PRESSED]: at least one of the keys in the mapping has *JUST NOW* been pressed down
-         * [RELEASED]: at least one of the keys in the mapping has *JUST NOW* been released */
+         * [RELEASED]: at least one of the keys in the mapping has *JUST NOW* been released
+         */
         public enum KeyState {HELD, UP, PRESSED, RELEASED};
 
-        private KeyState State;
-        private Keys[] KeyList;
+        private readonly KeyState State;
+        private readonly Keys[] KeyList;
 
         public ActionMap(KeyState state, params Keys[] keyList)
         {
@@ -23,7 +23,7 @@ namespace Sprint0.Controllers
             KeyList = keyList;
         }
 
-        public Boolean IsActivated(KeyboardState prevState, KeyboardState currentState)
+        public bool IsActivated(KeyboardState prevState, KeyboardState currentState)
         {
             foreach (var key in KeyList)
             {

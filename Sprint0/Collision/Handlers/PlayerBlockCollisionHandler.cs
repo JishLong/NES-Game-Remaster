@@ -15,6 +15,7 @@ namespace Sprint0.Collision.Handlers
             //types of blocks player cannot walk through
             if (block.IsWall())
             {
+                // If the block is a PushableBlock, try and push it
                 if (block is AbstractPushableBlock && playerSide == (block as AbstractPushableBlock).Direction) 
                 {
                     new PushPushableBlockCommand(block as AbstractPushableBlock).Execute();
@@ -23,7 +24,11 @@ namespace Sprint0.Collision.Handlers
                 player.StopAction();
                 Rectangle PHitbox = player.GetHitbox();
                 Rectangle BHitbox = block.GetHitbox();
-                Vector2 PHitboxOffset = new Vector2((int)PHitbox.X - player.GetPosition().X, (int)PHitbox.Y - player.GetPosition().Y);
+
+                /* The player from everything else in the game in that it has a different size hitbox (relative to its sprite)
+                 * and can also move. As a result of this, some extra math needs to be done so that collision works properly.
+                 */
+                Vector2 PHitboxOffset = new Vector2((int)PHitbox.X - player.Position.X, (int)PHitbox.Y - player.Position.Y);
                 int X, Y;
                 
                 switch (playerSide)
@@ -31,22 +36,22 @@ namespace Sprint0.Collision.Handlers
                     case (Types.Direction.DOWN):
                         X = PHitbox.X - (int)PHitboxOffset.X;
                         Y = BHitbox.Y - PHitbox.Height - (int)PHitboxOffset.Y;
-                        new PlayerRelocate(player, new Vector2(X, Y)).Execute();
+                        new PlayerRelocateCommand(player, new Vector2(X, Y)).Execute();
                         break;
                     case (Types.Direction.UP):
                         X = PHitbox.X - (int)PHitboxOffset.X;
                         Y = BHitbox.Y + BHitbox.Height - (int)PHitboxOffset.Y;
-                        new PlayerRelocate(player, new Vector2(X, Y)).Execute();
+                        new PlayerRelocateCommand(player, new Vector2(X, Y)).Execute();
                         break;
                     case (Types.Direction.RIGHT):
                         X = BHitbox.X - PHitbox.Width - (int)PHitboxOffset.X;
                         Y = PHitbox.Y - (int)PHitboxOffset.Y;
-                        new PlayerRelocate(player, new Vector2(X, Y)).Execute();
+                        new PlayerRelocateCommand(player, new Vector2(X, Y)).Execute();
                         break;
                     case (Types.Direction.LEFT):
                         X = BHitbox.X + BHitbox.Width - (int)PHitboxOffset.X;
                         Y = PHitbox.Y - (int)PHitboxOffset.Y;
-                        new PlayerRelocate(player, new Vector2(X, Y)).Execute();
+                        new PlayerRelocateCommand(player, new Vector2(X, Y)).Execute();
                         break;
                 }
             }

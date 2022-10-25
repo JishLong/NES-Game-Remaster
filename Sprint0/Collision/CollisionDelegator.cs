@@ -18,13 +18,13 @@ namespace Sprint0.Collision
      */
     public class CollisionDelegator
     {
-        private PlayerCharacterCollisionHandler PlayerCharacterHandler;
-        private PlayerProjectileCollisionHandler PlayerProjectileHandler;
-        private PlayerBlockCollisionHandler PlayerBlockHandler;
-        private PlayerItemCollisionHandler PlayerItemHandler;
-        private CharacterProjectileCollisionHandler CharacterProjectileHandler;
-        private CharacterBlockCollisionHandler CharacterBlockHandler;   
-        private ProjectileBlockCollisionHandler ProjectileBlockHandler;
+        private readonly PlayerCharacterCollisionHandler PlayerCharacterHandler;
+        private readonly PlayerProjectileCollisionHandler PlayerProjectileHandler;
+        private readonly PlayerBlockCollisionHandler PlayerBlockHandler;
+        private readonly PlayerItemCollisionHandler PlayerItemHandler;
+        private readonly CharacterProjectileCollisionHandler CharacterProjectileHandler;
+        private readonly CharacterBlockCollisionHandler CharacterBlockHandler;   
+        private readonly ProjectileBlockCollisionHandler ProjectileBlockHandler;
 
         public CollisionDelegator() 
         {
@@ -41,11 +41,11 @@ namespace Sprint0.Collision
         {
             if (CollidableA is IPlayer && CollidableB is ICharacter)
             {
-                PlayerCharacterHandler.HandleCollision(CollidableA as IPlayer, CollidableB as ICharacter, SideA, room);
+                PlayerCharacterHandler.HandleCollision(CollidableA as IPlayer, CollidableB as ICharacter, SideA);
             }
             else if (CollidableA is IPlayer && CollidableB is IProjectile)
             { 
-                PlayerProjectileHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IProjectile, SideA, room);
+                PlayerProjectileHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IProjectile, SideA);
             }
             else if (CollidableA is IPlayer && CollidableB is IBlock)
             {
@@ -53,7 +53,7 @@ namespace Sprint0.Collision
             }
             else if (CollidableA is IPlayer && CollidableB is IItem)
             {
-                PlayerItemHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IItem, SideA, room);
+                PlayerItemHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IItem, room);
             }
             else if (CollidableA is ICharacter && CollidableB is IBlock)
             {

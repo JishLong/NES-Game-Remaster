@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Bosses.States.AquamentusStates;
 using Sprint0.Characters.Enemies;
-using Sprint0.Characters.Enemies.Utils;
+using Sprint0.Characters.Utils;
 using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Bosses.AquamentusStates
@@ -9,9 +9,9 @@ namespace Sprint0.Characters.Bosses.AquamentusStates
     // [NOTE]: Aquamentus only has a left facing sprite for movement.
     public class AquamentusMovingRightState : AbstractCharacterState
     {
-        private Aquamentus Aquamentus;
-        private Vector2 DirectionVector = Utils.DirectionToVector(Types.Direction.RIGHT);
-        private float MovementSpeed = 2f;
+        private readonly Aquamentus Aquamentus;
+        private Vector2 DirectionVector = Sprint0.Utils.DirectionToVector(Types.Direction.RIGHT);
+        private readonly float MovementSpeed = 2f;
         public AquamentusMovingRightState(Aquamentus aquamentus)
         {
             Aquamentus = aquamentus;

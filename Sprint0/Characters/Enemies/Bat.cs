@@ -6,8 +6,9 @@ namespace Sprint0.Characters.Enemies
     public class Bat : AbstractCharacter
     {
         private double DirectionTimer = 0;
-        private double DirectionDelay = 1000;    // Change direction every this many milliseconds.
+        private readonly double DirectionDelay = 1000;    // Change direction every this many milliseconds.
         public float MovementSpeed { get; set; }
+
         public Bat(Vector2 position)
         {
             // State

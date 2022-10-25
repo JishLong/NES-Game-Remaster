@@ -7,34 +7,67 @@ namespace Sprint0.Player
 {
     public class Player : IPlayer
     {
+        // The player's state - determines its behavior
         public IPlayerState State { get; set; }
-        public Vector2 Position { get; set; }
-        public Vector2 MovementSpeed { get; set; }
-        public Color Color { get; set; }
-        public Types.PlayerWeapon SecondaryWeapon { get; set; }
-        public bool IsPrimaryAttacking { get; set; }
-        public bool IsStationary { get; set; }
-        public Types.Direction FacingDirection { get; set; }
-        public float Health { get; }
-        public float MaxHealth { get; }
 
-        public float Damage { get; }
-        public Inventory Inventory { get; }
+        // Movement-related properties
+        public Vector2 Position { get; set; }
+        public Vector2 MovementSpeed { get; }
+
+        // Combat-related properties
+        public float Health { get; set; }
+        public float MaxHealth { get; }
+        public Types.PlayerWeapon SecondaryWeapon { get; set; }
+
+        // Helpful values to check for certain conditions
+        public Types.Direction FacingDirection { get; set; }
+        public bool IsStationary { get; set; }
+        public bool IsChangingDirection { get; set; }
+        public bool IsPrimaryAttacking { get; set; }
+        public bool IsTakingDamage { get; set; }
+        public int DamageFramesPassed { get; set; }
+
+        // An inventory to hold all the player's items - not yet in use
+        private Inventory Inventory;
         
         public Player(Game1 game)
         {
-            // Reset() here is essentially just initializing the 4 other fields
-            State = new PlayerFacingRightState(this);
+            // Initialize the state
+            State = new PlayerFacingUpState(this);
+
+            // Initialize the movement-related fields
             Position = new Vector2(Resources.BlueTile.Width * Utils.GameScale * 8, Resources.BlueTile.Height * Utils.GameScale * 8);
-            Color = Color.White;
-            SecondaryWeapon = Types.PlayerWeapon.ARROW;
-            IsPrimaryAttacking = false;
-            FacingDirection = Types.Direction.RIGHT;
             MovementSpeed = new Vector2(4, 4);
+
+            // Initialized the combat-related fields
             Health = 3;
             MaxHealth = 3;
-            Damage = 1;
+            SecondaryWeapon = Types.PlayerWeapon.ARROW;
+
+            // Initialize the misc. helpful values
+            FacingDirection = Types.Direction.UP;
+            IsStationary = true;
+            IsChangingDirection = false;
+            IsPrimaryAttacking = false;
+            IsTakingDamage = false;
+            
+            // Initialize the inventory
             Inventory = new Inventory();
+        }
+
+        public void ChangeDirection(Types.Direction direction)
+        {
+            State.ChangeDirection(direction);
+        }
+
+        public void DoPrimaryAttack()
+        {
+            State.DoPrimaryAttack();
+        }
+
+        public void DoSecondaryAttack()
+        {
+            State.DoSecondaryAttack();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -42,24 +75,9 @@ namespace Sprint0.Player
             State.Draw(spriteBatch, Position);
         }
 
-        public void Update()
+        public Rectangle GetHitbox()
         {
-            State.Update();
-        }       
-
-        public void ChangeDirection(Types.Direction direction) 
-        {
-            State.ChangeDirection(direction);
-        }     
-
-        public void DoPrimaryAttack() 
-        {
-            State.DoPrimaryAttack();
-        }
-
-        public void DoSecondaryAttack() 
-        {
-            State.DoSecondaryAttack();
+            return State.GetHitbox();
         }
 
         public void StopAction()
@@ -67,24 +85,14 @@ namespace Sprint0.Player
             State.StopAction();
         }
 
-        public void TakeDamage() 
+        public void TakeDamage(int damage) 
         {
-            State.TakeDamage();
+            State.TakeDamage(damage);
         }
 
-        public void location(Vector2 newLoc)
+        public void Update()
         {
-            Position = newLoc;
-        }
-
-        public Vector2 GetPosition()
-        {
-            return Position;
-        }
-
-        public Rectangle GetHitbox()
-        {
-            return State.GetHitbox();
+            State.Update();
         }
     }
 }

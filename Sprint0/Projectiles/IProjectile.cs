@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Collision;
-using System;
 
 namespace Sprint0.Projectiles
 {
@@ -10,9 +9,9 @@ namespace Sprint0.Projectiles
 
         void Draw(SpriteBatch sb);
 
-        bool FromPlayer();
+        bool IsFromPlayer();
 
-        bool TimeIsUp();
+        bool IsTimeUp();
 
         void Update();
     }

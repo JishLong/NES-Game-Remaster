@@ -5,8 +5,8 @@ namespace Sprint0.Commands.Levels
 {
     public class RemoveItemCommand : ICommand
     {
-        private Room Room;
-        private IItem Item;
+        private readonly Room Room;
+        private readonly IItem Item;
 
         public RemoveItemCommand(Room room, IItem item)
         {

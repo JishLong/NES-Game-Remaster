@@ -7,14 +7,12 @@ namespace Sprint0.Characters
 {
     public interface ICharacter : ICollidable
     {
+        Vector2 Position { get; set; }
+
         void Draw(SpriteBatch sb);
 
         void TakeDamage(Types.Direction damageSide, int damage, Room room);
 
         void Update(GameTime gameTime);
-
-        public void location(Vector2 newLoc);
-
-        public Vector2 GetPosition();
     }
 }

@@ -22,31 +22,31 @@ namespace Sprint0.Projectiles.Tools
         {
             switch (projectileType)
             {
-                case Types.Projectile.ARROWEXPLOSIONPARTICLE:
+                case Types.Projectile.ARROW_EXPLOSION_PARTICLE:
                     return new ArrowExplosionParticle(position);
-                case Types.Projectile.ARROWPROJ:
+                case Types.Projectile.ARROW_PROJ:
                     return new ArrowProjectile(position, direction);
-                case Types.Projectile.BLUEARROWPROJ:
+                case Types.Projectile.BLUE_ARROW_PROJ:
                     return new BlueArrowProjectile(position, direction);
-                case Types.Projectile.BOMBEXPLOSIONPARTICLE:
+                case Types.Projectile.BOMB_EXPLOSION_PARTICLE:
                     return new BombExplosionParticle(position);
-                case Types.Projectile.BOMBPROJ:
+                case Types.Projectile.BOMB_PROJ:
                     return new BombProjectile(position);
-                case Types.Projectile.BOSSPROJ:
+                case Types.Projectile.BOSS_PROJ:
                     return new BossProjectile(position, direction);
-                case Types.Projectile.DEATHPARTICLE:
-                    return new DeathParticle(position);                  
-                case Types.Projectile.FLAMEPROJ:
+                case Types.Projectile.DEATH_PARTICLE:
+                    return new DeathParticle(user);                  
+                case Types.Projectile.FLAME_PROJ:
                     return new FlameProjectile(position, direction);
-                case Types.Projectile.GORIYABOOMERANGPROJ:
-                    return new GoriyaBoomerangProjectile(position, direction, user);
-                case Types.Projectile.PLAYERBOOMERANGPROJ:
-                    return new PlayerBoomerangProjectile(position, direction, user);
-                case Types.Projectile.SWORDMELEE:
+                case Types.Projectile.GORIYA_BOOMERANG_PROJ:
+                    return new GoriyaBoomerangProjectile(user, direction);
+                case Types.Projectile.PLAYER_BOOMERANG_PROJ:
+                    return new PlayerBoomerangProjectile(user, direction);
+                case Types.Projectile.SWORD_MELEE:
                     return new SwordMelee(position, direction);
-                case Types.Projectile.SWORDPROJ:
+                case Types.Projectile.SWORD_PROJ:
                     return new SwordProjectile(position, direction);
-                case Types.Projectile.SWORDFLAMEPROJ:
+                case Types.Projectile.SWORD_FLAME_PROJ:
                     return new SwordFlameProjectile(position, direction);
                 default:
                     Console.Error.Write("The projectile of type " + projectileType.ToString() +
@@ -57,10 +57,7 @@ namespace Sprint0.Projectiles.Tools
 
         public static ProjectileFactory GetInstance()
         {
-            if (Instance == null)
-            {
-                Instance = new ProjectileFactory();
-            }
+            Instance ??= new ProjectileFactory();
             return Instance;
         }
     }

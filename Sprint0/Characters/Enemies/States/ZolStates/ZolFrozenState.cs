@@ -5,10 +5,10 @@ namespace Sprint0.Characters.Enemies.States.ZolStates
 {
     public class ZolFrozenState: AbstractCharacterState
     {
-        private Zol Zol;
-        private Types.Direction ResumeMovementDirection;
+        private readonly Zol Zol;
+        private readonly Types.Direction ResumeMovementDirection;
         private double FrozenTimer;
-        private double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
+        private readonly double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
         public ZolFrozenState(Zol zol, Types.Direction direction)
         {
             Zol = zol;
