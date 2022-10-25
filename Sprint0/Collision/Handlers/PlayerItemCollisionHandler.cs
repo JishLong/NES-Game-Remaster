@@ -10,7 +10,7 @@ namespace Sprint0.Collision.Handlers
     // Handles all collisions between players and items
     public class PlayerItemCollisionHandler
     {
-        private List<System.Type> InventoryItems;
+        private readonly List<System.Type> InventoryItems;
 
         public PlayerItemCollisionHandler() 
         {
@@ -18,7 +18,8 @@ namespace Sprint0.Collision.Handlers
             typeof(Clock), typeof(Compass), typeof(Key), typeof(Map), typeof(Rupee), typeof(WoodenBoomerang) };
         }
 
-        public void HandleCollision(IPlayer player, IItem item, Types.Direction itemSide, Room room) 
+        // Inventory and public health manipulation haven't yet been implemented, so for now the item pickup is only cosmetic
+        public void HandleCollision(IPlayer player, IItem item, Room room) 
         {
             if (InventoryItems.Contains(item.GetType()))
             {

@@ -15,6 +15,7 @@ namespace Sprint0.Collision.Handlers
             //types of blocks player cannot walk through
             if (block.IsWall())
             {
+                // If the block is a PushableBlock, try and push it
                 if (block is AbstractPushableBlock && playerSide == (block as AbstractPushableBlock).Direction) 
                 {
                     new PushPushableBlockCommand(block as AbstractPushableBlock).Execute();
@@ -23,6 +24,10 @@ namespace Sprint0.Collision.Handlers
                 player.StopAction();
                 Rectangle PHitbox = player.GetHitbox();
                 Rectangle BHitbox = block.GetHitbox();
+
+                /* The player from everything else in the game in that it has a different size hitbox (relative to its sprite)
+                 * and can also move. As a result of this, some extra math needs to be done so that collision works properly.
+                 */
                 Vector2 PHitboxOffset = new Vector2((int)PHitbox.X - player.Position.X, (int)PHitbox.Y - player.Position.Y);
                 int X, Y;
                 

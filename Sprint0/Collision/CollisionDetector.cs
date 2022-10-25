@@ -18,14 +18,14 @@ namespace Sprint0.Collision
      */
     public class CollisionDetector
     {
-        private List<ICollidable> Collidables;
-        private CollisionDelegator CollisionDelegator;
-        private IPlayer Player;
+        private readonly CollisionDelegator CollisionDelegator;
+        private readonly IPlayer Player;
 
+        private List<ICollidable> Collidables;
+    
         public CollisionDetector(IPlayer player) 
         {
             Player = player;
-
             CollisionDelegator = new CollisionDelegator();
         }       
 

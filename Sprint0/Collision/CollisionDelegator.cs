@@ -18,13 +18,13 @@ namespace Sprint0.Collision
      */
     public class CollisionDelegator
     {
-        private PlayerCharacterCollisionHandler PlayerCharacterHandler;
-        private PlayerProjectileCollisionHandler PlayerProjectileHandler;
-        private PlayerBlockCollisionHandler PlayerBlockHandler;
-        private PlayerItemCollisionHandler PlayerItemHandler;
-        private CharacterProjectileCollisionHandler CharacterProjectileHandler;
-        private CharacterBlockCollisionHandler CharacterBlockHandler;   
-        private ProjectileBlockCollisionHandler ProjectileBlockHandler;
+        private readonly PlayerCharacterCollisionHandler PlayerCharacterHandler;
+        private readonly PlayerProjectileCollisionHandler PlayerProjectileHandler;
+        private readonly PlayerBlockCollisionHandler PlayerBlockHandler;
+        private readonly PlayerItemCollisionHandler PlayerItemHandler;
+        private readonly CharacterProjectileCollisionHandler CharacterProjectileHandler;
+        private readonly CharacterBlockCollisionHandler CharacterBlockHandler;   
+        private readonly ProjectileBlockCollisionHandler ProjectileBlockHandler;
 
         public CollisionDelegator() 
         {

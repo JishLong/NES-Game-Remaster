@@ -1,5 +1,4 @@
 ﻿using Sprint0.Commands.Player;
-using Sprint0.Levels;
 using Sprint0.Player;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Tools;
@@ -12,14 +11,14 @@ namespace Sprint0.Collision.Handlers
     // Handles all collisions between players and projectiles
     public class PlayerProjectileCollisionHandler
     {
-        List<System.Type> AffectedProjectiles;
+        private readonly List<System.Type> AffectedProjectiles;
 
         public PlayerProjectileCollisionHandler()
         {
             AffectedProjectiles = new List<System.Type>{ typeof(BossProjectile), typeof(GoriyaBoomerangProjectile) };
         }
 
-        public void HandleCollision(IPlayer player, IProjectile projectile, Types.Direction playerSide, Room room)
+        public void HandleCollision(IPlayer player, IProjectile projectile, Types.Direction playerSide)
         {
             if (AffectedProjectiles.Contains(projectile.GetType())) 
             {
@@ -27,6 +26,7 @@ namespace Sprint0.Collision.Handlers
                 {
                     new PlayerTakeDamageCommand(player, playerSide, 1).Execute();                
                 }
+                // For boomerangs, we want them to bounce off the player and go back to the user (in this case, a goriya)
                 if (projectile is GoriyaBoomerangProjectile)
                 {
                     (projectile as GoriyaBoomerangProjectile).ReturnBoomerang();

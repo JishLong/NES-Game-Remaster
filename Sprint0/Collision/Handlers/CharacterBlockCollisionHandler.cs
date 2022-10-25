@@ -2,7 +2,6 @@
 using Sprint0.Blocks;
 using Sprint0.Characters;
 using Microsoft.Xna.Framework;
-using Sprint0.Commands.Blocks;
 using Sprint0.Commands.Character;
 
 namespace Sprint0.Collision.Handlers
@@ -10,7 +9,6 @@ namespace Sprint0.Collision.Handlers
     // Handles all collisions between characters and blocks
     public class CharacterBlockCollisionHandler
     {
-        // NOTE: not working; characters will need interface refactoring in order to extract needed information to handle collision
         public void HandleCollision(ICharacter character, IBlock block, Types.Direction characterSide, Room room) 
         {
             //types of blocks player cannot walk through
