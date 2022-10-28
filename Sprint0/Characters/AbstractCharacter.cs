@@ -36,6 +36,8 @@ public abstract class AbstractCharacter : ICharacter
             Sprint0.Utils.CenterRectangles(GetHitbox(), ParticleHitbox), 
             Types.Direction.UP,
             this);
+
+        Resources.EnemyDeath.Play();
     }
 
     public virtual void Draw(SpriteBatch sb)

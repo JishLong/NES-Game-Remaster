@@ -9,7 +9,6 @@ namespace Sprint0.Input
         private static MouseMappings Instance;
 
         public Dictionary<string, ICommand> PlayingStateMappings { get; private set; }
-        public Dictionary<string, ICommand> PauseStateMappings { get; private set; }
 
         private MouseMappings() { }
 
@@ -25,7 +24,6 @@ namespace Sprint0.Input
                 { "left", new PreviousRoomCommand(game) },
                 { "right", new NextRoomCommand(game) },
             };
-            PauseStateMappings = new Dictionary<string, ICommand>();
         }
     }
 }

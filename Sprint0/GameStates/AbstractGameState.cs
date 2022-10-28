@@ -1,24 +1,19 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Collision;
-using Sprint0.Controllers;
-using Sprint0.Input;
-using Sprint0.Levels;
-using Sprint0.Player;
+using System.Collections.Generic;
 
 namespace Sprint0.GameStates.GameStates
 {
     public class AbstractGameState : IGameState
     {
-        protected static LevelManager LevelManager;
-        protected static IPlayer Player;
+        protected static Game1 Game;
+        protected List<IController> Controllers;
 
         protected AbstractGameState() { }
 
-        protected AbstractGameState(LevelManager levelManager, IPlayer player)
+        protected AbstractGameState(Game1 game)
         {
-            LevelManager ??= levelManager;
-            Player ??= player;
+            Game = game;
         }
 
         public virtual void Draw(SpriteBatch sb)
@@ -28,7 +23,10 @@ namespace Sprint0.GameStates.GameStates
 
         public virtual void Update(GameTime gameTime)
         {
-            
+            foreach (var controller in Controllers)
+            {
+                controller.Update();
+            }
         }
     }
 }

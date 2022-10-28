@@ -11,6 +11,7 @@
 
         public void Execute()
         {
+            AudioManager.GetInstance().StopAllSound();
             Game.Exit();
         }
     }

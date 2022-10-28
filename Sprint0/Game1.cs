@@ -15,6 +15,7 @@ namespace Sprint0
         private SpriteBatch SBatch;
 
         public LevelManager LevelManager { get; private set; }
+        public IPlayer Player { get; private set; }
 
         public IGameState CurrentState { get; set; }
 
@@ -27,15 +28,13 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            
-
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
-            IPlayer Player = new Player.Player(this);
+            Player = new Player.Player(this);
             KeyboardMappings.GetInstance().InitializeMappings(this, Player);
             MouseMappings.GetInstance().InitializeMappings(this);
 
-            CurrentState = new PlayingState(LevelManager, Player);
+            CurrentState = new PlayingState(this);
 
             // Set display resolution.
             Graphics.PreferredBackBufferWidth = 256 * (int) GameScale;
@@ -68,6 +67,11 @@ namespace Sprint0
         
             SBatch.End();
             base.Draw(gameTime);
+        }
+
+        public void WinGame() 
+        {
+            CurrentState = new WinState();
         }
     }
 }

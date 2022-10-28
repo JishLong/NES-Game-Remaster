@@ -16,6 +16,7 @@ namespace Sprint0.Input
 
         public Dictionary<ActionMap, ICommand> PlayingStateMappings { get; private set; }
         public Dictionary<ActionMap, ICommand> PauseStateMappings { get; private set; }
+        public Dictionary<ActionMap, ICommand> WinStateMappings { get; private set; }
 
         private KeyboardMappings() { }
 
@@ -77,6 +78,10 @@ namespace Sprint0.Input
             PauseStateMappings = new Dictionary<ActionMap, ICommand>() { 
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.P),
                     new UnpauseGameCommand(game) },
+            };
+            WinStateMappings = new Dictionary<ActionMap, ICommand>() {
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
+                    new QuitCommand(game) },
             };
         }
     }

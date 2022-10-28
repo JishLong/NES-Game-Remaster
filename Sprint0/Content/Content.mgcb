@@ -49,6 +49,25 @@
 /processorParam:TextureFormat=Color
 /build:characters.png
 
+#begin dababy.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:dababy.wav
+
+#begin enemyDeath.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:enemyDeath.wav
+
+#begin font.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:font.spritefont
+
 #begin items.png
 /importer:TextureImporter
 /processor:TextureProcessor
