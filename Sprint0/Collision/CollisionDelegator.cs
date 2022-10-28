@@ -37,7 +37,7 @@ namespace Sprint0.Collision
             ProjectileBlockHandler = new ProjectileBlockCollisionHandler();
         }
 
-        public void DelegateCollision(ICollidable CollidableA, ICollidable CollidableB, Types.Direction SideA, Room room) 
+        public void DelegateCollision(ICollidable CollidableA, ICollidable CollidableB, Types.Direction SideA, Game1 game) 
         {
             if (CollidableA is IPlayer && CollidableB is ICharacter)
             {
@@ -49,23 +49,27 @@ namespace Sprint0.Collision
             }
             else if (CollidableA is IPlayer && CollidableB is IBlock)
             {
-                PlayerBlockHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IBlock, SideA, room);
+                PlayerBlockHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IBlock, SideA,
+                    game.LevelManager.CurrentLevel.CurrentRoom);
             }
             else if (CollidableA is IPlayer && CollidableB is IItem)
             {
-                PlayerItemHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IItem, room);
+                PlayerItemHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IItem, game);
             }
             else if (CollidableA is ICharacter && CollidableB is IBlock)
             {
-                CharacterBlockHandler.HandleCollision(CollidableA as ICharacter, CollidableB as IBlock, SideA, room);
+                CharacterBlockHandler.HandleCollision(CollidableA as ICharacter, CollidableB as IBlock, SideA,
+                    game.LevelManager.CurrentLevel.CurrentRoom);
             }
             else if (CollidableA is ICharacter && CollidableB is IProjectile)
             {
-                CharacterProjectileHandler.HandleCollision(CollidableA as ICharacter, CollidableB as IProjectile, SideA, room);
+                CharacterProjectileHandler.HandleCollision(CollidableA as ICharacter, CollidableB as IProjectile, SideA,
+                    game.LevelManager.CurrentLevel.CurrentRoom);
             }
             else if (CollidableA is IProjectile && CollidableB is IBlock)
             {
-                ProjectileBlockHandler.HandleCollision(CollidableA as IProjectile, CollidableB as IBlock, SideA, room);
+                ProjectileBlockHandler.HandleCollision(CollidableA as IProjectile, CollidableB as IBlock, SideA,
+                    game.LevelManager.CurrentLevel.CurrentRoom);
             }
         } 
     }

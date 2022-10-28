@@ -1,12 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Controllers;
 using Sprint0.Player;
 using Sprint0.Levels;
-using Sprint0.Collision;
 using static Sprint0.Utils;
-using Sprint0.Projectiles.Tools;
-using System.Collections.Generic;
+using Sprint0.GameStates;
+using Sprint0.GameStates.GameStates;
+using Sprint0.Input;
 
 namespace Sprint0
 {
@@ -15,9 +14,10 @@ namespace Sprint0
         private GraphicsDeviceManager Graphics;
         private SpriteBatch SBatch;
 
-        private List<IController> Controllers;
-        public LevelManager LevelManager { get; set; }
-        public IPlayer Player { get; set; }
+        public LevelManager LevelManager { get; private set; }
+        public IPlayer Player { get; private set; }
+
+        public IGameState CurrentState { get; set; }
 
         public Game1()
         {
@@ -31,13 +31,10 @@ namespace Sprint0
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
             Player = new Player.Player(this);
-            Controllers = new List<IController>()
-            {
-                new KeyboardController(this, Player),
-                new MouseController(this),
-                new ProjectileController(LevelManager),
-                new CollisionController(LevelManager, Player)
-            };
+            KeyboardMappings.GetInstance().InitializeMappings(this, Player);
+            MouseMappings.GetInstance().InitializeMappings(this);
+
+            CurrentState = new PlayingState(this);
 
             // Set display resolution.
             Graphics.PreferredBackBufferWidth = 256 * (int) GameScale;
@@ -56,12 +53,7 @@ namespace Sprint0
 
         protected override void Update(GameTime gameTime)
         {
-            LevelManager.Update(gameTime);   
-            Player.Update();
-            foreach (var controller in Controllers)
-            {
-                controller.Update();
-            }
+            CurrentState.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -71,11 +63,15 @@ namespace Sprint0
             GraphicsDevice.Clear(Color.Black);
             SBatch.Begin(samplerState: SamplerState.PointClamp);
 
-            LevelManager.Draw(SBatch);
-            Player.Draw(SBatch);
+            CurrentState.Draw(SBatch);
         
             SBatch.End();
             base.Draw(gameTime);
+        }
+
+        public void WinGame() 
+        {
+            CurrentState = new WinState();
         }
     }
 }

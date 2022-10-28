@@ -6,18 +6,18 @@ namespace Sprint0.Collision
     // A simple way for the client Game1 class to set up collisions
     public class CollisionController : IController
     {
-        private readonly LevelManager LevelManager;
+        private readonly Game1 Game;
         private readonly CollisionDetector CollisionDetector;
 
-        public CollisionController(LevelManager levelManager, IPlayer player) 
+        public CollisionController(Game1 game) 
         {
-            LevelManager = levelManager;
-            CollisionDetector = new CollisionDetector(player);
+            Game = game;
+            CollisionDetector = new CollisionDetector(Game);
         }
 
         public void Update()
         {
-            CollisionDetector.Update(LevelManager.CurrentLevel.CurrentRoom);
+            CollisionDetector.Update();
         }
     }
 }

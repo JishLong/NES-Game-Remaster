@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -7,13 +8,20 @@ namespace Sprint0
     // Contains spritesheets and exact positions of desirable items on them
     public static class Resources
     {
+        // Font
+        public static SpriteFont Font { get; private set; }
+
+        // Audio
+        public static SoundEffect EnemyDeath { get; private set; }
+        public static SoundEffect Dababy { get; private set; }
+
         // Sprite sheets
-        public static Texture2D BlocksSpriteSheet { get; set; }
-        public static Texture2D ItemsSpriteSheet { get; set; }
-        public static Texture2D WeaponsAndProjSpriteSheet { get; set; }
-        public static Texture2D CharactersSpriteSheet { get; set; }
-        public static Texture2D LinkSpriteSheet { get; set; }
-        public static Texture2D Level1SpriteSheet { get; set; }
+        public static Texture2D BlocksSpriteSheet { get; private set; }
+        public static Texture2D ItemsSpriteSheet { get; private set; }
+        public static Texture2D WeaponsAndProjSpriteSheet { get; private set; }
+        public static Texture2D CharactersSpriteSheet { get; private set; }
+        public static Texture2D LinkSpriteSheet { get; private set; }
+        public static Texture2D Level1SpriteSheet { get; private set; }
 
         // Sprite sheet positions for all blocks
         public static readonly Rectangle BlueTile = new Rectangle(0, 0, 16, 16);
@@ -95,6 +103,13 @@ namespace Sprint0
 
         public static void LoadContent(ContentManager c) 
         {
+            // Load font
+            Font = c.Load<SpriteFont>("font");
+
+            // Load audio
+            EnemyDeath = c.Load<SoundEffect>("enemyDeath");
+            Dababy = c.Load<SoundEffect>("dababy");
+
             // Load sprite sheets
             BlocksSpriteSheet = c.Load<Texture2D>("blocks");
             ItemsSpriteSheet = c.Load<Texture2D>("items");

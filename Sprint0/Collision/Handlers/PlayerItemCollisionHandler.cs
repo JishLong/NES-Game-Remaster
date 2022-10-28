@@ -19,28 +19,28 @@ namespace Sprint0.Collision.Handlers
         }
 
         // Inventory and public health manipulation haven't yet been implemented, so for now the item pickup is only cosmetic
-        public void HandleCollision(IPlayer player, IItem item, Room room) 
+        public void HandleCollision(IPlayer player, IItem item, Game1 game) 
         {
             if (InventoryItems.Contains(item.GetType()))
             {
                 //player.AddToInventory
-                new RemoveItemCommand(room, item).Execute();
+                new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
             }
             else if (item is Heart)
             {
                 //player.Health += 1
-                new RemoveItemCommand(room, item).Execute();
+                new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
             }
             else if (item is HeartContainer)
             {
                 //player.MaxHealth += 1
                 //player.Health = MaxHealth
-                new RemoveItemCommand(room, item).Execute();
+                new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
             }
             else if (item is TriforcePiece) 
             {
-                //trigger game winning event
-                new RemoveItemCommand(room, item).Execute();
+                game.WinGame();
+                new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
             }
         }
     }

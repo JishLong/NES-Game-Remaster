@@ -19,26 +19,26 @@ namespace Sprint0.Collision
     public class CollisionDetector
     {
         private readonly CollisionDelegator CollisionDelegator;
-        private readonly IPlayer Player;
+        private readonly Game1 Game;
 
         private List<ICollidable> Collidables;
     
-        public CollisionDetector(IPlayer player) 
+        public CollisionDetector(Game1 game) 
         {
-            Player = player;
+            Game = game;
             CollisionDelegator = new CollisionDelegator();
         }       
 
-        public void Update(Room currentRoom) 
+        public void Update() 
         {
             // Get a list of every collidable in the current room
             // Very inefficient - could add a separate "collidables" list into room that is handled separately and simply get that
             Collidables = new List<ICollidable>();
-            Collidables.Add(Player);
-            Collidables.AddRange(currentRoom.Characters);
-            Collidables.AddRange(currentRoom.Projectiles.GetProjectiles());
-            Collidables.AddRange(currentRoom.Blocks);
-            Collidables.AddRange(currentRoom.Items);
+            Collidables.Add(Game.Player);
+            Collidables.AddRange(Game.LevelManager.CurrentLevel.CurrentRoom.Characters);
+            Collidables.AddRange(Game.LevelManager.CurrentLevel.CurrentRoom.Projectiles.GetProjectiles());
+            Collidables.AddRange(Game.LevelManager.CurrentLevel.CurrentRoom.Blocks);
+            Collidables.AddRange(Game.LevelManager.CurrentLevel.CurrentRoom.Items);
 
             // Each pair of collidables is only looked at ONCE; also, collidables will not be paired with themselves
             for (int i = 0; i < Collidables.Count - 1; i++) 
@@ -55,7 +55,7 @@ namespace Sprint0.Collision
                     {
                         FormatCollidables(CollidableA, CollidableB);
                         CollisionDelegator.DelegateCollision(CollidableA, CollidableB,
-                            GetCollisionSide(HitboxA, HitboxB), currentRoom);
+                            GetCollisionSide(HitboxA, HitboxB), Game);
                     }
                 }
             }

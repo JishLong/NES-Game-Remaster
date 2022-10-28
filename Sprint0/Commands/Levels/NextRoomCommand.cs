@@ -1,4 +1,6 @@
-﻿namespace Sprint0.Commands.Levels
+﻿using Sprint0.GameStates.GameStates;
+
+namespace Sprint0.Commands.Levels
 {
     public class NextRoomCommand : ICommand
     {
