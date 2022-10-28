@@ -163,3 +163,4 @@ C:\Users\hgray\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.ge
 C:\Users\hgray\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\ref\Sprint0.dll
 C:\Users\hgray\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\level1.xnb
 C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Level1.xnb
+C:\Users\josh\source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\BladeTrap.xnb

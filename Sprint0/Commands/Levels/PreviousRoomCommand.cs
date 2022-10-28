@@ -1,6 +1,8 @@
-﻿namespace Sprint0.Commands.Levels
+﻿using Sprint0.GameStates.GameStates;
+
+namespace Sprint0.Commands.Levels
 {
-    public class PreviousRoomCommand
+    public class PreviousRoomCommand : ICommand
     {
         private readonly Game1 Game;
 
