@@ -6,35 +6,34 @@ namespace Sprint0
     public class AudioManager
     {
         private static AudioManager Instance;
-        private List<SoundEffectInstance> SoundEffects;
+        private List<SoundEffectInstance> LoopedAudio;
 
         private AudioManager() 
         {
-            SoundEffects = new List<SoundEffectInstance>();
+            LoopedAudio = new List<SoundEffectInstance>();
         }
 
-        public void PlaySound(SoundEffect sound) 
+        public void PlayOnce(SoundEffect audio) 
         {
-            SoundEffectInstance instance = sound.CreateInstance();
+            SoundEffectInstance instance = audio.CreateInstance();
             instance.IsLooped = false;
             instance.Play();
-            SoundEffects.Add(instance);
         }
 
-        public void PlayMusic(SoundEffect music)
+        public void PlayLooped(SoundEffect audio)
         {
-            SoundEffectInstance instance = music.CreateInstance();
+            SoundEffectInstance instance = audio.CreateInstance();
             instance.IsLooped = true;
             instance.Play();
-            SoundEffects.Add(instance);
+            LoopedAudio.Add(instance);
         }
 
-        public void StopAllSound() 
+        public void StopLoopedAudio() 
         {
-            foreach (var sound in SoundEffects) 
+            foreach (var audio in LoopedAudio) 
             {
-                sound.Stop(true);
-                sound.Dispose();
+                audio.Stop(true);
+                audio.Dispose();
             }
         }
 

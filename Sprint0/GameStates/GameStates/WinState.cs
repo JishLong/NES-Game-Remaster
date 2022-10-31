@@ -14,14 +14,14 @@ namespace Sprint0.GameStates.GameStates
             {
                 new KeyboardController(KeyboardMappings.GetInstance().WinStateMappings),
             };
-            AudioManager.GetInstance().PlayMusic(Resources.Dababy);
+            AudioManager.GetInstance().PlayLooped(Resources.Dababy);
         }
 
         public override void Draw(SpriteBatch sb)
         {
             Game.LevelManager.Draw(sb);
             Game.Player.Draw(sb);
-            sb.DrawString(Resources.Font, "Winner winner chicken dinner!!", new Vector2(30, 100), Color.Black);
+            sb.DrawString(Resources.MediumFont, "Winner winner chicken dinner!!", new Vector2(30, 100), Color.Black);
         }
     }
 }

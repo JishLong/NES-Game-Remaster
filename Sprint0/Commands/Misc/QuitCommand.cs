@@ -11,7 +11,7 @@
 
         public void Execute()
         {
-            AudioManager.GetInstance().StopAllSound();
+            AudioManager.GetInstance().StopLoopedAudio();
             Game.Exit();
         }
     }

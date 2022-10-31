@@ -9,11 +9,14 @@ namespace Sprint0
     public static class Resources
     {
         // Font
-        public static SpriteFont Font { get; private set; }
+        public static SpriteFont SmallFont { get; private set; }
+        public static SpriteFont MediumFont { get; private set; }
+        public static SpriteFont LargeFont { get; private set; }
 
         // Audio
         public static SoundEffect EnemyDeath { get; private set; }
         public static SoundEffect Dababy { get; private set; }
+        public static SoundEffect MenuMusic { get; private set; }
 
         // Sprite sheets
         public static Texture2D BlocksSpriteSheet { get; private set; }
@@ -104,11 +107,14 @@ namespace Sprint0
         public static void LoadContent(ContentManager c) 
         {
             // Load font
-            Font = c.Load<SpriteFont>("font");
+            SmallFont = c.Load<SpriteFont>("smallFont");
+            MediumFont = c.Load<SpriteFont>("mediumFont");
+            LargeFont = c.Load<SpriteFont>("largeFont");
 
             // Load audio
             EnemyDeath = c.Load<SoundEffect>("enemyDeath");
             Dababy = c.Load<SoundEffect>("dababy");
+            MenuMusic = c.Load<SoundEffect>("menuMusic");
 
             // Load sprite sheets
             BlocksSpriteSheet = c.Load<Texture2D>("blocks");

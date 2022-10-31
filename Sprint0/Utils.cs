@@ -7,6 +7,10 @@ namespace Sprint0
         // How big everything on the screen is - essentially used to "scale up" or "scale down" images
         public static readonly float GameScale = 3;
 
+        // Screen size
+        public static readonly int GameWidth = 256 * (int)GameScale;
+        public static readonly int GameHeight = 176 * (int)GameScale;
+
         /* Suppose we have two rectangles A and B. Also, suppose we have a point C that is the centerpoint of an edge on A.
          * Let's say we want to center rectangle B on point C, such that B's origin lies on C. This method allows us to do that, by returning
          * the point (as a Vector2) at which we would have to draw rectangle B for this to occur.

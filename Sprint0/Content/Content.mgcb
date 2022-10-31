@@ -61,13 +61,6 @@
 /processorParam:Quality=Best
 /build:enemyDeath.wav
 
-#begin font.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
-/build:font.spritefont
-
 #begin items.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -79,6 +72,13 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items.png
+
+#begin largeFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:largeFont.spritefont
 
 #begin Level1.png
 /importer:TextureImporter
@@ -103,6 +103,26 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:link.png
+
+#begin mediumFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:mediumFont.spritefont
+
+#begin menuMusic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:menuMusic.wav
+
+#begin smallFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:smallFont.spritefont
 
 #begin weaponsAndProj.png
 /importer:TextureImporter
