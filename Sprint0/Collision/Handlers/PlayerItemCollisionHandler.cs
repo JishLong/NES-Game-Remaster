@@ -15,7 +15,7 @@ namespace Sprint0.Collision.Handlers
         public PlayerItemCollisionHandler() 
         {
             InventoryItems = new List<System.Type> { typeof(Arrow), typeof(BlueCandle), typeof(BluePotion), typeof(Bomb), typeof(Bow),
-            typeof(Clock), typeof(Compass), typeof(Key), typeof(Map), typeof(Rupee), typeof(WoodenBoomerang) };
+            typeof(Clock), typeof(Compass), typeof(Map), typeof(WoodenBoomerang) };
         }
 
         // Inventory and public health manipulation haven't yet been implemented, so for now the item pickup is only cosmetic
@@ -24,20 +24,33 @@ namespace Sprint0.Collision.Handlers
             if (InventoryItems.Contains(item.GetType()))
             {
                 //player.AddToInventory
+                AudioManager.GetInstance().PlayOnce(Resources.ItemPickup);
                 new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
             }
             else if (item is Heart)
             {
                 //player.Health += 1
+                AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
+                new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
+            }
+            else if (item is Key)
+            {
+                AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
                 new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
             }
             else if (item is HeartContainer)
             {
                 //player.MaxHealth += 1
                 //player.Health = MaxHealth
+                AudioManager.GetInstance().PlayOnce(Resources.ItemPickup);
                 new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
             }
-            else if (item is TriforcePiece) 
+            else if (item is Rupee) 
+            {
+                AudioManager.GetInstance().PlayOnce(Resources.RupeePickup);
+                new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
+            }
+            else if (item is TriforcePiece)
             {
                 game.WinGame();
                 new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();

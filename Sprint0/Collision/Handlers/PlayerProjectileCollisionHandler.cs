@@ -18,13 +18,17 @@ namespace Sprint0.Collision.Handlers
             AffectedProjectiles = new List<System.Type>{ typeof(BossProjectile), typeof(GoriyaBoomerangProjectile) };
         }
 
-        public void HandleCollision(IPlayer player, IProjectile projectile, Types.Direction playerSide)
+        public void HandleCollision(IPlayer player, IProjectile projectile, Types.Direction playerSide, Game1 game)
         {
             if (AffectedProjectiles.Contains(projectile.GetType())) 
             {
                 if (!(player.IsStationary && player.FacingDirection == playerSide))
                 {
-                    new PlayerTakeDamageCommand(player, playerSide, 1).Execute();                
+                    new PlayerTakeDamageCommand(player, playerSide, 1, game).Execute();
+                }
+                else 
+                {
+                    AudioManager.GetInstance().PlayOnce(Resources.ShieldBlock);
                 }
                 // For boomerangs, we want them to bounce off the player and go back to the user (in this case, a goriya)
                 if (projectile is GoriyaBoomerangProjectile)

@@ -4,6 +4,7 @@ using Sprint0.Player;
 using Sprint0.Blocks;
 using Microsoft.Xna.Framework;
 using Sprint0.Commands.Blocks;
+using Sprint0.Blocks.Blocks;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -16,11 +17,10 @@ namespace Sprint0.Collision.Handlers
             if (block.IsWall())
             {
                 // If the block is a PushableBlock, try and push it
-                if (block is AbstractPushableBlock && playerSide == (block as AbstractPushableBlock).Direction) 
+                if (block is PushableBlock) 
                 {
-                    new PushPushableBlockCommand(block as AbstractPushableBlock).Execute();
-                }
-                
+                    new PushPushableBlockCommand(block as PushableBlock, playerSide).Execute();
+                }          
                 player.StopAction();
                 Rectangle PHitbox = player.GetHitbox();
                 Rectangle BHitbox = block.GetHitbox();

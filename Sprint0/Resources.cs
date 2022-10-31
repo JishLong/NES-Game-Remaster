@@ -13,10 +13,24 @@ namespace Sprint0
         public static SpriteFont MediumFont { get; private set; }
         public static SpriteFont LargeFont { get; private set; }
 
-        // Audio
-        public static SoundEffect EnemyDeath { get; private set; }
+        // Audio   
+        public static SoundEffect BossNoise { get; private set; }
         public static SoundEffect Dababy { get; private set; }
+        public static SoundEffect DungeonMusic { get; private set; }
+        public static SoundEffect EnemyDeath { get; private set; }
+        public static SoundEffect EnemyTakeDamage { get; private set; }
+        public static SoundEffect HeartKeyPickup { get; private set; }
+        public static SoundEffect ItemPickup { get; private set; }
+        public static SoundEffect KeyAppear { get; private set; }
         public static SoundEffect MenuMusic { get; private set; }
+        public static SoundEffect NewItem { get; private set; }
+        public static SoundEffect PlayerTakeDamage { get; private set; }
+        public static SoundEffect RupeePickup { get; private set; }
+        public static SoundEffect SecretFound { get; private set; }
+        public static SoundEffect ShieldBlock { get; private set; }
+        public static SoundEffect Sword { get; private set; }
+        public static SoundEffect SwordProj { get; private set; }
+
 
         // Sprite sheets
         public static Texture2D BlocksSpriteSheet { get; private set; }
@@ -25,6 +39,7 @@ namespace Sprint0
         public static Texture2D CharactersSpriteSheet { get; private set; }
         public static Texture2D LinkSpriteSheet { get; private set; }
         public static Texture2D Level1SpriteSheet { get; private set; }
+        public static Texture2D PausePanel { get; private set; }
 
         // Sprite sheet positions for all blocks
         public static readonly Rectangle BlueTile = new Rectangle(0, 0, 16, 16);
@@ -107,22 +122,36 @@ namespace Sprint0
         public static void LoadContent(ContentManager c) 
         {
             // Load font
-            SmallFont = c.Load<SpriteFont>("smallFont");
-            MediumFont = c.Load<SpriteFont>("mediumFont");
-            LargeFont = c.Load<SpriteFont>("largeFont");
+            SmallFont = c.Load<SpriteFont>("Fonts/smallFont");
+            MediumFont = c.Load<SpriteFont>("Fonts/mediumFont");
+            LargeFont = c.Load<SpriteFont>("Fonts/largeFont");
 
             // Load audio
-            EnemyDeath = c.Load<SoundEffect>("enemyDeath");
-            Dababy = c.Load<SoundEffect>("dababy");
-            MenuMusic = c.Load<SoundEffect>("menuMusic");
+            BossNoise = c.Load<SoundEffect>("Audio/bossNoise");
+            Dababy = c.Load<SoundEffect>("Audio/dababy");
+            DungeonMusic = c.Load<SoundEffect>("Audio/dungeonMusic");
+            EnemyDeath = c.Load<SoundEffect>("Audio/enemyDeath");
+            EnemyTakeDamage = c.Load<SoundEffect>("Audio/enemyTakeDamage");
+            HeartKeyPickup = c.Load<SoundEffect>("Audio/heartKeyPickup");
+            ItemPickup = c.Load<SoundEffect>("Audio/itemPickup");
+            KeyAppear = c.Load<SoundEffect>("Audio/keyAppear");
+            MenuMusic = c.Load<SoundEffect>("Audio/menuMusic");
+            NewItem = c.Load<SoundEffect>("Audio/newItem");
+            PlayerTakeDamage = c.Load<SoundEffect>("Audio/playerTakeDamage");
+            RupeePickup = c.Load<SoundEffect>("Audio/rupeePickup");
+            SecretFound = c.Load<SoundEffect>("Audio/secretFound");
+            ShieldBlock = c.Load<SoundEffect>("Audio/shieldBlock");
+            Sword = c.Load<SoundEffect>("Audio/sword"); 
+            SwordProj = c.Load<SoundEffect>("Audio/swordProj");
 
             // Load sprite sheets
-            BlocksSpriteSheet = c.Load<Texture2D>("blocks");
-            ItemsSpriteSheet = c.Load<Texture2D>("items");
-            WeaponsAndProjSpriteSheet = c.Load<Texture2D>("weaponsAndProj");
-            CharactersSpriteSheet = c.Load<Texture2D>("characters");
-            LinkSpriteSheet = c.Load<Texture2D>("link");
-            Level1SpriteSheet = c.Load<Texture2D>("level1");
+            BlocksSpriteSheet = c.Load<Texture2D>("Images/blocks");
+            ItemsSpriteSheet = c.Load<Texture2D>("Images/items");
+            WeaponsAndProjSpriteSheet = c.Load<Texture2D>("Images/weaponsAndProj");
+            CharactersSpriteSheet = c.Load<Texture2D>("Images/characters");
+            LinkSpriteSheet = c.Load<Texture2D>("Images/link");
+            Level1SpriteSheet = c.Load<Texture2D>("Images/level1");
+            PausePanel = c.Load<Texture2D>("Images/pausePanel");
         }
     }
 }

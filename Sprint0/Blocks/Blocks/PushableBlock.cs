@@ -3,20 +3,20 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks.Utils;
 using Sprint0.Sprites.Blocks;
 
-namespace Sprint0.Blocks
+namespace Sprint0.Blocks.Blocks
 {
-    public class AbstractPushableBlock : AbstractBlock
+    public class PushableBlock : AbstractBlock
     {
-        public Types.Direction Direction { get; }
+        private Types.Direction Direction;
         private bool HasBeenPushed;
         private int FramesPushed;
 
         // The block that is "covered" by the pushable block
-        private IBlock BlockUnderneath;
+        private readonly IBlock BlockUnderneath;
 
-        protected AbstractPushableBlock(Vector2 position, Types.Direction direction) : base(new BlueWallSprite(), position, true)
+        public PushableBlock(Vector2 position) : base(new BlueWallSprite(), position, true)
         {
-            Direction = direction;
+            Direction = Types.Direction.NO_DIRECTION;
             HasBeenPushed = false;
             FramesPushed = 0;
 
@@ -30,10 +30,15 @@ namespace Sprint0.Blocks
             base.Draw(sb);
         }
 
-        public void Push()
+        public void Push(Types.Direction direction)
         {
             // Can only be moved one time
-            if (!HasBeenPushed) HasBeenPushed = true;
+            if (!HasBeenPushed)
+            {
+                HasBeenPushed = true;
+                Direction = direction;
+                AudioManager.GetInstance().PlayOnce(Resources.SecretFound);
+            }
         }
 
         public override void Update()
@@ -44,12 +49,12 @@ namespace Sprint0.Blocks
                 BlockUnderneath.Update();
 
                 // We'll move the block one space in the direction [Direction]
-                if (FramesPushed < Sprite.GetDrawbox(Position).Width) 
+                if (FramesPushed < Sprite.GetDrawbox(Position).Width)
                 {
                     FramesPushed++;
                     Position += Sprint0.Utils.DirectionToVector(Direction);
                 }
             }
-        }  
+        }
     }
 }

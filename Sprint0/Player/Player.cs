@@ -85,9 +85,9 @@ namespace Sprint0.Player
             State.StopAction();
         }
 
-        public void TakeDamage(int damage) 
+        public void TakeDamage(int damage, Game1 game) 
         {
-            State.TakeDamage(damage);
+            State.TakeDamage(damage, game);
         }
 
         public void Update()

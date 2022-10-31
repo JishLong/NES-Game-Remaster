@@ -21,7 +21,7 @@ namespace Sprint0.Player
 
         void StopAction();
 
-        void TakeDamage(int damage);
+        void TakeDamage(int damage, Game1 game);
 
         void Update();
     }

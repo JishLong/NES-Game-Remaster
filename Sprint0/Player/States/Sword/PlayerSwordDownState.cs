@@ -26,6 +26,8 @@ namespace Sprint0.Player.State.Idle
 
             ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_MELEE,
                 new Vector2(SwordX, SwordY), Types.Direction.DOWN, null);
+
+            AudioManager.GetInstance().PlayOnce(Resources.Sword);
         }
 
         public override void Update()
@@ -40,13 +42,15 @@ namespace Sprint0.Player.State.Idle
              */
             if (FramesPassed % Sprite.GetAnimationTime() == 0) 
             {
-                Player.State = new PlayerFacingDownState(this);
-                if (Player.Health == Player.MaxHealth) 
-                {
-                    float SwordX = Player.Position.X + Resources.LinkDown.Width * Utils.GameScale / 2 - Resources.SwordProjVert.Width * Utils.GameScale / 2;
-                    float SwordY = Player.Position.Y + Resources.LinkDown.Height * Utils.GameScale;
-                    ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_PROJ, new Vector2(SwordX, SwordY), Types.Direction.DOWN, null);
-                }
+                Player.State = new PlayerFacingDownState(this);               
+            }
+            else if (FramesPassed % Sprite.GetAnimationTime() == Sprite.GetAnimationTime() / 2
+                && Player.Health == Player.MaxHealth)
+            {
+                float SwordX = Player.Position.X + Resources.LinkDown.Width * Utils.GameScale / 2 - Resources.SwordProjVert.Width * Utils.GameScale / 2;
+                float SwordY = Player.Position.Y + Resources.LinkDown.Height * Utils.GameScale;
+                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_PROJ, new Vector2(SwordX, SwordY), Types.Direction.DOWN, null);
+                AudioManager.GetInstance().PlayOnce(Resources.SwordProj);
             }
         }
     }

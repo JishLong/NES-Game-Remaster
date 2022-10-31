@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Commands.Levels;
 using Sprint0.Sprites;
+using static Sprint0.Types;
 
 namespace Sprint0.Player.State
 {
@@ -53,15 +55,16 @@ namespace Sprint0.Player.State
             Player.IsStationary = false;
         }
 
-        public void TakeDamage(int damage) 
+        public void TakeDamage(int damage, Game1 game) 
         {
             if (!Player.IsTakingDamage) 
             {
                 Player.IsTakingDamage = true;
+                AudioManager.GetInstance().PlayOnce(Resources.PlayerTakeDamage);
                 Player.Health -= damage;
                 if (Player.Health <= 0) 
                 {
-                    // The player dies; perhaps a game over state?
+                    game.LoseGame();
                 }
                 Player.Position += Utils.DirectionToVector(Player.FacingDirection) * Knockback;
             }     

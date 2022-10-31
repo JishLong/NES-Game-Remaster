@@ -9,9 +9,9 @@ namespace Sprint0.Collision.Handlers
     public class PlayerCharacterCollisionHandler
     { 
         // NOTE: enemies have not yet been assigned contact damage values, so for now the player will simply take 1 point of damage
-        public void HandleCollision(IPlayer player, ICharacter character, Types.Direction playerSide)
+        public void HandleCollision(IPlayer player, ICharacter character, Types.Direction playerSide, Game1 game)
         {
-            if (character is not OldMan && character is not Flame) new PlayerTakeDamageCommand(player, playerSide, 1).Execute();
+            if (character is not OldMan && character is not Flame) new PlayerTakeDamageCommand(player, playerSide, 1, game).Execute();
         }
     }
 }

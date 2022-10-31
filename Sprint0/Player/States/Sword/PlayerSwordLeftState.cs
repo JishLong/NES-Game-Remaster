@@ -26,6 +26,8 @@ namespace Sprint0.Player.State.Idle
 
             ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_MELEE,
                 new Vector2(SwordX, SwordY), Types.Direction.LEFT, null);
+
+            AudioManager.GetInstance().PlayOnce(Resources.Sword);
         }
 
         public override void Update()
@@ -46,6 +48,7 @@ namespace Sprint0.Player.State.Idle
                     float SwordX = Player.Position.X - Resources.SwordProjHorz.Width * Utils.GameScale;
                     float SwordY = Player.Position.Y + Resources.LinkSideways.Height * Utils.GameScale / 2 - Resources.SwordProjHorz.Height * Utils.GameScale / 2;
                     ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_PROJ, new Vector2(SwordX, SwordY), Types.Direction.LEFT, null);
+                    AudioManager.GetInstance().PlayOnce(Resources.SwordProj);
                 }
             }
         }

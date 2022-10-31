@@ -17,8 +17,8 @@ namespace Sprint0.Input
         public Dictionary<ActionMap, ICommand> PlayingStateMappings { get; private set; }
         public Dictionary<ActionMap, ICommand> PauseStateMappings { get; private set; }
         public Dictionary<ActionMap, ICommand> WinStateMappings { get; private set; }
-
         public Dictionary<ActionMap, ICommand> MainMenuStateMappings { get; private set; }
+        public Dictionary<ActionMap, ICommand> LoseStateMappings { get; private set; }
 
         private KeyboardMappings() { }
 
@@ -59,7 +59,7 @@ namespace Sprint0.Input
 
                 // Player damage control
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.E),
-                    new PlayerTakeDamageCommand(player, player.FacingDirection, 0) },             
+                    new PlayerTakeDamageCommand(player, player.FacingDirection, 0, game) },             
 
                 // Room switching controls
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad4, Keys.D7),
@@ -71,15 +71,15 @@ namespace Sprint0.Input
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad2, Keys.D9),
                     new DownRoomTransitionCommand(game)},
 
-                // Misc. controls
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
-                    new QuitCommand(game) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.P),
+                // Misc. controls               
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),
                     new PauseGameCommand(game) },
             };
             PauseStateMappings = new Dictionary<ActionMap, ICommand>() { 
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.P),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),
                     new UnpauseGameCommand(game) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
+                    new QuitCommand(game) },
             };
             WinStateMappings = new Dictionary<ActionMap, ICommand>() {
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
@@ -90,6 +90,12 @@ namespace Sprint0.Input
                     new QuitCommand(game) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Space),
                     new StartGameCommand(game) },
+            };
+            LoseStateMappings = new Dictionary<ActionMap, ICommand>() {
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
+                    new QuitCommand(game) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Space),
+                    new RestartGameCommand(game) },
             };
         }
     }

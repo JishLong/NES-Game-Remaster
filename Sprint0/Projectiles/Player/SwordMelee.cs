@@ -8,7 +8,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
         public SwordMelee(Vector2 position, Types.Direction direction) :
             base(new SwordMeleeSprite(direction), null, position, Vector2.Zero, Types.Direction.NO_DIRECTION)
         {
-            MaxFramesAlive = 32;
+            MaxFramesAlive = 20;
         }
 
         public override bool IsFromPlayer()
