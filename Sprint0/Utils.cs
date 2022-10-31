@@ -5,11 +5,20 @@ namespace Sprint0
     public static class Utils
     {
         // How big everything on the screen is - essentially used to "scale up" or "scale down" images
-        public static readonly float GameScale = 3;
+        public static float GameScale = 3;
 
         // Screen size
-        public static readonly int GameWidth = 256 * (int)GameScale;
-        public static readonly int GameHeight = 176 * (int)GameScale;
+        public static int GameWidth = 256 * (int)GameScale;
+        public static int GameHeight = 176 * (int)GameScale;
+
+        public static void UpdateWindowSize(GraphicsDeviceManager graphics) 
+        {
+            GameWidth = graphics.GraphicsDevice.Viewport.Width;
+            GameHeight = graphics.GraphicsDevice.Viewport.Height;
+
+            GameScale = (int)(GameWidth / 256);
+            GameScale = (int)(GameHeight / 176);
+        }
 
         /* Suppose we have two rectangles A and B. Also, suppose we have a point C that is the centerpoint of an edge on A.
          * Let's say we want to center rectangle B on point C, such that B's origin lies on C. This method allows us to do that, by returning

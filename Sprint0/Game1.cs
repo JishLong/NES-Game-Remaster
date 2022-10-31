@@ -5,6 +5,7 @@ using Sprint0.Levels;
 using Sprint0.GameStates;
 using Sprint0.GameStates.GameStates;
 using Sprint0.Input;
+using System;
 
 namespace Sprint0
 {
@@ -23,6 +24,7 @@ namespace Sprint0
             Graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            Window.ClientSizeChanged += OnResize;
         }
 
         protected override void Initialize()
@@ -36,6 +38,7 @@ namespace Sprint0
             // Set display resolution.
             Graphics.PreferredBackBufferWidth = Utils.GameWidth;
             Graphics.PreferredBackBufferHeight = Utils.GameHeight;
+            Window.AllowUserResizing = true;
             Graphics.ApplyChanges();
 
             base.Initialize();
@@ -103,6 +106,12 @@ namespace Sprint0
             Player = new Player.Player(this);
             KeyboardMappings.GetInstance().InitializeMappings(this, Player);
             CurrentState = new PlayingState();
+        }
+
+        public void OnResize(Object sender, EventArgs e)
+        {
+            AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
+            Utils.UpdateWindowSize(Graphics);
         }
     }
 }
