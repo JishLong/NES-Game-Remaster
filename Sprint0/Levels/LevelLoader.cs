@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System;
 using System.IO;
 using Sprint0.Levels.Utils;
-
+using Sprint0.Doors;
 
 namespace Sprint0.Levels
 {
@@ -59,6 +59,7 @@ namespace Sprint0.Levels
             LoadBlocks(room, RootPath + levelDirName + "/" + roomDirName + "/Blocks.csv");
             LoadCharacters(room, RootPath + levelDirName + "/" + roomDirName + "/Characters.csv");
             LoadItems(room, RootPath + levelDirName + "/" + roomDirName + "/Items.csv");
+            LoadDoors(room, RootPath + levelDirName + "/" + roomDirName + "/Doors.csv");
             return room;
         }
         public void LoadBlocks(Room room, string roomName)
@@ -132,6 +133,25 @@ namespace Sprint0.Levels
                     col++;
                 }
                 row++;
+            }
+        }
+        public void LoadDoors(Room room, string roomName)
+        { 
+            if (roomName != "../../../Levels/Level1/Room2/Doors.csv") { return; }
+            Parser = new TextFieldParser(roomName);
+            Parser.SetDelimiters(",");
+            while (!Parser.EndOfData)
+            {
+                string[] fields = Parser.ReadFields();
+                foreach (string field in fields)
+                {
+                    if (LevelResources.DoorMap.ContainsKey(field))
+                    {
+                        Types.Door doorType = LevelResources.DoorMap[field];
+                        IDoor door = new Door(doorType);
+                        room.AddDoorToRoom(door);
+                    }
+                }
             }
         }
     }

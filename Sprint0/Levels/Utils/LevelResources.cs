@@ -10,6 +10,7 @@ namespace Sprint0.Levels.Utils
         public Dictionary<string, Types.Block> BlockMap;
         public Dictionary<string, Types.Character> CharacterMap;
         public Dictionary<string, Types.Item> ItemMap;
+        public Dictionary<string, Types.Door> DoorMap;
 
         public int BlockWidth = 16 * (int) GameScale;
         public int BlockHeight = 16 * (int) GameScale;
@@ -49,6 +50,14 @@ namespace Sprint0.Levels.Utils
                 {"tforce", Types.Item.TRIFORCE_PIECE },
                 {"hcont", Types.Item.HEART_CONTAINER },
                 {"map", Types.Item.MAP },
+            };
+
+            DoorMap = new Dictionary<string, Types.Door>()
+            {
+                {"up_unlocked", Types.Door.UP_UNLOCKED},
+                {"right_unlocked", Types.Door.RIGHT_UNLOCKED },
+                {"down_unlocked", Types.Door.DOWN_UNLOCKED },
+                {"left_unlocked", Types.Door.LEFT_UNLOCKED },
             };
         }
         public static LevelResources GetInstance()

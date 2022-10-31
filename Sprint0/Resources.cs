@@ -57,6 +57,9 @@ namespace Sprint0
         // Sprite sheet positions for all borders
         public static readonly Rectangle Level1Border = new Rectangle(521, 11, 256, 176);
 
+        // Sprite sheet positions for all doors
+        public static readonly Rectangle LeftUnlockedDoor = new Rectangle(848, 44, 32, 32);
+
         // Sprite sheet positions for all items
         public static readonly Rectangle Compass = new Rectangle(0, 0, 11, 12);
         public static readonly Rectangle Map = new Rectangle(11, 0, 8, 16);

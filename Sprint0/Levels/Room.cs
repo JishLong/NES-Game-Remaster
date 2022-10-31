@@ -6,6 +6,7 @@ using Sprint0.Blocks.Utils;
 using Sprint0.Characters;
 using Sprint0.Characters.Utils;
 using Sprint0.Collision;
+using Sprint0.Doors;
 using Sprint0.Items;
 using Sprint0.Items.Utils;
 using Sprint0.Projectiles;
@@ -23,7 +24,7 @@ namespace Sprint0.Levels
         public List<IBlock> Blocks { get;}
         public List<ICharacter> Characters { get;}
         public List<IItem> Items { get;}
-
+        public List<IDoor> Doors { get; }
         public ProjectileHandler Projectiles { get;}
 
         private Dictionary<RoomTransition, Room> AdjacentRooms;
@@ -39,6 +40,7 @@ namespace Sprint0.Levels
             Blocks = new List<IBlock>();
             Characters = new List<ICharacter>();
             Items = new List<IItem>();
+            Doors = new List<IDoor>();
             Projectiles = new ProjectileHandler();
             // TODO: This needs to take an argument so that it knows which border to construct.
             // This should probably be based off of room name or level name.
@@ -89,6 +91,10 @@ namespace Sprint0.Levels
         {
             Items.Remove(item);
         }
+        public void AddDoorToRoom(IDoor door)
+        {
+            Doors.Add(door);
+        }
         public void AddProjectileToRoom(Types.Projectile proj, Vector2 position, Types.Direction direction, ICollidable user) 
         {
             Projectiles.AddProjectile(ProjectileFactory.GetInstance().GetProjectile(proj, position, direction, user));
@@ -97,10 +103,9 @@ namespace Sprint0.Levels
         {
             Projectiles.RemoveProjectile(proj);
         }
-
         public void Update(GameTime gameTime)
-        {         
-            foreach(IBlock block in Blocks)
+        {
+            foreach (IBlock block in Blocks)
             {
                 block.Update();
             }
@@ -111,6 +116,10 @@ namespace Sprint0.Levels
             foreach (ICharacter character in Characters)
             {
                 character.Update(gameTime);
+            }
+            foreach (IDoor door in Doors)
+            {
+                door.Update(gameTime);
             }
             Projectiles.Update();
             Border.Update();
@@ -128,7 +137,6 @@ namespace Sprint0.Levels
                 pb.Draw(sb);
             }
             PushableBlocks.Clear();
-            Border.Draw(sb);
             foreach (IItem item in Items)
             {
                 item.Draw(sb);
@@ -137,6 +145,11 @@ namespace Sprint0.Levels
             {
                 character.Draw(sb);
             }
+            foreach(IDoor door in Doors)
+            {
+                door.Draw(sb);
+            }
+            Border.Draw(sb);
             Projectiles.Draw(sb);       
         }
     }
