@@ -18,6 +18,8 @@ namespace Sprint0.Input
         public Dictionary<ActionMap, ICommand> PauseStateMappings { get; private set; }
         public Dictionary<ActionMap, ICommand> WinStateMappings { get; private set; }
 
+        public Dictionary<ActionMap, ICommand> MainMenuStateMappings { get; private set; }
+
         private KeyboardMappings() { }
 
         public static KeyboardMappings GetInstance() 
@@ -82,6 +84,12 @@ namespace Sprint0.Input
             WinStateMappings = new Dictionary<ActionMap, ICommand>() {
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
                     new QuitCommand(game) },
+            };
+            MainMenuStateMappings = new Dictionary<ActionMap, ICommand>() {
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
+                    new QuitCommand(game) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Space),
+                    new StartGameCommand(game) },
             };
         }
     }

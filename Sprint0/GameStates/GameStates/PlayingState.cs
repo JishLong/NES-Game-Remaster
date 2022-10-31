@@ -21,17 +21,6 @@ namespace Sprint0.GameStates.GameStates
             };
         }
 
-        public PlayingState(Game1 game) : base(game)
-        {
-            Controllers ??= new List<IController>()
-            {
-                new KeyboardController(KeyboardMappings.GetInstance().PlayingStateMappings),
-                new MouseController(MouseMappings.GetInstance().PlayingStateMappings),
-                new ProjectileController(Game.LevelManager),
-                new CollisionController(Game)
-            };
-        }
-
         public override void Draw(SpriteBatch sb)
         {
             Game.LevelManager.Draw(sb);

@@ -34,11 +34,9 @@ namespace Sprint0
             KeyboardMappings.GetInstance().InitializeMappings(this, Player);
             MouseMappings.GetInstance().InitializeMappings(this);
 
-            CurrentState = new PlayingState(this);
-
             // Set display resolution.
-            Graphics.PreferredBackBufferWidth = 256 * (int) GameScale;
-            Graphics.PreferredBackBufferHeight = 176 * (int) GameScale;
+            Graphics.PreferredBackBufferWidth = Utils.GameWidth;
+            Graphics.PreferredBackBufferHeight = Utils.GameHeight;
             Graphics.ApplyChanges();
 
             base.Initialize();
@@ -49,6 +47,8 @@ namespace Sprint0
             SBatch = new SpriteBatch(GraphicsDevice);
 
             Resources.LoadContent(Content);
+            AudioManager.GetInstance().PlayLooped(Resources.MenuMusic);
+            CurrentState = new MainMenuState(this);
         }
 
         protected override void Update(GameTime gameTime)
@@ -69,9 +69,25 @@ namespace Sprint0
             base.Draw(gameTime);
         }
 
+        public void StartGame() 
+        {
+            AudioManager.GetInstance().StopLoopedAudio();
+            CurrentState = new PlayingState();
+        }
+
         public void WinGame() 
         {
             CurrentState = new WinState();
+        }
+
+        public void PauseGame()
+        {
+            CurrentState = new PauseState();
+        }
+
+        public void UnpauseGame()
+        {
+            CurrentState = new PlayingState();
         }
     }
 }

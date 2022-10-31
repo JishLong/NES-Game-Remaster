@@ -1,6 +1,4 @@
-﻿using Sprint0.GameStates.GameStates;
-
-namespace Sprint0.Commands.GameStates
+﻿namespace Sprint0.Commands.GameStates
 {
     public class UnpauseGameCommand : ICommand
     {
@@ -13,7 +11,7 @@ namespace Sprint0.Commands.GameStates
 
         public void Execute()
         {
-            Game.CurrentState = new PlayingState();
+            Game.UnpauseGame();
         }
     }
 }
