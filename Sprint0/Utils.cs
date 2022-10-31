@@ -52,9 +52,9 @@ namespace Sprint0
          * [hitbox]: analogous to rectangle A
          * [centeredHitbox]: analogous to rectangle B
          */
-        public static Vector2 CenterRectangles(Rectangle hitbox, Rectangle centeredHitbox) 
+        public static Vector2 CenterRectangles(Rectangle hitbox, int centeredHitboxWidth, int centeredHitboxHeight) 
         {
-            return new Vector2(hitbox.X + hitbox.Width / 2 - centeredHitbox.Width / 2, hitbox.Y + hitbox.Height / 2 - centeredHitbox.Height / 2);
+            return new Vector2(hitbox.X + hitbox.Width / 2 - centeredHitboxWidth / 2, hitbox.Y + hitbox.Height / 2 - centeredHitboxHeight / 2);
         }
 
         /* Suppose we have two rectangles A and B. Also, suppose we have a point C that is the centerpoint of an edge on A.
@@ -65,20 +65,54 @@ namespace Sprint0
          * [centeredHitbox]: analogous to rectangle B
          * [hitboxEdge]: the edge of A on which we want to line up rectangle B
          */
-        public static Vector2 LineUpEdges(Rectangle hitbox, Rectangle linedUpHitbox, Types.Direction hitboxEdge) 
+        public static Vector2 LineUpEdges(Rectangle hitbox, int linedUpHitboxWidth, int linedUpHitboxHeight, Types.Direction hitboxEdge) 
         {
             switch (hitboxEdge)
             {
                 case Types.Direction.LEFT:
-                    return new Vector2(hitbox.Left - linedUpHitbox.Width, hitbox.Y + hitbox.Height / 2 - linedUpHitbox.Height / 2);
+                    return new Vector2(hitbox.Left - linedUpHitboxWidth, hitbox.Y + hitbox.Height / 2 - linedUpHitboxHeight / 2);
                 case Types.Direction.RIGHT:
-                    return new Vector2(hitbox.Right, hitbox.Y + hitbox.Height / 2 - linedUpHitbox.Height / 2);
+                    return new Vector2(hitbox.Right, hitbox.Y + hitbox.Height / 2 - linedUpHitboxHeight / 2);
                 case Types.Direction.UP:
-                    return new Vector2(hitbox.X + hitbox.Width / 2 - linedUpHitbox.Width / 2, hitbox.Top - linedUpHitbox.Height);
+                    return new Vector2(hitbox.X + hitbox.Width / 2 - linedUpHitboxWidth / 2, hitbox.Top - linedUpHitboxHeight);
                 case Types.Direction.DOWN:
-                    return new Vector2(hitbox.X + hitbox.Width / 2 - linedUpHitbox.Width / 2, hitbox.Bottom);
+                    return new Vector2(hitbox.X + hitbox.Width / 2 - linedUpHitboxWidth / 2, hitbox.Bottom);
+                case Types.Direction.UPLEFT:
+                    return new Vector2(hitbox.X - linedUpHitboxWidth, hitbox.Y - linedUpHitboxHeight);
+                case Types.Direction.UPRIGHT:
+                    return new Vector2(hitbox.X + hitbox.Width, hitbox.Y - linedUpHitboxHeight);
+                case Types.Direction.DOWNLEFT:
+                    return new Vector2(hitbox.X - linedUpHitboxWidth, hitbox.Y + hitbox.Height);
+                case Types.Direction.DOWNRIGHT:
+                    return new Vector2(hitbox.X + hitbox.Width, hitbox.Y + hitbox.Height);
                 default:
                     return new Vector2(0, 0);
+            }
+        }
+
+        /* Returns the direction that opposes [direction] */
+        public static Types.Direction GetOppositeDirection(Types.Direction direction)
+        {
+            switch (direction)
+            {
+                case Types.Direction.LEFT:
+                    return Types.Direction.RIGHT;
+                case Types.Direction.RIGHT:
+                    return Types.Direction.LEFT;
+                case Types.Direction.UP:
+                    return Types.Direction.DOWN;
+                case Types.Direction.DOWN:
+                    return Types.Direction.UP;
+                case Types.Direction.UPLEFT:
+                    return Types.Direction.DOWNRIGHT;
+                case Types.Direction.UPRIGHT:
+                    return Types.Direction.DOWNLEFT;
+                case Types.Direction.DOWNLEFT:
+                    return Types.Direction.UPRIGHT;
+                case Types.Direction.DOWNRIGHT:
+                    return Types.Direction.UPLEFT;
+                default:
+                    return Types.Direction.NO_DIRECTION;
             }
         }
 

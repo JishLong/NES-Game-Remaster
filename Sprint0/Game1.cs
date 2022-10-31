@@ -97,11 +97,13 @@ namespace Sprint0
 
         public void LoseGame() 
         {
+            AudioManager.GetInstance().StopLoopedAudio();
             CurrentState = new LoseState();
         }
 
         public void RestartGame() 
         {
+            AudioManager.GetInstance().PlayLooped(Resources.DungeonMusic);
             LevelManager.LoadLevel(Types.Level.LEVEL1);
             Player = new Player.Player(this);
             KeyboardMappings.GetInstance().InitializeMappings(this, Player);

@@ -89,9 +89,9 @@ namespace Sprint0.Levels
         {
             Items.Remove(item);
         }
-        public void AddProjectileToRoom(Types.Projectile proj, Vector2 position, Types.Direction direction, ICollidable user) 
+        public void AddProjectileToRoom(Types.Projectile proj, ICollidable user, Types.Direction direction) 
         {
-            Projectiles.AddProjectile(ProjectileFactory.GetInstance().GetProjectile(proj, position, direction, user));
+            Projectiles.AddProjectile(ProjectileFactory.GetInstance().GetProjectile(proj, user, direction));
         }
         public void RemoveProjectileFromRoom(IProjectile proj) 
         {

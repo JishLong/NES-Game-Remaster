@@ -7,7 +7,7 @@ namespace Sprint0.Items
     public abstract class AbstractItem : IItem
     {
         private readonly ISprite Sprite;
-        private readonly Vector2 Position;
+        public Vector2 Position { get; set; }
 
         protected AbstractItem(ISprite sprite, Vector2 position)
         {

@@ -2,38 +2,38 @@
 using Sprint0.Player;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Tools;
-using Sprint0.Projectiles.Character;
 using Sprint0.Projectiles.Character_Projectiles;
 using System.Collections.Generic;
+using Sprint0.Projectiles.Player_Projectiles;
 
 namespace Sprint0.Collision.Handlers
 {
     // Handles all collisions between players and projectiles
     public class PlayerProjectileCollisionHandler
     {
-        private readonly List<System.Type> AffectedProjectiles;
-
         public PlayerProjectileCollisionHandler()
         {
-            AffectedProjectiles = new List<System.Type>{ typeof(BossProjectile), typeof(GoriyaBoomerangProjectile) };
+
         }
 
         public void HandleCollision(IPlayer player, IProjectile projectile, Types.Direction playerSide, Game1 game)
         {
-            if (AffectedProjectiles.Contains(projectile.GetType())) 
+            if (!projectile.IsFromPlayer()) 
             {
-                if (!(player.IsStationary && player.FacingDirection == playerSide))
+                // NOTE: Link can't block the boss energy balls
+                if (!(player.IsStationary && player.FacingDirection == playerSide) || projectile is BossProjectile && projectile is not DeathParticle)
                 {
                     new PlayerTakeDamageCommand(player, playerSide, 1, game).Execute();
-                }
-                else 
+                }    
+                else
                 {
                     AudioManager.GetInstance().PlayOnce(Resources.ShieldBlock);
                 }
-                // For boomerangs, we want them to bounce off the player and go back to the user (in this case, a goriya)
-                if (projectile is GoriyaBoomerangProjectile)
+
+                // For enemy boomerangs, we want them to bounce off the player and go back to the user
+                if (projectile is BoomerangProjectile)
                 {
-                    (projectile as GoriyaBoomerangProjectile).ReturnBoomerang();
+                    (projectile as BoomerangProjectile).ReturnBoomerang();
                 }
                 else 
                 {
