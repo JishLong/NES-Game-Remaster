@@ -1,20 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Collision;
 using Sprint0.Sprites.Projectiles.Player;
 
 namespace Sprint0.Projectiles.Player_Projectiles
 {
     public class SwordFlameProjectile : AbstractProjectile
     {
-        public SwordFlameProjectile(Vector2 position, Types.Direction direction) :
-            base(new SwordFlameProjSprite(direction), null, position, new Vector2(4, 4), direction)
+        public SwordFlameProjectile(ICollidable user, Types.Direction direction) :
+            base(new SwordFlameProjSprite(direction), user, direction, new Vector2(4, 4))
         {
             MaxFramesAlive = 20;
-        }
-
-        public override void Draw(SpriteBatch sb)
-        {
-            Sprite.Draw(sb, Position, Color.White);
         }
 
         public override bool IsFromPlayer()

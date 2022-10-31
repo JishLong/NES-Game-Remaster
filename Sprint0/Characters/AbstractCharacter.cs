@@ -28,16 +28,8 @@ public abstract class AbstractCharacter : ICharacter
     private void DeathAction()
     {
         // Spawn a "death particle" upon death
-        Rectangle r = Resources.CharacterDeathParticle;
-        Rectangle ParticleHitbox = new Rectangle(r.X, r.Y, (int)(r.Width * Sprint0.Utils.GameScale), (int)(r.Height * Sprint0.Utils.GameScale));
-
-        ProjectileManager.GetInstance().AddProjectile(
-            Types.Projectile.DEATH_PARTICLE, 
-            Sprint0.Utils.CenterRectangles(GetHitbox(), ParticleHitbox), 
-            Types.Direction.UP,
-            this);
-
-        Resources.EnemyDeath.Play();
+        ProjectileManager.GetInstance().AddProjectile(Types.Projectile.DEATH_PARTICLE, this, Types.Direction.NO_DIRECTION);
+        AudioManager.GetInstance().PlayOnce(Resources.EnemyDeath);
     }
 
     public virtual void Draw(SpriteBatch sb)

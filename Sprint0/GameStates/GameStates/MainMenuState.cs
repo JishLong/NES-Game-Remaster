@@ -49,9 +49,11 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Draw(SpriteBatch sb)
         {
+            Color TipColor = (FramesPassed < TipFrames / 10) ? Color.Red : Color.White;
+
             sb.DrawString(Resources.MediumFont, "Welcome to the Myth of Zebra!", welcomeTextPosition, Color.White);
             sb.DrawString(Resources.LargeFont, "Press SPACEBAR to start", startTextPosition, Color.White);
-            sb.DrawString(Resources.SmallFont, Tips[CurrentTip], tipTextPosition, Color.White);
+            sb.DrawString(Resources.SmallFont, Tips[CurrentTip], tipTextPosition, TipColor);
             if (IsShowing) sb.DrawString(Resources.MediumFont, "- TIPS: -", flashingTextPosition, Color.White);
         }
 

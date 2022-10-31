@@ -14,22 +14,28 @@ namespace Sprint0
         public static SpriteFont LargeFont { get; private set; }
 
         // Audio   
+        public static SoundEffect ArrowBoomerangShoot { get; private set; }
+        public static SoundEffect BombExplode { get; private set; }
         public static SoundEffect BossNoise { get; private set; }
         public static SoundEffect Dababy { get; private set; }
         public static SoundEffect DungeonMusic { get; private set; }
         public static SoundEffect EnemyDeath { get; private set; }
         public static SoundEffect EnemyTakeDamage { get; private set; }
+        public static SoundEffect FlameShoot { get; private set; }
         public static SoundEffect HeartKeyPickup { get; private set; }
         public static SoundEffect ItemPickup { get; private set; }
         public static SoundEffect KeyAppear { get; private set; }
+        public static SoundEffect LowHealth { get; private set; }
         public static SoundEffect MenuMusic { get; private set; }
         public static SoundEffect NewItem { get; private set; }
+        public static SoundEffect PlayerDeath { get; private set; }
         public static SoundEffect PlayerTakeDamage { get; private set; }
         public static SoundEffect RupeePickup { get; private set; }
         public static SoundEffect SecretFound { get; private set; }
         public static SoundEffect ShieldBlock { get; private set; }
         public static SoundEffect Sword { get; private set; }
         public static SoundEffect SwordProj { get; private set; }
+        public static SoundEffect Text { get; private set; }
 
 
         // Sprite sheets
@@ -127,22 +133,28 @@ namespace Sprint0
             LargeFont = c.Load<SpriteFont>("Fonts/largeFont");
 
             // Load audio
+            ArrowBoomerangShoot = c.Load<SoundEffect>("Audio/arrowBoomerang");
+            BombExplode = c.Load<SoundEffect>("Audio/bomb");
             BossNoise = c.Load<SoundEffect>("Audio/bossNoise");
             Dababy = c.Load<SoundEffect>("Audio/dababy");
             DungeonMusic = c.Load<SoundEffect>("Audio/dungeonMusic");
             EnemyDeath = c.Load<SoundEffect>("Audio/enemyDeath");
             EnemyTakeDamage = c.Load<SoundEffect>("Audio/enemyTakeDamage");
+            FlameShoot = c.Load<SoundEffect>("Audio/flame");
             HeartKeyPickup = c.Load<SoundEffect>("Audio/heartKeyPickup");
             ItemPickup = c.Load<SoundEffect>("Audio/itemPickup");
             KeyAppear = c.Load<SoundEffect>("Audio/keyAppear");
+            LowHealth = c.Load<SoundEffect>("Audio/lowHealth");
             MenuMusic = c.Load<SoundEffect>("Audio/menuMusic");
             NewItem = c.Load<SoundEffect>("Audio/newItem");
+            PlayerDeath = c.Load<SoundEffect>("Audio/playerDeath");
             PlayerTakeDamage = c.Load<SoundEffect>("Audio/playerTakeDamage");
             RupeePickup = c.Load<SoundEffect>("Audio/rupeePickup");
             SecretFound = c.Load<SoundEffect>("Audio/secretFound");
             ShieldBlock = c.Load<SoundEffect>("Audio/shieldBlock");
             Sword = c.Load<SoundEffect>("Audio/sword"); 
             SwordProj = c.Load<SoundEffect>("Audio/swordProj");
+            Text = c.Load<SoundEffect>("Audio/text");
 
             // Load sprite sheets
             BlocksSpriteSheet = c.Load<Texture2D>("Images/blocks");

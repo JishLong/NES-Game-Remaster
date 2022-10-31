@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Sprint0.Collision;
-using Sprint0.Projectiles.Character;
+﻿using Sprint0.Collision;
 using Sprint0.Projectiles.Character_Projectiles;
 using Sprint0.Projectiles.Player;
 using Sprint0.Projectiles.Player_Projectiles;
@@ -18,36 +16,34 @@ namespace Sprint0.Projectiles.Tools
 
         private ProjectileFactory() { }
 
-        public IProjectile GetProjectile(Types.Projectile projectileType, Vector2 position, Types.Direction direction, ICollidable user)
+        public IProjectile GetProjectile(Types.Projectile projectileType, ICollidable user, Types.Direction direction)
         {
             switch (projectileType)
             {
                 case Types.Projectile.ARROW_EXPLOSION_PARTICLE:
-                    return new ArrowExplosionParticle(position);
+                    return new ArrowExplosionParticle(user, direction);
                 case Types.Projectile.ARROW_PROJ:
-                    return new ArrowProjectile(position, direction);
+                    return new ArrowProjectile(user, direction);
                 case Types.Projectile.BLUE_ARROW_PROJ:
-                    return new BlueArrowProjectile(position, direction);
+                    return new BlueArrowProjectile(user, direction);
                 case Types.Projectile.BOMB_EXPLOSION_PARTICLE:
-                    return new BombExplosionParticle(position);
+                    return new BombExplosionParticle(user);
                 case Types.Projectile.BOMB_PROJ:
-                    return new BombProjectile(position);
+                    return new BombProjectile(user, direction);
                 case Types.Projectile.BOSS_PROJ:
-                    return new BossProjectile(position, direction);
+                    return new BossProjectile(user, direction);
                 case Types.Projectile.DEATH_PARTICLE:
                     return new DeathParticle(user);                  
                 case Types.Projectile.FLAME_PROJ:
-                    return new FlameProjectile(position, direction);
-                case Types.Projectile.GORIYA_BOOMERANG_PROJ:
-                    return new GoriyaBoomerangProjectile(user, direction);
-                case Types.Projectile.PLAYER_BOOMERANG_PROJ:
-                    return new PlayerBoomerangProjectile(user, direction);
+                    return new FlameProjectile(user, direction);
+                case Types.Projectile.BOOMERANG_PROJ:
+                    return new BoomerangProjectile(user, direction);
                 case Types.Projectile.SWORD_MELEE:
-                    return new SwordMelee(position, direction);
+                    return new SwordMelee(user, direction);
                 case Types.Projectile.SWORD_PROJ:
-                    return new SwordProjectile(position, direction);
+                    return new SwordProjectile(user, direction);
                 case Types.Projectile.SWORD_FLAME_PROJ:
-                    return new SwordFlameProjectile(position, direction);
+                    return new SwordFlameProjectile(user, direction);
                 default:
                     Console.Error.Write("The projectile of type " + projectileType.ToString() +
                         " could not be instantiated by the Projectile Factory. Does this type exist?");

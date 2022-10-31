@@ -43,9 +43,9 @@ namespace Sprint0.Characters.Enemies
 
             if (RNG.Next(0, 120) == 0)
             {
-                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, Position, Types.Direction.LEFT, null);
-                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, Position, Types.Direction.DOWNLEFT, null);
-                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, Position, Types.Direction.UPLEFT, null);
+                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, this, Types.Direction.LEFT);
+                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, this, Types.Direction.DOWNLEFT);
+                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, this, Types.Direction.UPLEFT);
             }
 
             base.Update(gameTime);

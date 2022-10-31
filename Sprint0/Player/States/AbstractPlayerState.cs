@@ -64,6 +64,7 @@ namespace Sprint0.Player.State
                 Player.Health -= damage;
                 if (Player.Health <= 0) 
                 {
+                    AudioManager.GetInstance().PlayOnce(Resources.PlayerDeath);
                     game.LoseGame();
                 }
                 Player.Position += Utils.DirectionToVector(Player.FacingDirection) * Knockback;
@@ -80,7 +81,7 @@ namespace Sprint0.Player.State
 
             int ReducedWidth = ActualHitbox.Width * 2 / 3;
             int ReducedHeight = ActualHitbox.Height * 2 / 3;
-            Vector2 ReducedHitboxPosition = Utils.CenterRectangles(ActualHitbox, new Rectangle(0, 0, ReducedWidth, ReducedHeight));
+            Vector2 ReducedHitboxPosition = Utils.CenterRectangles(ActualHitbox, ReducedWidth, ReducedHeight);
 
             return new Rectangle((int)(ReducedHitboxPosition.X), (int)(ReducedHitboxPosition.Y), ReducedWidth, ReducedHeight);
         }
@@ -101,6 +102,13 @@ namespace Sprint0.Player.State
                 {
                     Player.IsTakingDamage = false;
                 }
+            }
+
+            // Low health sound effect (annoying and scary D: )
+            if (Player.Health == 1 && ++Player.LowHealthFramesPassed % 30 == 0) 
+            {
+                AudioManager.GetInstance().PlayOnce(Resources.LowHealth);
+                Player.LowHealthFramesPassed = 0;
             }
         }
 
