@@ -55,6 +55,7 @@ public abstract class AbstractCharacter : ICharacter
         if (Color != Color.Red)
         {
             Health -= damage;
+            AudioManager.GetInstance().PlayOnce(Resources.EnemyTakeDamage);
             if (Health <= 0)
             {
                 DeathAction();

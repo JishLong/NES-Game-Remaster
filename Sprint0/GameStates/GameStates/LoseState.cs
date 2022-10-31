@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Sprint0.GameStates.GameStates
 {
-    public class PauseState : AbstractGameState
+    public class LoseState : AbstractGameState
     {
         private readonly Vector2 flashingTextPosition;
         private readonly Vector2 unpauseTextPosition;
@@ -16,16 +16,16 @@ namespace Sprint0.GameStates.GameStates
         private bool IsShowing;
         private int FramesPassed;
 
-        public PauseState()
+        public LoseState()
         {
             Controllers ??= new List<IController>()
             {
-                new KeyboardController(KeyboardMappings.GetInstance().PauseStateMappings)
+                new KeyboardController(KeyboardMappings.GetInstance().LoseStateMappings)
             };
 
-            Vector2 unpauseTextSize = Resources.MediumFont.MeasureString("Press ESC to unpause");
+            Vector2 unpauseTextSize = Resources.MediumFont.MeasureString("Press SPACE to restart");
             Vector2 quitTextSize = Resources.MediumFont.MeasureString("Press Q to quit game");
-            Vector2 flashingTextSize = Resources.LargeFont.MeasureString("- GAME PAUSED -");
+            Vector2 flashingTextSize = Resources.LargeFont.MeasureString("- YOU DIED :( -");
             quitTextPosition = new Vector2(Utils.GameWidth / 2 - quitTextSize.X / 2, Utils.GameHeight * 2 / 3 - quitTextSize.Y / 2);
             unpauseTextPosition = new Vector2(Utils.GameWidth / 2 - unpauseTextSize.X / 2, quitTextPosition.Y - unpauseTextSize.Y * 3 / 2);
             flashingTextPosition = new Vector2(Utils.GameWidth / 2 - flashingTextSize.X / 2, unpauseTextPosition.Y - flashingTextSize.Y * 3);
@@ -44,13 +44,13 @@ namespace Sprint0.GameStates.GameStates
             Rectangle PanelLocation = new Rectangle(
                 Utils.GameWidth / 2 - (int)(PanelDims.Width * Utils.GameScale / 2),
                 Utils.GameHeight / 2 - (int)(PanelDims.Height * Utils.GameScale / 2),
-                (int)(PanelDims.Width * Utils.GameScale), 
+                (int)(PanelDims.Width * Utils.GameScale),
                 (int)(PanelDims.Height * Utils.GameScale));
             sb.Draw(Resources.PausePanel, PanelLocation, Color.White);
 
-            sb.DrawString(Resources.MediumFont, "Press ESC to unpause", unpauseTextPosition, Color.White);
+            sb.DrawString(Resources.MediumFont, "Press SPACE to restart", unpauseTextPosition, Color.White);
             sb.DrawString(Resources.MediumFont, "Press Q to quit game", quitTextPosition, Color.White);
-            if (IsShowing) sb.DrawString(Resources.LargeFont, "- GAME PAUSED -", flashingTextPosition, Color.White);
+            if (IsShowing) sb.DrawString(Resources.LargeFont, "- YOU DIED :( -", flashingTextPosition, Color.White);
         }
 
         public override void Update(GameTime gameTime)

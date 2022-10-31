@@ -14,7 +14,6 @@ namespace Sprint0.GameStates.GameStates
             {
                 new KeyboardController(KeyboardMappings.GetInstance().WinStateMappings),
             };
-            AudioManager.GetInstance().PlayLooped(Resources.Dababy);
         }
 
         public override void Draw(SpriteBatch sb)

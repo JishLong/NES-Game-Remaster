@@ -1,6 +1,5 @@
 ﻿using Sprint0.Blocks;
 using Sprint0.Blocks.Blocks;
-using Sprint0.Blocks.PushableBlocks;
 using Sprint0.Levels;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Character;
@@ -24,7 +23,7 @@ namespace Sprint0.Collision.Handlers
                typeof(FlameProjectile) };
 
             AffectedBlocks = new List<System.Type> { typeof(BlueStatueLeft), typeof(BlueStatueRight),
-            typeof(BlueWall), typeof(GreyBricks), typeof(WhiteBars), typeof(PushableBlockUp), typeof(BorderBlock)};
+            typeof(BlueWall), typeof(GreyBricks), typeof(WhiteBars), typeof(PushableBlock), typeof(BorderBlock)};
         }
 
         public void HandleCollision(IProjectile projectile, IBlock block, Types.Direction itemSide, Room room)

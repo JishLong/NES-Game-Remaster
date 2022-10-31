@@ -41,11 +41,11 @@ namespace Sprint0.Collision
         {
             if (CollidableA is IPlayer && CollidableB is ICharacter)
             {
-                PlayerCharacterHandler.HandleCollision(CollidableA as IPlayer, CollidableB as ICharacter, SideA);
+                PlayerCharacterHandler.HandleCollision(CollidableA as IPlayer, CollidableB as ICharacter, SideA, game);
             }
             else if (CollidableA is IPlayer && CollidableB is IProjectile)
             { 
-                PlayerProjectileHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IProjectile, SideA);
+                PlayerProjectileHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IProjectile, SideA, game);
             }
             else if (CollidableA is IPlayer && CollidableB is IBlock)
             {

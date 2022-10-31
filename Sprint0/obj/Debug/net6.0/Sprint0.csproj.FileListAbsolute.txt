@@ -90,13 +90,7 @@ C:/Users/ad11z/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/ref/Sprint
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/items.xnb
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/link.xnb
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/weaponsAndProj.xnb
-C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\blocks.xnb
-C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\characters.xnb
-C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\EnemyDeath.xnb
 C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\File.xnb
-C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\items.xnb
-C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\link.xnb
-C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\weaponsAndProj.xnb
 C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.exe
 C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.deps.json
 C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.runtimeconfig.json
@@ -162,11 +156,34 @@ C:\Users\hgray\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.pd
 C:\Users\hgray\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.genruntimeconfig.cache
 C:\Users\hgray\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\ref\Sprint0.dll
 C:\Users\hgray\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\level1.xnb
-C:\Users\josh\Source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Level1.xnb
-C:\Users\josh\source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\BladeTrap.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\dababy.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\font.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\menuMusic.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\largeFont.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\mediumFont.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\smallFont.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\largeFont.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\mediumFont.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\smallFont.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\bossNoise.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\dababy.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\dungeonMusic.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\enemyDeath.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\enemyTakeDamage.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\itemPickup.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\keyAppear.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\menuMusic.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\newItem.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\playerTakeDamage.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\rupeePickup.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\secretFound.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\shieldBlock.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\sword.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\swordProj.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\BladeTrap.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\blocks.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\characters.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\items.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Level1.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\link.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\weaponsAndProj.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\heartKeyPickup.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\pausePanel.xnb

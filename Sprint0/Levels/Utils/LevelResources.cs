@@ -25,7 +25,7 @@ namespace Sprint0.Levels.Utils
                 {"bsand", Types.Block.BLUE_SAND },
                 {"water", Types.Block.WATER },
                 {"bstairs", Types.Block.BLUE_STAIRS },
-                {"pbu", Types.Block.PUSHABLE_BLOCK_UP },
+                {"pb", Types.Block.PUSHABLE_BLOCK },
                 {"bb", Types.Block.BORDER_BLOCK }
             };
 

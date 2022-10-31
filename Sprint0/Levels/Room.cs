@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
+using Sprint0.Blocks.Blocks;
 using Sprint0.Blocks.Utils;
 using Sprint0.Characters;
 using Sprint0.Characters.Utils;
@@ -12,6 +13,7 @@ using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
+using System.Threading;
 using static Sprint0.Types;
 
 namespace Sprint0.Levels
@@ -97,7 +99,7 @@ namespace Sprint0.Levels
         }
 
         public void Update(GameTime gameTime)
-        {
+        {         
             foreach(IBlock block in Blocks)
             {
                 block.Update();
@@ -115,10 +117,17 @@ namespace Sprint0.Levels
         }
         public void Draw(SpriteBatch sb)
         {
-            foreach(IBlock block in Blocks)
+            List<IBlock> PushableBlocks = new();
+            foreach (IBlock block in Blocks)
             {
                 block.Draw(sb);
+                if (block is PushableBlock) PushableBlocks.Add(block);
             }
+            foreach (PushableBlock pb in PushableBlocks)
+            {
+                pb.Draw(sb);
+            }
+            PushableBlocks.Clear();
             Border.Draw(sb);
             foreach (IItem item in Items)
             {

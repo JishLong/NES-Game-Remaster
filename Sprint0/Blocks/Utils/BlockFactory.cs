@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Blocks.Blocks;
-using Sprint0.Blocks.PushableBlocks;
 using System;
 
 namespace Sprint0.Blocks.Utils
@@ -35,8 +34,8 @@ namespace Sprint0.Blocks.Utils
                     return new Ladder(position);
                 case Types.Block.WHITE_BARS:
                     return new WhiteBars(position);
-                case Types.Block.PUSHABLE_BLOCK_UP:
-                    return new PushableBlockUp(position);
+                case Types.Block.PUSHABLE_BLOCK:
+                    return new PushableBlock(position);
                 case Types.Block.BORDER_BLOCK:
                     return new BorderBlock(position);
                 default:

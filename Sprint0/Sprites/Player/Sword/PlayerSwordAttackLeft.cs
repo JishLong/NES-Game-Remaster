@@ -5,7 +5,7 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
 {
     public class PlayerSwordAttackLeft : AbstractAnimatedSprite
     {
-        public PlayerSwordAttackLeft() : base(4, 8)
+        public PlayerSwordAttackLeft() : base(4, 5)
         {
             xOffsetPixels = -12;
         }
