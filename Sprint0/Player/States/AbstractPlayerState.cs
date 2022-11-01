@@ -105,7 +105,7 @@ namespace Sprint0.Player.State
             }
 
             // Low health sound effect (annoying and scary D: )
-            if (Player.Health == 1 && ++Player.LowHealthFramesPassed % 30 == 0) 
+            if (Player.Health == 1 && ++Player.LowHealthFramesPassed % 20 == 0) 
             {
                 AudioManager.GetInstance().PlayOnce(Resources.LowHealth);
                 Player.LowHealthFramesPassed = 0;

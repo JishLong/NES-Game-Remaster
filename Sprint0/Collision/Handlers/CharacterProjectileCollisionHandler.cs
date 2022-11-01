@@ -33,8 +33,13 @@ namespace Sprint0.Collision.Handlers
                     ProjectileManager.GetInstance().RemoveProjectile(projectile);
                 }
 
+                if (projectile is BoomerangProjectile) 
+                {
+                    /* if character.maxhealth > 1 then they take damage of 1 and die
+                     * else if the character isn't aquamentus, they get put into frozen state */
+                }
                 // The bomb/arrow particle don't damage enemies
-                if (projectile is not BombProjectile && projectile is not ArrowExplosionParticle) 
+                else if (projectile is not BombProjectile && projectile is not ArrowExplosionParticle) 
                 {
                     new CharacterTakeDamageCommand(character, characterSide, 1, room).Execute();
                 }              

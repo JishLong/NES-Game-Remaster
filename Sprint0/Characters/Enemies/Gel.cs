@@ -17,7 +17,7 @@ namespace Sprint0.Characters.Enemies
 
             // Movement
             Position = position;
-            MovementSpeed = 1;
+            MovementSpeed = 2;
         }
 
         public override void Update(GameTime gameTime)

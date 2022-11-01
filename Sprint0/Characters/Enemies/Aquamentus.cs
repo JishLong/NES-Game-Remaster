@@ -7,8 +7,11 @@ namespace Sprint0.Characters.Enemies
 {
     public class Aquamentus : AbstractCharacter
     {
-        private double ElapsedTime;
+        private double DirectionTime;
         private readonly double DirectionDelay = 1000;    // Change direction every this many milliseconds.
+
+        private double RoarTime;
+        private readonly double RoarDelay = 3000;
 
         private readonly Random RNG;
 
@@ -34,11 +37,18 @@ namespace Sprint0.Characters.Enemies
 
         public override void Update(GameTime gameTime)
         {
-            ElapsedTime += gameTime.ElapsedGameTime.TotalMilliseconds;
-            if (ElapsedTime - DirectionDelay > 0)
+            DirectionTime += gameTime.ElapsedGameTime.TotalMilliseconds;
+            if (DirectionTime - DirectionDelay > 0)
             {
-                ElapsedTime = 0;
+                DirectionTime = 0;
                 State.ChangeDirection();
+            }
+
+            RoarTime += gameTime.ElapsedGameTime.TotalMilliseconds;
+            if (RoarTime - RoarDelay > 0)
+            {
+                RoarTime = 0;
+                AudioManager.GetInstance().PlayOnce(Resources.BossNoise);
             }
 
             if (RNG.Next(0, 120) == 0)
