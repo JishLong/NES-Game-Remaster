@@ -5,7 +5,7 @@ namespace Sprint0.Sprites.Characters.Enemies
 {
     public class SkeletonSprite : AbstractAnimatedSprite
     {
-        public SkeletonSprite() : base(2, 16)
+        public SkeletonSprite() : base(2, 8)
         {
 
         }

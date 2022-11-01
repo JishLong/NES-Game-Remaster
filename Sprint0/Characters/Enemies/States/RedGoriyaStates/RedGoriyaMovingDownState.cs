@@ -8,7 +8,7 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
     {
         private readonly RedGoriya Goriya;
         private readonly Vector2 DirectionVector = Sprint0.Utils.DirectionToVector(Types.Direction.DOWN);
-        private readonly float MovementSpeed = 3f;
+        private readonly float MovementSpeed = 1.5f;
         public RedGoriyaMovingDownState(RedGoriya goriya)
         {
             Goriya = goriya;

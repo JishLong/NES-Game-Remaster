@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Collision;
 using Sprint0.Items;
+using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites.Projectiles;
 
 namespace Sprint0.Projectiles
@@ -9,13 +10,14 @@ namespace Sprint0.Projectiles
     {
         private bool IsReturning;
         private IItem HeldItem;
+        private Types.Direction Direction;
 
         public BoomerangProjectile(ICollidable player, Types.Direction direction) :
-            base(new BoomerangSprite(), player, direction, new Vector2(10, 10))
+            base(new BoomerangSprite(), player, direction, new Vector2(7, 7))
         {
-            MaxFramesAlive = 30;
+            MaxFramesAlive = 70;
             IsReturning = false;
-            AudioManager.GetInstance().PlayOnce(Resources.ArrowBoomerangShoot);
+            Direction = direction;
         }
 
         public void ReturnBoomerang()
@@ -24,6 +26,7 @@ namespace Sprint0.Projectiles
             {
                 FramesPassed = MaxFramesAlive - FramesPassed;
                 IsReturning = true;
+                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.ARROW_EXPLOSION_PARTICLE, this, Direction);
             }
         }
 
@@ -36,7 +39,6 @@ namespace Sprint0.Projectiles
         {
             Sprite.Update();
             FramesPassed++;
-            IsReturning = false;
 
             Vector2 EndPos = Utils.CenterRectangles(User.GetHitbox(), GetHitbox().Width, GetHitbox().Height);
 
@@ -55,7 +57,7 @@ namespace Sprint0.Projectiles
             }
 
             // Boomerang spinning noise
-            if (FramesPassed % 8 == 0) 
+            if (IsFromPlayer() && FramesPassed % 10 == 0) 
             {
                 AudioManager.GetInstance().PlayOnce(Resources.ArrowBoomerangShoot);
             }

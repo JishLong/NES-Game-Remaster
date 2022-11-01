@@ -5,7 +5,7 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
 {
     public class PlayerSwordAttackDown : AbstractAnimatedSprite
     {
-        public PlayerSwordAttackDown() : base(4, 5)
+        public PlayerSwordAttackDown() : base(4, 4)
         {
 
         }

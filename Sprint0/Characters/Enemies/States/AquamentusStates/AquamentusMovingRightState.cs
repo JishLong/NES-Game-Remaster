@@ -11,7 +11,7 @@ namespace Sprint0.Characters.Bosses.AquamentusStates
     {
         private readonly Aquamentus Aquamentus;
         private Vector2 DirectionVector = Sprint0.Utils.DirectionToVector(Types.Direction.RIGHT);
-        private readonly float MovementSpeed = 2f;
+        private readonly float MovementSpeed = 1f;
         public AquamentusMovingRightState(Aquamentus aquamentus)
         {
             Aquamentus = aquamentus;
