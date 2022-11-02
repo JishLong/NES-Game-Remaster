@@ -19,7 +19,7 @@ namespace Sprint0.Blocks
 
         public virtual void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position);
+            Sprite.Draw(sb, Position, Color.White, 1f);
         }
 
         public virtual Rectangle GetHitbox()

@@ -17,7 +17,7 @@ namespace Sprint0.Items
 
         public void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position);
+            Sprite.Draw(sb, Position, Color.White, 0.8f);
         }
 
         public Rectangle GetHitbox()

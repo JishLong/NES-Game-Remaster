@@ -107,7 +107,7 @@ namespace Sprint0.Player.State
         public void Draw(SpriteBatch sb, Vector2 position) 
         {
             Color PlayerColor = (Player.IsTakingDamage) ? Color.Red : Color.White;
-            Sprite.Draw(sb, position, PlayerColor);
+            Sprite.Draw(sb, position, PlayerColor, 0.5f);
         }
     }
 }

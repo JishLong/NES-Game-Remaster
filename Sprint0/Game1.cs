@@ -63,7 +63,7 @@ namespace Sprint0
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            SBatch.Begin(samplerState: SamplerState.PointClamp);
+            SBatch.Begin(sortMode: SpriteSortMode.BackToFront, samplerState: SamplerState.PointClamp);
 
             CurrentState.Draw(SBatch);
         

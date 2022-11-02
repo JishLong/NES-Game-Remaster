@@ -9,26 +9,37 @@ namespace Sprint0.Doors.States
 {
     public class LeftUnlockedDoorState : IDoorState
     {
-        ISprite Sprite;
+        ISprite DoorWaySprite;
+        ISprite DoorWallSprite;
         IDoor Door;
         Vector2 Position;
+        Vector2 DoorWayOffset;
         LevelResources LevelResources;
         public LeftUnlockedDoorState(IDoor door)
         {
+            // Set context
             Door = door;
             LevelResources = LevelResources.GetInstance();
             float Height = LevelResources.BlockHeight;
+            float Width = LevelResources.BlockWidth;
+
+            // Used mostly for drawing
             Position = new Vector2(0,Height * 4 + (Height/2));
-            //Position = new Vector2(100,100);
-            Sprite = new LeftUnlockedDoorSprite();
+            DoorWayOffset = new Vector2(Width,0);
+
+            // Create sprites
+            DoorWaySprite = new LeftUnlockedDoorWaySprite();
+            DoorWallSprite = new LeftUnlockedDoorWallSprite();
         }
         public void Update(GameTime gameTime)
         {
-            Sprite.Update();
+            DoorWaySprite.Update();
+            DoorWallSprite.Update();
         }
         public void Draw(SpriteBatch sb)
-        {
-            Sprite.Draw(sb, Position);
+        { 
+            DoorWaySprite.Draw(sb, Position+DoorWayOffset,Color.White, 1);
+            DoorWallSprite.Draw(sb, Position, Color.White, 0);
         }
     }
 }

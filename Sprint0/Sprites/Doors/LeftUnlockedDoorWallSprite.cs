@@ -3,10 +3,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Doors
 {
-    public class LeftUnlockedDoorSprite : AbstractStillSprite
+    public class LeftUnlockedDoorWallSprite : AbstractStillSprite
     {
         protected override Texture2D GetSpriteSheet() => Resources.Level1SpriteSheet;
 
-        protected override Rectangle GetFrame() => Resources.LeftUnlockedDoor;
+        protected override Rectangle GetFrame() => Resources.LeftUnlockedDoorWall;
     }
 }

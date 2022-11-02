@@ -14,7 +14,7 @@ namespace Sprint0.Characters
 
         public void Draw(SpriteBatch sb, Vector2 position, Color color)
         {
-            Sprite.Draw(sb, position, color);
+            Sprite.Draw(sb, position, color, 0.9f);
         }
 
         public abstract void Freeze();

@@ -43,11 +43,16 @@ namespace Sprint0.Sprites
         {
             Draw(spriteBatch, position, Color.White);
         }
-
         public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetCurrentFrame(),
                 color, 0, Vector2.Zero, SpriteEffects.None, 0);
+        }
+
+        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer = 0)
+        {
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetCurrentFrame(),
+                color, 0, Vector2.Zero, SpriteEffects.None, layer);
         }
 
         protected void DrawFlippedHorz(SpriteBatch spriteBatch, Vector2 position, Color color)
@@ -79,6 +84,7 @@ namespace Sprint0.Sprites
                 (int)(position.Y + (yOffsetPixels * Utils.GameScale)),
                 (int)(frame.Width * Utils.GameScale),
                 (int)(frame.Height * Utils.GameScale));
+          
         }
 
         public int GetAnimationTime() 
