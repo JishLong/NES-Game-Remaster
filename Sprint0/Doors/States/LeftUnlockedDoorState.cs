@@ -7,13 +7,9 @@ using static Sprint0.Utils;
 
 namespace Sprint0.Doors.States
 {
-    public class LeftUnlockedDoorState : IDoorState
+    public class LeftUnlockedDoorState : AbstractDoorState
     {
-        ISprite DoorWaySprite;
-        ISprite DoorWallSprite;
         IDoor Door;
-        Vector2 Position;
-        Vector2 DoorWayOffset;
         LevelResources LevelResources;
         public LeftUnlockedDoorState(IDoor door)
         {
@@ -31,15 +27,10 @@ namespace Sprint0.Doors.States
             DoorWaySprite = new LeftUnlockedDoorWaySprite();
             DoorWallSprite = new LeftUnlockedDoorWallSprite();
         }
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             DoorWaySprite.Update();
             DoorWallSprite.Update();
-        }
-        public void Draw(SpriteBatch sb)
-        { 
-            DoorWaySprite.Draw(sb, Position+DoorWayOffset,Color.White, 1);
-            DoorWallSprite.Draw(sb, Position, Color.White, 0);
         }
     }
 }

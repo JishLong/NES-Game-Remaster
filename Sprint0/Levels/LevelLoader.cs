@@ -27,7 +27,7 @@ namespace Sprint0.Levels
             LevelManager = manager;
             LevelResources = LevelResources.GetInstance();
             RoomLinker = new RoomLinker();
-            BorderOffset = LevelResources.BlockWidth;
+            BorderOffset = 0;
             RootPath = "../../../Levels/";  // TODO: There is probably a better way to do this than with relative paths...
         }
         public Level LoadLevelFromDir(Types.Level levelType)
@@ -109,7 +109,6 @@ namespace Sprint0.Levels
                 }
                 row++;
             }
-
         }
         public void LoadItems(Room room, string roomName)
         {
@@ -148,7 +147,7 @@ namespace Sprint0.Levels
                     if (LevelResources.DoorMap.ContainsKey(field))
                     {
                         Types.Door doorType = LevelResources.DoorMap[field];
-                        IDoor door = new Door(doorType);
+                        IDoor door = new Door(room, doorType);
                         room.AddDoorToRoom(door);
                     }
                 }

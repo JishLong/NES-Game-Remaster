@@ -60,11 +60,21 @@ namespace Sprint0.Sprites
             spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetCurrentFrame(),
                 color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
         }
+        protected void DrawFlippedHorz(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
+        {
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetCurrentFrame(),
+                color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, layer);
+        }
 
         protected void DrawFlippedVert(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
             spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetCurrentFrame(),
                 color, 0, Vector2.Zero, SpriteEffects.FlipVertically, 0);
+        }
+        protected void DrawFlippedVert(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
+        {
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetCurrentFrame(),
+                color, 0, Vector2.Zero, SpriteEffects.FlipVertically, layer);
         }
 
         public virtual void Update()

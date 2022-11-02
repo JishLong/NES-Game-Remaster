@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Sprint0.Utils;
 using Sprint0.Sprites;
 
 namespace Sprint0.Characters
@@ -14,7 +15,7 @@ namespace Sprint0.Characters
 
         public void Draw(SpriteBatch sb, Vector2 position, Color color)
         {
-            Sprite.Draw(sb, position, color, 0.9f);
+            Sprite.Draw(sb, position, color, CharacterLayerDepth);
         }
 
         public abstract void Freeze();

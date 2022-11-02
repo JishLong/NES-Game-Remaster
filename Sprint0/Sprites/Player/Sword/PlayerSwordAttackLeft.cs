@@ -14,9 +14,9 @@ namespace Sprint0.Sprites.Player.Attack.SwordAttack
 
         protected override Rectangle GetFirstFrame() => Resources.LinkSwordSideways;
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
+        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
         {
-            DrawFlippedHorz(spriteBatch, position, color);
+            DrawFlippedHorz(spriteBatch, position, color, layer);
         }
     }
 }

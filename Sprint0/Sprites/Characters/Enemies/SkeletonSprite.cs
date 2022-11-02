@@ -22,7 +22,7 @@ namespace Sprint0.Sprites.Characters.Enemies
                 spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame, color, 0, Vector2.Zero,
                 SpriteEffects.FlipHorizontally, layer);
             }
-            else base.Draw(spriteBatch, position, color);
+            else base.Draw(spriteBatch, position, color, layer);
         }
     }
 }

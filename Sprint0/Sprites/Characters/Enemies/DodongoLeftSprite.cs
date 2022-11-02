@@ -14,9 +14,9 @@ namespace Sprint0.Sprites.Characters.Enemies
 
         protected override Rectangle GetFirstFrame() => Resources.DodongoSide;
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
+        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
         {
-            DrawFlippedHorz(spriteBatch, position, color);
+            DrawFlippedHorz(spriteBatch, position, color, layer);
         }
     }
 }

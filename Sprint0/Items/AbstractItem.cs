@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Sprint0.Utils;
 using Sprint0.Sprites;
 
 namespace Sprint0.Items
@@ -17,7 +18,7 @@ namespace Sprint0.Items
 
         public void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position, Color.White, 0.8f);
+            Sprite.Draw(sb, Position, Color.White, ItemLayerDepth);
         }
 
         public Rectangle GetHitbox()
