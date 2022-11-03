@@ -27,7 +27,10 @@ namespace Sprint0.Levels.Utils
                 {"water", Types.Block.WATER },
                 {"bstairs", Types.Block.BLUE_STAIRS },
                 {"pb", Types.Block.PUSHABLE_BLOCK },
-                {"bb", Types.Block.BORDER_BLOCK }
+                {"bb", Types.Block.BORDER_BLOCK },
+                {"ldwb", Types.Block.LEFT_DOOR_WAY_BLOCK },
+                {"rdwb", Types.Block.RIGHT_DOOR_WAY_BLOCK},
+
             };
 
             CharacterMap = new Dictionary<string, Types.Character>()

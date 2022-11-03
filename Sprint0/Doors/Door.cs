@@ -26,7 +26,7 @@ namespace Sprint0.Doors
 
         public void Transition()
         {
-            Room.MakeTransition(State.GetDirection());
+            Room.MakeTransition(State.GetTransitionDirection());
         }
         public void Update(GameTime gameTime)
         {
