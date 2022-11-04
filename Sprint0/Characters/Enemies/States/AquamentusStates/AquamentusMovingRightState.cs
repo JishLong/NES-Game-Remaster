@@ -2,7 +2,9 @@
 using Sprint0.Characters.Bosses.States.AquamentusStates;
 using Sprint0.Characters.Enemies;
 using Sprint0.Characters.Utils;
+using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites.Characters.Enemies;
+using System;
 
 namespace Sprint0.Characters.Bosses.AquamentusStates
 {
@@ -12,10 +14,14 @@ namespace Sprint0.Characters.Bosses.AquamentusStates
         private readonly Aquamentus Aquamentus;
         private Vector2 DirectionVector = Sprint0.Utils.DirectionToVector(Types.Direction.RIGHT);
         private readonly float MovementSpeed = 1f;
+
+        private readonly Random RNG;
         public AquamentusMovingRightState(Aquamentus aquamentus)
         {
             Aquamentus = aquamentus;
             Sprite = new AquamentusSprite();
+
+            RNG = new Random();
         }
         public override void Attack()
         {
@@ -50,6 +56,13 @@ namespace Sprint0.Characters.Bosses.AquamentusStates
         {
             Move();
             Sprite.Update();
+
+            if (RNG.Next(0, 120) == 0)
+            {
+                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, Aquamentus, Types.Direction.LEFT);
+                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, Aquamentus, Types.Direction.DOWNLEFT);
+                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, Aquamentus, Types.Direction.UPLEFT);
+            }
         }
     }
 }

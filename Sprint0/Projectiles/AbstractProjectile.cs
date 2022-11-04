@@ -11,6 +11,7 @@ namespace Sprint0.Projectiles
         protected ISprite Sprite;
         protected ICollidable User;
         public Vector2 Position { get; set; }
+        public int Damage { get; protected set; }
         protected Vector2 Velocity;
 
         /* [FramesAlive]: the number of game frames this projectile should ideally last for
@@ -26,8 +27,9 @@ namespace Sprint0.Projectiles
 
             Rectangle TempHitbox = sprite.GetDrawbox(Vector2.Zero);
             Position = Utils.LineUpEdges(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height, direction);
+            Damage = 0;
 
-            MaxFramesAlive = 100;
+            MaxFramesAlive = 0;
             FramesPassed = 0;
         }    
 

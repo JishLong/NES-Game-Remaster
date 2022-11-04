@@ -28,6 +28,7 @@ namespace Sprint0
         public static SoundEffect LowHealth { get; private set; }
         public static SoundEffect MenuMusic { get; private set; }
         public static SoundEffect NewItem { get; private set; }
+        public static SoundEffect PlaceBomb { get; private set; }
         public static SoundEffect PlayerDeath { get; private set; }
         public static SoundEffect PlayerTakeDamage { get; private set; }
         public static SoundEffect RupeePickup { get; private set; }
@@ -36,6 +37,7 @@ namespace Sprint0
         public static SoundEffect Sword { get; private set; }
         public static SoundEffect SwordProj { get; private set; }
         public static SoundEffect Text { get; private set; }
+        public static SoundEffect Win { get; private set; }
 
 
         // Sprite sheets
@@ -46,6 +48,7 @@ namespace Sprint0
         public static Texture2D LinkSpriteSheet { get; private set; }
         public static Texture2D Level1SpriteSheet { get; private set; }
         public static Texture2D PausePanel { get; private set; }
+        public static Texture2D ScreenCover { get; private set; }
 
         // Sprite sheet positions for all blocks
         public static readonly Rectangle BlueTile = new Rectangle(0, 0, 16, 16);
@@ -147,6 +150,7 @@ namespace Sprint0
             LowHealth = c.Load<SoundEffect>("Audio/lowHealth");
             MenuMusic = c.Load<SoundEffect>("Audio/menuMusic");
             NewItem = c.Load<SoundEffect>("Audio/newItem");
+            PlaceBomb = c.Load<SoundEffect>("Audio/placeBomb");
             PlayerDeath = c.Load<SoundEffect>("Audio/playerDeath");
             PlayerTakeDamage = c.Load<SoundEffect>("Audio/playerTakeDamage");
             RupeePickup = c.Load<SoundEffect>("Audio/rupeePickup");
@@ -155,6 +159,7 @@ namespace Sprint0
             Sword = c.Load<SoundEffect>("Audio/sword"); 
             SwordProj = c.Load<SoundEffect>("Audio/swordProj");
             Text = c.Load<SoundEffect>("Audio/text");
+            Win = c.Load<SoundEffect>("Audio/win");
 
             // Load sprite sheets
             BlocksSpriteSheet = c.Load<Texture2D>("Images/blocks");
@@ -164,6 +169,7 @@ namespace Sprint0
             LinkSpriteSheet = c.Load<Texture2D>("Images/link");
             Level1SpriteSheet = c.Load<Texture2D>("Images/level1");
             PausePanel = c.Load<Texture2D>("Images/pausePanel");
+            ScreenCover = c.Load<Texture2D>("Images/screenCover");
         }
     }
 }

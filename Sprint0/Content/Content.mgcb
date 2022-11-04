@@ -97,6 +97,12 @@
 /processorParam:Quality=Best
 /build:Audio/newItem.wav
 
+#begin Audio/placeBomb.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/placeBomb.wav
+
 #begin Audio/playerDeath.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -144,6 +150,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/text.wav
+
+#begin Audio/win.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/win.wav
 
 #begin Fonts/largeFont.spritefont
 /importer:FontDescriptionImporter
@@ -249,6 +261,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/pausePanel.png
+
+#begin Images/screenCover.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/screenCover.png
 
 #begin Images/weaponsAndProj.png
 /importer:TextureImporter

@@ -5,6 +5,7 @@ using Sprint0.Projectiles.Player_Projectiles;
 using Sprint0.Characters;
 using Sprint0.Commands.Characters;
 using Sprint0.Npcs;
+using Sprint0.Characters.Enemies;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -18,7 +19,8 @@ namespace Sprint0.Collision.Handlers
 
         public void HandleCollision(ICharacter character, IProjectile projectile, Types.Direction characterSide, Room room)
         {
-            if (projectile.IsFromPlayer() && character is not OldMan && character is not Flame)
+            if (projectile.IsFromPlayer() && projectile is not ArrowExplosionParticle && projectile is not BombProjectile
+                && character is not OldMan && character is not Flame)
             {
                 // Boomerangs will bounce off the character and return to the player
                 if (projectile is BoomerangProjectile)
@@ -27,21 +29,23 @@ namespace Sprint0.Collision.Handlers
                 }
 
                 // The flame/bomb will remain alive until its time is up
-                else if (projectile is not FlameProjectile && projectile is not BombProjectile)
+                else if (projectile is not FlameProjectile && projectile is not BombExplosionParticle)
                 {
                     projectile.DeathAction();
                     ProjectileManager.GetInstance().RemoveProjectile(projectile);
                 }
 
-                if (projectile is BoomerangProjectile) 
+                if (projectile is BoomerangProjectile && character is not BladeTrap) 
                 {
-                    /* if character.maxhealth > 1 then they take damage of 1 and die
-                     * else if the character isn't aquamentus, they get put into frozen state */
+                    if (character is Bat || character is Gel)
+                        new CharacterTakeDamageCommand(character, characterSide, projectile.Damage, room).Execute();
+                    else
+                        character.Freeze();
                 }
                 // The bomb/arrow particle don't damage enemies
-                else if (projectile is not BombProjectile && projectile is not ArrowExplosionParticle) 
+                else if (character is not BladeTrap)
                 {
-                    new CharacterTakeDamageCommand(character, characterSide, 1, room).Execute();
+                    new CharacterTakeDamageCommand(character, characterSide, projectile.Damage, room).Execute();
                 }              
             }
         }

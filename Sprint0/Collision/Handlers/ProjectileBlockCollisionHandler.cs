@@ -44,7 +44,7 @@ namespace Sprint0.Collision.Handlers
             // Flames and bombs will sit at the foot of the block and remain there
             else if ((projectile is FlameProjectile || projectile is BombProjectile) && AffectedBlocks.Contains(block.GetType()))
             {
-                projectile.Position = Utils.LineUpEdges(block.GetHitbox(), projectile.GetHitbox().Width, projectile.GetHitbox().Height,
+                projectile.Position = Utils.AlignEdges(block.GetHitbox(), projectile.GetHitbox(),
                     Utils.GetOppositeDirection(projectileSide));
             }          
         }

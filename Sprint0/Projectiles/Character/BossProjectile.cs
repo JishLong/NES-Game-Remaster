@@ -10,6 +10,7 @@ namespace Sprint0.Projectiles.Character_Projectiles
             base(new BossProjSprite(), user, direction, new Vector2(2, 2))
         {
             MaxFramesAlive = 180;
+            Damage = 1;
         }
     }
 }

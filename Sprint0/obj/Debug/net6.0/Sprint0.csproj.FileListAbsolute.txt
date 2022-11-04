@@ -189,3 +189,6 @@ C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Aud
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\lowHealth.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\playerDeath.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\text.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\screenCover.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\placeBomb.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\win.xnb

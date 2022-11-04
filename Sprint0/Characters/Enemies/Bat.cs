@@ -16,6 +16,7 @@ namespace Sprint0.Characters.Enemies
 
             // Combat
             Health = 1;
+            Damage = 1;
 
             // Movement
             Position = position;
@@ -32,7 +33,7 @@ namespace Sprint0.Characters.Enemies
                 State.ChangeDirection();
             }
 
-            State.Update(gameTime);
+            base.Update(gameTime);
         }
     }
 }

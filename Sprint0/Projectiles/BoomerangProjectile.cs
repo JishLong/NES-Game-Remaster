@@ -18,6 +18,7 @@ namespace Sprint0.Projectiles
             MaxFramesAlive = 70;
             IsReturning = false;
             Direction = direction;
+            Damage = 1;
         }
 
         public void ReturnBoomerang()
@@ -48,6 +49,7 @@ namespace Sprint0.Projectiles
             }
             else if (FramesPassed >= MaxFramesAlive / 2)
             {
+                if (!IsReturning) IsReturning = true;
                 Position += (EndPos - Position) / (MaxFramesAlive - FramesPassed);
             }
 
