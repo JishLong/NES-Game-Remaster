@@ -1,2 +1,2 @@
 Up,Right,Down,Left
-NULL,right_unlocked,NULL,NULL
+up_wall,right_unlocked,down_wall,left_wall

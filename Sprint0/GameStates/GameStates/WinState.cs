@@ -20,7 +20,7 @@ namespace Sprint0.GameStates.GameStates
         {
             Game.LevelManager.Draw(sb);
             Game.Player.Draw(sb);
-            sb.DrawString(Resources.MediumFont, "Winner winner chicken dinner!!", new Vector2(30, 100), Color.Black);
+            sb.DrawString(Resources.MediumFont, "Winner winner chicken dinner!!", new Vector2(30, 100), Color.Black, 0f, new Vector2(0,0), 1f, SpriteEffects.None, 0f);
         }
     }
 }

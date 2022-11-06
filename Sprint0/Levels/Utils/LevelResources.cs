@@ -57,10 +57,14 @@ namespace Sprint0.Levels.Utils
 
             DoorMap = new Dictionary<string, Types.Door>()
             {
-                {"up_unlocked", Types.Door.UP_UNLOCKED},
+                {"up_unlocked", Types.Door.UP_UNLOCKED },
                 {"right_unlocked", Types.Door.RIGHT_UNLOCKED },
                 {"down_unlocked", Types.Door.DOWN_UNLOCKED },
                 {"left_unlocked", Types.Door.LEFT_UNLOCKED },
+                {"up_wall", Types.Door.UP_WALL },
+                {"right_wall", Types.Door.RIGHT_WALL },
+                {"down_wall", Types.Door.DOWN_WALL },
+                {"left_wall", Types.Door.LEFT_WALL },
             };
         }
         public static LevelResources GetInstance()

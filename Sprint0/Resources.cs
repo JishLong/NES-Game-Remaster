@@ -68,9 +68,9 @@ namespace Sprint0
         public static readonly Rectangle DownUnlockedDoorWall = new Rectangle(848, 126, 32, 16);
 
         public static readonly Rectangle UpWallDoor = new Rectangle(815, 11, 32, 32);
-        public static readonly Rectangle LeftWallDoor = new Rectangle(848, 44, 32, 32);
-        public static readonly Rectangle RightWallDoor = new Rectangle(848, 77, 32, 32);
-        public static readonly Rectangle DownWallDoor = new Rectangle(848, 110, 32, 32);
+        public static readonly Rectangle LeftWallDoor = new Rectangle(815, 44, 32, 32);
+        public static readonly Rectangle RightWallDoor = new Rectangle(815, 77, 32, 32);
+        public static readonly Rectangle DownWallDoor = new Rectangle(815, 110, 32, 32);
 
         // Sprite sheet positions for all items
         public static readonly Rectangle Compass = new Rectangle(0, 0, 11, 12);

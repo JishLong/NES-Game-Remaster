@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Blocks;
 using Sprint0.Sprites;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,8 @@ using static Sprint0.Utils;
 
 namespace Sprint0.Doors.States
 {
-    public abstract class AbstractDoorState : IDoorState
+    // "Traversable" doors are in a state in which the player can pass through them (e.g. an unlocked or secret door.)
+    public abstract class AbstractTraversableDoorState : IDoorState
     {
         protected ISprite DoorWaySprite;
         protected ISprite DoorWallSprite;
@@ -18,17 +20,22 @@ namespace Sprint0.Doors.States
 
         protected Vector2 Position;
 
+        // Each door may have several blocks.
+        protected List<IBlock> Blocks;
+
         // Room needs to know which direction to transition in.
         public Types.RoomTransition TransitionDirection;
 
+        public abstract void Update(GameTime gameTime);
+
+        public List<IBlock> GetBlocks()
+        {
+            return Blocks;
+        }
         public Types.RoomTransition GetTransitionDirection()
         {
             return TransitionDirection;
         }
-
-        public abstract void Update(GameTime gameTime);
-        
-        
         public void Draw(SpriteBatch sb)
         {
             DoorWallSprite.Draw(sb, Position, Color.White, DoorWallLayerDepth);

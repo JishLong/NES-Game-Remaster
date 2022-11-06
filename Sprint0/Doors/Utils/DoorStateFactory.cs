@@ -21,6 +21,14 @@ namespace Sprint0.Doors.Utils
                     return new RightUnlockedDoorState(door);
                 case Types.Door.DOWN_UNLOCKED:
                     return new DownUnlockedDoorState(door);
+                case Types.Door.UP_WALL:
+                    return new UpWallDoorState(door);
+                case Types.Door.RIGHT_WALL:
+                    return new RightWallDoorState(door);
+                case Types.Door.DOWN_WALL:
+                    return new DownWallDoorState(door);
+                case Types.Door.LEFT_WALL:
+                    return new LeftWallDoorState(door);
                 default:
                     Console.Error.Write("The door state of type " + doorType.ToString() + 
                         " could not be instantiated by the Door State Factory. Does this type exist?");

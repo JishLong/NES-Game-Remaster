@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Blocks;
 using Sprint0.Doors.States;
 using Sprint0.Doors.Utils;
 using Sprint0.Levels;
@@ -24,6 +25,10 @@ namespace Sprint0.Doors
             Room = room;
         }
 
+        public List<IBlock> GetBlocks()
+        {
+            return State.GetBlocks();
+        }
         public void Transition()
         {
             Room.MakeTransition(State.GetTransitionDirection());

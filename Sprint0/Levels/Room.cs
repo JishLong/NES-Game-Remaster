@@ -24,7 +24,7 @@ namespace Sprint0.Levels
         public List<IBlock> Blocks { get;}
         public List<ICharacter> Characters { get;}
         public List<IItem> Items { get;}
-        public List<IDoor> Doors { get; }
+        public DoorHandler DoorHandler { get; }
         public ProjectileHandler Projectiles { get;}
 
         private Dictionary<RoomTransition, Room> AdjacentRooms;
@@ -40,7 +40,7 @@ namespace Sprint0.Levels
             Blocks = new List<IBlock>();
             Characters = new List<ICharacter>();
             Items = new List<IItem>();
-            Doors = new List<IDoor>();
+            DoorHandler = new DoorHandler();
             Projectiles = new ProjectileHandler();
             // TODO: This needs to take an argument so that it knows which border to construct.
             // This should probably be based off of room name or level name.
@@ -93,7 +93,7 @@ namespace Sprint0.Levels
         }
         public void AddDoorToRoom(IDoor door)
         {
-            Doors.Add(door);
+            DoorHandler.AddDoor(door);
         }
         public void AddProjectileToRoom(Types.Projectile proj, Vector2 position, Types.Direction direction, ICollidable user) 
         {
@@ -117,10 +117,7 @@ namespace Sprint0.Levels
             {
                 character.Update(gameTime);
             }
-            foreach (IDoor door in Doors)
-            {
-                door.Update(gameTime);
-            }
+            DoorHandler.Update(gameTime);
             Projectiles.Update();
             Border.Update();
         }
@@ -145,10 +142,7 @@ namespace Sprint0.Levels
             {
                 character.Draw(sb);
             }
-            foreach(IDoor door in Doors)
-            {
-                door.Draw(sb);
-            }
+            DoorHandler.Draw(sb);
             Border.Draw(sb);
             Projectiles.Draw(sb);       
         }

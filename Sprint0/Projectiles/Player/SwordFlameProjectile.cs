@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.Projectiles.Player;
+using static Sprint0.Utils;
 
 namespace Sprint0.Projectiles.Player_Projectiles
 {
@@ -14,7 +15,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
 
         public override void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position, Color.White);
+            Sprite.Draw(sb, Position, Color.White, ProjectileLayerDepth);
         }
 
         public override bool IsFromPlayer()

@@ -7,7 +7,7 @@ using static Sprint0.Utils;
 
 namespace Sprint0.Doors.States
 {
-    public class LeftUnlockedDoorState : AbstractDoorState
+    public class LeftUnlockedDoorState : AbstractTraversableDoorState
     {
         IDoor Door;
         LevelResources LevelResources;
