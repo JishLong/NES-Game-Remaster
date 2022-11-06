@@ -34,10 +34,10 @@ namespace Sprint0.Sprites.Projectiles.Player
 
         protected override Rectangle GetFirstFrame() => Drawbox;
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
+        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
         {
-            if (Direction == Types.Direction.UPRIGHT || Direction == Types.Direction.DOWNRIGHT) DrawFlippedHorz(spriteBatch, position, color);
-            else base.Draw(spriteBatch, position, color);
+            if (Direction == Types.Direction.UPRIGHT || Direction == Types.Direction.DOWNRIGHT) DrawFlippedHorz(spriteBatch, position, color, layer);
+            else base.Draw(spriteBatch, position, color, layer);
         }
     }
 }

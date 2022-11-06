@@ -38,6 +38,10 @@ namespace Sprint0.Blocks.Utils
                     return new PushableBlock(position);
                 case Types.Block.BORDER_BLOCK:
                     return new BorderBlock(position);
+                case Types.Block.LEFT_DOOR_WAY_BLOCK:
+                    return new LeftDoorWayBlock(position);
+                case Types.Block.RIGHT_DOOR_WAY_BLOCK:
+                    return new RightDoorWayBlock(position);
                 default:
                     Console.Error.Write("The block of type " + blockType.ToString() + 
                         " could not be instantiated by the Block Factory. Does this type exist?");

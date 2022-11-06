@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System;
 using System.IO;
 using Sprint0.Levels.Utils;
-
+using Sprint0.Doors;
 
 namespace Sprint0.Levels
 {
@@ -27,7 +27,7 @@ namespace Sprint0.Levels
             LevelManager = manager;
             LevelResources = LevelResources.GetInstance();
             RoomLinker = new RoomLinker();
-            BorderOffset = LevelResources.BlockWidth;
+            BorderOffset = 0;
             RootPath = "../../../Levels/";  // TODO: There is probably a better way to do this than with relative paths...
         }
         public Level LoadLevelFromDir(Types.Level levelType)
@@ -59,6 +59,7 @@ namespace Sprint0.Levels
             LoadBlocks(room, RootPath + levelDirName + "/" + roomDirName + "/Blocks.csv");
             LoadCharacters(room, RootPath + levelDirName + "/" + roomDirName + "/Characters.csv");
             LoadItems(room, RootPath + levelDirName + "/" + roomDirName + "/Items.csv");
+            LoadDoors(room, RootPath + levelDirName + "/" + roomDirName + "/Doors.csv");
             return room;
         }
         public void LoadBlocks(Room room, string roomName)
@@ -108,7 +109,6 @@ namespace Sprint0.Levels
                 }
                 row++;
             }
-
         }
         public void LoadItems(Room room, string roomName)
         {
@@ -132,6 +132,26 @@ namespace Sprint0.Levels
                     col++;
                 }
                 row++;
+            }
+        }
+        public void LoadDoors(Room room, string roomName)
+        { 
+            // TODO: THIS IS JUST FOR DEBUGGING, REMOVE THIS LINE BEFORE FLIGHT.
+            if (roomName != "../../../Levels/Level1/Room2/Doors.csv" && roomName != "../../../Levels/Level1/Room1/Doors.csv") { return; }
+            Parser = new TextFieldParser(roomName);
+            Parser.SetDelimiters(",");
+            while (!Parser.EndOfData)
+            {
+                string[] fields = Parser.ReadFields();
+                foreach (string field in fields)
+                {
+                    if (LevelResources.DoorMap.ContainsKey(field))
+                    {
+                        Types.Door doorType = LevelResources.DoorMap[field];
+                        IDoor door = new Door(room, doorType);
+                        room.AddDoorToRoom(door);
+                    }
+                }
             }
         }
     }

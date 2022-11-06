@@ -6,6 +6,7 @@ using Sprint0.GameStates;
 using Sprint0.GameStates.GameStates;
 using Sprint0.Input;
 using System;
+using MonoGame;
 
 namespace Sprint0
 {
@@ -13,7 +14,6 @@ namespace Sprint0
     {
         private GraphicsDeviceManager Graphics;
         private SpriteBatch SBatch;
-
         public LevelManager LevelManager { get; private set; }
         public IPlayer Player { get; private set; }
 
@@ -63,7 +63,7 @@ namespace Sprint0
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            SBatch.Begin(samplerState: SamplerState.PointClamp);
+            SBatch.Begin(sortMode: SpriteSortMode.BackToFront, samplerState: SamplerState.PointClamp);
 
             CurrentState.Draw(SBatch);
         

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Sprint0.Collision;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites.Projectiles.Player;
+using static Sprint0.Utils;
 
 namespace Sprint0.Projectiles.Player_Projectiles
 {

@@ -2,11 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites;
 using Sprint0.Sprites.Blocks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static Sprint0.Utils;
 
 namespace Sprint0.Levels
 {
@@ -14,6 +10,7 @@ namespace Sprint0.Levels
     {
         private ISprite Sprite;
         private Vector2 DefaultPosition;
+        private float DefaultLayerDepth = 1;
         public RoomBorder()
         {
             Sprite = new Level1BorderSprite();
@@ -27,7 +24,7 @@ namespace Sprint0.Levels
 
         public void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, DefaultPosition);
+            Sprite.Draw(sb, DefaultPosition, Color.White, BlockLayerDepth);
         }
     }
 }

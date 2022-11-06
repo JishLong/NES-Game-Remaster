@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Commands.Levels;
 using Sprint0.Sprites;
+using static Sprint0.Utils;
 using static Sprint0.Types;
 
 namespace Sprint0.Player.State
@@ -118,7 +119,7 @@ namespace Sprint0.Player.State
         public void Draw(SpriteBatch sb, Vector2 position) 
         {
             Color PlayerColor = (Player.IsTakingDamage) ? Color.Red : Color.White;
-            Sprite.Draw(sb, position, PlayerColor);
+            Sprite.Draw(sb, position, PlayerColor, PlayerLayerDepth);
         }
     }
 }

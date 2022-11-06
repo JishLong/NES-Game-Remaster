@@ -3,6 +3,7 @@ using Sprint0.Sprites;
 using Microsoft.Xna.Framework;
 using Sprint0.Collision;
 using Sprint0.Player;
+using static Sprint0.Utils;
 
 namespace Sprint0.Projectiles
 {
@@ -40,7 +41,7 @@ namespace Sprint0.Projectiles
 
         public virtual void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position);
+            Sprite.Draw(sb, Position, Color.White, ProjectileLayerDepth);
         }
 
         public virtual bool IsFromPlayer()

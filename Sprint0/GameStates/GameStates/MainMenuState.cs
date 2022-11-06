@@ -49,12 +49,14 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Draw(SpriteBatch sb)
         {
+          
             Color TipColor = (FramesPassed < TipFrames / 10) ? Color.Red : Color.White;
 
-            sb.DrawString(Resources.MediumFont, "Welcome to the Myth of Zebra!", welcomeTextPosition, Color.White);
-            sb.DrawString(Resources.LargeFont, "Press SPACEBAR to start", startTextPosition, Color.White);
-            sb.DrawString(Resources.SmallFont, Tips[CurrentTip], tipTextPosition, TipColor);
-            if (IsShowing) sb.DrawString(Resources.MediumFont, "- TIPS: -", flashingTextPosition, Color.White);
+            sb.DrawString(Resources.MediumFont, "Welcome to the Myth of Zebra!", welcomeTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            sb.DrawString(Resources.LargeFont, "Press SPACEBAR to start", startTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            sb.DrawString(Resources.SmallFont, Tips[CurrentTip], tipTextPosition, TipColor, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            if (IsShowing) sb.DrawString(Resources.MediumFont, "- TIPS: -", flashingTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+
         }
 
         public override void Update(GameTime gameTime)
@@ -102,7 +104,7 @@ namespace Sprint0.GameStates.GameStates
                 "Moving around the dungeon is an effective way of exploring",
                 "See a basement? Definitely explore it! (don't explore it)",
                 "The dungeon is a little dangerous (you'll die instantly)",
-                "Enemies can damage Lunk (I think). Watch out!"
+                "Enemies can damage Lunk (I think). Watch out!",
             };
         }
     }

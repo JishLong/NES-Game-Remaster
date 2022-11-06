@@ -46,11 +46,12 @@ namespace Sprint0.GameStates.GameStates
                 Utils.GameHeight / 2 - (int)(PanelDims.Height * Utils.GameScale / 2),
                 (int)(PanelDims.Width * Utils.GameScale),
                 (int)(PanelDims.Height * Utils.GameScale));
-            sb.Draw(Resources.PausePanel, PanelLocation, Color.White);
+            sb.Draw(Resources.PausePanel, PanelLocation, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.1f) ;
 
-            sb.DrawString(Resources.MediumFont, "Press SPACE to restart", unpauseTextPosition, Color.White);
-            sb.DrawString(Resources.MediumFont, "Press Q to quit game", quitTextPosition, Color.White);
-            if (IsShowing) sb.DrawString(Resources.LargeFont, "- YOU DIED :( -", flashingTextPosition, Color.White);
+            sb.DrawString(Resources.MediumFont, "Press SPACE to restart", unpauseTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            sb.DrawString(Resources.MediumFont, "Press Q to quit game", quitTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+
+            if (IsShowing) sb.DrawString(Resources.LargeFont, "- YOU DIED :( -", flashingTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
         }
 
         public override void Update(GameTime gameTime)
