@@ -8,6 +8,8 @@ namespace Sprint0.Projectiles
     {
         Vector2 Position { get; set; }
 
+        int Damage { get; }
+
         void DeathAction();
 
         void Draw(SpriteBatch sb);

@@ -14,7 +14,8 @@ namespace Sprint0.Characters.Enemies
             // State
             State = new HandMovingUpState(this, ClockWise);
             // Combat
-            Health = 1;
+            Health = 2;
+            Damage = 1;
 
             // Movement
             Position = position;
@@ -31,7 +32,7 @@ namespace Sprint0.Characters.Enemies
                 State.ChangeDirection();
             }
 
-            State.Update(gameTime);
+            base.Update(gameTime);
         }
     }
 }

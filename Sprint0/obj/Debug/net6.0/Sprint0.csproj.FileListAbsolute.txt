@@ -156,10 +156,6 @@ C:\Users\hgray\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.pd
 C:\Users\hgray\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.genruntimeconfig.cache
 C:\Users\hgray\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\ref\Sprint0.dll
 C:\Users\hgray\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\level1.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\font.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\largeFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\mediumFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\smallFont.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\largeFont.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\mediumFont.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\smallFont.xnb
@@ -193,3 +189,6 @@ C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Aud
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\lowHealth.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\playerDeath.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\text.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\screenCover.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\placeBomb.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\win.xnb

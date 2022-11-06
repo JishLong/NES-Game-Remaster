@@ -14,6 +14,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
 
             Rectangle TempHitbox = Sprite.GetDrawbox(Vector2.Zero);
             Position = Utils.CenterRectangles(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height);
+            Damage = 1;
         }
 
         public override bool IsFromPlayer()

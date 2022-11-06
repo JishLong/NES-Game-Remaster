@@ -90,6 +90,31 @@ namespace Sprint0
             }
         }
 
+        public static Vector2 AlignEdges(Rectangle hitbox, Rectangle alignedHitbox, Types.Direction hitboxEdge)
+        {
+            switch (hitboxEdge)
+            {
+                case Types.Direction.LEFT:
+                    return new Vector2(hitbox.Left - alignedHitbox.Width, alignedHitbox.Y);
+                case Types.Direction.RIGHT:
+                    return new Vector2(hitbox.Right, alignedHitbox.Y);
+                case Types.Direction.UP:
+                    return new Vector2(alignedHitbox.X, hitbox.Top - alignedHitbox.Height);
+                case Types.Direction.DOWN:
+                    return new Vector2(alignedHitbox.X, hitbox.Bottom);
+                case Types.Direction.UPLEFT:
+                    return new Vector2(hitbox.X - alignedHitbox.Width, hitbox.Y - alignedHitbox.Height);
+                case Types.Direction.UPRIGHT:
+                    return new Vector2(hitbox.X + hitbox.Width, hitbox.Y - alignedHitbox.Height);
+                case Types.Direction.DOWNLEFT:
+                    return new Vector2(hitbox.X - alignedHitbox.Width, hitbox.Y + hitbox.Height);
+                case Types.Direction.DOWNRIGHT:
+                    return new Vector2(hitbox.X + hitbox.Width, hitbox.Y + hitbox.Height);
+                default:
+                    return new Vector2(0, 0);
+            }
+        }
+
         /* Returns the direction that opposes [direction] */
         public static Types.Direction GetOppositeDirection(Types.Direction direction)
         {

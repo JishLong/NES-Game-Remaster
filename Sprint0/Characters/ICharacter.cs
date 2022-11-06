@@ -9,7 +9,11 @@ namespace Sprint0.Characters
     {
         Vector2 Position { get; set; }
 
+        int Damage { get; }
+
         void Draw(SpriteBatch sb);
+
+        void Freeze();
 
         void TakeDamage(Types.Direction damageSide, int damage, Room room);
 

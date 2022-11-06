@@ -1,4 +1,5 @@
 ﻿using Sprint0.Collision;
+using Sprint0.Projectiles.Character;
 using Sprint0.Projectiles.Character_Projectiles;
 using Sprint0.Projectiles.Player;
 using Sprint0.Projectiles.Player_Projectiles;
@@ -27,7 +28,7 @@ namespace Sprint0.Projectiles.Tools
                 case Types.Projectile.BLUE_ARROW_PROJ:
                     return new BlueArrowProjectile(user, direction);
                 case Types.Projectile.BOMB_EXPLOSION_PARTICLE:
-                    return new BombExplosionParticle(user);
+                    return new BombExplosionParticle(user, direction);
                 case Types.Projectile.BOMB_PROJ:
                     return new BombProjectile(user, direction);
                 case Types.Projectile.BOSS_PROJ:
@@ -44,6 +45,8 @@ namespace Sprint0.Projectiles.Tools
                     return new SwordProjectile(user, direction);
                 case Types.Projectile.SWORD_FLAME_PROJ:
                     return new SwordFlameProjectile(user, direction);
+                case Types.Projectile.SPAWN_PARTICLE:
+                    return new SpawnParticle(user);
                 default:
                     Console.Error.Write("The projectile of type " + projectileType.ToString() +
                         " could not be instantiated by the Projectile Factory. Does this type exist?");

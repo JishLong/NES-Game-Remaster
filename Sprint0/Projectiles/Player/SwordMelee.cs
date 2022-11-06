@@ -10,6 +10,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
             base(new SwordMeleeSprite(direction), user, direction, Vector2.Zero)
         {
             MaxFramesAlive = 20;
+            Damage = 1;
         }
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Sprint0.Collision;
+using Sprint0.Sprites;
 using Sprint0.Sprites.Projectiles.Player;
 
 namespace Sprint0.Projectiles.Player_Projectiles
@@ -10,7 +11,11 @@ namespace Sprint0.Projectiles.Player_Projectiles
             base(new FlameProjSprite(), user, direction, new Vector2(5, 5))
         {
             MaxFramesAlive = 100;
+            Damage = 1;
             AudioManager.GetInstance().PlayOnce(Resources.FlameShoot);
+
+            Rectangle TempHitbox = Sprite.GetDrawbox(Vector2.Zero);
+            Position = Utils.CenterOnEdge(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height, direction);
         }
 
         public override void Update()

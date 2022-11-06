@@ -19,7 +19,7 @@ namespace Sprint0.Sprites.Characters.Enemies
             if (CurrentFrame != 0)
             {
                 Rectangle frame = GetFirstFrame();
-                spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame, color, 0, Vector2.Zero,
+                spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), frame, color, 0, Vector2.Zero,
                 SpriteEffects.FlipHorizontally, 0);
             }
             else base.Draw(spriteBatch, position, color);

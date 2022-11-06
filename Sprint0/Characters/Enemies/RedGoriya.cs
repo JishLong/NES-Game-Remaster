@@ -15,15 +15,11 @@ namespace Sprint0.Characters.Enemies
             State = new RedGoriyaMovingRightState(this);
 
             // Combat
-            Health = 1;
+            Health = 3;
+            Damage = 2;
 
             // Movement
             Position = position;
-        }
-
-        public void Freeze()
-        {
-            State.Freeze();
         }
 
         public override void Update(GameTime gameTime)
@@ -43,7 +39,7 @@ namespace Sprint0.Characters.Enemies
                 DirectionTimer = 0;
                 State.ChangeDirection();
             }
-            State.Update(gameTime);
+            base.Update(gameTime);
         }   
     }
 }

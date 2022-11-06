@@ -41,8 +41,8 @@ namespace Sprint0.Player
             MovementSpeed = new Vector2(4, 4);
 
             // Initialized the combat-related fields
-            Health = 3;
-            MaxHealth = 3;
+            Health = 6;
+            MaxHealth = 6;
             SecondaryWeapon = Types.Projectile.ARROW_PROJ;
 
             // Initialize the misc. helpful values

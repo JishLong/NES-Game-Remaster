@@ -14,6 +14,7 @@ namespace Sprint0.Projectiles.Player
         {
             MaxFramesAlive = 40;
             Direction = direction;
+            Damage = 4;
             AudioManager.GetInstance().PlayOnce(Resources.ArrowBoomerangShoot);
         }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Sprint0.Commands;
+using Sprint0.Commands.Character;
 using Sprint0.Commands.GameStates;
 using Sprint0.Commands.Levels;
 using Sprint0.Commands.Misc;
@@ -76,6 +77,14 @@ namespace Sprint0.Input
                     new PauseGameCommand(game) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
                     new ToggleAudioCommand() },
+                { new ActionMap(ActionMap.KeyState.HELD, Keys.I),
+                    new MoveCameraCommand(Types.Direction.LEFT, 5) },
+                { new ActionMap(ActionMap.KeyState.HELD, Keys.P),
+                    new MoveCameraCommand(Types.Direction.RIGHT, 5) },
+                { new ActionMap(ActionMap.KeyState.HELD, Keys.O),
+                    new MoveCameraCommand(Types.Direction.UP, 5) },
+                { new ActionMap(ActionMap.KeyState.HELD, Keys.L),
+                    new MoveCameraCommand(Types.Direction.DOWN, 5) },
             };
             PauseStateMappings = new Dictionary<ActionMap, ICommand>() { 
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),

@@ -17,6 +17,10 @@ namespace Sprint0.Characters.Enemies
 
             // Movement
             Position = position;
+
+            // Combat
+            Health = int.MaxValue;
+            Damage = 1;
         }
     }
 }

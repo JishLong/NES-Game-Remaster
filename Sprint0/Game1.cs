@@ -81,7 +81,7 @@ namespace Sprint0
         public void WinGame() 
         {
             AudioManager.GetInstance().StopLoopedAudio();
-            AudioManager.GetInstance().PlayLooped(Resources.Dababy);
+            AudioManager.GetInstance().PlayOnce(Resources.Win);
             CurrentState = new WinState();
         }
 

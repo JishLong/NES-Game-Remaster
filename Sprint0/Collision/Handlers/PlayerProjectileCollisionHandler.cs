@@ -5,6 +5,7 @@ using Sprint0.Projectiles.Tools;
 using Sprint0.Projectiles.Character_Projectiles;
 using System.Collections.Generic;
 using Sprint0.Projectiles.Player_Projectiles;
+using Sprint0.Projectiles.Character;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -18,12 +19,13 @@ namespace Sprint0.Collision.Handlers
 
         public void HandleCollision(IPlayer player, IProjectile projectile, Types.Direction playerSide, Game1 game)
         {
-            if (!projectile.IsFromPlayer()) 
+            if ((!projectile.IsFromPlayer() || projectile is BombExplosionParticle) 
+                && projectile is not DeathParticle && projectile is not SpawnParticle) 
             {
-                // NOTE: Link can't block the boss energy balls
-                if (!(player.IsStationary && player.FacingDirection == playerSide) || projectile is BossProjectile && projectile is not DeathParticle)
+                // NOTE: Link can't block the boss energy balls or bombs
+                if (!(player.IsStationary && player.FacingDirection == playerSide) || projectile is BossProjectile || projectile is BombExplosionParticle)
                 {
-                    new PlayerTakeDamageCommand(player, playerSide, 1, game).Execute();
+                    new PlayerTakeDamageCommand(player, playerSide, projectile.Damage, game).Execute();
                 }    
                 else
                 {
@@ -35,7 +37,7 @@ namespace Sprint0.Collision.Handlers
                 {
                     (projectile as BoomerangProjectile).ReturnBoomerang();
                 }
-                else 
+                else if (projectile is not BombExplosionParticle)
                 {
                     projectile.DeathAction();
                     ProjectileManager.GetInstance().RemoveProjectile(projectile);

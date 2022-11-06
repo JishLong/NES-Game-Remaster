@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.States.ZolStates;
+using Sprint0.Levels;
 
 namespace Sprint0.Characters.Enemies
 {
@@ -14,6 +15,7 @@ namespace Sprint0.Characters.Enemies
             State = new ZolMovingUpState(this);
             // Combat
             Health = 1;
+            Damage = 2;
 
             // Movement
             Position = position;
@@ -30,7 +32,20 @@ namespace Sprint0.Characters.Enemies
                 State.ChangeDirection();
             }
 
-            State.Update(gameTime);
+            base.Update(gameTime);
+        }
+
+        public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
+        {
+            if (damage > 1) 
+            {
+                Vector2 gel1Position = Sprint0.Utils.CenterOnEdge(GetHitbox(), GetHitbox().Width, GetHitbox().Height, Types.Direction.LEFT);
+                Vector2 gel2Position = Sprint0.Utils.CenterOnEdge(GetHitbox(), GetHitbox().Width, GetHitbox().Height, Types.Direction.RIGHT);
+                room.AddCharacterToRoom(Types.Character.GEL, gel1Position);
+                room.AddCharacterToRoom(Types.Character.GEL, gel2Position);
+            }
+            DeathAction();
+            room.RemoveCharacterFromRoom(this);
         }
     }
 }

@@ -30,11 +30,6 @@ namespace Sprint0.Characters.Enemies
             RNG = new Random();
         }
 
-        public void Freeze()
-        {
-            State.Freeze();
-        }
-
         public override void Update(GameTime gameTime)
         {
             DirectionTime += gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -49,13 +44,6 @@ namespace Sprint0.Characters.Enemies
             {
                 RoarTime = 0;
                 AudioManager.GetInstance().PlayOnce(Resources.BossNoise);
-            }
-
-            if (RNG.Next(0, 120) == 0)
-            {
-                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, this, Types.Direction.LEFT);
-                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, this, Types.Direction.DOWNLEFT);
-                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOSS_PROJ, this, Types.Direction.UPLEFT);
             }
 
             base.Update(gameTime);

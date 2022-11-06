@@ -14,6 +14,11 @@ namespace Sprint0.Projectiles.Player_Projectiles
         {
             MaxFramesAlive = 100;
             Direction = direction;
+
+            Rectangle TempHitbox = Sprite.GetDrawbox(Vector2.Zero);
+            Position = Utils.CenterOnEdge(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height, direction);
+
+            AudioManager.GetInstance().PlayOnce(Resources.PlaceBomb);
         }
 
         public override void DeathAction()
