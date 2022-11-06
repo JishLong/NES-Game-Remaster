@@ -67,6 +67,10 @@ namespace Sprint0.Levels
                 Context.CurrentRoom = AdjacentRooms[direction]; // Set the owning level's current room to this adjacent room.
             } 
         }
+        public Room GetAdjacentRoom(RoomTransition direction) 
+        {
+            return AdjacentRooms[direction];
+        }
         public void AddBlockToRoom(Types.Block block, Vector2 position)
         {
             Blocks.Add(BlockFactory.GetInstance().GetBlock(block, position));
@@ -95,9 +99,9 @@ namespace Sprint0.Levels
         {
             DoorHandler.AddDoor(door);
         }
-        public void AddProjectileToRoom(Types.Projectile proj, Vector2 position, Types.Direction direction, ICollidable user) 
+        public void AddProjectileToRoom(Types.Projectile proj, ICollidable user, Types.Direction direction) 
         {
-            Projectiles.AddProjectile(ProjectileFactory.GetInstance().GetProjectile(proj, position, direction, user));
+            Projectiles.AddProjectile(ProjectileFactory.GetInstance().GetProjectile(proj, user, direction));
         }
         public void RemoveProjectileFromRoom(IProjectile proj) 
         {

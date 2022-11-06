@@ -1,8 +1,7 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Projectiles.Player;
 using Sprint0.Projectiles.Tools;
-using static Sprint0.Utils;
+using Sprint0.Collision;
 
 namespace Sprint0.Projectiles.Player
 {
@@ -10,31 +9,18 @@ namespace Sprint0.Projectiles.Player
     {
         private readonly Types.Direction Direction;
 
-        public BlueArrowProjectile(Vector2 position, Types.Direction direction) :
-            base(new BlueArrowProjSprite(direction), null, position, new Vector2(15, 15), direction)
+        public BlueArrowProjectile(ICollidable user, Types.Direction direction) :
+            base(new BlueArrowProjSprite(direction), user, direction, new Vector2(15, 15))
         {
             MaxFramesAlive = 40;
             Direction = direction;
+            Damage = 4;
+            AudioManager.GetInstance().PlayOnce(Resources.ArrowBoomerangShoot);
         }
 
         public override void DeathAction()
         {
-            Rectangle r = Resources.ArrowExplosionParticle;
-
-            ProjectileManager.GetInstance().AddProjectile(
-                Types.Projectile.ARROW_EXPLOSION_PARTICLE,
-                Utils.CenterOnEdge(Sprite.GetDrawbox(Position), (int)(r.Width * Utils.GameScale), (int)(r.Height * Utils.GameScale), Direction),
-                Direction, null);
-        }
-
-        public override bool IsFromPlayer()
-        {
-            return true;
-        }
-
-        public override void Draw(SpriteBatch sb)
-        {
-            Sprite.Draw(sb, Position, Color.White, ProjectileLayerDepth);
+            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.ARROW_EXPLOSION_PARTICLE, this, Direction);
         }
     }
 }

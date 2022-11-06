@@ -13,7 +13,7 @@ namespace Sprint0.Commands.Player
 
         public void Execute()
         {
-            Player.SecondaryWeapon = Types.PlayerWeapon.BOOMERANG;
+            Player.SecondaryWeapon = Types.Projectile.BOOMERANG_PROJ;
             new PlayerSecondaryAttackCommand(Player).Execute();
         }
     }

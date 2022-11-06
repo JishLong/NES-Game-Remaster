@@ -1,14 +1,21 @@
 using Microsoft.Xna.Framework;
+using Sprint0.Collision;
+using Sprint0.Sprites;
 using Sprint0.Sprites.Projectiles.Player;
 
 namespace Sprint0.Projectiles.Player_Projectiles
 {
     public class FlameProjectile : AbstractProjectile
     {
-        public FlameProjectile(Vector2 position, Types.Direction direction) : 
-            base(new FlameProjSprite(), null, position, new Vector2(5, 5), direction)
+        public FlameProjectile(ICollidable user, Types.Direction direction) : 
+            base(new FlameProjSprite(), user, direction, new Vector2(5, 5))
         {
-            MaxFramesAlive = 100;  
+            MaxFramesAlive = 100;
+            Damage = 1;
+            AudioManager.GetInstance().PlayOnce(Resources.FlameShoot);
+
+            Rectangle TempHitbox = Sprite.GetDrawbox(Vector2.Zero);
+            Position = Utils.CenterOnEdge(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height, direction);
         }
 
         public override void Update()
@@ -20,11 +27,6 @@ namespace Sprint0.Projectiles.Player_Projectiles
             {
                 Position += Velocity;
             }
-        }
-
-        public override bool IsFromPlayer()
-        {
-            return true;
         }
     }
 }

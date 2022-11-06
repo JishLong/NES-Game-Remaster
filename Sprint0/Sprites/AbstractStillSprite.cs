@@ -27,35 +27,35 @@ namespace Sprint0.Sprites
 
         public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetFrame(),
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetFrame(),
                 color, 0, Vector2.Zero, SpriteEffects.None, 0);
         }
 
         public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer = 0)
         {
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetFrame(),
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetFrame(),
                 color, 0, Vector2.Zero, SpriteEffects.None, layer);
         }
 
         protected void DrawFlippedHorz(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetFrame(),
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetFrame(),
                 color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
         }
         protected void DrawFlippedHorz(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
         {
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetFrame(),
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetFrame(),
                 color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, layer);
         }
 
         protected void DrawFlippedVert(SpriteBatch spriteBatch, Vector2 position, Color color)
         {
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetFrame(),
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetFrame(),
                 color, 0, Vector2.Zero, SpriteEffects.FlipVertically, 0);
         }
         protected void DrawFlippedVert(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
         {
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetFrame(),
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetFrame(),
                 color, 0, Vector2.Zero, SpriteEffects.FlipVertically, layer);
         }
 

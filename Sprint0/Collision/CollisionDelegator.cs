@@ -25,6 +25,7 @@ namespace Sprint0.Collision
         private readonly CharacterProjectileCollisionHandler CharacterProjectileHandler;
         private readonly CharacterBlockCollisionHandler CharacterBlockHandler;   
         private readonly ProjectileBlockCollisionHandler ProjectileBlockHandler;
+        private readonly ProjectileItemCollisionHandler ProjectileItemHandler;
 
         public CollisionDelegator() 
         {
@@ -35,6 +36,7 @@ namespace Sprint0.Collision
             CharacterProjectileHandler = new CharacterProjectileCollisionHandler();
             CharacterBlockHandler = new CharacterBlockCollisionHandler(); 
             ProjectileBlockHandler = new ProjectileBlockCollisionHandler();
+            ProjectileItemHandler = new ProjectileItemCollisionHandler();
         }
 
         public void DelegateCollision(ICollidable CollidableA, ICollidable CollidableB, Types.Direction SideA, Game1 game) 
@@ -69,6 +71,11 @@ namespace Sprint0.Collision
             else if (CollidableA is IProjectile && CollidableB is IBlock)
             {
                 ProjectileBlockHandler.HandleCollision(CollidableA as IProjectile, CollidableB as IBlock, SideA,
+                    game.LevelManager.CurrentLevel.CurrentRoom);
+            }
+            else if (CollidableA is IProjectile && CollidableB is IItem)
+            {
+                ProjectileItemHandler.HandleCollision(CollidableA as IProjectile, CollidableB as IItem, SideA,
                     game.LevelManager.CurrentLevel.CurrentRoom);
             }
         } 

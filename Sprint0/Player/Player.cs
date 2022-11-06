@@ -17,7 +17,7 @@ namespace Sprint0.Player
         // Combat-related properties
         public float Health { get; set; }
         public float MaxHealth { get; }
-        public Types.PlayerWeapon SecondaryWeapon { get; set; }
+        public Types.Projectile SecondaryWeapon { get; set; }
 
         // Helpful values to check for certain conditions
         public Types.Direction FacingDirection { get; set; }
@@ -26,6 +26,7 @@ namespace Sprint0.Player
         public bool IsPrimaryAttacking { get; set; }
         public bool IsTakingDamage { get; set; }
         public int DamageFramesPassed { get; set; }
+        public int LowHealthFramesPassed { get; set; }
 
         // An inventory to hold all the player's items - not yet in use
         private Inventory Inventory;
@@ -40,9 +41,9 @@ namespace Sprint0.Player
             MovementSpeed = new Vector2(4, 4);
 
             // Initialized the combat-related fields
-            Health = 3;
-            MaxHealth = 3;
-            SecondaryWeapon = Types.PlayerWeapon.ARROW;
+            Health = 6;
+            MaxHealth = 6;
+            SecondaryWeapon = Types.Projectile.ARROW_PROJ;
 
             // Initialize the misc. helpful values
             FacingDirection = Types.Direction.UP;

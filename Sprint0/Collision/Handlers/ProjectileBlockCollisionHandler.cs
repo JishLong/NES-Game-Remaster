@@ -2,7 +2,6 @@
 using Sprint0.Blocks.Blocks;
 using Sprint0.Levels;
 using Sprint0.Projectiles;
-using Sprint0.Projectiles.Character;
 using Sprint0.Projectiles.Character_Projectiles;
 using Sprint0.Projectiles.Player;
 using Sprint0.Projectiles.Player_Projectiles;
@@ -19,14 +18,13 @@ namespace Sprint0.Collision.Handlers
 
         public ProjectileBlockCollisionHandler()
         {
-            AffectedProjectiles = new List<System.Type>{ typeof(BossProjectile), typeof(ArrowProjectile), typeof(BlueArrowProjectile), 
-               typeof(FlameProjectile) };
+            AffectedProjectiles = new List<System.Type>{ typeof(BossProjectile), typeof(ArrowProjectile), typeof(BlueArrowProjectile) };
 
             AffectedBlocks = new List<System.Type> { typeof(BlueStatueLeft), typeof(BlueStatueRight),
             typeof(BlueWall), typeof(GreyBricks), typeof(WhiteBars), typeof(PushableBlock), typeof(BorderBlock)};
         }
 
-        public void HandleCollision(IProjectile projectile, IBlock block, Types.Direction itemSide, Room room)
+        public void HandleCollision(IProjectile projectile, IBlock block, Types.Direction projectileSide, Room room)
         {
             /* For now, most projectiles are simply destroyed upon hitting a block;
              * Later, projectiles such as link's flame will likely behave differently (such as simply stopping at the wall)
@@ -36,15 +34,19 @@ namespace Sprint0.Collision.Handlers
             {
                 ProjectileManager.GetInstance().RemoveProjectile(projectile);
             }
-            // Boomerangs will bounce off of blocks
-            else if (projectile is PlayerBoomerangProjectile && AffectedBlocks.Contains(block.GetType()))
+
+            // Boomerangs are able to bounce off the dungeon border walls
+            else if (projectile is BoomerangProjectile && block is BorderBlock)
             {
-                (projectile as PlayerBoomerangProjectile).ReturnBoomerang();
+                (projectile as BoomerangProjectile).ReturnBoomerang();
             }
-            else if (projectile is GoriyaBoomerangProjectile && AffectedBlocks.Contains(block.GetType()))
+
+            // Flames and bombs will sit at the foot of the block and remain there
+            else if ((projectile is FlameProjectile || projectile is BombProjectile) && AffectedBlocks.Contains(block.GetType()))
             {
-                (projectile as GoriyaBoomerangProjectile).ReturnBoomerang();
-            }
+                projectile.Position = Utils.AlignEdges(block.GetHitbox(), projectile.GetHitbox(),
+                    Utils.GetOppositeDirection(projectileSide));
+            }          
         }
     }
 }

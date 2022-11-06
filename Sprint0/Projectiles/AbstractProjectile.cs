@@ -2,6 +2,7 @@
 using Sprint0.Sprites;
 using Microsoft.Xna.Framework;
 using Sprint0.Collision;
+using Sprint0.Player;
 using static Sprint0.Utils;
 
 namespace Sprint0.Projectiles
@@ -10,20 +11,26 @@ namespace Sprint0.Projectiles
     {
         protected ISprite Sprite;
         protected ICollidable User;
-        protected Vector2 Position, Velocity;
+        public Vector2 Position { get; set; }
+        public int Damage { get; protected set; }
+        protected Vector2 Velocity;
 
         /* [FramesAlive]: the number of game frames this projectile should ideally last for
          * [FramesPassed]: the number of game frames that this projectile has been alive (and updated) for
          */
         protected int MaxFramesAlive, FramesPassed;
 
-        protected AbstractProjectile(ISprite sprite, ICollidable user, Vector2 position, Vector2 movementSpeed, Types.Direction direction)
+        protected AbstractProjectile(ISprite sprite, ICollidable user, Types.Direction direction, Vector2 movementSpeed)
         {
             Sprite = sprite;
             User = user;
-            Position = position;
             Velocity = Utils.DirectionToVector(direction) * movementSpeed;
-            MaxFramesAlive = 100;
+
+            Rectangle TempHitbox = sprite.GetDrawbox(Vector2.Zero);
+            Position = Utils.LineUpEdges(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height, direction);
+            Damage = 0;
+
+            MaxFramesAlive = 0;
             FramesPassed = 0;
         }    
 
@@ -39,7 +46,8 @@ namespace Sprint0.Projectiles
 
         public virtual bool IsFromPlayer()
         {
-            return false;
+            if (User != null) return User is IPlayer;
+            else return false;
         }
 
         public virtual Rectangle GetHitbox()

@@ -21,11 +21,6 @@ namespace Sprint0.Characters.Enemies
             Position = position;
         }
 
-        public void Freeze()
-        {
-            State.Freeze();
-        }
-
         public override void Update(GameTime gameTime)
         {
             ElapsedTime += gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -35,7 +30,7 @@ namespace Sprint0.Characters.Enemies
                 State.ChangeDirection();
             }
 
-            State.Update(gameTime);
+            base.Update(gameTime);
         }    
     }
 }

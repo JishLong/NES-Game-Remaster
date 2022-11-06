@@ -5,7 +5,7 @@ namespace Sprint0.Sprites.Characters.Enemies
 {
     public class SkeletonSprite : AbstractAnimatedSprite
     {
-        public SkeletonSprite() : base(2, 16)
+        public SkeletonSprite() : base(2, 8)
         {
 
         }
@@ -19,7 +19,7 @@ namespace Sprint0.Sprites.Characters.Enemies
             if (CurrentFrame != 0)
             {
                 Rectangle frame = GetFirstFrame();
-                spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame, color, 0, Vector2.Zero,
+                spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), frame, color, 0, Vector2.Zero,
                 SpriteEffects.FlipHorizontally, layer);
             }
             else base.Draw(spriteBatch, position, color, layer);

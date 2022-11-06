@@ -2,40 +2,42 @@
 using Sprint0.Player;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Tools;
-using Sprint0.Projectiles.Character;
 using Sprint0.Projectiles.Character_Projectiles;
 using System.Collections.Generic;
+using Sprint0.Projectiles.Player_Projectiles;
+using Sprint0.Projectiles.Character;
 
 namespace Sprint0.Collision.Handlers
 {
     // Handles all collisions between players and projectiles
     public class PlayerProjectileCollisionHandler
     {
-        private readonly List<System.Type> AffectedProjectiles;
-
         public PlayerProjectileCollisionHandler()
         {
-            AffectedProjectiles = new List<System.Type>{ typeof(BossProjectile), typeof(GoriyaBoomerangProjectile) };
+
         }
 
         public void HandleCollision(IPlayer player, IProjectile projectile, Types.Direction playerSide, Game1 game)
         {
-            if (AffectedProjectiles.Contains(projectile.GetType())) 
+            if ((!projectile.IsFromPlayer() || projectile is BombExplosionParticle) 
+                && projectile is not DeathParticle && projectile is not SpawnParticle) 
             {
-                if (!(player.IsStationary && player.FacingDirection == playerSide))
+                // NOTE: Link can't block the boss energy balls or bombs
+                if (!(player.IsStationary && player.FacingDirection == playerSide) || projectile is BossProjectile || projectile is BombExplosionParticle)
                 {
-                    new PlayerTakeDamageCommand(player, playerSide, 1, game).Execute();
-                }
-                else 
+                    new PlayerTakeDamageCommand(player, playerSide, projectile.Damage, game).Execute();
+                }    
+                else
                 {
                     AudioManager.GetInstance().PlayOnce(Resources.ShieldBlock);
                 }
-                // For boomerangs, we want them to bounce off the player and go back to the user (in this case, a goriya)
-                if (projectile is GoriyaBoomerangProjectile)
+
+                // For enemy boomerangs, we want them to bounce off the player and go back to the user
+                if (projectile is BoomerangProjectile)
                 {
-                    (projectile as GoriyaBoomerangProjectile).ReturnBoomerang();
+                    (projectile as BoomerangProjectile).ReturnBoomerang();
                 }
-                else 
+                else if (projectile is not BombExplosionParticle)
                 {
                     projectile.DeathAction();
                     ProjectileManager.GetInstance().RemoveProjectile(projectile);

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Commands.Blocks;
 using Sprint0.Levels;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
@@ -12,37 +13,36 @@ public abstract class AbstractCharacter : ICharacter
 
     // Combat related fields.
     protected int Health;
-    protected int Damage;
+    public int Damage { get; protected set; }
+    private Types.Direction KnockbackDirection;
 
     // Damage cosmetics
     protected Color Color = Color.White;
     protected int DamageFrameCounter = 0;
+    protected bool JustSpawned = true;
 
     // Movement related fields.
     public Vector2 Position { get; set; }
-    protected Vector2 Knockback = new(-16, 16);  
+    protected Vector2 Knockback = new(16 * Sprint0.Utils.GameScale, 16 * Sprint0.Utils.GameScale);  
 
     // Sprite related fields.
     protected ISprite Sprite;
 
-    private void DeathAction()
+    protected void DeathAction()
     {
         // Spawn a "death particle" upon death
-        Rectangle r = Resources.CharacterDeathParticle;
-        Rectangle ParticleHitbox = new Rectangle(r.X, r.Y, (int)(r.Width * Sprint0.Utils.GameScale), (int)(r.Height * Sprint0.Utils.GameScale));
-
-        ProjectileManager.GetInstance().AddProjectile(
-            Types.Projectile.DEATH_PARTICLE, 
-            Sprint0.Utils.CenterRectangles(GetHitbox(), ParticleHitbox), 
-            Types.Direction.UP,
-            this);
-
-        Resources.EnemyDeath.Play();
+        ProjectileManager.GetInstance().AddProjectile(Types.Projectile.DEATH_PARTICLE, this, Types.Direction.NO_DIRECTION);
+        AudioManager.GetInstance().PlayOnce(Resources.EnemyDeath);
     }
 
     public virtual void Draw(SpriteBatch sb)
     {
         State.Draw(sb, Position, Color);
+    }
+
+    public void Freeze() 
+    {
+        State.Freeze();
     }
 
     public virtual Rectangle GetHitbox()
@@ -64,17 +64,26 @@ public abstract class AbstractCharacter : ICharacter
             else
             {
                 Color = Color.Red;
-                Position += Sprint0.Utils.DirectionToVector(damageSide) * Knockback;
+                KnockbackDirection = Sprint0.Utils.GetOppositeDirection(damageSide);
             }
         }
     }
 
     public virtual void Update(GameTime gameTime)
     {
+        if (JustSpawned) 
+        {
+            JustSpawned = false;
+            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SPAWN_PARTICLE, this, Types.Direction.NO_DIRECTION);
+        }
         if (Color.Equals(Color.Red)) 
         {
             DamageFrameCounter++;
-            if (DamageFrameCounter == 40) 
+            if (DamageFrameCounter < 40 / 5)
+            {
+                Position += Sprint0.Utils.DirectionToVector(KnockbackDirection) * Knockback / (40 / 5);
+            }
+            if (DamageFrameCounter >= 40) 
             {
                 Color = Color.White;
                 DamageFrameCounter = 0;

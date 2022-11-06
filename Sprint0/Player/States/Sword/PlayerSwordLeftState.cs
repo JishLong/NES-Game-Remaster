@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Sprint0.Projectiles.Tools;
-using Sprint0.Sprites;
+﻿using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites.Player.Attack.SwordAttack;
 
 namespace Sprint0.Player.State.Idle
@@ -21,12 +19,7 @@ namespace Sprint0.Player.State.Idle
 
         private void SpawnSwordMelee()
         {
-            float SwordX = Player.Position.X - Resources.SwordMeleeHorz.Width * Utils.GameScale;
-            float SwordY = Player.Position.Y;
-
-            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_MELEE,
-                new Vector2(SwordX, SwordY), Types.Direction.LEFT, null);
-
+            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_MELEE, Player, Types.Direction.LEFT);
             AudioManager.GetInstance().PlayOnce(Resources.Sword);
         }
 
@@ -44,10 +37,8 @@ namespace Sprint0.Player.State.Idle
             {
                 Player.State = new PlayerFacingLeftState(this);
                 if (Player.Health == Player.MaxHealth)
-                {
-                    float SwordX = Player.Position.X - Resources.SwordProjHorz.Width * Utils.GameScale;
-                    float SwordY = Player.Position.Y + Resources.LinkSideways.Height * Utils.GameScale / 2 - Resources.SwordProjHorz.Height * Utils.GameScale / 2;
-                    ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_PROJ, new Vector2(SwordX, SwordY), Types.Direction.LEFT, null);
+                { 
+                    ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_PROJ, Player, Types.Direction.LEFT);
                     AudioManager.GetInstance().PlayOnce(Resources.SwordProj);
                 }
             }

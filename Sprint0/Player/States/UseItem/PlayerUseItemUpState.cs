@@ -22,43 +22,7 @@ namespace Sprint0.Player.States.BlueArrow
 
         private void SpawnProjectile()
         {
-            Types.Projectile Projectile;
-            Rectangle ProjectileDrawbox;
-
-            switch (Player.SecondaryWeapon)
-            {
-                case Types.PlayerWeapon.ARROW:
-                    Projectile = Types.Projectile.ARROW_PROJ;
-                    ProjectileDrawbox = Resources.ArrowProjVert;
-                    break;
-                case Types.PlayerWeapon.BLUE_ARROW:
-                    Projectile = Types.Projectile.BLUE_ARROW_PROJ;
-                    ProjectileDrawbox = Resources.BlueArrowProjVert;
-                    break;
-                case Types.PlayerWeapon.BOOMERANG:
-                    Projectile = Types.Projectile.PLAYER_BOOMERANG_PROJ;
-                    ProjectileDrawbox = Resources.BoomerangProj;
-                    break;
-                case Types.PlayerWeapon.FLAME:
-                    Projectile = Types.Projectile.FLAME_PROJ;
-                    ProjectileDrawbox = Resources.FlameProj;
-                    break;
-                case Types.PlayerWeapon.BOMB:
-                    Projectile = Types.Projectile.BOMB_PROJ;
-                    ProjectileDrawbox = Resources.BombProj;
-                    break;
-                default:
-                    Projectile = Types.Projectile.SWORD_MELEE;
-                    ProjectileDrawbox = Rectangle.Empty;
-                    break;
-            }
-
-            Rectangle ProjectileHitbox = new Rectangle(ProjectileDrawbox.X, ProjectileDrawbox.Y,
-                (int)(ProjectileDrawbox.Width * Utils.GameScale), (int)(ProjectileDrawbox.Height * Utils.GameScale));
-            Vector2 ProjectilePosition = Utils.LineUpEdges(GetHitbox(), ProjectileHitbox, Types.Direction.UP);
-
-            ProjectileManager.GetInstance().AddProjectile(
-                Projectile, ProjectilePosition, Types.Direction.UP, Player);
+            ProjectileManager.GetInstance().AddProjectile(Player.SecondaryWeapon, Player, Types.Direction.UP);
         }
 
         public override void Update()

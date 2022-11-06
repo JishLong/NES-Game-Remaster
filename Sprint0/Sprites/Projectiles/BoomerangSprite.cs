@@ -1,11 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Sprint0.Sprites.Projectiles.Player
+namespace Sprint0.Sprites.Projectiles
 {
     public class BoomerangSprite : AbstractAnimatedSprite
     {
-        public BoomerangSprite() : base(3, 12)
+        public BoomerangSprite() : base(3, 6)
         {
 
         }

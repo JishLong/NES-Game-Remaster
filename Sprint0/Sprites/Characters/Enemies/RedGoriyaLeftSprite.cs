@@ -5,7 +5,7 @@ namespace Sprint0.Sprites.Characters.Enemies
 {
     public class RedGoriyaLeftSprite : AbstractAnimatedSprite
     {
-        public RedGoriyaLeftSprite() : base(2, 16)
+        public RedGoriyaLeftSprite() : base(2, 8)
         {
 
         }

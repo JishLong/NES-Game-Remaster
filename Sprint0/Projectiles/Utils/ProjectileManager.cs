@@ -24,9 +24,9 @@ namespace Sprint0.Projectiles.Tools
             return Instance;
         }
 
-        public void AddProjectile(Types.Projectile proj, Vector2 position, Types.Direction direction, ICollidable user)
+        public void AddProjectile(Types.Projectile proj, ICollidable user, Types.Direction direction)
         {
-            CurrentRoom.AddProjectileToRoom(proj, position, direction, user);
+            CurrentRoom.AddProjectileToRoom(proj, user, direction);
         }
 
         public void RemoveProjectile(IProjectile proj)
