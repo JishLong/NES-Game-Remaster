@@ -21,22 +21,18 @@ namespace Sprint0
         {
             SoundEffectInstance instance = audio.CreateInstance();
             instance.IsLooped = false;
-            if (!IsMuted) 
-            {
-                PlayingAudio.Add(instance);
-                instance.Play();
-            }        
+            if (IsMuted) instance.Volume = 0;
+            PlayingAudio.Add(instance);
+            instance.Play();
         }
 
         public void PlayLooped(SoundEffect audio)
         {
             SoundEffectInstance instance = audio.CreateInstance();
             instance.IsLooped = true;
+            if (IsMuted) instance.Volume = 0;
             PlayingAudio.Add(instance);
-            if (!IsMuted) 
-            {
-                instance.Play();
-            }
+            instance.Play();
         }
 
         public void StopAudio() 
@@ -54,7 +50,7 @@ namespace Sprint0
             IsMuted = true;
             foreach (var audio in PlayingAudio)
             {
-                audio.Pause();
+                audio.Volume = 0;
             }
         }
 
@@ -63,7 +59,7 @@ namespace Sprint0
             IsMuted = false;
             foreach (var audio in PlayingAudio)
             {
-                audio.Resume();
+                audio.Volume = 1f;
             }
         }
 
