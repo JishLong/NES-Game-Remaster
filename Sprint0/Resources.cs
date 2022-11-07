@@ -142,6 +142,7 @@ namespace Sprint0
         public static readonly Rectangle LinkSwordDown = new Rectangle(0, 16, 16, 27);
         public static readonly Rectangle LinkSwordUp = new Rectangle(64, 16, 16, 28);
         public static readonly Rectangle LinkSwordSideways = new Rectangle(0, 44, 27, 16);
+        public static readonly Rectangle LinkPickUpItem = new Rectangle(108, 44, 14, 16);
 
         public static void LoadContent(ContentManager c) 
         {

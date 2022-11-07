@@ -85,6 +85,8 @@ namespace Sprint0.Input
                     new QuitCommand(game) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
                     new ToggleAudioCommand() },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Space),
+                    new RestartGameCommand(game) },
             };
         }
 

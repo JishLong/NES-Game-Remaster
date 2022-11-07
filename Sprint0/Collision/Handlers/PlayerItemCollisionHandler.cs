@@ -1,5 +1,6 @@
 ﻿using Sprint0.Commands.GameStates;
 using Sprint0.Commands.Levels;
+using Sprint0.Commands.Player;
 using Sprint0.Items;
 using Sprint0.Items.Items;
 using Sprint0.Levels;
@@ -60,6 +61,7 @@ namespace Sprint0.Collision.Handlers
             else if (item is TriforcePiece)
             {
                 new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
+                new PlayerPickUpItemCommand(player, item).Execute();
                 new WinGameCommand(game).Execute();
             }
         }
