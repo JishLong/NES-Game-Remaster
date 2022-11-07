@@ -14,7 +14,7 @@ namespace Sprint0
         {
             PlayingAudio = new List<SoundEffectInstance>();
             ToBeRemoved = new List<SoundEffectInstance>();
-            IsMuted = false;
+            IsMuted = true;
         }
 
         public void PlayOnce(SoundEffect audio) 

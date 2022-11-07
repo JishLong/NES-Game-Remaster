@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.States.SkeletonStates;
+using static Sprint0.Characters.Utils.CharacterUtils;
 
 namespace Sprint0.Characters.Enemies
 {

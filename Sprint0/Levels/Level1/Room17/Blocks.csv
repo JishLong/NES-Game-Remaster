@@ -1,11 +1,11 @@
-bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb
-bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb
+bb,bb,bb,bb,bb,bb,bb,0,0,bb,bb,bb,bb,bb,bb,bb
+bb,bb,bb,bb,bb,bb,bb,0,0,bb,bb,bb,bb,bb,bb,bb
 bb,bb,bt,bt,bt,bt,bt,bt,bt,bt,bt,bt,bt,bt,bb,bb
 bb,bb,bt,water,water,water,bt,bt,bt,bt,water,water,water,bt,bb,bb
 bb,bb,bt,water,bt,bt,bt,bt,bt,bt,bt,bt,water,bt,bb,bb
-rtb,0,bt,water,bt,water,water,water,water,water,water,bt,water,bt,bb,bb
+0,0,bt,water,bt,water,water,water,water,water,water,bt,water,bt,0,0
 bb,bb,bt,water,bt,bt,bt,bt,bt,bt,bt,bt,water,bt,bb,bb
 bb,bb,bt,water,water,water,bt,bt,bt,bt,water,water,water,bt,bb,bb
 bb,bb,bt,bt,bt,bt,bt,bt,bt,bt,bt,bt,bt,bt,bb,bb
 bb,bb,bb,bb,bb,bb,bb,0,0,bb,bb,bb,bb,bb,bb,bb
-bb,bb,bb,bb,bb,bb,bb,rtb,bb,bb,bb,bb,bb,bb,bb,bb
+bb,bb,bb,bb,bb,bb,bb,0,0,bb,bb,bb,bb,bb,bb,bb

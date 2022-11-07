@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks.Utils;
 using Sprint0.Sprites.Blocks;
+using static Sprint0.Utils;
 
 namespace Sprint0.Blocks.Blocks
 {
@@ -27,7 +28,7 @@ namespace Sprint0.Blocks.Blocks
         public override void Draw(SpriteBatch sb)
         {
             if (HasBeenPushed) BlockUnderneath.Draw(sb);
-            base.Draw(sb);
+            Sprite.Draw(sb, Position, Color.White, PushableBlockLayerDepth);
         }
 
         public void Push(Types.Direction direction)
