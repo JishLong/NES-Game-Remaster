@@ -63,7 +63,7 @@ namespace Sprint0
             IsMuted = false;
             foreach (var audio in PlayingAudio)
             {
-                audio.Play();
+                audio.Resume();
             }
         }
 

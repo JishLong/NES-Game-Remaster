@@ -52,8 +52,6 @@ namespace Sprint0
         {
             CurrentState.Update(gameTime);
 
-            AudioManager.GetInstance().Update();
-
             base.Update(gameTime);
         }
 

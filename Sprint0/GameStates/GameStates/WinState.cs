@@ -15,6 +15,7 @@ namespace Sprint0.GameStates.GameStates
         {
             Controllers ??= new List<IController>()
             {
+                new AudioController(),
                 new KeyboardController(KeyboardMappings.GetInstance().GetWinStateMappings(Game, this)),
             };
 
