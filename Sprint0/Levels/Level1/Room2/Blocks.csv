@@ -1,11 +1,11 @@
-bb,bb,bb,bb,bb,bb,bb,0,0,bb,bb,bb,bb,bb,bb,bb
+bb,bb,bb,bb,bb,bb,bb,rtb,0,bb,bb,bb,bb,bb,bb,bb
 bb,bb,bb,bb,bb,bb,bb,0,0,bb,bb,bb,bb,bb,bb,bb
 bb,bb,bt,bt,bt,bt,bt,bt,bt,bt,bt,bt,bt,bt,bb,bb
 bb,bb,bt,bsl,bt,bt,bsl,bt,bt,bsr,bt,bt,bsr,bt,bb,bb
 bb,bb,bt,bt,bt,bt,bt,bt,bt,bt,bt,bt,bt,bt,bb,bb
-0,0,bt,bsl,bt,bt,bsl,bt,bt,bsr,bt,bt,bsr,bt,0,0
+rtb,0,bt,bsl,bt,bt,bsl,bt,bt,bsr,bt,bt,bsr,bt,0,rtb
 bb,bb,bt,bt,bt,bt,bt,bsand,bsand,bt,bt,bt,bt,bt,bb,bb
 bb,bb,bt,bsl,bt,bsand,bsl,bsand,bsand,bsr,bsand,bt,bsr,bt,bb,bb
 bb,bb,bt,bt,bt,bsand,bsand,bsand,bsand,bsand,bsand,bt,bt,bt,bb,bb
 bb,bb,bb,bb,bb,bb,bb,0,0,bb,bb,bb,bb,bb,bb,bb
-bb,bb,bb,bb,bb,bb,bb,0,0,bb,bb,bb,bb,bb,bb,bb
+bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb,bb

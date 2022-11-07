@@ -42,6 +42,8 @@ namespace Sprint0.Blocks.Utils
                     return new LeftDoorWayBlock(position);
                 case Types.Block.RIGHT_DOOR_WAY_BLOCK:
                     return new RightDoorWayBlock(position);
+                case Types.Block.ROOM_TRANSITION_BLOCK:
+                    return new RoomTransitionBlock(position);
                 default:
                     Console.Error.Write("The block of type " + blockType.ToString() + 
                         " could not be instantiated by the Block Factory. Does this type exist?");

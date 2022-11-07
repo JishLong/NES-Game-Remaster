@@ -30,6 +30,7 @@ namespace Sprint0.Levels.Utils
                 {"bb", Types.Block.BORDER_BLOCK },
                 {"ldwb", Types.Block.LEFT_DOOR_WAY_BLOCK },
                 {"rdwb", Types.Block.RIGHT_DOOR_WAY_BLOCK},
+                {"rtb", Types.Block.ROOM_TRANSITION_BLOCK },
 
             };
 
