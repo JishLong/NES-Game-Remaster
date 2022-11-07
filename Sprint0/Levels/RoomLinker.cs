@@ -21,44 +21,53 @@ namespace Sprint0.Levels
             int leftValue = map[row, col - 1];
             int belowValue = map[row + 1, col];
 
-            if (aboveValue > 0)  // Check the area above this room.
-            {
-                Room roomAbove = levelRooms.Find(room => room.RoomName == "Room" + aboveValue);
-                room.AddTransition(roomAbove, Types.RoomTransition.UP);
+            // Check for a secret room.
+            if (map[row,col] < 0)
+            {   // Secret rooms are placed to the right of the affected room in the csv.
+                Room secretRoom = levelRooms.Find(room => room.RoomName == "Room" + rightValue);
+                room.AddTransition(secretRoom, Types.RoomTransition.SECRET);
             }
             else
             {
-                room.AddTransition(null, Types.RoomTransition.UP);
-            }
+                if (aboveValue > 0)  // Check the area above this room.
+                {
+                    Room roomAbove = levelRooms.Find(room => room.RoomName == "Room" + aboveValue);
+                    room.AddTransition(roomAbove, Types.RoomTransition.UP);
+                }
+                else
+                {
+                    room.AddTransition(null, Types.RoomTransition.UP);
+                }
 
-            if (rightValue > 0)  // Check the area to the right of this room.
-            {
-                Room roomRightOf = levelRooms.Find(room => room.RoomName == "Room" + rightValue);
-                room.AddTransition(roomRightOf, Types.RoomTransition.RIGHT);
-            }
-            else
-            {
-                room.AddTransition(null, Types.RoomTransition.RIGHT);
-            }
+                if (rightValue > 0)  // Check the area to the right of this room.
+                {
+                    Room roomRightOf = levelRooms.Find(room => room.RoomName == "Room" + rightValue);
+                    room.AddTransition(roomRightOf, Types.RoomTransition.RIGHT);
+                }
+                else
+                {
+                    room.AddTransition(null, Types.RoomTransition.RIGHT);
+                }
 
-            if (belowValue > 0)  // Check the area below this room.
-            {
-                Room roomBelow = levelRooms.Find(room => room.RoomName == "Room" + belowValue);
-                room.AddTransition(roomBelow, Types.RoomTransition.DOWN);
-            }
-            else
-            {
-                room.AddTransition(null, Types.RoomTransition.DOWN);
-            }
+                if (belowValue > 0)  // Check the area below this room.
+                {
+                    Room roomBelow = levelRooms.Find(room => room.RoomName == "Room" + belowValue);
+                    room.AddTransition(roomBelow, Types.RoomTransition.DOWN);
+                }
+                else
+                {
+                    room.AddTransition(null, Types.RoomTransition.DOWN);
+                }
 
-            if (leftValue > 0)  // Check the area to the left of this room.
-            {
-                Room roomLeftOf = levelRooms.Find(room => room.RoomName == "Room" + leftValue);
-                room.AddTransition(roomLeftOf, Types.RoomTransition.LEFT);
-            }
-            else
-            {
-                room.AddTransition(null, Types.RoomTransition.LEFT);
+                if (leftValue > 0)  // Check the area to the left of this room.
+                {
+                    Room roomLeftOf = levelRooms.Find(room => room.RoomName == "Room" + leftValue);
+                    room.AddTransition(roomLeftOf, Types.RoomTransition.LEFT);
+                }
+                else
+                {
+                    room.AddTransition(null, Types.RoomTransition.LEFT);
+                }
             }
         }
         public void LinkRooms(Level level)

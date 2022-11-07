@@ -9,12 +9,11 @@ using Sprint0.Collision;
 using Sprint0.Doors;
 using Sprint0.Items;
 using Sprint0.Items.Utils;
+using Sprint0.Levels.Borders;
+using Sprint0.Levels.Utils;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Tools;
-using Sprint0.Sprites;
 using System.Collections.Generic;
-using System.Reflection.Metadata;
-using System.Threading;
 using static Sprint0.Types;
 
 namespace Sprint0.Levels
@@ -29,7 +28,7 @@ namespace Sprint0.Levels
 
         private Dictionary<RoomTransition, Room> AdjacentRooms;
 
-        private RoomBorder Border;
+        private IBorder Border;
 
         private Level Context;
 
@@ -42,9 +41,6 @@ namespace Sprint0.Levels
             Items = new List<IItem>();
             DoorHandler = new DoorHandler();
             Projectiles = new ProjectileHandler();
-            // TODO: This needs to take an argument so that it knows which border to construct.
-            // This should probably be based off of room name or level name.
-            Border = new RoomBorder();
 
             RoomName = roomName;
             AdjacentRooms = new Dictionary<RoomTransition, Room>()
@@ -55,6 +51,11 @@ namespace Sprint0.Levels
                 {RoomTransition.LEFT, null },
                 {RoomTransition.SECRET, null },
             };
+        }
+        
+        public void SetBorder(Border border)
+        {
+            Border = BorderFactory.GetInstance().GetBorder(border);
         }
         public void AddTransition(Room room, RoomTransition direction)
         {
@@ -107,6 +108,11 @@ namespace Sprint0.Levels
         {
             Projectiles.RemoveProjectile(proj);
         }
+
+        public void SetBorder(BlueRoomBorder border)
+        {
+            Border = border;
+        }
         public void Update(GameTime gameTime)
         {
             foreach (IBlock block in Blocks)
@@ -122,8 +128,8 @@ namespace Sprint0.Levels
                 character.Update(gameTime);
             }
             DoorHandler.Update(gameTime);
-            Projectiles.Update();
             Border.Update();
+            Projectiles.Update();
         }
         public void Draw(SpriteBatch sb)
         {

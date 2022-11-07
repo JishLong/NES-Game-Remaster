@@ -59,6 +59,10 @@ namespace Sprint0.Collision.Handlers
                 {
                     new RoomTransitionCommand(game, playerSide).Execute();
                 }
+                if (block is SecretTransitionBlock)
+                {
+                    new SecretRoomTransitionCommand(game).Execute();
+                }
             }
         }
     }

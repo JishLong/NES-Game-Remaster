@@ -4,17 +4,17 @@ using Sprint0.Sprites;
 using Sprint0.Sprites.Blocks;
 using static Sprint0.Utils;
 
-namespace Sprint0.Levels
+namespace Sprint0.Levels.Borders
 {
-    public class RoomBorder
+    public class BlueRoomBorder : IBorder
     {
         private ISprite Sprite;
         private Vector2 DefaultPosition;
         private float DefaultLayerDepth = 1;
-        public RoomBorder()
+        public BlueRoomBorder()
         {
-            Sprite = new Level1BorderSprite();
-            DefaultPosition = new Vector2(0,0);
+            Sprite = new BlueBorderSprite();
+            DefaultPosition = new Vector2(0, 0);
         }
 
         public void Update()
