@@ -13,7 +13,7 @@ namespace Sprint0.Commands.GameStates
 
         public void Execute()
         {
-            AudioManager.GetInstance().StopLoopedAudio();
+            AudioManager.GetInstance().StopAudio();
             Game.CurrentState = new LoseState();
         }
     }

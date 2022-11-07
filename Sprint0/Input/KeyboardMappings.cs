@@ -93,9 +93,10 @@ namespace Sprint0.Input
             return new Dictionary<ActionMap, ICommand>() {
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),
                     new PauseGameCommand(game, currentGameState) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
+                    new ToggleAudioCommand() },
             };
         }
-
 
         public Dictionary<ActionMap, ICommand> GetMainMenuStateMappings(Game1 game)
         {

@@ -6,7 +6,6 @@ using Sprint0.GameStates;
 using Sprint0.GameStates.GameStates;
 using Sprint0.Input;
 using System;
-using MonoGame;
 
 namespace Sprint0
 {
@@ -52,6 +51,8 @@ namespace Sprint0
         protected override void Update(GameTime gameTime)
         {
             CurrentState.Update(gameTime);
+
+            AudioManager.GetInstance().Update();
 
             base.Update(gameTime);
         }

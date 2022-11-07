@@ -13,7 +13,7 @@ namespace Sprint0.Commands.GameStates
 
         public void Execute()
         {
-            AudioManager.GetInstance().StopLoopedAudio();
+            AudioManager.GetInstance().StopAudio();
             AudioManager.GetInstance().PlayOnce(Resources.Win);
             Game.CurrentState = new WinState();
         }
