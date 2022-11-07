@@ -7,5 +7,10 @@ namespace Sprint0.Items.Items
     public class BlueCandle : AbstractItem
     {
         public BlueCandle(Vector2 position) : base(new BlueCandleSprite(), position) { }
+
+        public override Types.Item GetItemType()
+        {
+            return Types.Item.BLUE_CANDLE;
+        }
     }
 }

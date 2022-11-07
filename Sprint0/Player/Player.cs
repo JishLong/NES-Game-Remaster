@@ -16,8 +16,8 @@ namespace Sprint0.Player
         public Vector2 MovementSpeed { get; }
 
         // Combat-related properties
-        public float Health { get; set; }
-        public float MaxHealth { get; }
+        public int Health { get; set; }
+        public int MaxHealth { get; set; }
         public Types.Projectile SecondaryWeapon { get; set; }
 
         // Helpful values to check for certain conditions
@@ -30,7 +30,9 @@ namespace Sprint0.Player
         public int LowHealthFramesPassed { get; set; }
 
         // An inventory to hold all the player's items - not yet in use
-        private Inventory Inventory;
+        public HUD HUD { get; private set; }
+
+        public Inventory Inventory { get; private set; }
         
         public Player(Game1 game)
         {
@@ -52,8 +54,9 @@ namespace Sprint0.Player
             IsChangingDirection = false;
             IsPrimaryAttacking = false;
             IsTakingDamage = false;
-            
-            // Initialize the inventory
+
+            // Initialize the inventorys
+            HUD = new HUD();
             Inventory = new Inventory();
         }
 

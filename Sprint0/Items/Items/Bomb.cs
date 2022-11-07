@@ -7,5 +7,10 @@ namespace Sprint0.Items.Items
     public class Bomb : AbstractItem
     {
         public Bomb(Vector2 position) : base(new BombSprite(), position) { }
+
+        public override Types.Item GetItemType()
+        {
+            return Types.Item.BOMB;
+        }
     }
 }
