@@ -42,8 +42,8 @@ namespace Sprint0.GameStates.GameStates
                 Camera.Reset();
                 Game.LevelManager.CurrentLevel.CurrentRoom.MakeTransition(Utils.DirectionToRoomTransition(Direction));
                 Vector2 DirectionVector = Utils.DirectionToVector(Direction);
-                int NewPlayerX = (int)(Game.Player.Position.X + DirectionVector.X * (16 * 3 * Utils.GameScale) + ShiftAmount) % ShiftAmount;
-                int NewPlayerY = (int)(Game.Player.Position.Y + DirectionVector.Y * (16 * 3 * Utils.GameScale) + ShiftAmount) % ShiftAmount;
+                int NewPlayerX = (int)(Game.Player.Position.X + DirectionVector.X * (16 * 2.75 * Utils.GameScale) + ShiftAmount) % ShiftAmount;
+                int NewPlayerY = (int)(Game.Player.Position.Y + DirectionVector.Y * (16 * 2.75 * Utils.GameScale) + ShiftAmount) % ShiftAmount;
                 Game.Player.Position = new Vector2(NewPlayerX, NewPlayerY);
                 Game.UnpauseGame();
             }
