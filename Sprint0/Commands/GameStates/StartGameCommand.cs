@@ -1,4 +1,6 @@
-﻿namespace Sprint0.Commands.GameStates
+﻿using Sprint0.GameStates.GameStates;
+
+namespace Sprint0.Commands.GameStates
 {
     public class StartGameCommand : ICommand
     {
@@ -11,7 +13,9 @@
 
         public void Execute()
         {
-            Game.StartGame();
+            AudioManager.GetInstance().StopAudio();
+            AudioManager.GetInstance().PlayLooped(Resources.DungeonMusic);
+            Game.CurrentState = new PlayingState();
         }
     }
 }

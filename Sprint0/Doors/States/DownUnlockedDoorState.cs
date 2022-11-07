@@ -31,6 +31,9 @@ namespace Sprint0.Doors.States
             // Blocks
             Blocks = new List<IBlock>();
             CreateBlocks(Height, Width);
+
+            // Triggers
+            CreateTriggers(Height, Width); 
         }
         private void CreateBlocks(float height, float width)
         {
@@ -38,6 +41,10 @@ namespace Sprint0.Doors.States
             Blocks.Add(BlockFactory.GetBlock(Types.Block.LEFT_DOOR_WAY_BLOCK, Position)); // Bottom left
             Blocks.Add(BlockFactory.GetBlock(Types.Block.RIGHT_DOOR_WAY_BLOCK, Position + new Vector2(width, -height))); // Top right
             Blocks.Add(BlockFactory.GetBlock(Types.Block.RIGHT_DOOR_WAY_BLOCK, Position + new Vector2(width, 0))); // Bottom right
+        }
+        private void CreateTriggers(float height, float width)
+        {
+            Blocks.Add(BlockFactory.GetBlock(Types.Block.ROOM_TRANSITION_BLOCK, Position + new Vector2(width/2, 0)));
         }
         public override void Update(GameTime gameTime)
         {

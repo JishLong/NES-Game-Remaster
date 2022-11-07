@@ -13,8 +13,6 @@ namespace Sprint0.Characters.Enemies
         private double RoarTime;
         private readonly double RoarDelay = 3000;
 
-        private readonly Random RNG;
-
         public Aquamentus(Vector2 position, int updateTimer = 1000)
         {
             // State fields
@@ -26,8 +24,6 @@ namespace Sprint0.Characters.Enemies
 
             // Movement fields
             Position = position;
-
-            RNG = new Random();
         }
 
         public override void Update(GameTime gameTime)

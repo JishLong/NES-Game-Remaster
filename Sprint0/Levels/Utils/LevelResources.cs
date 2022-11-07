@@ -24,7 +24,7 @@ namespace Sprint0.Levels.Utils
         private LevelResources()
         {
             UpDoorPosition = new Vector2(BlockWidth * 7,0);
-            RightDoorPosition = new Vector2(BlockWidth * 14, BlockHeight * 4 + (BlockHeight / 2));
+            RightDoorPosition = new Vector2(BlockWidth * 15, BlockHeight * 4 + (BlockHeight / 2));
             DownDoorPosition = new Vector2(BlockWidth * 7, BlockHeight * 10);
             LeftDoorPosition = new Vector2(0,BlockHeight * 4 + (BlockHeight/2));
 
@@ -41,6 +41,7 @@ namespace Sprint0.Levels.Utils
                 {"bb", Types.Block.BORDER_BLOCK },
                 {"ldwb", Types.Block.LEFT_DOOR_WAY_BLOCK },
                 {"rdwb", Types.Block.RIGHT_DOOR_WAY_BLOCK},
+                {"rtb", Types.Block.ROOM_TRANSITION_BLOCK },
 
             };
 

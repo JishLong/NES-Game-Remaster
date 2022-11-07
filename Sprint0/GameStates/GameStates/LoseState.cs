@@ -20,7 +20,8 @@ namespace Sprint0.GameStates.GameStates
         {
             Controllers ??= new List<IController>()
             {
-                new KeyboardController(KeyboardMappings.GetInstance().LoseStateMappings)
+                new AudioController(),
+                new KeyboardController(KeyboardMappings.GetInstance().GetLoseStateMappings(Game)),
             };
 
             Vector2 unpauseTextSize = Resources.MediumFont.MeasureString("Press SPACE to restart");
@@ -39,6 +40,9 @@ namespace Sprint0.GameStates.GameStates
         {
             Game.LevelManager.Draw(sb);
             Game.Player.Draw(sb);
+            Camera.Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
+            Game.HUD.Draw(sb);
+            Camera.Reset();
 
             Rectangle PanelDims = Resources.PausePanel.Bounds;
             Rectangle PanelLocation = new Rectangle(
@@ -46,7 +50,7 @@ namespace Sprint0.GameStates.GameStates
                 Utils.GameHeight / 2 - (int)(PanelDims.Height * Utils.GameScale / 2),
                 (int)(PanelDims.Width * Utils.GameScale),
                 (int)(PanelDims.Height * Utils.GameScale));
-            sb.Draw(Resources.PausePanel, PanelLocation, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.1f) ;
+            sb.Draw(Resources.PausePanel, PanelLocation, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.01f) ;
 
             sb.DrawString(Resources.MediumFont, "Press SPACE to restart", unpauseTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             sb.DrawString(Resources.MediumFont, "Press Q to quit game", quitTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);

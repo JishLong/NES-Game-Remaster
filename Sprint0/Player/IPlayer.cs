@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Collision;
+using Sprint0.Items;
 
 namespace Sprint0.Player
 {
@@ -18,6 +19,8 @@ namespace Sprint0.Player
         void DoSecondaryAttack();
 
         void Draw(SpriteBatch spriteBatch);
+
+        void PickUpItem(IItem item);
 
         void StopAction();
 

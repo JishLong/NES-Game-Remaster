@@ -36,7 +36,7 @@ namespace Sprint0.Doors.States
 
         private void CreateTriggers(float height, float width)
         {
-            Blocks.Add(BlockFactory.GetBlock(Types.Block.LEFT_TRANSITION_TRIGGER, Position + new Vector2(0, height / 2)));
+            Blocks.Add(BlockFactory.GetBlock(Types.Block.ROOM_TRANSITION_BLOCK, Position + new Vector2(0, height / 2)));
         }
         public override void Update(GameTime gameTime)
         {

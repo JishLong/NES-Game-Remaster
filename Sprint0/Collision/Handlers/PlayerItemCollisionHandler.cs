@@ -1,4 +1,6 @@
-﻿using Sprint0.Commands.Levels;
+﻿using Sprint0.Commands.GameStates;
+using Sprint0.Commands.Levels;
+using Sprint0.Commands.Player;
 using Sprint0.Items;
 using Sprint0.Items.Items;
 using Sprint0.Levels;
@@ -33,6 +35,12 @@ namespace Sprint0.Collision.Handlers
                 AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
                 new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
             }
+            else if (item is Fairy)
+            {
+                //player.Health += 3
+                AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
+                new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
+            }
             else if (item is Key)
             {
                 AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
@@ -52,8 +60,9 @@ namespace Sprint0.Collision.Handlers
             }
             else if (item is TriforcePiece)
             {
-                game.WinGame();
                 new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
+                new PlayerPickUpItemCommand(player, item).Execute();
+                new WinGameCommand(game).Execute();
             }
         }
     }

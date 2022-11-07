@@ -136,8 +136,6 @@ namespace Sprint0.Levels
         }
         public void LoadDoors(Room room, string roomName)
         { 
-            // TODO: THIS IS JUST FOR DEBUGGING, REMOVE THIS LINE BEFORE FLIGHT.
-            if (roomName != "../../../Levels/Level1/Room2/Doors.csv" && roomName != "../../../Levels/Level1/Room1/Doors.csv") { return; }
             Parser = new TextFieldParser(roomName);
             Parser.SetDelimiters(",");
             while (!Parser.EndOfData)

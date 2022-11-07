@@ -44,7 +44,7 @@ namespace Sprint0.Characters.Enemies
                 room.AddCharacterToRoom(Types.Character.GEL, gel1Position);
                 room.AddCharacterToRoom(Types.Character.GEL, gel2Position);
             }
-            DeathAction();
+            DeathAction(room);
             room.RemoveCharacterFromRoom(this);
         }
     }

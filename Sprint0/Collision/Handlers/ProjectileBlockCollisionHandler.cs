@@ -21,7 +21,7 @@ namespace Sprint0.Collision.Handlers
             AffectedProjectiles = new List<System.Type>{ typeof(BossProjectile), typeof(ArrowProjectile), typeof(BlueArrowProjectile) };
 
             AffectedBlocks = new List<System.Type> { typeof(BlueStatueLeft), typeof(BlueStatueRight),
-            typeof(BlueWall), typeof(GreyBricks), typeof(WhiteBars), typeof(PushableBlock), typeof(BorderBlock)};
+            typeof(BlueWall), typeof(GreyBricks), typeof(WhiteBars), typeof(PushableBlock), typeof(BorderBlock), typeof(RoomTransitionBlock)};
         }
 
         public void HandleCollision(IProjectile projectile, IBlock block, Types.Direction projectileSide, Room room)
@@ -29,7 +29,7 @@ namespace Sprint0.Collision.Handlers
             /* For now, most projectiles are simply destroyed upon hitting a block;
              * Later, projectiles such as link's flame will likely behave differently (such as simply stopping at the wall)
              */
-            if (AffectedProjectiles.Contains(projectile.GetType()) && AffectedBlocks.Contains(block.GetType())
+            if (AffectedProjectiles.Contains(projectile.GetType()) && block.IsWall()
                 || projectile is SwordProjectile && block is BorderBlock)
             {
                 ProjectileManager.GetInstance().RemoveProjectile(projectile);

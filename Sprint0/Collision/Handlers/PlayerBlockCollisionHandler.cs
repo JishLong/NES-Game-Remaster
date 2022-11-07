@@ -12,17 +12,16 @@ namespace Sprint0.Collision.Handlers
     // Handles all collisions between players and blocks
     public class PlayerBlockCollisionHandler
     {
-        public void HandleCollision(IPlayer player, IBlock block, Types.Direction playerSide, Room room, Game1 game)
+        public void HandleCollision(IPlayer player, IBlock block, Types.Direction playerSide, Game1 game)
         {
             //types of blocks player cannot walk through
             if (block.IsWall())
             {
                 // If the block is a PushableBlock, try and push it
-                if (block is PushableBlock) 
+                if (block is PushableBlock)
                 {
                     new PushPushableBlockCommand(block as PushableBlock, playerSide).Execute();
-                }          
-
+                }
                 player.StopAction();
                 Rectangle PHitbox = player.GetHitbox();
                 Rectangle BHitbox = block.GetHitbox();
@@ -56,14 +55,10 @@ namespace Sprint0.Collision.Handlers
                         new PlayerRelocateCommand(player, new Vector2(X, Y)).Execute();
                         break;
                 }
-            }
-            
-            else if (block is LeftTransitionTrigger)
-            {
-                new LeftRoomTransitionCommand(player, game).Execute();
-            } else if(block is RightTransitionTrigger)
-            {
-                new RightRoomTransitionCommand(player, game).Execute();
+                if (block is RoomTransitionBlock)
+                {
+                    new RoomTransitionCommand(game, playerSide).Execute();
+                }
             }
         }
     }

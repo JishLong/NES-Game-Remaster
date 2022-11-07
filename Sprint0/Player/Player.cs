@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Items;
 using Sprint0.Player.State;
 using Sprint0.Player.State.Idle;
 
@@ -79,6 +80,11 @@ namespace Sprint0.Player
         public Rectangle GetHitbox()
         {
             return State.GetHitbox();
+        }
+
+        public void PickUpItem(IItem item) 
+        {
+            State.PickUpItem(item);
         }
 
         public void StopAction()

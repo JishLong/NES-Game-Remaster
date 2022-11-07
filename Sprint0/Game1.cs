@@ -6,7 +6,6 @@ using Sprint0.GameStates;
 using Sprint0.GameStates.GameStates;
 using Sprint0.Input;
 using System;
-using MonoGame;
 
 namespace Sprint0
 {
@@ -16,6 +15,7 @@ namespace Sprint0
         private SpriteBatch SBatch;
         public LevelManager LevelManager { get; private set; }
         public IPlayer Player { get; private set; }
+        public HUD HUD { get; private set; }
 
         public IGameState CurrentState { get; set; }
 
@@ -29,11 +29,7 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            LevelManager = new LevelManager();
-            LevelManager.LoadLevel(Types.Level.LEVEL1);
-            Player = new Player.Player(this);
-            KeyboardMappings.GetInstance().InitializeMappings(this, Player);
-            MouseMappings.GetInstance().InitializeMappings(this);
+            CreateNewGame();
 
             // Set display resolution.
             Graphics.PreferredBackBufferWidth = Utils.GameWidth;
@@ -71,43 +67,13 @@ namespace Sprint0
             base.Draw(gameTime);
         }
 
-        public void StartGame() 
+        public void CreateNewGame() 
         {
-            AudioManager.GetInstance().StopLoopedAudio();
-            AudioManager.GetInstance().PlayLooped(Resources.DungeonMusic);
-            CurrentState = new PlayingState();
-        }
-
-        public void WinGame() 
-        {
-            AudioManager.GetInstance().StopLoopedAudio();
-            AudioManager.GetInstance().PlayOnce(Resources.Win);
-            CurrentState = new WinState();
-        }
-
-        public void PauseGame()
-        {
-            CurrentState = new PauseState();
-        }
-
-        public void UnpauseGame()
-        {
-            CurrentState = new PlayingState();
-        }
-
-        public void LoseGame() 
-        {
-            AudioManager.GetInstance().StopLoopedAudio();
-            CurrentState = new LoseState();
-        }
-
-        public void RestartGame() 
-        {
-            AudioManager.GetInstance().PlayLooped(Resources.DungeonMusic);
+            LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
             Player = new Player.Player(this);
-            KeyboardMappings.GetInstance().InitializeMappings(this, Player);
-            CurrentState = new PlayingState();
+            HUD = new HUD();
+            MouseMappings.GetInstance().InitializeMappings(this);
         }
 
         public void OnResize(Object sender, EventArgs e)
