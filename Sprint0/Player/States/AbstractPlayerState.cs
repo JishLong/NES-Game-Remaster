@@ -5,6 +5,8 @@ using Sprint0.Sprites;
 using static Sprint0.Utils;
 using static Sprint0.Types;
 using Sprint0.Commands.GameStates;
+using Sprint0.Items;
+using Sprint0.Player.States.BlueArrow;
 
 namespace Sprint0.Player.State
 {
@@ -55,6 +57,14 @@ namespace Sprint0.Player.State
         public virtual void DoSecondaryAttack() 
         {
             Player.IsStationary = false;
+        }
+
+        public void PickUpItem(IItem item) 
+        {
+            Player.IsStationary = true;
+            Player.FacingDirection = Direction.DOWN;
+            Player.IsPrimaryAttacking = false;
+            Player.State = new PlayerPickUpItemState(Player, item);
         }
 
         public void TakeDamage(int damage, Game1 game) 
@@ -117,7 +127,7 @@ namespace Sprint0.Player.State
             }
         }
 
-        public void Draw(SpriteBatch sb, Vector2 position) 
+        public virtual void Draw(SpriteBatch sb, Vector2 position) 
         {
             Color PlayerColor = (Player.IsTakingDamage) ? Color.Red : Color.White;
             Sprite.Draw(sb, position, PlayerColor, PlayerLayerDepth);

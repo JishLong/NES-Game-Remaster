@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Items;
 
 namespace Sprint0.Player.State
 {
@@ -14,6 +15,8 @@ namespace Sprint0.Player.State
         void DoSecondaryAttack();
 
         void Draw(SpriteBatch sb, Vector2 position);
+
+        void PickUpItem(IItem item);
 
         Rectangle GetHitbox();
 
