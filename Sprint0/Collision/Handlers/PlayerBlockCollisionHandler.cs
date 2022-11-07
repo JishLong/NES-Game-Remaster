@@ -5,22 +5,27 @@ using Sprint0.Blocks;
 using Microsoft.Xna.Framework;
 using Sprint0.Commands.Blocks;
 using Sprint0.Blocks.Blocks;
+using Sprint0.Commands.Levels;
 
 namespace Sprint0.Collision.Handlers
 {
     // Handles all collisions between players and blocks
     public class PlayerBlockCollisionHandler
     {
-        public void HandleCollision(IPlayer player, IBlock block, Types.Direction playerSide, Room room)
+        public void HandleCollision(IPlayer player, IBlock block, Types.Direction playerSide, Game1 game)
         {
             //types of blocks player cannot walk through
             if (block.IsWall())
             {
                 // If the block is a PushableBlock, try and push it
-                if (block is PushableBlock) 
+                if (block is PushableBlock)
                 {
                     new PushPushableBlockCommand(block as PushableBlock, playerSide).Execute();
-                }          
+                }
+                else if (block is RoomTransitionBlock) 
+                {
+                    new RoomTransitionCommand(game, playerSide).Execute();
+                }
                 player.StopAction();
                 Rectangle PHitbox = player.GetHitbox();
                 Rectangle BHitbox = block.GetHitbox();

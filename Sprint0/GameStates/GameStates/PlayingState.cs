@@ -29,9 +29,9 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Update(GameTime gameTime)
         {
-            Game.LevelManager.Update(gameTime);
             Game.Player.Update();
             base.Update(gameTime);
+            Game.LevelManager.Update(gameTime);
         }
     }
 }
