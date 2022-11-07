@@ -2,10 +2,10 @@
 using Sprint0.Commands;
 using Sprint0.Commands.Character;
 using Sprint0.Commands.GameStates;
-using Sprint0.Commands.Levels;
 using Sprint0.Commands.Misc;
 using Sprint0.Commands.Player;
 using Sprint0.Controllers;
+using Sprint0.GameStates;
 using Sprint0.Player;
 using System.Collections.Generic;
 
@@ -29,9 +29,9 @@ namespace Sprint0.Input
             return Instance;
         }
 
-        public void InitializeMappings(Game1 game, IPlayer player) 
+        public Dictionary<ActionMap, ICommand> GetPlayingStateMappings(Game1 game, IPlayer player, IGameState currentGameState) 
         {
-            PlayingStateMappings = new Dictionary<ActionMap, ICommand>() { 
+            return new Dictionary<ActionMap, ICommand>() { 
                 // Player movement controls
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.W, Keys.Up),
                     new PlayerMoveUpCommand(player) },
@@ -64,7 +64,7 @@ namespace Sprint0.Input
 
                 // Misc. controls               
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),
-                    new PauseGameCommand(game) },
+                    new PauseGameCommand(game, currentGameState) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
                     new ToggleAudioCommand() },
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.I),
@@ -76,21 +76,31 @@ namespace Sprint0.Input
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.L),
                     new MoveCameraCommand(Types.Direction.DOWN, 5) },
             };
-            PauseStateMappings = new Dictionary<ActionMap, ICommand>() { 
+        }
+
+        public Dictionary<ActionMap, ICommand> GetWinStateMappings(Game1 game, IGameState currentGameState) 
+        {
+            return new Dictionary<ActionMap, ICommand>() {
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
+                    new QuitCommand(game) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
+                    new ToggleAudioCommand() },
+            };
+        }
+
+        public Dictionary<ActionMap, ICommand> GetRoomTransitionStateMappings(Game1 game, IGameState currentGameState) 
+        {
+            return new Dictionary<ActionMap, ICommand>() {
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),
-                    new UnpauseGameCommand(game) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
-                    new QuitCommand(game) },
+                    new PauseGameCommand(game, currentGameState) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
                     new ToggleAudioCommand() },
             };
-            WinStateMappings = new Dictionary<ActionMap, ICommand>() {
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
-                    new QuitCommand(game) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
-                    new ToggleAudioCommand() },
-            };
-            MainMenuStateMappings = new Dictionary<ActionMap, ICommand>() {
+        }
+
+        public Dictionary<ActionMap, ICommand> GetMainMenuStateMappings(Game1 game)
+        {
+            return new Dictionary<ActionMap, ICommand>() {
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
                     new QuitCommand(game) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Space),
@@ -98,11 +108,27 @@ namespace Sprint0.Input
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
                     new ToggleAudioCommand() },
             };
-            LoseStateMappings = new Dictionary<ActionMap, ICommand>() {
+        }
+
+        public Dictionary<ActionMap, ICommand> GetLoseStateMappings(Game1 game) 
+        {
+            return new Dictionary<ActionMap, ICommand>() {
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
                     new QuitCommand(game) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Space),
                     new RestartGameCommand(game) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
+                    new ToggleAudioCommand() },
+            };
+        }
+
+        public Dictionary<ActionMap, ICommand> GetPauseStateMappings(Game1 game, IGameState prevGameState) 
+        {
+            return new Dictionary<ActionMap, ICommand>() {
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),
+                    new UnpauseGameCommand(game, prevGameState) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Q),
+                    new QuitCommand(game) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
                     new ToggleAudioCommand() },
             };

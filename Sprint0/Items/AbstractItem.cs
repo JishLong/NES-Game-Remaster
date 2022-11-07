@@ -8,6 +8,7 @@ namespace Sprint0.Items
     public abstract class AbstractItem : IItem
     {
         private readonly ISprite Sprite;
+
         public Vector2 Position { get; set; }
 
         protected AbstractItem(ISprite sprite, Vector2 position)
@@ -26,7 +27,7 @@ namespace Sprint0.Items
             return Sprite.GetDrawbox(Position);
         }
 
-        public void Update()
+        public virtual void Update()
         {
             Sprite.Update();
         }

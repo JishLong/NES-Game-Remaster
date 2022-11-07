@@ -6,61 +6,64 @@ namespace Sprint0
     public class AudioManager
     {
         private static AudioManager Instance;
-        private readonly List<SoundEffectInstance> LoopedAudio;
+        private readonly List<SoundEffectInstance> PlayingAudio;
+        private readonly List<SoundEffectInstance> ToBeRemoved;
         private bool IsMuted;
 
         private AudioManager() 
         {
-            LoopedAudio = new List<SoundEffectInstance>();
+            PlayingAudio = new List<SoundEffectInstance>();
+            ToBeRemoved = new List<SoundEffectInstance>();
             IsMuted = false;
         }
 
         public void PlayOnce(SoundEffect audio) 
         {
+            SoundEffectInstance instance = audio.CreateInstance();
+            instance.IsLooped = false;
             if (!IsMuted) 
             {
-                SoundEffectInstance instance = audio.CreateInstance();
-                instance.IsLooped = false;
+                PlayingAudio.Add(instance);
                 instance.Play();
-            }           
+            }        
         }
 
         public void PlayLooped(SoundEffect audio)
         {
             SoundEffectInstance instance = audio.CreateInstance();
             instance.IsLooped = true;
+            PlayingAudio.Add(instance);
             if (!IsMuted) 
             {
                 instance.Play();
             }
-            LoopedAudio.Add(instance);
         }
 
-        public void StopLoopedAudio() 
+        public void StopAudio() 
         {
-            foreach (var audio in LoopedAudio) 
+            foreach (var audio in PlayingAudio) 
             {
                 audio.Stop(true);
                 audio.Dispose();
             }
-            LoopedAudio.Clear();
+            PlayingAudio.Clear();
         }
 
         public void MuteAudio() 
         {
             IsMuted = true;
-            foreach (var audio in LoopedAudio)
+            foreach (var audio in PlayingAudio)
             {
-                audio.Stop(true);
+                audio.Pause();
             }
         }
 
         public void UnmuteAudio()
         {
             IsMuted = false;
-            foreach (var audio in LoopedAudio)
+            foreach (var audio in PlayingAudio)
             {
-                audio.Play();
+                audio.Resume();
             }
         }
 
@@ -68,6 +71,23 @@ namespace Sprint0
         {
             Instance ??= new AudioManager();
             return Instance;
+        }
+
+        public void Update() 
+        {
+            foreach (var audio in PlayingAudio)
+            {
+                if (!audio.IsLooped && audio.State == SoundState.Stopped) 
+                {
+                    audio.Dispose();
+                    ToBeRemoved.Add(audio);
+                }
+            }
+            foreach (var audio in ToBeRemoved)
+            {
+                PlayingAudio.Remove(audio);
+            }
+            ToBeRemoved.Clear();
         }
     }
 }

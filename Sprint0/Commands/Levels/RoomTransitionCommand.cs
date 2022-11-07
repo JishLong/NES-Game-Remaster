@@ -15,8 +15,7 @@ namespace Sprint0.Commands.Levels
 
         public void Execute()
         {
-            if (Game.LevelManager.CurrentLevel.CurrentRoom.GetAdjacentRoom(Utils.DirectionToRoomTransition(Direction)) != null)
-                Game.CurrentState = new RoomTransitionState(Direction);
+            Game.CurrentState = new RoomTransitionState(Direction);
         }
     }
 }

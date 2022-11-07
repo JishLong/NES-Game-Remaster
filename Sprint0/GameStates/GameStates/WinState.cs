@@ -15,7 +15,8 @@ namespace Sprint0.GameStates.GameStates
         {
             Controllers ??= new List<IController>()
             {
-                new KeyboardController(KeyboardMappings.GetInstance().WinStateMappings),
+                new AudioController(),
+                new KeyboardController(KeyboardMappings.GetInstance().GetWinStateMappings(Game, this)),
             };
 
             FramesPassed = 0;
