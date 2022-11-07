@@ -56,11 +56,7 @@ namespace Sprint0.Input
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D4),
                     new PlayerFlameAttackCommand(player) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D5),
-                    new PlayerBombAttackCommand(player) },
-
-                // Player damage control
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.E),
-                    new PlayerTakeDamageCommand(player, player.FacingDirection, 0, game) },             
+                    new PlayerBombAttackCommand(player) },          
 
                 // Misc. controls               
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),
@@ -75,6 +71,8 @@ namespace Sprint0.Input
                     new MoveCameraCommand(Types.Direction.UP, 5) },
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.L),
                     new MoveCameraCommand(Types.Direction.DOWN, 5) },
+                /*{ new ActionMap(ActionMap.KeyState.PRESSED, Keys.E),
+                    new ToggleInventoryCommand(game) },*/
             };
         }
 
@@ -133,6 +131,24 @@ namespace Sprint0.Input
                     new QuitCommand(game) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
                     new ToggleAudioCommand() },
+            };
+        }
+
+        public Dictionary<ActionMap, ICommand> GetInventoryTransitionStateMappings() 
+        {
+            return new Dictionary<ActionMap, ICommand>() {
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
+                    new ToggleAudioCommand() },
+            };
+        }
+
+        public Dictionary<ActionMap, ICommand> GetInventoryStateMappings(Game1 game) 
+        {
+            return new Dictionary<ActionMap, ICommand>() {
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
+                    new ToggleAudioCommand() },
+                /*{ new ActionMap(ActionMap.KeyState.PRESSED, Keys.E),
+                    new ToggleInventoryCommand(game) },*/
             };
         }
     }

@@ -9,7 +9,7 @@ namespace Sprint0
 
         // Screen size
         public static int GameWidth = 256 * (int)GameScale;
-        public static int GameHeight = 176 * (int)GameScale;
+        public static int GameHeight = 220 * (int)GameScale;
 
         // Sprite Layer Depths
         public static readonly float BlockLayerDepth = 1.0f;

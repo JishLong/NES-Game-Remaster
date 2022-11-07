@@ -4,7 +4,7 @@ namespace Sprint0
 {
     public static class Camera
     {
-        private static Vector2 Offset = Vector2.Zero;
+        private static Vector2 Offset = new Vector2(0, 44 * Utils.GameScale);
 
         public static Vector2 GetOffset() 
         {
@@ -18,7 +18,7 @@ namespace Sprint0
 
         public static void Reset() 
         {
-            Offset = Vector2.Zero;
+            Offset = new Vector2(0, 44 * Utils.GameScale);
         }
     }
 }
