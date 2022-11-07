@@ -7,5 +7,10 @@ namespace Sprint0.Items.Items
     public class Rupee : AbstractItem
     {
         public Rupee(Vector2 position) : base(new RupeeSprite(), position) { }
+
+        public override Types.Item GetItemType()
+        {
+            return Types.Item.RUPEE;
+        }
     }
 }

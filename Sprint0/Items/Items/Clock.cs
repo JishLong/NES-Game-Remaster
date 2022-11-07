@@ -7,5 +7,10 @@ namespace Sprint0.Items.Items
     public class Clock : AbstractItem
     {
         public Clock(Vector2 position) : base(new ClockSprite(), position) { }
+
+        public override Types.Item GetItemType()
+        {
+            return Types.Item.CLOCK;
+        }
     }
 }

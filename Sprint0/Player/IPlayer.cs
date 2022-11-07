@@ -7,10 +7,17 @@ namespace Sprint0.Player
 {
     public interface IPlayer : ICollidable
     {
-        public Vector2 Position { get; set; }
+        Vector2 Position { get; set; }
         Types.Projectile SecondaryWeapon { get; set; }
         Types.Direction FacingDirection { get; set; }
         bool IsStationary { get; set; }
+
+        int MaxHealth { get; set; }
+        int Health { get; set; }
+
+        HUD HUD { get; }
+
+        Inventory Inventory { get; }
 
         void ChangeDirection(Types.Direction direction);
 
