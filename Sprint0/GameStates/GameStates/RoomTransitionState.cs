@@ -27,7 +27,7 @@ namespace Sprint0.GameStates.GameStates
             };
 
             Direction = direction;
-            ShiftAmount = (Direction == Types.Direction.DOWN || Direction == Types.Direction.UP) ? Utils.GameHeight : Utils.GameWidth;
+            ShiftAmount = (Direction == Types.Direction.DOWN || Direction == Types.Direction.UP) ? (int)(176 * Utils.GameScale) : Utils.GameWidth;
             ShiftedAmount = 0;
             TransitionFrames = ShiftAmount / 4;
             CurrentRoom = Game.LevelManager.CurrentLevel.CurrentRoom;
@@ -38,6 +38,10 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Draw(SpriteBatch sb)
         {
+            Camera.Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
+            Game.HUD.Draw(sb);
+            Camera.Reset();
+
             Camera.Move(Direction, ShiftedAmount);
             CurrentRoom.Draw(sb);
 
