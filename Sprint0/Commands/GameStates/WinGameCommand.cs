@@ -2,11 +2,11 @@
 
 namespace Sprint0.Commands.GameStates
 {
-    public class StartGameCommand : ICommand
+    public class WinGameCommand : ICommand
     {
         private readonly Game1 Game;
 
-        public StartGameCommand(Game1 game)
+        public WinGameCommand(Game1 game)
         {
             Game = game;
         }
@@ -14,8 +14,8 @@ namespace Sprint0.Commands.GameStates
         public void Execute()
         {
             AudioManager.GetInstance().StopLoopedAudio();
-            AudioManager.GetInstance().PlayLooped(Resources.DungeonMusic);
-            Game.CurrentState = new PlayingState();
+            AudioManager.GetInstance().PlayOnce(Resources.Win);
+            Game.CurrentState = new WinState();
         }
     }
 }

@@ -4,6 +4,7 @@ using Sprint0.Commands.Levels;
 using Sprint0.Sprites;
 using static Sprint0.Utils;
 using static Sprint0.Types;
+using Sprint0.Commands.GameStates;
 
 namespace Sprint0.Player.State
 {
@@ -66,7 +67,7 @@ namespace Sprint0.Player.State
                 if (Player.Health <= 0) 
                 {
                     AudioManager.GetInstance().PlayOnce(Resources.PlayerDeath);
-                    game.LoseGame();
+                    new LoseGameCommand(game).Execute();
                 }          
             }     
         }

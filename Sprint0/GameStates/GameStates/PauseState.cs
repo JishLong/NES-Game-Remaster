@@ -8,6 +8,8 @@ namespace Sprint0.GameStates.GameStates
 {
     public class PauseState : AbstractGameState
     {
+        private readonly IGameState PrevGameState;
+
         private readonly Vector2 flashingTextPosition;
         private readonly Vector2 unpauseTextPosition;
         private readonly Vector2 quitTextPosition;
@@ -16,12 +18,14 @@ namespace Sprint0.GameStates.GameStates
         private bool IsShowing;
         private int FramesPassed;
 
-        public PauseState()
+        public PauseState(IGameState prevGameState)
         {
             Controllers ??= new List<IController>()
             {
-                new KeyboardController(KeyboardMappings.GetInstance().PauseStateMappings)
+                new KeyboardController(KeyboardMappings.GetInstance().GetPauseStateMappings(Game, prevGameState))
             };
+
+            PrevGameState = prevGameState;
 
             Vector2 unpauseTextSize = Resources.MediumFont.MeasureString("Press ESC to unpause");
             Vector2 quitTextSize = Resources.MediumFont.MeasureString("Press Q to quit game");
@@ -37,8 +41,7 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Draw(SpriteBatch sb)
         {
-            Game.LevelManager.Draw(sb);
-            Game.Player.Draw(sb);
+            PrevGameState.Draw(sb);
 
             Rectangle PanelDims = Resources.PausePanel.Bounds;
             Rectangle PanelLocation = new Rectangle(
@@ -46,7 +49,7 @@ namespace Sprint0.GameStates.GameStates
                 Utils.GameHeight / 2 - (int)(PanelDims.Height * Utils.GameScale / 2),
                 (int)(PanelDims.Width * Utils.GameScale), 
                 (int)(PanelDims.Height * Utils.GameScale));
-            sb.Draw(Resources.PausePanel, PanelLocation, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.1f) ;
+            sb.Draw(Resources.PausePanel, PanelLocation, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.01f);
 
             sb.DrawString(Resources.MediumFont, "Press ESC to unpause", unpauseTextPosition, Color.White, 0f, new Vector2(0,0), 1f, SpriteEffects.None, 0f);
             sb.DrawString(Resources.MediumFont, "Press Q to quit game", quitTextPosition, Color.White,0f,  new Vector2(0, 0), 1f, SpriteEffects.None, 0f);

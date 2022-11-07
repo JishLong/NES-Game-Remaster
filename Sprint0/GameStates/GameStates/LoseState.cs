@@ -20,7 +20,7 @@ namespace Sprint0.GameStates.GameStates
         {
             Controllers ??= new List<IController>()
             {
-                new KeyboardController(KeyboardMappings.GetInstance().LoseStateMappings)
+                new KeyboardController(KeyboardMappings.GetInstance().GetLoseStateMappings(Game)),
             };
 
             Vector2 unpauseTextSize = Resources.MediumFont.MeasureString("Press SPACE to restart");

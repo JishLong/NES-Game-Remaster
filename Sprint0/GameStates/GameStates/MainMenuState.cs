@@ -26,7 +26,7 @@ namespace Sprint0.GameStates.GameStates
         {
             Controllers ??= new List<IController>()
             {
-                new KeyboardController(KeyboardMappings.GetInstance().MainMenuStateMappings),
+                new KeyboardController(KeyboardMappings.GetInstance().GetMainMenuStateMappings(Game)),
             };
             SetTips();
             NumGenerator = new Random();

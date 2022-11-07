@@ -14,7 +14,7 @@ namespace Sprint0.GameStates.GameStates
         {
             Controllers ??= new List<IController>()
             {
-                new KeyboardController(KeyboardMappings.GetInstance().PlayingStateMappings),
+                new KeyboardController(KeyboardMappings.GetInstance().GetPlayingStateMappings(Game, Game.Player, this)),
                 new MouseController(MouseMappings.GetInstance().PlayingStateMappings),
                 new ProjectileController(Game.LevelManager),
                 new CollisionController(Game)
