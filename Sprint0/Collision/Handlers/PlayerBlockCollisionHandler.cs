@@ -5,13 +5,14 @@ using Sprint0.Blocks;
 using Microsoft.Xna.Framework;
 using Sprint0.Commands.Blocks;
 using Sprint0.Blocks.Blocks;
+using Sprint0.Commands.Levels;
 
 namespace Sprint0.Collision.Handlers
 {
     // Handles all collisions between players and blocks
     public class PlayerBlockCollisionHandler
     {
-        public void HandleCollision(IPlayer player, IBlock block, Types.Direction playerSide, Room room)
+        public void HandleCollision(IPlayer player, IBlock block, Types.Direction playerSide, Room room, Game1 game)
         {
             //types of blocks player cannot walk through
             if (block.IsWall())
@@ -21,6 +22,7 @@ namespace Sprint0.Collision.Handlers
                 {
                     new PushPushableBlockCommand(block as PushableBlock, playerSide).Execute();
                 }          
+
                 player.StopAction();
                 Rectangle PHitbox = player.GetHitbox();
                 Rectangle BHitbox = block.GetHitbox();
@@ -54,6 +56,14 @@ namespace Sprint0.Collision.Handlers
                         new PlayerRelocateCommand(player, new Vector2(X, Y)).Execute();
                         break;
                 }
+            }
+            
+            else if (block is LeftTransitionTrigger)
+            {
+                new LeftRoomTransitionCommand(player, game).Execute();
+            } else if(block is RightTransitionTrigger)
+            {
+                new RightRoomTransitionCommand(player, game).Execute();
             }
         }
     }

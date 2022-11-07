@@ -1,4 +1,5 @@
-﻿using Sprint0;
+﻿using Microsoft.Xna.Framework;
+using Sprint0;
 using System.Collections.Generic;
 using static Sprint0.Utils;
 
@@ -15,8 +16,18 @@ namespace Sprint0.Levels.Utils
         public int BlockWidth = 16 * (int) GameScale;
         public int BlockHeight = 16 * (int) GameScale;
 
+        public Vector2 UpDoorPosition;
+        public Vector2 RightDoorPosition;
+        public Vector2 DownDoorPosition;
+        public Vector2 LeftDoorPosition;
+            
         private LevelResources()
         {
+            UpDoorPosition = new Vector2(BlockWidth * 7,0);
+            RightDoorPosition = new Vector2(BlockWidth * 14, BlockHeight * 4 + (BlockHeight / 2));
+            DownDoorPosition = new Vector2(BlockWidth * 7, BlockHeight * 10);
+            LeftDoorPosition = new Vector2(0,BlockHeight * 4 + (BlockHeight/2));
+
             BlockMap = new Dictionary<string, Types.Block>()
             {
                 {"bt", Types.Block.BLUE_TILE},

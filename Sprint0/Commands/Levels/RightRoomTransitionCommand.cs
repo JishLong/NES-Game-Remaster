@@ -1,4 +1,5 @@
 ﻿using Sprint0.GameStates.GameStates;
+using Sprint0.Player;
 
 namespace Sprint0.Commands.Levels
 {
@@ -6,7 +7,7 @@ namespace Sprint0.Commands.Levels
     {
         private readonly Game1 Game;
 
-        public RightRoomTransitionCommand(Game1 game)
+        public RightRoomTransitionCommand(IPlayer player, Game1 game)
         {
             Game = game;
         }

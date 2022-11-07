@@ -12,7 +12,7 @@ namespace Sprint0
         private AudioManager() 
         {
             LoopedAudio = new List<SoundEffectInstance>();
-            IsMuted = false;
+            IsMuted = true;
         }
 
         public void PlayOnce(SoundEffect audio) 

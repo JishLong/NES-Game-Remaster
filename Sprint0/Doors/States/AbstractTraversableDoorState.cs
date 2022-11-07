@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
+using Sprint0.Blocks.Utils;
+using Sprint0.Levels.Utils;
 using Sprint0.Sprites;
 using System;
 using System.Collections.Generic;
@@ -25,6 +27,10 @@ namespace Sprint0.Doors.States
 
         // Room needs to know which direction to transition in.
         public Types.RoomTransition TransitionDirection;
+
+        // Utilities and Factories
+        protected LevelResources LevelResources = LevelResources.GetInstance();
+        protected BlockFactory BlockFactory = BlockFactory.GetInstance();
 
         public abstract void Update(GameTime gameTime);
 
