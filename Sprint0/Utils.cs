@@ -199,5 +199,17 @@ namespace Sprint0
                     return -1;
             }
         }
+
+        public static Types.RoomTransition DirectionToRoomTransition(Types.Direction direction)
+        {
+            return direction switch
+            {
+                Types.Direction.LEFT => Types.RoomTransition.LEFT,
+                Types.Direction.RIGHT => Types.RoomTransition.RIGHT,
+                Types.Direction.UP => Types.RoomTransition.UP,
+                Types.Direction.DOWN => Types.RoomTransition.DOWN,
+                _ => Types.RoomTransition.SECRET,
+            };
+        }
     }
 }

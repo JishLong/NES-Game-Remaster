@@ -37,7 +37,7 @@ public abstract class AbstractCharacter : ICharacter
 
     public virtual void Draw(SpriteBatch sb)
     {
-        State.Draw(sb, Position, Color);
+        if (!JustSpawned) State.Draw(sb, Position, Color);
     }
 
     public void Freeze() 

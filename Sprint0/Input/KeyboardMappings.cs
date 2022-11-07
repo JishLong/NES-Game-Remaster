@@ -64,13 +64,13 @@ namespace Sprint0.Input
 
                 // Room switching controls
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad4, Keys.D7),
-                    new LeftRoomTransitionCommand(game)},
+                    new RoomTransitionCommand(game, Types.Direction.LEFT)},
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad6, Keys.D8),
-                    new RightRoomTransitionCommand(game)},
+                    new RoomTransitionCommand(game, Types.Direction.RIGHT)},
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad8, Keys.D0),
-                    new UpRoomTransitionCommand(game)},
+                    new RoomTransitionCommand(game, Types.Direction.UP)},
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad2, Keys.D9),
-                    new DownRoomTransitionCommand(game)},
+                    new RoomTransitionCommand(game, Types.Direction.DOWN)},
 
                 // Misc. controls               
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),
