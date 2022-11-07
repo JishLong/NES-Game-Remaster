@@ -22,10 +22,6 @@ namespace Sprint0.Collision.Handlers
                 {
                     new PushPushableBlockCommand(block as PushableBlock, playerSide).Execute();
                 }
-                else if (block is RoomTransitionBlock) 
-                {
-                    new RoomTransitionCommand(game, playerSide).Execute();
-                }
                 player.StopAction();
                 Rectangle PHitbox = player.GetHitbox();
                 Rectangle BHitbox = block.GetHitbox();
@@ -58,6 +54,10 @@ namespace Sprint0.Collision.Handlers
                         Y = PHitbox.Y - (int)PHitboxOffset.Y;
                         new PlayerRelocateCommand(player, new Vector2(X, Y)).Execute();
                         break;
+                }
+                if (block is RoomTransitionBlock)
+                {
+                    new RoomTransitionCommand(game, playerSide).Execute();
                 }
             }
         }
