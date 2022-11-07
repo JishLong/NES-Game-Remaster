@@ -62,16 +62,6 @@ namespace Sprint0.Input
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.E),
                     new PlayerTakeDamageCommand(player, player.FacingDirection, 0, game) },             
 
-                // Room switching controls
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad4, Keys.D7),
-                    new RoomTransitionCommand(game, Types.Direction.LEFT)},
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad6, Keys.D8),
-                    new RoomTransitionCommand(game, Types.Direction.RIGHT)},
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad8, Keys.D0),
-                    new RoomTransitionCommand(game, Types.Direction.UP)},
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.NumPad2, Keys.D9),
-                    new RoomTransitionCommand(game, Types.Direction.DOWN)},
-
                 // Misc. controls               
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),
                     new PauseGameCommand(game) },
