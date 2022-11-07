@@ -34,13 +34,13 @@ namespace Sprint0.Player
             sb.Draw(Resources.ScreenCover, MAPArea, null, Color.White,
                 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
             //gems
-            sb.Draw(Resources.ScreenCover, gemsAREA, null, Color.YellowGreen,
+            sb.Draw(Resources.ItemsSpriteSheet, gemsAREA, Resources.Rupee, Color.YellowGreen,
                 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
             //keys
-            sb.Draw(Resources.ScreenCover, keysAREA, null, Color.Wheat,
+            sb.Draw(Resources.ItemsSpriteSheet, keysAREA, Resources.Key, Color.Wheat,
                 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
             //bombs
-            sb.Draw(Resources.ScreenCover, bombAREA, null, Color.SteelBlue,
+            sb.Draw(Resources.ItemsSpriteSheet, bombAREA, Resources.Bomb, Color.SteelBlue,
                 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
             //"B" attack
             sb.Draw(Resources.ScreenCover, bAttackArea, null, Color.Turquoise,
@@ -49,7 +49,7 @@ namespace Sprint0.Player
             sb.Draw(Resources.ScreenCover, aAttackArea, null, Color.Violet,
                 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
             //Life
-            sb.Draw(Resources.ScreenCover, LIFEArea, null, Color.Red,
+            sb.Draw(Resources.ItemsSpriteSheet, LIFEArea, Resources.Heart, Color.Red,
                 0f, Vector2.Zero, SpriteEffects.None, 0.2f);
         }
         
