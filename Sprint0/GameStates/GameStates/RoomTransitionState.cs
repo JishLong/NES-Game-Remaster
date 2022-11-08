@@ -50,7 +50,7 @@ namespace Sprint0.GameStates.GameStates
             Camera.Move(Direction, ShiftAmount);
             Camera.Reset();
 
-            if (FramesPassed == TransitionFrames - 1)
+            if (FramesPassed >= TransitionFrames - 1)
             {
                 
                 Game.LevelManager.CurrentLevel.CurrentRoom.MakeTransition(Utils.DirectionToRoomTransition(Direction));
