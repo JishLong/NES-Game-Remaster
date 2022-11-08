@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Sprint0.GameStates.GameStates
 {
-    public class SecretRoomTransitionState : AbstractGameState
+    public class ExitSecretRoomTransitionState : AbstractGameState
     {
         private LevelResources LevelResources;
         private readonly Room CurrentRoom;
@@ -18,7 +18,7 @@ namespace Sprint0.GameStates.GameStates
         private int FadeOutFrames;
         private float FadeAmount;
 
-        public SecretRoomTransitionState()
+        public ExitSecretRoomTransitionState()
         {
             Controllers ??= new List<IController>()
             {
@@ -43,8 +43,8 @@ namespace Sprint0.GameStates.GameStates
             {
                 Game.LevelManager.CurrentLevel.CurrentRoom.MakeTransition(Types.RoomTransition.SECRET);
                 NextRoom.Draw(sb);
-                int NewPlayerX = LevelResources.BlockWidth * 3;
-                int NewPlayerY = LevelResources.BlockHeight * 2;
+                int NewPlayerX = LevelResources.BlockWidth * 5;
+                int NewPlayerY = LevelResources.BlockHeight * 7;
                 Game.Player.Position = new Vector2(NewPlayerX, NewPlayerY);
                 Game.CurrentState = new PlayingState();
             }

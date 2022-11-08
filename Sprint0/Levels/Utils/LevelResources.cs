@@ -46,6 +46,7 @@ namespace Sprint0.Levels.Utils
                 {"barrier", Types.Block.BORDER_BLOCK },
                 {"brick", Types.Block.GREY_BRICKS },
                 {"gstairs", Types.Block.WHITE_BARS },
+                {"estb", Types.Block.EXIT_SECRET_TRANSITION_BLOCK },
 
             };
 

@@ -58,12 +58,14 @@ namespace Sprint0.Collision.Handlers
                 if (block is RoomTransitionBlock)
                 {
                     new RoomTransitionCommand(game, playerSide).Execute();
-                }
-                if (block is SecretTransitionBlock)
+                } else if (block is BlueStairs)
                 {
                     new SecretRoomTransitionCommand(game).Execute();
+                } else if (block is SecretRoomTransitionBlock)
+                {
+                    new ExitSecretRoomTransitionCommand(game).Execute();
                 }
-            }
+            } 
         }
     }
 }
