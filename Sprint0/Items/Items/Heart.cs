@@ -7,5 +7,10 @@ namespace Sprint0.Items.Items
     public class Heart : AbstractItem
     {
         public Heart(Vector2 position) : base(new HeartSprite(), position) { }
+
+        public override Types.Item GetItemType()
+        {
+            return Types.Item.HEART;
+        }
     }
 }

@@ -71,8 +71,8 @@ namespace Sprint0.Input
                     new MoveCameraCommand(Types.Direction.UP, 5) },
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.L),
                     new MoveCameraCommand(Types.Direction.DOWN, 5) },
-                /*{ new ActionMap(ActionMap.KeyState.PRESSED, Keys.E),
-                    new ToggleInventoryCommand(game) },*/
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.E),
+                    new ToggleInventoryCommand(game) },
             };
         }
 
@@ -134,21 +134,25 @@ namespace Sprint0.Input
             };
         }
 
-        public Dictionary<ActionMap, ICommand> GetInventoryTransitionStateMappings() 
+        public Dictionary<ActionMap, ICommand> GetInventoryTransitionStateMappings(Game1 game, IGameState currentGameState) 
         {
             return new Dictionary<ActionMap, ICommand>() {
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),
+                    new PauseGameCommand(game, currentGameState) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
                     new ToggleAudioCommand() },
             };
         }
 
-        public Dictionary<ActionMap, ICommand> GetInventoryStateMappings(Game1 game) 
+        public Dictionary<ActionMap, ICommand> GetInventoryStateMappings(Game1 game, IGameState currentGameState) 
         {
             return new Dictionary<ActionMap, ICommand>() {
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.M),
                     new ToggleAudioCommand() },
-                /*{ new ActionMap(ActionMap.KeyState.PRESSED, Keys.E),
-                    new ToggleInventoryCommand(game) },*/
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.E),
+                    new ToggleInventoryCommand(game) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),
+                    new PauseGameCommand(game, currentGameState) },
             };
         }
     }

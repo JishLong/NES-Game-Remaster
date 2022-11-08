@@ -60,6 +60,7 @@ namespace Sprint0.Levels
             LoadCharacters(room, RootPath + levelDirName + "/" + roomDirName + "/Characters.csv");
             LoadItems(room, RootPath + levelDirName + "/" + roomDirName + "/Items.csv");
             LoadDoors(room, RootPath + levelDirName + "/" + roomDirName + "/Doors.csv");
+            LoadBorder(room, RootPath + levelDirName + "/" + roomDirName + "/Border.csv");
             return room;
         }
         public void LoadBlocks(Room room, string roomName)
@@ -148,6 +149,23 @@ namespace Sprint0.Levels
                         Types.Door doorType = LevelResources.DoorMap[field];
                         IDoor door = new Door(room, doorType);
                         room.AddDoorToRoom(door);
+                    }
+                }
+            }
+        }
+        public void LoadBorder(Room room, string roomName)
+        {
+            Parser = new TextFieldParser(roomName);
+            Parser.SetDelimiters(",");
+            while (!Parser.EndOfData)
+            {
+                string[] fields = Parser.ReadFields();
+                foreach (string field in fields)
+                {   // There should really only be one value in this file.
+                    if (LevelResources.BorderMap.ContainsKey(field))
+                    {
+                        Types.Border borderType = LevelResources.BorderMap[field];
+                        room.SetBorder(borderType);
                     }
                 }
             }

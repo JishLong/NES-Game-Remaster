@@ -7,5 +7,10 @@ namespace Sprint0.Items.Items
     public class Bow : AbstractItem
     {
         public Bow(Vector2 position) : base(new BowSprite(), position) { }
+
+        public override Types.Item GetItemType()
+        {
+            return Types.Item.BOW;
+        }
     }
 }

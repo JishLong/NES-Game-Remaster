@@ -97,6 +97,7 @@ namespace Sprint0
         public static readonly Rectangle Heart = new Rectangle(16, 16, 7, 8);
         public static readonly Rectangle Rupee = new Rectangle(30, 16, 8, 16);
         public static readonly Rectangle TriforcePiece = new Rectangle(46, 16, 10, 10);
+        public static readonly Rectangle WoodenSword = new Rectangle(0, 48, 7, 16);
 
         // Sprite sheet positions for all weapons/projectiles
         public static readonly Rectangle BoomerangProj = new Rectangle(0, 0, 8, 8);

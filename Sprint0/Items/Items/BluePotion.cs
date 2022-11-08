@@ -7,5 +7,10 @@ namespace Sprint0.Items.Items
     public class BluePotion : AbstractItem
     {
         public BluePotion(Vector2 position) : base(new BluePotionSprite(), position) { }
+
+        public override Types.Item GetItemType()
+        {
+            return Types.Item.BLUE_POTION;
+        }
     }
 }
