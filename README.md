@@ -1,8 +1,8 @@
-# CSE-3902-Project - Sprint 3
+# CSE-3902-Project - Sprint 4 Functionality Check-in
 
-This README file contains brief instructions/information regarding this project as well as its documentative efforts.
+This README file contains brief instructions/information regarding controls, features, and special cases for this project
 
-Firstly, here is a quick and explicit review of the game controls:
+Firstly, here is a quick list of the (main) game controls - these may vary from point to point in the game:
 
 - Arrows, WASD: movement of Link
 - Z, N: sword attack
@@ -11,28 +11,38 @@ Firstly, here is a quick and explicit review of the game controls:
 - 3: boomerang attack
 - 4: flame attack
 - 5: bomb attack
-- E: become damaged
+- E: open inventory
+- ESC: pause game
+- M: mute audio
+- Q: quit the game (can only be done when game is paused)
+- SPACE: restarts the game (while on certain menu screens)
 
 - Left Click: teleport to previous room
 - Right Click: teleport to next room
-- The 7, 8, 9, and 0 keys also teleport you to rooms direction-wise (if you happen to know the map)
 
-- Q: quit the game
+Here are some explicit features that have not yet been implemented, but are planned to be implemented before the Sprint 4 due date:
+- Different kinds of doors (locked, blocked, bomb)
+- Finished inventory
+- Map/minimap functionality
+- Blade trap behavior
+- Correct Wallmaster behavior
+- Text in the "old man" room
+- Clock "power up" functionality
+- Link is still able to use whatever weapon he wants, whenever he wants (he's all-powerful)
 
-Additionally, here are some extra features that might be hard to miss:
-- Link's sword attack (Z, N) will create a projectile if he hasn't yet been damaged
-- The boomerangs for both Link and the Goriyas will home back to the user, and are able to bounce off blocks indefinitely
+Here are some of the "main" Sprint 4 requirements that have been so far implemented
+- Mouse controls to teleport between rooms (for testing)
+- Room with all items (for testing) - located in the room directly to the left of spawn :)
+- Sound effects and background music, with mute functionality
+- Resetting the level upon character's death
+- (partial) HUD
+- All possible game states and transitions (and bonus main menu with super helpful game tips)
 
-As of writing this document, no known major bugs have been found during playtesting. However, seeing as this is a work-in-progress, this does not guarantee the absence of bugs. There are some small bugs involving collision with blocks - sometimes Link can get stuck in blocks due to a knockback mechanic that is not yet fully implemented. Boomerangs can also get into blocks on their way back to their user. Both of these minor issues will be fixed in the near future.
-
-Finally, here are the various ways in which the development of this project has been documented:
-
-- Task tracking (on GitHub) - below is a link to a GitHub page which contains all the tasks that the team was assigned for Sprint 3. There are also screenshots of the task board at different dates during the sprint - these can all be found in the Documentation folder.
-
-https://github.com/orgs/Code-Commanders/projects/3/views/2
-
-- Code metrics analysis - the code metrics the Sprint3 solution were calculated using Visual Studio's analyze menu. This was done at various dates during the sprint - pictures of the displayed results can be found in the Documentation folder.
-
-- Code reviews - various code reviews with focuses on code readability and maintainability can be found in the Code Reviews folder.
-
-- Final reflection - a small discussion on the team's overall performance, including notable strengths and weaknesses, can be found in the Reflections folder. In this report, the team discusses the developmental process for this project, considers what worked versus what didn't, and gives thoughts on development for future sprints.
+Additionally, here are some other cool features (literally no one asked, who tf cares) that might be hard to miss:
+- Link's sword attack (Z, N) will create a projectile if he is at full health (for now, is also spammable :) )
+- The boomerangs for both Link and the Goriyas will home back to the user, and Link's can stun enemies and pick up items
+- Link can actually die from his own bombs (how sad)
+- Super epic transitions for going to basement room and winning game (not very epic)
+- Effect when picking up a bow looks cool (it's not cool)
+- Enemies drop items upon death
+- Pause and mute buttons will even work during camera transitions!
