@@ -9,11 +9,10 @@ namespace Sprint0.GameStates.GameStates
 {
     public class InventoryTransitionState : AbstractGameState
     {
-        /*private readonly IGameState InventoryState;
+        private readonly IGameState InventoryState;
         private readonly IGameState PlayingState;
 
         private readonly Types.Direction Direction;
-        private readonly Room CurrentRoom;
 
         private readonly int ShiftAmount;
         private readonly int TransitionFrames;
@@ -25,7 +24,7 @@ namespace Sprint0.GameStates.GameStates
             Controllers ??= new List<IController>()
             {
                 new AudioController(),
-                new KeyboardController(KeyboardMappings.GetInstance().GetInventoryTransitionStateMappings()),
+                new KeyboardController(KeyboardMappings.GetInstance().GetInventoryTransitionStateMappings(Game, this)),
             };
 
             Direction = direction;
@@ -35,49 +34,18 @@ namespace Sprint0.GameStates.GameStates
             ShiftAmount = (int)(176 * Utils.GameScale);
             ShiftedAmount = 0;
             TransitionFrames = ShiftAmount / 4;
-            CurrentRoom = Game.LevelManager.CurrentLevel.CurrentRoom;
             FramesPassed = 0;
         }
 
         public override void Draw(SpriteBatch sb)
         {
-
-            if (Direction == Types.Direction.UP)
-            {
-                Camera.Move(Utils.GetOppositeDirection(Direction), Utils.GameHeight);
-                Camera.Move(Direction, ShiftedAmount);
-                InventoryState.Draw(sb);
-                Camera.Move(Direction, Utils.GameHeight);
-                //Camera.Move(Direction, ShiftedAmount);
-                //Camera.Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
-                //Game.HUD.Draw(sb);
-                //Camera.Move(Types.Direction.UP, (int)(44 * Utils.GameScale));
-                CurrentRoom.Draw(sb);
-
-                //Camera.Move(Utils.GetOppositeDirection(Direction), ShiftAmount);
-                //InventoryState.Draw(sb);
-            }
-            else if (Direction == Types.Direction.DOWN) 
-            {
-                Camera.Move(Direction, ShiftedAmount);
-                InventoryState.Draw(sb);
-
-                Camera.Move(Utils.GetOppositeDirection(Direction), ShiftAmount);
-                Camera.Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
-                Game.HUD.Draw(sb);
-                Camera.Move(Types.Direction.UP, (int)(44 * Utils.GameScale));
-                CurrentRoom.Draw(sb);
-                
-            }
-
-            Camera.Reset();
-
-            if (FramesPassed == TransitionFrames - 1)
-            {
-                if (Direction == Types.Direction.UP) Game.CurrentState = InventoryState;
-                else Game.CurrentState = PlayingState;
-
-            }
+            Camera.Move(Direction, ShiftedAmount);
+            if (Direction == Types.Direction.UP) PlayingState.Draw(sb);
+            else if (Direction == Types.Direction.DOWN) InventoryState.Draw(sb);
+            Camera.Move(Utils.GetOppositeDirection(Direction), ShiftAmount);
+            if (Direction == Types.Direction.UP) InventoryState.Draw(sb);
+            else if (Direction == Types.Direction.DOWN) PlayingState.Draw(sb);
+            Camera.Reset();           
         }
 
         public override void Update(GameTime gameTime)
@@ -85,6 +53,12 @@ namespace Sprint0.GameStates.GameStates
             base.Update(gameTime);
             ShiftedAmount += ShiftAmount / TransitionFrames;
             FramesPassed++;
-        }*/
+
+            if (FramesPassed >= TransitionFrames - 1)
+            {
+                if (Direction == Types.Direction.UP) Game.CurrentState = InventoryState;
+                else Game.CurrentState = PlayingState;
+            }
+        }
     }
 }

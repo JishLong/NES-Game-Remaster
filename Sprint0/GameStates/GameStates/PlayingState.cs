@@ -26,7 +26,7 @@ namespace Sprint0.GameStates.GameStates
         {
             Camera.Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
             Game.Player.HUD.Draw(sb);
-            Camera.Reset();
+            Camera.Move(Types.Direction.UP, (int)(44 * Utils.GameScale));
             Game.LevelManager.Draw(sb);
             Game.Player.Draw(sb);
         }

@@ -3,10 +3,9 @@ using Sprint0.GameStates.GameStates;
 
 namespace Sprint0.Commands.GameStates
 {
-    public class ToggleInventoryCommand //: ICommand
+    public class ToggleInventoryCommand : ICommand
     {
-        /*private readonly Game1 Game;
-        private readonly IGameState PrevGameState;
+        private readonly Game1 Game;
 
         public ToggleInventoryCommand(Game1 game)
         {
@@ -16,7 +15,7 @@ namespace Sprint0.Commands.GameStates
         public void Execute()
         {
             if (Game.CurrentState is InventoryState) Game.CurrentState = new InventoryTransitionState(Types.Direction.DOWN);
-            else Game.CurrentState = new InventoryTransitionState(Types.Direction.UP);
-        }*/
+            else if (Game.CurrentState is PlayingState) Game.CurrentState = new InventoryTransitionState(Types.Direction.UP);
+        }
     }
 }
