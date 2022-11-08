@@ -12,6 +12,7 @@ namespace Sprint0.Levels.Utils
         public Dictionary<string, Types.Character> CharacterMap;
         public Dictionary<string, Types.Item> ItemMap;
         public Dictionary<string, Types.Door> DoorMap;
+        public Dictionary<string, Types.Border> BorderMap;
 
         public int BlockWidth = 16 * (int) GameScale;
         public int BlockHeight = 16 * (int) GameScale;
@@ -42,6 +43,10 @@ namespace Sprint0.Levels.Utils
                 {"ldwb", Types.Block.LEFT_DOOR_WAY_BLOCK },
                 {"rdwb", Types.Block.RIGHT_DOOR_WAY_BLOCK},
                 {"rtb", Types.Block.ROOM_TRANSITION_BLOCK },
+                {"barrier", Types.Block.BORDER_BLOCK },
+                {"brick", Types.Block.GREY_BRICKS },
+                {"gstairs", Types.Block.WHITE_BARS },
+                {"estb", Types.Block.EXIT_SECRET_TRANSITION_BLOCK },
 
             };
 
@@ -86,6 +91,12 @@ namespace Sprint0.Levels.Utils
                 {"right_wall", Types.Door.RIGHT_WALL },
                 {"down_wall", Types.Door.DOWN_WALL },
                 {"left_wall", Types.Door.LEFT_WALL },
+            };
+
+            BorderMap = new Dictionary<string, Types.Border>()
+            {
+                {"blue_border", Types.Border.BLUE_BORDER },
+                {"none", Types.Border.NONE},
             };
         }
         public static LevelResources GetInstance()
