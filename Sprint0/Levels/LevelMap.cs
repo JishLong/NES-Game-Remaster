@@ -12,7 +12,8 @@ namespace Sprint0.Levels
         private TextFieldParser Parser;
         public string MapFile { get; }
         public int[,] MapArray { get; set; }
-        private readonly int MapSize = 10;
+        private readonly int MapSize = 9;
+        public int MaxNumRooms { get; }
         private string RootPath;
         //Constructor
         public LevelMap(string levelName)
@@ -20,6 +21,7 @@ namespace Sprint0.Levels
             RootPath = "../../../Levels/";  // TODO: There is probably a better way to do this than with relative paths...
             MapFile = RootPath + levelName + "/" + "Map.csv";
             MapArray = new int[MapSize, MapSize];
+            MaxNumRooms = MapSize * MapSize;
             LoadMap();  // Load the map to an array on construction.
         }
         
@@ -39,13 +41,13 @@ namespace Sprint0.Levels
                 foreach (string field in fields)
                 {
                     
-                    if (char.IsDigit(field[0]))
+                    if (char.IsDigit(field[0]) || field[0] == '-')
                     {
                         MapArray[row, col] = Int32.Parse(field);
                     }
                     else
                     {
-                        MapArray[row, col] = -1;
+                        MapArray[row, col] = MaxNumRooms + 1;
                     }
                     col++;
                 }

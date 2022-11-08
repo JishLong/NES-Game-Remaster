@@ -64,7 +64,7 @@ namespace Sprint0
         public static readonly Rectangle BorderBlock = new Rectangle(33, 33, 16, 16);
 
         // Sprite sheet positions for all borders
-        public static readonly Rectangle Level1Border = new Rectangle(521, 11, 256, 176);
+        public static readonly Rectangle BlueBorder = new Rectangle(521, 11, 256, 176);
 
         // Sprite sheet positions for all doors
         public static readonly Rectangle UpUnlockedDoorWall = new Rectangle(848, 11, 32, 16);
