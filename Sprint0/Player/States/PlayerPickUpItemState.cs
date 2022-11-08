@@ -4,12 +4,14 @@ using Sprint0.Sprites.Player.Attack.UseItem;
 using Sprint0.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Items.Items;
 
 namespace Sprint0.Player.States.BlueArrow
 {
     public class PlayerPickUpItemState : AbstractPlayerState
     {
         private readonly IItem Item;
+        private bool JustPickedUp;
 
         public PlayerPickUpItemState(Player player, IItem item) : base(player)
         {
@@ -20,7 +22,7 @@ namespace Sprint0.Player.States.BlueArrow
         public PlayerPickUpItemState(IPlayerState state, IItem item) : base(state)
         {
             Sprite = new PlayerPickUpItemSprite();
-            Item = item;
+            Item = item;     
         }
 
         public override void Draw(SpriteBatch sb, Vector2 position) 
@@ -35,7 +37,9 @@ namespace Sprint0.Player.States.BlueArrow
             base.Update();           
             Item.Update();
 
-            if (FramesPassed % UseFrames == 0)
+            if (FramesPassed == 2 && Item is Bow) AudioManager.GetInstance().PlaySelfishSound(Resources.NewItem);
+
+            if (FramesPassed % ItemPickUpFrames == 0)
             {
                 Player.State = new PlayerFacingDownState(this);
             }

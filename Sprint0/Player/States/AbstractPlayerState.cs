@@ -18,6 +18,7 @@ namespace Sprint0.Player.State
         private static readonly Vector2 Knockback = new(16 * Utils.GameScale, 16 * Utils.GameScale);
         private static readonly int InvincibilityFrames = 40;
         protected static readonly int UseFrames = 20;
+        protected static readonly int ItemPickUpFrames = 40;
 
         // The number of frames that have passed since this state has been in use
         protected int FramesPassed;       
