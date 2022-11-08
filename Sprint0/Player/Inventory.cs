@@ -13,7 +13,7 @@ namespace Sprint0.Player
 
         public void AddToInventory(Types.Item item, int amount)
         {
-            if (ItemCounts.ContainsKey(item)) ItemCounts[item] += amount;
+            if (ItemCounts.ContainsKey(item)) ItemCounts[item] = ItemCounts[item] + amount;
             else ItemCounts.Add(item, amount);
         }
 

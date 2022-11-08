@@ -101,6 +101,7 @@ namespace Sprint0.Player.State
         public virtual void Update() 
         {
             Sprite.Update();
+            Player.HUD.Update(Player);
 
             // Update some of the logical variables
             Player.IsChangingDirection = false;

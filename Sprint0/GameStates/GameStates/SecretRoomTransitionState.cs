@@ -37,6 +37,10 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Draw(SpriteBatch sb)
         {
+            Camera.Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
+            Game.Player.HUD.Draw(sb);
+            Camera.Reset();
+
             CurrentRoom.Draw(sb);
             sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, Utils.GameWidth, Utils.GameHeight), null, Color.Black * FadeAmount, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
             if (FramesPassed > FadeOutFrames)

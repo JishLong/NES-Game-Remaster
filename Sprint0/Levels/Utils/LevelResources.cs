@@ -47,6 +47,7 @@ namespace Sprint0.Levels.Utils
                 {"brick", Types.Block.GREY_BRICKS },
                 {"gstairs", Types.Block.WHITE_BARS },
                 {"estb", Types.Block.EXIT_SECRET_TRANSITION_BLOCK },
+                {"sbb", Types.Block.SOFT_BORDER_BLOCK },
 
             };
 
@@ -79,6 +80,7 @@ namespace Sprint0.Levels.Utils
                 {"fairy", Types.Item.FAIRY },
                 {"heart", Types.Item.HEART },
                 {"boomerang", Types.Item.WOODEN_BOOMERANG },
+                {"rupee", Types.Item.RUPEE },
             };
 
             DoorMap = new Dictionary<string, Types.Door>()

@@ -7,6 +7,6 @@ namespace Sprint0.Sprites.Blocks
     {
         protected override Texture2D GetSpriteSheet() => Resources.Level1SpriteSheet;
 
-        protected override Rectangle GetFrame() => Resources.BlueBorder;
+        protected override Rectangle GetFrame() => Resources.Level1Border;
     }
 }

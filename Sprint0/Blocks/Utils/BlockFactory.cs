@@ -46,6 +46,8 @@ namespace Sprint0.Blocks.Utils
                     return new RoomTransitionBlock(position);
                 case Types.Block.EXIT_SECRET_TRANSITION_BLOCK:
                     return new SecretRoomTransitionBlock(position);
+                case Types.Block.SOFT_BORDER_BLOCK:
+                    return new SoftBorderBlock(position);
                 default:
                     Console.Error.Write("The block of type " + blockType.ToString() + 
                         " could not be instantiated by the Block Factory. Does this type exist?");

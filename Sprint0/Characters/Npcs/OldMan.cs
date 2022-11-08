@@ -27,7 +27,7 @@ namespace Sprint0.Npcs
 
 		public override void Draw(SpriteBatch sb)
 		{
-			Sprite.Draw(sb, Position);
+			Sprite.Draw(sb, Position, Color.White, Utils.CharacterLayerDepth);
 		}
 
 		public override Rectangle GetHitbox() 
