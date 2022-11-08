@@ -17,6 +17,23 @@ namespace Sprint0
             IsMuted = false;
         }
 
+        public void PlaySelfishSound(SoundEffect audio) 
+        {
+            foreach (var audioPlaying in PlayingAudio)
+            {
+                if (audioPlaying.State == SoundState.Playing) audioPlaying.Pause();
+            }
+            SoundEffectInstance instance = audio.CreateInstance();
+            if (IsMuted) instance.Volume = 0;
+            instance.Play();
+            while (instance.State != SoundState.Stopped) ;
+            instance.Dispose();
+            foreach (var audioPlaying in PlayingAudio)
+            {
+                if (audioPlaying.State == SoundState.Paused) audioPlaying.Resume();
+            }
+        }
+
         public void PlayOnce(SoundEffect audio) 
         {
             SoundEffectInstance instance = audio.CreateInstance();

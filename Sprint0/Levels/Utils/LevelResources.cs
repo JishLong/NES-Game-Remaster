@@ -65,6 +65,15 @@ namespace Sprint0.Levels.Utils
                 {"tforce", Types.Item.TRIFORCE_PIECE },
                 {"hcont", Types.Item.HEART_CONTAINER },
                 {"map", Types.Item.MAP },
+                {"arrow", Types.Item.ARROW },
+                {"bluecandle", Types.Item.BLUE_CANDLE },
+                {"bluepotion", Types.Item.BLUE_POTION },
+                {"bomb", Types.Item.BOMB },
+                {"bow", Types.Item.BOW },
+                {"clock", Types.Item.CLOCK },
+                {"fairy", Types.Item.FAIRY },
+                {"heart", Types.Item.HEART },
+                {"boomerang", Types.Item.WOODEN_BOOMERANG },
             };
 
             DoorMap = new Dictionary<string, Types.Door>()

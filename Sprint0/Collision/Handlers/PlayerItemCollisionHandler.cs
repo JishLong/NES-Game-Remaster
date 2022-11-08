@@ -25,7 +25,12 @@ namespace Sprint0.Collision.Handlers
             if (InventoryItems.Contains(item.GetType()))
             {
                 player.Inventory.AddToInventory(item.GetItemType(), 1);
-                if (item is Bow) player.PickUpItem(item);
+
+                if (item is Bow) 
+                {
+                    player.PickUpItem(item);
+                    
+                } 
 
                 if (item is Key) AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
                 else if (item is Rupee) AudioManager.GetInstance().PlayOnce(Resources.RupeePickup);
