@@ -3,7 +3,6 @@ using Sprint0.Commands.Levels;
 using Sprint0.Commands.Player;
 using Sprint0.Items;
 using Sprint0.Items.Items;
-using Sprint0.Levels;
 using Sprint0.Player;
 using System.Collections.Generic;
 
@@ -17,53 +16,50 @@ namespace Sprint0.Collision.Handlers
         public PlayerItemCollisionHandler() 
         {
             InventoryItems = new List<System.Type> { typeof(Arrow), typeof(BlueCandle), typeof(BluePotion), typeof(Bomb), typeof(Bow),
-            typeof(Clock), typeof(Compass), typeof(Map), typeof(WoodenBoomerang) };
+            typeof(Compass), typeof(Key), typeof(Map), typeof(Rupee), typeof(WoodenBoomerang) };
         }
 
         // Inventory and public health manipulation haven't yet been implemented, so for now the item pickup is only cosmetic
-        public void HandleCollision(IPlayer player, IItem item, Game1 game) 
+        public void HandleCollision(IPlayer player, IItem item, Game1 game)
         {
             if (InventoryItems.Contains(item.GetType()))
             {
-                //player.AddToInventory
-                AudioManager.GetInstance().PlayOnce(Resources.ItemPickup);
-                new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
+                player.Inventory.AddToInventory(item.GetItemType(), 1);
+                if (item is Bow) player.PickUpItem(item);
+
+                if (item is Key) AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
+                else if (item is Rupee) AudioManager.GetInstance().PlayOnce(Resources.RupeePickup);
+                else AudioManager.GetInstance().PlayOnce(Resources.ItemPickup);               
             }
-            else if (item is Heart)
+            else if (item is Clock) 
             {
-                //player.Health += 1
-                AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
-                new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
+                // freeze all enemies in the room indefinitely
+                AudioManager.GetInstance().PlayOnce(Resources.ItemPickup);
             }
             else if (item is Fairy)
             {
-                //player.Health += 3
+                player.Health += 3;
+                if (player.Health > player.MaxHealth) player.Health = player.MaxHealth;
                 AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
-                new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
             }
-            else if (item is Key)
+            else if (item is Heart)
             {
+                player.Health += 1;
+                if (player.Health > player.MaxHealth) player.Health = player.MaxHealth;
                 AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
-                new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
             }
             else if (item is HeartContainer)
             {
-                //player.MaxHealth += 1
-                //player.Health = MaxHealth
+                player.MaxHealth += 2;
+                player.Health = player.MaxHealth;
                 AudioManager.GetInstance().PlayOnce(Resources.ItemPickup);
-                new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
-            }
-            else if (item is Rupee) 
-            {
-                AudioManager.GetInstance().PlayOnce(Resources.RupeePickup);
-                new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
             }
             else if (item is TriforcePiece)
             {
-                new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
                 new PlayerPickUpItemCommand(player, item).Execute();
                 new WinGameCommand(game).Execute();
             }
+            new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
         }
     }
 }

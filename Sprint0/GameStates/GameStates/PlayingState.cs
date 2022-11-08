@@ -25,8 +25,8 @@ namespace Sprint0.GameStates.GameStates
         public override void Draw(SpriteBatch sb)
         {
             Camera.Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
-            Game.HUD.Draw(sb);
-            Camera.Reset();
+            Game.Player.HUD.Draw(sb);
+            Camera.Move(Types.Direction.UP, (int)(44 * Utils.GameScale));
             Game.LevelManager.Draw(sb);
             Game.Player.Draw(sb);
         }

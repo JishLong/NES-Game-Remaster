@@ -16,6 +16,11 @@ namespace Sprint0.Items.Items
             FramesPassed = 0;
         }
 
+        public override Types.Item GetItemType()
+        {
+            return Types.Item.FAIRY;
+        }
+
         public override void Update() 
         {
             base.Update();

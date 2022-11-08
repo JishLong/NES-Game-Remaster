@@ -31,5 +31,7 @@ namespace Sprint0.Items
         {
             Sprite.Update();
         }
+
+        public abstract Types.Item GetItemType();
     }
 }
