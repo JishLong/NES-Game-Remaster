@@ -8,7 +8,8 @@ namespace Sprint0.Player
     {
         int numGems = 0;
         int numKeys = 0;
-        int numBombs = 0;
+        //start with one bomb for testing purposes
+        int numBombs = 1;
         int numHearts;
 
         public HUD() 
@@ -37,21 +38,18 @@ namespace Sprint0.Player
                 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
 
             //gems
-            //int numGems = GetAmount(Types.Item.RUPEE);
             sb.Draw(Resources.ItemsSpriteSheet, gemsAREA, Resources.Rupee, Color.GhostWhite,
                 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
             Vector2 gemLoc = new Vector2((int)Camera.GetOffset().X + 335, (int)Camera.GetOffset().Y + 10);
             sb.DrawString(Resources.MediumFont, "X" + numGems, gemLoc, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0.18f);
 
             //keys
-            //int numKeys = GetAmount(Types.Item.KEY);
             sb.Draw(Resources.ItemsSpriteSheet, keysAREA, Resources.Key, Color.YellowGreen,
                 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
             Vector2 keyLoc = new Vector2((int)Camera.GetOffset().X + 335, (int)Camera.GetOffset().Y + 44);
             sb.DrawString(Resources.MediumFont, "X" + numKeys, keyLoc, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0.18f);
 
             //bombs
-            //int numBombs = GetAmount(Types.Item.BOMB);
             sb.Draw(Resources.ItemsSpriteSheet, bombAREA, Resources.Bomb, Color.SteelBlue,
                 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
             Vector2 bombLoc = new Vector2((int)Camera.GetOffset().X + 335, (int)Camera.GetOffset().Y + 80);
@@ -67,14 +65,12 @@ namespace Sprint0.Player
                 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
 
             //Life
-            //int numHearts = 6 + GetAmount(Types.Item.HEART);
             Vector2 lifeLOC = new Vector2((int)Camera.GetOffset().X + 555, (int)Camera.GetOffset().Y + 15);
             sb.DrawString(Resources.MediumFont, "- LIFE: -", lifeLOC, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0.18f);
 
             int heartXOffset = 556;
             int heartYOffset = 60;
             Boolean secondRow = false;
-
             //print out hearts on second row
             for (int i = 0; i < numHearts; i++)
             {
@@ -83,7 +79,8 @@ namespace Sprint0.Player
                     heartYOffset += 37;
                     heartXOffset = 556;
                     secondRow = true;
-                } else
+                }
+                else
                 {
                     Rectangle LIFEArea = new Rectangle((int)Camera.GetOffset().X + heartXOffset, (int)Camera.GetOffset().Y + heartYOffset, Utils.GameWidth / 33, (int)(8 * Utils.GameScale));
                     sb.Draw(Resources.ItemsSpriteSheet, LIFEArea, Resources.Heart, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
@@ -91,7 +88,7 @@ namespace Sprint0.Player
                 }
             }
         }
-        
+
         public void Update(IPlayer player) 
         {
             numGems = player.Inventory.GetAmount(Types.Item.RUPEE);

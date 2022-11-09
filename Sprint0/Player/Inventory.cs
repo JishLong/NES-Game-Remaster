@@ -32,6 +32,11 @@ namespace Sprint0.Player
             else return 0;
         }
 
+        public void decAmount(Types.Item item)
+        {
+            if (ItemCounts.ContainsKey(item)) ItemCounts[item]--;
+        }
+
         public bool HasItem(Types.Item item) 
         {
             return ItemCounts.ContainsKey(item);
