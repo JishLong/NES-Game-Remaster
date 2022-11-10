@@ -11,7 +11,6 @@ namespace Sprint0.Player.States.BlueArrow
     public class PlayerPickUpItemState : AbstractPlayerState
     {
         private readonly IItem Item;
-        private bool JustPickedUp;
 
         public PlayerPickUpItemState(Player player, IItem item) : base(player)
         {

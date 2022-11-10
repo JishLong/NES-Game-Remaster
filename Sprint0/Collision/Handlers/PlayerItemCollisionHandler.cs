@@ -24,12 +24,12 @@ namespace Sprint0.Collision.Handlers
         {
             if (InventoryItems.Contains(item.GetType()))
             {
-                player.Inventory.AddToInventory(item.GetItemType(), 1);
+                if (item is Bomb) player.Inventory.AddToInventory(item.GetItemType(), 4);
+                else player.Inventory.AddToInventory(item.GetItemType(), 1);
 
                 if (item is Bow) 
                 {
-                    player.PickUpItem(item);
-                    
+                    player.PickUpItem(item);                    
                 } 
 
                 if (item is Key) AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);

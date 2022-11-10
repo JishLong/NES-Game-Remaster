@@ -33,7 +33,7 @@ namespace Sprint0.GameStates.GameStates
 
             ShiftAmount = (int)(176 * Utils.GameScale);
             ShiftedAmount = 0;
-            TransitionFrames = ShiftAmount / 4;
+            TransitionFrames = ShiftAmount / 8;
             FramesPassed = 0;
         }
 
