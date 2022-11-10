@@ -7,15 +7,17 @@ namespace Sprint0.Blocks
 {
     public abstract class AbstractBlock : IBlock
     {
+        public bool IsWall { get; private set;  }
+
         protected readonly ISprite Sprite;
         protected Vector2 Position;
-        private readonly bool BlockIsWall;
 
         protected AbstractBlock (ISprite sprite, Vector2 position, bool isWall) 
         {
+            IsWall = isWall;
+
             Sprite = sprite;
-            Position = position;
-            BlockIsWall = isWall;
+            Position = position; 
         }
 
         public virtual void Draw(SpriteBatch sb)
@@ -26,11 +28,6 @@ namespace Sprint0.Blocks
         public virtual Rectangle GetHitbox()
         {
             return Sprite.GetDrawbox(Position);
-        }
-
-        public bool IsWall()
-        {
-            return BlockIsWall;
         }
 
         public virtual void Update()

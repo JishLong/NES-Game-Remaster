@@ -15,7 +15,7 @@ namespace Sprint0.Collision.Handlers
         public void HandleCollision(IPlayer player, IBlock block, Types.Direction playerSide, Game1 game)
         {
             //types of blocks player cannot walk through
-            if (block.IsWall())
+            if (block.IsWall)
             {
                 // If the block is a PushableBlock, try and push it
                 if (block is PushableBlock)

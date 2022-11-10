@@ -29,7 +29,7 @@ namespace Sprint0.GameStates.GameStates
             Direction = direction;
             ShiftAmount = (Direction == Types.Direction.DOWN || Direction == Types.Direction.UP) ? (int)(176 * Utils.GameScale) : Utils.GameWidth;
             ShiftedAmount = 0;
-            TransitionFrames = ShiftAmount / 4;
+            TransitionFrames = ShiftAmount / 6;
             CurrentRoom = Game.LevelManager.CurrentLevel.CurrentRoom;
             NextRoom = Game.LevelManager.CurrentLevel.CurrentRoom.GetAdjacentRoom(Utils.DirectionToRoomTransition(direction));
             if (NextRoom == null) Game.CurrentState = new PlayingState();

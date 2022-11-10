@@ -14,8 +14,7 @@ namespace Sprint0.Blocks.Utils
         {
             switch (blockType)
             {
-                case Types.Block.WATER:
-                    return new Water(position);
+                
                 case Types.Block.BLUE_SAND:
                     return new BlueSand(position);
                 case Types.Block.BLUE_STAIRS:
@@ -28,26 +27,28 @@ namespace Sprint0.Blocks.Utils
                     return new BlueTile(position);
                 case Types.Block.BLUE_WALL:
                     return new BlueWall(position);
+                case Types.Block.BORDER_BLOCK:
+                    return new BorderBlock(position);
+                case Types.Block.EXIT_SECRET_TRANSITION_BLOCK:
+                    return new SecretRoomTransitionBlock(position);
                 case Types.Block.GREY_BRICKS:
                     return new GreyBricks(position);
                 case Types.Block.LADDER:
                     return new Ladder(position);
-                case Types.Block.WHITE_BARS:
-                    return new WhiteBars(position);
-                case Types.Block.PUSHABLE_BLOCK:
-                    return new PushableBlock(position);
-                case Types.Block.BORDER_BLOCK:
-                    return new BorderBlock(position);
                 case Types.Block.LEFT_DOOR_WAY_BLOCK:
                     return new LeftDoorWayBlock(position);
+                case Types.Block.PUSHABLE_BLOCK:
+                    return new PushableBlock(position); 
                 case Types.Block.RIGHT_DOOR_WAY_BLOCK:
                     return new RightDoorWayBlock(position);
                 case Types.Block.ROOM_TRANSITION_BLOCK:
-                    return new RoomTransitionBlock(position);
-                case Types.Block.EXIT_SECRET_TRANSITION_BLOCK:
-                    return new SecretRoomTransitionBlock(position);
+                    return new RoomTransitionBlock(position);              
                 case Types.Block.SOFT_BORDER_BLOCK:
                     return new SoftBorderBlock(position);
+                case Types.Block.WATER:
+                    return new Water(position);
+                case Types.Block.WHITE_BARS:
+                    return new WhiteBars(position);
                 default:
                     Console.Error.Write("The block of type " + blockType.ToString() + 
                         " could not be instantiated by the Block Factory. Does this type exist?");

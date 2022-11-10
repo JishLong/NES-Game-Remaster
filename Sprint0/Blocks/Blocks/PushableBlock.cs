@@ -10,6 +10,7 @@ namespace Sprint0.Blocks.Blocks
     {
         private Types.Direction Direction;
         private bool HasBeenPushed;
+        // A frame counter that is incremented while the block is being pushed
         private int FramesPushed;
 
         // The block that is "covered" by the pushable block
@@ -22,12 +23,14 @@ namespace Sprint0.Blocks.Blocks
             FramesPushed = 0;
 
             // IMPORTANT: this block is not seen by the collision system; the rest of the game doesn't know this block even exists
+            // Assuming the block underneath is some kind of flooring, this doesn't actually matter
             BlockUnderneath = BlockFactory.GetInstance().GetBlock(Types.Block.BLUE_TILE, position);
         }
 
         public override void Draw(SpriteBatch sb)
         {
             if (HasBeenPushed) BlockUnderneath.Draw(sb);
+            // The pushable block is technically on top of another block if it has been pushed, but is guaranteed to be drawn after it
             Sprite.Draw(sb, Position, Color.White, PushableBlockLayerDepth);
         }
 
@@ -45,15 +48,17 @@ namespace Sprint0.Blocks.Blocks
         public override void Update()
         {
             base.Update();
+
             if (HasBeenPushed)
             {
                 BlockUnderneath.Update();
 
                 // We'll move the block one space in the direction [Direction]
+                // NOTE: this condition assumes that the block dimensions are square (i.e. the width and height are equal)
                 if (FramesPushed < Sprite.GetDrawbox(Position).Width)
                 {
                     FramesPushed++;
-                    Position += Sprint0.Utils.DirectionToVector(Direction);
+                    Position += DirectionToVector(Direction);
                 }
             }
         }

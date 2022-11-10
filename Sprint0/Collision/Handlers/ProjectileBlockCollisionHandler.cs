@@ -25,7 +25,7 @@ namespace Sprint0.Collision.Handlers
             /* For now, most projectiles are simply destroyed upon hitting a block;
              * Later, projectiles such as link's flame will likely behave differently (such as simply stopping at the wall)
              */
-            if ((AffectedProjectiles.Contains(projectile.GetType()) && block.IsWall() && block is not SoftBorderBlock)
+            if ((AffectedProjectiles.Contains(projectile.GetType()) && block.IsWall && block is not SoftBorderBlock)
                 || (projectile is SwordProjectile && block is BorderBlock))
             {
                 ProjectileManager.GetInstance().RemoveProjectile(projectile);
@@ -38,7 +38,7 @@ namespace Sprint0.Collision.Handlers
             }
 
             // Flames and bombs will sit at the foot of the block and remain there
-            else if ((projectile is FlameProjectile || projectile is BombProjectile) && block.IsWall() && block is not SoftBorderBlock)
+            else if ((projectile is FlameProjectile || projectile is BombProjectile) && block.IsWall && block is not SoftBorderBlock)
             {
                 projectile.Position = Utils.AlignEdges(block.GetHitbox(), projectile.GetHitbox(),
                     Utils.GetOppositeDirection(projectileSide));

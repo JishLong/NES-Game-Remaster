@@ -1,20 +1,19 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Levels.Utils;
 using Sprint0.Sprites.Blocks;
 
 namespace Sprint0.Blocks.Blocks
 {
+    /* Specifically used to trigger a transition out of the basement room back to the normal dungeon;
+     * The implementation of this can be explored in the collision handling system
+     */
     public class SecretRoomTransitionBlock: AbstractBlock
     {
-        LevelResources LevelResources;
-        public SecretRoomTransitionBlock(Vector2 position) : base(new WhiteBarsSprite(), position, true) 
-        {
-            LevelResources = LevelResources.GetInstance();
-        }
+        public SecretRoomTransitionBlock(Vector2 position) : base(new WhiteBarsSprite(), position, true) { }
+
         public override Rectangle GetHitbox()
         {
-            Rectangle drawBox = Sprite.GetDrawbox(Position);
-            return new Rectangle(drawBox.X, drawBox.Y - LevelResources.BlockHeight, drawBox.Width, drawBox.Height);
+            Rectangle DrawBox = Sprite.GetDrawbox(Position);
+            return new Rectangle(DrawBox.X, DrawBox.Y - DrawBox.Height, DrawBox.Width, DrawBox.Height);
         }
     }
 }

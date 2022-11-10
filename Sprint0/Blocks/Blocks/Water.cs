@@ -7,7 +7,7 @@ namespace Sprint0.Blocks.Blocks
     {
         public Water(Vector2 position) : base(new BlueGapSprite(), position, true) { }
 
-        /* For the blue gap block, a smaller hitbox looks better so the player is able to walk on the edge */
+        // For the water, a smaller hitbox looks better so the player is able to walk on the edge
         public override Rectangle GetHitbox()
         {
             // Get the original hitbox

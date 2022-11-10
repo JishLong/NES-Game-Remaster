@@ -5,9 +5,9 @@ namespace Sprint0.Blocks
 {
     public interface IBlock : ICollidable
     {      
-        void Draw(SpriteBatch sb);
+        bool IsWall { get; }
 
-        bool IsWall();
+        void Draw(SpriteBatch sb);
 
         void Update();
     }
