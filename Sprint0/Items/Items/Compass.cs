@@ -5,11 +5,6 @@ namespace Sprint0.Items.Items
 {
     public class Compass : AbstractItem
     {
-        public Compass(Vector2 position) : base(new CompassSprite(), position) { }
-
-        public override Types.Item GetItemType()
-        {
-            return Types.Item.COMPASS;
-        }
+        public Compass(Vector2 position) : base(new CompassSprite(), position, Types.Item.COMPASS) { }
     }
 }

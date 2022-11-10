@@ -3,14 +3,8 @@ using Sprint0.Sprites.Player;
 
 namespace Sprint0.Items.Items
 {
-    // NOTE: this item is not currently in use
     public class Rupee : AbstractItem
     {
-        public Rupee(Vector2 position) : base(new RupeeSprite(), position) { }
-
-        public override Types.Item GetItemType()
-        {
-            return Types.Item.RUPEE;
-        }
+        public Rupee(Vector2 position) : base(new RupeeSprite(), position, Types.Item.RUPEE) { }
     }
 }

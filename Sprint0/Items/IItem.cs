@@ -10,8 +10,8 @@ namespace Sprint0.Items
 
         void Draw(SpriteBatch sb);
 
-        void Update();
-
         Types.Item GetItemType();
+
+        void Update();       
     }
 }

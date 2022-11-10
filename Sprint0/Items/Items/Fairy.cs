@@ -7,34 +7,34 @@ namespace Sprint0.Items.Items
     public class Fairy : AbstractItem
     {
         private readonly static Random RNG = new();
+
         private Vector2 Velocity;
+        // The number of frames the fairy moves in its current direction for
+        private const int DirectionFrames = 20;
         private int FramesPassed;
 
-        public Fairy(Vector2 position) : base(new FairySprite(), position) 
+        public Fairy(Vector2 position) : base(new FairySprite(), position, Types.Item.FAIRY) 
         {
-            Velocity = GetVelocity();
+            Velocity = PickVelocity();
             FramesPassed = 0;
-        }
-
-        public override Types.Item GetItemType()
-        {
-            return Types.Item.FAIRY;
         }
 
         public override void Update() 
         {
             base.Update();
 
-            FramesPassed = (FramesPassed + 1) % 20;
-            if (FramesPassed == 0) Velocity = GetVelocity();
+            FramesPassed = (FramesPassed + 1) % DirectionFrames;
+            if (FramesPassed == 0) Velocity = PickVelocity();
             Position += Velocity;
         }
 
-        private static Vector2 GetVelocity() 
+        private static Vector2 PickVelocity() 
         {
+            // We'll give the fairy a random directional vector ranging from (-1, -1) to (1, 1)
             float x = RNG.NextSingle() * 2 - 1;
-            float y = (float)Math.Sqrt(1 - Math.Pow(x, 2));
-            if (RNG.NextSingle() < 0.5) y = -y;
+            float y = RNG.NextSingle() * 2 - 1;
+
+            // We'll also double the speed so it isn't snail-slow
             return new Vector2(x*2, y*2);
         }
     }

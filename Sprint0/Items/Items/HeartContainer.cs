@@ -5,11 +5,6 @@ namespace Sprint0.Items.Items
 {
     public class HeartContainer : AbstractItem
     {
-        public HeartContainer(Vector2 position) : base(new HeartContainerSprite(), position) { }
-
-        public override Types.Item GetItemType()
-        {
-            return Types.Item.HEART_CONTAINER;
-        }
+        public HeartContainer(Vector2 position) : base(new HeartContainerSprite(), position, Types.Item.HEART_CONTAINER) { }
     }
 }

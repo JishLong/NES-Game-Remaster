@@ -3,14 +3,8 @@ using Sprint0.Sprites.Player;
 
 namespace Sprint0.Items.Items
 {
-    // NOTE: this item is not currently in use
     public class Arrow : AbstractItem
     {
-        public Arrow(Vector2 position) : base(new ArrowSprite(), position) { }
-
-        public override Types.Item GetItemType() 
-        {
-            return Types.Item.ARROW;
-        }
+        public Arrow(Vector2 position) : base(new ArrowSprite(), position, Types.Item.ARROW) { }
     }
 }

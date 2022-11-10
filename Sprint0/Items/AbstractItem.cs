@@ -7,14 +7,17 @@ namespace Sprint0.Items
 {
     public abstract class AbstractItem : IItem
     {
-        private readonly ISprite Sprite;
-
         public Vector2 Position { get; set; }
 
-        protected AbstractItem(ISprite sprite, Vector2 position)
+        private readonly ISprite Sprite;
+        private readonly Types.Item ItemType;
+
+        protected AbstractItem(ISprite sprite, Vector2 position, Types.Item itemType)
         {
-            Sprite = sprite;
             Position = position;
+
+            Sprite = sprite;
+            ItemType = itemType;
         }
 
         public void Draw(SpriteBatch sb)
@@ -32,6 +35,9 @@ namespace Sprint0.Items
             Sprite.Update();
         }
 
-        public abstract Types.Item GetItemType();
+        public Types.Item GetItemType() 
+        {
+            return ItemType;
+        }
     }
 }

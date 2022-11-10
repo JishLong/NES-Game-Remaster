@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Sprint0.Sprites.Player
+namespace Sprint0.Sprites.Items
 {
     public class WoodenSwordSprite : AbstractStillSprite
     {

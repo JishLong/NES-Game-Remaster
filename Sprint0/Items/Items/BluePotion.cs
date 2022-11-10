@@ -3,14 +3,8 @@ using Sprint0.Sprites.Player;
 
 namespace Sprint0.Items.Items
 {
-    // NOTE: this item is not currently in use
     public class BluePotion : AbstractItem
     {
-        public BluePotion(Vector2 position) : base(new BluePotionSprite(), position) { }
-
-        public override Types.Item GetItemType()
-        {
-            return Types.Item.BLUE_POTION;
-        }
+        public BluePotion(Vector2 position) : base(new BluePotionSprite(), position, Types.Item.BLUE_POTION) { }
     }
 }
