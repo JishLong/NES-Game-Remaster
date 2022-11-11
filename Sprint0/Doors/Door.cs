@@ -42,8 +42,7 @@ namespace Sprint0.Doors
         }
 
         public void Unlock()
-        {
-            TEST = false;
+        { 
             State.Unlock();
         }
 
@@ -61,11 +60,7 @@ namespace Sprint0.Doors
         }
         public void Draw(SpriteBatch sb)
         {
-            if (TEST)
-            {
-                State.Draw(sb);
-
-            }
+            State.Draw(sb);
         }
     }
 }

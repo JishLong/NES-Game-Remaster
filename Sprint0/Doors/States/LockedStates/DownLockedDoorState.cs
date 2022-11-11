@@ -7,11 +7,11 @@ using Sprint0.Sprites.Doors;
 using System.Collections.Generic;
 using static Sprint0.Utils;
 
-namespace Sprint0.Doors.States
+namespace Sprint0.Doors.States.LockedStates
 {
-    public class DownWallDoorState: AbstractImpassableDoorState 
+    public class DownLockedDoorState : AbstractTraversableDoorState
     {
-        public DownWallDoorState(Door door)
+        public DownLockedDoorState(Door door)
         {
             // Set context
             Door = door;
@@ -22,7 +22,7 @@ namespace Sprint0.Doors.States
             Position = new Vector2(Width * 7, Height * 9);
 
             // Create sprite
-            DoorSprite = new DownWallDoorSprite();
+            //DoorSprite = new DownWallDoorSprite();
 
             // Blocks
             Blocks = new List<IBlock>();
@@ -38,7 +38,7 @@ namespace Sprint0.Doors.States
         {
             // Door.State = new DownHiddenDoorState();
         }
-            
+
         private void CreateBlocks(float height, float width)
         {
             Blocks.Add(BlockFactory.GetBlock(Types.Block.BORDER_BLOCK, Position + new Vector2(0, 0))); // Left
@@ -46,7 +46,7 @@ namespace Sprint0.Doors.States
         }
         public override void Update(GameTime gameTime)
         {
-            DoorSprite.Update();
+            //DoorSprite.Update();
         }
     }
 }

@@ -3,13 +3,13 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
 using Sprint0.Levels.Utils;
 using Sprint0.Sprites;
-using Sprint0.Sprites.Doors;
+using Sprint0.Sprites.Doors.UnlockdDoorSprites;
 using System.Collections.Generic;
 using static Sprint0.Utils;
 
-namespace Sprint0.Doors.States
+namespace Sprint0.Doors.States.UnlockedStates
 {
-    public class RightUnlockedDoorState: AbstractTraversableDoorState
+    public class RightUnlockedDoorState : AbstractTraversableDoorState
     {
         public RightUnlockedDoorState(Door door)
         {
@@ -21,7 +21,7 @@ namespace Sprint0.Doors.States
 
             // Used mostly for drawing
             Position = LevelResources.RightDoorPosition;
-            DoorWayOffset = new Vector2(-Width,0);
+            DoorWayOffset = new Vector2(-Width, 0);
 
             // Create sprites
             DoorWaySprite = new RightUnlockedDoorWaySprite();

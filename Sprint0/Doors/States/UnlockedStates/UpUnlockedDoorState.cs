@@ -4,13 +4,13 @@ using Sprint0.Blocks;
 using Sprint0.Blocks.Utils;
 using Sprint0.Levels.Utils;
 using Sprint0.Sprites;
-using Sprint0.Sprites.Doors;
+using Sprint0.Sprites.Doors.UnlockdDoorSprites;
 using System.Collections.Generic;
 using static Sprint0.Utils;
 
-namespace Sprint0.Doors.States
+namespace Sprint0.Doors.States.UnlockedStates
 {
-    public class UpUnlockedDoorState: AbstractTraversableDoorState
+    public class UpUnlockedDoorState : AbstractTraversableDoorState
     {
         public UpUnlockedDoorState(Door door)
         {
@@ -21,7 +21,7 @@ namespace Sprint0.Doors.States
 
             // Used mostly for drawing
             Position = LevelResources.UpDoorPosition;
-            DoorWayOffset = new Vector2(0,Height);
+            DoorWayOffset = new Vector2(0, Height);
 
             // Create sprites
             DoorWaySprite = new UpUnlockedDoorWaySprite();
@@ -42,10 +42,10 @@ namespace Sprint0.Doors.States
             Blocks.Add(BlockFactory.GetBlock(Types.Block.RIGHT_DOOR_WAY_BLOCK, Position + new Vector2(width, 0))); // Top right
             Blocks.Add(BlockFactory.GetBlock(Types.Block.RIGHT_DOOR_WAY_BLOCK, Position + new Vector2(width, height))); // Bottom right
         }
-      
+
         private void CreateTriggers(float height, float width)
         {
-            Blocks.Add(BlockFactory.GetBlock(Types.Block.ROOM_TRANSITION_BLOCK, Position + new Vector2(width/2, 0)));
+            Blocks.Add(BlockFactory.GetBlock(Types.Block.ROOM_TRANSITION_BLOCK, Position + new Vector2(width / 2, 0)));
         }
         public override void Lock()
         {
@@ -61,7 +61,7 @@ namespace Sprint0.Doors.States
             DoorWaySprite.Update();
             DoorWallSprite.Update();
 
-            foreach(IBlock block in Blocks)
+            foreach (IBlock block in Blocks)
             {
                 block.Update();
             }

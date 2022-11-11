@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Sprint0.Sprites.Doors
+namespace Sprint0.Sprites.Doors.UnlockdDoorSprites
 {
-    public class RightUnlockedDoorWaySprite: AbstractStillSprite
+    public class RightUnlockedDoorWaySprite : AbstractStillSprite
     {
         protected override Texture2D GetSpriteSheet() => Resources.Level1SpriteSheet;
 

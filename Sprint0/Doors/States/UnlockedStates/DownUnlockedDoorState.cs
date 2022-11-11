@@ -3,20 +3,16 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
 using Sprint0.Levels.Utils;
 using Sprint0.Sprites;
-using Sprint0.Sprites.Doors;
+using Sprint0.Sprites.Doors.UnlockdDoorSprites;
 using System.Collections.Generic;
 using static Sprint0.Utils;
 
-namespace Sprint0.Doors.States
+namespace Sprint0.Doors.States.UnlockedStates
 {
-    public class DownUnlockedDoorState: AbstractTraversableDoorState
+    public class DownUnlockedDoorState : AbstractTraversableDoorState
     {
-        public string Name { get; }
         public DownUnlockedDoorState(Door door)
         {
-            // Set name
-            Name = "down_door";
-
             // Set context
             Door = door;
             LevelResources = LevelResources.GetInstance();
@@ -25,7 +21,7 @@ namespace Sprint0.Doors.States
 
             // Used mostly for drawing
             Position = LevelResources.DownDoorPosition;
-            DoorWayOffset = new Vector2(0,-Height);
+            DoorWayOffset = new Vector2(0, -Height);
 
             // Create sprites
             DoorWaySprite = new DownUnlockedDoorWaySprite();
@@ -36,7 +32,7 @@ namespace Sprint0.Doors.States
             CreateBlocks(Height, Width);
 
             // Triggers
-            CreateTriggers(Height, Width); 
+            CreateTriggers(Height, Width);
         }
         private void CreateBlocks(float height, float width)
         {
@@ -55,7 +51,7 @@ namespace Sprint0.Doors.States
         }
         private void CreateTriggers(float height, float width)
         {
-            Blocks.Add(BlockFactory.GetBlock(Types.Block.ROOM_TRANSITION_BLOCK, Position + new Vector2(width/2, 0)));
+            Blocks.Add(BlockFactory.GetBlock(Types.Block.ROOM_TRANSITION_BLOCK, Position + new Vector2(width / 2, 0)));
         }
         public override void Update(GameTime gameTime)
         {

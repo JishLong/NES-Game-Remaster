@@ -94,6 +94,10 @@ namespace Sprint0.Levels.Utils
                 {"right_wall", Types.Door.RIGHT_WALL },
                 {"down_wall", Types.Door.DOWN_WALL },
                 {"left_wall", Types.Door.LEFT_WALL },
+                {"up_event_locked", Types.Door.UP_EVENT_LOCKED },
+                {"right_event_locked", Types.Door.RIGHT_EVENT_LOCKED },
+                {"down_event_locked", Types.Door.DOWN_EVENT_LOCKED },
+                {"left_event_locked", Types.Door.LEFT_EVENT_LOCKED },
             };
 
             EventMap = new Dictionary<string, Types.Event>()
