@@ -12,8 +12,12 @@ namespace Sprint0.Doors.States
     public class DownUnlockedDoorState: AbstractTraversableDoorState
     {
         IDoor Door;
+        public string Name { get; }
         public DownUnlockedDoorState(IDoor door)
         {
+            // Set name
+            Name = "down_door";
+
             // Set context
             Door = door;
             LevelResources = LevelResources.GetInstance();

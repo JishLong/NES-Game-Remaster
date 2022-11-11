@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
 using Sprint0.Doors.States;
 using Sprint0.Doors.Utils;
+using Sprint0.Entities;
 using Sprint0.Levels;
 using System;
 using System.Collections.Generic;
@@ -15,14 +16,35 @@ namespace Sprint0.Doors
     public class Door : IDoor
     {
         public Room Room;
+        public string Name;
+        public bool TEST = true;
         public IDoorState State { get; set; }
-        public Door(Room room, Types.Door doorType)
+        public Door(Room room, Types.Door doorType, string name)
         {
             // Set initial state on construction.
             State = DoorStateFactory.GetInstance().GetDoor(doorType, this);
 
+            // Set name of door
+            Name = name;
+
             // Set Room to the room that this door belongs to.
             Room = room;
+        }
+
+        public string GetName()
+        {
+            return Name;
+        }
+
+        public void SetName(string value)
+        {
+            Name = value;
+        }
+
+        public void Unlock()
+        {
+            TEST = false;
+            State.Unlock();
         }
 
         public List<IBlock> GetBlocks()
@@ -39,7 +61,11 @@ namespace Sprint0.Doors
         }
         public void Draw(SpriteBatch sb)
         {
-            State.Draw(sb);
+            if (TEST)
+            {
+                State.Draw(sb);
+
+            }
         }
     }
 }

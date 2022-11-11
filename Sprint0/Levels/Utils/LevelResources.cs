@@ -10,6 +10,7 @@ namespace Sprint0.Levels.Utils
         private static LevelResources Instance;
         public Dictionary<string, Types.Block> BlockMap;
         public Dictionary<string, Types.Character> CharacterMap;
+        public Dictionary<string, Types.Event> EventMap;
         public Dictionary<string, Types.Item> ItemMap;
         public Dictionary<string, Types.Door> DoorMap;
         public Dictionary<string, Types.Border> BorderMap;
@@ -38,7 +39,7 @@ namespace Sprint0.Levels.Utils
                 {"bsand", Types.Block.BLUE_SAND },
                 {"water", Types.Block.WATER },
                 {"bstairs", Types.Block.BLUE_STAIRS },
-                {"pb", Types.Block.PUSHABLE_BLOCK },
+                {"pushblock", Types.Block.PUSHABLE_BLOCK },
                 {"bb", Types.Block.BORDER_BLOCK },
                 {"ldwb", Types.Block.LEFT_DOOR_WAY_BLOCK },
                 {"rdwb", Types.Block.RIGHT_DOOR_WAY_BLOCK},
@@ -93,6 +94,11 @@ namespace Sprint0.Levels.Utils
                 {"right_wall", Types.Door.RIGHT_WALL },
                 {"down_wall", Types.Door.DOWN_WALL },
                 {"left_wall", Types.Door.LEFT_WALL },
+            };
+
+            EventMap = new Dictionary<string, Types.Event>()
+            {
+                {"pushblock_unlocks_door", Types.Event.PUSHBLOCK_UNLOCKS_DOOR }
             };
 
             BorderMap = new Dictionary<string, Types.Border>()

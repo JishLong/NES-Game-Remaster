@@ -5,6 +5,10 @@ using System;
 using System.IO;
 using Sprint0.Levels.Utils;
 using Sprint0.Doors;
+using Sprint0.Blocks.Utils;
+using Sprint0.Blocks;
+using Sprint0.Entities;
+using Sprint0.Levels.Events;
 
 namespace Sprint0.Levels
 {
@@ -61,6 +65,8 @@ namespace Sprint0.Levels
             LoadItems(room, RootPath + levelDirName + "/" + roomDirName + "/Items.csv");
             LoadDoors(room, RootPath + levelDirName + "/" + roomDirName + "/Doors.csv");
             LoadBorder(room, RootPath + levelDirName + "/" + roomDirName + "/Border.csv");
+            LoadEntities(room, RootPath + levelDirName + "/" + roomDirName + "/Entities.csv");
+            LoadEvents(room, RootPath + levelDirName + "/" + roomDirName + "/Events.csv");
             return room;
         }
         public void LoadBlocks(Room room, string roomName)
@@ -147,8 +153,9 @@ namespace Sprint0.Levels
                     if (LevelResources.DoorMap.ContainsKey(field))
                     {
                         Types.Door doorType = LevelResources.DoorMap[field];
-                        IDoor door = new Door(room, doorType);
+                        IDoor door = new Door(room, doorType, field);
                         room.AddDoorToRoom(door);
+                        room.AddEntityToRoom(door); // Doors are also inherently entities.
                     }
                 }
             }
@@ -168,6 +175,69 @@ namespace Sprint0.Levels
                         room.SetBorder(borderType);
                     }
                 }
+            }
+        }
+
+        public void LoadEntities(Room room, string roomName)
+        {
+            // Just for debugging, eventually all rooms will have an entities.csv even if its empty.
+            if(roomName != "../../../Levels/Level1/Room9/Entities.csv") { return ; }
+
+            Parser = new TextFieldParser(roomName);
+            Parser.SetDelimiters(",");
+            Parser.ReadLine(); // Consume the first line.
+            while (!Parser.EndOfData)
+            {
+                string[] fields = Parser.ReadFields();
+                string category = fields[0];
+                string type = fields[1];
+                string name = fields[2];
+                int xPosition = int.Parse(fields[3]) * LevelResources.BlockWidth;
+                int yPosition = int.Parse(fields[4]) * LevelResources.BlockHeight;
+                Vector2 position = new Vector2(xPosition, yPosition);
+
+                switch (category)
+                {
+                    case "block":
+                        Types.Block blockType = LevelResources.BlockMap[type];
+                        IBlock block = BlockFactory.GetInstance().GetBlock(blockType, position);
+                        block.SetName(name);
+                        room.AddBlockToRoom(block);
+                        room.AddEntityToRoom(block); // Blocks are also inherently entities.
+                        break;
+                } 
+            }
+        }
+        public void LoadEvents(Room room, string roomName)
+        {
+            // Just for debugging, eventually all rooms will have an entities.csv even if its empty.
+            if(roomName != "../../../Levels/Level1/Room9/Events.csv") { return ; }
+
+            Parser = new TextFieldParser(roomName);
+            Parser.SetDelimiters(",");
+            Parser.ReadLine();  // Consume the first line.
+            while (!Parser.EndOfData)
+            {
+                
+                string[] fields = Parser.ReadFields();
+                Types.Event type = LevelResources.EventMap[fields[0]];
+                string catylistEntityName = fields[1];
+                string receivingEntityName = fields[2];
+
+                switch (type)
+                {
+                    case Types.Event.PUSHBLOCK_UNLOCKS_DOOR:
+                        // Get a reference to the catylist entity from entity name.
+                        IEntity pushblock = room.Entities.Find(entity => entity.GetName() == catylistEntityName);
+                        
+                        // Get a reference to the receiver entity from entity name.
+                        IEntity door = room.Entities.Find(entity => entity.GetName() == receivingEntityName);
+
+                        // Now construct the event.
+                        IEvent roomevent = EventFactory.GetInstance().GetEvent(type, pushblock, door);
+                        room.AddEventToRoom(roomevent);
+                        break;
+                } 
             }
         }
     }

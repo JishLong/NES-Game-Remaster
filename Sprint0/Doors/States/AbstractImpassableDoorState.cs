@@ -44,5 +44,15 @@ namespace Sprint0.Doors.States
         {
             DoorSprite.Draw(sb, Position, Color.White, DoorWayLayerDepth);
         }
+
+        public void Lock()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Unlock()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

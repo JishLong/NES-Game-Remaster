@@ -12,8 +12,12 @@ namespace Sprint0.Doors.States
     public class DownWallDoorState: AbstractImpassableDoorState 
     {
         IDoor Door;
+        string Name;
         public DownWallDoorState(IDoor door)
         {
+            // Set name
+            Name = "down_door";
+
             // Set context
             Door = door;
             float Height = LevelResources.BlockHeight;

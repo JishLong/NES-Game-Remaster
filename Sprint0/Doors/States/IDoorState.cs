@@ -9,6 +9,8 @@ namespace Sprint0.Doors.States
     {
         List<IBlock> GetBlocks();
         Types.RoomTransition GetTransitionDirection();
+        void Lock();
+        void Unlock();
         void Update(GameTime gameTime);
         void Draw(SpriteBatch sb);
     }
