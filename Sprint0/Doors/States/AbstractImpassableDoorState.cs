@@ -18,6 +18,8 @@ namespace Sprint0.Doors.States
 
         protected Vector2 Position;
 
+        protected Door Door;
+
         // Each room may have several blocks.
         protected List<IBlock> Blocks;
 
@@ -29,7 +31,8 @@ namespace Sprint0.Doors.States
         protected BlockFactory BlockFactory = BlockFactory.GetInstance();
 
         public abstract void Update(GameTime gameTime);
-
+        public abstract void Lock();
+        public abstract void Unlock();
         public List<IBlock> GetBlocks()
         {
             return Blocks;
@@ -45,14 +48,5 @@ namespace Sprint0.Doors.States
             DoorSprite.Draw(sb, Position, Color.White, DoorWayLayerDepth);
         }
 
-        public void Lock()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Unlock()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

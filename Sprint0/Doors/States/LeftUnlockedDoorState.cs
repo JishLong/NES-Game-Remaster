@@ -11,9 +11,8 @@ namespace Sprint0.Doors.States
 {
     public class LeftUnlockedDoorState : AbstractTraversableDoorState
     {
-        IDoor Door;
         LevelResources LevelResources;
-        public LeftUnlockedDoorState(IDoor door)
+        public LeftUnlockedDoorState(Door door)
         {
             // Set context
             Door = door;
@@ -32,6 +31,15 @@ namespace Sprint0.Doors.States
             // Create triggers
             Blocks = new List<IBlock>();
             CreateTriggers(Height, Width);
+        }
+        public override void Lock()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void Unlock()
+        {
+            // Does nothing.
         }
 
         private void CreateTriggers(float height, float width)

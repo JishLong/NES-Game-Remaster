@@ -9,7 +9,7 @@ namespace Sprint0.Doors.Utils
     {
         private static DoorStateFactory Instance;
         private DoorStateFactory() { }
-        public IDoorState GetDoor(Types.Door doorType, IDoor door)
+        public IDoorState GetDoor(Types.Door doorType, Door door)
         {
             switch (doorType)
             {
@@ -35,7 +35,6 @@ namespace Sprint0.Doors.Utils
                     return null;
             }
         }
-
         public static DoorStateFactory GetInstance()
         {
             if(Instance == null) { 

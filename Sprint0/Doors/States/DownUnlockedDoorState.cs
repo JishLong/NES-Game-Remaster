@@ -11,9 +11,8 @@ namespace Sprint0.Doors.States
 {
     public class DownUnlockedDoorState: AbstractTraversableDoorState
     {
-        IDoor Door;
         public string Name { get; }
-        public DownUnlockedDoorState(IDoor door)
+        public DownUnlockedDoorState(Door door)
         {
             // Set name
             Name = "down_door";
@@ -45,6 +44,14 @@ namespace Sprint0.Doors.States
             Blocks.Add(BlockFactory.GetBlock(Types.Block.LEFT_DOOR_WAY_BLOCK, Position)); // Bottom left
             Blocks.Add(BlockFactory.GetBlock(Types.Block.RIGHT_DOOR_WAY_BLOCK, Position + new Vector2(width, -height))); // Top right
             Blocks.Add(BlockFactory.GetBlock(Types.Block.RIGHT_DOOR_WAY_BLOCK, Position + new Vector2(width, 0))); // Bottom right
+        }
+        public override void Lock()
+        {
+            // Door.State = new DownLockedDoorState();
+        }
+        public override void Unlock()
+        {
+            // Does nothing.
         }
         private void CreateTriggers(float height, float width)
         {

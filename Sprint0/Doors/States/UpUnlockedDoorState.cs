@@ -12,15 +12,10 @@ namespace Sprint0.Doors.States
 {
     public class UpUnlockedDoorState: AbstractTraversableDoorState
     {
-        IDoor Door;
-        LevelResources LevelResources;
-        BlockFactory BlockFactory;
-        public UpUnlockedDoorState(IDoor door)
+        public UpUnlockedDoorState(Door door)
         {
             // Set context
             Door = door;
-            LevelResources = LevelResources.GetInstance();
-            BlockFactory = BlockFactory.GetInstance();
             float Height = LevelResources.BlockHeight;
             float Width = LevelResources.BlockWidth;
 
@@ -51,6 +46,15 @@ namespace Sprint0.Doors.States
         private void CreateTriggers(float height, float width)
         {
             Blocks.Add(BlockFactory.GetBlock(Types.Block.ROOM_TRANSITION_BLOCK, Position + new Vector2(width/2, 0)));
+        }
+        public override void Lock()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void Unlock()
+        {
+            // Does nothing.
         }
         public override void Update(GameTime gameTime)
         {

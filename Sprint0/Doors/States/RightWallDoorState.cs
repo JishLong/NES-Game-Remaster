@@ -11,8 +11,7 @@ namespace Sprint0.Doors.States
 {
     public class RightWallDoorState: AbstractImpassableDoorState 
     {
-        IDoor Door;
-        public RightWallDoorState(IDoor door)
+        public RightWallDoorState(Door door)
         {
             // Set context
             Door = door;
@@ -33,6 +32,15 @@ namespace Sprint0.Doors.States
         {
             Blocks.Add(BlockFactory.GetBlock(Types.Block.BORDER_BLOCK, Position)); // Top
             Blocks.Add(BlockFactory.GetBlock(Types.Block.BORDER_BLOCK, Position + new Vector2(0, height))); // Right
+        }
+        public override void Lock()
+        {
+            // Does nothing.
+        }
+
+        public override void Unlock()
+        {
+            throw new System.NotImplementedException();
         }
         public override void Update(GameTime gameTime)
         {

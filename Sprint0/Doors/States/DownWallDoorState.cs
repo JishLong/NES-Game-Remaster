@@ -11,13 +11,8 @@ namespace Sprint0.Doors.States
 {
     public class DownWallDoorState: AbstractImpassableDoorState 
     {
-        IDoor Door;
-        string Name;
-        public DownWallDoorState(IDoor door)
+        public DownWallDoorState(Door door)
         {
-            // Set name
-            Name = "down_door";
-
             // Set context
             Door = door;
             float Height = LevelResources.BlockHeight;
@@ -33,6 +28,17 @@ namespace Sprint0.Doors.States
             Blocks = new List<IBlock>();
             CreateBlocks(Height, Width);
         }
+
+        public override void Lock()
+        {
+            // Does nothing.
+        }
+
+        public override void Unlock()
+        {
+            // Door.State = new DownHiddenDoorState();
+        }
+            
         private void CreateBlocks(float height, float width)
         {
             Blocks.Add(BlockFactory.GetBlock(Types.Block.BORDER_BLOCK, Position + new Vector2(0, 0))); // Left

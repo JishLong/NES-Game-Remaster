@@ -11,8 +11,7 @@ namespace Sprint0.Doors.States
 {
     public class RightUnlockedDoorState: AbstractTraversableDoorState
     {
-        IDoor Door;
-        public RightUnlockedDoorState(IDoor door)
+        public RightUnlockedDoorState(Door door)
         {
             // Set context
             Door = door;
@@ -35,6 +34,14 @@ namespace Sprint0.Doors.States
         private void CreateTriggers(float height, float width)
         {
             Blocks.Add(BlockFactory.GetBlock(Types.Block.ROOM_TRANSITION_BLOCK, Position + new Vector2(0, height / 2)));
+        }
+        public override void Lock()
+        {
+            throw new System.NotImplementedException();
+        }
+        public override void Unlock()
+        {
+            // Do nothing.
         }
         public override void Update(GameTime gameTime)
         {
