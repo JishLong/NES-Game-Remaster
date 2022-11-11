@@ -41,7 +41,7 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
         public override void Update(GameTime gameTime)
         {
             UnseenBoomerang.Update();
-            if (UnseenBoomerang.IsTimeUp())
+            if (UnseenBoomerang.TimeIsUp())
             {
                 Move(); // Resume moving.
             }

@@ -12,5 +12,10 @@ namespace Sprint0.Projectiles.Player_Projectiles
             MaxFramesAlive = Sprite.GetAnimationTime() - 1;
             Position = Utils.CenterRectangles(user.GetHitbox(), GetHitbox().Width, GetHitbox().Height);
         }
+
+        public override void DeathAction()
+        {
+            // Nothing here!
+        }
     }
 }

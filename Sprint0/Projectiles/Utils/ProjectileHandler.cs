@@ -10,13 +10,10 @@ namespace Sprint0.Projectiles.Tools
     public class ProjectileHandler : IController
     {
         private readonly List<IProjectile> Projectiles;
-        // This second list is used so that concurrent modification isn't an issue
-        private readonly List<IProjectile> ToBeRemoved;
 
         public ProjectileHandler()
         {
             Projectiles = new List<IProjectile>();
-            ToBeRemoved = new List<IProjectile>();
         }
 
         public void AddProjectile(IProjectile projectile)
@@ -36,20 +33,12 @@ namespace Sprint0.Projectiles.Tools
         }
 
         public void Update()
-        {      
-            foreach (var projectile in Projectiles)
+        {
+            for (int i = Projectiles.Count - 1; i >= 0; i--) 
             {
-                projectile.Update();
-                if (projectile.IsTimeUp())
-                {
-                    ToBeRemoved.Add(projectile);
-                }
+                Projectiles[i].Update();
+                if (Projectiles[i].TimeIsUp()) Projectiles.RemoveAt(i);
             }
-            foreach (var projectile in ToBeRemoved)
-            {
-                RemoveProjectile(projectile);
-            }
-            ToBeRemoved.Clear();
         }
 
         public void Draw(SpriteBatch sb)

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Collision;
-using Sprint0.Sprites;
 using Sprint0.Sprites.Projectiles.Player;
 
 namespace Sprint0.Projectiles.Player_Projectiles
@@ -20,6 +19,11 @@ namespace Sprint0.Projectiles.Player_Projectiles
         public override bool IsFromPlayer()
         {
             return true;
+        }
+
+        public override void DeathAction()
+        {
+            // Nothing here!
         }
     }
 }
