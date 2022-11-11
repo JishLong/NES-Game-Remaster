@@ -26,9 +26,9 @@ namespace Sprint0.Doors.States.EventLockedStates
             // Create sprites
             DoorSprite = new LeftEventLockedDoorSprite();
 
-            // Create triggers
+            // Create blocks
             Blocks = new List<IBlock>();
-            CreateTriggers(Height, Width);
+            CreateBlocks(Height, Width);
         }
         public override void Lock()
         {
@@ -40,9 +40,10 @@ namespace Sprint0.Doors.States.EventLockedStates
             Door.State = new LeftUnlockedDoorState(Door);
         }
 
-        private void CreateTriggers(float height, float width)
+        private void CreateBlocks(float height, float width)
         {
-            Blocks.Add(BlockFactory.GetBlock(Types.Block.ROOM_TRANSITION_BLOCK, Position + new Vector2(0, height / 2)));
+            Blocks.Add(BlockFactory.GetBlock(Types.Block.BORDER_BLOCK, Position + new Vector2(width, 0))); // Top
+            Blocks.Add(BlockFactory.GetBlock(Types.Block.BORDER_BLOCK, Position + new Vector2(width, height))); // Right
         }
         public override void Update(GameTime gameTime)
         {
