@@ -23,7 +23,7 @@ namespace Sprint0
             Graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            Window.ClientSizeChanged += OnResize;
+            Window.ClientSizeChanged += OnResize;            
         }
 
         protected override void Initialize()

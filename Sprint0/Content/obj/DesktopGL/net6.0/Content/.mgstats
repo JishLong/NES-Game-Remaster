@@ -1,1 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/Images/Mouse Cursor/cursor1.png","C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Images/Mouse Cursor/cursor1.xnb","TextureProcessor","Texture2DContent",1533,4181,0.1343198
+"C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/Images/Mouse Cursor/cursor2.png","C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Images/Mouse Cursor/cursor2.xnb","TextureProcessor","Texture2DContent",1963,4181,0.0013474
+"C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/Images/Mouse Cursor/cursor3.png","C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Images/Mouse Cursor/cursor3.xnb","TextureProcessor","Texture2DContent",2063,4181,0.0027734
+"C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/Images/Mouse Cursor/cursor4.png","C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Images/Mouse Cursor/cursor4.xnb","TextureProcessor","Texture2DContent",1927,4181,0.0022742

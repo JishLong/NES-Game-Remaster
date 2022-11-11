@@ -38,6 +38,8 @@ namespace Sprint0
         public static SoundEffect Text { get; private set; }
         public static SoundEffect Win { get; private set; }
 
+        // Mouse Cursor
+        public static Texture2D[] MouseCursor { get; private set; }
 
         // Sprite sheets
         public static Texture2D BlocksSpriteSheet { get; private set; }
@@ -175,6 +177,15 @@ namespace Sprint0
             SwordProj = c.Load<SoundEffect>("Audio/swordProj");
             Text = c.Load<SoundEffect>("Audio/text");
             Win = c.Load<SoundEffect>("Audio/win");
+
+            // Load mouse cursor images
+            MouseCursor = new Texture2D[4]
+            {
+                c.Load<Texture2D>("Images/Mouse Cursor/cursor1"),
+                c.Load<Texture2D>("Images/Mouse Cursor/cursor2"),
+                c.Load<Texture2D>("Images/Mouse Cursor/cursor3"),
+                c.Load<Texture2D>("Images/Mouse Cursor/cursor4")
+            };
 
             // Load sprite sheets
             BlocksSpriteSheet = c.Load<Texture2D>("Images/blocks");
