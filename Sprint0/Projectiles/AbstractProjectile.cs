@@ -28,7 +28,7 @@ namespace Sprint0.Projectiles
             Velocity = DirectionToVector(direction) * movementSpeed;
 
             Rectangle TempHitbox = sprite.GetDrawbox(Vector2.Zero);
-            Position = LineUpEdges(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height, direction);
+            Position = AlignEdges(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height, direction);
             Damage = 0;
 
             MaxFramesAlive = 0;

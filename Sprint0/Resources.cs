@@ -17,7 +17,6 @@ namespace Sprint0
         public static SoundEffect ArrowBoomerangShoot { get; private set; }
         public static SoundEffect BombExplode { get; private set; }
         public static SoundEffect BossNoise { get; private set; }
-        public static SoundEffect Dababy { get; private set; }
         public static SoundEffect DungeonMusic { get; private set; }
         public static SoundEffect EnemyDeath { get; private set; }
         public static SoundEffect EnemyTakeDamage { get; private set; }
@@ -156,7 +155,6 @@ namespace Sprint0
             ArrowBoomerangShoot = c.Load<SoundEffect>("Audio/arrowBoomerang");
             BombExplode = c.Load<SoundEffect>("Audio/bomb");
             BossNoise = c.Load<SoundEffect>("Audio/bossNoise");
-            Dababy = c.Load<SoundEffect>("Audio/dababy");
             DungeonMusic = c.Load<SoundEffect>("Audio/dungeonMusic");
             EnemyDeath = c.Load<SoundEffect>("Audio/enemyDeath");
             EnemyTakeDamage = c.Load<SoundEffect>("Audio/enemyTakeDamage");
@@ -188,5 +186,7 @@ namespace Sprint0
             PausePanel = c.Load<Texture2D>("Images/pausePanel");
             ScreenCover = c.Load<Texture2D>("Images/screenCover");
         }
+
+        // Why you looking down here? Tryna see how many lines of code this class is? Go back to the top >:(
     }
 }

@@ -25,7 +25,7 @@ namespace Sprint0.Player.States.BlueArrow
         {
             base.Draw(sb, position);
 
-            Item.Position = Utils.LineUpEdges(GetHitbox(), Item.GetHitbox().Width, Item.GetHitbox().Height, Types.Direction.UP);
+            Item.Position = Utils.AlignEdges(GetHitbox(), Item.GetHitbox().Width, Item.GetHitbox().Height, Types.Direction.UP);
             Item.Draw(sb);
         }
 
