@@ -29,7 +29,7 @@ namespace Sprint0.Collision.Handlers
 
                 if (item is Bow) 
                 {
-                    player.PickUpItem(item);                    
+                    player.HoldItem(item);                    
                 } 
 
                 if (item is Key) AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
@@ -43,20 +43,17 @@ namespace Sprint0.Collision.Handlers
             }
             else if (item is Fairy)
             {
-                player.Health += 3;
-                if (player.Health > player.MaxHealth) player.Health = player.MaxHealth;
+                player.ChangeHealth(3, 0, game);
                 AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
             }
             else if (item is Heart)
             {
-                player.Health += 1;
-                if (player.Health > player.MaxHealth) player.Health = player.MaxHealth;
+                player.ChangeHealth(1, 0, game);
                 AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
             }
             else if (item is HeartContainer)
             {
-                player.MaxHealth += 2;
-                player.Health = player.MaxHealth;
+                player.ChangeHealth(0, 1, game);
                 AudioManager.GetInstance().PlayOnce(Resources.ItemPickup);
             }
             else if (item is TriforcePiece)

@@ -21,8 +21,7 @@ namespace Sprint0.Collision.Handlers
                 if (block is PushableBlock)
                 {
                     new PushPushableBlockCommand(block as PushableBlock, playerSide).Execute();
-                }
-                player.StopAction();
+                }               
                 Rectangle PHitbox = player.GetHitbox();
                 Rectangle BHitbox = block.GetHitbox();
 
@@ -58,12 +57,15 @@ namespace Sprint0.Collision.Handlers
                 if (block is RoomTransitionBlock)
                 {
                     new RoomTransitionCommand(game, playerSide).Execute();
+                    player.StopAction();
                 } else if (block is BlueStairs)
                 {
                     new SecretRoomTransitionCommand(game).Execute();
+                    player.StopAction();
                 } else if (block is SecretRoomTransitionBlock)
                 {
                     new ExitSecretRoomTransitionCommand(game).Execute();
+                    player.StopAction();
                 }
             } 
         }

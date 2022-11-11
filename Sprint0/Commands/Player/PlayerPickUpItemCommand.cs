@@ -16,7 +16,7 @@ namespace Sprint0.Commands.Player
 
         public void Execute()
         {
-            Player.PickUpItem(Item);
+            Player.HoldItem(Item);
         }
     }
 }

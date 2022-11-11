@@ -13,7 +13,7 @@ namespace Sprint0.Commands.Player
 
         public void Execute()
         {
-            Player.ChangeDirection(Types.Direction.LEFT);
+            Player.Move(Types.Direction.LEFT);
         }
     }
 }

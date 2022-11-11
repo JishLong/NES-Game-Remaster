@@ -6,9 +6,9 @@ namespace Sprint0.Player.State
 {
     public interface IPlayerState
     {
-        Player Player { get; }
+        void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game);
 
-        void ChangeDirection(Types.Direction direction);
+        void Move(Types.Direction direction);
 
         void DoPrimaryAttack();
 
@@ -16,13 +16,11 @@ namespace Sprint0.Player.State
 
         void Draw(SpriteBatch sb, Vector2 position);
 
-        void PickUpItem(IItem item);
-
         Rectangle GetHitbox();
 
-        void StopAction();
+        void HoldItem(IItem item);
 
-        void TakeDamage(int damage, Game1 game);     
+        void StopAction();
 
         void Update();
     }
