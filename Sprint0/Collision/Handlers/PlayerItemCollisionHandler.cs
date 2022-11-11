@@ -19,11 +19,11 @@ namespace Sprint0.Collision.Handlers
             typeof(Compass), typeof(Key), typeof(Map), typeof(Rupee), typeof(WoodenBoomerang) };
         }
 
-        // Inventory and public health manipulation haven't yet been implemented, so for now the item pickup is only cosmetic
         public void HandleCollision(IPlayer player, IItem item, Game1 game)
         {
             if (InventoryItems.Contains(item.GetType()))
             {
+                // Bombs pickups give you 4 bombs
                 if (item is Bomb) player.Inventory.AddToInventory(item.GetItemType(), 4);
                 else player.Inventory.AddToInventory(item.GetItemType(), 1);
 

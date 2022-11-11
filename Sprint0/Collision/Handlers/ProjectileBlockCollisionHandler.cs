@@ -22,9 +22,6 @@ namespace Sprint0.Collision.Handlers
 
         public void HandleCollision(IProjectile projectile, IBlock block, Types.Direction projectileSide, Room room)
         {
-            /* For now, most projectiles are simply destroyed upon hitting a block;
-             * Later, projectiles such as link's flame will likely behave differently (such as simply stopping at the wall)
-             */
             if ((AffectedProjectiles.Contains(projectile.GetType()) && block.IsWall && block is not SoftBorderBlock)
                 || (projectile is SwordProjectile && block is BorderBlock))
             {
@@ -32,10 +29,7 @@ namespace Sprint0.Collision.Handlers
             }
 
             // Boomerangs are able to bounce off the dungeon border walls
-            else if (projectile is BoomerangProjectile && block is BorderBlock)
-            {
-                (projectile as BoomerangProjectile).ReturnBoomerang();
-            }
+            else if (projectile is BoomerangProjectile && block is BorderBlock) (projectile as BoomerangProjectile).ReturnBoomerang();
 
             // Flames and bombs will sit at the foot of the block and remain there
             else if ((projectile is FlameProjectile || projectile is BombProjectile) && block.IsWall && block is not SoftBorderBlock)
