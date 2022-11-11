@@ -11,7 +11,7 @@ namespace Sprint0.Player.State.Idle
     {
         // Having single instances of these sprites makes movement look smoother if the player repeatedly taps one movement key
         private readonly static ISprite[] Sprites = { 
-            new PlayerMovingUp(), new PlayerMovingDown(), new PlayerMovingLeft(), new PlayerMovingRight() 
+            new PlayerMovingUpSprite(), new PlayerMovingDownSprite(), new PlayerMovingLeftSprite(), new PlayerMovingRightSprite() 
         };
 
         private static readonly Vector2 MovementSpeed = new(4, 4);

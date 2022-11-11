@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player.Attack.SwordAttack
 {
-    public class PlayerSwordAttackLeft : AbstractAnimatedSprite
+    public class PlayerSwordLeftSprite : AbstractAnimatedSprite
     {
-        public PlayerSwordAttackLeft() : base(4, 4)
+        public PlayerSwordLeftSprite() : base(4, 4)
         {
             xOffsetPixels = -12;
         }

@@ -16,7 +16,7 @@ namespace Sprint0.Player.States.BlueArrow
 
         public PlayerHoldItemState(Player player, IItem item) : base(player)
         {
-            Sprite = new PlayerPickUpItemSprite();
+            Sprite = new PlayerHoldItemSprite();
             FramesPassed = 0;
             Item = item;
         }

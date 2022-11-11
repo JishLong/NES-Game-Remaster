@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Projectiles
 {
     public class BoomerangSprite : AbstractAnimatedSprite
     {
-        public BoomerangSprite() : base(3, 6)
-        {
-
-        }
+        public BoomerangSprite() : base(3, 6) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.WeaponsAndProjSpriteSheet;
 

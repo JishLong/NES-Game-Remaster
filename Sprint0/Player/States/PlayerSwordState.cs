@@ -8,7 +8,7 @@ namespace Sprint0.Player.State.Idle
     public class PlayerSwordState : AbstractPlayerState
     {
         private readonly static ISprite[] Sprites = {
-            new PlayerSwordAttackUp(), new PlayerSwordAttackDown(), new PlayerSwordAttackLeft(), new PlayerSwordAttackRight()
+            new PlayerSwordUpSprite(), new PlayerSwordDownSprite(), new PlayerSwordLeftSprite(), new PlayerSwordRightSprite()
         };
 
         private int FramesPassed;

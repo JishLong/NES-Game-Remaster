@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Characters.Enemies
 {
     public class AquamentusSprite : AbstractAnimatedSprite
     {
-        public AquamentusSprite() : base(4, 8)
-        {
-
-        }
+        public AquamentusSprite() : base(4, 8) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 

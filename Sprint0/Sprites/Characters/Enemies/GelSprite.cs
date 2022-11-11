@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Characters.Enemies
 {
     public class GelSprite : AbstractAnimatedSprite
     {
-        public GelSprite() : base(2, 2)
-        {
-
-        }
+        public GelSprite() : base(2, 2) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 

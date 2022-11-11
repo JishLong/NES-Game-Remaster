@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Characters.Enemies
 {
     public class SkeletonSprite : AbstractAnimatedSprite
     {
-        public SkeletonSprite() : base(2, 8)
-        {
-
-        }
+        public SkeletonSprite() : base(2, 8) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 
@@ -20,7 +17,7 @@ namespace Sprint0.Sprites.Characters.Enemies
             {
                 Rectangle frame = GetFirstFrame();
                 spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), frame, color, 0, Vector2.Zero,
-                SpriteEffects.FlipHorizontally, layer);
+                    SpriteEffects.FlipHorizontally, layer);
             }
             else base.Draw(spriteBatch, position, color, layer);
         }

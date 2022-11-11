@@ -58,10 +58,10 @@ namespace Sprint0.Collision.Handlers
             }
             else if (item is TriforcePiece)
             {
-                new PlayerPickUpItemCommand(player, item).Execute();
+                player.HoldItem(item);
                 new WinGameCommand(game).Execute();
             }
-            new RemoveItemCommand(game.LevelManager.CurrentLevel.CurrentRoom, item).Execute();
+            game.LevelManager.CurrentLevel.CurrentRoom.RemoveItemFromRoom(item);
         }
     }
 }

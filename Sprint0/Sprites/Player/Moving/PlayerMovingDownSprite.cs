@@ -3,15 +3,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player.Movement
 {
-    public class PlayerMovingUp : AbstractAnimatedSprite
+    public class PlayerMovingDownSprite : AbstractAnimatedSprite
     {
-        public PlayerMovingUp() : base(2, 8)
-        {
-
-        }
+        public PlayerMovingDownSprite() : base(2, 8) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 
-        protected override Rectangle GetFirstFrame() => Resources.LinkUp;
+        protected override Rectangle GetFirstFrame() => Resources.LinkDown;
     }
 }

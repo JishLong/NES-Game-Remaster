@@ -1,7 +1,6 @@
 ﻿using Sprint0.Player;
 using Sprint0.Blocks;
 using Microsoft.Xna.Framework;
-using Sprint0.Commands.Blocks;
 using Sprint0.Blocks.Blocks;
 using Sprint0.Commands.Levels;
 
@@ -20,7 +19,7 @@ namespace Sprint0.Collision.Handlers
                 /* The player from everything else in the game in that it has a different size hitbox (relative to its sprite)
                  * and can also move. As a result of this, some extra math needs to be done so that collision works properly.
                  */
-                Vector2 PHitboxOffset = new Vector2((int)PHitbox.X - player.Position.X, (int)PHitbox.Y - player.Position.Y);
+                Vector2 PHitboxOffset = new Vector2(PHitbox.X - player.Position.X, PHitbox.Y - player.Position.Y);
                 
                 switch (playerSide)
                 {
@@ -39,10 +38,7 @@ namespace Sprint0.Collision.Handlers
                 }
 
                 // If the block is a PushableBlock, try and push it
-                if (block is PushableBlock)
-                {
-                    new PushPushableBlockCommand(block as PushableBlock, playerSide).Execute();
-                }
+                if (block is PushableBlock) (block as PushableBlock).Push(playerSide);
 
                 // If the block is some sort of room transition trigger, trigger the room transition
                 if (block is RoomTransitionBlock)

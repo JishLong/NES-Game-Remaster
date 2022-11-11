@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Projectiles.Character
 {
     public class BossProjSprite : AbstractAnimatedSprite
     {
-        public BossProjSprite() : base(4, 8)
-        {
-
-        }
+        public BossProjSprite() : base(4, 8) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.WeaponsAndProjSpriteSheet;
 

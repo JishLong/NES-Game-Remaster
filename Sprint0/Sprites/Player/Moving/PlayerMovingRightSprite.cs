@@ -3,12 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player.Movement
 {
-    public class PlayerMovingRight : AbstractAnimatedSprite
+    public class PlayerMovingRightSprite : AbstractAnimatedSprite
     {
-        public PlayerMovingRight() : base(2, 8)
-        {
-
-        }
+        public PlayerMovingRightSprite() : base(2, 8) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 

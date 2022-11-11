@@ -37,7 +37,11 @@ namespace Sprint0.Projectiles.Tools
             for (int i = Projectiles.Count - 1; i >= 0; i--) 
             {
                 Projectiles[i].Update();
-                if (Projectiles[i].TimeIsUp()) Projectiles.RemoveAt(i);
+                if (Projectiles[i].TimeIsUp()) 
+                {
+                    Projectiles[i].DeathAction();
+                    Projectiles.RemoveAt(i);
+                }
             }
         }
 

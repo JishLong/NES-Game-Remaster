@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Projectiles.Player
 {
     public class BombExplosionParticleSprite : AbstractAnimatedSprite
     {
-        public BombExplosionParticleSprite() : base(3, 8)
-        {
-
-        }
+        public BombExplosionParticleSprite() : base(3, 8) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.WeaponsAndProjSpriteSheet;
 

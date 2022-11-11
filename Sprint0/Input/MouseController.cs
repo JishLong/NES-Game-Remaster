@@ -20,6 +20,7 @@ namespace Sprint0.Controllers
         public void Update()
         {
             MouseState CurrentState = Mouse.GetState();
+
             // Handling of left click
             if (CurrentState.LeftButton == ButtonState.Pressed && PrevState.LeftButton == ButtonState.Released)
             {

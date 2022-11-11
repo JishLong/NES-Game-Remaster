@@ -9,7 +9,7 @@ namespace Sprint0.Player.State.Idle
     public class PlayerIdleState : AbstractPlayerState
     {
         private readonly static ISprite[] Sprites = { 
-            new PlayerFacingUp(), new PlayerFacingDown(), new PlayerFacingLeft(), new PlayerFacingRight() 
+            new PlayerIdleUpSprite(), new PlayerIdleDownSprite(), new PlayerIdleLeftSprite(), new PlayerIdleRightSprite() 
         };
 
         // This is the state that new players start off in

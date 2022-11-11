@@ -31,12 +31,6 @@
 /processorParam:Quality=Best
 /build:Audio/bossNoise.wav
 
-#begin Audio/dababy.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/dababy.wav
-
 #begin Audio/dungeonMusic.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

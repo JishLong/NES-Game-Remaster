@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Player.Attack.UseItem
 {
-    public class PlayerPickUpItemSprite : AbstractStillSprite
+    public class PlayerHoldItemSprite : AbstractStillSprite
     {
         protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
 

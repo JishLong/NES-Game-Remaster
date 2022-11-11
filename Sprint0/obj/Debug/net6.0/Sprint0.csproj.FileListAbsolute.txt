@@ -246,7 +246,6 @@ C:\Users\josh\source\Repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.pdb
 C:\Users\josh\source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\arrowBoomerang.xnb
 C:\Users\josh\source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\bomb.xnb
 C:\Users\josh\source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\bossNoise.xnb
-C:\Users\josh\source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\dababy.xnb
 C:\Users\josh\source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\dungeonMusic.xnb
 C:\Users\josh\source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\enemyDeath.xnb
 C:\Users\josh\source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\enemyTakeDamage.xnb

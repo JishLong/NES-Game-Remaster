@@ -50,7 +50,7 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
 
         public void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Goriya.Position);
+            Sprite.Draw(sb, Goriya.Position, Color.White, Sprint0.Utils.CharacterLayerDepth);
         }
     }
 }
