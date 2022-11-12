@@ -1,12 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Blocks.Blocks;
+using Sprint0.Blocks;
 using Sprint0.Doors;
 using Sprint0.Entities;
-using Sprint0.Events;
+using Sprint0.Items;
+using Sprint0.Levels;
 using Sprint0.Levels.Events;
 using System;
 
-namespace Sprint0.Blocks.Utils
+namespace Sprint0.Events
 {
     public class EventFactory
     {
@@ -20,6 +21,8 @@ namespace Sprint0.Blocks.Utils
             { 
                 case Types.Event.PUSHBLOCK_UNLOCKS_DOOR:
                     return new EventPushBlockUnlocksDoor(catylist as IBlock, receiver as Door);
+                case Types.Event.ENEMIES_KILLED_DROPS_ITEM:
+                    return new EventEnemiesKilledDropsItem(catylist as Room, receiver as IItem);
                 default:
                     Console.Error.Write("The event of type " + eventType.ToString() +
                         " could not be instantiated by the Event Factory. Does this type exist?");

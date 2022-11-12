@@ -102,7 +102,8 @@ namespace Sprint0.Levels.Utils
 
             EventMap = new Dictionary<string, Types.Event>()
             {
-                {"pushblock_unlocks_door", Types.Event.PUSHBLOCK_UNLOCKS_DOOR }
+                {"pushblock_unlocks_door", Types.Event.PUSHBLOCK_UNLOCKS_DOOR },
+                {"enemies_killed_drops_item", Types.Event.ENEMIES_KILLED_DROPS_ITEM },
             };
 
             BorderMap = new Dictionary<string, Types.Border>()

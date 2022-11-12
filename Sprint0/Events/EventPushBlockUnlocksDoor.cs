@@ -6,7 +6,7 @@ using Sprint0.Levels.Events;
 
 namespace Sprint0.Events
 {
-    public class EventPushBlockUnlocksDoor : IEvent
+    public class EventPushBlockUnlocksDoor : AbstractEvent
     {
 
         PushableBlock PBlock;
@@ -17,11 +17,12 @@ namespace Sprint0.Events
             Door = door;
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
-            if (PBlock.HasBeenPushed)
+            if (PBlock.HasBeenPushed && Fired == false)
             {
                 Door.Unlock();
+                Fired = true;
             }
         }
     }

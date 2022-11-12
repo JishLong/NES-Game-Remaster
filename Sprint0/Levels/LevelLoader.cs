@@ -8,6 +8,8 @@ using Sprint0.Doors;
 using Sprint0.Blocks.Utils;
 using Sprint0.Blocks;
 using Sprint0.Entities;
+using static Sprint0.Events.EventUtils;
+using static Sprint0.Entities.EntityUtils;
 using Sprint0.Levels.Events;
 
 namespace Sprint0.Levels
@@ -195,17 +197,8 @@ namespace Sprint0.Levels
                 int xPosition = int.Parse(fields[3]) * LevelResources.BlockWidth;
                 int yPosition = int.Parse(fields[4]) * LevelResources.BlockHeight;
                 Vector2 position = new Vector2(xPosition, yPosition);
+                CreateEntity(room, category, type, name, position);
 
-                switch (category)
-                {
-                    case "block":
-                        Types.Block blockType = LevelResources.BlockMap[type];
-                        IBlock block = BlockFactory.GetInstance().GetBlock(blockType, position);
-                        block.SetName(name);
-                        room.AddBlockToRoom(block);
-                        room.AddEntityToRoom(block); // Blocks are also inherently entities.
-                        break;
-                } 
             }
         }
         public void LoadEvents(Room room, string roomName)
@@ -218,26 +211,11 @@ namespace Sprint0.Levels
             Parser.ReadLine();  // Consume the first line.
             while (!Parser.EndOfData)
             {
-                
                 string[] fields = Parser.ReadFields();
                 Types.Event type = LevelResources.EventMap[fields[0]];
                 string catylistEntityName = fields[1];
                 string receivingEntityName = fields[2];
-
-                switch (type)
-                {
-                    case Types.Event.PUSHBLOCK_UNLOCKS_DOOR:
-                        // Get a reference to the catylist entity from entity name.
-                        IEntity pushblock = room.Entities.Find(entity => entity.GetName() == catylistEntityName);
-                        
-                        // Get a reference to the receiver entity from entity name.
-                        IEntity door = room.Entities.Find(entity => entity.GetName() == receivingEntityName);
-
-                        // Now construct the event.
-                        IEvent roomevent = EventFactory.GetInstance().GetEvent(type, pushblock, door);
-                        room.AddEventToRoom(roomevent);
-                        break;
-                } 
+                CreateEvent(room, type, catylistEntityName, receivingEntityName);
             }
         }
     }

@@ -10,5 +10,7 @@ namespace Sprint0.Levels.Events
     public interface IEvent
     {
         void Update(GameTime gameTime);
+
+        bool HasFired();
     }
 }

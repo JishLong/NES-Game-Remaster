@@ -1,2 +1,6 @@
 Type,Catylist_Entity,Receiving_Entity,,
 pushblock_unlocks_door,pb1,left_event_locked,,
+pushblock_unlocks_door,pb1,right_event_locked,,
+pushblock_unlocks_door,pb1,up_event_locked,,
+pushblock_unlocks_door,pb1,down_event_locked,,
+enemies_killed_drops_item,none,key1,,
