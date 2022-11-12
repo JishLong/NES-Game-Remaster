@@ -17,17 +17,17 @@ namespace Sprint0.Events
         /// Creates and returns an event.
         /// </summary>
         /// <param name="type"></param>
-        /// <param name="catylistEntityName"></param>
+        /// <param name="catalystEntityName"></param>
         /// <param name="receivingEntityName"></param>
         /// <param name="room"></param>
         /// <returns></returns>
-        public IEvent GetEvent(Room room, Types.Event eventType, string catylistEntityName, string receivingEntityName)
+        public IEvent GetEvent(Room room, Types.Event eventType, string catalystEntityName, string receivingEntityName)
         {
             switch (eventType)
             {
                 case Types.Event.PUSHBLOCK_UNLOCKS_DOOR:
-                    // Get a reference to the catylist entity from entity name.
-                    IEntity pushblock = room.Entities.Find(entity => entity.GetName() == catylistEntityName);
+                    // Get a reference to the catalyst entity from entity name.
+                    IEntity pushblock = room.Entities.Find(entity => entity.GetName() == catalystEntityName);
                     // Get a reference to the receiver entity from entity name.
                     IEntity door = room.Entities.Find(entity => entity.GetName() == receivingEntityName);
 
