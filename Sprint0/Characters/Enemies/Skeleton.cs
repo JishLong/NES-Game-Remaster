@@ -8,7 +8,7 @@ namespace Sprint0.Characters.Enemies
     {
         private double DirectionTimer = 0;
         private readonly double DirectionDelay = 1500;    // Change direction every this many milliseconds.
-        public float MovementSpeed { get; set; }
+
         public Skeleton(Vector2 position)
         {
             // State
@@ -19,7 +19,6 @@ namespace Sprint0.Characters.Enemies
 
             // Movement
             Position = position;
-            MovementSpeed = 1.5f;
         }
 
         public override void Update(GameTime gameTime)

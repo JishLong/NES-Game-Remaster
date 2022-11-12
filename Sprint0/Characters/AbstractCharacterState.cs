@@ -7,7 +7,13 @@ namespace Sprint0.Characters
 {
     public abstract class AbstractCharacterState : ICharacterState
     {
-        protected ISprite Sprite;
+        protected AbstractCharacter Character;
+        protected ISprite Sprite;      
+
+        protected AbstractCharacterState(AbstractCharacter character) 
+        {
+            Character = character;
+        }
 
         public abstract void Attack();
 
@@ -18,7 +24,7 @@ namespace Sprint0.Characters
             Sprite.Draw(sb, position, color, CharacterLayerDepth);
         }
 
-        public abstract void Freeze();
+        public abstract void Freeze(bool frozenForever);
 
         public Rectangle GetHitbox(Vector2 position)
         {
@@ -26,6 +32,8 @@ namespace Sprint0.Characters
         }
 
         public abstract void Move();
+
+        public abstract void Unfreeze();
         
         public abstract void Update(GameTime gameTime);
     }

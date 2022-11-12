@@ -12,7 +12,7 @@ namespace Sprint0.Characters.Enemies
         public RedGoriya(Vector2 position)
         {
             // State
-            State = new RedGoriyaMovingRightState(this);
+            State = new RedGoriyaMovingState(this);
 
             // Combat
             Health = 3;

@@ -24,7 +24,7 @@ namespace Sprint0.Player.State
         private static int DamageFramesPassed;
         private static int LowHealthFramesPassed;
 
-        public AbstractPlayerState(Player player, bool isNewPlayer = false) 
+        protected AbstractPlayerState(Player player, bool isNewPlayer = false) 
         {
             Player = player;
             if (isNewPlayer) 

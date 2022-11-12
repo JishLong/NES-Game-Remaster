@@ -29,7 +29,7 @@ namespace Sprint0.Collision.Handlers
                 if (projectile is BoomerangProjectile && character is not BladeTrap) 
                 {
                     if (character is Bat || character is Gel) character.TakeDamage(characterSide, projectile.Damage, room); 
-                    else character.Freeze();
+                    else character.Freeze(false);
                 }
                 else if (character is not BladeTrap) character.TakeDamage(characterSide, projectile.Damage, room);             
             }

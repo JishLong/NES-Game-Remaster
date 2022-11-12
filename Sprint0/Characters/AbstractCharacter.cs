@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Levels;
 using Sprint0.Projectiles.Tools;
-using Sprint0.Sprites;
 using System;
 
 namespace Sprint0.Characters;
@@ -10,23 +9,27 @@ public abstract class AbstractCharacter : ICharacter
 {
     // State
     public ICharacterState State { get; set; }
+    public Vector2 Position { get; set; }
+    public int Damage { get; protected set; }
 
     // Combat related fields.
     protected int Health;
-    public int Damage { get; protected set; }
     private Types.Direction KnockbackDirection;
+    protected Vector2 Knockback = new(16 * Sprint0.Utils.GameScale, 16 * Sprint0.Utils.GameScale);
+    protected static readonly int InvincibilityFrames = 40;
+    protected static readonly int KnockBackFrames = InvincibilityFrames / 5;
 
-    // Damage cosmetics
-    protected Color Color = Color.White;
-    protected int DamageFrameCounter = 0;
-    protected bool JustSpawned = true;
+    // Condition monitoring variables
+    protected bool IsTakingDamage;
+    protected int DamageFramesPassed;
+    protected bool JustSpawned;
 
-    // Movement related fields.
-    public Vector2 Position { get; set; }
-    protected Vector2 Knockback = new(16 * Sprint0.Utils.GameScale, 16 * Sprint0.Utils.GameScale);  
-
-    // Sprite related fields.
-    protected ISprite Sprite;
+    protected AbstractCharacter() 
+    {
+        IsTakingDamage = false;
+        DamageFramesPassed = 0;
+        JustSpawned = true;
+    }
 
     protected void DeathAction(Room room)
     {
@@ -45,12 +48,13 @@ public abstract class AbstractCharacter : ICharacter
 
     public virtual void Draw(SpriteBatch sb)
     {
-        if (!JustSpawned) State.Draw(sb, Position, Color);
+        Color CharacterColor = (IsTakingDamage) ? Color.Red : Color.White;
+        if (!JustSpawned) State.Draw(sb, Position, CharacterColor);
     }
 
-    public void Freeze() 
+    public void Freeze(bool frozenForever) 
     {
-        State.Freeze();
+        State.Freeze(frozenForever);
     }
 
     public virtual Rectangle GetHitbox()
@@ -60,8 +64,9 @@ public abstract class AbstractCharacter : ICharacter
 
     public virtual void TakeDamage(Types.Direction damageSide, int damage, Room room)
     {
-        if (Color != Color.Red)
+        if (!IsTakingDamage)
         {
+            IsTakingDamage = true;
             Health -= damage;
             AudioManager.GetInstance().PlayOnce(Resources.EnemyTakeDamage);
             if (Health <= 0)
@@ -71,31 +76,39 @@ public abstract class AbstractCharacter : ICharacter
             }
             else
             {
-                Color = Color.Red;
                 KnockbackDirection = Sprint0.Utils.GetOppositeDirection(damageSide);
             }
         }
     }
 
+    public void Unfreeze() 
+    {
+        State.Unfreeze();
+    }
+
     public virtual void Update(GameTime gameTime)
     {
+        // Spawn a cloud particle upon character spawning in
         if (JustSpawned) 
         {
             JustSpawned = false;
             ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SPAWN_PARTICLE, this, Types.Direction.NO_DIRECTION);
         }
-        if (Color.Equals(Color.Red)) 
+
+        if (IsTakingDamage)
         {
-            DamageFrameCounter++;
-            if (DamageFrameCounter < 40 / 5)
+            // Take knockback
+            if (DamageFramesPassed < KnockBackFrames)
             {
-                Position += Sprint0.Utils.DirectionToVector(KnockbackDirection) * Knockback / (40 / 5);
+                Position += Sprint0.Utils.DirectionToVector(KnockbackDirection) * Knockback / (KnockBackFrames);
             }
-            if (DamageFrameCounter >= 40) 
+
+            // Check to see if the character should no longer be damaged
+            DamageFramesPassed = (DamageFramesPassed + 1) % InvincibilityFrames;
+            if (DamageFramesPassed == 0)
             {
-                Color = Color.White;
-                DamageFrameCounter = 0;
-            } 
+                IsTakingDamage = false;
+            }
         }
 
         State.Update(gameTime);

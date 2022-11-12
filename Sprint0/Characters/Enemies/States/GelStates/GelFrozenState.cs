@@ -3,18 +3,21 @@ using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.States.GelStates
 {
-    public class GelFrozenState: AbstractCharacterState
+    public class GelFrozenState : AbstractCharacterState
     {
-        private readonly Gel Gel;
+        private bool FrozenForever;
         private readonly Types.Direction ResumeMovementDirection;
+
         private double FrozenTimer;
         private readonly double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
 
-        public GelFrozenState(Gel gel, Types.Direction direction)
+        public GelFrozenState(AbstractCharacter character, Types.Direction direction, bool frozenForever) : base(character)
         {
-            Gel = gel;
+            Sprite = new BatSprite();
             ResumeMovementDirection = direction;
-            Sprite = new GelSprite();
+            FrozenForever = frozenForever;
+
+            FrozenTimer = 0;
         }
         public override void Attack()
         {
@@ -23,42 +26,30 @@ namespace Sprint0.Characters.Enemies.States.GelStates
 
         public override void ChangeDirection()
         {
-            switch (ResumeMovementDirection)
-            {
-                case Types.Direction.LEFT:
-                    Gel.State = new GelMovingLeftState(Gel);
-                    break;
-                case Types.Direction.RIGHT:
-                    Gel.State = new GelMovingRightState(Gel);
-                    break;
-                case Types.Direction.DOWN:
-                    Gel.State = new GelMovingDownState(Gel);
-                    break;
-                case Types.Direction.UP:
-                    Gel.State = new GelMovingUpState(Gel);
-                    break;
-            }
+            // Can't change direction while frozen
         }
 
-        public override void Freeze()
+        public override void Freeze(bool frozenForever)
         {
-            // Already frozen.
+            FrozenForever = frozenForever;
         }
 
         public override void Move()
         {
-            // Cannot move while frozen
+            // Cannot move while frozen.
+        }
+
+        public override void Unfreeze()
+        {
+            Character.State = new GelMovingState(Character, ResumeMovementDirection);
         }
 
         public override void Update(GameTime gameTime)
         {
             double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
-            FrozenTimer += elapsedTime;
+            if (!FrozenForever) FrozenTimer += elapsedTime;
+            if ((FrozenTimer - FrozenDelay) > 0) Unfreeze();
 
-            if((FrozenTimer - FrozenDelay) > 0)
-            {
-                ChangeDirection();
-            }
             Sprite.Update();
         }
     }

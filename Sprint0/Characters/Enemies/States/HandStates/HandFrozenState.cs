@@ -5,13 +5,14 @@ namespace Sprint0.Characters.Enemies.States.HandStates
 {
     public class HandFrozenState: AbstractCharacterState
     {
-        private readonly Hand Hand;
+        private bool FrozenForever;
         private readonly Types.Direction ResumeMovementDirection;
         private readonly bool ClockWise;
+
         private double FrozenTimer;
         private readonly double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
 
-        public HandFrozenState(Hand hand, Types.Direction direction, bool clockWise)
+        public HandFrozenState(AbstractCharacter character, Types.Direction direction, bool clockWise, bool frozenForever) : base(character)
         {
             Hand = hand;
             ResumeMovementDirection = direction;
@@ -25,26 +26,12 @@ namespace Sprint0.Characters.Enemies.States.HandStates
 
         public override void ChangeDirection()
         {
-            switch (ResumeMovementDirection)
-            {
-                case Types.Direction.LEFT:
-                    Hand.State = new HandMovingLeftState(Hand, ClockWise);
-                    break;
-                case Types.Direction.RIGHT:
-                    Hand.State = new HandMovingRightState(Hand, ClockWise);
-                    break;
-                case Types.Direction.DOWN:
-                    Hand.State = new HandMovingDownState(Hand, ClockWise);
-                    break;
-                case Types.Direction.UP:
-                    Hand.State = new HandMovingUpState(Hand, ClockWise);
-                    break;
-            }
+            // Can't change direction while frozen
         }
 
-        public override void Freeze()
+        public override void Freeze(bool frozenForever)
         {
-            // Already frozen.
+            FrozenForever = frozenForever;
         }
 
         public override void Move()
@@ -52,15 +39,17 @@ namespace Sprint0.Characters.Enemies.States.HandStates
             // Cannot move while frozen
         }
 
+        public override void Unfreeze() 
+        {
+            Character.State = new HandMovingState(Character, ClockWise, ResumeMovementDirection);
+        }
+
         public override void Update(GameTime gameTime)
         {
             double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
-            FrozenTimer += elapsedTime;
+            if (!FrozenForever) FrozenTimer += elapsedTime;
+            if ((FrozenTimer - FrozenDelay) > 0) Unfreeze();
 
-            if((FrozenTimer - FrozenDelay) > 0)
-            {
-                ChangeDirection();
-            }
             Sprite.Update();
         }
     }

@@ -1,19 +1,25 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Characters.Enemies;
+using Sprint0.Sprites;
+using static Sprint0.Types;
 
-namespace Sprint0.Characters.Enemies.States.SkeletonStates
+namespace Sprint0.Characters.Bosses.States.DodongoStates
 {
-    public class SkeletonFrozenState : AbstractCharacterState
+    public class DodongoFrozenState : AbstractCharacterState
     {
+        private readonly static ISprite[] Sprites = {
+            new DodongoUpSprite(), new DodongoDownSprite(), new DodongoLeftSprite(), new DodongoRightSprite()
+        };
+
         private bool FrozenForever;
         private readonly Types.Direction ResumeMovementDirection;
 
         private double FrozenTimer;
-        private readonly double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
+        private readonly double FrozenDelay = 5000;
 
-        public SkeletonFrozenState(AbstractCharacter character, Types.Direction direction, bool frozenForever) : base(character)
+        public DodongoFrozenState(AbstractCharacter character, Types.Direction direction, bool frozenForever) : base(character)
         {
-            Sprite = new SkeletonSprite();
+            Sprite = Sprites[(int)direction];
             ResumeMovementDirection = direction;
             FrozenForever = frozenForever;
 
@@ -21,29 +27,25 @@ namespace Sprint0.Characters.Enemies.States.SkeletonStates
         }
         public override void Attack()
         {
-            // Does not attack.
+            // Do nothing. (Cant attack after frozen.)
         }
-
-        public override void ChangeDirection()
+        public override void Move()
         {
-            // Can't change direction while frozen
+            // Can't move while frozen
         }
-
         public override void Freeze(bool frozenForever)
         {
             FrozenForever = frozenForever;
         }
-
-        public override void Move()
+        public override void ChangeDirection()
         {
-            // Cannot move while frozen.
+            // Do nothing. Cant change direction while frozen.
         }
 
         public override void Unfreeze()
         {
-            Character.State = new SkeletonMovingState(Character, ResumeMovementDirection);
+            Character.State = new DodongoMovingState(Character, ResumeMovementDirection);
         }
-
         public override void Update(GameTime gameTime)
         {
             double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -54,3 +56,4 @@ namespace Sprint0.Characters.Enemies.States.SkeletonStates
         }
     }
 }
+

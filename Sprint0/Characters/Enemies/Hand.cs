@@ -7,19 +7,17 @@ namespace Sprint0.Characters.Enemies
     {
         private double DirectionTimer = 0;
         private readonly double DirectionDelay = 1000;    // Change direction every this many milliseconds.
-        public float MovementSpeed { get; set; }
-        private bool ClockWise = false;
+
         public Hand(Vector2 position)
         {
             // State
-            State = new HandMovingUpState(this, ClockWise);
+            State = new HandMovingUpState(this, false);
             // Combat
             Health = 2;
             Damage = 1;
 
             // Movement
             Position = position;
-            MovementSpeed = 2;
         }
 
         public override void Update(GameTime gameTime)

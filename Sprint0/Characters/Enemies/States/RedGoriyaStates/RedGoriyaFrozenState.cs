@@ -1,19 +1,25 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Characters.Enemies.RedGoriyaStates;
+using Sprint0.Sprites;
 using Sprint0.Sprites.Characters.Enemies;
 
-namespace Sprint0.Characters.Enemies.States.SkeletonStates
+namespace Sprint0.Characters.Enemies.States.RedGoriyaStates
 {
-    public class SkeletonFrozenState : AbstractCharacterState
+    public class RedGoriyaFrozenState : AbstractCharacterState
     {
+        private readonly static ISprite[] Sprites = {
+            new RedGoriyaUpSprite(), new RedGoriyaDownSprite(), new RedGoriyaLeftSprite(), new RedGoriyaRightSprite()
+        };
+
         private bool FrozenForever;
         private readonly Types.Direction ResumeMovementDirection;
 
         private double FrozenTimer;
         private readonly double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
 
-        public SkeletonFrozenState(AbstractCharacter character, Types.Direction direction, bool frozenForever) : base(character)
+        public RedGoriyaFrozenState(AbstractCharacter character, Types.Direction direction, bool frozenForever) : base(character)
         {
-            Sprite = new SkeletonSprite();
+            Sprite = Sprites[(int)direction];
             ResumeMovementDirection = direction;
             FrozenForever = frozenForever;
 
@@ -41,7 +47,7 @@ namespace Sprint0.Characters.Enemies.States.SkeletonStates
 
         public override void Unfreeze()
         {
-            Character.State = new SkeletonMovingState(Character, ResumeMovementDirection);
+            Character.State = new RedGoriyaMovingState(Character, ResumeMovementDirection);
         }
 
         public override void Update(GameTime gameTime)

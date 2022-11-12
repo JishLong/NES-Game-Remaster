@@ -13,9 +13,11 @@ namespace Sprint0.Characters
 
         void Draw(SpriteBatch sb);
 
-        void Freeze();
+        void Freeze(bool frozenForever);
 
         void TakeDamage(Types.Direction damageSide, int damage, Room room);
+
+        void Unfreeze();
 
         void Update(GameTime gameTime);
     }
