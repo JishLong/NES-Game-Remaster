@@ -15,8 +15,9 @@ namespace Sprint0.Levels.Utils
         public Dictionary<string, Types.Door> DoorMap;
         public Dictionary<string, Types.Border> BorderMap;
 
-        public int BlockWidth = 16 * (int) GameScale;
-        public int BlockHeight = 16 * (int) GameScale;
+        public readonly int BlockWidth = 16 * (int) GameScale;
+        public readonly int BlockHeight = 16 * (int) GameScale;
+        public readonly int BorderWidth = 16 * 3 * 2;
 
         public Vector2 UpDoorPosition;
         public Vector2 RightDoorPosition;
@@ -104,6 +105,7 @@ namespace Sprint0.Levels.Utils
             {
                 {"pushblock_unlocks_door", Types.Event.PUSHBLOCK_UNLOCKS_DOOR },
                 {"enemies_killed_drops_item", Types.Event.ENEMIES_KILLED_DROPS_ITEM },
+                {"enemies_killed_unlocks_door", Types.Event.ENEMIES_KILLED_UNLOCKS_DOOR },
             };
 
             BorderMap = new Dictionary<string, Types.Border>()

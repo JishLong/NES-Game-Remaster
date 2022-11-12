@@ -1,16 +1,11 @@
 ﻿using Microsoft.VisualBasic.FileIO;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using System;
 using System.IO;
 using Sprint0.Levels.Utils;
 using Sprint0.Doors;
-using Sprint0.Blocks.Utils;
-using Sprint0.Blocks;
 using Sprint0.Entities;
-using static Sprint0.Events.EventUtils;
-using static Sprint0.Entities.EntityUtils;
 using Sprint0.Levels.Events;
+using Sprint0.Events;
 
 namespace Sprint0.Levels
 {
@@ -26,14 +21,12 @@ namespace Sprint0.Levels
         private RoomLinker RoomLinker;
         private string RootPath;
         private TextFieldParser Parser;
-        private int BorderOffset;
 
         public LevelLoader(LevelManager manager)
         {
             LevelManager = manager;
             LevelResources = LevelResources.GetInstance();
             RoomLinker = new RoomLinker();
-            BorderOffset = 0;
             RootPath = "../../../Levels/";  // TODO: There is probably a better way to do this than with relative paths...
         }
         public Level LoadLevelFromDir(Types.Level levelType)
@@ -87,7 +80,7 @@ namespace Sprint0.Levels
                         Types.Block block = LevelResources.BlockMap[field];
                         int x = LevelResources.BlockWidth * col;
                         int y = LevelResources.BlockHeight * row;
-                        Vector2 position = new Vector2(x + BorderOffset, y + BorderOffset);
+                        Vector2 position = new Vector2(x, y);
                         room.AddBlockToRoom(block, position);
                     }
                     col++;
@@ -111,7 +104,7 @@ namespace Sprint0.Levels
                         Types.Character character = LevelResources.CharacterMap[field];
                         int x = LevelResources.BlockWidth * col;
                         int y = LevelResources.BlockHeight * row;
-                        Vector2 position = new Vector2(x + BorderOffset, y + BorderOffset);
+                        Vector2 position = new Vector2(x, y);
                         room.AddCharacterToRoom(character, position);
                     }
                     col++;
@@ -135,7 +128,7 @@ namespace Sprint0.Levels
                         Types.Item item = LevelResources.ItemMap[field];
                         int x = LevelResources.BlockWidth * col;
                         int y = LevelResources.BlockHeight * row;
-                        Vector2 position = new Vector2(x+BorderOffset, y+BorderOffset);
+                        Vector2 position = new Vector2(x, y);
                         room.AddItemToRoom(item, position);
                     }
                     col++;
@@ -179,12 +172,8 @@ namespace Sprint0.Levels
                 }
             }
         }
-
         public void LoadEntities(Room room, string roomName)
         {
-            // Just for debugging, eventually all rooms will have an entities.csv even if its empty.
-            if(roomName != "../../../Levels/Level1/Room9/Entities.csv") { return ; }
-
             Parser = new TextFieldParser(roomName);
             Parser.SetDelimiters(",");
             Parser.ReadLine(); // Consume the first line.
@@ -194,18 +183,15 @@ namespace Sprint0.Levels
                 string category = fields[0];
                 string type = fields[1];
                 string name = fields[2];
-                int xPosition = int.Parse(fields[3]) * LevelResources.BlockWidth;
-                int yPosition = int.Parse(fields[4]) * LevelResources.BlockHeight;
+                int xPosition = int.Parse(fields[3]) * LevelResources.BlockWidth + LevelResources.BorderWidth;
+                int yPosition = int.Parse(fields[4]) * LevelResources.BlockHeight + LevelResources.BorderWidth;
                 Vector2 position = new Vector2(xPosition, yPosition);
-                CreateEntity(room, category, type, name, position);
-
+                IEntity entity = EntityFactory.GetInstance().GetEntity(room, category, type, name, position);
+                room.AddEntityToRoom(entity);
             }
         }
         public void LoadEvents(Room room, string roomName)
         {
-            // Just for debugging, eventually all rooms will have an entities.csv even if its empty.
-            if(roomName != "../../../Levels/Level1/Room9/Events.csv") { return ; }
-
             Parser = new TextFieldParser(roomName);
             Parser.SetDelimiters(",");
             Parser.ReadLine();  // Consume the first line.
@@ -215,7 +201,8 @@ namespace Sprint0.Levels
                 Types.Event type = LevelResources.EventMap[fields[0]];
                 string catylistEntityName = fields[1];
                 string receivingEntityName = fields[2];
-                CreateEvent(room, type, catylistEntityName, receivingEntityName);
+                IEvent roomevent = EventFactory.GetInstance().GetEvent(room, type, catylistEntityName, receivingEntityName);
+                room.AddEventToRoom(roomevent);
             }
         }
     }

@@ -8,15 +8,15 @@ using Sprint0.Levels.Events;
 
 namespace Sprint0.Events
 {
-    public class EventEnemiesKilledDropsItem : AbstractEvent
+    public class EventEnemiesKilledUnlocksDoor : AbstractEvent
     {
 
         Room Room;
-        IItem Item;
-        public EventEnemiesKilledDropsItem(Room room, IItem item)
+        Door Door;
+        public EventEnemiesKilledUnlocksDoor(Room room, Door door)
         {
             Room = room;
-            Item = item;
+            Door = door;
         }
 
         public override void Update(GameTime gameTime)
@@ -24,8 +24,7 @@ namespace Sprint0.Events
 
             if(Room.Characters.Count == 0 && Fired == false)
             {
-                Room.AddItemToRoom(Item);
-                // Should also play a sound here.
+                Door.Unlock();
                 Fired = true;
             }
         }
