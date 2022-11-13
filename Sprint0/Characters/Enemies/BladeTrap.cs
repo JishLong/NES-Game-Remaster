@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters.Enemies.States.BladeTrapStates;
 using Sprint0.Levels;
 using Sprint0.Sprites.Characters.Enemies;
@@ -21,6 +22,11 @@ namespace Sprint0.Characters.Enemies
             // Combat
             Health = int.MaxValue;
             Damage = 1;
+        }
+
+        public override void Draw(SpriteBatch sb)
+        {
+            State.Draw(sb, Position, Color.White);
         }
 
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)

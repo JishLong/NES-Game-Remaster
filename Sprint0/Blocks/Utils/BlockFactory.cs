@@ -33,8 +33,6 @@ namespace Sprint0.Blocks.Utils
                     return new SecretRoomTransitionBlock(position);
                 case Types.Block.GREY_BRICKS:
                     return new GreyBricks(position);
-                case Types.Block.LADDER:
-                    return new Ladder(position);
                 case Types.Block.LEFT_DOOR_WAY_BLOCK:
                     return new LeftDoorWayBlock(position);
                 case Types.Block.PUSHABLE_BLOCK:

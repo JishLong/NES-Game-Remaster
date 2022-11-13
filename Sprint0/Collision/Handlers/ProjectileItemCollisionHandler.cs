@@ -6,7 +6,7 @@ namespace Sprint0.Collision.Handlers
 {
     public class ProjectileItemCollisionHandler
     {
-        public void HandleCollision(IProjectile projectile, IItem item, Types.Direction projectileSide, Room room)
+        public void HandleCollision(IProjectile projectile, IItem item, Types.Direction projectileSide)
         {
             // The player's boomerang can pick up items - cool trick! 
             if (projectile is BoomerangProjectile && projectile.IsFromPlayer()) (projectile as BoomerangProjectile).HoldItem(item);

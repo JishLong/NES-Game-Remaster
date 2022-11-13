@@ -54,7 +54,7 @@ namespace Sprint0.Characters
         public virtual void Draw(SpriteBatch sb)
         {
             Color CharacterColor = (IsTakingDamage) ? Color.Red : Color.White;
-            State.Draw(sb, Position, CharacterColor);
+            if (!JustSpawned) State.Draw(sb, Position, CharacterColor);
         }
 
         public void Freeze(bool frozenForever)

@@ -7,6 +7,6 @@ namespace Sprint0.Sprites.Blocks
     {
         protected override Texture2D GetSpriteSheet() => Resources.BlocksSpriteSheet;
 
-        protected override Rectangle GetFrame() => Resources.BlueGap;
+        protected override Rectangle GetFrame() => Resources.Water;
     }
 }

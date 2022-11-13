@@ -2,15 +2,16 @@
 using Sprint0.Blocks;
 using Sprint0.Characters;
 using Microsoft.Xna.Framework;
+using Sprint0.Npcs;
 
 namespace Sprint0.Collision.Handlers
 {
     // Handles all collisions between characters and blocks
     public class CharacterBlockCollisionHandler
     {
-        public void HandleCollision(ICharacter character, IBlock block, Types.Direction characterSide, Room room) 
+        public void HandleCollision(ICharacter character, IBlock block, Types.Direction characterSide) 
         {
-            if (block.IsWall)
+            if (block.IsWall && character is not OldMan && character is not Flame)
             {
                 Rectangle PHitbox = character.GetHitbox();
                 Rectangle BHitbox = block.GetHitbox();

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Sprint0.Sprites.Characters.Npcs;
 using Sprint0.Characters;
 using Sprint0.Levels;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Npcs
 {
@@ -15,6 +16,16 @@ namespace Sprint0.Npcs
 			Position = position;		
 		}
 
+        public override void Draw(SpriteBatch sb)
+        {
+            Sprite.Draw(sb, Position, Color.White, Utils.CharacterLayerDepth);
+        }
+
+        public override Rectangle GetHitbox()
+        {
+            return Sprite.GetDrawbox(Position);
+        }
+
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
         {
             // Super pops is invincible, he is literally god
@@ -23,11 +34,6 @@ namespace Sprint0.Npcs
         public override void Update(GameTime gameTime)
 		{
 			Sprite.Update();
-		}
-
-		public override Rectangle GetHitbox() 
-		{
-			return Sprite.GetDrawbox(Position);
 		}
 	}
 }

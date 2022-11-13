@@ -53,16 +53,14 @@ namespace Sprint0
 
         // Sprite sheet positions for all blocks
         public static readonly Rectangle BlueTile = new Rectangle(0, 0, 16, 16);
-        public static readonly Rectangle BlueWall = new Rectangle(16, 0, 16, 16);
-        public static readonly Rectangle BlueGap = new Rectangle(32, 16, 16, 16);
+        public static readonly Rectangle BlueWall = new Rectangle(16, 0, 16, 16);   
         public static readonly Rectangle BlueStatueLeft = new Rectangle(32, 0, 16, 16);
         public static readonly Rectangle BlueStatueRight = new Rectangle(48, 0, 16, 16);
-        public static readonly Rectangle BlueStairs = new Rectangle(48, 16, 16, 16);
-        public static readonly Rectangle BlueSand = new Rectangle(16, 16, 16, 16);
-        public static readonly Rectangle GreyBricks = new Rectangle(0, 32, 16, 16);
-        public static readonly Rectangle WhiteBars = new Rectangle(16, 32, 16, 16);
-        public static readonly Rectangle LadderBlock = new Rectangle(0, 16, 16, 16);
-        public static readonly Rectangle BorderBlock = new Rectangle(33, 33, 16, 16);
+        public static readonly Rectangle BlueStairs = new Rectangle(32, 16, 16, 16);
+        public static readonly Rectangle BlueSand = new Rectangle(0, 16, 16, 16);
+        public static readonly Rectangle GreyBricks = new Rectangle(48, 16, 16, 16);
+        public static readonly Rectangle WhiteBars = new Rectangle(0, 32, 16, 16);
+        public static readonly Rectangle Water = new Rectangle(16, 16, 16, 16);
 
         // Sprite sheet positions for all borders
         public static readonly Rectangle Level1Border = new Rectangle(521, 11, 256, 176);
@@ -117,8 +115,8 @@ namespace Sprint0
         public static readonly Rectangle FlameProj = new Rectangle(34, 16, 16, 16);
         public static readonly Rectangle BossProj = new Rectangle(50, 16, 8, 10);
         public static readonly Rectangle CharacterDeathParticle = new Rectangle(0, 32, 15, 16);
-        public static readonly Rectangle SwordMeleeHorz = new Rectangle(61, 32, 12, 15);
-        public static readonly Rectangle SwordMeleeVert = new Rectangle(74, 32, 15, 12);
+        public static readonly Rectangle SwordMeleeHorz = new Rectangle(69, 32, 12, 7);
+        public static readonly Rectangle SwordMeleeVert = new Rectangle(61, 32, 7, 12);
         public static readonly Rectangle SwordProjHorz = new Rectangle(14, 48, 16, 7);
         public static readonly Rectangle SwordProjVert = new Rectangle(0, 48, 7, 16);
         public static readonly Rectangle SwordFlameProjUp = new Rectangle(46, 48, 8, 10);

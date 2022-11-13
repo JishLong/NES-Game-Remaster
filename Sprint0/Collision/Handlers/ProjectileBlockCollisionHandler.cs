@@ -20,7 +20,7 @@ namespace Sprint0.Collision.Handlers
             AffectedProjectiles = new List<System.Type>{ typeof(BossProjectile), typeof(ArrowProjectile), typeof(BlueArrowProjectile) };
         }
 
-        public void HandleCollision(IProjectile projectile, IBlock block, Types.Direction projectileSide, Room room)
+        public void HandleCollision(IProjectile projectile, IBlock block, Types.Direction projectileSide)
         {
             if ((AffectedProjectiles.Contains(projectile.GetType()) && block.IsWall && block is not SoftBorderBlock)
                 || (projectile is SwordProjectile && block is BorderBlock))
