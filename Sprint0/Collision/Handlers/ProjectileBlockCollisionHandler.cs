@@ -22,7 +22,7 @@ namespace Sprint0.Collision.Handlers
 
         public void HandleCollision(IProjectile projectile, IBlock block, Types.Direction projectileSide)
         {
-            if ((AffectedProjectiles.Contains(projectile.GetType()) && block.IsWall && block is not SoftBorderBlock)
+            if ((AffectedProjectiles.Contains(projectile.GetType()) && block.IsWall && block is not SoftBorderBlock && block is not Water)
                 || (projectile is SwordProjectile && block is BorderBlock))
             {
                 ProjectileManager.GetInstance().RemoveProjectile(projectile);

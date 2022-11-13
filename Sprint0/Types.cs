@@ -27,7 +27,7 @@
         public enum Item
         {
             ARROW, BLUE_CANDLE, BLUE_POTION, BOMB, BOW, CLOCK, COMPASS, FAIRY, HEART, HEART_CONTAINER,
-            KEY, MAP, RUPEE, TRIFORCE_PIECE, WOODEN_BOOMERANG
+            KEY, MAP, RUPEE, TRIFORCE_PIECE, WOODEN_BOOMERANG, VALUABLE_RUPEE
         };
 
         public enum Level { LEVEL1 };

@@ -45,6 +45,8 @@ namespace Sprint0.Items.Utils
                     return new TriforcePiece(position);
                 case Types.Item.WOODEN_BOOMERANG:
                     return new WoodenBoomerang(position);
+                case Types.Item.VALUABLE_RUPEE:
+                    return new ValuableRupee(position);
                 default:
                     Console.Error.Write("The item of type " + itemType.ToString() +
                         " could not be instantiated by the Item Factory. Does this type exist?");

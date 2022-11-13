@@ -83,6 +83,7 @@ namespace Sprint0.Levels.Utils
                 {"heart", Types.Item.HEART },
                 {"boomerang", Types.Item.WOODEN_BOOMERANG },
                 {"rupee", Types.Item.RUPEE },
+                {"valuablerupee", Types.Item.VALUABLE_RUPEE }
             };
 
             DoorMap = new Dictionary<string, Types.Door>()
