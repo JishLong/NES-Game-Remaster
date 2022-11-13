@@ -6,6 +6,7 @@ using Sprint0.Doors;
 using Sprint0.Entities;
 using Sprint0.Levels.Events;
 using Sprint0.Events;
+using System;
 
 namespace Sprint0.Levels
 {
@@ -43,8 +44,13 @@ namespace Sprint0.Levels
             foreach (DirectoryInfo dirInfo in RoomDirs)
             {
                 string roomDirName = dirInfo.Name;
-                level.AddRoom(LoadRoomFromDir(level, levelDirName, roomDirName));
+                Room room = LoadRoomFromDir(level, levelDirName, roomDirName);
+                level.AddRoom(room);
+                level.AddEntity(room);
             }
+            // Load event system.
+            LoadEntities(level, RootPath + levelDirName + "/Entities.csv");
+            LoadEvents(level, RootPath + levelDirName + "/Events.csv");
 
             // Link rooms together using map.
             RoomLinker.LinkRooms(level);
@@ -58,10 +64,8 @@ namespace Sprint0.Levels
             LoadBlocks(room, RootPath + levelDirName + "/" + roomDirName + "/Blocks.csv");
             LoadCharacters(room, RootPath + levelDirName + "/" + roomDirName + "/Characters.csv");
             LoadItems(room, RootPath + levelDirName + "/" + roomDirName + "/Items.csv");
-            LoadDoors(room, RootPath + levelDirName + "/" + roomDirName + "/Doors.csv");
+            LoadDoors(level, room, RootPath + levelDirName + "/" + roomDirName + "/Doors.csv");
             LoadBorder(room, RootPath + levelDirName + "/" + roomDirName + "/Border.csv");
-            LoadEntities(room, RootPath + levelDirName + "/" + roomDirName + "/Entities.csv");
-            LoadEvents(room, RootPath + levelDirName + "/" + roomDirName + "/Events.csv");
             return room;
         }
         public void LoadBlocks(Room room, string roomName)
@@ -136,9 +140,9 @@ namespace Sprint0.Levels
                 row++;
             }
         }
-        public void LoadDoors(Room room, string roomName)
+        public void LoadDoors(Level level, Room room, string roomDoorFile)
         { 
-            Parser = new TextFieldParser(roomName);
+            Parser = new TextFieldParser(roomDoorFile);
             Parser.SetDelimiters(",");
             while (!Parser.EndOfData)
             {
@@ -150,14 +154,14 @@ namespace Sprint0.Levels
                         Types.Door doorType = LevelResources.DoorMap[field];
                         IDoor door = new Door(room, doorType, field);
                         room.AddDoorToRoom(door);
-                        room.AddEntityToRoom(door); // Doors are also inherently entities.
+                        level.AddEntity(door); // Doors are also inherently entities.
                     }
                 }
             }
         }
-        public void LoadBorder(Room room, string roomName)
+        public void LoadBorder(Room room, string roomBorderFile)
         {
-            Parser = new TextFieldParser(roomName);
+            Parser = new TextFieldParser(roomBorderFile);
             Parser.SetDelimiters(",");
             while (!Parser.EndOfData)
             {
@@ -172,9 +176,9 @@ namespace Sprint0.Levels
                 }
             }
         }
-        public void LoadEntities(Room room, string roomName)
+        public void LoadEntities(Level level, string levelEntitiesFile)
         {
-            Parser = new TextFieldParser(roomName);
+            Parser = new TextFieldParser(levelEntitiesFile);
             Parser.SetDelimiters(",");
             Parser.ReadLine(); // Consume the first line.
             while (!Parser.EndOfData)
@@ -183,16 +187,26 @@ namespace Sprint0.Levels
                 string category = fields[0];
                 string type = fields[1];
                 string name = fields[2];
-                int xPosition = int.Parse(fields[3]) * LevelResources.BlockWidth + LevelResources.BorderWidth;
-                int yPosition = int.Parse(fields[4]) * LevelResources.BlockHeight + LevelResources.BorderWidth;
+                string roomName = fields[3];
+                int xPosition = int.Parse(fields[4]) * LevelResources.BlockWidth + LevelResources.BorderWidth;
+                int yPosition = int.Parse(fields[5]) * LevelResources.BlockHeight + LevelResources.BorderWidth;
                 Vector2 position = new Vector2(xPosition, yPosition);
-                IEntity entity = EntityFactory.GetInstance().GetEntity(room, category, type, name, position);
-                room.AddEntityToRoom(entity);
+                // Factory takes room as an argument because the entity must be added as a specific type to an individual room.
+                IEntity entity = EntityFactory.GetInstance().GetEntity(level, roomName, category, type, name, position);
+                // Generic entity type is then added to the level's collection.
+                foreach (IEntity levelEntity in level.Entities)
+                {
+                    if (levelEntity.GetName() == entity.GetName())
+                    {
+                        throw new Exception("Cannot add entity with name " + entity.GetName() + " to level " + level.LevelName + ". An entity with this name already exists!");
+                    }
+                }
+                level.AddEntity(entity);
             }
         }
-        public void LoadEvents(Room room, string roomName)
+        public void LoadEvents(Level level, string levelEventsFile)
         {
-            Parser = new TextFieldParser(roomName);
+            Parser = new TextFieldParser(levelEventsFile);
             Parser.SetDelimiters(",");
             Parser.ReadLine();  // Consume the first line.
             while (!Parser.EndOfData)
@@ -201,8 +215,8 @@ namespace Sprint0.Levels
                 Types.Event type = LevelResources.EventMap[fields[0]];
                 string catylistEntityName = fields[1];
                 string receivingEntityName = fields[2];
-                IEvent roomevent = EventFactory.GetInstance().GetEvent(room, type, catylistEntityName, receivingEntityName);
-                room.AddEventToRoom(roomevent);
+                IEvent levelEvent = EventFactory.GetInstance().GetEvent(level, type, catylistEntityName, receivingEntityName);
+                level.AddEvent(levelEvent);
             }
         }
     }

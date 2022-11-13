@@ -17,7 +17,7 @@ namespace Sprint0.Doors
     {
         public Room Room;
         public string Name;
-        public bool TEST = true;
+        private IEntity Parent;
         public IDoorState State { get; set; }
         public Door(Room room, Types.Door doorType, string name)
         {
@@ -25,10 +25,19 @@ namespace Sprint0.Doors
             State = DoorStateFactory.GetInstance().GetDoor(doorType, this);
 
             // Set name of door
-            Name = name;
+            Name = name + "_" + room.RoomName.ToLower();
 
             // Set Room to the room that this door belongs to.
             Room = room;
+        }
+        public IEntity GetParent()
+        {
+            return Parent;
+        }
+
+        public void SetParent(IEntity entity)
+        {
+            Parent = entity;
         }
 
         public string GetName()
@@ -62,5 +71,7 @@ namespace Sprint0.Doors
         {
             State.Draw(sb);
         }
+
+        
     }
 }

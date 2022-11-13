@@ -8,6 +8,8 @@ namespace Sprint0.Entities
 {
     public interface IEntity
     {
+        IEntity GetParent();
+        void SetParent(IEntity entity);
         string GetName();
         void SetName(string value);
     }
