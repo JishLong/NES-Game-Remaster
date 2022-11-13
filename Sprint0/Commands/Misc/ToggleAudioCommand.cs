@@ -4,11 +4,6 @@
     {
         private static bool IsMuted = false;
 
-        public ToggleAudioCommand()
-        {
-
-        }
-
         public void Execute()
         {
             IsMuted = !IsMuted;

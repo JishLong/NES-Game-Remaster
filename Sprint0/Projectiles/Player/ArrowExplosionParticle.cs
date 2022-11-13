@@ -17,5 +17,10 @@ namespace Sprint0.Projectiles.Player_Projectiles
         {
             return true;
         }
+
+        public override void DeathAction()
+        {
+            // Nothing here!
+        }
     }
 }

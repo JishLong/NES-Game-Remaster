@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Characters.Enemies
 {
     public class DodongoLeftSprite : AbstractAnimatedSprite
     {
-        public DodongoLeftSprite() : base(2, 16)
-        {
-
-        }
+        public DodongoLeftSprite() : base(2, 16) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 

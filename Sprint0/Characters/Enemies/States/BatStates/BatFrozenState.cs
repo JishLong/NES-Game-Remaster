@@ -1,21 +1,23 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.States.BatStates
 {
     public class BatFrozenState: AbstractCharacterState
     {
-        private readonly Bat Bat;
+        private bool FrozenForever;
         private readonly Types.Direction ResumeMovementDirection;
+
         private double FrozenTimer;
         private readonly double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
-        public BatFrozenState(Bat bat, Types.Direction direction)
-        {
-            Bat = bat;
-            ResumeMovementDirection= direction;
-            Sprite = new BatSprite();
 
+        public BatFrozenState(AbstractCharacter character, Types.Direction direction, bool frozenForever) : base(character)
+        {
+            ResumeMovementDirection = direction;
+            FrozenForever = frozenForever;
+
+            FrozenTimer = 0;
         }
+
         public override void Attack()
         {
             // Does not attack.
@@ -23,55 +25,27 @@ namespace Sprint0.Characters.Enemies.States.BatStates
 
         public override void ChangeDirection()
         {
-            switch (ResumeMovementDirection)
-            {
-                case Types.Direction.LEFT:
-                    Bat.State = new BatMovingLeftState(Bat);
-                    break;
-                case Types.Direction.UPLEFT:
-                    Bat.State = new BatMovingUpLeftState(Bat);
-                    break;
-                case Types.Direction.UP:
-                    Bat.State = new BatMovingUpState(Bat);
-                    break;
-                case Types.Direction.UPRIGHT:
-                    Bat.State = new BatMovingUpRightState(Bat);
-                    break;
-                case Types.Direction.RIGHT:
-                    Bat.State = new BatMovingRightState(Bat);
-                    break;
-                case Types.Direction.DOWNRIGHT:
-                    Bat.State = new BatMovingDownRightState(Bat);
-                    break;
-                case Types.Direction.DOWN:
-                    Bat.State = new BatMovingDownState(Bat);
-                    break;
-                case Types.Direction.DOWNLEFT:
-                    Bat.State = new BatMovingDownLeftState(Bat);
-                    break;
-            }
+            // Can't change direction while frozen
         }
 
-        public override void Freeze()
+        public override void Freeze(bool frozenForever)
         {
-            // Already frozen.
+            // If a bat is frozen from a boomerang, picking up a clock will keep it frozen forever
+            // On the other hand, if a bat is frozen from a clock, we don't want the boomerang to "unfreeze" it
+            if (frozenForever) FrozenForever = frozenForever;
         }
 
-        public override void Move()
+        public override void Unfreeze()
         {
-            // Cannot move while frozen.
+            Character.State = new BatMovingState(Character, ResumeMovementDirection);
         }
 
         public override void Update(GameTime gameTime)
         {
-            double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
-            FrozenTimer += elapsedTime;
+            if (!FrozenForever) FrozenTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
+            if ((FrozenTimer - FrozenDelay) > 0) Unfreeze();
 
-            if((FrozenTimer - FrozenDelay) > 0)
-            {
-                ChangeDirection();
-            }
-            Sprite.Update();
+            Character.Sprite.Update();
         }
     }
 }

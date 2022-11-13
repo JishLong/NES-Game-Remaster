@@ -13,7 +13,6 @@ namespace Sprint0.Player
 
         // Movement-related properties
         public Vector2 Position { get; set; }
-        public Vector2 MovementSpeed { get; }
 
         // Combat-related properties
         public int Health { get; set; }
@@ -23,25 +22,18 @@ namespace Sprint0.Player
         // Helpful values to check for certain conditions
         public Types.Direction FacingDirection { get; set; }
         public bool IsStationary { get; set; }
-        public bool IsChangingDirection { get; set; }
-        public bool IsPrimaryAttacking { get; set; }
-        public bool IsTakingDamage { get; set; }
-        public int DamageFramesPassed { get; set; }
-        public int LowHealthFramesPassed { get; set; }
 
         // An inventory to hold all the player's items - not yet in use
         public HUD HUD { get; private set; }
-
         public Inventory Inventory { get; private set; }
         
-        public Player(Game1 game)
+        public Player()
         {
             // Initialize the state
-            State = new PlayerFacingUpState(this);
+            State = new PlayerIdleState(this, true);
 
             // Initialize the movement-related fields
             Position = new Vector2(Resources.BlueTile.Width * Utils.GameScale * 8, Resources.BlueTile.Height * Utils.GameScale * 8);
-            MovementSpeed = new Vector2(4, 4);
 
             // Initialized the combat-related fields
             Health = 6;
@@ -51,18 +43,15 @@ namespace Sprint0.Player
             // Initialize the misc. helpful values
             FacingDirection = Types.Direction.UP;
             IsStationary = true;
-            IsChangingDirection = false;
-            IsPrimaryAttacking = false;
-            IsTakingDamage = false;
 
             // Initialize the inventorys
             HUD = new HUD();
             Inventory = new Inventory();
         }
 
-        public void ChangeDirection(Types.Direction direction)
+        public void Move(Types.Direction direction)
         {
-            State.ChangeDirection(direction);
+            State.Move(direction);
         }
 
         public void DoPrimaryAttack()
@@ -85,9 +74,9 @@ namespace Sprint0.Player
             return State.GetHitbox();
         }
 
-        public void PickUpItem(IItem item) 
+        public void HoldItem(IItem item) 
         {
-            State.PickUpItem(item);
+            State.HoldItem(item);
         }
 
         public void StopAction()
@@ -95,9 +84,9 @@ namespace Sprint0.Player
             State.StopAction();
         }
 
-        public void TakeDamage(int damage, Game1 game) 
+        public void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game) 
         {
-            State.TakeDamage(damage, game);
+            State.ChangeHealth(healthAmount, maxHealthAmount, game);
         }
 
         public void Update()

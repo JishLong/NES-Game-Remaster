@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Sprint0.Commands;
-using Sprint0.Commands.Character;
 using Sprint0.Commands.GameStates;
 using Sprint0.Commands.Misc;
 using Sprint0.Commands.Player;
@@ -15,12 +14,6 @@ namespace Sprint0.Input
     {
         private static KeyboardMappings Instance;
 
-        public Dictionary<ActionMap, ICommand> PlayingStateMappings { get; private set; }
-        public Dictionary<ActionMap, ICommand> PauseStateMappings { get; private set; }
-        public Dictionary<ActionMap, ICommand> WinStateMappings { get; private set; }
-        public Dictionary<ActionMap, ICommand> MainMenuStateMappings { get; private set; }
-        public Dictionary<ActionMap, ICommand> LoseStateMappings { get; private set; }
-
         private KeyboardMappings() { }
 
         public static KeyboardMappings GetInstance() 
@@ -31,16 +24,17 @@ namespace Sprint0.Input
 
         public Dictionary<ActionMap, ICommand> GetPlayingStateMappings(Game1 game, IPlayer player, IGameState currentGameState) 
         {
-            return new Dictionary<ActionMap, ICommand>() { 
+            return new Dictionary<ActionMap, ICommand>()
+            { 
                 // Player movement controls
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.W, Keys.Up),
-                    new PlayerMoveUpCommand(player) },
+                    new PlayerMoveCommand(player, Types.Direction.UP) },
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.S, Keys.Down),
-                    new PlayerMoveDownCommand(player) },
+                    new PlayerMoveCommand(player, Types.Direction.DOWN) },
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.A, Keys.Left),
-                    new PlayerMoveLeftCommand(player) },
+                    new PlayerMoveCommand(player, Types.Direction.LEFT) },
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.D, Keys.Right),
-                    new PlayerMoveRightCommand(player) },
+                    new PlayerMoveCommand(player, Types.Direction.RIGHT) },
                 { new ActionMap(ActionMap.KeyState.RELEASED, Keys.W, Keys.Up, Keys.S, Keys.Down, Keys.A, Keys.Left,
                 Keys.D, Keys.Right), new PlayerStopActionCommand(player) },
 

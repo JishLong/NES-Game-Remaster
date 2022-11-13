@@ -1,19 +1,21 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.States.SkeletonStates
 {
-    public class SkeletonFrozenState: AbstractCharacterState
+    public class SkeletonFrozenState : AbstractCharacterState
     {
-        private readonly Skeleton Skeleton;
+        private bool FrozenForever;
         private readonly Types.Direction ResumeMovementDirection;
+
         private double FrozenTimer;
         private readonly double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
-        public SkeletonFrozenState(Skeleton skeleton, Types.Direction direction)
+
+        public SkeletonFrozenState(AbstractCharacter character, Types.Direction direction, bool frozenForever) : base(character)
         {
-            Skeleton = skeleton;
             ResumeMovementDirection = direction;
-            Sprite = new SkeletonSprite();
+            FrozenForever = frozenForever;
+
+            FrozenTimer = 0;
         }
         public override void Attack()
         {
@@ -22,43 +24,27 @@ namespace Sprint0.Characters.Enemies.States.SkeletonStates
 
         public override void ChangeDirection()
         {
-            switch (ResumeMovementDirection)
-            {
-                case Types.Direction.LEFT:
-                    Skeleton.State = new SkeletonMovingLeftState(Skeleton);
-                    break;
-                case Types.Direction.RIGHT:
-                    Skeleton.State = new SkeletonMovingRightState(Skeleton);
-                    break;
-                case Types.Direction.DOWN:
-                    Skeleton.State = new SkeletonMovingDownState(Skeleton);
-                    break;
-                case Types.Direction.UP:
-                    Skeleton.State = new SkeletonMovingUpState(Skeleton);
-                    break;
-            }
+            // Can't change direction while frozen
         }
 
-        public override void Freeze()
+        public override void Freeze(bool frozenForever)
         {
-            // Already frozen.
+            // If a skeleton is frozen from a boomerang, picking up a clock will keep it frozen forever
+            // On the other hand, if a skeleton is frozen from a clock, we don't want the boomerang to "unfreeze" it
+            if (frozenForever) FrozenForever = frozenForever;
         }
 
-        public override void Move()
+        public override void Unfreeze()
         {
-            // Cannot move while frozen
+            Character.State = new SkeletonMovingState(Character, ResumeMovementDirection);
         }
 
         public override void Update(GameTime gameTime)
         {
-            double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
-            FrozenTimer += elapsedTime;
+            if (!FrozenForever) FrozenTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
+            if ((FrozenTimer - FrozenDelay) > 0) Unfreeze();
 
-            if((FrozenTimer - FrozenDelay) > 0)
-            {
-                ChangeDirection();
-            }
-            Sprite.Update();
+            Character.Sprite.Update();
         }
     }
 }

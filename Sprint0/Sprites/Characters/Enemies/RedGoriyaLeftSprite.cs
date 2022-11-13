@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Characters.Enemies
 {
     public class RedGoriyaLeftSprite : AbstractAnimatedSprite
     {
-        public RedGoriyaLeftSprite() : base(2, 8)
-        {
-
-        }
+        public RedGoriyaLeftSprite() : base(2, 8) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 

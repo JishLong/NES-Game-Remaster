@@ -10,19 +10,10 @@ namespace Sprint0.Npcs
     {
         public Flame(Vector2 position)
         {
+            Sprite = new FlameSprite();
+
             Health = 1;
             Position = position;
-            Sprite = new FlameSprite();
-        }
-
-        public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
-        {
-            // You can't kill fire :D
-        }
-
-        public override void Update(GameTime gameTime)
-        {
-            Sprite.Update();
         }
 
         public override void Draw(SpriteBatch sb)
@@ -34,5 +25,15 @@ namespace Sprint0.Npcs
         {
             return Sprite.GetDrawbox(Position);
         }
+
+        public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
+        {
+            // You can't kill fire :D
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            Sprite.Update();
+        }      
     }
 }

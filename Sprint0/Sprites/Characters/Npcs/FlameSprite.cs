@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Characters.Npcs
 {
     public class FlameSprite : AbstractAnimatedSprite
     {
-        public FlameSprite() : base(2, 8)
-        {
-
-        }
+        public FlameSprite() : base(2, 8) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 
@@ -20,7 +17,7 @@ namespace Sprint0.Sprites.Characters.Npcs
             {
                 Rectangle frame = GetFirstFrame();
                 spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), frame, color, 0, Vector2.Zero,
-                SpriteEffects.FlipHorizontally, layerDepth);
+                    SpriteEffects.FlipHorizontally, layerDepth);
             }
             else base.Draw(spriteBatch, position, color, layerDepth);
         }

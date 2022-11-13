@@ -1,10 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters.Enemies.States.BladeTrapStates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Sprint0.Levels;
+using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies
 {
@@ -12,6 +10,9 @@ namespace Sprint0.Characters.Enemies
     {
         public BladeTrap(Vector2 position)
         {
+            // The blade trap sprite is the same no matter its state, so we'll just instantiate it here
+            Sprite = new BladeTrapSprite();
+
             // State
             State = new BladeTrapStillState(this);
 
@@ -21,6 +22,21 @@ namespace Sprint0.Characters.Enemies
             // Combat
             Health = int.MaxValue;
             Damage = 1;
+        }
+
+        public override void Draw(SpriteBatch sb)
+        {
+            State.Draw(sb, Position, Color.White);
+        }
+
+        public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
+        {
+            // Blade trap is invincibile bwahahahaha
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            Sprite.Update();
         }
     }
 }

@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Characters.Enemies
 {
     public class HandSprite : AbstractAnimatedSprite
     {
-        public HandSprite() : base(2, 16)
-        {
-
-        }
+        public HandSprite() : base(2, 16) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 

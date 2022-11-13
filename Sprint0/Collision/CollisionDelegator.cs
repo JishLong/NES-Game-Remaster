@@ -2,7 +2,6 @@
 using Sprint0.Characters;
 using Sprint0.Collision.Handlers;
 using Sprint0.Items;
-using Sprint0.Levels;
 using Sprint0.Player;
 using Sprint0.Projectiles;
 
@@ -59,8 +58,7 @@ namespace Sprint0.Collision
             }
             else if (CollidableA is ICharacter && CollidableB is IBlock)
             {
-                CharacterBlockHandler.HandleCollision(CollidableA as ICharacter, CollidableB as IBlock, SideA,
-                    game.LevelManager.CurrentLevel.CurrentRoom);
+                CharacterBlockHandler.HandleCollision(CollidableA as ICharacter, CollidableB as IBlock, SideA);
             }
             else if (CollidableA is ICharacter && CollidableB is IProjectile)
             {
@@ -69,13 +67,11 @@ namespace Sprint0.Collision
             }
             else if (CollidableA is IProjectile && CollidableB is IBlock)
             {
-                ProjectileBlockHandler.HandleCollision(CollidableA as IProjectile, CollidableB as IBlock, SideA,
-                    game.LevelManager.CurrentLevel.CurrentRoom);
+                ProjectileBlockHandler.HandleCollision(CollidableA as IProjectile, CollidableB as IBlock, SideA);
             }
             else if (CollidableA is IProjectile && CollidableB is IItem)
             {
-                ProjectileItemHandler.HandleCollision(CollidableA as IProjectile, CollidableB as IItem, SideA,
-                    game.LevelManager.CurrentLevel.CurrentRoom);
+                ProjectileItemHandler.HandleCollision(CollidableA as IProjectile, CollidableB as IItem, SideA);
             }
         } 
     }

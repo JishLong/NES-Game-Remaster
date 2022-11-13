@@ -8,18 +8,16 @@ namespace Sprint0.Player
     public interface IPlayer : ICollidable
     {
         Vector2 Position { get; set; }
-        Types.Projectile SecondaryWeapon { get; set; }
         Types.Direction FacingDirection { get; set; }
+        int Health { get; }
         bool IsStationary { get; set; }
-
-        int MaxHealth { get; set; }
-        int Health { get; set; }
+        Types.Projectile SecondaryWeapon { get; set; } 
 
         HUD HUD { get; }
 
         Inventory Inventory { get; }
 
-        void ChangeDirection(Types.Direction direction);
+        void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game);
 
         void DoPrimaryAttack();
 
@@ -27,11 +25,11 @@ namespace Sprint0.Player
 
         void Draw(SpriteBatch spriteBatch);
 
-        void PickUpItem(IItem item);
+        void HoldItem(IItem item);
+
+        void Move(Types.Direction direction);
 
         void StopAction();
-
-        void TakeDamage(int damage, Game1 game);
 
         void Update();
     }

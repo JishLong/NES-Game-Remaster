@@ -17,7 +17,6 @@ namespace Sprint0
         public static SoundEffect ArrowBoomerangShoot { get; private set; }
         public static SoundEffect BombExplode { get; private set; }
         public static SoundEffect BossNoise { get; private set; }
-        public static SoundEffect Dababy { get; private set; }
         public static SoundEffect DungeonMusic { get; private set; }
         public static SoundEffect EnemyDeath { get; private set; }
         public static SoundEffect EnemyTakeDamage { get; private set; }
@@ -39,6 +38,8 @@ namespace Sprint0
         public static SoundEffect Text { get; private set; }
         public static SoundEffect Win { get; private set; }
 
+        // Mouse Cursor
+        public static Texture2D[] MouseCursor { get; private set; }
 
         // Sprite sheets
         public static Texture2D BlocksSpriteSheet { get; private set; }
@@ -52,16 +53,14 @@ namespace Sprint0
 
         // Sprite sheet positions for all blocks
         public static readonly Rectangle BlueTile = new Rectangle(0, 0, 16, 16);
-        public static readonly Rectangle BlueWall = new Rectangle(16, 0, 16, 16);
-        public static readonly Rectangle BlueGap = new Rectangle(32, 16, 16, 16);
+        public static readonly Rectangle BlueWall = new Rectangle(16, 0, 16, 16);   
         public static readonly Rectangle BlueStatueLeft = new Rectangle(32, 0, 16, 16);
         public static readonly Rectangle BlueStatueRight = new Rectangle(48, 0, 16, 16);
-        public static readonly Rectangle BlueStairs = new Rectangle(48, 16, 16, 16);
-        public static readonly Rectangle BlueSand = new Rectangle(16, 16, 16, 16);
-        public static readonly Rectangle GreyBricks = new Rectangle(0, 32, 16, 16);
-        public static readonly Rectangle WhiteBars = new Rectangle(16, 32, 16, 16);
-        public static readonly Rectangle LadderBlock = new Rectangle(0, 16, 16, 16);
-        public static readonly Rectangle BorderBlock = new Rectangle(33, 33, 16, 16);
+        public static readonly Rectangle BlueStairs = new Rectangle(32, 16, 16, 16);
+        public static readonly Rectangle BlueSand = new Rectangle(0, 16, 16, 16);
+        public static readonly Rectangle GreyBricks = new Rectangle(48, 16, 16, 16);
+        public static readonly Rectangle WhiteBars = new Rectangle(0, 32, 16, 16);
+        public static readonly Rectangle Water = new Rectangle(16, 16, 16, 16);
 
         // Sprite sheet positions for all borders
         public static readonly Rectangle Level1Border = new Rectangle(521, 11, 256, 176);
@@ -116,8 +115,8 @@ namespace Sprint0
         public static readonly Rectangle FlameProj = new Rectangle(34, 16, 16, 16);
         public static readonly Rectangle BossProj = new Rectangle(50, 16, 8, 10);
         public static readonly Rectangle CharacterDeathParticle = new Rectangle(0, 32, 15, 16);
-        public static readonly Rectangle SwordMeleeHorz = new Rectangle(61, 32, 12, 15);
-        public static readonly Rectangle SwordMeleeVert = new Rectangle(74, 32, 15, 12);
+        public static readonly Rectangle SwordMeleeHorz = new Rectangle(69, 32, 12, 7);
+        public static readonly Rectangle SwordMeleeVert = new Rectangle(61, 32, 7, 12);
         public static readonly Rectangle SwordProjHorz = new Rectangle(14, 48, 16, 7);
         public static readonly Rectangle SwordProjVert = new Rectangle(0, 48, 7, 16);
         public static readonly Rectangle SwordFlameProjUp = new Rectangle(46, 48, 8, 10);
@@ -161,7 +160,6 @@ namespace Sprint0
             ArrowBoomerangShoot = c.Load<SoundEffect>("Audio/arrowBoomerang");
             BombExplode = c.Load<SoundEffect>("Audio/bomb");
             BossNoise = c.Load<SoundEffect>("Audio/bossNoise");
-            Dababy = c.Load<SoundEffect>("Audio/dababy");
             DungeonMusic = c.Load<SoundEffect>("Audio/dungeonMusic");
             EnemyDeath = c.Load<SoundEffect>("Audio/enemyDeath");
             EnemyTakeDamage = c.Load<SoundEffect>("Audio/enemyTakeDamage");
@@ -183,6 +181,15 @@ namespace Sprint0
             Text = c.Load<SoundEffect>("Audio/text");
             Win = c.Load<SoundEffect>("Audio/win");
 
+            // Load mouse cursor images
+            MouseCursor = new Texture2D[4]
+            {
+                c.Load<Texture2D>("Images/Mouse Cursor/cursor1"),
+                c.Load<Texture2D>("Images/Mouse Cursor/cursor2"),
+                c.Load<Texture2D>("Images/Mouse Cursor/cursor3"),
+                c.Load<Texture2D>("Images/Mouse Cursor/cursor4")
+            };
+
             // Load sprite sheets
             BlocksSpriteSheet = c.Load<Texture2D>("Images/blocks");
             ItemsSpriteSheet = c.Load<Texture2D>("Images/items");
@@ -193,5 +200,7 @@ namespace Sprint0
             PausePanel = c.Load<Texture2D>("Images/pausePanel");
             ScreenCover = c.Load<Texture2D>("Images/screenCover");
         }
+
+        // Why you looking down here? Tryna see how many lines of code this class is? Go back to the top >:(
     }
 }

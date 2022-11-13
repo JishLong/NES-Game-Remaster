@@ -23,7 +23,7 @@ namespace Sprint0
             Graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            Window.ClientSizeChanged += OnResize;
+            Window.ClientSizeChanged += OnResize;            
         }
 
         protected override void Initialize()
@@ -70,7 +70,7 @@ namespace Sprint0
         {
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
-            Player = new Player.Player(this);
+            Player = new Player.Player();
             MouseMappings.GetInstance().InitializeMappings(this);
         }
 

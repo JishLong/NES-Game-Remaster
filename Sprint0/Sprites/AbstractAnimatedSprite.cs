@@ -32,58 +32,13 @@ namespace Sprint0.Sprites
         private Rectangle GetCurrentFrame() 
         {
             Rectangle frame = GetFirstFrame();
-            if (CurrentFrame != 0)
-            {
-                frame = new Rectangle(frame.X + CurrentFrame * frame.Width, frame.Y, frame.Width, frame.Height);
-            }
+            if (CurrentFrame != 0) frame = new Rectangle(frame.X + CurrentFrame * frame.Width, frame.Y, frame.Width, frame.Height);
             return frame;
         }
 
-        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position)
+        public int GetAnimationTime()
         {
-            Draw(spriteBatch, position, Color.White);
-        }
-        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color)
-        {
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetCurrentFrame(),
-                color, 0, Vector2.Zero, SpriteEffects.None, 0);
-        }
-
-        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer = 0)
-        {
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetCurrentFrame(),
-                color, 0, Vector2.Zero, SpriteEffects.None, layer);
-        }
-
-        protected void DrawFlippedHorz(SpriteBatch spriteBatch, Vector2 position, Color color)
-        {
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetCurrentFrame(),
-                color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
-        }
-        protected void DrawFlippedHorz(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
-        {
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetCurrentFrame(),
-                color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, layer);
-        }
-
-        protected void DrawFlippedVert(SpriteBatch spriteBatch, Vector2 position, Color color)
-        {
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetCurrentFrame(),
-                color, 0, Vector2.Zero, SpriteEffects.FlipVertically, 0);
-        }
-        protected void DrawFlippedVert(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
-        {
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetCurrentFrame(),
-                color, 0, Vector2.Zero, SpriteEffects.FlipVertically, layer);
-        }
-
-        public virtual void Update()
-        {
-            Timer = (Timer + 1) % Speed;
-            if (Timer == 0)
-            {
-                CurrentFrame = (CurrentFrame + 1) % NumFrames;
-            }
+            return NumFrames * Speed;
         }
 
         public Rectangle GetDrawbox(Vector2 position)
@@ -94,12 +49,31 @@ namespace Sprint0.Sprites
                 (int)(position.Y + (yOffsetPixels * Utils.GameScale)),
                 (int)(frame.Width * Utils.GameScale),
                 (int)(frame.Height * Utils.GameScale));
-          
+
         }
 
-        public int GetAnimationTime() 
+        public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer = 0)
         {
-            return NumFrames * Speed;
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetCurrentFrame(),
+                color, 0, Vector2.Zero, SpriteEffects.None, layer);
+        }
+
+        protected void DrawFlippedHorz(SpriteBatch spriteBatch, Vector2 position, Color color, float layer = 0)
+        {
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetCurrentFrame(),
+                color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, layer);
+        }
+
+        protected void DrawFlippedVert(SpriteBatch spriteBatch, Vector2 position, Color color, float layer = 0)
+        {
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetOffset()), GetCurrentFrame(),
+                color, 0, Vector2.Zero, SpriteEffects.FlipVertically, layer);
+        }
+
+        public virtual void Update()
+        {
+            Timer = (Timer + 1) % Speed;
+            if (Timer == 0) CurrentFrame = (CurrentFrame + 1) % NumFrames;
         }
     }
 }

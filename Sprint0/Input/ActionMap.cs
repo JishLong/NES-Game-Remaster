@@ -11,8 +11,10 @@ namespace Sprint0.Controllers
          * [UP]: any of the keys in the mapping are not being held down
          * [PRESSED]: at least one of the keys in the mapping has *JUST NOW* been pressed down
          * [RELEASED]: at least one of the keys in the mapping has *JUST NOW* been released
+         * [ALL_HELD]: all keys in the mapping are being held down
+         * [ALL_RELEASED}: all keys in the mapping NOT being held down 
          */
-        public enum KeyState {HELD, UP, PRESSED, RELEASED};
+        public enum KeyState {HELD, UP, PRESSED, RELEASED, ALL_HELD, ALL_RELEASED };
 
         private readonly KeyState State;
         private readonly Keys[] KeyList;
@@ -34,8 +36,12 @@ namespace Sprint0.Controllers
                 {
                     return true;
                 }
+                else if (State == KeyState.ALL_HELD && currentState.IsKeyUp(key)) return false;
+                else if (State == KeyState.ALL_RELEASED && currentState.IsKeyDown(key)) return false;
             }
-            return false;
+
+            if (State == KeyState.ALL_HELD || State == KeyState.ALL_RELEASED) return true;
+            else return false;
         }
     }
 }

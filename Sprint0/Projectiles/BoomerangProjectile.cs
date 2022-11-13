@@ -10,7 +10,7 @@ namespace Sprint0.Projectiles
     {
         private bool IsReturning;
         private IItem HeldItem;
-        private Types.Direction Direction;
+        private readonly Types.Direction Direction;
 
         public BoomerangProjectile(ICollidable player, Types.Direction direction) :
             base(new BoomerangSprite(), player, direction, new Vector2(7, 7))
@@ -63,6 +63,11 @@ namespace Sprint0.Projectiles
             {
                 AudioManager.GetInstance().PlayOnce(Resources.ArrowBoomerangShoot);
             }
+        }
+
+        public override void DeathAction()
+        {
+            // Nothing here!
         }
     }
 }

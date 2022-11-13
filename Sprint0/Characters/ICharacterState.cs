@@ -11,11 +11,11 @@ namespace Sprint0.Characters
 
         void Draw(SpriteBatch sb, Vector2 position, Color color);
 
-        void Freeze();
+        void Freeze(bool frozenForever);
 
         Rectangle GetHitbox(Vector2 position);
 
-        void Move();
+        void Unfreeze();
  
         void Update(GameTime gameTime);        
     }

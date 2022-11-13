@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Projectiles.Player
 {
     public class DeathParticleSprite : AbstractAnimatedSprite
     {
-        public DeathParticleSprite() : base(4, 8)
-        {
-
-        }
+        public DeathParticleSprite() : base(4, 8) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.WeaponsAndProjSpriteSheet;
 

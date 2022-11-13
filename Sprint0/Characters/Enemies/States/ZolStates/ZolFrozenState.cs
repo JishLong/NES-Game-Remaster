@@ -1,20 +1,23 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.States.ZolStates
 {
-    public class ZolFrozenState: AbstractCharacterState
+    public class ZolFrozenState : AbstractCharacterState
     {
-        private readonly Zol Zol;
+        private bool FrozenForever;
         private readonly Types.Direction ResumeMovementDirection;
+
         private double FrozenTimer;
         private readonly double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
-        public ZolFrozenState(Zol zol, Types.Direction direction)
+
+        public ZolFrozenState(AbstractCharacter character, Types.Direction direction, bool frozenForever) : base(character)
         {
-            Zol = zol;
             ResumeMovementDirection = direction;
-            Sprite = new ZolSprite();
+            FrozenForever = frozenForever;
+
+            FrozenTimer = 0;
         }
+
         public override void Attack()
         {
             // Does not attack.
@@ -22,43 +25,27 @@ namespace Sprint0.Characters.Enemies.States.ZolStates
 
         public override void ChangeDirection()
         {
-            switch (ResumeMovementDirection)
-            {
-                case Types.Direction.LEFT:
-                    Zol.State = new ZolMovingLeftState(Zol);
-                    break;
-                case Types.Direction.RIGHT:
-                    Zol.State = new ZolMovingRightState(Zol);
-                    break;
-                case Types.Direction.DOWN:
-                    Zol.State = new ZolMovingDownState(Zol);
-                    break;
-                case Types.Direction.UP:
-                    Zol.State = new ZolMovingUpState(Zol);
-                    break;
-            }
+            // Can't change direction while frozen
         }
 
-        public override void Freeze()
+        public override void Freeze(bool frozenForever)
         {
-            // Already frozen.
+            // If a zol is frozen from a boomerang, picking up a clock will keep it frozen forever
+            // On the other hand, if a zol is frozen from a clock, we don't want the boomerang to "unfreeze" it
+            if (frozenForever) FrozenForever = frozenForever;
         }
 
-        public override void Move()
+        public override void Unfreeze()
         {
-            // Cannot move while frozen
+            Character.State = new ZolMovingState(Character, ResumeMovementDirection);
         }
 
         public override void Update(GameTime gameTime)
         {
-            double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
-            FrozenTimer += elapsedTime;
+            if (!FrozenForever) FrozenTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
+            if ((FrozenTimer - FrozenDelay) > 0) Unfreeze();
 
-            if((FrozenTimer - FrozenDelay) > 0)
-            {
-                ChangeDirection();
-            }
-            Sprite.Update();
+            Character.Sprite.Update();
         }
     }
 }

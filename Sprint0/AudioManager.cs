@@ -6,28 +6,36 @@ namespace Sprint0
     public class AudioManager
     {
         private static AudioManager Instance;
+
         private readonly List<SoundEffectInstance> PlayingAudio;
-        private readonly List<SoundEffectInstance> ToBeRemoved;
         private bool IsMuted;
 
         private AudioManager() 
         {
             PlayingAudio = new List<SoundEffectInstance>();
-            ToBeRemoved = new List<SoundEffectInstance>();
-            IsMuted = true;
+            IsMuted = false;
         }
 
+        // Pauses literally all other activity on the thread and plays only the sound effect [audio]
+        // This is very niche functionality; it's used for picking up items such as the bow
         public void PlaySelfishSound(SoundEffect audio) 
         {
+            // Pause all current audio
             foreach (var audioPlaying in PlayingAudio)
             {
                 if (audioPlaying.State == SoundState.Playing) audioPlaying.Pause();
             }
+
+            // Play the sound effect
             SoundEffectInstance instance = audio.CreateInstance();
             if (IsMuted) instance.Volume = 0;
             instance.Play();
+
+            // Wait until the sound effect has completed
             while (instance.State != SoundState.Stopped) ;
             instance.Dispose();
+
+            // Resume all other audio that was playing before
             foreach (var audioPlaying in PlayingAudio)
             {
                 if (audioPlaying.State == SoundState.Paused) audioPlaying.Resume();
@@ -88,19 +96,14 @@ namespace Sprint0
 
         public void Update() 
         {
-            foreach (var audio in PlayingAudio)
+            for (int i = PlayingAudio.Count - 1; i >= 0; i--) 
             {
-                if (!audio.IsLooped && audio.State == SoundState.Stopped) 
+                if (!PlayingAudio[i].IsLooped && PlayingAudio[i].State == SoundState.Stopped)
                 {
-                    audio.Dispose();
-                    ToBeRemoved.Add(audio);
+                    PlayingAudio[i].Dispose();
+                    PlayingAudio.RemoveAt(i);
                 }
             }
-            foreach (var audio in ToBeRemoved)
-            {
-                PlayingAudio.Remove(audio);
-            }
-            ToBeRemoved.Clear();
         }
     }
 }

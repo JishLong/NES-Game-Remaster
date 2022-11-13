@@ -9,13 +9,14 @@ namespace Sprint0.Projectiles
 {
     public abstract class AbstractProjectile : IProjectile
     {
-        protected ISprite Sprite;
-        protected ICollidable User;
         public Vector2 Position { get; set; }
         public int Damage { get; protected set; }
+
+        protected ISprite Sprite;
+        protected ICollidable User;
         protected Vector2 Velocity;
 
-        /* [FramesAlive]: the number of game frames this projectile should ideally last for
+        /* [MaxFramesAlive]: the number of game frames this projectile should ideally last for
          * [FramesPassed]: the number of game frames that this projectile has been alive (and updated) for
          */
         protected int MaxFramesAlive, FramesPassed;
@@ -24,20 +25,17 @@ namespace Sprint0.Projectiles
         {
             Sprite = sprite;
             User = user;
-            Velocity = Utils.DirectionToVector(direction) * movementSpeed;
+            Velocity = DirectionToVector(direction) * movementSpeed;
 
             Rectangle TempHitbox = sprite.GetDrawbox(Vector2.Zero);
-            Position = Utils.LineUpEdges(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height, direction);
+            Position = AlignEdges(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height, direction);
             Damage = 0;
 
             MaxFramesAlive = 0;
             FramesPassed = 0;
-        }    
-
-        public virtual void DeathAction() 
-        {
-            // Nothing here! But nice that it doesn't necessarily have to be declared in concrete classes!
         }
+
+        public abstract void DeathAction();
 
         public virtual void Draw(SpriteBatch sb)
         {
@@ -55,7 +53,7 @@ namespace Sprint0.Projectiles
             return Sprite.GetDrawbox(Position);
         }
 
-        public virtual bool IsTimeUp()
+        public virtual bool TimeIsUp()
         {
             return FramesPassed > MaxFramesAlive;
         }

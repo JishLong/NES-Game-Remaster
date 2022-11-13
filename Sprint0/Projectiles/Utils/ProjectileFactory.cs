@@ -31,22 +31,22 @@ namespace Sprint0.Projectiles.Tools
                     return new BombExplosionParticle(user, direction);
                 case Types.Projectile.BOMB_PROJ:
                     return new BombProjectile(user, direction);
+                case Types.Projectile.BOOMERANG_PROJ:
+                    return new BoomerangProjectile(user, direction);
                 case Types.Projectile.BOSS_PROJ:
                     return new BossProjectile(user, direction);
                 case Types.Projectile.DEATH_PARTICLE:
                     return new DeathParticle(user);                  
                 case Types.Projectile.FLAME_PROJ:
                     return new FlameProjectile(user, direction);
-                case Types.Projectile.BOOMERANG_PROJ:
-                    return new BoomerangProjectile(user, direction);
+                case Types.Projectile.SPAWN_PARTICLE:
+                    return new SpawnParticle(user);
                 case Types.Projectile.SWORD_MELEE:
                     return new SwordMelee(user, direction);
                 case Types.Projectile.SWORD_PROJ:
                     return new SwordProjectile(user, direction);
                 case Types.Projectile.SWORD_FLAME_PROJ:
-                    return new SwordFlameProjectile(user, direction);
-                case Types.Projectile.SPAWN_PARTICLE:
-                    return new SpawnParticle(user);
+                    return new SwordFlameProjectile(user, direction);  
                 default:
                     Console.Error.Write("The projectile of type " + projectileType.ToString() +
                         " could not be instantiated by the Projectile Factory. Does this type exist?");
