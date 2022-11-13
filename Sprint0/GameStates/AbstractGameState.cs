@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Sprint0.GameStates.GameStates
 {
-    public class AbstractGameState : IGameState
+    public abstract class AbstractGameState : IGameState
     {
         protected Game1 Game;
         protected List<IController> Controllers;
@@ -16,10 +16,7 @@ namespace Sprint0.GameStates.GameStates
             Game = game;
         }
 
-        public virtual void Draw(SpriteBatch sb)
-        {
-
-        }
+        public abstract void Draw(SpriteBatch sb);
 
         public virtual void Update(GameTime gameTime)
         {

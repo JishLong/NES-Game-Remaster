@@ -2,20 +2,20 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Controllers;
 using Sprint0.Input;
-using Sprint0.Levels;
 using System.Collections.Generic;
 
 namespace Sprint0.GameStates.GameStates
 {
     public class InventoryTransitionState : AbstractGameState
     {
+        private static readonly int GameAreaHeight = 176;
+        private static readonly int ShiftAmount = (int)(GameAreaHeight * Utils.GameScale);
+        private static readonly int TransitionFrames = ShiftAmount / 8;
+
         private readonly IGameState InventoryState;
         private readonly IGameState PlayingState;
 
         private readonly Types.Direction Direction;
-
-        private readonly int ShiftAmount;
-        private readonly int TransitionFrames;
         private int ShiftedAmount;
         private int FramesPassed;
 
@@ -32,26 +32,27 @@ namespace Sprint0.GameStates.GameStates
             InventoryState = new InventoryState(game);
             PlayingState = new PlayingState(game);
 
-            ShiftAmount = (int)(176 * Utils.GameScale);
             ShiftedAmount = 0;
-            TransitionFrames = ShiftAmount / 8;
             FramesPassed = 0;
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            Camera.GetInstance().Move(Direction, ShiftedAmount);
+            Camera.GetInstance().Move(Utils.GetOppositeDirection(Direction), ShiftedAmount);
             if (Direction == Types.Direction.UP) PlayingState.Draw(sb);
             else if (Direction == Types.Direction.DOWN) InventoryState.Draw(sb);
-            Camera.GetInstance().Move(Utils.GetOppositeDirection(Direction), ShiftAmount);
+
+            Camera.GetInstance().Move(Direction, ShiftAmount);
             if (Direction == Types.Direction.UP) InventoryState.Draw(sb);
             else if (Direction == Types.Direction.DOWN) PlayingState.Draw(sb);
+
             Camera.GetInstance().Reset();           
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
             ShiftedAmount += ShiftAmount / TransitionFrames;
             FramesPassed++;
 

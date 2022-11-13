@@ -8,11 +8,12 @@ namespace Sprint0.GameStates.GameStates
 {
     public class LoseState : AbstractGameState
     {
+        private static readonly int FlashingFrames = 30;
+
         private readonly Vector2 flashingTextPosition;
         private readonly Vector2 unpauseTextPosition;
         private readonly Vector2 quitTextPosition;
-
-        private readonly int FlashingFrames;
+   
         private bool IsShowing;
         private int FramesPassed;
 
@@ -32,7 +33,6 @@ namespace Sprint0.GameStates.GameStates
             unpauseTextPosition = new Vector2(Utils.GameWidth / 2 - unpauseTextSize.X / 2, quitTextPosition.Y - unpauseTextSize.Y * 3 / 2);
             flashingTextPosition = new Vector2(Utils.GameWidth / 2 - flashingTextSize.X / 2, unpauseTextPosition.Y - flashingTextSize.Y * 3);
 
-            FlashingFrames = 30;
             IsShowing = true;
             FramesPassed = 0;
         }
@@ -41,8 +41,10 @@ namespace Sprint0.GameStates.GameStates
         {
             Game.LevelManager.Draw(sb);
             Game.Player.Draw(sb);
-            Camera.GetInstance().Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
+
+            Camera.GetInstance().Move(Types.Direction.UP, (int)(44 * Utils.GameScale));
             Game.Player.HUD.Draw(sb);
+
             Camera.GetInstance().Reset();
 
             Rectangle PanelDims = Resources.PausePanel.Bounds;
@@ -55,8 +57,11 @@ namespace Sprint0.GameStates.GameStates
 
             sb.DrawString(Resources.MediumFont, "Press SPACE to restart", unpauseTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             sb.DrawString(Resources.MediumFont, "Press Q to quit game", quitTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-
-            if (IsShowing) sb.DrawString(Resources.LargeFont, "- YOU DIED :( -", flashingTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            if (IsShowing) 
+            {
+                sb.DrawString(Resources.LargeFont, "- YOU DIED :( -", flashingTextPosition,
+                    Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            } 
         }
 
         public override void Update(GameTime gameTime)

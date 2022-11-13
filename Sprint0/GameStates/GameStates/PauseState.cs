@@ -8,13 +8,14 @@ namespace Sprint0.GameStates.GameStates
 {
     public class PauseState : AbstractGameState
     {
+        private static readonly int FlashingFrames = 30;
+
         private readonly IGameState PrevGameState;
 
         private readonly Vector2 flashingTextPosition;
         private readonly Vector2 unpauseTextPosition;
         private readonly Vector2 quitTextPosition;
 
-        private readonly int FlashingFrames;
         private bool IsShowing;
         private int FramesPassed;
 
@@ -36,7 +37,6 @@ namespace Sprint0.GameStates.GameStates
             unpauseTextPosition = new Vector2(Utils.GameWidth / 2 - unpauseTextSize.X / 2, quitTextPosition.Y - unpauseTextSize.Y * 3 / 2);
             flashingTextPosition = new Vector2(Utils.GameWidth / 2 - flashingTextSize.X / 2, unpauseTextPosition.Y - flashingTextSize.Y * 3);
 
-            FlashingFrames = 30;
             IsShowing = true;
             FramesPassed = 0;
         }

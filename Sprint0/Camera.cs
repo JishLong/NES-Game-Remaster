@@ -17,7 +17,7 @@ namespace Sprint0
 
         public void Move(Types.Direction direction, int amount)
         {
-            Position -= Utils.DirectionToVector(direction) * amount;
+            Position += Utils.DirectionToVector(direction) * amount;
         }
 
         public void Reset()
