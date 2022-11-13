@@ -55,12 +55,12 @@ namespace Sprint0.Characters
         public virtual void Draw(SpriteBatch sb)
         {
             Color CharacterColor = (IsTakingDamage) ? Color.Red : Color.White;
-            if (!JustSpawned) State.Draw(sb, Position, CharacterColor);
+            if (State != null && !JustSpawned) State.Draw(sb, Position, CharacterColor);
         }
 
         public void Freeze(bool frozenForever)
         {
-            State.Freeze(frozenForever);
+            if (State != null) State.Freeze(frozenForever);
         }
 
         public virtual Rectangle GetHitbox()
@@ -89,7 +89,7 @@ namespace Sprint0.Characters
 
         public void Unfreeze()
         {
-            State.Unfreeze();
+            if (State != null) State.Unfreeze();
         }
 
         public virtual void Update(GameTime gameTime)
@@ -117,7 +117,7 @@ namespace Sprint0.Characters
                 }
             }
 
-            State.Update(gameTime);
+            if (State != null) State.Update(gameTime);
         }
     }
 }

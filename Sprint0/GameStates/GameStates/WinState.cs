@@ -20,7 +20,7 @@ namespace Sprint0.GameStates.GameStates
         private float FadeAmount;
         private int FadeOutFrames;
 
-        public WinState()
+        public WinState(Game1 game) : base(game)
         {
             Controllers ??= new List<IController>()
             {
@@ -49,9 +49,9 @@ namespace Sprint0.GameStates.GameStates
         {
             Game.LevelManager.Draw(sb);
             Game.Player.Draw(sb);
-            Camera.Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
+            Camera.GetInstance().Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
             Game.Player.HUD.Draw(sb);
-            Camera.Reset();
+            Camera.GetInstance().Reset();
 
             if (IsFlashing && FramesPassed < FadeOutFrames) 
             {

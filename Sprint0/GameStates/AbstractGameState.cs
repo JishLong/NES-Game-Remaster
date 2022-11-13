@@ -1,13 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Controllers;
 using System.Collections.Generic;
 
 namespace Sprint0.GameStates.GameStates
 {
     public class AbstractGameState : IGameState
     {
-        protected static Game1 Game;
+        protected Game1 Game;
         protected List<IController> Controllers;
 
         protected AbstractGameState() { }

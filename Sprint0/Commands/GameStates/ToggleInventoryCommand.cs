@@ -14,8 +14,8 @@ namespace Sprint0.Commands.GameStates
 
         public void Execute()
         {
-            if (Game.CurrentState is InventoryState) Game.CurrentState = new InventoryTransitionState(Types.Direction.DOWN);
-            else if (Game.CurrentState is PlayingState) Game.CurrentState = new InventoryTransitionState(Types.Direction.UP);
+            if (Game.CurrentState is InventoryState) Game.CurrentState = new InventoryTransitionState(Game, Types.Direction.DOWN);
+            else if (Game.CurrentState is PlayingState) Game.CurrentState = new InventoryTransitionState(Game, Types.Direction.UP);
         }
     }
 }

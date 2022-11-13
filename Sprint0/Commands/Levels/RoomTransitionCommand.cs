@@ -15,7 +15,7 @@ namespace Sprint0.Commands.Levels
 
         public void Execute()
         {
-            Game.CurrentState = new RoomTransitionState(Direction);
+            Game.CurrentState = new RoomTransitionState(Game, Direction);
         }
     }
 }

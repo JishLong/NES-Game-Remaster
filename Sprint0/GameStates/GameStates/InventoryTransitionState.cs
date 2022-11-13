@@ -19,7 +19,7 @@ namespace Sprint0.GameStates.GameStates
         private int ShiftedAmount;
         private int FramesPassed;
 
-        public InventoryTransitionState(Types.Direction direction)
+        public InventoryTransitionState(Game1 game, Types.Direction direction) : base(game)
         {
             Controllers ??= new List<IController>()
             {
@@ -29,8 +29,8 @@ namespace Sprint0.GameStates.GameStates
             };
 
             Direction = direction;
-            InventoryState = new InventoryState();
-            PlayingState = new PlayingState();
+            InventoryState = new InventoryState(game);
+            PlayingState = new PlayingState(game);
 
             ShiftAmount = (int)(176 * Utils.GameScale);
             ShiftedAmount = 0;
@@ -40,13 +40,13 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Draw(SpriteBatch sb)
         {
-            Camera.Move(Direction, ShiftedAmount);
+            Camera.GetInstance().Move(Direction, ShiftedAmount);
             if (Direction == Types.Direction.UP) PlayingState.Draw(sb);
             else if (Direction == Types.Direction.DOWN) InventoryState.Draw(sb);
-            Camera.Move(Utils.GetOppositeDirection(Direction), ShiftAmount);
+            Camera.GetInstance().Move(Utils.GetOppositeDirection(Direction), ShiftAmount);
             if (Direction == Types.Direction.UP) InventoryState.Draw(sb);
             else if (Direction == Types.Direction.DOWN) PlayingState.Draw(sb);
-            Camera.Reset();           
+            Camera.GetInstance().Reset();           
         }
 
         public override void Update(GameTime gameTime)

@@ -18,7 +18,7 @@ namespace Sprint0.GameStates.GameStates
         private bool IsShowing;
         private int FramesPassed;
 
-        public PauseState(IGameState prevGameState)
+        public PauseState(Game1 game, IGameState prevGameState) : base(game)
         {
             Controllers ??= new List<IController>()
             {

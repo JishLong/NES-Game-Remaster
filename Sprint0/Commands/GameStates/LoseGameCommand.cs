@@ -15,7 +15,7 @@ namespace Sprint0.Commands.GameStates
         {
             AudioManager.GetInstance().StopAudio();
             AudioManager.GetInstance().PlayOnce(Resources.PlayerDeath);
-            Game.CurrentState = new LoseState();
+            Game.CurrentState = new LoseState(Game);
         }
     }
 }

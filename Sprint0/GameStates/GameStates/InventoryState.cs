@@ -10,7 +10,7 @@ namespace Sprint0.GameStates.GameStates
     {
         private Vector2 textPosition;
 
-        public InventoryState()
+        public InventoryState(Game1 game) : base(game)
         {
             Controllers ??= new List<IController>()
             {
@@ -22,17 +22,17 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Draw(SpriteBatch sb)
         {
-            Camera.Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
-            Rectangle r = new Rectangle((int)Camera.GetOffset().X, (int)Camera.GetOffset().Y, Utils.GameWidth, (int)(176 * Utils.GameScale));
+            Camera.GetInstance().Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
+            Rectangle r = new Rectangle((int)Camera.GetInstance().Position.X, (int)Camera.GetInstance().Position.Y, Utils.GameWidth, (int)(176 * Utils.GameScale));
             sb.Draw(Resources.ScreenCover, r, null, Color.Black, 0, Vector2.Zero, SpriteEffects.None, 0.2f);
 
             Vector2 textSize = Resources.MediumFont.MeasureString("Epic inventory will go here");
-            textPosition = new Vector2(Camera.GetOffset().X + Utils.GameWidth / 2 - textSize.X / 2,
-                Camera.GetOffset().Y + 176 * Utils.GameScale / 2 - textSize.Y / 2);
+            textPosition = new Vector2(Camera.GetInstance().Position.X + Utils.GameWidth / 2 - textSize.X / 2,
+                Camera.GetInstance().Position.Y + 176 * Utils.GameScale / 2 - textSize.Y / 2);
             //sb.DrawString(Resources.MediumFont, "Paul was here", textPosition, Color.White, 0f, new Vector2(0, 0), 1f,
             //    SpriteEffects.None, 0.19f);
 
-            Vector2 inventoryLoc = new Vector2((int)Camera.GetOffset().X + 120, (int)Camera.GetOffset().Y + 30);
+            Vector2 inventoryLoc = new Vector2((int)Camera.GetInstance().Position.X + 120, (int)Camera.GetInstance().Position.Y + 30);
             sb.DrawString(Resources.MediumFont, "INVENTORY", inventoryLoc, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0.15f);
 
 
@@ -44,17 +44,17 @@ namespace Sprint0.GameStates.GameStates
             //sb.Draw(Resources.ScreenCover, itemInline, null, Color.Black,
             //    0f, Vector2.Zero, SpriteEffects.None, 0.17f);
 
-            Rectangle allOutline = new Rectangle((int)Camera.GetOffset().X + 345, (int)Camera.GetOffset().Y + 90, Utils.GameWidth / 2, (int)(60 * Utils.GameScale));
-            Rectangle allInline = new Rectangle((int)Camera.GetOffset().X + 405, (int)Camera.GetOffset().Y + 93, Utils.GameWidth / 7, (int)(42 * Utils.GameScale));
+            Rectangle allOutline = new Rectangle((int)Camera.GetInstance().Position.X + 345, (int)Camera.GetInstance().Position.Y + 90, Utils.GameWidth / 2, (int)(60 * Utils.GameScale));
+            Rectangle allInline = new Rectangle((int)Camera.GetInstance().Position.X + 405, (int)Camera.GetInstance().Position.Y + 93, Utils.GameWidth / 7, (int)(42 * Utils.GameScale));
 
             sb.Draw(Resources.ScreenCover, allOutline, null, Color.Blue,
                0f, Vector2.Zero, SpriteEffects.None, 0.18f);
             //sb.Draw(Resources.ScreenCover, allInline, null, Color.Black,
             //    0f, Vector2.Zero, SpriteEffects.None, 0.17f);
 
-            Camera.Move(Types.Direction.UP, (int)(176 * Utils.GameScale)); 
+            Camera.GetInstance().Move(Types.Direction.UP, (int)(176 * Utils.GameScale)); 
             Game.Player.HUD.Draw(sb);
-            Camera.Move(Types.Direction.DOWN, (int)(132 * Utils.GameScale));
+            Camera.GetInstance().Move(Types.Direction.DOWN, (int)(132 * Utils.GameScale));
         }
 
         public override void Update(GameTime gameTime)

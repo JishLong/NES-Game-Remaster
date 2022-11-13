@@ -2,23 +2,33 @@
 
 namespace Sprint0
 {
-    public static class Camera
+    public class Camera
     {
-        private static Vector2 Offset = new Vector2(0, 44 * Utils.GameScale);
+        private static Camera Instance;
 
-        public static Vector2 GetOffset() 
+        private Vector2 Origin;
+        public Vector2 Position { get; private set; }
+
+        private Camera(Vector2 origin)
         {
-            return Offset;
+            Origin = origin;
+            Position = origin;
         }
 
-        public static void Move(Types.Direction direction, int amount) 
+        public void Move(Types.Direction direction, int amount)
         {
-            Offset -= Utils.DirectionToVector(direction) * amount;
+            Position -= Utils.DirectionToVector(direction) * amount;
         }
 
-        public static void Reset() 
+        public void Reset()
         {
-            Offset = new Vector2(0, 44 * Utils.GameScale);
+            Position = Origin;
+        }
+
+        public static Camera GetInstance()
+        {
+            Instance ??= new Camera(new(0, 44 * Utils.GameScale));
+            return Instance;
         }
     }
 }

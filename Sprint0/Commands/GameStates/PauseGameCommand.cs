@@ -16,7 +16,7 @@ namespace Sprint0.Commands.GameStates
 
         public void Execute() 
         {
-            Game.CurrentState = new PauseState(PrevGameState);
+            Game.CurrentState = new PauseState(Game, PrevGameState);
         }
     }
 }

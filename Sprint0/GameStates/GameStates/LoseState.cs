@@ -16,7 +16,7 @@ namespace Sprint0.GameStates.GameStates
         private bool IsShowing;
         private int FramesPassed;
 
-        public LoseState()
+        public LoseState(Game1 game) : base(game)
         {
             Controllers ??= new List<IController>()
             {
@@ -41,9 +41,9 @@ namespace Sprint0.GameStates.GameStates
         {
             Game.LevelManager.Draw(sb);
             Game.Player.Draw(sb);
-            Camera.Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
+            Camera.GetInstance().Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
             Game.Player.HUD.Draw(sb);
-            Camera.Reset();
+            Camera.GetInstance().Reset();
 
             Rectangle PanelDims = Resources.PausePanel.Bounds;
             Rectangle PanelLocation = new Rectangle(

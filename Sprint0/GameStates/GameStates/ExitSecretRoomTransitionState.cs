@@ -18,7 +18,7 @@ namespace Sprint0.GameStates.GameStates
         private int FadeOutFrames;
         private float FadeAmount;
 
-        public ExitSecretRoomTransitionState()
+        public ExitSecretRoomTransitionState(Game1 game) : base(game)
         {
             Controllers ??= new List<IController>()
             {
@@ -30,7 +30,7 @@ namespace Sprint0.GameStates.GameStates
             LevelResources = LevelResources.GetInstance();
             CurrentRoom = Game.LevelManager.CurrentLevel.CurrentRoom;
             NextRoom = Game.LevelManager.CurrentLevel.CurrentRoom.GetAdjacentRoom(Types.RoomTransition.SECRET);
-            if (NextRoom == null) Game.CurrentState = new PlayingState();
+            if (NextRoom == null) Game.CurrentState = new PlayingState(Game);
             FramesPassed = 0;
             FadeAmount = 0f;
             FadeOutFrames = 75;
@@ -38,9 +38,9 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Draw(SpriteBatch sb)
         {
-            Camera.Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
+            Camera.GetInstance().Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
             Game.Player.HUD.Draw(sb);
-            Camera.Reset();
+            Camera.GetInstance().Reset();
 
             CurrentRoom.Draw(sb);
             sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, Utils.GameWidth, Utils.GameHeight), null, Color.Black * FadeAmount, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
@@ -51,7 +51,7 @@ namespace Sprint0.GameStates.GameStates
                 int NewPlayerX = LevelResources.BlockWidth * 5;
                 int NewPlayerY = LevelResources.BlockHeight * 7;
                 Game.Player.Position = new Vector2(NewPlayerX, NewPlayerY);
-                Game.CurrentState = new PlayingState();
+                Game.CurrentState = new PlayingState(Game);
             }
         }
         public override void Update(GameTime gameTime)
