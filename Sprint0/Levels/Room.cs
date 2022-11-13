@@ -133,9 +133,9 @@ namespace Sprint0.Levels
         {
             EventMaster.AddEvent(roomevent);
         }
-        public void AddDoorToRoom(IDoor door)
+        public void AddDoorToRoom(string key, IDoor door)
         {
-            DoorHandler.AddDoor(door);
+            DoorHandler.AddDoor(key, door);
         }
         public void AddProjectileToRoom(Types.Projectile proj, ICollidable user, Types.Direction direction)
         {

@@ -3,7 +3,7 @@ using Sprint0.Blocks.Blocks;
 using Sprint0.Doors.States;
 using Sprint0.Doors.States.EventLockedStates;
 using Sprint0.Doors.States.UnlockedStates;
-using Sprint0.Doors.States.LockedStates;
+using Sprint0.Doors.States.KeyLockedStates;
 using Sprint0.Doors.States.WallStates;
 using System;
 
@@ -41,6 +41,14 @@ namespace Sprint0.Doors.Utils
                     return new UpEventLockedState(door);
                 case Types.Door.DOWN_EVENT_LOCKED:
                     return new DownEventLockedDoorState(door);
+                case Types.Door.UP_KEY_LOCKED:
+                    return new UpKeyLockedDoorState(door);
+                case Types.Door.RIGHT_KEY_LOCKED:
+                    return new RightKeyLockedDoorState(door);
+                case Types.Door.DOWN_KEY_LOCKED:
+                    return new DownKeyLockedDoorState(door);
+                case Types.Door.LEFT_KEY_LOCKED:
+                    return new LeftKeyLockedDoorState(door);
                 default:
                     Console.Error.Write("The door state of type " + doorType.ToString() + 
                         " could not be instantiated by the Door State Factory. Does this type exist?");
