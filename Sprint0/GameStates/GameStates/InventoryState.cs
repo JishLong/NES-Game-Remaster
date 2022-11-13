@@ -16,7 +16,6 @@ namespace Sprint0.GameStates.GameStates
             {
                 new AudioController(),
                 new KeyboardController(KeyboardMappings.GetInstance().GetInventoryStateMappings(Game, this)),
-                new MouseController(MouseMappings.GetInstance().NoMappings)
             };     
         }
 
@@ -32,25 +31,29 @@ namespace Sprint0.GameStates.GameStates
             //sb.DrawString(Resources.MediumFont, "Paul was here", textPosition, Color.White, 0f, new Vector2(0, 0), 1f,
             //    SpriteEffects.None, 0.19f);
 
-            Vector2 inventoryLoc = new Vector2((int)Camera.GetOffset().X + 120, (int)Camera.GetOffset().Y + 30);
+            Vector2 inventoryLoc = new Vector2((int)Camera.GetOffset().X + 95, (int)Camera.GetOffset().Y + 30);
             sb.DrawString(Resources.MediumFont, "INVENTORY", inventoryLoc, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0.15f);
 
+            Vector2 selectLoc = new Vector2((int)Camera.GetOffset().X + 40, (int)Camera.GetOffset().Y + 210);
+            sb.DrawString(Resources.MediumFont, "USE B BUTTON \n FOR THIS", selectLoc, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0.15f);
 
-            //Rectangle itemOutline = new Rectangle((int)Camera.GetOffset().X + 170, (int)Camera.GetOffset().Y + 90, Utils.GameWidth / 9, (int)(34 * Utils.GameScale));
-            //Rectangle itemInline = new Rectangle((int)Camera.GetOffset().X + 175, (int)Camera.GetOffset().Y + 93, Utils.GameWidth / 10, (int)(32 * Utils.GameScale));
 
-            //sb.Draw(Resources.ScreenCover, itemOutline, null, Color.Blue,
-            //   0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-            //sb.Draw(Resources.ScreenCover, itemInline, null, Color.Black,
-            //    0f, Vector2.Zero, SpriteEffects.None, 0.17f);
+
+            Rectangle itemOutline = new Rectangle((int)Camera.GetOffset().X + 170, (int)Camera.GetOffset().Y + 105, Utils.GameWidth / 9, (int)(34 * Utils.GameScale));
+            Rectangle itemInline = new Rectangle((int)Camera.GetOffset().X + 175, (int)Camera.GetOffset().Y + 108, Utils.GameWidth / 10, (int)(32 * Utils.GameScale));
+            sb.Draw(Resources.ScreenCover, itemOutline, null, Color.Blue,
+               0f, Vector2.Zero, SpriteEffects.None, 0.18f);
+            sb.Draw(Resources.ScreenCover, itemInline, null, Color.Black,
+                0f, Vector2.Zero, SpriteEffects.None, 0.17f);
+
+
 
             Rectangle allOutline = new Rectangle((int)Camera.GetOffset().X + 345, (int)Camera.GetOffset().Y + 90, Utils.GameWidth / 2, (int)(60 * Utils.GameScale));
-            Rectangle allInline = new Rectangle((int)Camera.GetOffset().X + 405, (int)Camera.GetOffset().Y + 93, Utils.GameWidth / 7, (int)(42 * Utils.GameScale));
-
+            Rectangle allInline = new Rectangle((int)Camera.GetOffset().X + 350, (int)Camera.GetOffset().Y + 95, Utils.GameWidth / 2 - 10, (int)(57 * Utils.GameScale));
             sb.Draw(Resources.ScreenCover, allOutline, null, Color.Blue,
                0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-            //sb.Draw(Resources.ScreenCover, allInline, null, Color.Black,
-            //    0f, Vector2.Zero, SpriteEffects.None, 0.17f);
+            sb.Draw(Resources.ScreenCover, allInline, null, Color.Black,
+                0f, Vector2.Zero, SpriteEffects.None, 0.17f);
 
             Camera.Move(Types.Direction.UP, (int)(176 * Utils.GameScale)); 
             Game.Player.HUD.Draw(sb);
