@@ -1,6 +1,8 @@
-﻿using Sprint0.Commands.GameStates;
+﻿using Sprint0.Characters;
+using Sprint0.Commands.GameStates;
 using Sprint0.Items;
 using Sprint0.Items.Items;
+using Sprint0.Levels;
 using Sprint0.Player;
 using System.Collections.Generic;
 
@@ -17,7 +19,7 @@ namespace Sprint0.Collision.Handlers
             typeof(Compass), typeof(Key), typeof(Map), typeof(Rupee), typeof(WoodenBoomerang), typeof(ValuableRupee) };
         }
 
-        public void HandleCollision(IPlayer player, IItem item, Game1 game)
+        public void HandleCollision(IPlayer player, IItem item, Game1 game, Room room)
         {
             if (InventoryItems.Contains(item.GetType()))
             {
@@ -37,7 +39,7 @@ namespace Sprint0.Collision.Handlers
             }
             else if (item is Clock) 
             {
-                // freeze all enemies in the room indefinitely
+                foreach (ICharacter character in room.Characters) character.Freeze(true);
                 AudioManager.GetInstance().PlayOnce(Resources.ItemPickup);
             }
             else if (item is Fairy)
