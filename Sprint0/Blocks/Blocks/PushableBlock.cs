@@ -1,15 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks.Utils;
+using Sprint0.Entities;
 using Sprint0.Sprites.Blocks;
 using static Sprint0.Utils;
 
 namespace Sprint0.Blocks.Blocks
 {
-    public class PushableBlock : AbstractBlock
+    public class PushableBlock : AbstractBlock, IEntity
     {
         private Types.Direction Direction;
-        private bool HasBeenPushed;
+
+        public bool HasBeenPushed {get; private set; }
         // A frame counter that is incremented while the block is being pushed
         private int FramesPushed;
 
@@ -27,13 +29,6 @@ namespace Sprint0.Blocks.Blocks
             BlockUnderneath = BlockFactory.GetInstance().GetBlock(Types.Block.BLUE_TILE, position);
         }
 
-        public override void Draw(SpriteBatch sb)
-        {
-            if (HasBeenPushed) BlockUnderneath.Draw(sb);
-            // The pushable block is technically on top of another block if it has been pushed, but is guaranteed to be drawn after it
-            Sprite.Draw(sb, Position, Color.White, PushableBlockLayerDepth);
-        }
-
         public void Push(Types.Direction direction)
         {
             // Can only be moved one time
@@ -43,6 +38,13 @@ namespace Sprint0.Blocks.Blocks
                 Direction = direction;
                 AudioManager.GetInstance().PlayOnce(Resources.SecretFound);
             }
+        }
+
+        public override void Draw(SpriteBatch sb)
+        {
+            if (HasBeenPushed) BlockUnderneath.Draw(sb);
+            // The pushable block is technically on top of another block if it has been pushed, but is guaranteed to be drawn after it
+            Sprite.Draw(sb, Position, Color.White, PushableBlockLayerDepth);
         }
 
         public override void Update()

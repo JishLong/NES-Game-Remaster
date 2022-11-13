@@ -85,16 +85,16 @@ namespace Sprint0.Levels
                     {
                         if(valAtIndex < 0)
                         {
-                            valAtIndex *= -1;
-                            Room room = rooms.Find(room => room.RoomName == "Room" + valAtIndex);
-                            Room secretRoom = AddSecretTransitionToRoom(rooms, room, map, row, col);
-                            secretRoom.AddTransition(room, Types.RoomTransition.SECRET); // Link the secret room to the original room.
-
                             /*
                              * We want this: 
                              * ROOM.SECRET = SECRETROOM
                              * SECRETROOM.SECRET = ROOM
                              */ 
+
+                            valAtIndex *= -1;
+                            Room room = rooms.Find(room => room.RoomName == "Room" + valAtIndex);
+                            Room secretRoom = AddSecretTransitionToRoom(rooms, room, map, row, col);
+                            secretRoom.AddTransition(room, Types.RoomTransition.SECRET); // Link the secret room to the original room.
                         }
                         else
                         {

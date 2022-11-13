@@ -10,12 +10,14 @@ namespace Sprint0.Levels.Utils
         private static LevelResources Instance;
         public Dictionary<string, Types.Block> BlockMap;
         public Dictionary<string, Types.Character> CharacterMap;
+        public Dictionary<string, Types.Event> EventMap;
         public Dictionary<string, Types.Item> ItemMap;
         public Dictionary<string, Types.Door> DoorMap;
         public Dictionary<string, Types.Border> BorderMap;
 
-        public int BlockWidth = 16 * (int) GameScale;
-        public int BlockHeight = 16 * (int) GameScale;
+        public readonly int BlockWidth = 16 * (int) GameScale;
+        public readonly int BlockHeight = 16 * (int) GameScale;
+        public readonly int BorderWidth = 16 * 3 * 2;
 
         public Vector2 UpDoorPosition;
         public Vector2 RightDoorPosition;
@@ -38,7 +40,7 @@ namespace Sprint0.Levels.Utils
                 {"bsand", Types.Block.BLUE_SAND },
                 {"water", Types.Block.WATER },
                 {"bstairs", Types.Block.BLUE_STAIRS },
-                {"pb", Types.Block.PUSHABLE_BLOCK },
+                {"pushblock", Types.Block.PUSHABLE_BLOCK },
                 {"bb", Types.Block.BORDER_BLOCK },
                 {"ldwb", Types.Block.LEFT_DOOR_WAY_BLOCK },
                 {"rdwb", Types.Block.RIGHT_DOOR_WAY_BLOCK},
@@ -93,6 +95,17 @@ namespace Sprint0.Levels.Utils
                 {"right_wall", Types.Door.RIGHT_WALL },
                 {"down_wall", Types.Door.DOWN_WALL },
                 {"left_wall", Types.Door.LEFT_WALL },
+                {"up_event_locked", Types.Door.UP_EVENT_LOCKED },
+                {"right_event_locked", Types.Door.RIGHT_EVENT_LOCKED },
+                {"down_event_locked", Types.Door.DOWN_EVENT_LOCKED },
+                {"left_event_locked", Types.Door.LEFT_EVENT_LOCKED },
+            };
+
+            EventMap = new Dictionary<string, Types.Event>()
+            {
+                {"pushblock_unlocks_door", Types.Event.PUSHBLOCK_UNLOCKS_DOOR },
+                {"enemies_killed_drops_item", Types.Event.ENEMIES_KILLED_DROPS_ITEM },
+                {"enemies_killed_unlocks_door", Types.Event.ENEMIES_KILLED_UNLOCKS_DOOR },
             };
 
             BorderMap = new Dictionary<string, Types.Border>()

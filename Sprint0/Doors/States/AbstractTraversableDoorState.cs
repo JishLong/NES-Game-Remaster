@@ -16,6 +16,7 @@ namespace Sprint0.Doors.States
     {
         protected ISprite DoorWaySprite;
         protected ISprite DoorWallSprite;
+        protected Door Door;
 
         // Doorways are drawn relative to the 'Door Wall', so we use a vector to offset them.
         protected Vector2 DoorWayOffset;
@@ -33,7 +34,8 @@ namespace Sprint0.Doors.States
         protected BlockFactory BlockFactory = BlockFactory.GetInstance();
 
         public abstract void Update(GameTime gameTime);
-
+        public abstract void Lock();
+        public abstract void Unlock();
         public List<IBlock> GetBlocks()
         {
             return Blocks;

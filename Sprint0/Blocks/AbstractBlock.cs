@@ -11,6 +11,7 @@ namespace Sprint0.Blocks
 
         protected readonly ISprite Sprite;
         protected Vector2 Position;
+        private string Name = "unnamed";
 
         protected AbstractBlock (ISprite sprite, Vector2 position, bool isWall) 
         {
@@ -33,6 +34,16 @@ namespace Sprint0.Blocks
         public virtual void Update()
         {
             Sprite.Update();
-        }   
+        }
+
+        public virtual string GetName()
+        {
+            return Name;
+        }
+
+        public virtual void SetName(string value)
+        {
+            Name = value;
+        }
     }
 }

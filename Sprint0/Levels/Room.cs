@@ -7,9 +7,11 @@ using Sprint0.Characters;
 using Sprint0.Characters.Utils;
 using Sprint0.Collision;
 using Sprint0.Doors;
+using Sprint0.Entities;
 using Sprint0.Items;
 using Sprint0.Items.Utils;
 using Sprint0.Levels.Borders;
+using Sprint0.Levels.Events;
 using Sprint0.Levels.Utils;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Tools;
@@ -18,13 +20,15 @@ using static Sprint0.Types;
 
 namespace Sprint0.Levels
 {
-    public class Room
+    public class Room : IEntity
     {
         public List<IBlock> Blocks { get;}
         public List<ICharacter> Characters { get;}
         public List<IItem> Items { get;}
+        public List<IEntity> Entities { get;}
         public DoorHandler DoorHandler { get; }
         public ProjectileHandler Projectiles { get;}
+        public EventMaster EventMaster { get; }
 
         private Dictionary<RoomTransition, Room> AdjacentRooms;
 
@@ -39,6 +43,8 @@ namespace Sprint0.Levels
             Blocks = new List<IBlock>();
             Characters = new List<ICharacter>();
             Items = new List<IItem>();
+            Entities = new List<IEntity>();
+            EventMaster = new EventMaster();
             DoorHandler = new DoorHandler();
             Projectiles = new ProjectileHandler();
 
@@ -52,7 +58,14 @@ namespace Sprint0.Levels
                 {RoomTransition.SECRET, null },
             };
         }
-        
+        public string GetName()
+        {
+            return RoomName;
+        }
+        public void SetName(string value)
+        {
+            RoomName = value;
+        }
         public void SetBorder(Border border)
         {
             Border = BorderFactory.GetInstance().GetBorder(border);
@@ -76,7 +89,12 @@ namespace Sprint0.Levels
         {
             Blocks.Add(BlockFactory.GetInstance().GetBlock(block, position));
         }
-        public void RemoveItemFromRoom(IBlock block)
+        // Overloaded method to add a block directly to the collection.
+        public void AddBlockToRoom(IBlock block)
+        {
+            Blocks.Add(block);
+        }
+        public void RemoveBlockFromRoom(IBlock block)
         {
             Blocks.Remove(block);
         }
@@ -92,9 +110,18 @@ namespace Sprint0.Levels
         {
             Items.Add(ItemFactory.GetInstance().GetItem(item, position));
         }
+        // Overloaded method to add an item directly to the collection.
+        public void AddItemToRoom(IItem item)
+        {
+            Items.Add(item);
+        }
         public void RemoveItemFromRoom(IItem item) 
         {
             Items.Remove(item);
+        }
+        public void AddEventToRoom(IEvent roomevent)
+        {
+            EventMaster.AddEvent(roomevent);
         }
         public void AddDoorToRoom(IDoor door)
         {
@@ -108,7 +135,10 @@ namespace Sprint0.Levels
         {
             Projectiles.RemoveProjectile(proj);
         }
-
+        public void AddEntityToRoom(IEntity entity)
+        {
+            Entities.Add(entity);
+        }
         public void SetBorder(BlueRoomBorder border)
         {
             Border = border;
@@ -127,6 +157,7 @@ namespace Sprint0.Levels
             {
                 character.Update(gameTime);
             }
+            EventMaster.Update(gameTime);
             DoorHandler.Update(gameTime);
             Border.Update();
             Projectiles.Update();

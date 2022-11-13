@@ -12,10 +12,12 @@ namespace Sprint0.Items
         private readonly ISprite Sprite;
         private readonly Types.Item ItemType;
 
+        private string Name = "unnamed";
+
         protected AbstractItem(ISprite sprite, Vector2 position, Types.Item itemType)
         {
             Position = position;
-
+            
             Sprite = sprite;
             ItemType = itemType;
         }
@@ -38,6 +40,16 @@ namespace Sprint0.Items
         public Types.Item GetItemType() 
         {
             return ItemType;
+        }
+
+        public string GetName()
+        {
+            return Name;
+        }
+
+        public void SetName(string value)
+        {
+            Name = value;
         }
     }
 }
