@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Characters.Enemies
 {
     public class SnakeLeftSprite : AbstractAnimatedSprite
     {
-        public SnakeLeftSprite() : base(2, 12)
-        {
-
-        }
+        public SnakeLeftSprite() : base(2, 12) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 

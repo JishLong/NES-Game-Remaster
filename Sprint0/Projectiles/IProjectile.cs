@@ -16,7 +16,7 @@ namespace Sprint0.Projectiles
 
         bool IsFromPlayer();
 
-        bool IsTimeUp();
+        bool TimeIsUp();
 
         void Update();
     }

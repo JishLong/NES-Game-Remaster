@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Player
 {
     public class TriforcePieceSprite : AbstractAnimatedSprite
     {
-        public TriforcePieceSprite() : base(2, 8)
-        {
-
-        }
+        public TriforcePieceSprite() : base(2, 8) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.ItemsSpriteSheet;
 

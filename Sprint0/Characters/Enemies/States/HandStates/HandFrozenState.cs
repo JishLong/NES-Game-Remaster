@@ -1,22 +1,23 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.States.HandStates
 {
     public class HandFrozenState: AbstractCharacterState
     {
-        private readonly Hand Hand;
+        private bool FrozenForever;
         private readonly Types.Direction ResumeMovementDirection;
         private readonly bool ClockWise;
+
         private double FrozenTimer;
         private readonly double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
 
-        public HandFrozenState(Hand hand, Types.Direction direction, bool clockWise)
+        public HandFrozenState(AbstractCharacter character, Types.Direction direction, bool clockWise, bool frozenForever) : base(character)
         {
-            Hand = hand;
             ResumeMovementDirection = direction;
-            Sprite = new HandSprite();
+            FrozenForever = frozenForever;
             ClockWise = clockWise;
+
+            FrozenTimer = 0;
         }
         public override void Attack()
         {
@@ -25,43 +26,27 @@ namespace Sprint0.Characters.Enemies.States.HandStates
 
         public override void ChangeDirection()
         {
-            switch (ResumeMovementDirection)
-            {
-                case Types.Direction.LEFT:
-                    Hand.State = new HandMovingLeftState(Hand, ClockWise);
-                    break;
-                case Types.Direction.RIGHT:
-                    Hand.State = new HandMovingRightState(Hand, ClockWise);
-                    break;
-                case Types.Direction.DOWN:
-                    Hand.State = new HandMovingDownState(Hand, ClockWise);
-                    break;
-                case Types.Direction.UP:
-                    Hand.State = new HandMovingUpState(Hand, ClockWise);
-                    break;
-            }
+            // Can't change direction while frozen
         }
 
-        public override void Freeze()
+        public override void Freeze(bool frozenForever)
         {
-            // Already frozen.
+            // If a hand is frozen from a boomerang, picking up a clock will keep it frozen forever
+            // On the other hand, if a hand is frozen from a clock, we don't want the boomerang to "unfreeze" it
+            if (frozenForever) FrozenForever = frozenForever;
         }
 
-        public override void Move()
+        public override void Unfreeze() 
         {
-            // Cannot move while frozen
+            Character.State = new HandMovingState(Character, ClockWise, ResumeMovementDirection);
         }
 
         public override void Update(GameTime gameTime)
         {
-            double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
-            FrozenTimer += elapsedTime;
+            if (!FrozenForever) FrozenTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
+            if ((FrozenTimer - FrozenDelay) > 0) Unfreeze();
 
-            if((FrozenTimer - FrozenDelay) > 0)
-            {
-                ChangeDirection();
-            }
-            Sprite.Update();
+            Character.Sprite.Update();
         }
     }
 }

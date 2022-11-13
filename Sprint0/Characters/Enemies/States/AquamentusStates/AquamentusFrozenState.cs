@@ -1,47 +1,51 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Bosses.AquamentusStates;
-using Sprint0.Characters.Enemies;
-using Sprint0.Sprites.Characters.Enemies;
 
-namespace Sprint0.Characters.Bosses.States.AquamentusStates
+namespace Sprint0.Characters.Enemies.AquamentusStates
 {
     public class AquamentusFrozenState : AbstractCharacterState
     {
-        private readonly Aquamentus Aquamentus;
+        private bool FrozenForever;
+        private readonly Types.Direction ResumeMovementDirection;
+
         private double FrozenTimer;
-        private readonly double FrozenDelay = 5000;
-        public AquamentusFrozenState(Aquamentus aquamentus)
+        private readonly double FrozenDelay = 5000;  // Stay frozen for this many milliseconds.
+
+        public AquamentusFrozenState(AbstractCharacter character, Types.Direction direction, bool frozenForever) : base(character)
         {
-            Aquamentus = aquamentus;
-            Sprite = new AquamentusSprite();
+            ResumeMovementDirection = direction;
+            FrozenForever = frozenForever;
+
+            FrozenTimer = 0;
         }
+
         public override void Attack()
         {
-            // Do nothing. (Cant attack after frozen.)
+            // Does not attack.
         }
-        public override void Move()
-        {
-            Aquamentus.State = new AquamentusMovingLeftState(Aquamentus);
-        }
-        public override void Freeze()
-        {
-            // Already frozen.
-        }
+
         public override void ChangeDirection()
         {
-            // Do nothing. Cant change direction while frozen.
+            // Can't change direction while frozen
         }
+
+        public override void Freeze(bool frozenForever)
+        {
+            // If Aquamentus is frozen from a boomerang, picking up a clock will keep it frozen forever
+            // On the other hand, if Aquamentus is frozen from a clock, we don't want the boomerang to "unfreeze" it
+            if (frozenForever) FrozenForever = frozenForever;
+        }
+
+        public override void Unfreeze()
+        {
+            Character.State = new AquamentusMovingState(Character, ResumeMovementDirection);
+        }
+
         public override void Update(GameTime gameTime)
         {
-            double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
-            FrozenTimer += elapsedTime;
+            if (!FrozenForever) FrozenTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
+            if ((FrozenTimer - FrozenDelay) > 0) Unfreeze();
 
-            if ((FrozenTimer - FrozenDelay) > 0)
-            {
-                Move();
-            }
-            Sprite.Update();
+            Character.Sprite.Update();
         }
     }
 }
-

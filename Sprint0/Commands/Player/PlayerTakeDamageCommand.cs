@@ -19,7 +19,7 @@ namespace Sprint0.Commands.Player
 
         public void Execute()
         {
-            Player.TakeDamage(Damage, Game);
+            Player.ChangeHealth(-Damage, 0, Game);
         }
     }
 }

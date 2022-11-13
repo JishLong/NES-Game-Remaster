@@ -17,7 +17,6 @@ namespace Sprint0
         public static SoundEffect ArrowBoomerangShoot { get; private set; }
         public static SoundEffect BombExplode { get; private set; }
         public static SoundEffect BossNoise { get; private set; }
-        public static SoundEffect Dababy { get; private set; }
         public static SoundEffect DungeonMusic { get; private set; }
         public static SoundEffect EnemyDeath { get; private set; }
         public static SoundEffect EnemyTakeDamage { get; private set; }
@@ -39,6 +38,8 @@ namespace Sprint0
         public static SoundEffect Text { get; private set; }
         public static SoundEffect Win { get; private set; }
 
+        // Mouse Cursor
+        public static Texture2D[] MouseCursor { get; private set; }
 
         // Sprite sheets
         public static Texture2D BlocksSpriteSheet { get; private set; }
@@ -161,7 +162,6 @@ namespace Sprint0
             ArrowBoomerangShoot = c.Load<SoundEffect>("Audio/arrowBoomerang");
             BombExplode = c.Load<SoundEffect>("Audio/bomb");
             BossNoise = c.Load<SoundEffect>("Audio/bossNoise");
-            Dababy = c.Load<SoundEffect>("Audio/dababy");
             DungeonMusic = c.Load<SoundEffect>("Audio/dungeonMusic");
             EnemyDeath = c.Load<SoundEffect>("Audio/enemyDeath");
             EnemyTakeDamage = c.Load<SoundEffect>("Audio/enemyTakeDamage");
@@ -183,6 +183,15 @@ namespace Sprint0
             Text = c.Load<SoundEffect>("Audio/text");
             Win = c.Load<SoundEffect>("Audio/win");
 
+            // Load mouse cursor images
+            MouseCursor = new Texture2D[4]
+            {
+                c.Load<Texture2D>("Images/Mouse Cursor/cursor1"),
+                c.Load<Texture2D>("Images/Mouse Cursor/cursor2"),
+                c.Load<Texture2D>("Images/Mouse Cursor/cursor3"),
+                c.Load<Texture2D>("Images/Mouse Cursor/cursor4")
+            };
+
             // Load sprite sheets
             BlocksSpriteSheet = c.Load<Texture2D>("Images/blocks");
             ItemsSpriteSheet = c.Load<Texture2D>("Images/items");
@@ -193,5 +202,7 @@ namespace Sprint0
             PausePanel = c.Load<Texture2D>("Images/pausePanel");
             ScreenCover = c.Load<Texture2D>("Images/screenCover");
         }
+
+        // Why you looking down here? Tryna see how many lines of code this class is? Go back to the top >:(
     }
 }

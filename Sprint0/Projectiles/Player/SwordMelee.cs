@@ -12,5 +12,10 @@ namespace Sprint0.Projectiles.Player_Projectiles
             MaxFramesAlive = 20;
             Damage = 1;
         }
+
+        public override void DeathAction()
+        {
+            // Nothing here!
+        }
     }
 }

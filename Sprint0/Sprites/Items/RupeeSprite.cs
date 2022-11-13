@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Player
 {
     public class RupeeSprite : AbstractAnimatedSprite
     {
-        public RupeeSprite() : base(2, 8)
-        {
-
-        }
+        public RupeeSprite() : base(2, 8) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.ItemsSpriteSheet;
 

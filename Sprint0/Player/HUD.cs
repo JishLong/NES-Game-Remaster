@@ -86,11 +86,8 @@ namespace Sprint0.Player
             numGems = player.Inventory.GetAmount(Types.Item.RUPEE);
             numKeys = player.Inventory.GetAmount(Types.Item.KEY);
             numBombs = player.Inventory.GetAmount(Types.Item.BOMB);
-            if(player.Health <= player.MaxHealth)
-            {
-                numHearts = player.Health;
-            }
-           
+            numHearts = player.Health;
+
         }
     }
 }

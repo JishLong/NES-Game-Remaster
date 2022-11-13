@@ -5,10 +5,7 @@ namespace Sprint0.Sprites.Characters.Enemies
 {
     public class BatSprite : AbstractAnimatedSprite
     {
-        public BatSprite() : base(2, 4)
-        {
-
-        }
+        public BatSprite() : base(2, 4) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 

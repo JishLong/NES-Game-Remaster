@@ -1,19 +1,10 @@
 ﻿using System;
-using Microsoft.Xna.Framework;
 
 namespace Sprint0.Characters.Utils
 {
     public static class CharacterUtils
     {
-        private readonly static Random RNG = new Random();
-
-        // Only being used by hand, will probably create a new movement behavior and axe this.
-        public static Vector2 RotateByAngle(Vector2 vector, float angle)
-        {
-            angle = MathHelper.ToRadians(angle);
-            Matrix rotationMatrix = Matrix.CreateRotationZ(angle);
-            return Vector2.Transform(vector, rotationMatrix);
-        }
+        private readonly static Random RNG = new();
 
         /// <summary>
         /// Picks a random orthogonal direction other than the one passed as a parameter.
@@ -43,6 +34,22 @@ namespace Sprint0.Characters.Utils
                 newDirection = (Types.Direction)RNG.Next(0, 8);
             }
             return newDirection;
+        }
+
+        public static Types.Direction GetNextClockwiseDirection(Types.Direction direction)
+        {
+            return direction switch
+            {
+                Types.Direction.LEFT => Types.Direction.UP,
+                Types.Direction.RIGHT => Types.Direction.DOWN,
+                Types.Direction.UP => Types.Direction.RIGHT,
+                Types.Direction.DOWN => Types.Direction.LEFT,
+                Types.Direction.UPLEFT => Types.Direction.UPRIGHT,
+                Types.Direction.UPRIGHT => Types.Direction.DOWNRIGHT,
+                Types.Direction.DOWNLEFT => Types.Direction.UPLEFT,
+                Types.Direction.DOWNRIGHT => Types.Direction.DOWNLEFT,
+                _ => Types.Direction.NO_DIRECTION,
+            };
         }
     }
 }

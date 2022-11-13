@@ -23,7 +23,8 @@ namespace Sprint0.GameStates.GameStates
             Controllers ??= new List<IController>()
             {
                 new AudioController(),
-                new KeyboardController(KeyboardMappings.GetInstance().GetPauseStateMappings(Game, prevGameState))
+                new KeyboardController(KeyboardMappings.GetInstance().GetPauseStateMappings(Game, prevGameState)),
+                new MouseController(MouseMappings.GetInstance().NoMappings)
             };
 
             PrevGameState = prevGameState;

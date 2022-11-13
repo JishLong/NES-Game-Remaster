@@ -1,5 +1,4 @@
-﻿using Sprint0.Levels;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Sprint0.Player;
 using Sprint0.Projectiles;
@@ -102,28 +101,20 @@ namespace Sprint0.Collision
         {
             if (CollidableB is IPlayer)
             {
-                SwapCollidables(CollidableA, CollidableB);
+                (_, _) = (CollidableA, CollidableB);
             }
             else if (CollidableA is IItem)
             {
-                SwapCollidables(CollidableA, CollidableB);
+                (_, _) = (CollidableA, CollidableB);
             }
-            else if (CollidableB is ICharacter && !(CollidableA is IPlayer))
+            else if (CollidableB is ICharacter && CollidableA is not IPlayer)
             {
-                SwapCollidables(CollidableA, CollidableB);
+                (_, _) = (CollidableA, CollidableB);
             }
             else if (CollidableB is IProjectile && (CollidableA is IBlock || CollidableA is IItem))
             {
-                SwapCollidables(CollidableA, CollidableB);
+                (_, _) = (CollidableA, CollidableB);
             }
-        }
-
-        // Simple method that swaps two collidables
-        private void SwapCollidables(ICollidable CollidableA, ICollidable CollidableB)
-        {
-            ICollidable Temp = CollidableA;
-            CollidableA = CollidableB;
-            CollidableB = Temp;
         }
     }
 }

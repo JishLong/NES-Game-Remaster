@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.Characters.Npcs;
 using Sprint0.Characters;
 using Sprint0.Levels;
@@ -10,9 +9,10 @@ namespace Sprint0.Npcs
 	{
 		public OldMan(Vector2 position)
 		{
-			Health = 1;
-			Position = position;
-			Sprite = new OldManSprite();
+            Sprite = new OldManSprite();
+
+            Health = 1;
+			Position = position;		
 		}
 
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
@@ -23,11 +23,6 @@ namespace Sprint0.Npcs
         public override void Update(GameTime gameTime)
 		{
 			Sprite.Update();
-		}
-
-		public override void Draw(SpriteBatch sb)
-		{
-			Sprite.Draw(sb, Position, Color.White, Utils.CharacterLayerDepth);
 		}
 
 		public override Rectangle GetHitbox() 
