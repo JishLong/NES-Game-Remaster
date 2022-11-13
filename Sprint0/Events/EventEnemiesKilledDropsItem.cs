@@ -11,20 +11,22 @@ namespace Sprint0.Events
     public class EventEnemiesKilledDropsItem : AbstractEvent
     {
 
-        Room Room;
+        Room CatalystRoom;
+        Room OwningRoom;
         IItem Item;
-        public EventEnemiesKilledDropsItem(Room room, IItem item)
+        public EventEnemiesKilledDropsItem(Room catalystRoom, Room owningRoom, IItem item)
         {
-            Room = room;
+            CatalystRoom = catalystRoom;
+            OwningRoom = owningRoom;
             Item = item;
         }
 
         public override void Update(GameTime gameTime)
         {
 
-            if(Room.Characters.Count == 0 && Fired == false)
+            if(CatalystRoom.Characters.Count == 0 && Fired == false)
             {
-                Room.AddItemToRoom(Item);
+                OwningRoom.AddItemToRoom(Item);
                 // Should also play a sound here.
                 Fired = true;
             }
