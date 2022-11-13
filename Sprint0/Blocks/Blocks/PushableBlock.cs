@@ -40,6 +40,16 @@ namespace Sprint0.Blocks.Blocks
             }
         }
 
+        public void Reset() 
+        {
+            if (HasBeenPushed) 
+            {
+                Position -= DirectionToVector(Direction) * Sprite.GetDrawbox(Position).Width;
+                HasBeenPushed = false;
+                FramesPushed = 0;
+            }
+        }
+
         public override void Draw(SpriteBatch sb)
         {
             if (HasBeenPushed) BlockUnderneath.Draw(sb);
