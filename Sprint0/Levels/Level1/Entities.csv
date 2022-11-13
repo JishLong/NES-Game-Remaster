@@ -1,0 +1,9 @@
+Category,Type,Name,Room,X Position,Y Position
+block,pushblock,pb1,Room9,4,3
+block,pushblock,pb2,Room16,4,3
+item,key,key1,Room9,8,5
+item,key,key2,Room1,8,6
+item,key,key3,Room6,6,1
+item,key,key4,Room17,6,2
+item,hcont,heartcont1,Room14,11,3
+item,boomerang,boomerang1,Room11,8,3

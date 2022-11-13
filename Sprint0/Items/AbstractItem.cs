@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using static Sprint0.Utils;
 using Sprint0.Sprites;
+using Sprint0.Entities;
 
 namespace Sprint0.Items
 {
@@ -11,7 +12,7 @@ namespace Sprint0.Items
 
         private readonly ISprite Sprite;
         private readonly Types.Item ItemType;
-
+        private IEntity Parent = null;  // Owning entity.
         private string Name = "unnamed";
 
         protected AbstractItem(ISprite sprite, Vector2 position, Types.Item itemType)
@@ -40,6 +41,16 @@ namespace Sprint0.Items
         public Types.Item GetItemType() 
         {
             return ItemType;
+        }
+
+        public IEntity GetParent()
+        {
+            return Parent;
+        }
+
+        public void SetParent(IEntity entity)
+        {
+            Parent = entity;
         }
 
         public string GetName()

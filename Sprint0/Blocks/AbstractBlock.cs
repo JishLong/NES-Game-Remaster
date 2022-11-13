@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using static Sprint0.Utils;
 using Sprint0.Sprites;
+using Sprint0.Entities;
 
 namespace Sprint0.Blocks
 {
@@ -11,6 +12,7 @@ namespace Sprint0.Blocks
 
         protected readonly ISprite Sprite;
         protected Vector2 Position;
+        private IEntity Parent;
         private string Name = "unnamed";
 
         protected AbstractBlock (ISprite sprite, Vector2 position, bool isWall) 
@@ -35,7 +37,15 @@ namespace Sprint0.Blocks
         {
             Sprite.Update();
         }
+        public IEntity GetParent()
+        {
+            return Parent;
+        }
 
+        public void SetParent(IEntity entity)
+        {
+            Parent = entity;
+        }
         public virtual string GetName()
         {
             return Name;

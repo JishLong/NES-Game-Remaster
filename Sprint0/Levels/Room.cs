@@ -22,14 +22,14 @@ namespace Sprint0.Levels
 {
     public class Room : IEntity
     {
-        public List<IBlock> Blocks { get;}
-        public List<ICharacter> Characters { get;}
-        public List<IItem> Items { get;}
-        public List<IEntity> Entities { get;}
+        public List<IBlock> Blocks { get; }
+        public List<ICharacter> Characters { get; }
+        public List<IItem> Items { get; }
         public DoorHandler DoorHandler { get; }
-        public ProjectileHandler Projectiles { get;}
+        public ProjectileHandler Projectiles { get; }
         public EventMaster EventMaster { get; }
 
+        private IEntity Parent;
         private Dictionary<RoomTransition, Room> AdjacentRooms;
 
         private IBorder Border;
@@ -43,7 +43,6 @@ namespace Sprint0.Levels
             Blocks = new List<IBlock>();
             Characters = new List<ICharacter>();
             Items = new List<IItem>();
-            Entities = new List<IEntity>();
             EventMaster = new EventMaster();
             DoorHandler = new DoorHandler();
             Projectiles = new ProjectileHandler();
@@ -57,6 +56,15 @@ namespace Sprint0.Levels
                 {RoomTransition.LEFT, null },
                 {RoomTransition.SECRET, null },
             };
+        }
+        public IEntity GetParent()
+        {
+            return Parent;
+        }
+
+        public void SetParent(IEntity entity)
+        {
+            Parent = entity;
         }
         public string GetName()
         {
@@ -79,9 +87,9 @@ namespace Sprint0.Levels
             if (AdjacentRooms[direction] != null)   // If there is a valid adjacent room in this direction.
             {
                 Context.CurrentRoom = AdjacentRooms[direction]; // Set the owning level's current room to this adjacent room.
-            } 
+            }
         }
-        public Room GetAdjacentRoom(RoomTransition direction) 
+        public Room GetAdjacentRoom(RoomTransition direction)
         {
             return AdjacentRooms[direction];
         }
@@ -115,7 +123,7 @@ namespace Sprint0.Levels
         {
             Items.Add(item);
         }
-        public void RemoveItemFromRoom(IItem item) 
+        public void RemoveItemFromRoom(IItem item)
         {
             Items.Remove(item);
         }
@@ -127,17 +135,13 @@ namespace Sprint0.Levels
         {
             DoorHandler.AddDoor(door);
         }
-        public void AddProjectileToRoom(Types.Projectile proj, ICollidable user, Types.Direction direction) 
+        public void AddProjectileToRoom(Types.Projectile proj, ICollidable user, Types.Direction direction)
         {
             Projectiles.AddProjectile(ProjectileFactory.GetInstance().GetProjectile(proj, user, direction));
         }
-        public void RemoveProjectileFromRoom(IProjectile proj) 
+        public void RemoveProjectileFromRoom(IProjectile proj)
         {
             Projectiles.RemoveProjectile(proj);
-        }
-        public void AddEntityToRoom(IEntity entity)
-        {
-            Entities.Add(entity);
         }
         public void SetBorder(BlueRoomBorder border)
         {
@@ -157,7 +161,6 @@ namespace Sprint0.Levels
             {
                 character.Update(gameTime);
             }
-            EventMaster.Update(gameTime);
             DoorHandler.Update(gameTime);
             Border.Update();
             Projectiles.Update();
@@ -185,7 +188,7 @@ namespace Sprint0.Levels
             }
             DoorHandler.Draw(sb);
             Border.Draw(sb);
-            Projectiles.Draw(sb);       
+            Projectiles.Draw(sb);
         }
     }
 }

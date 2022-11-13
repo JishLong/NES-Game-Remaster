@@ -27,13 +27,16 @@ namespace Sprint0.Entities
         /// <param name="name"></param>
         /// <param name="position"></param>
         /// <returns></returns>
-        public IEntity GetEntity(Room room, string category, string type, string name, Vector2 position)
+        public IEntity GetEntity(Level level, string roomName, string category, string type, string name, Vector2 position)
         {
+            // Find the correct room from the specified name.
+            Room room = level.Rooms.Find(room => room.RoomName == roomName);
             switch (category)
             {
                 case "block":
                     Types.Block blockType = LevelResources.GetInstance().BlockMap[type];
                     IBlock block = BlockFactory.GetInstance().GetBlock(blockType, position);
+                    block.SetParent(room);
                     block.SetName(name);
                     room.AddBlockToRoom(block);
                     return block;
@@ -41,6 +44,7 @@ namespace Sprint0.Entities
                 case "item":
                     Types.Item itemType = LevelResources.GetInstance().ItemMap[type];
                     IItem item = ItemFactory.GetInstance().GetItem(itemType, position);
+                    item.SetParent(room);
                     item.SetName(name);
                     return item;
                 default:
