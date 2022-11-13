@@ -133,21 +133,5 @@ namespace Sprint0
                 _ => Types.RoomTransition.SECRET,
             };
         }
-
-        public static Types.Direction GetNextClockwiseDirection(Types.Direction direction) 
-        {
-            return direction switch
-            {
-                Types.Direction.LEFT => Types.Direction.UP,
-                Types.Direction.RIGHT => Types.Direction.DOWN,
-                Types.Direction.UP => Types.Direction.RIGHT,
-                Types.Direction.DOWN => Types.Direction.LEFT,
-                Types.Direction.UPLEFT => Types.Direction.UPRIGHT,
-                Types.Direction.UPRIGHT => Types.Direction.DOWNRIGHT,
-                Types.Direction.DOWNLEFT => Types.Direction.UPLEFT,
-                Types.Direction.DOWNRIGHT => Types.Direction.DOWNLEFT,
-                _ => Types.Direction.NO_DIRECTION,
-            };
-        }
     }
 }

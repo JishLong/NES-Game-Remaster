@@ -10,14 +10,12 @@ namespace Sprint0.Characters.Enemies.States.BladeTrapStates
 {
     public class BladeTrapStillState : AbstractCharacterState
     {
-        private BladeTrap BladeTrap;
         private Types.Direction StateDirection;
         private Vector2 DirectionVector;
 
-        public BladeTrapStillState(BladeTrap bladeTrap)
+        public BladeTrapStillState(AbstractCharacter character) : base(character)
         {
-            BladeTrap = bladeTrap;
-            Sprite = new BladeTrapSprite();
+
         }
         public override void Attack()
         {
@@ -29,19 +27,17 @@ namespace Sprint0.Characters.Enemies.States.BladeTrapStates
             throw new NotImplementedException();
         }
 
-        public override void Freeze()
+        public override void Freeze(bool frozenForever)
         {
             // Cannot be frozen
         }
 
-        public override void Move()
-        {
-            // Doesn't move
-        }
+
+        public override void Unfreeze() { }
 
         public override void Update(GameTime gameTime)
         {
-            Sprite.Update();
+            Character.Sprite.Update();
         }
     }
 }

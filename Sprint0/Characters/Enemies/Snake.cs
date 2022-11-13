@@ -1,5 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.States.SnakeStates;
+using Sprint0.Sprites.Characters.Enemies;
+using Sprint0.Sprites;
+using System;
 
 namespace Sprint0.Characters.Enemies
 {
@@ -7,10 +10,13 @@ namespace Sprint0.Characters.Enemies
     {
         private double DirectionTimer = 0;
         private readonly double DirectionDelay = 2500;    // Change direction every this many milliseconds.
+
+        private static readonly Random RNG = new();
+
         public Snake(Vector2 position)
         {
             // State
-            State = new SnakeFacingLeftMovingUpState(this);
+            State = new SnakeMovingState(this);
 
             // Combat
             Health = 1;
@@ -22,8 +28,7 @@ namespace Sprint0.Characters.Enemies
 
         public override void Update(GameTime gameTime)
         {
-            double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
-            DirectionTimer += elapsedTime; 
+            DirectionTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
             if ((DirectionTimer - DirectionDelay) > 0)
             {
                 DirectionTimer = 0;
@@ -31,6 +36,17 @@ namespace Sprint0.Characters.Enemies
             }
 
             base.Update(gameTime);
+        }
+
+        public static ISprite GetSprite(Types.Direction direction)
+        {
+            if (direction == Types.Direction.LEFT) return new SnakeLeftSprite();
+            else if (direction == Types.Direction.RIGHT) return new SnakeRightSprite();
+            else 
+            {
+                if (RNG.Next(2) > 0) return new SnakeLeftSprite();
+                else return new SnakeRightSprite();
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 using Microsoft.Xna.Framework;
 using Sprint0.Characters.Bosses.States.DodongoStates;
+using Sprint0.Sprites;
+using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies
 {
@@ -31,6 +33,17 @@ namespace Sprint0.Characters.Enemies
             }
 
             base.Update(gameTime);
-        }    
+        }
+
+        public static ISprite GetSprite(Types.Direction direction) 
+        {
+            return direction switch
+            {
+                Types.Direction.LEFT => new DodongoLeftSprite(),
+                Types.Direction.RIGHT => new DodongoRightSprite(),
+                Types.Direction.UP => new DodongoUpSprite(),
+                _ => new DodongoDownSprite(),
+            };
+        }
     }
 }

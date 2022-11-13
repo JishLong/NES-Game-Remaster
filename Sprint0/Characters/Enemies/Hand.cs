@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.States.HandStates;
+using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies
 {
@@ -10,8 +11,13 @@ namespace Sprint0.Characters.Enemies
 
         public Hand(Vector2 position)
         {
+            // The hand sprite is the same no matter its state, so we'll just instantiate it here
+            // NOTE: THIS WILL CHANGE LATER, HAND SHOULD HAVE DIFFERENT SPRITES
+            Sprite = new HandSprite();
+
             // State
-            State = new HandMovingUpState(this, false);
+            State = new HandMovingState(this, false);
+
             // Combat
             Health = 2;
             Damage = 1;
@@ -22,8 +28,7 @@ namespace Sprint0.Characters.Enemies
 
         public override void Update(GameTime gameTime)
         {
-            double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
-            DirectionTimer += elapsedTime;
+            DirectionTimer += gameTime.ElapsedGameTime.TotalMilliseconds; ;
             if ((DirectionTimer - DirectionDelay) > 0)
             {
                 DirectionTimer = 0;

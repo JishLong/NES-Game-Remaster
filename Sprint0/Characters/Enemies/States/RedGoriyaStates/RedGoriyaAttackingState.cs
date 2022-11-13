@@ -1,28 +1,21 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Characters.Enemies.States.RedGoriyaStates;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Tools;
-using Sprint0.Sprites;
-using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.RedGoriyaStates
 {
     public class RedGoriyaAttackingState : AbstractCharacterState
     {
-        private readonly static ISprite[] Sprites = {
-            new RedGoriyaUpSprite(), new RedGoriyaDownSprite(), new RedGoriyaLeftSprite(), new RedGoriyaRightSprite()
-        };
-
         private readonly Types.Direction ResumeMovementDirection;
         private readonly IProjectile UnseenBoomerang;
 
         public RedGoriyaAttackingState(AbstractCharacter character, Types.Direction direction) : base(character)
         {
-            Sprite = Sprites[(int)direction];
             ResumeMovementDirection = direction;
 
-            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOOMERANG_PROJ, Character, Types.Direction.DOWN);
-            UnseenBoomerang = ProjectileFactory.GetInstance().GetProjectile(Types.Projectile.BOOMERANG_PROJ, Character, Types.Direction.DOWN);
+            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.BOOMERANG_PROJ, Character, direction);
+            UnseenBoomerang = ProjectileFactory.GetInstance().GetProjectile(Types.Projectile.BOOMERANG_PROJ, Character, direction);
         }
 
         public override void Attack()
@@ -30,15 +23,11 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
             // Already attacking.
         }
 
-        public override void Move()
-        {
-            Character.State = new RedGoriyaMovingState(Character, ResumeMovementDirection);
-        }
-
         public override void Freeze(bool frozenForever)
         {
             Character.State = new RedGoriyaFrozenState(Character, ResumeMovementDirection, frozenForever);
         }
+
         public override void ChangeDirection()
         {
             // Do nothing, cant change direction while attacking.
@@ -51,12 +40,11 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
 
         public override void Update(GameTime gameTime)
         {
+            // Resume moving if boomerang is done boomeranging (or rather, if it would be - we don't actually see it!)
             UnseenBoomerang.Update();
-            if (UnseenBoomerang.TimeIsUp())
-            {
-                Move(); // Resume moving.
-            }
-            Sprite.Update();
+            if (UnseenBoomerang.TimeIsUp()) Character.State = new RedGoriyaMovingState(Character, ResumeMovementDirection);
+
+            Character.Sprite.Update();
         }
     }
 }

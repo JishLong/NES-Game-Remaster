@@ -1,8 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Utils;
-using Sprint0.Sprites.Characters.Enemies;
 
-namespace Sprint0.Characters.Enemies.States.BatStates
+namespace Sprint0.Characters.Enemies.States.SnakeStates
 {
     public class SnakeMovingState : AbstractCharacterState
     {
@@ -11,8 +10,11 @@ namespace Sprint0.Characters.Enemies.States.BatStates
 
         public SnakeMovingState(AbstractCharacter character, Types.Direction direction = Types.Direction.NO_DIRECTION) : base(character)
         {
+            // If there's a preset direction, use that; if not, pick one at random
             if (direction != Types.Direction.NO_DIRECTION) Direction = direction;
             else Direction = CharacterUtils.RandOrthogDirection(Types.Direction.NO_DIRECTION);
+
+            character.Sprite ??= Snake.GetSprite(Direction);
         }
         public override void Attack()
         {
@@ -21,17 +23,16 @@ namespace Sprint0.Characters.Enemies.States.BatStates
 
         public override void ChangeDirection()
         {
-            Direction = CharacterUtils.RandOmniDirection(Direction);
+            Direction = CharacterUtils.RandOrthogDirection(Direction);
+
+            // If the snake moves vertically, they retain the sprite they had while they were moving horizontally
+            if (Direction == Types.Direction.LEFT) Character.Sprite = Snake.GetSprite(Types.Direction.LEFT);
+            else if (Direction == Types.Direction.RIGHT) Character.Sprite = Snake.GetSprite(Types.Direction.RIGHT);
         }
 
         public override void Freeze(bool frozenForever)
         {
             Character.State = new SnakeFrozenState(Character, Direction, frozenForever);
-        }
-
-        public override void Move()
-        {
-            // Nothing here!
         }
 
         public override void Unfreeze()
@@ -42,7 +43,7 @@ namespace Sprint0.Characters.Enemies.States.BatStates
         public override void Update(GameTime gameTime)
         {
             Character.Position += Sprint0.Utils.DirectionToVector(Direction) * MovementSpeed;
-            Sprite.Update();
+            Character.Sprite.Update();
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Utils;
-using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.States.GelStates
 {
@@ -11,8 +10,7 @@ namespace Sprint0.Characters.Enemies.States.GelStates
 
         public GelMovingState(AbstractCharacter character, Types.Direction direction = Types.Direction.NO_DIRECTION) : base(character)
         {
-            Sprite = new GelSprite();
-
+            // If there's a preset direction, use that; if not, pick one at random
             if (direction != Types.Direction.NO_DIRECTION) Direction = direction;
             else Direction = CharacterUtils.RandOrthogDirection(Types.Direction.NO_DIRECTION);
         }
@@ -31,11 +29,6 @@ namespace Sprint0.Characters.Enemies.States.GelStates
             Character.State = new GelFrozenState(Character, Direction, frozenForever);
         }
 
-        public override void Move()
-        {
-            // Nothing here!
-        }
-
         public override void Unfreeze()
         {
             // Already unfrozen!
@@ -44,7 +37,7 @@ namespace Sprint0.Characters.Enemies.States.GelStates
         public override void Update(GameTime gameTime)
         {
             Character.Position += Sprint0.Utils.DirectionToVector(Direction) * MovementSpeed;
-            Sprite.Update();
+            Character.Sprite.Update();
         }
     }
 }

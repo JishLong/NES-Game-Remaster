@@ -15,8 +15,6 @@ namespace Sprint0.Characters
 
         Rectangle GetHitbox(Vector2 position);
 
-        void Move();
-
         void Unfreeze();
  
         void Update(GameTime gameTime);        

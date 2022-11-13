@@ -1,26 +1,22 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Characters.Enemies.States.RedGoriyaStates;
 using Sprint0.Characters.Utils;
-using Sprint0.Sprites;
-using Sprint0.Sprites.Characters.Enemies;
 using static Sprint0.Types;
 
 namespace Sprint0.Characters.Enemies.RedGoriyaStates
 {
     public class RedGoriyaMovingState : AbstractCharacterState
     {
-        private readonly static ISprite[] Sprites = {
-            new RedGoriyaUpSprite(), new RedGoriyaDownSprite(), new RedGoriyaLeftSprite(), new RedGoriyaRightSprite()
-        };
-
         private static readonly Vector2 MovementSpeed = new(1.5f, 1.5f);
         private Types.Direction Direction;
 
-        public RedGoriyaMovingState(AbstractCharacter character, Types.Direction direction = Types.Direction.NO_DIRECTION) : base(character)
+        public RedGoriyaMovingState(AbstractCharacter character, Direction direction = Direction.NO_DIRECTION) : base(character)
         {
-            Sprite = Sprites[(int)direction];
-
+            // If there's a preset direction, use that; if not, pick one at random
             if (direction != Direction.NO_DIRECTION) Direction = direction;
-            else Direction = CharacterUtils.RandOmniDirection(Types.Direction.NO_DIRECTION);
+            else Direction = CharacterUtils.RandOrthogDirection(Direction.NO_DIRECTION);
+
+            character.Sprite ??= RedGoriya.GetSprite(Direction);
         }
 
         public override void Attack()
@@ -28,10 +24,6 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
             Character.State = new RedGoriyaAttackingState(Character, Direction);
         }
 
-        public override void Move()
-        {
-            // Nothing here!
-        }
 
         public override void Freeze(bool frozenForever)
         {
@@ -41,6 +33,7 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
         public override void ChangeDirection()
         {
             Direction = CharacterUtils.RandOrthogDirection(Direction);
+            Character.Sprite = RedGoriya.GetSprite(Direction);
         }
 
         public override void Unfreeze()
@@ -51,7 +44,7 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
         public override void Update(GameTime gameTime)
         {
             Character.Position += Sprint0.Utils.DirectionToVector(Direction) * MovementSpeed;
-            Sprite.Update();
+            Character.Sprite.Update();
         }
     }
 }

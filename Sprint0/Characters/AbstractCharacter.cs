@@ -2,115 +2,121 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Levels;
 using Sprint0.Projectiles.Tools;
+using Sprint0.Sprites;
 using System;
 
-namespace Sprint0.Characters;
-public abstract class AbstractCharacter : ICharacter
+namespace Sprint0.Characters
 {
-    // State
-    public ICharacterState State { get; set; }
-    public Vector2 Position { get; set; }
-    public int Damage { get; protected set; }
-
-    // Combat related fields.
-    protected int Health;
-    private Types.Direction KnockbackDirection;
-    protected Vector2 Knockback = new(16 * Sprint0.Utils.GameScale, 16 * Sprint0.Utils.GameScale);
-    protected static readonly int InvincibilityFrames = 40;
-    protected static readonly int KnockBackFrames = InvincibilityFrames / 5;
-
-    // Condition monitoring variables
-    protected bool IsTakingDamage;
-    protected int DamageFramesPassed;
-    protected bool JustSpawned;
-
-    protected AbstractCharacter() 
+    public abstract class AbstractCharacter : ICharacter
     {
-        IsTakingDamage = false;
-        DamageFramesPassed = 0;
-        JustSpawned = true;
-    }
+        // State
+        public ICharacterState State { get; set; }
+        public Vector2 Position { get; set; }
+        public int Damage { get; protected set; }
 
-    protected void DeathAction(Room room)
-    {
-        // Spawn a "death particle" upon death
-        ProjectileManager.GetInstance().AddProjectile(Types.Projectile.DEATH_PARTICLE, this, Types.Direction.NO_DIRECTION);
-        AudioManager.GetInstance().PlayOnce(Resources.EnemyDeath);
+        // Combat related fields.
+        protected int Health;
+        private Types.Direction KnockbackDirection;
+        private Vector2 Knockback = new(16 * Sprint0.Utils.GameScale, 16 * Sprint0.Utils.GameScale);
+        private static readonly int InvincibilityFrames = 40;
+        private static readonly int KnockBackFrames = InvincibilityFrames / 5;
 
-        // Custom drop rates because the game's actual drop rates are too uncommon for just playing in the first dungeon
-        int Drop = new Random().Next(100);
-        if (Drop >= 25 && Drop < 50) room.AddItemToRoom(Types.Item.RUPEE, Position);
-        else if (Drop >= 50 && Drop < 75) room.AddItemToRoom(Types.Item.HEART, Position);
-        else if (Drop >= 70 && Drop < 80) room.AddItemToRoom(Types.Item.CLOCK, Position);
-        else if (Drop >= 80 && Drop < 90) room.AddItemToRoom(Types.Item.FAIRY, Position);
-        else if (Drop >= 90 && Drop < 100) room.AddItemToRoom(Types.Item.BOMB, Position);
-    }
+        // Condition monitoring variables
+        private bool IsTakingDamage;
+        private int DamageFramesPassed;
+        private bool JustSpawned;
 
-    public virtual void Draw(SpriteBatch sb)
-    {
-        Color CharacterColor = (IsTakingDamage) ? Color.Red : Color.White;
-        if (!JustSpawned) State.Draw(sb, Position, CharacterColor);
-    }
+        // We'll let the state classes reference this sprite so there isn't choppy animation when switching states
+        public ISprite Sprite { get; set; }
 
-    public void Freeze(bool frozenForever) 
-    {
-        State.Freeze(frozenForever);
-    }
-
-    public virtual Rectangle GetHitbox()
-    {
-        return State.GetHitbox(Position);
-    }
-
-    public virtual void TakeDamage(Types.Direction damageSide, int damage, Room room)
-    {
-        if (!IsTakingDamage)
+        protected AbstractCharacter()
         {
-            IsTakingDamage = true;
-            Health -= damage;
-            AudioManager.GetInstance().PlayOnce(Resources.EnemyTakeDamage);
-            if (Health <= 0)
-            {
-                DeathAction(room);
-                room.RemoveCharacterFromRoom(this);
-            }
-            else
-            {
-                KnockbackDirection = Sprint0.Utils.GetOppositeDirection(damageSide);
-            }
-        }
-    }
-
-    public void Unfreeze() 
-    {
-        State.Unfreeze();
-    }
-
-    public virtual void Update(GameTime gameTime)
-    {
-        // Spawn a cloud particle upon character spawning in
-        if (JustSpawned) 
-        {
-            JustSpawned = false;
-            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SPAWN_PARTICLE, this, Types.Direction.NO_DIRECTION);
+            IsTakingDamage = false;
+            DamageFramesPassed = 0;
+            JustSpawned = true;
         }
 
-        if (IsTakingDamage)
+        protected void DeathAction(Room room)
         {
-            // Take knockback
-            if (DamageFramesPassed < KnockBackFrames)
-            {
-                Position += Sprint0.Utils.DirectionToVector(KnockbackDirection) * Knockback / (KnockBackFrames);
-            }
+            // Spawn a "death particle" upon death
+            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.DEATH_PARTICLE, this, Types.Direction.NO_DIRECTION);
+            AudioManager.GetInstance().PlayOnce(Resources.EnemyDeath);
 
-            // Check to see if the character should no longer be damaged
-            DamageFramesPassed = (DamageFramesPassed + 1) % InvincibilityFrames;
-            if (DamageFramesPassed == 0)
+            // Custom drop rates because the game's actual drop rates are too uncommon for just playing in the first dungeon
+            int Drop = new Random().Next(100);
+            if (Drop >= 25 && Drop < 50) room.AddItemToRoom(Types.Item.RUPEE, Position);
+            else if (Drop >= 50 && Drop < 75) room.AddItemToRoom(Types.Item.HEART, Position);
+            else if (Drop >= 70 && Drop < 80) room.AddItemToRoom(Types.Item.CLOCK, Position);
+            else if (Drop >= 80 && Drop < 90) room.AddItemToRoom(Types.Item.FAIRY, Position);
+            else if (Drop >= 90 && Drop < 100) room.AddItemToRoom(Types.Item.BOMB, Position);
+        }
+
+        public virtual void Draw(SpriteBatch sb)
+        {
+            Color CharacterColor = (IsTakingDamage) ? Color.Red : Color.White;
+            State.Draw(sb, Position, CharacterColor);
+        }
+
+        public void Freeze(bool frozenForever)
+        {
+            State.Freeze(frozenForever);
+        }
+
+        public virtual Rectangle GetHitbox()
+        {
+            return State.GetHitbox(Position);
+        }
+
+        public virtual void TakeDamage(Types.Direction damageSide, int damage, Room room)
+        {
+            if (!IsTakingDamage)
             {
-                IsTakingDamage = false;
+                IsTakingDamage = true;
+                Health -= damage;
+                AudioManager.GetInstance().PlayOnce(Resources.EnemyTakeDamage);
+                if (Health <= 0)
+                {
+                    DeathAction(room);
+                    room.RemoveCharacterFromRoom(this);
+                }
+                else
+                {
+                    KnockbackDirection = Sprint0.Utils.GetOppositeDirection(damageSide);
+                }
             }
         }
 
-        State.Update(gameTime);
-    } 
+        public void Unfreeze()
+        {
+            State.Unfreeze();
+        }
+
+        public virtual void Update(GameTime gameTime)
+        {
+            // Spawn a cloud particle upon character spawning in
+            if (JustSpawned)
+            {
+                JustSpawned = false;
+                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SPAWN_PARTICLE, this, Types.Direction.NO_DIRECTION);
+            }
+
+            if (IsTakingDamage)
+            {
+                // Take knockback
+                if (DamageFramesPassed < KnockBackFrames)
+                {
+                    Position += Sprint0.Utils.DirectionToVector(KnockbackDirection) * Knockback / (KnockBackFrames);
+                }
+
+                // Check to see if the character should no longer be damaged
+                DamageFramesPassed = (DamageFramesPassed + 1) % InvincibilityFrames;
+                if (DamageFramesPassed == 0)
+                {
+                    IsTakingDamage = false;
+                }
+            }
+
+            State.Update(gameTime);
+        }
+    }
 }

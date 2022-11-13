@@ -1,5 +1,4 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters;
 using Sprint0.Levels;
 using Sprint0.Sprites.Characters.Npcs;
@@ -10,9 +9,10 @@ namespace Sprint0.Npcs
     {
         public Flame(Vector2 position)
         {
+            Sprite = new FlameSprite();
+
             Health = 1;
             Position = position;
-            Sprite = new FlameSprite();
         }
 
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
@@ -23,11 +23,6 @@ namespace Sprint0.Npcs
         public override void Update(GameTime gameTime)
         {
             Sprite.Update();
-        }
-
-        public override void Draw(SpriteBatch sb)
-        {
-            Sprite.Draw(sb, Position, Color.White, Utils.CharacterLayerDepth);
         }
 
         public override Rectangle GetHitbox()

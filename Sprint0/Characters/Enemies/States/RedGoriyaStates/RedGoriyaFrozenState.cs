@@ -1,16 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.RedGoriyaStates;
-using Sprint0.Sprites;
-using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.States.RedGoriyaStates
 {
     public class RedGoriyaFrozenState : AbstractCharacterState
     {
-        private readonly static ISprite[] Sprites = {
-            new RedGoriyaUpSprite(), new RedGoriyaDownSprite(), new RedGoriyaLeftSprite(), new RedGoriyaRightSprite()
-        };
-
         private bool FrozenForever;
         private readonly Types.Direction ResumeMovementDirection;
 
@@ -19,7 +13,6 @@ namespace Sprint0.Characters.Enemies.States.RedGoriyaStates
 
         public RedGoriyaFrozenState(AbstractCharacter character, Types.Direction direction, bool frozenForever) : base(character)
         {
-            Sprite = Sprites[(int)direction];
             ResumeMovementDirection = direction;
             FrozenForever = frozenForever;
 
@@ -37,13 +30,11 @@ namespace Sprint0.Characters.Enemies.States.RedGoriyaStates
 
         public override void Freeze(bool frozenForever)
         {
-            FrozenForever = frozenForever;
+            // If a goriya is frozen from a boomerang, picking up a clock will keep it frozen forever
+            // On the other hand, if a goriya is frozen from a clock, we don't want the boomerang to "unfreeze" it
+            if (frozenForever) FrozenForever = frozenForever;
         }
 
-        public override void Move()
-        {
-            // Cannot move while frozen.
-        }
 
         public override void Unfreeze()
         {
@@ -52,11 +43,10 @@ namespace Sprint0.Characters.Enemies.States.RedGoriyaStates
 
         public override void Update(GameTime gameTime)
         {
-            double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
-            if (!FrozenForever) FrozenTimer += elapsedTime;
+            if (!FrozenForever) FrozenTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
             if ((FrozenTimer - FrozenDelay) > 0) Unfreeze();
 
-            Sprite.Update();
+            Character.Sprite.Update();
         }
     }
 }

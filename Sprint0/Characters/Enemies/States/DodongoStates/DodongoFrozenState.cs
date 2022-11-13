@@ -1,16 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Sprites.Characters.Enemies;
-using Sprint0.Sprites;
-using static Sprint0.Types;
 
 namespace Sprint0.Characters.Bosses.States.DodongoStates
 {
     public class DodongoFrozenState : AbstractCharacterState
     {
-        private readonly static ISprite[] Sprites = {
-            new DodongoUpSprite(), new DodongoDownSprite(), new DodongoLeftSprite(), new DodongoRightSprite()
-        };
-
         private bool FrozenForever;
         private readonly Types.Direction ResumeMovementDirection;
 
@@ -19,24 +12,24 @@ namespace Sprint0.Characters.Bosses.States.DodongoStates
 
         public DodongoFrozenState(AbstractCharacter character, Types.Direction direction, bool frozenForever) : base(character)
         {
-            Sprite = Sprites[(int)direction];
             ResumeMovementDirection = direction;
             FrozenForever = frozenForever;
 
             FrozenTimer = 0;
         }
+
         public override void Attack()
         {
             // Do nothing. (Cant attack after frozen.)
         }
-        public override void Move()
-        {
-            // Can't move while frozen
-        }
+
         public override void Freeze(bool frozenForever)
         {
-            FrozenForever = frozenForever;
+            // If a dodongo is frozen from a boomerang, picking up a clock will keep it frozen forever
+            // On the other hand, if a dodongo is frozen from a clock, we don't want the boomerang to "unfreeze" it
+            if (frozenForever) FrozenForever = frozenForever;
         }
+
         public override void ChangeDirection()
         {
             // Do nothing. Cant change direction while frozen.
@@ -46,14 +39,13 @@ namespace Sprint0.Characters.Bosses.States.DodongoStates
         {
             Character.State = new DodongoMovingState(Character, ResumeMovementDirection);
         }
+
         public override void Update(GameTime gameTime)
         {
-            double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
-            if (!FrozenForever) FrozenTimer += elapsedTime;
+            if (!FrozenForever) FrozenTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
             if ((FrozenTimer - FrozenDelay) > 0) Unfreeze();
 
-            Sprite.Update();
+            Character.Sprite.Update();
         }
     }
 }
-

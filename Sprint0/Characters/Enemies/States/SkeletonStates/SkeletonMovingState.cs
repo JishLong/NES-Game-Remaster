@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Utils;
-using Sprint0.Sprites.Characters.Enemies;
 
-namespace Sprint0.Characters.Enemies.States.SkeletonStates;
+namespace Sprint0.Characters.Enemies.States.SkeletonStates
+{
     public class SkeletonMovingState : AbstractCharacterState
     {
         private static readonly Vector2 MovementSpeed = new(1.5f, 1.5f);
@@ -10,11 +10,11 @@ namespace Sprint0.Characters.Enemies.States.SkeletonStates;
 
         public SkeletonMovingState(AbstractCharacter character, Types.Direction direction = Types.Direction.NO_DIRECTION) : base(character)
         {
-            Sprite = new SkeletonSprite();
-
+            // If there's a preset direction, use that; if not, pick one at random
             if (direction != Types.Direction.NO_DIRECTION) Direction = direction;
             else Direction = CharacterUtils.RandOrthogDirection(Types.Direction.NO_DIRECTION);
         }
+
         public override void Attack()
         {
             // Does not attack.
@@ -30,11 +30,6 @@ namespace Sprint0.Characters.Enemies.States.SkeletonStates;
             Character.State = new SkeletonFrozenState(Character, Direction, frozenForever);
         }
 
-        public override void Move()
-        {
-            // Nothing here!
-        }
-
         public override void Unfreeze()
         {
             // Already unfrozen!
@@ -43,7 +38,7 @@ namespace Sprint0.Characters.Enemies.States.SkeletonStates;
         public override void Update(GameTime gameTime)
         {
             Character.Position += Sprint0.Utils.DirectionToVector(Direction) * MovementSpeed;
-            Sprite.Update();
+            Character.Sprite.Update();
         }
     }
 }

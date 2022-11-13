@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.States.SkeletonStates
 {
@@ -13,7 +12,6 @@ namespace Sprint0.Characters.Enemies.States.SkeletonStates
 
         public SkeletonFrozenState(AbstractCharacter character, Types.Direction direction, bool frozenForever) : base(character)
         {
-            Sprite = new SkeletonSprite();
             ResumeMovementDirection = direction;
             FrozenForever = frozenForever;
 
@@ -31,12 +29,9 @@ namespace Sprint0.Characters.Enemies.States.SkeletonStates
 
         public override void Freeze(bool frozenForever)
         {
-            FrozenForever = frozenForever;
-        }
-
-        public override void Move()
-        {
-            // Cannot move while frozen.
+            // If a skeleton is frozen from a boomerang, picking up a clock will keep it frozen forever
+            // On the other hand, if a skeleton is frozen from a clock, we don't want the boomerang to "unfreeze" it
+            if (frozenForever) FrozenForever = frozenForever;
         }
 
         public override void Unfreeze()
@@ -46,11 +41,10 @@ namespace Sprint0.Characters.Enemies.States.SkeletonStates
 
         public override void Update(GameTime gameTime)
         {
-            double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
-            if (!FrozenForever) FrozenTimer += elapsedTime;
+            if (!FrozenForever) FrozenTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
             if ((FrozenTimer - FrozenDelay) > 0) Unfreeze();
 
-            Sprite.Update();
+            Character.Sprite.Update();
         }
     }
 }

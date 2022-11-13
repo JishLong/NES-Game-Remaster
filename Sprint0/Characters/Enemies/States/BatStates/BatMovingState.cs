@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Utils;
-using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies.States.BatStates
 {
@@ -11,11 +10,11 @@ namespace Sprint0.Characters.Enemies.States.BatStates
 
         public BatMovingState(AbstractCharacter character, Types.Direction direction = Types.Direction.NO_DIRECTION) : base(character)
         {
-            Sprite = new BatSprite();
-
+            // If there's a preset direction, use that; if not, pick one at random
             if (direction != Types.Direction.NO_DIRECTION) Direction = direction;
             else Direction = CharacterUtils.RandOmniDirection(Types.Direction.NO_DIRECTION);
         }
+
         public override void Attack()
         {
             // Does not attack.
@@ -31,11 +30,6 @@ namespace Sprint0.Characters.Enemies.States.BatStates
             Character.State = new BatFrozenState(Character, Direction, frozenForever);
         }
 
-        public override void Move()
-        {
-            // Nothing here!
-        }
-
         public override void Unfreeze() 
         { 
             // Already unfrozen!
@@ -44,7 +38,7 @@ namespace Sprint0.Characters.Enemies.States.BatStates
         public override void Update(GameTime gameTime)
         {
             Character.Position += Sprint0.Utils.DirectionToVector(Direction) * MovementSpeed;
-            Sprite.Update();
+            Character.Sprite.Update();
         }
     }
 }

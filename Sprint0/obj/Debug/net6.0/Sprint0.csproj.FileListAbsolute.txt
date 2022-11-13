@@ -300,3 +300,4 @@ C:\Users\josh\source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Ima
 C:\Users\josh\source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mouse Cursor\cursor2.xnb
 C:\Users\josh\source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mouse Cursor\cursor3.xnb
 C:\Users\josh\source\Repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mouse Cursor\cursor4.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\dababy.xnb

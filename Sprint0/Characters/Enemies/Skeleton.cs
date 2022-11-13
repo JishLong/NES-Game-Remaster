@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.States.SkeletonStates;
-using static Sprint0.Characters.Utils.CharacterUtils;
+using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies
 {
@@ -11,8 +11,12 @@ namespace Sprint0.Characters.Enemies
 
         public Skeleton(Vector2 position)
         {
+            // The skeleton sprite is the same no matter its state, so we'll just instantiate it here
+            Sprite = new SkeletonSprite();
+
             // State
-            State = new SkeletonMovingUpState(this);
+            State = new SkeletonMovingState(this);
+
             // Combat
             Health = 2;
             Damage = 1;
@@ -23,8 +27,7 @@ namespace Sprint0.Characters.Enemies
 
         public override void Update(GameTime gameTime)
         {
-            double elapsedTime = gameTime.ElapsedGameTime.TotalMilliseconds;
-            DirectionTimer += elapsedTime;
+            DirectionTimer += gameTime.ElapsedGameTime.TotalMilliseconds;
             if ((DirectionTimer - DirectionDelay) > 0)
             {
                 DirectionTimer = 0;
