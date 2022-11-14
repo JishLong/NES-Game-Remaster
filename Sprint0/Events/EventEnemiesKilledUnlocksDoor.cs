@@ -24,6 +24,7 @@ namespace Sprint0.Events
 
             if(Room.Characters.Count == 0 && Fired == false)
             {
+                AudioManager.GetInstance().PlayOnce(Resources.DoorOpened);
                 Door.Unlock();
                 Fired = true;
             }
