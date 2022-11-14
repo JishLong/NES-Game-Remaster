@@ -34,6 +34,8 @@ namespace Sprint0.Characters.Utils
                     return new OldMan(position);
                 case Types.Character.RED_GORIYA:
                     return new RedGoriya(position);
+                case Types.Character.SECRET_TEXT:
+                    return new SecretText(position);
                 case Types.Character.SKELETON:
                     return new Skeleton(position);
                 case Types.Character.SNAKE:

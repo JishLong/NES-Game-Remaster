@@ -64,6 +64,7 @@ namespace Sprint0.Levels.Utils
                 {"aqua", Types.Character.AQUAMENTUS},
                 {"oldman", Types.Character.OLDMAN },
                 {"flame", Types.Character.FLAME },
+                {"sectext", Types.Character.SECRET_TEXT }
             };
 
             ItemMap = new Dictionary<string, Types.Item>()

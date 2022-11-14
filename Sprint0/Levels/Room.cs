@@ -13,6 +13,7 @@ using Sprint0.Items.Utils;
 using Sprint0.Levels.Borders;
 using Sprint0.Levels.Events;
 using Sprint0.Levels.Utils;
+using Sprint0.Npcs;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Tools;
 using System;
@@ -88,7 +89,11 @@ namespace Sprint0.Levels
             if (AdjacentRooms[direction] != null)   // If there is a valid adjacent room in this direction.
             {
                 Context.CurrentRoom = AdjacentRooms[direction]; // Set the owning level's current room to this adjacent room.
-                foreach (ICharacter character in Characters) character.Unfreeze();
+                foreach (ICharacter character in Characters) 
+                {
+                    character.Unfreeze();
+                    if (character is SecretText) (character as SecretText).Reset();
+                } 
                 foreach (IBlock block in Blocks) if (block is PushableBlock) (block as PushableBlock).Reset();
             }
         }

@@ -24,7 +24,7 @@ namespace Sprint0.Characters
         // Condition monitoring variables
         private bool IsTakingDamage;
         private int DamageFramesPassed;
-        private bool JustSpawned;
+        protected bool JustSpawned;
 
         // We'll let the state classes reference this sprite so there isn't choppy animation when switching states
         public ISprite Sprite { get; set; }
