@@ -9,6 +9,10 @@ namespace Sprint0.GameStates.GameStates
 {
     public class MainMenuState : AbstractGameState
     {
+        private readonly Random NumGenerator = new();
+        private readonly int TipFrames = 300;
+        private readonly int FlashingFreq = 10;
+
         private readonly Vector2 startTextPosition;
         private readonly Vector2 welcomeTextPosition;
         private Vector2 tipTextPosition;
@@ -16,9 +20,7 @@ namespace Sprint0.GameStates.GameStates
 
         private string[] Tips;
         private int CurrentTip;
-        private readonly Random NumGenerator;
-        private readonly int TipFrames;
-        private readonly int FlashingFreq;
+        
         private bool IsShowing;
         private int FramesPassed;
 
@@ -30,8 +32,8 @@ namespace Sprint0.GameStates.GameStates
                 new KeyboardController(KeyboardMappings.GetInstance().GetMainMenuStateMappings(Game)),
                 new MouseController(MouseMappings.GetInstance().NoMappings)
             };
+
             SetTips();
-            NumGenerator = new Random();
             CurrentTip = NumGenerator.Next(Tips.Length);
 
             Vector2 startTextSize = Resources.LargeFont.MeasureString("Press SPACEBAR to start");
@@ -43,15 +45,12 @@ namespace Sprint0.GameStates.GameStates
             tipTextPosition = new Vector2(Utils.GameWidth / 2 - tipTextSize.X / 2, Utils.GameHeight * 9 / 10 - tipTextSize.Y * 3 / 2);
             flashingTextPosition = new Vector2(Utils.GameWidth / 2 - flashingTextSize.X / 2, tipTextPosition.Y - flashingTextSize.Y * 3 / 2);
 
-            TipFrames = 300;
-            FlashingFreq = 10;
             IsShowing = true;
             FramesPassed = 0;
         }
 
         public override void Draw(SpriteBatch sb)
         {
-          
             Color TipColor = (FramesPassed < TipFrames / 10) ? Color.Red : Color.White;
 
             sb.DrawString(Resources.MediumFont, "Welcome to the Myth of Zebra!", welcomeTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);

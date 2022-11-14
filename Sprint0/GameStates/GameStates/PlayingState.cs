@@ -10,7 +10,9 @@ namespace Sprint0.GameStates.GameStates
 {
     public class PlayingState : AbstractGameState
     {
-        public PlayingState() 
+        private static readonly int HudAreaHeight = 44;
+
+        public PlayingState(Game1 game) : base(game) 
         {
             Controllers ??= new List<IController>()
             {
@@ -24,17 +26,22 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Draw(SpriteBatch sb)
         {
-            Camera.Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
+            Camera.GetInstance().Move(Types.Direction.UP, (int)(HudAreaHeight * Utils.GameScale));
             Game.Player.HUD.Draw(sb);
-            Camera.Move(Types.Direction.UP, (int)(44 * Utils.GameScale));
+
+            Camera.GetInstance().Move(Types.Direction.DOWN, (int)(HudAreaHeight * Utils.GameScale));
             Game.LevelManager.Draw(sb);
             Game.Player.Draw(sb);
         }
 
         public override void Update(GameTime gameTime)
         {
+            // Player must be updated before user input
             Game.Player.Update();
+
+            // Controllers should be updated before everything else
             base.Update(gameTime);
+
             Game.LevelManager.Update(gameTime);
         }
     }

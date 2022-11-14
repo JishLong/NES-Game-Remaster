@@ -8,19 +8,19 @@ namespace Sprint0.GameStates.GameStates
 {
     public class WinState : AbstractGameState
     {
+        private static readonly int FadeOutFrames = 200;
+        private static readonly int FlashingFrames = 30;
+
         private readonly Vector2 flashingTextPosition;
         private readonly Vector2 unpauseTextPosition;
         private readonly Vector2 quitTextPosition;
 
-        private readonly int FlashingFrames;
         private bool IsShowing;
-
         private int FramesPassed;
         private bool IsFlashing;
-        private float FadeAmount;
-        private int FadeOutFrames;
+        private float FadeAmount;  
 
-        public WinState()
+        public WinState(Game1 game) : base(game)
         {
             Controllers ??= new List<IController>()
             {
@@ -36,27 +36,26 @@ namespace Sprint0.GameStates.GameStates
             unpauseTextPosition = new Vector2(Utils.GameWidth / 2 - unpauseTextSize.X / 2, quitTextPosition.Y - unpauseTextSize.Y * 3 / 2);
             flashingTextPosition = new Vector2(Utils.GameWidth / 2 - flashingTextSize.X / 2, unpauseTextPosition.Y - flashingTextSize.Y * 3);
 
-            FlashingFrames = 30;
             IsShowing = true;
-
             FramesPassed = 0;
             IsFlashing = true;
             FadeAmount = 0f;
-            FadeOutFrames = 200;
         }
 
         public override void Draw(SpriteBatch sb)
         {
             Game.LevelManager.Draw(sb);
             Game.Player.Draw(sb);
-            Camera.Move(Types.Direction.DOWN, (int)(44 * Utils.GameScale));
+
+            Camera.GetInstance().Move(Types.Direction.UP, (int)(44 * Utils.GameScale));
             Game.Player.HUD.Draw(sb);
-            Camera.Reset();
+            Camera.GetInstance().Reset();
 
             if (IsFlashing && FramesPassed < FadeOutFrames) 
             {
                 sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, Utils.GameWidth, Utils.GameHeight), null, Color.White * 0.3f, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
             }
+
             sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, Utils.GameWidth, Utils.GameHeight), null, Color.Black * FadeAmount, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
             if (FramesPassed > FadeOutFrames) 
             {

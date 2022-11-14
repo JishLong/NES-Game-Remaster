@@ -89,6 +89,7 @@ namespace Sprint0.Levels
             {
                 Context.CurrentRoom = AdjacentRooms[direction]; // Set the owning level's current room to this adjacent room.
                 foreach (ICharacter character in Characters) character.Unfreeze();
+                foreach (IBlock block in Blocks) if (block is PushableBlock) (block as PushableBlock).Reset();
             }
         }
         public Room GetAdjacentRoom(RoomTransition direction)

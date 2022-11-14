@@ -13,7 +13,7 @@ namespace Sprint0.Commands.Levels
 
         public void Execute()
         {
-            Game.CurrentState = new SecretRoomTransitionState();
+            Game.CurrentState = new SecretRoomTransitionState(Game);
         }
     }
 }

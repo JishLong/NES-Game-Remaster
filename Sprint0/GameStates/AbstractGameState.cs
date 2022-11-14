@@ -1,13 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Controllers;
 using System.Collections.Generic;
 
 namespace Sprint0.GameStates.GameStates
 {
-    public class AbstractGameState : IGameState
+    public abstract class AbstractGameState : IGameState
     {
-        protected static Game1 Game;
+        protected Game1 Game;
         protected List<IController> Controllers;
 
         protected AbstractGameState() { }
@@ -17,10 +16,7 @@ namespace Sprint0.GameStates.GameStates
             Game = game;
         }
 
-        public virtual void Draw(SpriteBatch sb)
-        {
-
-        }
+        public abstract void Draw(SpriteBatch sb);
 
         public virtual void Update(GameTime gameTime)
         {

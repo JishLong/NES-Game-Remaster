@@ -16,7 +16,7 @@ namespace Sprint0.Commands.GameStates
             Game.CreateNewGame();
             AudioManager.GetInstance().StopAudio();
             AudioManager.GetInstance().PlayLooped(Resources.DungeonMusic);
-            Game.CurrentState = new PlayingState();
+            Game.CurrentState = new PlayingState(Game);
         }
     }
 }
