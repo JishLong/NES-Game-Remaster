@@ -1,5 +1,6 @@
 ﻿using Sprint0.Blocks;
 using Sprint0.Blocks.Blocks;
+using Sprint0.Doors;
 using Sprint0.Levels;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Character_Projectiles;
@@ -22,7 +23,13 @@ namespace Sprint0.Collision.Handlers
 
         public void HandleCollision(IProjectile projectile, IBlock block, Types.Direction projectileSide)
         {
-            if ((AffectedProjectiles.Contains(projectile.GetType()) && block.IsWall && block is not SoftBorderBlock && block is not Water)
+            if(projectile is BombExplosionParticle && block is ExplosionTrigger)
+            {
+                AudioManager.GetInstance().PlayOnce(Resources.SecretFound);
+                Door door = block.GetParent() as Door;
+                door.Unlock();
+            }
+            else if ((AffectedProjectiles.Contains(projectile.GetType()) && block.IsWall && block is not SoftBorderBlock && block is not Water)
                 || (projectile is SwordProjectile && (block is BorderBlock || block is GreyBricks)))
             {
                 ProjectileManager.GetInstance().RemoveProjectile(projectile);
@@ -37,6 +44,7 @@ namespace Sprint0.Collision.Handlers
                 projectile.Position = Utils.LineUpEdges(block.GetHitbox(), projectile.GetHitbox(),
                     Utils.GetOppositeDirection(projectileSide));
             }          
+
         }
     }
 }

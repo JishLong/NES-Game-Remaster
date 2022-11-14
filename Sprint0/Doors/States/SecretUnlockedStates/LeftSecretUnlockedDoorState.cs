@@ -7,11 +7,11 @@ using Sprint0.Sprites.Doors.UnlockdDoorSprites;
 using System.Collections.Generic;
 using static Sprint0.Utils;
 
-namespace Sprint0.Doors.States.SecretStates
+namespace Sprint0.Doors.States.SecretUnlockedStates
 {
-    public class LeftSecretDoorState : AbstractTraversableDoorState
+    public class LeftSecretUnlockedDoorState : AbstractTraversableDoorState
     {
-        public LeftSecretDoorState(Door door)
+        public LeftSecretUnlockedDoorState(Door door)
         {
             // Set context
             Door = door;
