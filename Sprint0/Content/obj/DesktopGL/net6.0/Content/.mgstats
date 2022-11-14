@@ -1,2 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/Content/Images/items.png","C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Images/items.xnb","TextureProcessor","Texture2DContent",1705,11989,0.1390639
+"C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/Images/cursor.png","C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Images/cursor.xnb","TextureProcessor","Texture2DContent",1015,2389,0.1235659
+"C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/Images/invisible.png","C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Images/invisible.xnb","TextureProcessor","Texture2DContent",120,89,0.121365
+"C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/Images/screenCover.png","C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Images/screenCover.xnb","TextureProcessor","Texture2DContent",139,1109,0.0030086

@@ -6,6 +6,8 @@ using Sprint0.GameStates;
 using Sprint0.GameStates.GameStates;
 using Sprint0.Input;
 using System;
+using Microsoft.Xna.Framework.Input;
+using Sprint0.Sprites;
 
 namespace Sprint0
 {
@@ -13,6 +15,8 @@ namespace Sprint0
     {
         private GraphicsDeviceManager Graphics;
         private SpriteBatch SBatch;
+        private ISprite MouseSprite;
+
         public LevelManager LevelManager { get; private set; }
         public IPlayer Player { get; private set; }
 
@@ -23,12 +27,13 @@ namespace Sprint0
             Graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            Window.ClientSizeChanged += OnResize;            
+            Window.ClientSizeChanged += OnResize;
         }
 
         protected override void Initialize()
         {
             CreateNewGame();
+            MouseSprite = new MouseCursorSprite();
 
             // Set display resolution.
             Graphics.PreferredBackBufferWidth = Utils.GameWidth;
@@ -45,12 +50,15 @@ namespace Sprint0
 
             Resources.LoadContent(Content);
             AudioManager.GetInstance().PlayLooped(Resources.MenuMusic);
+            Mouse.SetCursor(MouseCursor.FromTexture2D(Resources.Invisible, 0, 0));
+
             CurrentState = new MainMenuState(this);
         }
 
         protected override void Update(GameTime gameTime)
         {
             CurrentState.Update(gameTime);
+            MouseSprite.Update();
 
             base.Update(gameTime);
         }
@@ -61,7 +69,8 @@ namespace Sprint0
             SBatch.Begin(sortMode: SpriteSortMode.BackToFront, samplerState: SamplerState.PointClamp);
 
             CurrentState.Draw(SBatch);
-        
+            MouseSprite.Draw(SBatch, Mouse.GetState().Position.ToVector2() - new Vector2(15, 145), Color.White, 0f);
+
             SBatch.End();
             base.Draw(gameTime);
         }

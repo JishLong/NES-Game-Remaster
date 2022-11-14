@@ -39,7 +39,7 @@ namespace Sprint0
         public static SoundEffect Win { get; private set; }
 
         // Mouse Cursor
-        public static Texture2D[] MouseCursor { get; private set; }
+        public static Texture2D MouseCursor { get; private set; }
 
         // Sprite sheets
         public static Texture2D BlocksSpriteSheet { get; private set; }
@@ -50,6 +50,7 @@ namespace Sprint0
         public static Texture2D Level1SpriteSheet { get; private set; }
         public static Texture2D PausePanel { get; private set; }
         public static Texture2D ScreenCover { get; private set; }
+        public static Texture2D Invisible { get; private set; }
 
         // Sprite sheet positions for all blocks
         public static readonly Rectangle BlueTile = new Rectangle(0, 0, 16, 16);
@@ -154,6 +155,12 @@ namespace Sprint0
         public static readonly Rectangle LinkSwordSideways = new Rectangle(0, 44, 27, 16);
         public static readonly Rectangle LinkPickUpItem = new Rectangle(108, 44, 14, 16);
 
+        // Sprite sheet positions for mouse cursor
+        public static readonly Rectangle CursorFrame1 = new Rectangle(0, 0, 12, 12);
+        public static readonly Rectangle CursorFrame2 = new Rectangle(12, 0, 12, 12);
+        public static readonly Rectangle CursorFrame3 = new Rectangle(24, 0, 12, 12);
+        public static readonly Rectangle CursorFrame4 = new Rectangle(36, 0, 12, 12);
+
         public static void LoadContent(ContentManager c) 
         {
             // Load font
@@ -186,15 +193,6 @@ namespace Sprint0
             Text = c.Load<SoundEffect>("Audio/text");
             Win = c.Load<SoundEffect>("Audio/win");
 
-            // Load mouse cursor images
-            MouseCursor = new Texture2D[4]
-            {
-                c.Load<Texture2D>("Images/Mouse Cursor/cursor1"),
-                c.Load<Texture2D>("Images/Mouse Cursor/cursor2"),
-                c.Load<Texture2D>("Images/Mouse Cursor/cursor3"),
-                c.Load<Texture2D>("Images/Mouse Cursor/cursor4")
-            };
-
             // Load sprite sheets
             BlocksSpriteSheet = c.Load<Texture2D>("Images/blocks");
             ItemsSpriteSheet = c.Load<Texture2D>("Images/items");
@@ -204,6 +202,8 @@ namespace Sprint0
             Level1SpriteSheet = c.Load<Texture2D>("Images/level1");
             PausePanel = c.Load<Texture2D>("Images/pausePanel");
             ScreenCover = c.Load<Texture2D>("Images/screenCover");
+            MouseCursor = c.Load<Texture2D>("Images/cursor");
+            Invisible = c.Load<Texture2D>("Images/invisible");
         }
 
         // Why you looking down here? Tryna see how many lines of code this class is? Go back to the top >:(
