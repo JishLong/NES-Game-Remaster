@@ -39,6 +39,8 @@ namespace Sprint0.Projectiles.Tools
                     return new DeathParticle(user);                  
                 case Types.Projectile.FLAME_PROJ:
                     return new FlameProjectile(user, direction);
+                case Types.Projectile.OLDMAN_PROJ:
+                    return new OldManProjectile(user);
                 case Types.Projectile.SPAWN_PARTICLE:
                     return new SpawnParticle(user);
                 case Types.Projectile.SWORD_MELEE:

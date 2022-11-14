@@ -4,9 +4,6 @@ using Sprint0.Projectiles.Tools;
 using Sprint0.Projectiles.Character_Projectiles;
 using Sprint0.Projectiles.Player_Projectiles;
 using Sprint0.Projectiles.Character;
-using System.Security.Cryptography.X509Certificates;
-using System.Reflection.Metadata;
-using Sprint0.Characters.Enemies;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -16,7 +13,8 @@ namespace Sprint0.Collision.Handlers
         public void HandleCollision(IPlayer player, IProjectile projectile, Types.Direction playerSide, Game1 game)
         {
             if ((!projectile.IsFromPlayer() || projectile is BombExplosionParticle) 
-                && projectile is not DeathParticle && projectile is not SpawnParticle) 
+                && projectile is not DeathParticle && projectile is not SpawnParticle && projectile is not OldManProjectile
+                && projectile is not BombProjectile) 
             {
                 // NOTE: Link can't block the boss energy balls or bombs
                 if (!(player.IsStationary && player.FacingDirection == playerSide) || projectile is BossProjectile || projectile is BombExplosionParticle)

@@ -14,7 +14,7 @@ namespace Sprint0.Collision.Handlers
         public void HandleCollision(ICharacter character, IProjectile projectile, Types.Direction characterSide, Room room)
         {
             if (projectile.IsFromPlayer() && projectile is not ArrowExplosionParticle && projectile is not BombProjectile
-                && character is not OldMan && character is not Flame)
+                && character is not Flame)
             {
                 // Boomerangs will bounce off the character and return to the player
                 if (projectile is BoomerangProjectile) (projectile as BoomerangProjectile).ReturnBoomerang();
