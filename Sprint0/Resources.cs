@@ -17,6 +17,7 @@ namespace Sprint0
         public static SoundEffect ArrowBoomerangShoot { get; private set; }
         public static SoundEffect BombExplode { get; private set; }
         public static SoundEffect BossNoise { get; private set; }
+        public static SoundEffect DoorOpened { get; private set; }
         public static SoundEffect DungeonMusic { get; private set; }
         public static SoundEffect EnemyDeath { get; private set; }
         public static SoundEffect EnemyTakeDamage { get; private set; }
@@ -172,6 +173,7 @@ namespace Sprint0
             ArrowBoomerangShoot = c.Load<SoundEffect>("Audio/arrowBoomerang");
             BombExplode = c.Load<SoundEffect>("Audio/bomb");
             BossNoise = c.Load<SoundEffect>("Audio/bossNoise");
+            DoorOpened = c.Load<SoundEffect>("Audio/doorOpened");
             DungeonMusic = c.Load<SoundEffect>("Audio/dungeonMusic");
             EnemyDeath = c.Load<SoundEffect>("Audio/enemyDeath");
             EnemyTakeDamage = c.Load<SoundEffect>("Audio/enemyTakeDamage");

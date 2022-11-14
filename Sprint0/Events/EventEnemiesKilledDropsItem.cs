@@ -26,8 +26,8 @@ namespace Sprint0.Events
 
             if(CatalystRoom.Characters.Count == 0 && Fired == false)
             {
+                AudioManager.GetInstance().PlayOnce(Resources.KeyAppear);
                 OwningRoom.AddItemToRoom(Item);
-                // Should also play a sound here.
                 Fired = true;
             }
         }

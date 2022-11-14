@@ -21,6 +21,7 @@ namespace Sprint0.Events
         {
             if (PBlock.HasBeenPushed && Fired == false)
             {
+                AudioManager.GetInstance().PlayOnce(Resources.DoorOpened);
                 Door.Unlock();
                 Fired = true;
             }
