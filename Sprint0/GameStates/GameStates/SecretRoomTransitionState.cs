@@ -10,7 +10,7 @@ namespace Sprint0.GameStates.GameStates
 {
     public class SecretRoomTransitionState : AbstractGameState
     {
-        private static readonly int HudAreaHeight = 44;
+        private static readonly int HudAreaHeight = 56;
         private static readonly int FadeOutFrames = 75;
 
         private readonly LevelResources LevelResources;

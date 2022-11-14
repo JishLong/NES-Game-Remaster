@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Sprint0.Commands;
 using Sprint0.Commands.GameStates;
+using Sprint0.Commands.Inventory;
 using Sprint0.Commands.Misc;
 using Sprint0.Commands.Player;
 using Sprint0.Controllers;
@@ -139,6 +140,14 @@ namespace Sprint0.Input
                     new ToggleInventoryCommand(game) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),
                     new PauseGameCommand(game, currentGameState) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.W),
+                    new SelectAboveItemCommand(game) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.S),
+                    new SelectBelowItemCommand(game) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.A),
+                    new SelectLeftItemCommand(game) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D),
+                    new SelectRightItemCommand(game) },
             };
         }
     }

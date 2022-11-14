@@ -1,4 +1,5 @@
 ﻿using Sprint0.Player;
+using static Sprint0.Types;
 
 namespace Sprint0.Commands.Player
 {
@@ -13,8 +14,11 @@ namespace Sprint0.Commands.Player
 
         public void Execute()
         {
-            Player.SecondaryWeapon = Types.Projectile.FLAME_PROJ;
-            new PlayerSecondaryAttackCommand(Player).Execute();
+            if (Player.Inventory.SelectedItem == Item.BLUE_CANDLE)
+            {
+                Player.SecondaryWeapon = Types.Projectile.FLAME_PROJ;
+                new PlayerSecondaryAttackCommand(Player).Execute();
+            }
         }
     }
 }

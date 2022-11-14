@@ -30,7 +30,7 @@ namespace Sprint0.GameStates.GameStates
             Vector2 unpauseTextSize = Resources.MediumFont.MeasureString("Press SPACE to restart");
             Vector2 quitTextSize = Resources.MediumFont.MeasureString("Press Q to quit game");
             Vector2 flashingTextSize = Resources.LargeFont.MeasureString("- YOU DIED :( -");
-            quitTextPosition = new Vector2(Utils.GameWidth / 2 - quitTextSize.X / 2, Utils.GameHeight * 2 / 3 - quitTextSize.Y / 2);
+            quitTextPosition = new Vector2(Utils.GameWidth / 2 - quitTextSize.X / 2, Utils.GameHeight * 2 / 3 - quitTextSize.Y);
             unpauseTextPosition = new Vector2(Utils.GameWidth / 2 - unpauseTextSize.X / 2, quitTextPosition.Y - unpauseTextSize.Y * 3 / 2);
             flashingTextPosition = new Vector2(Utils.GameWidth / 2 - flashingTextSize.X / 2, unpauseTextPosition.Y - flashingTextSize.Y * 3);
 
@@ -42,7 +42,7 @@ namespace Sprint0.GameStates.GameStates
         {
             Game.LevelManager.Draw(sb);
 
-            Camera.GetInstance().Move(Types.Direction.UP, (int)(44 * Utils.GameScale));
+            Camera.GetInstance().Move(Types.Direction.UP, (int)(56 * Utils.GameScale));
             Game.Player.HUD.Draw(sb);
             Camera.GetInstance().Reset();
 

@@ -2,13 +2,20 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Controllers;
 using Sprint0.Input;
+using Sprint0.Sprites;
+using Sprint0.Sprites.GUI;
+using Sprint0.Sprites.Player;
 using System.Collections.Generic;
 
 namespace Sprint0.GameStates.GameStates
 {
     public class InventoryState : AbstractGameState
     {
-        private Vector2 textPosition;
+        private Types.Item[,] UsableItems;
+        private ISprite SelectedSlotSprite;
+
+        private int SelectedRow;
+        private int SelectedColumn;
 
         public InventoryState(Game1 game) : base(game)
         {
@@ -16,53 +23,76 @@ namespace Sprint0.GameStates.GameStates
             {
                 new AudioController(),
                 new KeyboardController(KeyboardMappings.GetInstance().GetInventoryStateMappings(Game, this)),
-            };     
+            };
+
+            UsableItems = game.Player.Inventory.GetUsableItems();
+            SetSelectedItem();
+            SelectedSlotSprite = new SelectedSlotSprite();
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            Camera.GetInstance().Move(Types.Direction.UP, (int)(44 * Utils.GameScale));
-            Rectangle r = new Rectangle((int)Camera.GetInstance().Position.X, (int)Camera.GetInstance().Position.Y, Utils.GameWidth, (int)(176 * Utils.GameScale));
-            sb.Draw(Resources.ScreenCover, r, null, Color.Black, 0, Vector2.Zero, SpriteEffects.None, 0.2f);
+            Camera.GetInstance().Move(Types.Direction.UP, (int)(56 * Utils.GameScale));
+            Vector2 CameraPosition = Camera.GetInstance().Position;
 
-            Vector2 textSize = Resources.MediumFont.MeasureString("Epic inventory will go here");
-            textPosition = new Vector2(Camera.GetInstance().Position.X + Utils.GameWidth / 2 - textSize.X / 2,
-                Camera.GetInstance().Position.Y + 176 * Utils.GameScale / 2 - textSize.Y / 2);
-            //sb.DrawString(Resources.MediumFont, "Paul was here", textPosition, Color.White, 0f, new Vector2(0, 0), 1f,
-            //    SpriteEffects.None, 0.19f);
+            Rectangle InvArea = new Rectangle((int)CameraPosition.X, (int)CameraPosition.Y, Utils.GameWidth, (int)(176 * Utils.GameScale));
+            Vector2 SelectedItem = new((int)(68 * Utils.GameScale), (int)(48 * Utils.GameScale));
+            Vector2 Map = new((int)(48 * Utils.GameScale), (int)(112 * Utils.GameScale));
+            Vector2 Compass = new((int)(44 * Utils.GameScale), (int)(152 * Utils.GameScale));
+            Vector2 Boomerang = new((int)(132 * Utils.GameScale), (int)(52 * Utils.GameScale));
+            Vector2 Bomb = new((int)(156 * Utils.GameScale), (int)(48 * Utils.GameScale));
+            Vector2 Arrow = new((int)(176 * Utils.GameScale), (int)(48 * Utils.GameScale));
+            Vector2 Bow = new((int)(184 * Utils.GameScale), (int)(48 * Utils.GameScale));
+            Vector2 Candle = new((int)(204 * Utils.GameScale), (int)(48 * Utils.GameScale));
+            Vector2 Potion = new((int)(180 * Utils.GameScale), (int)(64 * Utils.GameScale));
 
-            Vector2 inventoryLoc = new Vector2((int)Camera.GetInstance().Position.X + 95, (int)Camera.GetInstance().Position.Y + 30);
-            sb.DrawString(Resources.MediumFont, "INVENTORY", inventoryLoc, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0.15f);
+            Vector2 SelectionSquare = new((int)((128 + 24 * SelectedColumn) * Utils.GameScale), (int)((48 + 16 * SelectedRow) * Utils.GameScale));
 
-            Vector2 selectLoc = new Vector2((int)Camera.GetInstance().Position.X + 40, (int)Camera.GetInstance().Position.Y + 210);
-            sb.DrawString(Resources.MediumFont, "USE B BUTTON \n FOR THIS", selectLoc, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0.15f);
+            sb.Draw(Resources.GuiSpriteSheet, InvArea, Resources.Inventory, Color.White,
+              0f, Vector2.Zero, SpriteEffects.None, 0.19f);
 
+            if (Game.Player.Inventory.SelectedItem == Types.Item.WOODEN_BOOMERANG)
+                new WoodenBoomerangSprite().Draw(sb, SelectedItem, Color.White, 0.18f);
+            else if (Game.Player.Inventory.SelectedItem == Types.Item.BOMB)
+                new BombSprite().Draw(sb, SelectedItem, Color.White, 0.18f);
+            else if (Game.Player.Inventory.SelectedItem == Types.Item.BOW)
+                new BowSprite().Draw(sb, SelectedItem, Color.White, 0.18f);
+            else if (Game.Player.Inventory.SelectedItem == Types.Item.BLUE_CANDLE)
+                new BlueCandleSprite().Draw(sb, SelectedItem, Color.White, 0.18f);
+            else if (Game.Player.Inventory.SelectedItem == Types.Item.BLUE_POTION)
+                new BluePotionSprite().Draw(sb, SelectedItem, Color.White, 0.18f);
 
+            if (Game.Player.Inventory.HasItem(Types.Item.MAP)) new MapSprite().Draw(sb, Map, Color.White, 0.18f);
+            if (Game.Player.Inventory.HasItem(Types.Item.COMPASS)) new CompassSprite().Draw(sb, Compass, Color.White, 0.18f);
+            if (Game.Player.Inventory.HasItem(Types.Item.WOODEN_BOOMERANG)) new WoodenBoomerangSprite().Draw(sb, Boomerang, Color.White, 0.18f);
+            if (Game.Player.Inventory.HasItem(Types.Item.BOMB)) new BombSprite().Draw(sb, Bomb, Color.White, 0.18f);
+            if (Game.Player.Inventory.HasItem(Types.Item.BOW)) 
+            {
+                new ArrowSprite().Draw(sb, Arrow, Color.White, 0.18f);
+                new BowSprite().Draw(sb, Bow, Color.White, 0.18f);
+            } 
+            if (Game.Player.Inventory.HasItem(Types.Item.BLUE_CANDLE)) new BlueCandleSprite().Draw(sb, Candle, Color.White, 0.18f);
+            if (Game.Player.Inventory.HasItem(Types.Item.BLUE_POTION)) new BluePotionSprite().Draw(sb, Potion, Color.White, 0.18f);
 
-            Rectangle itemOutline = new Rectangle((int)Camera.GetInstance().Position.X + 170, (int)Camera.GetInstance().Position.Y + 105, Utils.GameWidth / 9, (int)(34 * Utils.GameScale));
-            Rectangle itemInline = new Rectangle((int)Camera.GetInstance().Position.X + 175, (int)Camera.GetInstance().Position.Y + 108, Utils.GameWidth / 10, (int)(32 * Utils.GameScale));
-            sb.Draw(Resources.ScreenCover, itemOutline, null, Color.Blue,
-               0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-            sb.Draw(Resources.ScreenCover, itemInline, null, Color.Black,
-                0f, Vector2.Zero, SpriteEffects.None, 0.17f);
-
-
-
-            Rectangle allOutline = new Rectangle((int)Camera.GetInstance().Position.X + 345, (int)Camera.GetInstance().Position.Y + 90, Utils.GameWidth / 2, (int)(60 * Utils.GameScale));
-            Rectangle allInline = new Rectangle((int)Camera.GetInstance().Position.X + 350, (int)Camera.GetInstance().Position.Y + 95, Utils.GameWidth / 2 - 10, (int)(57 * Utils.GameScale));
-            sb.Draw(Resources.ScreenCover, allOutline, null, Color.Blue,
-               0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-            sb.Draw(Resources.ScreenCover, allInline, null, Color.Black,
-                0f, Vector2.Zero, SpriteEffects.None, 0.17f);
+            SelectedSlotSprite.Draw(sb, SelectionSquare, Color.White, 0.18f);
 
             Camera.GetInstance().Move(Types.Direction.DOWN, (int)(176 * Utils.GameScale)); 
             Game.Player.HUD.Draw(sb);
-            Camera.GetInstance().Move(Types.Direction.UP, (int)(132 * Utils.GameScale));
+            Camera.GetInstance().Move(Types.Direction.UP, (int)(120 * Utils.GameScale));
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
+            SelectedSlotSprite.Update();
+            SetSelectedItem();
+        }
+
+        private void SetSelectedItem() 
+        {
+            SelectedRow = Game.Player.Inventory.SelectedRow;
+            SelectedColumn = Game.Player.Inventory.SelectedColumn;
         }
     }
 }
