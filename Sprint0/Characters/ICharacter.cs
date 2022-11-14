@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework;
 using Sprint0.Collision;
 using Sprint0.Levels;
+using Sprint0.Entities;
 
 namespace Sprint0.Characters
 {
-    public interface ICharacter : ICollidable
+    public interface ICharacter : ICollidable, IEntity
     {
         Vector2 Position { get; set; }
 

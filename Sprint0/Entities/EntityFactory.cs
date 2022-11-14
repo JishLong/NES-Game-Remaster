@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Blocks;
 using Sprint0.Blocks.Utils;
+using Sprint0.Characters;
+using Sprint0.Characters.Utils;
 using Sprint0.Items;
 using Sprint0.Items.Utils;
 using Sprint0.Levels;
@@ -47,6 +49,14 @@ namespace Sprint0.Entities
                     item.SetParent(room);
                     item.SetName(name);
                     return item;
+
+                case "character":
+                    Types.Character characterType = LevelResources.GetInstance().CharacterMap[type];
+                    ICharacter character = CharacterFactory.GetInstance().GetCharacter(characterType, position);
+                    character.SetParent(room);
+                    character.SetName(name);
+                    room.AddCharacterToRoom(character);
+                    return character;
                 default:
                     Console.Error.Write("Failed to create entity type from category: " + category 
                         + " of string type: " + type + ".\n" + "This could be caused by a typo in the relevant Entities.csv file.");
