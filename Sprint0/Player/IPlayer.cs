@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Collision;
+using Sprint0.Commands;
 using Sprint0.Items;
 
 namespace Sprint0.Player
@@ -16,6 +17,8 @@ namespace Sprint0.Player
         HUD HUD { get; }
 
         Inventory Inventory { get; }
+
+        void Capture(ICommand goToBeginningCommand);
 
         void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game);
 

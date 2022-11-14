@@ -24,7 +24,7 @@ namespace Sprint0.Levels.Borders
 
         public void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, DefaultPosition, Color.White, BlockLayerDepth);
+            Sprite.Draw(sb, DefaultPosition, Color.White, WallLayerDepth);
         }
     }
 }

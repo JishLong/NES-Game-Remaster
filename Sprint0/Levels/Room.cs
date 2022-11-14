@@ -4,6 +4,7 @@ using Sprint0.Blocks;
 using Sprint0.Blocks.Blocks;
 using Sprint0.Blocks.Utils;
 using Sprint0.Characters;
+using Sprint0.Characters.Enemies;
 using Sprint0.Characters.Utils;
 using Sprint0.Collision;
 using Sprint0.Doors;
@@ -84,18 +85,22 @@ namespace Sprint0.Levels
         {
             AdjacentRooms[direction] = room;
         }
-        public void MakeTransition(RoomTransition direction)
+        public void MakeTransition(RoomTransition direction, bool goToBeginning = false)
         {
             if (AdjacentRooms[direction] != null)   // If there is a valid adjacent room in this direction.
             {
                 Context.CurrentRoom = AdjacentRooms[direction]; // Set the owning level's current room to this adjacent room.
-                foreach (ICharacter character in Characters) 
-                {
-                    character.Unfreeze();
-                    if (character is SecretText) (character as SecretText).Reset();
-                } 
-                foreach (IBlock block in Blocks) if (block is PushableBlock) (block as PushableBlock).Reset();
+                ResetRoom();
             }
+        }
+        public void ResetRoom() 
+        {
+            foreach (ICharacter character in Characters)
+            {
+                character.Unfreeze();
+                if (character is SecretText) (character as SecretText).Reset();
+            }
+            foreach (IBlock block in Blocks) if (block is PushableBlock) (block as PushableBlock).Reset();
         }
         public Room GetAdjacentRoom(RoomTransition direction)
         {
@@ -114,9 +119,10 @@ namespace Sprint0.Levels
         {
             Blocks.Remove(block);
         }
-        public void AddCharacterToRoom(Types.Character character, Vector2 position)
+        public void AddCharacterToRoom(Types.Character character, Vector2 position, Types.Direction direction = Direction.NO_DIRECTION,
+            bool clockwise = false)
         {
-            Characters.Add(CharacterFactory.GetInstance().GetCharacter(character, position));
+            Characters.Add(CharacterFactory.GetInstance().GetCharacter(character, position, direction, clockwise));
         }
         public void RemoveCharacterFromRoom(ICharacter character)
         {
@@ -165,9 +171,10 @@ namespace Sprint0.Levels
             {
                 item.Update();
             }
-            foreach (ICharacter character in Characters)
+            for (int i = Characters.Count - 1; i >= 0; i--)
             {
-                character.Update(gameTime);
+                Characters[i].Update(gameTime);
+                if (Characters[i] is Hand && (Characters[i] as Hand).ShouldBeKilled) Characters.RemoveAt(i);
             }
             DoorHandler.Update(gameTime);
             Border.Update();
@@ -190,6 +197,7 @@ namespace Sprint0.Levels
             {
                 item.Draw(sb);
             }
+            
             foreach (ICharacter character in Characters)
             {
                 character.Draw(sb);

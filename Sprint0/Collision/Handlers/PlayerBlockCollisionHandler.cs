@@ -4,16 +4,17 @@ using Microsoft.Xna.Framework;
 using Sprint0.Blocks.Blocks;
 using Sprint0.Commands.Levels;
 using Sprint0.Doors;
+using Sprint0.Levels;
 
 namespace Sprint0.Collision.Handlers
 {
     // Handles all collisions between players and blocks
     public class PlayerBlockCollisionHandler
     {
-        public void HandleCollision(IPlayer player, IBlock block, Types.Direction playerSide, Game1 game)
+        public void HandleCollision(IPlayer player, IBlock block, Types.Direction playerSide, Game1 game, Room room)
         {
             if (block.IsWall)
-            {            
+            {
                 Rectangle PHitbox = player.GetHitbox();
                 Rectangle BHitbox = block.GetHitbox();
 
@@ -21,7 +22,7 @@ namespace Sprint0.Collision.Handlers
                  * and can also move. As a result of this, some extra math needs to be done so that collision works properly.
                  */
                 Vector2 PHitboxOffset = new Vector2(PHitbox.X - player.Position.X, PHitbox.Y - player.Position.Y);
-                
+
                 switch (playerSide)
                 {
                     case (Types.Direction.DOWN):
@@ -57,7 +58,8 @@ namespace Sprint0.Collision.Handlers
                     new ExitSecretRoomTransitionCommand(game).Execute();
                     player.StopAction();
                 }
-            } else if(block is UnlockDoorTrigger)
+            }
+            else if (block is UnlockDoorTrigger)
             {
                 if (player.Inventory.GetAmount(Types.Item.KEY) > 0)
                 {
@@ -66,7 +68,11 @@ namespace Sprint0.Collision.Handlers
                     Door door = block.GetParent() as Door;
                     door.Unlock();
                 }
-            } 
+            }
+            else if (block is HandSpawnerTrigger) 
+            {
+                (block as HandSpawnerTrigger).SpawnHand(room);
+            }
         }
     }
 }

@@ -70,6 +70,12 @@ namespace Sprint0.Sprites
                 color, 0, Vector2.Zero, SpriteEffects.FlipVertically, layer);
         }
 
+        protected void DrawFlippedOrigin(SpriteBatch spriteBatch, Vector2 position, Color color, float layer = 0)
+        {
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetInstance().Position), GetCurrentFrame(),
+                color, 0, Vector2.Zero, SpriteEffects.FlipVertically | SpriteEffects.FlipHorizontally, layer);
+        }
+
         public virtual void Update()
         {
             Timer = (Timer + 1) % Speed;

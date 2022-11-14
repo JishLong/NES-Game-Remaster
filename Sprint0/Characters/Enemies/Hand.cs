@@ -1,22 +1,34 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.States.HandStates;
+using Sprint0.Sprites;
 using Sprint0.Sprites.Characters.Enemies;
+using Sprint0.Sprites.Player.Stationary;
 
 namespace Sprint0.Characters.Enemies
 {
     public class Hand : AbstractCharacter
     {
-        private double DirectionTimer = 0;
-        private readonly double DirectionDelay = 1000;    // Change direction every this many milliseconds.
+        private int FramesPassed;
+        public Types.Direction OriginalDirection;
+        public bool ShouldBeKilled;
+        public ISprite PlayerSprite;
 
-        public Hand(Vector2 position)
+        public Hand(Vector2 position, Types.Direction direction, bool clockwise)
         {
+            OriginalDirection = direction;
+            ShouldBeKilled = false;
+
             // The hand sprite is the same no matter its state, so we'll just instantiate it here
-            // NOTE: THIS WILL CHANGE LATER, HAND SHOULD HAVE DIFFERENT SPRITES
-            Sprite = new HandSprite();
+            if (clockwise == true && direction == Types.Direction.DOWN) Sprite = new HandDownRightSprite();
+            else if (clockwise == false && direction == Types.Direction.RIGHT) Sprite = new HandDownRightSprite();
+            else if (clockwise == false && direction == Types.Direction.DOWN) Sprite = new HandDownLeftSprite();
+            else if (clockwise == true && direction == Types.Direction.LEFT) Sprite = new HandDownLeftSprite();
+            else if (clockwise == false && direction == Types.Direction.UP) Sprite = new HandUpRightSprite();
+            else if (clockwise == true && direction == Types.Direction.RIGHT) Sprite = new HandUpRightSprite();
+            else Sprite = new HandUpLeftSprite();
 
             // State
-            State = new HandMovingState(this, false);
+            State = new HandMovingState(this, direction, clockwise);
 
             // Combat
             Health = 2;
@@ -24,18 +36,24 @@ namespace Sprint0.Characters.Enemies
 
             // Movement
             Position = position;
+            FramesPassed = 0;
         }
 
         public override void Update(GameTime gameTime)
         {
-            DirectionTimer += gameTime.ElapsedGameTime.TotalMilliseconds; ;
-            if ((DirectionTimer - DirectionDelay) > 0)
+            FramesPassed++;
+            if (FramesPassed >= 16 * 2 * Sprint0.Utils.GameScale)
             {
-                DirectionTimer = 0;
+                FramesPassed = 0;
                 State.ChangeDirection();
             }
 
             base.Update(gameTime);
+        }
+
+        public void HoldPlayer() 
+        {
+            PlayerSprite = new PlayerIdleDownSprite();
         }
     }
 }

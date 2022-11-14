@@ -6,6 +6,8 @@ using static Sprint0.Types;
 using Sprint0.Commands.GameStates;
 using Sprint0.Items;
 using Sprint0.Player.State.Idle;
+using Sprint0.Player.States;
+using Sprint0.Commands;
 
 namespace Sprint0.Player.State
 {
@@ -36,7 +38,12 @@ namespace Sprint0.Player.State
             }
         }
 
-        public void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game)
+        public virtual void Capture(ICommand goToBeginningCommand) 
+        {
+            Player.State = new PlayerCaptureState(Player, goToBeginningCommand);
+        }
+
+        public virtual void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game)
         {
             // Change the max health; if it increases, the player is set to full health
             Player.MaxHealth += maxHealthAmount;
@@ -71,7 +78,7 @@ namespace Sprint0.Player.State
             Sprite.Draw(sb, position, PlayerColor, PlayerLayerDepth);
         }
 
-        public Rectangle GetHitbox()
+        public virtual Rectangle GetHitbox()
         {
             /* It's a little nicer if the player's hitbox is slightly smaller than it cosmetically appears;
              * This makes it easier to run in between tight spaces of blocks

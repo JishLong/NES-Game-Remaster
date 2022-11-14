@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Color = Microsoft.Xna.Framework.Color;
 
 namespace Sprint0.Characters.Enemies.States.HandStates
 {
@@ -29,6 +31,13 @@ namespace Sprint0.Characters.Enemies.States.HandStates
             // Can't change direction while frozen
         }
 
+        public override void Draw(SpriteBatch sb, Vector2 position, Color color)
+        {
+            if ((Character as Hand).PlayerSprite != null) (Character as Hand).PlayerSprite.Draw(sb, position, color,
+                Sprint0.Utils.WallLayerDepth + 0.02f);
+            Character.Sprite.Draw(sb, position, color, Sprint0.Utils.WallLayerDepth + 0.01f);
+        }
+
         public override void Freeze(bool frozenForever)
         {
             // If a hand is frozen from a boomerang, picking up a clock will keep it frozen forever
@@ -38,7 +47,7 @@ namespace Sprint0.Characters.Enemies.States.HandStates
 
         public override void Unfreeze() 
         {
-            Character.State = new HandMovingState(Character, ClockWise, ResumeMovementDirection);
+            Character.State = new HandMovingState(Character, ResumeMovementDirection, ClockWise);
         }
 
         public override void Update(GameTime gameTime)

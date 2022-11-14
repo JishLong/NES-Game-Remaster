@@ -1,8 +1,8 @@
-﻿using Sprint0.Levels;
-using Sprint0.Blocks;
+﻿using Sprint0.Blocks;
 using Sprint0.Characters;
 using Microsoft.Xna.Framework;
 using Sprint0.Npcs;
+using Sprint0.Characters.Enemies;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -11,7 +11,7 @@ namespace Sprint0.Collision.Handlers
     {
         public void HandleCollision(ICharacter character, IBlock block, Types.Direction characterSide) 
         {
-            if (block.IsWall && character is not OldMan && character is not Flame)
+            if (block.IsWall && character is not OldMan && character is not Flame && character is not Hand)
             {
                 Rectangle PHitbox = character.GetHitbox();
                 Rectangle BHitbox = block.GetHitbox();

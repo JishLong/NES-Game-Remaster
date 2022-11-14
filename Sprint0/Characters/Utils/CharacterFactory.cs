@@ -12,7 +12,8 @@ namespace Sprint0.Characters.Utils
 
         private CharacterFactory() { }
 
-        public ICharacter GetCharacter(Types.Character characterType, Vector2 position)
+        public ICharacter GetCharacter(Types.Character characterType, Vector2 position, Types.Direction direction = Types.Direction.NO_DIRECTION,
+            bool clockwise = false)
         {
             switch (characterType)
             {
@@ -29,7 +30,7 @@ namespace Sprint0.Characters.Utils
                 case Types.Character.GEL:
                     return new Gel(position);
                 case Types.Character.HAND:
-                    return new Hand(position);
+                    return new Hand(position, direction, clockwise);
                 case Types.Character.OLDMAN:
                     return new OldMan(position);
                 case Types.Character.RED_GORIYA:

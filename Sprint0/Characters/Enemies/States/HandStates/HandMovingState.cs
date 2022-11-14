@@ -1,17 +1,19 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters.Utils;
 
 namespace Sprint0.Characters.Enemies.States.HandStates
 {
     public class HandMovingState : AbstractCharacterState
     {
-        private static readonly Vector2 MovementSpeed = new(2, 2);
-        private readonly bool ClockWise;
+        private static readonly Vector2 MovementSpeed = new(1, 1);
+        private readonly bool Clockwise;
         private Types.Direction Direction;     
 
-        public HandMovingState(AbstractCharacter character, bool clockWise, Types.Direction direction = Types.Direction.NO_DIRECTION) : base(character)
+        public HandMovingState(AbstractCharacter character, Types.Direction direction = Types.Direction.NO_DIRECTION,
+            bool clockwise = false) : base(character)
         {
-            ClockWise = clockWise;
+            Clockwise = clockwise;
 
             // If there's a preset direction, use that; if not, pick one at random
             if (direction != Types.Direction.NO_DIRECTION) Direction = direction;
@@ -26,13 +28,22 @@ namespace Sprint0.Characters.Enemies.States.HandStates
         public override void ChangeDirection()
         {
             // Note on logic: clockwise and counter-clockwise directions are opposites of each other when you think about it
-            if (ClockWise) Direction = CharacterUtils.GetNextClockwiseDirection(Direction);
+            if (Clockwise) Direction = CharacterUtils.GetNextClockwiseDirection(Direction);
             else Direction = CharacterUtils.GetNextClockwiseDirection(Sprint0.Utils.GetOppositeDirection(Direction));
+
+            if (Direction == (Character as Hand).OriginalDirection) (Character as Hand).ShouldBeKilled = true;
+        }
+
+        public override void Draw(SpriteBatch sb, Vector2 position, Color color)
+        {
+            if ((Character as Hand).PlayerSprite != null) (Character as Hand).PlayerSprite.Draw(sb, position, color,
+                Sprint0.Utils.WallLayerDepth + 0.02f);
+            Character.Sprite.Draw(sb, position, color, Sprint0.Utils.WallLayerDepth + 0.01f);
         }
 
         public override void Freeze(bool frozenForever)
         {
-            Character.State = new HandFrozenState(Character, Direction, ClockWise, frozenForever);
+            Character.State = new HandFrozenState(Character, Direction, Clockwise, frozenForever);
         }
 
         public override void Unfreeze()

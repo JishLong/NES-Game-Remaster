@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Commands;
 using Sprint0.Items;
 using Sprint0.Player.State;
 using Sprint0.Player.State.Idle;
@@ -47,6 +48,11 @@ namespace Sprint0.Player
             // Initialize the inventorys
             HUD = new HUD();
             Inventory = new Inventory();
+        }
+
+        public void Capture(ICommand goToBeginningCommand) 
+        {
+            State.Capture(goToBeginningCommand);
         }
 
         public void Move(Types.Direction direction)

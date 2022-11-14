@@ -50,7 +50,8 @@ namespace Sprint0.Collision
             }
             else if (CollidableA is IPlayer && CollidableB is IBlock)
             {
-                PlayerBlockHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IBlock, SideA, game);
+                PlayerBlockHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IBlock, SideA, game, 
+                    game.LevelManager.CurrentLevel.CurrentRoom);
             }
             else if (CollidableA is IPlayer && CollidableB is IItem)
             {

@@ -50,6 +50,7 @@ namespace Sprint0.Levels.Utils
                 {"gstairs", Types.Block.WHITE_BARS },
                 {"estb", Types.Block.EXIT_SECRET_TRANSITION_BLOCK },
                 {"sbb", Types.Block.SOFT_BORDER_BLOCK },
+                {"hst", Types.Block.HAND_SPAWNER_TRIGGER }
 
             };
 

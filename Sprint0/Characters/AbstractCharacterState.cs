@@ -17,7 +17,7 @@ namespace Sprint0.Characters
 
         public abstract void ChangeDirection();
 
-        public void Draw(SpriteBatch sb, Vector2 position, Color color)
+        public virtual void Draw(SpriteBatch sb, Vector2 position, Color color)
         {
             Character.Sprite.Draw(sb, position, color, CharacterLayerDepth);
         }

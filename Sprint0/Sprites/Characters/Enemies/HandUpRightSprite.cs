@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class HandSprite : AbstractAnimatedSprite
+    public class HandUpRightSprite : AbstractAnimatedSprite
     {
-        public HandSprite() : base(2, 16) { }
+        public HandUpRightSprite() : base(2, 16) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
 
