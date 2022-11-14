@@ -5,6 +5,7 @@ namespace Sprint0.Player
     public class Inventory
     {
         private readonly Dictionary<Types.Item, int> ItemCounts;
+        public Types.Item SelectedItem { get; set; }
 
         public Inventory() 
         {
@@ -32,7 +33,7 @@ namespace Sprint0.Player
             else return 0;
         }
 
-        public void decAmount(Types.Item item)
+        public void DecrementItem(Types.Item item)
         {
             if (ItemCounts.ContainsKey(item)) ItemCounts[item]--;
         }
