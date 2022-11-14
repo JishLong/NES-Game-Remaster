@@ -54,6 +54,7 @@ namespace Sprint0
         public static Texture2D ScreenCover { get; private set; }
         public static Texture2D Invisible { get; private set; }
         public static Texture2D GuiSpriteSheet { get; private set; }
+        public static Texture2D GuiElementsSpriteSheet { get; private set; }
 
         // Sprite sheet positions for all blocks
         public static readonly Rectangle BlueTile = new Rectangle(0, 0, 16, 16);
@@ -167,6 +168,7 @@ namespace Sprint0
         // Sprite sheet positions for gui elements
         public static readonly Rectangle HUD = new Rectangle(0, 176, 256, 56);
         public static readonly Rectangle Inventory = new Rectangle(0, 0, 256, 176);
+        public static readonly Rectangle SelectedSlot = new Rectangle(0, 0, 16, 16);
 
         public static void LoadContent(ContentManager c) 
         {
@@ -214,6 +216,7 @@ namespace Sprint0
             MouseCursor = c.Load<Texture2D>("Images/cursor");
             Invisible = c.Load<Texture2D>("Images/invisible");
             GuiSpriteSheet = c.Load<Texture2D>("Images/gui");
+            GuiElementsSpriteSheet = c.Load<Texture2D>("Images/guiElements");
         }
 
         // Why you looking down here? Tryna see how many lines of code this class is? Go back to the top >:(

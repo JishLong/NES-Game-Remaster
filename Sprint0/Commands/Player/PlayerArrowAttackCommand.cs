@@ -13,7 +13,8 @@ namespace Sprint0.Commands.Player
 
         public void Execute()
         {
-            if (Player.Inventory.HasItem(Types.Item.BOW) && Player.Inventory.HasItem(Types.Item.RUPEE) && Player.Inventory.GetAmount(Types.Item.RUPEE) > 0)
+            if (Player.Inventory.SelectedItem == Types.Item.BOW && Player.Inventory.HasItem(Types.Item.RUPEE) 
+                && Player.Inventory.GetAmount(Types.Item.RUPEE) > 0)
             {
                 Player.Inventory.DecrementItem(Types.Item.RUPEE);
                 Player.SecondaryWeapon = Types.Projectile.ARROW_PROJ;

@@ -46,7 +46,7 @@ namespace Sprint0.Player
             IsStationary = true;
 
             // Initialize the inventorys
-            HUD = new HUD();
+            HUD = new HUD(this);
             Inventory = new Inventory();
         }
 
