@@ -90,7 +90,7 @@ namespace Sprint0
         public static readonly Rectangle UpKeyLockedDoor = new Rectangle(881, 11, 32, 32);
         public static readonly Rectangle LeftKeyLockedDoor = new Rectangle(881, 44, 32, 32);
         public static readonly Rectangle RightKeyLockedDoor = new Rectangle(881, 77, 32, 32);
-        public static readonly Rectangle DownKeyLockedDoor = new Rectangle(881, 111, 32, 32);
+        public static readonly Rectangle DownKeyLockedDoor = new Rectangle(881, 110, 32, 32);
 
         public static readonly Rectangle UpSecretDoorWall = new Rectangle(947, 11, 32, 16);
         public static readonly Rectangle UpSecretDoorWay = new Rectangle(947, 27, 32, 16);

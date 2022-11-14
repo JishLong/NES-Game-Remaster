@@ -10,9 +10,9 @@ using static Sprint0.Utils;
 
 namespace Sprint0.Doors.States.SecretStates
 {
-    public class DownUnlockedDoorState : AbstractTraversableDoorState
+    public class DownSecretDoorState : AbstractTraversableDoorState
     {
-        public DownUnlockedDoorState(Door door)
+        public DownSecretDoorState(Door door)
         {
             // Set context
             Door = door;
@@ -25,8 +25,8 @@ namespace Sprint0.Doors.States.SecretStates
             DoorWayOffset = new Vector2(0, -Height);
 
             // Create sprites
-            DoorWaySprite = new DownUnlockedDoorWaySprite();
-            DoorWallSprite = new DownUnlockedDoorWallSprite();
+            DoorWaySprite = new DownSecretDoorWaySprite();
+            DoorWallSprite = new DownSecretDoorWallSprite();
 
             // Blocks
             Blocks = new List<IBlock>();

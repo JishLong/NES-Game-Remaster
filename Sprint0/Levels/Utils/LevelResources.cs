@@ -105,7 +105,11 @@ namespace Sprint0.Levels.Utils
                 {"up_key_locked", Types.Door.UP_KEY_LOCKED},
                 {"right_key_locked", Types.Door.RIGHT_KEY_LOCKED },
                 {"down_key_locked", Types.Door.DOWN_KEY_LOCKED },
-                {"left_key_locked", Types.Door.LEFT_KEY_LOCKED }
+                {"left_key_locked", Types.Door.LEFT_KEY_LOCKED },
+                {"up_secret", Types.Door.UP_SECRET },
+                {"right_secret", Types.Door.RIGHT_SECRET },
+                {"down_secret", Types.Door.DOWN_SECRET },
+                {"left_secret", Types.Door.LEFT_SECRET },
             };
 
             EventMap = new Dictionary<string, Types.Event>()
