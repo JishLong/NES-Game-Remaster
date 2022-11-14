@@ -81,26 +81,23 @@ namespace Sprint0.Levels
                 for (int col = 0; col < mapSize - 1; col++)
                 {
                     int valAtIndex = map[row, col];
-                    if (valAtIndex < max + 1) // If this is a room. (empty spaces are set to a number that is 1 greater than the maximum number of rooms.)
+                    if (valAtIndex > 0) // If this is a room. (empty spaces are set to 0.)
                     {
-                        if(valAtIndex < 0)
-                        {
-                            /*
-                             * We want this: 
-                             * ROOM.SECRET = SECRETROOM
-                             * SECRETROOM.SECRET = ROOM
-                             */ 
+                        Room room = rooms.Find(room => room.RoomName == "Room" + valAtIndex);
+                        AddTransitionsToRoom(rooms, room, map, row, col);
+                    }
+                    else if (valAtIndex < 0)  // Then this is a secret room.
+                    {
+                        /*
+                         * We want this: 
+                         * ROOM.SECRET = SECRETROOM
+                         * SECRETROOM.SECRET = ROOM
+                         */
 
-                            valAtIndex *= -1;
-                            Room room = rooms.Find(room => room.RoomName == "Room" + valAtIndex);
-                            Room secretRoom = AddSecretTransitionToRoom(rooms, room, map, row, col);
-                            secretRoom.AddTransition(room, Types.RoomTransition.SECRET); // Link the secret room to the original room.
-                        }
-                        else
-                        {
-                            Room room = rooms.Find(room => room.RoomName == "Room" + valAtIndex);
-                            AddTransitionsToRoom(rooms, room, map, row, col);
-                        }
+                        valAtIndex *= -1;
+                        Room room = rooms.Find(room => room.RoomName == "Room" + valAtIndex);
+                        Room secretRoom = AddSecretTransitionToRoom(rooms, room, map, row, col);
+                        secretRoom.AddTransition(room, Types.RoomTransition.SECRET); // Link the secret room to the original room.
                     }
                 }
 

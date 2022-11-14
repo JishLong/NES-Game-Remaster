@@ -47,7 +47,7 @@ namespace Sprint0.Levels
                     }
                     else
                     {
-                        MapArray[row, col] = MaxNumRooms + 1;
+                        MapArray[row, col] = 0;
                     }
                     col++;
                 }

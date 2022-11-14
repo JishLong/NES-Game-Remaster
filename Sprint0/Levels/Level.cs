@@ -16,9 +16,10 @@ namespace Sprint0.Levels
         public EventMaster EventMaster;
         public Room CurrentRoom { get; set; }
         public int StartingRoomIndex;
+        public int BossRoomIndex;
         public string LevelName { get; }
         public LevelMap Map { get; set; }
-        public Level(string levelName, int startingRoomIndex)
+        public Level(string levelName, int startingRoomIndex, int bossRoomIndex)
         {
             LevelName = levelName;
             Rooms = new List<Room>();
@@ -26,6 +27,7 @@ namespace Sprint0.Levels
             EventMaster = new EventMaster();
             Map = new LevelMap(LevelName);
             StartingRoomIndex = startingRoomIndex;
+            BossRoomIndex = bossRoomIndex;
         }
         public void AddRoom(Room room)
         {

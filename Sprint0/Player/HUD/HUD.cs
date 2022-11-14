@@ -1,20 +1,27 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Levels;
 
-namespace Sprint0.Player
+namespace Sprint0.Player.HUD
 {
-    public class HUD: Inventory
+    public class HUD : Inventory
     {
         int numGems;
         int numKeys;
         int numBombs;
         int numHearts;
 
-        public HUD() 
-        { 
+        private HUDMap HUDMap;
+        private Player Player;
+        private LevelManager LevelManager;
+
+        public HUD(LevelManager levelManager, Player player)
+        {
+            Player = player;
+            HUDMap = new HUDMap(LevelManager, Player);
         }
 
-        public void Draw(SpriteBatch sb) 
+        public void Draw(SpriteBatch sb)
         {
             Vector2 CameraPosition = Camera.GetInstance().Position;
 
@@ -82,13 +89,12 @@ namespace Sprint0.Player
             }
         }
 
-        public void Update(IPlayer player) 
+        public void Update()
         {
-            numGems = player.Inventory.GetAmount(Types.Item.RUPEE);
-            numKeys = player.Inventory.GetAmount(Types.Item.KEY);
-            numBombs = player.Inventory.GetAmount(Types.Item.BOMB);
-            numHearts = player.Health;
-
+            numGems = Player.Inventory.GetAmount(Types.Item.RUPEE);
+            numKeys = Player.Inventory.GetAmount(Types.Item.KEY);
+            numBombs = Player.Inventory.GetAmount(Types.Item.BOMB);
+            numHearts = Player.Health;
         }
     }
 }

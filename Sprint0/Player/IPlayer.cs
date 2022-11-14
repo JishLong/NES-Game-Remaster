@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Collision;
 using Sprint0.Commands;
 using Sprint0.Items;
+using Sprint0.Player.cHUD;
 
 namespace Sprint0.Player
 {
