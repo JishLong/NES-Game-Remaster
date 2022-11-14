@@ -5,6 +5,7 @@ using static Sprint0.Utils;
 using static Sprint0.Types;
 using Sprint0.Commands.GameStates;
 using Sprint0.Items;
+using Sprint0.Player.State.Idle;
 
 namespace Sprint0.Player.State
 {
@@ -49,6 +50,7 @@ namespace Sprint0.Player.State
                 Player.Health += healthAmount;
                 if (Player.Health <= 0)
                 {
+                    Player.State = new PlayerDeadState(Player);
                     new LoseGameCommand(game).Execute();
                 }
             }

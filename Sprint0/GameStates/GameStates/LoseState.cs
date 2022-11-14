@@ -8,6 +8,7 @@ namespace Sprint0.GameStates.GameStates
 {
     public class LoseState : AbstractGameState
     {
+        private static readonly int PanelDelayFrames = 160;
         private static readonly int FlashingFrames = 30;
 
         private readonly Vector2 flashingTextPosition;
@@ -40,28 +41,33 @@ namespace Sprint0.GameStates.GameStates
         public override void Draw(SpriteBatch sb)
         {
             Game.LevelManager.Draw(sb);
-            Game.Player.Draw(sb);
 
             Camera.GetInstance().Move(Types.Direction.UP, (int)(44 * Utils.GameScale));
             Game.Player.HUD.Draw(sb);
-
             Camera.GetInstance().Reset();
 
-            Rectangle PanelDims = Resources.PausePanel.Bounds;
-            Rectangle PanelLocation = new Rectangle(
-                Utils.GameWidth / 2 - (int)(PanelDims.Width * Utils.GameScale / 2),
-                Utils.GameHeight / 2 - (int)(PanelDims.Height * Utils.GameScale / 2),
-                (int)(PanelDims.Width * Utils.GameScale),
-                (int)(PanelDims.Height * Utils.GameScale));
-            sb.Draw(Resources.PausePanel, PanelLocation, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.01f) ;
+            sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, Utils.GameWidth, Utils.GameHeight), null,
+                Color.Red * 0.5f, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
+            Game.Player.Draw(sb);
 
-            sb.DrawString(Resources.MediumFont, "Press SPACE to restart", unpauseTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            sb.DrawString(Resources.MediumFont, "Press Q to quit game", quitTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            if (IsShowing) 
+            if (FramesPassed > PanelDelayFrames) 
             {
-                sb.DrawString(Resources.LargeFont, "- YOU DIED :( -", flashingTextPosition,
-                    Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            } 
+                Rectangle PanelDims = Resources.PausePanel.Bounds;
+                Rectangle PanelLocation = new Rectangle(
+                    Utils.GameWidth / 2 - (int)(PanelDims.Width * Utils.GameScale / 2),
+                    Utils.GameHeight / 2 - (int)(PanelDims.Height * Utils.GameScale / 2),
+                    (int)(PanelDims.Width * Utils.GameScale),
+                    (int)(PanelDims.Height * Utils.GameScale));
+                sb.Draw(Resources.PausePanel, PanelLocation, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.01f);
+
+                sb.DrawString(Resources.MediumFont, "Press SPACE to restart", unpauseTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+                sb.DrawString(Resources.MediumFont, "Press Q to quit game", quitTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+                if (IsShowing)
+                {
+                    sb.DrawString(Resources.LargeFont, "- YOU DIED :( -", flashingTextPosition,
+                        Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+                }
+            }
         }
 
         public override void Update(GameTime gameTime)
@@ -71,6 +77,8 @@ namespace Sprint0.GameStates.GameStates
             {
                 IsShowing = !IsShowing;
             }
+
+            Game.Player.Update();
 
             base.Update(gameTime);
         }
