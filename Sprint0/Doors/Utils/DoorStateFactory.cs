@@ -6,6 +6,8 @@ using Sprint0.Doors.States.UnlockedStates;
 using Sprint0.Doors.States.KeyLockedStates;
 using Sprint0.Doors.States.WallStates;
 using System;
+using Sprint0.Doors.States.SecretUnlockedStates;
+using Sprint0.Doors.States.SecretWallStates;
 
 namespace Sprint0.Doors.Utils
 {
@@ -49,6 +51,22 @@ namespace Sprint0.Doors.Utils
                     return new DownKeyLockedDoorState(door);
                 case Types.Door.LEFT_KEY_LOCKED:
                     return new LeftKeyLockedDoorState(door);
+                case Types.Door.UP_SECRET_UNLOCKED:
+                    return new UpSecretUnlockedDoorState(door);
+                case Types.Door.RIGHT_SECRET_UNLOCKED:
+                    return new RightSecretUnlockedDoorState(door);
+                case Types.Door.DOWN_SECRET_UNLOCKED:
+                    return new DownSecretUnlockedDoorState(door);
+                case Types.Door.LEFT_SECRET_UNLOCKED:
+                    return new LeftSecretUnlockedDoorState(door);
+                case Types.Door.UP_SECRET_WALL:
+                    return new UpSecretWallDoorState(door);
+                case Types.Door.RIGHT_SECRET_WALL:
+                    return new RightSecretWallDoorState(door);
+                case Types.Door.DOWN_SECRET_WALL:
+                    return new DownSecretWallDoorState(door);
+                case Types.Door.LEFT_SECRET_WALL:
+                    return new LeftSecretWallDoorState(door);
                 default:
                     Console.Error.Write("The door state of type " + doorType.ToString() + 
                         " could not be instantiated by the Door State Factory. Does this type exist?");

@@ -53,7 +53,7 @@ namespace Sprint0.GameStates.GameStates
 
             if (IsFlashing && FramesPassed < FadeOutFrames) 
             {
-                sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, Utils.GameWidth, Utils.GameHeight), null, Color.White * 0.3f, 0f, Vector2.Zero, SpriteEffects.None, 0.10f);
+                sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, Utils.GameWidth, Utils.GameHeight), null, Color.White * 0.1f, 0f, Vector2.Zero, SpriteEffects.None, 0.10f);
             }
 
             sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, Utils.GameWidth, Utils.GameHeight), null, Color.Black * FadeAmount, 0f, Vector2.Zero, SpriteEffects.None, 0.09f);
@@ -79,7 +79,7 @@ namespace Sprint0.GameStates.GameStates
             base.Update(gameTime);
 
             FramesPassed++;
-            if (FramesPassed % 4 == 0) IsFlashing = !IsFlashing;
+            if (FramesPassed % 8 == 0) IsFlashing = !IsFlashing;
             if (FramesPassed % FlashingFrames == 0)
             {
                 IsShowing = !IsShowing;

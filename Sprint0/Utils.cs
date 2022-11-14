@@ -28,7 +28,7 @@ namespace Sprint0
         public static readonly float DoorWallLayerDepth = 0.2f; // Needs to be drawn on top of the player.
 
         // This will be used for Sprint 5 features
-        public static void UpdateWindowSize(GraphicsDeviceManager graphics) 
+        public static void UpdateWindowSize(GraphicsDeviceManager graphics)
         {
             GameWidth = graphics.GraphicsDevice.Viewport.Width;
             GameHeight = graphics.GraphicsDevice.Viewport.Height;
@@ -38,7 +38,7 @@ namespace Sprint0
         }
 
         // Returns a position for [centeredHitbox] such that the center points of [hitbox] and [centeredHitbox] fall on the same point
-        public static Vector2 CenterRectangles(Rectangle hitbox, int centeredHitboxWidth, int centeredHitboxHeight) 
+        public static Vector2 CenterRectangles(Rectangle hitbox, int centeredHitboxWidth, int centeredHitboxHeight)
         {
             return new Vector2(hitbox.X + hitbox.Width / 2 - centeredHitboxWidth / 2, hitbox.Y + hitbox.Height / 2 - centeredHitboxHeight / 2);
         }
@@ -65,7 +65,7 @@ namespace Sprint0
         /* Returns a position for [alignedHitbox] such that [hitboxEdge] of [hitbox] and the opposite edge of [alignedHitbox] both fall on
          * the same line and have midpoints that fall on the same point
          */
-        public static Vector2 AlignEdges(Rectangle hitbox, int alignedHitboxWidth, int alignedHitboxHeight, Types.Direction hitboxEdge) 
+        public static Vector2 AlignEdges(Rectangle hitbox, int alignedHitboxWidth, int alignedHitboxHeight, Types.Direction hitboxEdge)
         {
             return hitboxEdge switch
             {
@@ -111,7 +111,7 @@ namespace Sprint0
             };
         }
 
-        public static Vector2 DirectionToVector(Types.Direction direction) 
+        public static Vector2 DirectionToVector(Types.Direction direction)
         {
             return direction switch
             {
@@ -158,6 +158,8 @@ namespace Sprint0
                 if (font.MeasureString(longString[start..space] + line).X <= width)
                     line.Append(longString.AsSpan(start, space-start));
                 // If not, we'll make a new Strings[i] and add it to that instead
+                else if (line.ToString().Equals(""))
+                    Strings.Add(longString[start..space]);
                 else
                 {
                     Strings.Add(line.ToString());
@@ -171,15 +173,17 @@ namespace Sprint0
             if (font.MeasureString(longString[start..] + line).X <= width)
                 Strings.Add(line + longString[start..]);
             else
-            { 
+            {
+                if (!line.ToString().Equals(""))
+                    Strings.Add(line.ToString());
                 Strings.Add(longString[start..]);
             }
 
             // Trim some of the extra space at the beginning and end of each Strings[i]
-            for (int i = 0; i < Strings.Count; i++) 
+            /*for (int i = 0; i < Strings.Count; i++) 
             {
                 Strings[i] = Strings[i].Trim();
-            }
+            }*/
 
             return Strings;
         }

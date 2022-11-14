@@ -1,9 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Entities;
 using Sprint0.Levels;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 using System;
+using System.Xml.Linq;
 
 namespace Sprint0.Characters
 {
@@ -28,6 +30,9 @@ namespace Sprint0.Characters
 
         // We'll let the state classes reference this sprite so there isn't choppy animation when switching states
         public ISprite Sprite { get; set; }
+
+        private IEntity Parent;
+        private string Name = "unnamed";
 
         protected AbstractCharacter()
         {
@@ -118,6 +123,25 @@ namespace Sprint0.Characters
             }
 
             if (State != null) State.Update(gameTime);
+        }
+
+        public IEntity GetParent()
+        {
+            return Parent;
+        }
+
+        public void SetParent(IEntity entity)
+        {
+            Parent = entity;
+        }
+        public virtual string GetName()
+        {
+            return Name;
+        }
+
+        public virtual void SetName(string value)
+        {
+            Name = value;
         }
     }
 }

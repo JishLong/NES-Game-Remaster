@@ -7,3 +7,4 @@ enemies_killed_drops_item,Room11,boomerang1
 enemies_killed_drops_item,Room14,heartcont1
 enemies_killed_unlocks_door,Room14,right_event_locked_room14
 enemies_killed_drops_item,Room17,key4
+old_man_attack,Room8,oldman1

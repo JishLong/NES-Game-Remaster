@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters;
 using Sprint0.Levels;
+using System;
 using System.Collections.Generic;
 
 namespace Sprint0.Npcs
@@ -9,13 +10,13 @@ namespace Sprint0.Npcs
     public class SecretText : AbstractCharacter
     {
         // The dimensions we want the text to fit into
-        private static readonly Vector2 TextAreaDims = new(12 * 16 * Utils.GameScale, 2 * 16 * Utils.GameScale);
-        private static readonly string Text = "eastmost peninsula is the secret";
+        private static readonly Vector2 TextAreaDims = new(11 * 16 * Utils.GameScale, 2 * 16 * Utils.GameScale);
+        private string Text;
 
         private List<string> Strings;
         // The number of game frames between each new letter is added to the message
         private static readonly int CharFrames = 4;
-        private readonly int MaxChars = Text.Length;
+        private int MaxChars;
 
         private int FramesPassed;
         private int NumCharsShown;
@@ -26,6 +27,7 @@ namespace Sprint0.Npcs
         {
             Health = 1;
             Position = position;
+            Text = "eastmost peninsula is the secret";
 
             FramesPassed = 0;
             NumCharsShown = 0;
@@ -72,8 +74,9 @@ namespace Sprint0.Npcs
             if (JustSpawned) 
             {
                 JustSpawned = false;
+                MaxChars = Text.Length;
                 Strings = Utils.GetAlignedText(Text, Resources.MediumFont, (int)TextAreaDims.X);
-                TextHeightOffset = (int)(TextAreaDims.Y - Resources.MediumFont.MeasureString(" ").Y * Strings.Count) / 2;
+                TextHeightOffset = (int)(TextAreaDims.Y - Resources.MediumFont.MeasureString(" ").Y * Strings.Count) / 2;  
             }
 
             if (NumCharsShown < MaxChars) 
@@ -91,6 +94,28 @@ namespace Sprint0.Npcs
         {
             FramesPassed = 0;
             NumCharsShown = 0;
+            JustSpawned = true;
+        }
+
+        public void Taunt() 
+        {
+            string[] taunts =
+            {
+                "do you value your life?",
+                "you've made a fatal mistake...",
+                "never attack a god!",
+                "your fate is sealed...",
+                "rookie mistake...",
+                "you'll pay for that!",
+                "truly a pity...",
+                "die, worthless bug!",
+                "respect your elders!",
+                "unbelievable.",
+                "turn to ash!",
+            };
+
+            Text = taunts[new Random().Next(taunts.Length)];
+            Reset();
         }
     }
 }
