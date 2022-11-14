@@ -60,8 +60,9 @@ namespace Sprint0.Player
             int heartXOffset = 556;
             for (int i = 0; i < numHearts; i++)
             {
-                Rectangle LIFEArea = new Rectangle((int)CameraPosition.X + heartXOffset, (int)CameraPosition.Y + 60, Utils.GameWidth / 33, (int)(8 * Utils.GameScale));
-                sb.Draw(Resources.ItemsSpriteSheet, LIFEArea, Resources.Heart, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
+                Rectangle LifeArea = new Rectangle((int)(Life.X + i * Resources.Heart.Width * Utils.GameScale), 
+                    (int)Life.Y, Utils.GameWidth / 33, (int)(8 * Utils.GameScale));
+                sb.Draw(Resources.ItemsSpriteSheet, LifeArea, Resources.Heart, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
                 heartXOffset += 25;
             }
         }
