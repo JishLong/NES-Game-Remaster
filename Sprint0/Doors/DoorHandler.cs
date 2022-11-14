@@ -7,18 +7,18 @@ namespace Sprint0.Doors
 {
     public class DoorHandler
     {
-        List<IDoor> Doors;
+        Dictionary<string, IDoor> Doors;
         public DoorHandler()
         {
-            Doors = new List<IDoor>();
+            Doors = new Dictionary<string, IDoor>();
         }
 
-        public void AddDoor(IDoor door)
+        public void AddDoor(string key, IDoor door)
         {
-            Doors.Add(door);
+            Doors.Add(key,door);
         }
 
-        public List<IDoor> GetDoors()
+        public Dictionary<string, IDoor> GetDoors()
         {
             return Doors;
         }
@@ -26,7 +26,7 @@ namespace Sprint0.Doors
         public List<IBlock> GetBlocks()
         {
             List<IBlock> blocks = new List<IBlock>();
-            foreach (IDoor door in Doors)
+            foreach (IDoor door in Doors.Values)
             {
                 // For each door, add all of the blocks owned by that door to this collection.
                 if(door.GetBlocks() != null) // TODO: Get rid of this null check. Should not need it after everything is implemented.
@@ -39,7 +39,7 @@ namespace Sprint0.Doors
 
         public void Update(GameTime gameTime)
         {
-            foreach (IDoor door in Doors)
+            foreach (IDoor door in Doors.Values)
             {
                 door.Update(gameTime);
             }
@@ -47,7 +47,7 @@ namespace Sprint0.Doors
 
         public void Draw(SpriteBatch sb)
         {
-            foreach (IDoor door in Doors)
+            foreach (IDoor door in Doors.Values)
             {
                 door.Draw(sb);
             }

@@ -19,7 +19,7 @@ namespace Sprint0.Doors.States.WallStates
             float Width = LevelResources.BlockWidth;
 
             // Used mostly for drawing
-            Position = new Vector2(0, Height * 4 + Height / 2);
+            Position = LevelResources.LeftDoorPosition;
 
             // Create sprite
             DoorSprite = new LeftWallDoorSprite();

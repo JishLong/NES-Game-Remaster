@@ -10,6 +10,8 @@ namespace Sprint0.Doors
     {
         List<IBlock> GetBlocks();
         void Transition();
+        void Lock();
+        void Unlock();
         void Update(GameTime gameTime);
         void Draw(SpriteBatch sb);
     }

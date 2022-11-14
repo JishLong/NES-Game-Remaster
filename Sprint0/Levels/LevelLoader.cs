@@ -151,9 +151,10 @@ namespace Sprint0.Levels
                 {
                     if (LevelResources.DoorMap.ContainsKey(field))
                     {
+                        string key = field.Substring(0, field.IndexOf('_'));
                         Types.Door doorType = LevelResources.DoorMap[field];
                         IDoor door = new Door(room, doorType, field);
-                        room.AddDoorToRoom(door);
+                        room.AddDoorToRoom(key, door);
                         level.AddEntity(door); // Doors are also inherently entities.
                     }
                 }

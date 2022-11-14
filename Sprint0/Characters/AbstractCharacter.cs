@@ -58,7 +58,7 @@ namespace Sprint0.Characters
             if (State != null && !JustSpawned) State.Draw(sb, Position, CharacterColor);
         }
 
-        public void Freeze(bool frozenForever)
+        public virtual void Freeze(bool frozenForever)
         {
             if (State != null) State.Freeze(frozenForever);
         }
@@ -87,7 +87,7 @@ namespace Sprint0.Characters
             }
         }
 
-        public void Unfreeze()
+        public virtual void Unfreeze()
         {
             if (State != null) State.Unfreeze();
         }
