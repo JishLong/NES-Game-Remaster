@@ -24,6 +24,10 @@ namespace Sprint0.Projectiles.Player_Projectiles
                 PM.AddProjectile(Projectile.BOMB_EXPLOSION_PARTICLE, this, Direction.RIGHT);
                 PM.AddProjectile(Projectile.BOMB_EXPLOSION_PARTICLE, this, Direction.UP);
                 PM.AddProjectile(Projectile.BOMB_EXPLOSION_PARTICLE, this, Direction.DOWN);
+                PM.AddProjectile(Projectile.BOMB_EXPLOSION_PARTICLE, this, Direction.UPLEFT);
+                PM.AddProjectile(Projectile.BOMB_EXPLOSION_PARTICLE, this, Direction.UPRIGHT);
+                PM.AddProjectile(Projectile.BOMB_EXPLOSION_PARTICLE, this, Direction.DOWNLEFT);
+                PM.AddProjectile(Projectile.BOMB_EXPLOSION_PARTICLE, this, Direction.DOWNRIGHT);
             }     
         }
 

@@ -53,10 +53,10 @@ namespace Sprint0.GameStates.GameStates
 
             if (IsFlashing && FramesPassed < FadeOutFrames) 
             {
-                sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, Utils.GameWidth, Utils.GameHeight), null, Color.White * 0.3f, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
+                sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, Utils.GameWidth, Utils.GameHeight), null, Color.White * 0.3f, 0f, Vector2.Zero, SpriteEffects.None, 0.10f);
             }
 
-            sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, Utils.GameWidth, Utils.GameHeight), null, Color.Black * FadeAmount, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
+            sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, Utils.GameWidth, Utils.GameHeight), null, Color.Black * FadeAmount, 0f, Vector2.Zero, SpriteEffects.None, 0.09f);
             if (FramesPassed > FadeOutFrames) 
             {
                 Rectangle PanelDims = Resources.PausePanel.Bounds;

@@ -33,24 +33,27 @@ namespace Sprint0.Npcs
 
         public override void Draw(SpriteBatch sb)
         {
-            int numCharsDrawn = 0;
-            for (int i = 0; i < Strings.Count; i++) 
+            if (Strings != null) 
             {
-                for (int j = 0; j < Strings[i].Length; j++) 
+                int numCharsDrawn = 0;
+                for (int i = 0; i < Strings.Count; i++)
                 {
-                    if (numCharsDrawn == NumCharsShown) return;
-                    numCharsDrawn++;
+                    for (int j = 0; j < Strings[i].Length; j++)
+                    {
+                        if (numCharsDrawn == NumCharsShown) return;
+                        numCharsDrawn++;
 
-                    // We want to center the text within the [TextAreaDims] and allow the camera to move it as well
-                    int TextWidthOffset = (int)(TextAreaDims.X - (int)Resources.MediumFont.MeasureString(Strings[i]).X) / 2;
-                    Vector2 StringDims = Resources.MediumFont.MeasureString("a");
-                    Vector2 TotalOffset = new Vector2(TextWidthOffset + StringDims.X * j, TextHeightOffset + StringDims.Y * i) + 
-                        Camera.GetInstance().Position;
+                        // We want to center the text within the [TextAreaDims] and allow the camera to move it as well
+                        int TextWidthOffset = (int)(TextAreaDims.X - (int)Resources.MediumFont.MeasureString(Strings[i]).X) / 2;
+                        Vector2 StringDims = Resources.MediumFont.MeasureString("a");
+                        Vector2 TotalOffset = new Vector2(TextWidthOffset + StringDims.X * j, TextHeightOffset + StringDims.Y * i) +
+                            Camera.GetInstance().Position;
 
-                    sb.DrawString(Resources.MediumFont, Strings[i].Substring(j, 1), Position + TotalOffset,
-                        Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0.21f);  
+                        sb.DrawString(Resources.MediumFont, Strings[i].Substring(j, 1), Position + TotalOffset,
+                            Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0.21f);
+                    }
                 }
-            }
+            }      
         }
 
         public override Rectangle GetHitbox()
