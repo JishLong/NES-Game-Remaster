@@ -47,6 +47,8 @@ namespace Sprint0.Blocks.Utils
                     return new Water(position);
                 case Types.Block.WHITE_BARS:
                     return new WhiteBars(position);
+                case Types.Block.UNLOCK_DOOR_TRIGGER:
+                    return new UnlockDoorTrigger(position);
                 default:
                     Console.Error.Write("The block of type " + blockType.ToString() + 
                         " could not be instantiated by the Block Factory. Does this type exist?");

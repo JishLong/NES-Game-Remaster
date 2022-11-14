@@ -1,2 +1,2 @@
 Up,Right,Down,Left
-up_wall,right_event_locked,down_unlocked,left_wall
+up_wall,right_event_locked,down_key_locked,left_wall

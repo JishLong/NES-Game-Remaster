@@ -55,6 +55,11 @@ namespace Sprint0.Doors
             State.Unlock();
         }
 
+        public void Lock()
+        {
+            State.Lock();
+        }
+
         public List<IBlock> GetBlocks()
         {
             return State.GetBlocks();

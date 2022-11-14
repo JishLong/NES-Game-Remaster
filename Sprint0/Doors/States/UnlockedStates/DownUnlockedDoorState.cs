@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
+using Sprint0.Doors.States.KeyLockedStates;
 using Sprint0.Levels.Utils;
 using Sprint0.Sprites;
 using Sprint0.Sprites.Doors.UnlockdDoorSprites;
@@ -20,7 +21,7 @@ namespace Sprint0.Doors.States.UnlockedStates
             float Width = LevelResources.BlockWidth;
 
             // Used mostly for drawing
-            Position = LevelResources.DownDoorPosition;
+            Position = LevelResources.DownDoorPosition + new Vector2(0, Height);
             DoorWayOffset = new Vector2(0, -Height);
 
             // Create sprites
@@ -43,7 +44,7 @@ namespace Sprint0.Doors.States.UnlockedStates
         }
         public override void Lock()
         {
-            // Door.State = new DownLockedDoorState();
+            Door.State = new DownKeyLockedDoorState(Door);
         }
         public override void Unlock()
         {

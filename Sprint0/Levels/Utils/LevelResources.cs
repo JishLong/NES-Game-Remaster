@@ -27,8 +27,8 @@ namespace Sprint0.Levels.Utils
         private LevelResources()
         {
             UpDoorPosition = new Vector2(BlockWidth * 7,0);
-            RightDoorPosition = new Vector2(BlockWidth * 15, BlockHeight * 4 + (BlockHeight / 2));
-            DownDoorPosition = new Vector2(BlockWidth * 7, BlockHeight * 10);
+            RightDoorPosition = new Vector2(BlockWidth * 14, BlockHeight * 4 + (BlockHeight / 2));
+            DownDoorPosition = new Vector2(BlockWidth * 7, BlockHeight * 9);
             LeftDoorPosition = new Vector2(0,BlockHeight * 4 + (BlockHeight/2));
 
             BlockMap = new Dictionary<string, Types.Block>()
@@ -100,6 +100,10 @@ namespace Sprint0.Levels.Utils
                 {"right_event_locked", Types.Door.RIGHT_EVENT_LOCKED },
                 {"down_event_locked", Types.Door.DOWN_EVENT_LOCKED },
                 {"left_event_locked", Types.Door.LEFT_EVENT_LOCKED },
+                {"up_key_locked", Types.Door.UP_KEY_LOCKED},
+                {"right_key_locked", Types.Door.RIGHT_KEY_LOCKED },
+                {"down_key_locked", Types.Door.DOWN_KEY_LOCKED },
+                {"left_key_locked", Types.Door.LEFT_KEY_LOCKED }
             };
 
             EventMap = new Dictionary<string, Types.Event>()

@@ -3,6 +3,7 @@ using Sprint0.Blocks;
 using Microsoft.Xna.Framework;
 using Sprint0.Blocks.Blocks;
 using Sprint0.Commands.Levels;
+using Sprint0.Doors;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -55,6 +56,14 @@ namespace Sprint0.Collision.Handlers
                 {
                     new ExitSecretRoomTransitionCommand(game).Execute();
                     player.StopAction();
+                }
+            } else if(block is UnlockDoorTrigger)
+            {
+                if (player.Inventory.GetAmount(Types.Item.KEY) > 0)
+                {
+                    player.Inventory.RemoveFromInventory(Types.Item.KEY, 1);
+                    Door door = block.GetParent() as Door;
+                    door.Unlock();
                 }
             } 
         }

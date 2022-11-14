@@ -20,7 +20,7 @@ namespace Sprint0.Doors.States.UnlockedStates
             float Width = LevelResources.BlockWidth;
 
             // Used mostly for drawing
-            Position = LevelResources.RightDoorPosition;
+            Position = LevelResources.RightDoorPosition + new Vector2(Width,0);
             DoorWayOffset = new Vector2(-Width, 0);
 
             // Create sprites
