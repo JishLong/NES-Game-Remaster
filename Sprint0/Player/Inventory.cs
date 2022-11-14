@@ -58,6 +58,11 @@ namespace Sprint0.Player
         public void DecrementItem(Types.Item item)
         {
             if (ItemCounts.ContainsKey(item)) ItemCounts[item]--;
+            if (ItemCounts[item] <= 0) 
+            {
+                ItemCounts.Remove(item);
+                if (SelectedItem == item) SelectedItem = Types.Item.NO_ITEM;
+            }
         }
 
         public bool HasItem(Types.Item item) 

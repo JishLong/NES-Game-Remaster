@@ -2,14 +2,13 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.Player;
 using Sprint0.Sprites.Projectiles.Player;
+using System.Numerics;
+using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace Sprint0.Player
 {
     public class HUD: Inventory
     {
-        int numGems;
-        int numKeys;
-        int numBombs;
         int numHearts;
 
         IPlayer Player;
@@ -28,6 +27,9 @@ namespace Sprint0.Player
             Vector2 Life = new((int)(176 * Utils.GameScale + CameraPosition.X), (int)(32 * Utils.GameScale + CameraPosition.Y));
             Vector2 SecondaryItem = new((int)(128 * Utils.GameScale), (int)(24 * Utils.GameScale));
             Vector2 PrimaryItem = new((int)(152 * Utils.GameScale), (int)(24 * Utils.GameScale));
+            Vector2 RupeeCount = new((int)(96 * Utils.GameScale + CameraPosition.X), (int)(13 * Utils.GameScale + CameraPosition.Y));
+            Vector2 KeyCount = new((int)(96 * Utils.GameScale + CameraPosition.X), (int)(29 * Utils.GameScale + CameraPosition.Y));
+            Vector2 BombCount = new((int)(96 * Utils.GameScale + CameraPosition.X), (int)(37 * Utils.GameScale + CameraPosition.Y));
 
 
 
@@ -47,6 +49,13 @@ namespace Sprint0.Player
 
             new SwordProjSprite(Types.Direction.UP).Draw(sb, PrimaryItem, Color.White, 0.18f);
 
+            sb.DrawString(Resources.MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.RUPEE), RupeeCount, Color.White,
+                0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
+            sb.DrawString(Resources.MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.KEY), KeyCount, Color.White,
+                0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
+            sb.DrawString(Resources.MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.BOMB), BombCount, Color.White,
+                0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
+
             //Life
             int heartXOffset = 556;
             for (int i = 0; i < numHearts; i++)
@@ -59,9 +68,6 @@ namespace Sprint0.Player
 
         public void Update(IPlayer player) 
         {
-            numGems = player.Inventory.GetAmount(Types.Item.RUPEE);
-            numKeys = player.Inventory.GetAmount(Types.Item.KEY);
-            numBombs = player.Inventory.GetAmount(Types.Item.BOMB);
             numHearts = player.Health;
 
         }
