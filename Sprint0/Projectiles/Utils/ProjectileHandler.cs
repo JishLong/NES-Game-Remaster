@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Projectiles.Player_Projectiles;
 using System.Collections.Generic;
 
 namespace Sprint0.Projectiles.Tools
@@ -18,6 +19,21 @@ namespace Sprint0.Projectiles.Tools
 
         public void AddProjectile(IProjectile projectile)
         {
+            if (projectile is SwordProjectile) 
+            {
+                foreach (var proj in Projectiles) 
+                {
+                    if (proj is SwordProjectile || proj is SwordFlameProjectile) return;
+                }
+                AudioManager.GetInstance().PlayOnce(Resources.SwordProj);
+            }
+            if (projectile is BoomerangProjectile) 
+            {
+                foreach (var proj in Projectiles)
+                {
+                    if (proj is BoomerangProjectile || proj.IsFromPlayer()) return;
+                }
+            }
             Projectiles.Add(projectile);
         }
 

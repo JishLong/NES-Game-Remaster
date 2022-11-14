@@ -61,8 +61,7 @@ namespace Sprint0.Player.State.Idle
             else if (FramesPassed % Sprite.GetAnimationTime() == Sprite.GetAnimationTime() / 2
                 && Player.Health == Player.MaxHealth)
             {
-                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_PROJ, Player, Player.FacingDirection);
-                AudioManager.GetInstance().PlayOnce(Resources.SwordProj);
+                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_PROJ, Player, Player.FacingDirection); 
             }
         }
     }
