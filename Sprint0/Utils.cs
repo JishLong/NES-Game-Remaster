@@ -20,9 +20,9 @@ namespace Sprint0
         public static readonly float DoorWayLayerDepth = 1.0f;
         public static readonly float BlockLayerDepth = 1.0f;
         public static readonly float PushableBlockLayerDepth = 0.9f;
-        public static readonly float CharacterLayerDepth = 0.9f;
         public static readonly float ItemLayerDepth = 0.8f;
         public static readonly float PlayerLayerDepth = 0.5f;
+        public static readonly float CharacterLayerDepth = 0.45f;
         public static readonly float ProjectileLayerDepth = 0.4f;
         public static readonly float DoorWallLayerDepth = 0.2f; // Needs to be drawn on top of the player.
 
