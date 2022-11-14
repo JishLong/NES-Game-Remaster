@@ -4,6 +4,7 @@ using Sprint0.Entities;
 using Sprint0.Items;
 using Sprint0.Levels;
 using Sprint0.Levels.Events;
+using Sprint0.Npcs;
 using System;
 
 namespace Sprint0.Events
@@ -49,6 +50,14 @@ namespace Sprint0.Events
                     door = level.Entities.Find(entity => entity.GetName() == receivingEntityName);
 
                     return new EventEnemiesKilledUnlocksDoor(room as Room, door as Door);
+
+                case Types.Event.OLD_MAN_ATTACK:
+                    // Catalyst entity is the room itself in this case.
+                    IEntity oldManRoom = level.Entities.Find(entity => entity.GetName() == catalystEntityName);
+                    // Get a reference to the receiver entity from entity name.
+                    IEntity oldMan = level.Entities.Find(entity => entity.GetName() == receivingEntityName);
+
+                    return new EventOldManAttack(oldManRoom as Room, oldMan as OldMan);
                 default:
                     Console.Error.Write("The event of type " + eventType.ToString() +
                         " could not be instantiated by the Event Factory. Does this type exist?");

@@ -2,7 +2,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters;
 using Sprint0.Levels;
+using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites.Characters.Npcs;
+using System.ComponentModel.Design;
 
 namespace Sprint0.Npcs
 {
@@ -34,6 +36,6 @@ namespace Sprint0.Npcs
         public override void Update(GameTime gameTime)
         {
             Sprite.Update();
-        }      
+        }
     }
 }

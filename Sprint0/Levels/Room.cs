@@ -124,6 +124,11 @@ namespace Sprint0.Levels
         {
             Characters.Add(CharacterFactory.GetInstance().GetCharacter(character, position, direction, clockwise));
         }
+        public void AddCharacterToRoom(ICharacter character)
+        {
+            Characters.Add(character);
+        }
+
         public void RemoveCharacterFromRoom(ICharacter character)
         {
             Characters.Remove(character);
