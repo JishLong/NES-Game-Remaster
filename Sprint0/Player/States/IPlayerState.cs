@@ -9,7 +9,7 @@ namespace Sprint0.Player.State
     {
         void Capture(ICommand goToBeginningCommand);
 
-        void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game);
+        void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, Types.Direction direction);
 
         void Move(Types.Direction direction);
 

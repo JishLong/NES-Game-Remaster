@@ -19,13 +19,15 @@ namespace Sprint0.Player.State
         // Constant values
         private static readonly Vector2 Knockback = new(16 * GameScale, 16 * GameScale);
         private static readonly int InvincibilityFrames = 40;
-        private static readonly int KnockBackFrames = InvincibilityFrames / 5;
+        private static readonly int KnockbackFrames = InvincibilityFrames / 5;
         private static readonly int LowHealthFrames = 20;
 
         // Helpful variables to check for certain conditions
         private static bool IsTakingDamage;
         private static int DamageFramesPassed;
         private static int LowHealthFramesPassed;
+
+        private Types.Direction KnockbackDirection;
 
         protected AbstractPlayerState(Player player, bool isNewPlayer = false) 
         {
@@ -43,7 +45,7 @@ namespace Sprint0.Player.State
             Player.State = new PlayerCaptureState(Player, goToBeginningCommand);
         }
 
-        public virtual void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game)
+        public virtual void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, Types.Direction direction)
         {
             // Change the max health; if it increases, the player is set to full health
             Player.MaxHealth += maxHealthAmount;
@@ -53,6 +55,7 @@ namespace Sprint0.Player.State
             if (healthAmount < 0 && !IsTakingDamage)
             {
                 IsTakingDamage = true;
+                KnockbackDirection = direction;
                 AudioManager.GetInstance().PlayOnce(Resources.PlayerTakeDamage);
                 Player.Health += healthAmount;
                 if (Player.Health <= 0)
@@ -107,9 +110,9 @@ namespace Sprint0.Player.State
             if (IsTakingDamage) 
             {
                 // Take knockback
-                if (DamageFramesPassed < KnockBackFrames) 
+                if (DamageFramesPassed < KnockbackFrames) 
                 {
-                    Player.Position += DirectionToVector(GetOppositeDirection(Player.FacingDirection)) * Knockback / (KnockBackFrames);
+                    Player.Position += DirectionToVector(KnockbackDirection) * Knockback / (KnockbackFrames);
                 }
 
                 // Check to see if the player should no longer be damaged

@@ -17,7 +17,8 @@ namespace Sprint0.Collision.Handlers
                 (character as Hand).HoldPlayer();
                 player.Capture(new GoToBeginningCommand(game));
             }
-            if (character is not OldMan && character is not Flame) player.ChangeHealth(-character.Damage, 0, game);
+            if (character is not OldMan && character is not Flame) player.ChangeHealth(-character.Damage, 0, game,
+                Utils.GetOppositeDirection(playerSide));
         }
     }
 }

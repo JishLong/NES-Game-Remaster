@@ -90,9 +90,9 @@ namespace Sprint0.Player
             State.StopAction();
         }
 
-        public void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game) 
+        public void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, Types.Direction direction = Types.Direction.NO_DIRECTION) 
         {
-            State.ChangeHealth(healthAmount, maxHealthAmount, game);
+            State.ChangeHealth(healthAmount, maxHealthAmount, game, direction);
         }
 
         public void Update()
