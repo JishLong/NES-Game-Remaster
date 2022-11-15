@@ -82,7 +82,7 @@ namespace Sprint0.Player.HUD
             {
                 Vector2 position = PlayerPositions[CurrentRoomID];
                 position = position + HUDOffset;
-                PlayerLocationSprite.Draw(sb, position, Color.Green, HUDLayerDepth);
+                PlayerLocationSprite.Draw(sb, position, Color.Green, HUDLayerDepth + 0.03f);
             }
         }
 
