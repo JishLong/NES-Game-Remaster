@@ -12,16 +12,15 @@ namespace Sprint0.Levels
         private TextFieldParser Parser;
         public string MapFile { get; }
         public int[,] MapArray { get; set; }
-        private readonly int MapSize = 9;
-        public int MaxNumRooms { get; }
+        public int MapSize { get; }
         private string RootPath;
         //Constructor
         public LevelMap(string levelName)
         {
             RootPath = "../../../Levels/";  // TODO: There is probably a better way to do this than with relative paths...
             MapFile = RootPath + levelName + "/" + "Map.csv";
+            MapSize = 9;
             MapArray = new int[MapSize, MapSize];
-            MaxNumRooms = MapSize * MapSize;
             LoadMap();  // Load the map to an array on construction.
         }
         

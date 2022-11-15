@@ -4,7 +4,7 @@ using Sprint0.Levels;
 
 namespace Sprint0.Player.HUD
 {
-    public class HUD : Inventory
+    public class PlayerHUD : Inventory
     {
         int numGems;
         int numKeys;
@@ -13,12 +13,11 @@ namespace Sprint0.Player.HUD
 
         private HUDMap HUDMap;
         private Player Player;
-        private LevelManager LevelManager;
 
-        public HUD(LevelManager levelManager, Player player)
+        public PlayerHUD(LevelManager levelManager, Player player)
         {
             Player = player;
-            HUDMap = new HUDMap(LevelManager, Player);
+            HUDMap = new HUDMap(levelManager, Player);
         }
 
         public void Draw(SpriteBatch sb)
@@ -47,8 +46,10 @@ namespace Sprint0.Player.HUD
             sb.Draw(Resources.ScreenCover, HUDArea, null, Color.Black,
               0f, Vector2.Zero, SpriteEffects.None, 0.19f);
             //mini map
-            sb.Draw(Resources.ScreenCover, MAPArea, null, Color.White,
-                0f, Vector2.Zero, SpriteEffects.None, 0.18f);
+            if (Player.Inventory.HasItem(Types.Item.MAP))
+            {
+                HUDMap.Draw(sb, MAPArea);
+            }
             //gems
             sb.Draw(Resources.ItemsSpriteSheet, gemsAREA, Resources.Rupee, Color.GhostWhite,
                 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
@@ -91,6 +92,7 @@ namespace Sprint0.Player.HUD
 
         public void Update()
         {
+            HUDMap.Update();
             numGems = Player.Inventory.GetAmount(Types.Item.RUPEE);
             numKeys = Player.Inventory.GetAmount(Types.Item.KEY);
             numBombs = Player.Inventory.GetAmount(Types.Item.BOMB);

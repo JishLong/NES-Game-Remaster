@@ -40,6 +40,7 @@ namespace Sprint0.Levels
         private Level Context;
 
         public string RoomName;
+        public int RoomID;
         public Room(Level level, string roomName)
         {
             Context = level;
