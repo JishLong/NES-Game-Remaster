@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Commands;
 using Sprint0.Items;
+using Sprint0.Player.HUD;
 using Sprint0.Player.State;
 using Sprint0.Player.State.Idle;
 
@@ -25,10 +26,11 @@ namespace Sprint0.Player
         public bool IsStationary { get; set; }
 
         // An inventory to hold all the player's items - not yet in use
-        public HUD HUD { get; private set; }
+        private Game1 Game;
+        public PlayerHUD HUD { get; private set; }
         public Inventory Inventory { get; private set; }
         
-        public Player()
+        public Player(Game1 game)
         {
             // Initialize the state
             State = new PlayerIdleState(this, true);
@@ -46,7 +48,8 @@ namespace Sprint0.Player
             IsStationary = true;
 
             // Initialize the inventorys
-            HUD = new HUD(this);
+            Game = game;
+            HUD = new PlayerHUD(game.LevelManager, this);
             Inventory = new Inventory();
         }
 

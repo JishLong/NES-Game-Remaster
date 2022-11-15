@@ -55,6 +55,8 @@ namespace Sprint0
         public static Texture2D Invisible { get; private set; }
         public static Texture2D GuiSpriteSheet { get; private set; }
         public static Texture2D GuiElementsSpriteSheet { get; private set; }
+        public static Texture2D HUDMapRoomSheet { get; private set; }
+        public static Texture2D PlayerLocationSheet { get; private set; }
 
         // Sprite sheet positions for all blocks
         public static readonly Rectangle BlueTile = new Rectangle(0, 0, 16, 16);
@@ -182,6 +184,10 @@ namespace Sprint0
         public static readonly Rectangle HalfHeart = new Rectangle(8, 16, 8, 8);
         public static readonly Rectangle FullHeart = new Rectangle(16, 16, 8, 8);
 
+        // Sprite sheet positions for map elements
+        public static readonly Rectangle HUDMapRoom = new Rectangle(0, 0, 7, 3);
+        public static readonly Rectangle PlayerLocation = new Rectangle(0, 0, 3, 3);
+
         public static void LoadContent(ContentManager c) 
         {
             // Load font
@@ -229,6 +235,8 @@ namespace Sprint0
             Invisible = c.Load<Texture2D>("Images/invisible");
             GuiSpriteSheet = c.Load<Texture2D>("Images/gui");
             GuiElementsSpriteSheet = c.Load<Texture2D>("Images/guiElements");
+            HUDMapRoomSheet = c.Load<Texture2D>("Images/HUDMapRoom");
+            PlayerLocationSheet = c.Load<Texture2D>("Images/PlayerLocation");
         }
 
         // Why you looking down here? Tryna see how many lines of code this class is? Go back to the top >:(

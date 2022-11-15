@@ -19,6 +19,7 @@ using Sprint0.Projectiles;
 using Sprint0.Projectiles.Tools;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using static Sprint0.Types;
 
 namespace Sprint0.Levels
@@ -40,6 +41,7 @@ namespace Sprint0.Levels
         private Level Context;
 
         public string RoomName;
+        public int RoomID;
         public Room(Level level, string roomName)
         {
             Context = level;
@@ -51,6 +53,10 @@ namespace Sprint0.Levels
             Projectiles = new ProjectileHandler();
 
             RoomName = roomName;
+            int length = roomName.Length - 4;
+            string substring = roomName.Substring(4, length);
+            RoomID = int.Parse(substring);
+            //RoomID = int.Parse(roomName.Substring(4, length));
             AdjacentRooms = new Dictionary<RoomTransition, Room>()
             {
                 {RoomTransition.UP, null },
