@@ -186,19 +186,19 @@ namespace Sprint0
         public static readonly Rectangle MapIconNoDoors = new Rectangle(0, 24, 8, 8);
         public static readonly Rectangle MapIconAllDoors = new Rectangle(8, 24, 8, 8);
         public static readonly Rectangle MapIconHorzDoors = new Rectangle(16, 24, 8, 8);
-        public static readonly Rectangle MapIconVertDoors = new Rectangle(16, 24, 8, 8);
+        public static readonly Rectangle MapIconVertDoors = new Rectangle(24, 24, 8, 8);
         public static readonly Rectangle MapIconLeftDoor = new Rectangle(0, 32, 8, 8);
         public static readonly Rectangle MapIconRightDoor = new Rectangle(8, 32, 8, 8);
         public static readonly Rectangle MapIconUpDoor = new Rectangle(16, 32, 8, 8);
-        public static readonly Rectangle MapIconDownDoor = new Rectangle(16, 32, 8, 8);
+        public static readonly Rectangle MapIconDownDoor = new Rectangle(24, 32, 8, 8);
         public static readonly Rectangle MapIconUpLeftDoors = new Rectangle(0, 40, 8, 8);
         public static readonly Rectangle MapIconUpRightDoors = new Rectangle(8, 40, 8, 8);
         public static readonly Rectangle MapIconDownLeftDoors = new Rectangle(16, 40, 8, 8);
-        public static readonly Rectangle MapIconDownRightDoors = new Rectangle(16, 40, 8, 8);
+        public static readonly Rectangle MapIconDownRightDoors = new Rectangle(24, 40, 8, 8);
         public static readonly Rectangle MapIconNoDownDoor = new Rectangle(0, 48, 8, 8);
         public static readonly Rectangle MapIconNoUpDoor = new Rectangle(8, 48, 8, 8);
         public static readonly Rectangle MapIconNoRightDoor = new Rectangle(16, 48, 8, 8);
-        public static readonly Rectangle MapIconNoLeftDoor = new Rectangle(16, 48, 8, 8);
+        public static readonly Rectangle MapIconNoLeftDoor = new Rectangle(24, 48, 8, 8);
 
         // Sprite sheet positions for map elements
         public static readonly Rectangle HUDMapRoom = new Rectangle(0, 0, 7, 3);
