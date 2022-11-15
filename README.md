@@ -17,16 +17,13 @@ Firstly, here is a quick list of the (main) game controls - these may vary from 
 - Left Click: teleport to previous room
 - Right Click: teleport to next room
 
-Here are some explicit features that have not yet been implemented, but are planned to be implemented before the Sprint 4 due date:
-- Map/minimap functionality
-- Blade trap behavior
-
-Here are some of the "main" Sprint 4 requirements that have been so far implemented
+Here are some of the "main" Sprint 4 requirements from this project:
 - Mouse controls to teleport between rooms (for testing)
-- Room with all items (for testing) - located in the room directly to the left of spawn :)
+- Room with all items (for testing) - located in the room directly to below spawn :)
 - Sound effects and background music, with mute functionality
 - Resetting the level upon character's death
-- (partial) HUD
+- HUD
+- Inventory
 - All possible game states and transitions (and bonus main menu with super helpful game tips)
 
 In addition to the main Sprint 4 requirements from the web page, there are a handful of other cool features that may or may not be hard to miss:
