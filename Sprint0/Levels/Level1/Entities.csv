@@ -5,6 +5,8 @@ item,key,key1,Room9,8,5
 item,key,key2,Room1,8,6
 item,key,key3,Room6,6,1
 item,key,key4,Room17,6,2
+item,key,key5,Room13,10,1
+item,key,key6,Room3,11,3
 item,hcont,heartcont1,Room14,11,3
 item,boomerang,boomerang1,Room11,8,3
 character,oldman,oldman1,Room8,5,2
