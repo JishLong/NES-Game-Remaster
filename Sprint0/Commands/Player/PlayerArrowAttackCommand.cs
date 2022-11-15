@@ -18,10 +18,8 @@ namespace Sprint0.Commands.Player
             {
                 Player.Inventory.DecrementItem(Types.Item.RUPEE);
                 Player.SecondaryWeapon = Types.Projectile.ARROW_PROJ;
-                new PlayerSecondaryAttackCommand(Player).Execute();
-            }
-
-            
+                Player.DoSecondaryAttack();
+            } 
         }
     }
 }

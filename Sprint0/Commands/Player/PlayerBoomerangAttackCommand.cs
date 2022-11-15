@@ -17,7 +17,7 @@ namespace Sprint0.Commands.Player
             if (Player.Inventory.SelectedItem == Item.WOODEN_BOOMERANG)
             {
                 Player.SecondaryWeapon = Types.Projectile.BOOMERANG_PROJ;
-                new PlayerSecondaryAttackCommand(Player).Execute();
+                Player.DoSecondaryAttack();
             }
         }
     }

@@ -42,15 +42,15 @@ namespace Sprint0.Input
                 // Player attack controls
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Z, Keys.N),
                     new PlayerSwordAttackCommand(player) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D1),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.C),
                     new PlayerArrowAttackCommand(player) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D2),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.C),
                     new PlayerBlueArrowAttackCommand(player) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D3),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.C),
                     new PlayerBoomerangAttackCommand(player) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D4),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.C),
                     new PlayerFlameAttackCommand(player) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D5),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.C),
                     new PlayerBombAttackCommand(player) },          
 
                 // Misc. controls               

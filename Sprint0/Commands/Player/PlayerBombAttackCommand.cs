@@ -18,7 +18,7 @@ namespace Sprint0.Commands.Player
             {
                 Player.Inventory.DecrementItem(Types.Item.BOMB);
                 Player.SecondaryWeapon = Types.Projectile.BOMB_PROJ;
-                new PlayerSecondaryAttackCommand(Player).Execute();
+                Player.DoSecondaryAttack();
             }
         }
     }
