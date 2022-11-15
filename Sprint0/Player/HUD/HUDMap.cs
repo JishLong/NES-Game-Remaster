@@ -82,7 +82,7 @@ namespace Sprint0.Player.HUD
             {
                 Vector2 position = PlayerPositions[CurrentRoomID];
                 position = position + HUDOffset;
-                PlayerLocationSprite.Draw(sb, position, Color.Green, HUDLayerDepth + 0.03f);
+                PlayerLocationSprite.Draw(sb, position, Color.Green, HUDLayerDepth + 0.1f);
             }
         }
 
@@ -90,7 +90,7 @@ namespace Sprint0.Player.HUD
         {
             Vector2 position = BossPosition;
             position = position + HUDOffset;
-            BossLocationSprite.Draw(sb, position, Color.Red, HUDLayerDepth + 0.05f);
+            BossLocationSprite.Draw(sb, position, Color.Red, HUDLayerDepth + 0.11f);
         }
         public void DrawMap(SpriteBatch sb)
         {
@@ -99,7 +99,7 @@ namespace Sprint0.Player.HUD
                 ISprite sprite = pair.Key;
                 Vector2 position = pair.Value;
                 position = position + HUDOffset;
-                sprite.Draw(sb, position, Color.Blue, HUDLayerDepth+0.1f);
+                sprite.Draw(sb, position, Color.Blue, HUDLayerDepth+0.12f);
             }
         }
     }
