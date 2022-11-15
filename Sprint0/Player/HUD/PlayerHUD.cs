@@ -46,9 +46,15 @@ namespace Sprint0.Player.HUD
             sb.Draw(Resources.ScreenCover, HUDArea, null, Color.Black,
               0f, Vector2.Zero, SpriteEffects.None, 0.19f);
             //mini map
+
+            HUDMap.DrawPlayerLocation(sb, MAPArea);
+            if (Player.Inventory.HasItem(Types.Item.COMPASS))
+            {
+                HUDMap.DrawBossLocation(sb, MAPArea);
+            }
             if (Player.Inventory.HasItem(Types.Item.MAP))
             {
-                HUDMap.Draw(sb, MAPArea);
+                HUDMap.DrawMap(sb, MAPArea);
             }
             //gems
             sb.Draw(Resources.ItemsSpriteSheet, gemsAREA, Resources.Rupee, Color.GhostWhite,
