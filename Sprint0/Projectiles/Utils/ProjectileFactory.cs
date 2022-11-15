@@ -25,6 +25,8 @@ namespace Sprint0.Projectiles.Tools
                     return new ArrowExplosionParticle(user, direction);
                 case Types.Projectile.ARROW_PROJ:
                     return new ArrowProjectile(user, direction);
+                case Types.Projectile.BLADE_TRAP_TRIGGER:
+                    return new BladeTrapTrigger(user, direction);
                 case Types.Projectile.BLUE_ARROW_PROJ:
                     return new BlueArrowProjectile(user, direction);
                 case Types.Projectile.BOMB_EXPLOSION_PARTICLE:
