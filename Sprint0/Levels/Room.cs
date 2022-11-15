@@ -97,6 +97,7 @@ namespace Sprint0.Levels
             {
                 Context.CurrentRoom = AdjacentRooms[direction]; // Set the owning level's current room to this adjacent room.
                 ResetRoom();
+                Context.VisitedRooms.Add(Context.CurrentRoom.RoomID);
             }
         }
         public void ResetRoom() 

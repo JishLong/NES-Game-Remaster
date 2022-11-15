@@ -11,6 +11,7 @@ namespace Sprint0.Levels
 
     public class Level
     {
+        public List<int> VisitedRooms;
         public List<Room> Rooms { get; set; }
         public List<IEntity> Entities { get; set; }
         public EventMaster EventMaster;
@@ -27,6 +28,8 @@ namespace Sprint0.Levels
             string substring = LevelName.Substring(5, length);
             LevelID = int.Parse(substring);
             Rooms = new List<Room>();
+            VisitedRooms = new List<int>();
+            VisitedRooms.Add(startingRoomIndex);
             Entities = new List<IEntity>();
             EventMaster = new EventMaster();
             Map = new LevelMap(LevelName);
