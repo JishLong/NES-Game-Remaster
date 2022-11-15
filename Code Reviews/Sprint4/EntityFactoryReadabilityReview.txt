@@ -1,0 +1,10 @@
+Author: Hanebal Aseged
+Date of code review: Nov 14 2022
+Sprint #4
+Name of .cs file: EntityFactory.cs
+Author of .cs file: Hayden Gray
+Time to review: 10 min
+Comments:This class is pretty straightforward in what it does. It gives a quick explanation showing that it creates
+and returns an entity. The paramaters are clearly labeled and it's easy to see how this class takes an input of strings
+and retrieves the correct and places the correct item in the correct room whether this item is a block, character, or an actual item.
+Everything is clearly labeled and oragnized which makes it easy to understand in how it works into the grand scheme of the code.
