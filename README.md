@@ -1,4 +1,4 @@
-# CSE-3902-Project - Sprint 4 Functionality Check-in
+# CSE-3902-Project - Sprint 4
 
 This README file contains brief instructions/information regarding controls, features, and special cases for this project
 
@@ -6,29 +6,20 @@ Firstly, here is a quick list of the (main) game controls - these may vary from 
 
 - Arrows, WASD: movement of Link
 - Z, N: sword attack
-- 1: normal arrow attack
-- 2: blue arrow attack
-- 3: boomerang attack
-- 4: flame attack
-- 5: bomb attack
+- C: secondary attack
 - E: open inventory
 - ESC: pause game
 - M: mute audio
 - Q: quit the game (can only be done when game is paused)
-- SPACE: restarts the game (while on certain menu screens)
+- SPACE: restarts the game (after you die/win)
+- WASD can be used within the inventory to select items
 
 - Left Click: teleport to previous room
 - Right Click: teleport to next room
 
 Here are some explicit features that have not yet been implemented, but are planned to be implemented before the Sprint 4 due date:
-- Different kinds of doors (locked, blocked, bomb)
-- Finished inventory
 - Map/minimap functionality
 - Blade trap behavior
-- Correct Wallmaster behavior
-- Text in the "old man" room
-- Clock "power up" functionality
-- Link is still able to use whatever weapon he wants, whenever he wants (he's all-powerful)
 
 Here are some of the "main" Sprint 4 requirements that have been so far implemented
 - Mouse controls to teleport between rooms (for testing)
@@ -38,11 +29,18 @@ Here are some of the "main" Sprint 4 requirements that have been so far implemen
 - (partial) HUD
 - All possible game states and transitions (and bonus main menu with super helpful game tips)
 
-Additionally, here are some other cool features (literally no one asked, who tf cares) that might be hard to miss:
-- Link's sword attack (Z, N) will create a projectile if he is at full health (for now, is also spammable :) )
+In addition to the main Sprint 4 requirements from the web page, there are a handful of other cool features that may or may not be hard to miss:
+- Link's sword attack (Z, N) will create a projectile if he is at full health (NOT spammable)
 - The boomerangs for both Link and the Goriyas will home back to the user, and Link's can stun enemies and pick up items
+- Clock items can freeze enemies similarly to Link's boomerang, but lasts until you leave the room
 - Link can actually die from his own bombs (how sad)
-- Super epic transitions for going to basement room and winning game (not very epic)
-- Effect when picking up a bow looks cool (it's not cool)
+- Really awesome game transitions for losing, winning, and going to the basement
+- Original "new item" effect when picking up the bow
 - Enemies drop items upon death
 - Pause and mute buttons will even work during camera transitions!
+- Super secret doorways that can be found by blowing up the walls
+- "Typing out" of text in the old man room
+- Try attacking the old man if you dare (careful - may be laggy!)
+- Full wallmaster behavior, complete with link getting sent back to the start (careful around the walls!)
+- Cool custom mouse cursor
+- Robust event system for various puzzles/events in-game!
