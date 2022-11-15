@@ -1,0 +1,7 @@
+Author: Hayden Gray 
+Date: 11/14/22
+Sprint: Sprint 4
+Class under review: Camera.cs
+Class author: Josh Long
+
+This class is impressively short and to the point. It boasts both very high cohesion and low coupling, as the class only refers to our Utils class for one static parameter and the methods for this class are just used to manipulate the camera object. This class is also a singelton which makes using it where appropriate a very clean process.

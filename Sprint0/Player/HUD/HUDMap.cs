@@ -15,8 +15,7 @@ namespace Sprint0.Player.HUD
         private ISprite PlayerLocationSprite;
         private ISprite BossLocationSprite;
 
-        private int HUDOffsetX = 50;
-        private int HUDOffsetY = 60;
+        private Vector2 HUDOffset = new Vector2(50, 60);
         private int BossRoomID;
         private int CurrentRoomID;
 
@@ -76,32 +75,31 @@ namespace Sprint0.Player.HUD
             BossLocationSprite.Update();
         }
 
-        public void DrawPlayerLocation(SpriteBatch sb, Rectangle sourceRect)
+        public void DrawPlayerLocation(SpriteBatch sb)
         {
-            
 
             if (PlayerPositions.ContainsKey(CurrentRoomID))
             {
                 Vector2 position = PlayerPositions[CurrentRoomID];
-                position = position + new Vector2(sourceRect.X + HUDOffsetX, sourceRect.Y + HUDOffsetY);
-                PlayerLocationSprite.Draw(sb, position, Color.Green, HUDLayerDepth+0.1f);
+                position = position + HUDOffset;
+                PlayerLocationSprite.Draw(sb, position, Color.Green, HUDLayerDepth + 0.1f);
             }
         }
 
-        public void DrawBossLocation(SpriteBatch sb, Rectangle sourceRect)
+        public void DrawBossLocation(SpriteBatch sb)
         {
             Vector2 position = BossPosition;
-            position = position + new Vector2(sourceRect.X + HUDOffsetX, sourceRect.Y + HUDOffsetY);
-            BossLocationSprite.Draw(sb, position, Color.Red, HUDLayerDepth + 0.1f);
+            position = position + HUDOffset;
+            BossLocationSprite.Draw(sb, position, Color.Red, HUDLayerDepth + 0.11f);
         }
-        public void DrawMap(SpriteBatch sb, Rectangle sourceRect)
+        public void DrawMap(SpriteBatch sb)
         {
             foreach (KeyValuePair<ISprite, Vector2> pair in RoomSprites)
             {
                 ISprite sprite = pair.Key;
                 Vector2 position = pair.Value;
-                position = position + new Vector2(sourceRect.X + HUDOffsetX, sourceRect.Y + HUDOffsetY);
-                sprite.Draw(sb, position, Color.Blue, HUDLayerDepth+0.11f);
+                position = position + HUDOffset;
+                sprite.Draw(sb, position, Color.Blue, HUDLayerDepth+0.12f);
             }
         }
     }

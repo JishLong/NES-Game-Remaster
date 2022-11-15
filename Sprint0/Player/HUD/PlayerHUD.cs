@@ -27,7 +27,6 @@ namespace Sprint0.Player.HUD
             Vector2 CameraPosition = Camera.GetInstance().Position;
 
             Rectangle HUDArea = new Rectangle((int)CameraPosition.X, (int)CameraPosition.Y, Utils.GameWidth, (int)(56 * Utils.GameScale));
-            Rectangle HUDMapArea = new Rectangle(0, 0, Utils.GameWidth, (int)(56 * Utils.GameScale));
             Vector2 lifeLOC = new Vector2((int)CameraPosition.X + 555, (int)CameraPosition.Y + 15);
             Vector2 Life = new((int)(176 * Utils.GameScale + CameraPosition.X), (int)(32 * Utils.GameScale + CameraPosition.Y));
             Vector2 SecondaryItem = new((int)(128 * Utils.GameScale), (int)(24 * Utils.GameScale));
@@ -40,14 +39,14 @@ namespace Sprint0.Player.HUD
             string levelName = "Level-" + LevelManager.CurrentLevel.LevelID;
             sb.DrawString(Resources.MediumFont, levelName, LevelName, Color.White,
                 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
-            HUDMap.DrawPlayerLocation(sb, HUDMapArea);
+            HUDMap.DrawPlayerLocation(sb);
             if (Player.Inventory.HasItem(Types.Item.COMPASS))
             {
-                HUDMap.DrawBossLocation(sb, HUDMapArea);
+                HUDMap.DrawBossLocation(sb);
             }
             if (Player.Inventory.HasItem(Types.Item.MAP))
             {
-                HUDMap.DrawMap(sb, HUDMapArea);
+                HUDMap.DrawMap(sb);
             }
 
             sb.Draw(Resources.GuiSpriteSheet, HUDArea, Resources.HUD, Color.White,
