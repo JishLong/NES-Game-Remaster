@@ -36,6 +36,7 @@ namespace Sprint0.GameStates.GameStates
             Vector2 CameraPosition = Camera.GetInstance().Position;
 
             Rectangle InvArea = new Rectangle((int)CameraPosition.X, (int)CameraPosition.Y, Utils.GameWidth, (int)(176 * Utils.GameScale));
+
             Vector2 SelectedItem = new((int)(68 * Utils.GameScale), (int)(48 * Utils.GameScale));
             Vector2 Map = new((int)(48 * Utils.GameScale), (int)(112 * Utils.GameScale));
             Vector2 Compass = new((int)(44 * Utils.GameScale), (int)(152 * Utils.GameScale));
@@ -48,8 +49,13 @@ namespace Sprint0.GameStates.GameStates
 
             Vector2 SelectionSquare = new((int)((128 + 24 * SelectedColumn) * Utils.GameScale), (int)((48 + 16 * SelectedRow) * Utils.GameScale));
 
+            Rectangle MapArea = new((int)(CameraPosition.X + 124 * Utils.GameScale),
+                (int)(CameraPosition.Y + 92 * Utils.GameScale), (int)(9 * 8 * Utils.GameScale), (int)(9 * 8 * Utils.GameScale));
+
             sb.Draw(Resources.GuiSpriteSheet, InvArea, Resources.Inventory, Color.White,
               0f, Vector2.Zero, SpriteEffects.None, 0.19f);
+
+            sb.Draw(Resources.ScreenCover, MapArea, new Rectangle(0, 0, 10, 10), Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
 
             if (Game.Player.Inventory.SelectedItem == Types.Item.WOODEN_BOOMERANG)
                 new WoodenBoomerangSprite().Draw(sb, SelectedItem, Color.White, 0.18f);
