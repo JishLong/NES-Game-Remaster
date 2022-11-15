@@ -4,7 +4,6 @@ using Sprint0.Sprites.Player.Attack.UseItem;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 using Sprint0.Items;
-using Sprint0.Sprites.Player.Movement;
 
 namespace Sprint0.Player.States
 {
@@ -23,6 +22,8 @@ namespace Sprint0.Player.States
             Sprite = Sprites[(int)Player.FacingDirection];
             FramesPassed = 0;
             ProjectileManager.GetInstance().AddProjectile(Player.SecondaryWeapon, Player, Player.FacingDirection);
+            if (Player.SecondaryWeapon == Types.Projectile.BOMB_PROJ) Player.Inventory.DecrementItem(Types.Item.BOMB);
+            else if (Player.SecondaryWeapon == Types.Projectile.ARROW_PROJ) Player.Inventory.DecrementItem(Types.Item.RUPEE);
         }
 
         public override void DoPrimaryAttack()

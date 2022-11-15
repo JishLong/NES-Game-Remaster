@@ -16,7 +16,6 @@ namespace Sprint0.Commands.Player
         {
             if (Player.Inventory.SelectedItem == Item.BOMB && Player.Inventory.GetAmount(Types.Item.BOMB) > 0)
             {
-                Player.Inventory.DecrementItem(Types.Item.BOMB);
                 Player.SecondaryWeapon = Types.Projectile.BOMB_PROJ;
                 Player.DoSecondaryAttack();
             }
