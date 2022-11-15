@@ -1,0 +1,9 @@
+Author of code review: Paul Fierman
+Date: 11/14/2022
+Sprint:4
+InventoryState.cs
+Author of .cs : Josh Long
+Minutes: 10
+It is clear to read that this game state impliments the abstract game state. It is evident that depending on which item is selected, this class creates the 
+appropriate sprite vector, and when selected the draw method displays the correct associating sprite on the screen. This class is clear in intention because 
+of well thought out variable names and the cohesion of similar typing, such as all vector declarations in one location and item condition checks in another location. 
