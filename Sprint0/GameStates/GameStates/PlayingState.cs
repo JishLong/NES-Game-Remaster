@@ -10,7 +10,7 @@ namespace Sprint0.GameStates.GameStates
 {
     public class PlayingState : AbstractGameState
     {
-        private static readonly int HudAreaHeight = 44;
+        private static readonly int HudAreaHeight = 56;
 
         public PlayingState(Game1 game) : base(game) 
         {

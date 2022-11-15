@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Sprint0.Commands;
 using Sprint0.Commands.GameStates;
+using Sprint0.Commands.Inventory;
 using Sprint0.Commands.Misc;
 using Sprint0.Commands.Player;
 using Sprint0.Controllers;
@@ -41,15 +42,15 @@ namespace Sprint0.Input
                 // Player attack controls
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Z, Keys.N),
                     new PlayerSwordAttackCommand(player) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D1),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.C),
                     new PlayerArrowAttackCommand(player) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D2),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.C),
                     new PlayerBlueArrowAttackCommand(player) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D3),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.C),
                     new PlayerBoomerangAttackCommand(player) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D4),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.C),
                     new PlayerFlameAttackCommand(player) },
-                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D5),
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.C),
                     new PlayerBombAttackCommand(player) },          
 
                 // Misc. controls               
@@ -139,6 +140,14 @@ namespace Sprint0.Input
                     new ToggleInventoryCommand(game) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),
                     new PauseGameCommand(game, currentGameState) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.W),
+                    new SelectAboveItemCommand(game) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.S),
+                    new SelectBelowItemCommand(game) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.A),
+                    new SelectLeftItemCommand(game) },
+                { new ActionMap(ActionMap.KeyState.PRESSED, Keys.D),
+                    new SelectRightItemCommand(game) },
             };
         }
     }

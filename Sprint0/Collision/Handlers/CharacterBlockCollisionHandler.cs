@@ -31,6 +31,7 @@ namespace Sprint0.Collision.Handlers
                         character.Position = new Vector2(BHitbox.X + BHitbox.Width, PHitbox.Y);
                         break;
                 }
+                if (character is BladeTrap) (character as BladeTrap).RespondToWall();
             }
         }
     }

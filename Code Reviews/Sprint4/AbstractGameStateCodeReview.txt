@@ -1,0 +1,9 @@
+Author of code review: Hanebal Aseged
+Date of code review: Nov 13 2022
+Sprint #4
+Name of .cs file being reviewed: AbstractGameState.cs
+Author of .cs file: Josh Long
+Time to review: 10 min
+Comments: This class functions as an abstract for the game states, these states are used to control if the game is paused or in the menu or being played.
+This class is very flexible and does it's job very well because it isn't very restrictive. It has good cohesion and pretty high coupling but this is necessary as it is such a core
+part of the games functionality. The code is very reuseable.

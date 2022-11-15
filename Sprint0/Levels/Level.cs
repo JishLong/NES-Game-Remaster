@@ -18,10 +18,14 @@ namespace Sprint0.Levels
         public int StartingRoomIndex;
         public int BossRoomIndex;
         public string LevelName { get; }
+        public int LevelID { get; }
         public LevelMap Map { get; set; }
         public Level(string levelName, int startingRoomIndex, int bossRoomIndex)
         {
             LevelName = levelName;
+            int length = LevelName.Length - 5;
+            string substring = LevelName.Substring(5, length);
+            LevelID = int.Parse(substring);
             Rooms = new List<Room>();
             Entities = new List<IEntity>();
             EventMaster = new EventMaster();

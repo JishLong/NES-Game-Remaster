@@ -53,6 +53,8 @@ namespace Sprint0
         public static Texture2D PausePanel { get; private set; }
         public static Texture2D ScreenCover { get; private set; }
         public static Texture2D Invisible { get; private set; }
+        public static Texture2D GuiSpriteSheet { get; private set; }
+        public static Texture2D GuiElementsSpriteSheet { get; private set; }
         public static Texture2D HUDMapRoomSheet { get; private set; }
         public static Texture2D PlayerLocationSheet { get; private set; }
 
@@ -174,7 +176,15 @@ namespace Sprint0
         public static readonly Rectangle CursorFrame3 = new Rectangle(24, 0, 12, 12);
         public static readonly Rectangle CursorFrame4 = new Rectangle(36, 0, 12, 12);
 
-        // Sprite sheet positions for HUD and map elements
+        // Sprite sheet positions for gui elements
+        public static readonly Rectangle HUD = new Rectangle(0, 176, 256, 56);
+        public static readonly Rectangle Inventory = new Rectangle(0, 0, 256, 176);
+        public static readonly Rectangle SelectedSlot = new Rectangle(0, 0, 16, 16);
+        public static readonly Rectangle EmptyHeart = new Rectangle(0, 16, 8, 8);
+        public static readonly Rectangle HalfHeart = new Rectangle(8, 16, 8, 8);
+        public static readonly Rectangle FullHeart = new Rectangle(16, 16, 8, 8);
+
+        // Sprite sheet positions for map elements
         public static readonly Rectangle HUDMapRoom = new Rectangle(0, 0, 7, 3);
         public static readonly Rectangle PlayerLocation = new Rectangle(0, 0, 3, 3);
 
@@ -223,6 +233,8 @@ namespace Sprint0
             ScreenCover = c.Load<Texture2D>("Images/screenCover");
             MouseCursor = c.Load<Texture2D>("Images/cursor");
             Invisible = c.Load<Texture2D>("Images/invisible");
+            GuiSpriteSheet = c.Load<Texture2D>("Images/gui");
+            GuiElementsSpriteSheet = c.Load<Texture2D>("Images/guiElements");
             HUDMapRoomSheet = c.Load<Texture2D>("Images/HUDMapRoom");
             PlayerLocationSheet = c.Load<Texture2D>("Images/PlayerLocation");
         }

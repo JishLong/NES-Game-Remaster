@@ -13,7 +13,7 @@ namespace Sprint0
         private AudioManager() 
         {
             PlayingAudio = new List<SoundEffectInstance>();
-            IsMuted = true;
+            IsMuted = false;
         }
 
         // Pauses literally all other activity on the thread and plays only the sound effect [audio]

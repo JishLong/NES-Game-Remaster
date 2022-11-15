@@ -15,8 +15,8 @@ namespace Sprint0.Player.HUD
         private ISprite PlayerLocationSprite;
         private ISprite BossLocationSprite;
 
-        private int HUDOffsetX = 10;
-        private int HUDOffsetY = 10;
+        private int HUDOffsetX = 50;
+        private int HUDOffsetY = 60;
         private int BossRoomID;
         private int CurrentRoomID;
 
@@ -79,10 +79,12 @@ namespace Sprint0.Player.HUD
         public void DrawPlayerLocation(SpriteBatch sb, Rectangle sourceRect)
         {
 
-            Vector2 position = PlayerPositions[CurrentRoomID];
-            position = position + new Vector2(sourceRect.X + HUDOffsetX, sourceRect.Y + HUDOffsetY);
-            PlayerLocationSprite.Draw(sb, position, Color.Green, HUDLayerDepth);
-            
+            if (PlayerPositions.ContainsKey(CurrentRoomID))
+            {
+                Vector2 position = PlayerPositions[CurrentRoomID];
+                position = position + new Vector2(sourceRect.X + HUDOffsetX, sourceRect.Y + HUDOffsetY);
+                PlayerLocationSprite.Draw(sb, position, Color.Green, HUDLayerDepth);
+            }
         }
 
         public void DrawBossLocation(SpriteBatch sb, Rectangle sourceRect)

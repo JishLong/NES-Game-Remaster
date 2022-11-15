@@ -54,7 +54,7 @@ namespace Sprint0.Collision.Handlers
             }
             else if (item is HeartContainer)
             {
-                player.ChangeHealth(0, 1, game);
+                player.ChangeHealth(0, 2, game);
                 AudioManager.GetInstance().PlayOnce(Resources.ItemPickup);
             }
             else if (item is TriforcePiece)

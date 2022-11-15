@@ -13,8 +13,10 @@ namespace Sprint0.Commands.Player
 
         public void Execute()
         {
-            Player.SecondaryWeapon = Types.Projectile.BLUE_ARROW_PROJ;
-            new PlayerSecondaryAttackCommand(Player).Execute();
+            // Blue arrows aren't in the first dungeon, but this can stay for now
+
+            /*Player.SecondaryWeapon = Types.Projectile.BLUE_ARROW_PROJ;
+            Player.DoSecondaryAttack();*/
         }
     }
 }

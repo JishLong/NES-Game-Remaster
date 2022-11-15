@@ -17,7 +17,11 @@ namespace Sprint0.Collision.Handlers
                 && projectile is not BombProjectile) 
             {
                 // NOTE: Link can't block the boss energy balls or bombs
-                if (!(player.IsStationary && player.FacingDirection == playerSide) || projectile is BossProjectile || projectile is BombExplosionParticle)
+                if (projectile is BladeTrapTrigger) 
+                {
+                    (projectile as BladeTrapTrigger).TriggerBladeTrap();
+                }
+                else if (!(player.IsStationary && player.FacingDirection == playerSide) || projectile is BossProjectile || projectile is BombExplosionParticle)
                 {
                     player.ChangeHealth(-projectile.Damage, 0, game);
                 }    

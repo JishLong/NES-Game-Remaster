@@ -21,6 +21,7 @@ namespace Sprint0.Collision
         private readonly PlayerProjectileCollisionHandler PlayerProjectileHandler;
         private readonly PlayerBlockCollisionHandler PlayerBlockHandler;
         private readonly PlayerItemCollisionHandler PlayerItemHandler;
+        private readonly CharacterCharacterCollisionHandler CharacterCharacterHandler;
         private readonly CharacterProjectileCollisionHandler CharacterProjectileHandler;
         private readonly CharacterBlockCollisionHandler CharacterBlockHandler;   
         private readonly ProjectileBlockCollisionHandler ProjectileBlockHandler;
@@ -32,6 +33,7 @@ namespace Sprint0.Collision
             PlayerProjectileHandler = new PlayerProjectileCollisionHandler();
             PlayerBlockHandler = new PlayerBlockCollisionHandler();
             PlayerItemHandler = new PlayerItemCollisionHandler();
+            CharacterCharacterHandler = new();
             CharacterProjectileHandler = new CharacterProjectileCollisionHandler();
             CharacterBlockHandler = new CharacterBlockCollisionHandler(); 
             ProjectileBlockHandler = new ProjectileBlockCollisionHandler();
@@ -45,18 +47,22 @@ namespace Sprint0.Collision
                 PlayerCharacterHandler.HandleCollision(CollidableA as IPlayer, CollidableB as ICharacter, SideA, game);
             }
             else if (CollidableA is IPlayer && CollidableB is IProjectile)
-            { 
+            {
                 PlayerProjectileHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IProjectile, SideA, game);
             }
             else if (CollidableA is IPlayer && CollidableB is IBlock)
             {
-                PlayerBlockHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IBlock, SideA, game, 
+                PlayerBlockHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IBlock, SideA, game,
                     game.LevelManager.CurrentLevel.CurrentRoom);
             }
             else if (CollidableA is IPlayer && CollidableB is IItem)
             {
-                PlayerItemHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IItem, game, 
+                PlayerItemHandler.HandleCollision(CollidableA as IPlayer, CollidableB as IItem, game,
                     game.LevelManager.CurrentLevel.CurrentRoom);
+            }
+            else if (CollidableA is ICharacter && CollidableB is ICharacter) 
+            {
+                CharacterCharacterHandler.HandleCollision(CollidableA as ICharacter, CollidableB as ICharacter);
             }
             else if (CollidableA is ICharacter && CollidableB is IBlock)
             {

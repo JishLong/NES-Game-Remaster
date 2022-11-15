@@ -33,7 +33,7 @@ namespace Sprint0.GameStates.GameStates
             Vector2 unpauseTextSize = Resources.MediumFont.MeasureString("Press ESC to unpause");
             Vector2 quitTextSize = Resources.MediumFont.MeasureString("Press Q to quit game");
             Vector2 flashingTextSize = Resources.LargeFont.MeasureString("- GAME PAUSED -");
-            quitTextPosition = new Vector2(Utils.GameWidth / 2 - quitTextSize.X / 2, Utils.GameHeight * 2 / 3 - quitTextSize.Y / 2);
+            quitTextPosition = new Vector2(Utils.GameWidth / 2 - quitTextSize.X / 2, Utils.GameHeight * 2 / 3 - quitTextSize.Y);
             unpauseTextPosition = new Vector2(Utils.GameWidth / 2 - unpauseTextSize.X / 2, quitTextPosition.Y - unpauseTextSize.Y * 3 / 2);
             flashingTextPosition = new Vector2(Utils.GameWidth / 2 - flashingTextSize.X / 2, unpauseTextPosition.Y - flashingTextSize.Y * 3);
 

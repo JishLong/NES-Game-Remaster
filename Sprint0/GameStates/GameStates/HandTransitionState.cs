@@ -10,7 +10,7 @@ namespace Sprint0.GameStates.GameStates
 {
     public class HandTransitionState : AbstractGameState
     {
-        private static readonly int HudAreaHeight = (int)(44 * Utils.GameScale);
+        private static readonly int HudAreaHeight = (int)(56 * Utils.GameScale);
         private int AnimationStage;
         private static readonly int ClosingFrames = 80;
         private static readonly int OpeningFrames = 80;
