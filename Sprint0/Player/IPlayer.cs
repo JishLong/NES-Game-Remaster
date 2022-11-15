@@ -11,6 +11,7 @@ namespace Sprint0.Player
         Vector2 Position { get; set; }
         Types.Direction FacingDirection { get; set; }
         int Health { get; }
+        int MaxHealth { get; }
         bool IsStationary { get; set; }
         Types.Projectile SecondaryWeapon { get; set; } 
 

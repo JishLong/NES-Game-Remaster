@@ -178,6 +178,9 @@ namespace Sprint0
         public static readonly Rectangle HUD = new Rectangle(0, 176, 256, 56);
         public static readonly Rectangle Inventory = new Rectangle(0, 0, 256, 176);
         public static readonly Rectangle SelectedSlot = new Rectangle(0, 0, 16, 16);
+        public static readonly Rectangle EmptyHeart = new Rectangle(0, 16, 8, 8);
+        public static readonly Rectangle HalfHeart = new Rectangle(8, 16, 8, 8);
+        public static readonly Rectangle FullHeart = new Rectangle(16, 16, 8, 8);
 
         public static void LoadContent(ContentManager c) 
         {

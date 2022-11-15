@@ -56,14 +56,21 @@ namespace Sprint0.Player
             sb.DrawString(Resources.MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.BOMB), BombCount, Color.White,
                 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
 
-            //Life
-            int heartXOffset = 556;
-            for (int i = 0; i < numHearts; i++)
+            for (int i = 0; i < 8; i++)
             {
-                Rectangle LifeArea = new Rectangle((int)(Life.X + i * Resources.Heart.Width * Utils.GameScale), 
-                    (int)Life.Y, Utils.GameWidth / 33, (int)(8 * Utils.GameScale));
-                sb.Draw(Resources.ItemsSpriteSheet, LifeArea, Resources.Heart, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-                heartXOffset += 25;
+                Rectangle LifeArea = new Rectangle((int)(Life.X + i * 8 * Utils.GameScale),
+                    (int)Life.Y, (int)(8 * Utils.GameScale), (int)(8 * Utils.GameScale));
+                if (Player.Health >= 2 * i) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.FullHeart, Color.White);
+                else if (Player.Health == 2 * i - 1) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.HalfHeart, Color.White);
+                else if (Player.MaxHealth >= 2 * i) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.EmptyHeart, Color.White);
+            }
+            for (int i = 8; i < 16; i++)
+            {
+                Rectangle LifeArea = new Rectangle((int)(Life.X + (i-8) * 8 * Utils.GameScale),
+                    (int)(Life.Y + 8 * Utils.GameScale), (int)(8 * Utils.GameScale), (int)(8 * Utils.GameScale));
+                if (Player.Health >= 2 * i) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.FullHeart, Color.White);
+                else if (Player.Health == 2 * i - 1) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.HalfHeart, Color.White);
+                else if (Player.MaxHealth >= 2 * i) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.EmptyHeart, Color.White);
             }
         }
 
