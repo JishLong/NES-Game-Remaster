@@ -10,14 +10,14 @@ Just as with previous sprints, GitHub was utilized as a central repository for t
 
 ## Strengths:
 
-- As has been a trend with each sprint, the team's overall GitHub proficiency saw drastic improvements. Whereas sprint 2 saw lots of burdening merge conflicts and sprint 3 even saw a few as well, work during this sprint saw very little, if any complicated merge conflicts. Overall, members have become extremely proficient with dealing with any merge conflicts, and have even become great at preventing them as well.
+- As has been a trend with each sprint, the team's overall GitHub proficiency saw drastic improvements. Whereas sprint 2 saw lots of burdening merge conflicts and sprint 3 even saw a few as well, work during this sprint saw very little, if any complicated merge conflicts. Overall, members have become extremely proficient in dealing with merge conflicts, and have even become great at preventing them as well.
 - Project documentation was quite frequent and greatly helped with identifying procrastination attempts and deciding when refactoring was needed.
 - There were no "rushed deadlines" for either the functionality check-in or the actual sprint due date this time around - many core features were implemented at a comfortable time before they were due. This is a massive step up from sprint 3, and especially from sprint 2.
 - The task tracking board on GitHub served as a very useful reminder for remaining features and bugs that had to be tackled. This is quite important due to the broad scope of sprint 4.
 
 ## Weaknesses:
 
-- All team members struggled quite a bit during the beginning stages of implementing some of the more complex game mechanics. These include the camera transition logic, the door logic, and some of the more complicated enemy behaviors, notable the wallmasters and blade traps.
+- All team members struggled quite a bit during the beginning stages of implementing some of the more complex game mechanics. These include the camera transition logic, the door logic, and some of the more complicated enemy behaviors, with notable ones being the wallmasters and blade traps.
 - Although the project documentation during this sprint was both frequent and helpful, it was slightly less frequent than in sprint 3. This is a slight oversight, and can be potentially improved upon during sprint 5 by documenting the code and task boards just a bit more frequently.
 
 ## Future Development:
