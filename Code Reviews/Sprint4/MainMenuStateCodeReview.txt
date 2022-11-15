@@ -1,4 +1,4 @@
-﻿Author of code review: Ethan Powers
+Author of code review: Ethan Powers
 Date of code review: 10 November. 2022
 Sprint #: 4
 Name of .cs file being reviewed: MainMenuState.cs

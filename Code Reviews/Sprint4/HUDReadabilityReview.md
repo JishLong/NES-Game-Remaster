@@ -1,0 +1,5 @@
+Josh Long - 10/12/22, Sprint 4 - HUD.cs - written by Paul Fierman - time taken to write: 8 minutes
+
+The elephant in the room, so to speak, is the massive blocks of code that are present in this class. Understandably, this class deals with drawing various objects in hyper-specific locations, so there are bound to be blocks of code like this due to the sheer amount of math and position references this class needs to utilize in order to serve its purpose. With that being said, one positive thing about this class is that it's at least sectioned off nicely with indentation, so these massive blocks of code are at least organized. One key thing I might advise here would be the creation of new image files or sprites instead of drawing lots of rectangles to the screen for GUI graphics. This way, much of the code could be eliminated and the class would be much more readable.
+
+All in all, I'd give this class a sort of medium score on readability. Sure, there are parts of it that are difficult to understand at a glance, but this is understandable given the functionality of the class - plus, it's at least somewhat organized.
