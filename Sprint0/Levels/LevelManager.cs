@@ -21,6 +21,11 @@ namespace Sprint0.Levels
         {
             return CurrentLevel.CurrentRoom.Blocks;
         }
+
+        public LevelMap GetCurrentLevelMap()
+        {
+            return CurrentLevel.Map;
+        }
         public void MakeRoomTransition(RoomTransition direction)
         {
             CurrentLevel.MakeRoomTransition(direction);

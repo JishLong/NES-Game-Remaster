@@ -79,7 +79,7 @@ namespace Sprint0
         {
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
-            Player = new Player.Player();
+            Player = new Player.Player(this);
             MouseMappings.GetInstance().InitializeMappings(this);
         }
 

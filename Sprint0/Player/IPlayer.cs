@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Collision;
 using Sprint0.Commands;
 using Sprint0.Items;
+using Sprint0.Player.HUD;
 
 namespace Sprint0.Player
 {
@@ -15,7 +16,7 @@ namespace Sprint0.Player
         bool IsStationary { get; set; }
         Types.Projectile SecondaryWeapon { get; set; } 
 
-        HUD HUD { get; }
+        PlayerHUD HUD { get; }
 
         Inventory Inventory { get; }
 

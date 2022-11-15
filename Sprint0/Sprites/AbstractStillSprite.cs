@@ -53,7 +53,7 @@ namespace Sprint0.Sprites
                 (int)(frame.Height * Utils.GameScale));
         }
 
-        public void Update()
+        public virtual void Update()
         {
             // Nothing here!
         }  
