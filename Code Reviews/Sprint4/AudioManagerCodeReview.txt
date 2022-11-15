@@ -1,0 +1,10 @@
+Author: Hayden Gray 
+Date: 11/14/22
+Sprint: Sprint 4
+Class under review: AudioManager.cs
+Class author: Josh Long
+
+As far as cohesion is concerned, this class is excellent. It deals only with playing, pausing 
+and manipulating the state of audio in the game. Each method is named clearly which made this class
+easy to use. As far as reusability goes, this class can be used anytime there is a sound effect, song or
+other audio cue that needs to be played in the game. This makes the class extremely reusable.
