@@ -3,30 +3,35 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.Player;
 using Sprint0.Sprites.Projectiles.Player;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
+using Sprint0.Levels;
 
-namespace Sprint0.Player
+namespace Sprint0.Player.HUD
 {
-    public class HUD: Inventory
+    public class PlayerHUD : Inventory
     {
         int numHearts;
 
-        IPlayer Player;
+        private HUDMap HUDMap;
+        private Player Player;
+        private LevelManager LevelManager;
 
-        public HUD(IPlayer player) 
+        public PlayerHUD(LevelManager levelManager, Player player)
         {
             Player = player;
+            LevelManager = levelManager;
+            HUDMap = new HUDMap(levelManager, Player);
         }
 
-        public void Draw(SpriteBatch sb) 
+        public void Draw(SpriteBatch sb)
         {
             Vector2 CameraPosition = Camera.GetInstance().Position;
 
             Rectangle HUDArea = new Rectangle((int)CameraPosition.X, (int)CameraPosition.Y, Utils.GameWidth, (int)(56 * Utils.GameScale));
-            Vector2 MAPArea = new((int)(20 * Utils.GameScale + CameraPosition.X), (int)(16 * Utils.GameScale + CameraPosition.Y));
             Vector2 lifeLOC = new Vector2((int)CameraPosition.X + 555, (int)CameraPosition.Y + 15);
             Vector2 Life = new((int)(176 * Utils.GameScale + CameraPosition.X), (int)(32 * Utils.GameScale + CameraPosition.Y));
             Vector2 SecondaryItem = new((int)(128 * Utils.GameScale), (int)(24 * Utils.GameScale));
             Vector2 PrimaryItem = new((int)(152 * Utils.GameScale), (int)(24 * Utils.GameScale));
+            Vector2 LevelName = new((int)(20 * Utils.GameScale + CameraPosition.X), (int)(7 * Utils.GameScale + CameraPosition.Y));
             Vector2 RupeeCount = new((int)(96 * Utils.GameScale + CameraPosition.X), (int)(13 * Utils.GameScale + CameraPosition.Y));
             Vector2 KeyCount = new((int)(96 * Utils.GameScale + CameraPosition.X), (int)(29 * Utils.GameScale + CameraPosition.Y));
             Vector2 BombCount = new((int)(96 * Utils.GameScale + CameraPosition.X), (int)(37 * Utils.GameScale + CameraPosition.Y));
@@ -91,10 +96,10 @@ namespace Sprint0.Player
             }
         }
 
-        public void Update(IPlayer player) 
+        public void Update()
         {
-            numHearts = player.Health;
-
+            HUDMap.Update();
+            numHearts = Player.Health;
         }
     }
 }

@@ -26,6 +26,7 @@ namespace Sprint0
         public static readonly float PlayerLayerDepth = 0.5f;
         public static readonly float ProjectileLayerDepth = 0.4f;
         public static readonly float DoorWallLayerDepth = 0.2f; // Needs to be drawn on top of the player.
+        public static readonly float HUDLayerDepth = 0.0f;
 
         // This will be used for Sprint 5 features
         public static void UpdateWindowSize(GraphicsDeviceManager graphics)
