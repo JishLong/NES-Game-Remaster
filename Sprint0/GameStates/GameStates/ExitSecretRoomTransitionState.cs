@@ -61,6 +61,7 @@ namespace Sprint0.GameStates.GameStates
                 Game.CurrentState = new PlayingState(Game);
             }
         }
+
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);

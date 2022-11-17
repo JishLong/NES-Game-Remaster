@@ -18,6 +18,11 @@ namespace Sprint0.GameStates.GameStates
 
         public abstract void Draw(SpriteBatch sb);
 
+        public virtual void HandleClientInput(dynamic input)
+        {
+            // if left empty, the game state will not use client input
+        }
+
         public virtual void Update(GameTime gameTime)
         {
             foreach (var controller in Controllers)

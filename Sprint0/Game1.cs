@@ -8,6 +8,7 @@ using Sprint0.Input;
 using System;
 using Microsoft.Xna.Framework.Input;
 using Sprint0.Sprites;
+using Sprint0.WebSockets;
 
 namespace Sprint0
 {
@@ -16,6 +17,7 @@ namespace Sprint0
         private GraphicsDeviceManager Graphics;
         private SpriteBatch SBatch;
         private ISprite MouseSprite;
+        private WSClient wsClient;
 
         public LevelManager LevelManager { get; private set; }
         public IPlayer Player { get; private set; }
@@ -28,6 +30,7 @@ namespace Sprint0
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             Window.ClientSizeChanged += OnResize;
+            wsClient = new WSClient(this);
         }
 
         protected override void Initialize()
@@ -40,6 +43,7 @@ namespace Sprint0
             Graphics.PreferredBackBufferHeight = Utils.GameHeight;
             Window.AllowUserResizing = true;
             Graphics.ApplyChanges();
+            wsClient.Connect();
 
             base.Initialize();
         }
@@ -70,6 +74,7 @@ namespace Sprint0
 
             CurrentState.Draw(SBatch);
             MouseSprite.Draw(SBatch, Mouse.GetState().Position.ToVector2() - new Vector2(15, 145), Color.White, 0f);
+            wsClient.DrawGameCode(SBatch);
 
             SBatch.End();
             base.Draw(gameTime);

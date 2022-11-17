@@ -21,6 +21,11 @@
     <None Remove="Sprites\Player\Stationary\" />
     <None Remove="Sprites\Player\Movement\" />
     <None Remove="Code Reviews\" />
+    <None Remove="Microsoft.AspNetCore.SignalR.Client" />
+    <None Remove="Websocket.Client" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="WebSockets\" />
+    <None Remove="GameStates\ClientInputHandlers\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -29,9 +34,13 @@
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
+    <PackageReference Include="Websocket.Client" Version="4.4.43" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Code Reviews\" />
+    <Folder Include="WebSockets\" />
+    <Folder Include="GameStates\ClientInputHandlers\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Levels\Level1\Room17\Blocks.csv">

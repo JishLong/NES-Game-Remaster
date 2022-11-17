@@ -8,5 +8,7 @@ namespace Sprint0.GameStates
         void Draw(SpriteBatch sb);
 
         void Update(GameTime gameTime);
+
+        void HandleClientInput(dynamic input);
     }
 }

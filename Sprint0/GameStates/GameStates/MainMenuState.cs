@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Controllers;
+using Sprint0.GameStates.ClientInputHandlers;
 using Sprint0.Input;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,11 @@ namespace Sprint0.GameStates.GameStates
         private bool IsShowing;
         private int FramesPassed;
 
+        private IInputHandler clientInputHandler;
+
         public MainMenuState(Game1 game) : base(game)
         {
+            clientInputHandler = new MainMenuClientInputHandler(game);
             Controllers ??= new List<IController>()
             {
                 new AudioController(),
@@ -62,6 +66,7 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Update(GameTime gameTime)
         {
+            clientInputHandler.Update();
             FramesPassed = (FramesPassed + 1) % TipFrames;
             if (FramesPassed == 0) 
             {
@@ -107,6 +112,11 @@ namespace Sprint0.GameStates.GameStates
                 "The dungeon is a little dangerous (you'll die instantly)",
                 "Enemies can damage Lunk (I think). Watch out!",
             };
+        }
+
+        public override void HandleClientInput(dynamic input)
+        {
+            clientInputHandler.HandleInput(input);
         }
     }
 }

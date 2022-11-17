@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Collision;
 using Sprint0.Controllers;
+using Sprint0.GameStates.ClientInputHandlers;
 using Sprint0.Input;
 using Sprint0.Projectiles.Tools;
 using System.Collections.Generic;
@@ -11,9 +12,11 @@ namespace Sprint0.GameStates.GameStates
     public class PlayingState : AbstractGameState
     {
         private static readonly int HudAreaHeight = 56;
+        private readonly IInputHandler clientInputHandler;
 
         public PlayingState(Game1 game) : base(game) 
         {
+            clientInputHandler = new PlayingClientInputHandler(game);
             Controllers ??= new List<IController>()
             {
                 new AudioController(),
@@ -40,9 +43,15 @@ namespace Sprint0.GameStates.GameStates
             Game.Player.Update();
 
             // Controllers should be updated before everything else
+            clientInputHandler.Update();
             base.Update(gameTime);
 
             Game.LevelManager.Update(gameTime);
+        }
+
+        public override void HandleClientInput(dynamic input)
+        {
+            clientInputHandler.HandleInput(input);
         }
     }
 }
