@@ -20,7 +20,7 @@ namespace Sprint0
         private WSClient wsClient;
 
         public LevelManager LevelManager { get; private set; }
-        public IPlayer Player { get; private set; }
+        public PlayerManager PlayerManager { get; private set; }
 
         public IGameState CurrentState { get; set; }
 
@@ -84,7 +84,7 @@ namespace Sprint0
         {
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
-            Player = new Player.Player(this);
+            PlayerManager = new PlayerManager(this);
             MouseMappings.GetInstance().InitializeMappings(this);
         }
 

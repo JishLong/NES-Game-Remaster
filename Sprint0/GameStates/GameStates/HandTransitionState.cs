@@ -44,7 +44,7 @@ namespace Sprint0.GameStates.GameStates
         public override void Draw(SpriteBatch sb)
         {
             Camera.GetInstance().Move(Types.Direction.UP, HudAreaHeight);
-            Game.Player.HUD.Draw(sb);
+            Game.PlayerManager.GetDefaultPlayer().HUD.Draw(sb);
 
             Camera.GetInstance().Reset();
             if (AnimationStage == 0) CurrentRoom.Draw(sb);
@@ -70,8 +70,11 @@ namespace Sprint0.GameStates.GameStates
                     {
                         NextRoom.ResetRoom();
                         Game.LevelManager.CurrentLevel.CurrentRoom = NextRoom;
-
-                        Game.Player.Position = new Vector2(Resources.BlueTile.Width * Utils.GameScale * 8, Resources.BlueTile.Height * Utils.GameScale * 8);
+                        foreach (var player in Game.PlayerManager)
+                        {
+                            player.Position = new Vector2(Resources.BlueTile.Width * Utils.GameScale * 8, Resources.BlueTile.Height * Utils.GameScale * 8);
+                        }
+                        //Game.Player.Position = new Vector2(Resources.BlueTile.Width * Utils.GameScale * 8, Resources.BlueTile.Height * Utils.GameScale * 8);
 
                         FramesPassed = 0;
                         AnimationStage++;

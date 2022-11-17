@@ -11,7 +11,7 @@
 
         public void Execute()
         {
-            Game.Player.Inventory.SelectAboveItem();
+            Game.PlayerManager.GetDefaultPlayer().Inventory.SelectAboveItem();
         }
     }
 }

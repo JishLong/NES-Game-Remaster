@@ -33,7 +33,10 @@ namespace Sprint0.Collision
             // Get a list of every collidable in the current room
             // Very inefficient - could add a separate "collidables" list into room that is handled separately and simply get that
             Collidables = new List<ICollidable>();
-            Collidables.Add(Game.Player);
+            foreach (var player in Game.PlayerManager)
+            {
+                Collidables.Add(player);
+            }
             Collidables.AddRange(Game.LevelManager.CurrentLevel.CurrentRoom.Characters);
             Collidables.AddRange(Game.LevelManager.CurrentLevel.CurrentRoom.Projectiles.GetProjectiles());
             Collidables.AddRange(Game.LevelManager.CurrentLevel.CurrentRoom.DoorHandler.GetBlocks());

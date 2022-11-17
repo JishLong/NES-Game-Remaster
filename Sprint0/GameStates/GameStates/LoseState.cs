@@ -43,12 +43,12 @@ namespace Sprint0.GameStates.GameStates
             Game.LevelManager.Draw(sb);
 
             Camera.GetInstance().Move(Types.Direction.UP, (int)(56 * Utils.GameScale));
-            Game.Player.HUD.Draw(sb);
+            Game.PlayerManager.GetDefaultPlayer().HUD.Draw(sb);
             Camera.GetInstance().Reset();
 
             sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, Utils.GameWidth, Utils.GameHeight), null,
                 Color.Red * 0.5f, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
-            Game.Player.Draw(sb);
+            Game.PlayerManager.Draw(sb);
 
             if (FramesPassed > PanelDelayFrames) 
             {
@@ -78,7 +78,7 @@ namespace Sprint0.GameStates.GameStates
                 IsShowing = !IsShowing;
             }
 
-            Game.Player.Update();
+            Game.PlayerManager.Update();
 
             base.Update(gameTime);
         }

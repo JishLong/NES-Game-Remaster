@@ -14,7 +14,9 @@ namespace Sprint0.Player
         int Health { get; }
         int MaxHealth { get; }
         bool IsStationary { get; set; }
-        Types.Projectile SecondaryWeapon { get; set; } 
+        Types.Projectile SecondaryWeapon { get; set; }
+
+        string inputId { get; set; }
 
         PlayerHUD HUD { get; }
 

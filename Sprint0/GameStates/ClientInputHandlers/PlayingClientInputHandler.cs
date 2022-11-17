@@ -17,31 +17,31 @@ namespace Sprint0.GameStates.ClientInputHandlers
             buttonPressMap = new Dictionary<string, ICommand>()
             {
                 // player movement
-                { "w", new PlayerMoveCommand(game1.Player, Types.Direction.UP) },
-                { "a", new PlayerMoveCommand(game1.Player, Types.Direction.LEFT) },
-                { "s", new PlayerMoveCommand(game1.Player, Types.Direction.DOWN) },
-                { "d", new PlayerMoveCommand(game1.Player, Types.Direction.RIGHT) },
-                { "arrow up", new PlayerMoveCommand(game1.Player, Types.Direction.UP) },
-                { "arrow left", new PlayerMoveCommand(game1.Player, Types.Direction.LEFT) },
-                { "arrow down", new PlayerMoveCommand(game1.Player, Types.Direction.DOWN) },
-                { "arrow right", new PlayerMoveCommand(game1.Player, Types.Direction.RIGHT) },
+                { "w", new PlayerMoveCommand(game1.PlayerManager.GetDefaultPlayer(), Types.Direction.UP) },
+                { "a", new PlayerMoveCommand(game1.PlayerManager.GetDefaultPlayer(), Types.Direction.LEFT) },
+                { "s", new PlayerMoveCommand(game1.PlayerManager.GetDefaultPlayer(), Types.Direction.DOWN) },
+                { "d", new PlayerMoveCommand(game1.PlayerManager.GetDefaultPlayer(), Types.Direction.RIGHT) },
+                { "arrow up", new PlayerMoveCommand(game1.PlayerManager.GetDefaultPlayer(), Types.Direction.UP) },
+                { "arrow left", new PlayerMoveCommand(game1.PlayerManager.GetDefaultPlayer(), Types.Direction.LEFT) },
+                { "arrow down", new PlayerMoveCommand(game1.PlayerManager.GetDefaultPlayer(), Types.Direction.DOWN) },
+                { "arrow right", new PlayerMoveCommand(game1.PlayerManager.GetDefaultPlayer(), Types.Direction.RIGHT) },
 
                 // player attack
-                { "z", new PlayerSwordAttackCommand(game1.Player) },
-                { "n", new PlayerSwordAttackCommand(game1.Player) },
+                { "z", new PlayerSwordAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
+                { "n", new PlayerSwordAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
             };
 
             buttonReleaseMap = new Dictionary<string, ICommand>()
             {
                 // stop moving
-                { "w", new PlayerStopActionCommand(game1.Player) },
-                { "a", new PlayerStopActionCommand(game1.Player) },
-                { "s", new PlayerStopActionCommand(game1.Player) },
-                { "d", new PlayerStopActionCommand(game1.Player) },
-                { "arrow up", new PlayerStopActionCommand(game1.Player) },
-                { "arrow left", new PlayerStopActionCommand(game1.Player) },
-                { "arrow down", new PlayerStopActionCommand(game1.Player) },
-                { "arrow right", new PlayerStopActionCommand(game1.Player) }
+                { "w", new PlayerStopActionCommand(game1.PlayerManager.GetDefaultPlayer()) },
+                { "a", new PlayerStopActionCommand(game1.PlayerManager.GetDefaultPlayer()) },
+                { "s", new PlayerStopActionCommand(game1.PlayerManager.GetDefaultPlayer()) },
+                { "d", new PlayerStopActionCommand(game1.PlayerManager.GetDefaultPlayer()) },
+                { "arrow up", new PlayerStopActionCommand(game1.PlayerManager.GetDefaultPlayer()) },
+                { "arrow left", new PlayerStopActionCommand(game1.PlayerManager.GetDefaultPlayer()) },
+                { "arrow down", new PlayerStopActionCommand(game1.PlayerManager.GetDefaultPlayer()) },
+                { "arrow right", new PlayerStopActionCommand(game1.PlayerManager.GetDefaultPlayer()) }
             };
         }
 

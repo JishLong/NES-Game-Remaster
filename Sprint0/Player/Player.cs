@@ -29,6 +29,9 @@ namespace Sprint0.Player
         private Game1 Game;
         public PlayerHUD HUD { get; private set; }
         public Inventory Inventory { get; private set; }
+
+        // Allows the player to be indentified by the multiplayer server;
+        public string inputId { get; set; }
         
         public Player(Game1 game)
         {
@@ -51,6 +54,9 @@ namespace Sprint0.Player
             Game = game;
             HUD = new PlayerHUD(game.LevelManager, this);
             Inventory = new Inventory();
+
+            // Initializee the inputId
+            inputId = null;
         }
 
         public void Capture(ICommand goToBeginningCommand) 

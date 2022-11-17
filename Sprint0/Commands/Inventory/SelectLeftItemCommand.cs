@@ -11,7 +11,7 @@
 
         public void Execute()
         {
-            Game.Player.Inventory.SelectLeftItem();
+            Game.PlayerManager.GetDefaultPlayer().Inventory.SelectLeftItem();
         }
     }
 }

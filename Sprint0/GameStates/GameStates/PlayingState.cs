@@ -20,7 +20,7 @@ namespace Sprint0.GameStates.GameStates
             Controllers ??= new List<IController>()
             {
                 new AudioController(),
-                new KeyboardController(KeyboardMappings.GetInstance().GetPlayingStateMappings(Game, Game.Player, this)),
+                new KeyboardController(KeyboardMappings.GetInstance().GetPlayingStateMappings(Game, Game.PlayerManager.GetDefaultPlayer(), this)),
                 new MouseController(MouseMappings.GetInstance().PlayingStateMappings),
                 new ProjectileController(Game.LevelManager),
                 new CollisionController(Game)
@@ -30,17 +30,17 @@ namespace Sprint0.GameStates.GameStates
         public override void Draw(SpriteBatch sb)
         {
             Camera.GetInstance().Move(Types.Direction.UP, (int)(HudAreaHeight * Utils.GameScale));
-            Game.Player.HUD.Draw(sb);
+            Game.PlayerManager.GetDefaultPlayer().HUD.Draw(sb);
 
             Camera.GetInstance().Move(Types.Direction.DOWN, (int)(HudAreaHeight * Utils.GameScale));
             Game.LevelManager.Draw(sb);
-            Game.Player.Draw(sb);
+            Game.PlayerManager.Draw(sb);
         }
 
         public override void Update(GameTime gameTime)
         {
             // Player must be updated before user input
-            Game.Player.Update();
+            Game.PlayerManager.Update();
 
             // Controllers should be updated before everything else
             clientInputHandler.Update();

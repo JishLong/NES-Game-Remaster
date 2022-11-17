@@ -41,7 +41,7 @@ namespace Sprint0.GameStates.GameStates
         public override void Draw(SpriteBatch sb)
         {
             Camera.GetInstance().Move(Types.Direction.UP, (int)(HudAreaHeight * Utils.GameScale));
-            Game.Player.HUD.Draw(sb);
+            Game.PlayerManager.GetDefaultPlayer().HUD.Draw(sb);
 
             Camera.GetInstance().Reset();
             CurrentRoom.Draw(sb);
@@ -56,7 +56,11 @@ namespace Sprint0.GameStates.GameStates
 
                 int NewPlayerX = LevelResources.BlockWidth * 5;
                 int NewPlayerY = LevelResources.BlockHeight * 7;
-                Game.Player.Position = new Vector2(NewPlayerX, NewPlayerY);
+                foreach (var player in Game.PlayerManager)
+                {
+                    player.Position = new Vector2(NewPlayerX, NewPlayerY);
+                }
+                //Game.Player.Position = new Vector2(NewPlayerX, NewPlayerY);
 
                 Game.CurrentState = new PlayingState(Game);
             }

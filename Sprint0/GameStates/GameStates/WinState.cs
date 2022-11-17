@@ -45,10 +45,10 @@ namespace Sprint0.GameStates.GameStates
         public override void Draw(SpriteBatch sb)
         {
             Game.LevelManager.Draw(sb);
-            Game.Player.Draw(sb);
+            Game.PlayerManager.Draw(sb);
 
             Camera.GetInstance().Move(Types.Direction.UP, (int)(56 * Utils.GameScale));
-            Game.Player.HUD.Draw(sb);
+            Game.PlayerManager.GetDefaultPlayer().HUD.Draw(sb);
             Camera.GetInstance().Reset();
 
             if (IsFlashing && FramesPassed < FadeOutFrames) 
