@@ -9,6 +9,6 @@ namespace Sprint0.GameStates
 
         void Update(GameTime gameTime);
 
-        void HandleClientInput(dynamic input);
+        void HandleClientInput(dynamic input, string id);
     }
 }

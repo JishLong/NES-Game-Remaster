@@ -1,8 +1,9 @@
-﻿using Sprint0.GameStates.GameStates;
+﻿using System;
+using Sprint0.GameStates.GameStates;
 
 namespace Sprint0.Commands.GameStates
 {
-    public class StartGameCommand : ICommand
+    public class StartGameCommand : ITargetedCommand
     {
         private readonly Game1 Game;
 
@@ -16,6 +17,11 @@ namespace Sprint0.Commands.GameStates
             AudioManager.GetInstance().StopAudio();
             AudioManager.GetInstance().PlayLooped(Resources.DungeonMusic);
             Game.CurrentState = new PlayingState(Game);
+        }
+
+        public void SetTarget<T>(T target)
+        {
+            throw new Exception("This command should never modify target");
         }
     }
 }

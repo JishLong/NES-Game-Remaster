@@ -2,18 +2,22 @@
 
 namespace Sprint0.Commands.Player
 {
-    public class PlayerSwordAttackCommand : ICommand
+    public class PlayerSwordAttackCommand : ITargetedCommand
     {
-        private readonly IPlayer Player;
-
+        private IPlayer target;
         public PlayerSwordAttackCommand(IPlayer player)
         {
-            Player = player;
+            target = player;
         }
 
         public void Execute()
         {
-            Player.DoPrimaryAttack();
+            target.DoPrimaryAttack();
+        }
+
+        public void SetTarget<T>(T target)
+        {
+            this.target = (IPlayer)target;
         }
     }
 }

@@ -23,7 +23,7 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			e1JxA2tuLEH0F/4RWWJzvATerg4=
+			KAwIcd9O/M7LuxtCC1KIdm4K+Y8=
 			</data>
 			<key>requirement</key>
 			<string>anchor apple generic and identifier "io.flutter.flutter.app" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "95886N6GT8")</string>
@@ -36,6 +36,15 @@
 			</data>
 			<key>requirement</key>
 			<string>anchor apple generic and identifier "io.flutter.flutter-macos" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "95886N6GT8")</string>
+		</dict>
+		<key>Frameworks/multi_window_macos.framework</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			IXWEEq4WVyHbmaTXPqcHSJP+Ous=
+			</data>
+			<key>requirement</key>
+			<string>anchor apple generic and identifier "org.cocoapods.multi-window-macos" and (certificate leaf[field.1.2.840.113635.100.6.1.9] /* exists */ or certificate 1[field.1.2.840.113635.100.6.2.6] /* exists */ and certificate leaf[field.1.2.840.113635.100.6.1.13] /* exists */ and certificate leaf[subject.OU] = "95886N6GT8")</string>
 		</dict>
 		<key>Resources/AppIcon.icns</key>
 		<dict>

@@ -2,20 +2,27 @@
 
 namespace Sprint0.Commands.Player
 {
-    public class PlayerMoveCommand : ICommand
+    public class PlayerMoveCommand : ITargetedCommand
     {
-        private readonly IPlayer Player;
         private readonly Types.Direction Direction;
+        private IPlayer target;
 
         public PlayerMoveCommand(IPlayer player, Types.Direction direction)
         {
-            Player = player;
+            target = player;
             Direction = direction;
+        }
+
+
+        // DANGER: do not call this with a type other than IPlayer
+        public void SetTarget<T>(T target)
+        {
+            this.target = (IPlayer)target;
         }
 
         public void Execute()
         {
-            Player.Move(Direction);
+            target.Move(Direction);
         }
     }
 }

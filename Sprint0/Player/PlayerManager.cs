@@ -17,6 +17,7 @@ namespace Sprint0.Player
 		{
 			players = new List<IPlayer>() { new Player(game) };
 			defaultPlayer = players[0];
+			this.game = game;
 		}
 
 		// when a new controller connects, we can either assign it to an
@@ -63,6 +64,11 @@ namespace Sprint0.Player
 		public IPlayer GetDefaultPlayer()
 		{
 			return defaultPlayer;
+		}
+
+		public IPlayer GetById(string id)
+		{
+			return players.Find(p => p.inputId == id);
 		}
 
 		// we use the enumerator to avoid exposing a mutable player list

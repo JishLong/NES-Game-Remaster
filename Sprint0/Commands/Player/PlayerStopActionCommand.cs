@@ -2,18 +2,23 @@
 
 namespace Sprint0.Commands.Player
 {
-    public class PlayerStopActionCommand : ICommand
+    public class PlayerStopActionCommand : ITargetedCommand
     {
-        private readonly IPlayer Player;
+        private IPlayer target;
 
         public PlayerStopActionCommand(IPlayer player)
         {
-            Player = player;
+            target = player;
         }
 
         public void Execute()
         {
-            Player.StopAction();
+            target.StopAction();
+        }
+
+        public void SetTarget<T>(T target)
+        {
+            this.target = (IPlayer)target;
         }
     }
 }

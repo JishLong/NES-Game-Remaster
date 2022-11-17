@@ -18,7 +18,7 @@ namespace Sprint0.GameStates.GameStates
 
         public abstract void Draw(SpriteBatch sb);
 
-        public virtual void HandleClientInput(dynamic input)
+        public virtual void HandleClientInput(dynamic input, string id)
         {
             // if left empty, the game state will not use client input
         }

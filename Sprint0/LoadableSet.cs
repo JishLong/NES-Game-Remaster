@@ -11,9 +11,8 @@ namespace Sprint0
 	/// To make changes immediately, use the Put() and Drop() methods.
 	/// 
     /// Rules:
-    ///		Cannot stage multiple Updates targeting the same element.
-    ///		Cannot call Put()  tergeting elements already in set.
-    ///		Cannot call Drop() tergeting elements not in set.
+    ///		1. Cannot call Put()  tergeting elements already in set.
+    ///		2. Cannot call Drop() tergeting elements not in set.
 	///
 	/// This is useful for delaying actions such as asynchronous user input
 	/// from the web server.  By delaying button releases by 1 frame, you ensure
@@ -51,18 +50,17 @@ namespace Sprint0
 
 		public void StagePut(T element)
 		{
-			this.VerifyElementNotStaged(element);
 			stagedUpdates.Add(new StagedUpdate<T>(UpdateType.Put, element));
 		}
 
 		public void StageDrop(T element)
 		{
-            this.VerifyElementNotStaged(element);
             stagedUpdates.Add(new StagedUpdate<T>(UpdateType.Drop, element));
 		}
 
 		public void Load()
 		{
+			// load the updates in the order they were recieved
 			foreach (var update in stagedUpdates)
 			{
 				if (update.updateType == UpdateType.Put)
@@ -80,6 +78,11 @@ namespace Sprint0
 		public bool Contains(T element)
 		{
 			return list.Contains(element);
+		}
+
+		public bool Exists(Predicate<T> predicate)
+		{
+			return list.Exists(predicate);
 		}
 
 		public bool ElementStaged(T element)
@@ -101,16 +104,7 @@ namespace Sprint0
         {
             return ((IEnumerable)list).GetEnumerator();
         }
-
-        // used internally to manage staging/loading
-        private void VerifyElementNotStaged(T element)
-		{
-            if (stagedUpdates.Exists(e => e.element.Equals(element)))
-            {
-                 throw new Exception($"Cannot stage multiple updates targeting {element.ToString()}");
-            }
-        }
-	}
+    }
 
     public enum UpdateType
     {

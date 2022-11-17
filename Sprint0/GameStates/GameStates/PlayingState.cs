@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Collision;
 using Sprint0.Controllers;
-using Sprint0.GameStates.ClientInputHandlers;
+using Sprint0.Input.ClientInputHandlers;
 using Sprint0.Input;
 using Sprint0.Projectiles.Tools;
 using System.Collections.Generic;
@@ -49,9 +49,9 @@ namespace Sprint0.GameStates.GameStates
             Game.LevelManager.Update(gameTime);
         }
 
-        public override void HandleClientInput(dynamic input)
+        public override void HandleClientInput(dynamic input, string id)
         {
-            clientInputHandler.HandleInput(input);
+            clientInputHandler.HandleInput(input, id);
         }
     }
 }
