@@ -11,14 +11,14 @@ namespace Sprint0.Commands.Player
             target = player;
         }
 
-        public void Execute()
-        {
-            target.StopAction();
-        }
-
         public void SetTarget<T>(T target)
         {
             this.target = (IPlayer)target;
+        }
+
+        public void Execute()
+        {
+            target.StopAction();
         }
     }
 }

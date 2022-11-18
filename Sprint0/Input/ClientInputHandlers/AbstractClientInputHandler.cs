@@ -4,8 +4,8 @@ using Sprint0.Commands;
 
 namespace Sprint0.Input.ClientInputHandlers
 {
-	public abstract class AbstractClientInputHandler : IInputHandler
-	{
+    public abstract class AbstractClientInputHandler : IInputHandler
+    {
         // we use targeted commands to allow the server to terget specific
         // players by their inputId
         protected Dictionary<String, ITargetedCommand> buttonPressMap;
@@ -34,7 +34,7 @@ namespace Sprint0.Input.ClientInputHandlers
                         // updating while using an IEnumerable
 
                         //add to the list if it doesn't already exist
-                        if(!keysPressed.Exists(e => e.inputId == id && e.input == button)) keysPressed.StagePut(new ClientInputDispatch<string>(id, button));
+                        if (!keysPressed.Exists(e => e.inputId == id && e.input == button)) keysPressed.StagePut(new ClientInputDispatch<string>(id, button));
                         break;
                     }
 
@@ -50,7 +50,7 @@ namespace Sprint0.Input.ClientInputHandlers
                         // This functionality is assisted by the helper class LoadableSet.
 
                         // stage a drop if it is in the list
-                        if (keysPressed.Exists(e => e.inputId == id && e.input == button))keysPressed.StageDrop(new ClientInputDispatch<string>(id, button));
+                        if (keysPressed.Exists(e => e.inputId == id && e.input == button)) keysPressed.StageDrop(new ClientInputDispatch<string>(id, button));
                         break;
                     }
 

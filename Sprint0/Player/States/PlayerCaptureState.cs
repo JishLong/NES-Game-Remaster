@@ -1,6 +1,4 @@
-﻿using Sprint0.Player.State.Idle;
-using Sprint0.Player.State;
-using Sprint0.Items;
+﻿using Sprint0.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites.Player.Stationary;

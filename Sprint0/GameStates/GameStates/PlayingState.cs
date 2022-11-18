@@ -39,12 +39,12 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Update(GameTime gameTime)
         {
-            // Player must be updated before user input
+            // Players must be updated before user input
             Game.PlayerManager.Update();
 
             // Controllers should be updated before everything else
-            clientInputHandler.Update();
             base.Update(gameTime);
+            clientInputHandler.Update();
 
             Game.LevelManager.Update(gameTime);
         }

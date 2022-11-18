@@ -3,15 +3,26 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Commands;
 using Sprint0.Items;
 using Sprint0.Player.HUD;
-using Sprint0.Player.State;
-using Sprint0.Player.State.Idle;
+using Sprint0.Player.States;
 
 namespace Sprint0.Player
 {
     public class Player : IPlayer
     {
         // The player's state - determines its behavior
-        public IPlayerState State { get; set; }
+        private IPlayerState _state;
+        public IPlayerState State
+        {
+            get
+            {
+                return _state;
+            }
+
+            set
+            {
+                _state = value;
+            }
+        }
 
         // Movement-related properties
         public Vector2 Position { get; set; }

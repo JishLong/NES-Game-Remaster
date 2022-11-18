@@ -57,7 +57,7 @@ namespace Sprint0.Input.ClientInputHandlers
             {
                 if (buttonReleaseMap.ContainsKey(dispatch.input))
                 {
-                    buttonPressMap[dispatch.input].SetTarget(game.PlayerManager.GetById(dispatch.inputId));
+                    buttonReleaseMap[dispatch.input].SetTarget(game.PlayerManager.GetById(dispatch.inputId));
                     buttonReleaseMap[dispatch.input].Execute();
                 }
             }

@@ -3,7 +3,7 @@ using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 using Sprint0.Sprites.Player.Attack.SwordAttack;
 
-namespace Sprint0.Player.State.Idle
+namespace Sprint0.Player.States
 {
     public class PlayerSwordState : AbstractPlayerState
     {

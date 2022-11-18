@@ -2,9 +2,8 @@
 using Sprint0.Sprites;
 using Sprint0.Player.States;
 using Sprint0.Items;
-using Sprint0.Player.States.BlueArrow;
 
-namespace Sprint0.Player.State.Idle
+namespace Sprint0.Player.States
 {
     public class PlayerIdleState : AbstractPlayerState
     {

@@ -5,7 +5,7 @@ using Sprint0.Sprites;
 using Sprint0.Sprites.Player.Stationary;
 using Sprint0.Sprites.Projectiles.Player;
 
-namespace Sprint0.Player.State.Idle
+namespace Sprint0.Player.States
 {
     public class PlayerDeadState : AbstractPlayerState
     {

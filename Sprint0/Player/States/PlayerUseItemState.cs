@@ -1,6 +1,4 @@
-﻿using Sprint0.Player.State.Idle;
-using Sprint0.Player.State;
-using Sprint0.Sprites.Player.Attack.UseItem;
+﻿using Sprint0.Sprites.Player.Attack.UseItem;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 using Sprint0.Items;

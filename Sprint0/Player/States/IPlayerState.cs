@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Commands;
 using Sprint0.Items;
 
-namespace Sprint0.Player.State
+namespace Sprint0.Player.States
 {
     public interface IPlayerState
     {

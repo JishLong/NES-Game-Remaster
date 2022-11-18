@@ -5,11 +5,9 @@ using static Sprint0.Utils;
 using static Sprint0.Types;
 using Sprint0.Commands.GameStates;
 using Sprint0.Items;
-using Sprint0.Player.State.Idle;
-using Sprint0.Player.States;
 using Sprint0.Commands;
 
-namespace Sprint0.Player.State
+namespace Sprint0.Player.States
 {
     public abstract class AbstractPlayerState : IPlayerState
     {

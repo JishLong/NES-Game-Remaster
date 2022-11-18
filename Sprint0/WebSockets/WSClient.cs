@@ -44,7 +44,8 @@ namespace Sprint0.WebSockets
                     // when new players join the game
                     else if (type == "joined")
                     {
-                        game1.PlayerManager.RegisterInputId((string)message["params"]["id"]);
+                        string id = (string)message["params"]["id"];
+                        game1.PlayerManager.RegisterInputId(id);
                     }
 
                     // when a client sends data to the host (this game)

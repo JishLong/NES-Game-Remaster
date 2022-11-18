@@ -8,13 +8,11 @@ namespace Sprint0.Commands.Player
         private IPlayer target;
 
         public PlayerMoveCommand(IPlayer player, Types.Direction direction)
-        {
+         {
             target = player;
             Direction = direction;
         }
 
-
-        // DANGER: do not call this with a type other than IPlayer
         public void SetTarget<T>(T target)
         {
             this.target = (IPlayer)target;
