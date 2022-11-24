@@ -3,7 +3,7 @@ using static Sprint0.Types;
 
 namespace Sprint0.Commands.Player
 {
-    public class PlayerBoomerangAttackCommand : ICommand
+    public class PlayerBoomerangAttackCommand : ITargetedCommand
     {
         private readonly IPlayer Player;
 
@@ -19,6 +19,11 @@ namespace Sprint0.Commands.Player
                 Player.SecondaryWeapon = Types.Projectile.BOOMERANG_PROJ;
                 Player.DoSecondaryAttack();
             }
+        }
+
+        public void SetTarget<T>(T target)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

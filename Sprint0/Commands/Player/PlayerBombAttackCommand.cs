@@ -3,7 +3,7 @@ using static Sprint0.Types;
 
 namespace Sprint0.Commands.Player
 {
-    public class PlayerBombAttackCommand : ICommand
+    public class PlayerBombAttackCommand : ITargetedCommand
     {
         private readonly IPlayer Player;
 
@@ -19,6 +19,11 @@ namespace Sprint0.Commands.Player
                 Player.SecondaryWeapon = Types.Projectile.BOMB_PROJ;
                 Player.DoSecondaryAttack();
             }
+        }
+
+        public void SetTarget<T>(T target)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

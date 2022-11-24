@@ -7,7 +7,7 @@ namespace Sprint0.Player
 {
 	public class PlayerManager : IEnumerable
 	{
-		private readonly List<IPlayer> players;
+		private List<IPlayer> players;
 		// defaultPlayer is a reference to one of the players in the list
 		private IPlayer defaultPlayer { get; set; }
 
@@ -68,7 +68,24 @@ namespace Sprint0.Player
 
 		public IPlayer GetById(string id)
 		{
-			return players.Find(p => p.inputId == id);
+			var player = players.Find(p => p.inputId == id);
+			if (player == null)
+			{
+				throw new Exception($"No player with id: {id}");
+			}
+			return player;
+		}
+
+		public void ResetPlayers()
+		{
+			var newPlayers = new List<IPlayer>();
+			foreach(var player in players)
+			{
+				var newPlayer = new Player(game);
+				newPlayer.inputId = player.inputId;
+				newPlayers.Add(newPlayer);
+			}
+			players = newPlayers;
 		}
 
 		// we use the enumerator to avoid exposing a mutable player list

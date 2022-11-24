@@ -2,7 +2,7 @@
 
 namespace Sprint0.Commands.Player
 {
-    public class PlayerTakeDamageCommand : ICommand
+    public class PlayerTakeDamageCommand : ITargetedCommand
     {
         private readonly IPlayer Player;
         private readonly Types.Direction PlayerSide;
@@ -20,6 +20,11 @@ namespace Sprint0.Commands.Player
         public void Execute()
         {
             Player.ChangeHealth(-Damage, 0, Game);
+        }
+
+        public void SetTarget<T>(T target)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

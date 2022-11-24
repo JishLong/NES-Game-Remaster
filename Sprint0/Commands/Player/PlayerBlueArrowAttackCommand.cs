@@ -2,7 +2,7 @@
 
 namespace Sprint0.Commands.Player
 {
-    public class PlayerBlueArrowAttackCommand : ICommand
+    public class PlayerBlueArrowAttackCommand : ITargetedCommand
     {
         private readonly IPlayer Player;
 
@@ -17,6 +17,11 @@ namespace Sprint0.Commands.Player
 
             /*Player.SecondaryWeapon = Types.Projectile.BLUE_ARROW_PROJ;
             Player.DoSecondaryAttack();*/
+        }
+
+        public void SetTarget<T>(T target)
+        {
+            
         }
     }
 }

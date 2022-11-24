@@ -3,7 +3,7 @@ using Sprint0.Player;
 
 namespace Sprint0.Commands.Player
 {
-    public class PlayerPickUpItemCommand : ICommand
+    public class PlayerPickUpItemCommand : ITargetedCommand
     {
         private readonly IPlayer Player;
         private readonly IItem Item;
@@ -17,6 +17,11 @@ namespace Sprint0.Commands.Player
         public void Execute()
         {
             Player.HoldItem(Item);
+        }
+
+        public void SetTarget<T>(T target)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

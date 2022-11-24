@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Controllers;
 using Sprint0.Input;
 using Sprint0.Levels;
+using Sprint0.Player;
 using System.Collections.Generic;
 
 namespace Sprint0.GameStates.GameStates
@@ -17,8 +18,9 @@ namespace Sprint0.GameStates.GameStates
         private readonly int TransitionFrames;
         private int ShiftedAmount;
         private int FramesPassed;
+        private readonly IPlayer targetPlayer;
 
-        public RoomTransitionState(Game1 game, Types.Direction direction) : base(game)
+        public RoomTransitionState(Game1 game, Types.Direction direction, IPlayer player) : base(game)
         {
             Controllers ??= new List<IController>()
             {
@@ -32,6 +34,8 @@ namespace Sprint0.GameStates.GameStates
             ShiftedAmount = 0;
             TransitionFrames = ShiftAmount / 6;
             FramesPassed = 0;
+
+            this.targetPlayer = player;
 
             CurrentRoom = Game.LevelManager.CurrentLevel.CurrentRoom;
             NextRoom = Game.LevelManager.CurrentLevel.CurrentRoom.GetAdjacentRoom(Utils.DirectionToRoomTransition(direction));
@@ -58,13 +62,10 @@ namespace Sprint0.GameStates.GameStates
 
                 foreach (var player in Game.PlayerManager)
                 {
-                    int NewPlayerX = (int)(player.Position.X + DirectionVector.X * (16 * 2.75 * Utils.GameScale) + ShiftAmount) % ShiftAmount;
-                    int NewPlayerY = (int)(player.Position.Y + DirectionVector.Y * (16 * 2.75 * Utils.GameScale) + ShiftAmount) % ShiftAmount;
+                    int NewPlayerX = (int)(targetPlayer.Position.X + DirectionVector.X * (16 * 2.75 * Utils.GameScale) + ShiftAmount) % ShiftAmount;
+                    int NewPlayerY = (int)(targetPlayer.Position.Y + DirectionVector.Y * (16 * 2.75 * Utils.GameScale) + ShiftAmount) % ShiftAmount;
                     player.Position = new Vector2(NewPlayerX, NewPlayerY);
                 }
-                //int NewPlayerX = (int)(Game.Player.Position.X + DirectionVector.X * (16 * 2.75 * Utils.GameScale) + ShiftAmount) % ShiftAmount;
-                //int NewPlayerY = (int)(Game.Player.Position.Y + DirectionVector.Y * (16 * 2.75 * Utils.GameScale) + ShiftAmount) % ShiftAmount;
-                //Game.Player.Position = new Vector2(NewPlayerX, NewPlayerY);
 
                 Game.CurrentState = new PlayingState(Game);               
             }

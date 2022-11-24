@@ -35,7 +35,8 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            CreateNewGame();
+            CreateNewGame(false);
+            PlayerManager = new PlayerManager(this);
             MouseSprite = new MouseCursorSprite();
 
             // Set display resolution.
@@ -80,12 +81,12 @@ namespace Sprint0
             base.Draw(gameTime);
         }
 
-        public void CreateNewGame() 
+        public void CreateNewGame(bool resetPlayers = true) 
         {
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
-            PlayerManager = new PlayerManager(this);
             MouseMappings.GetInstance().InitializeMappings(this);
+            if (resetPlayers) PlayerManager.ResetPlayers();
         }
 
         public void OnResize(Object sender, EventArgs e)

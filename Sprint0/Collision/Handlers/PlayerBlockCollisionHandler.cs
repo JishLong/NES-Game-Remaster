@@ -45,7 +45,7 @@ namespace Sprint0.Collision.Handlers
                 // If the block is some sort of room transition trigger, trigger the room transition
                 if (block is RoomTransitionBlock)
                 {
-                    new RoomTransitionCommand(game, playerSide).Execute();
+                    new RoomTransitionCommand(game, playerSide, player).Execute();
                     player.StopAction();
                 }
                 else if (block is BlueStairs)

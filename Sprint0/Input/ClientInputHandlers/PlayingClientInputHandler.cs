@@ -26,6 +26,7 @@ namespace Sprint0.Input.ClientInputHandlers
                 // player attack
                 { "z", new PlayerSwordAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
                 { "n", new PlayerSwordAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
+                { "c", new PlayerArrowAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
             };
 
             buttonReleaseMap = new Dictionary<string, ITargetedCommand>()

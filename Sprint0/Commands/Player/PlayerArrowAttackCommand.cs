@@ -2,9 +2,9 @@
 
 namespace Sprint0.Commands.Player
 {
-    public class PlayerArrowAttackCommand : ICommand
+    public class PlayerArrowAttackCommand : ITargetedCommand
     {
-        private readonly IPlayer Player;
+        private IPlayer Player;
 
         public PlayerArrowAttackCommand(IPlayer player)
         {
@@ -19,6 +19,11 @@ namespace Sprint0.Commands.Player
                 Player.SecondaryWeapon = Types.Projectile.ARROW_PROJ;
                 Player.DoSecondaryAttack();
             } 
+        }
+
+        public void SetTarget<T>(T target)
+        {
+            this.Player = (IPlayer)target;
         }
     }
 }
