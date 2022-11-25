@@ -12,15 +12,18 @@ namespace Sprint0.Items
 
         private readonly ISprite Sprite;
         private readonly Types.Item ItemType;
-        private IEntity Parent = null;  // Owning entity.
-        private string Name = "unnamed";
+        
+        // For entity system
+        public IEntity Parent { get; set; }
+        public string Name { get; set; }
 
         protected AbstractItem(ISprite sprite, Vector2 position, Types.Item itemType)
         {
             Position = position;
-            
             Sprite = sprite;
             ItemType = itemType;
+
+            Name = "unnamed";
         }
 
         public void Draw(SpriteBatch sb)
@@ -41,26 +44,6 @@ namespace Sprint0.Items
         public Types.Item GetItemType() 
         {
             return ItemType;
-        }
-
-        public IEntity GetParent()
-        {
-            return Parent;
-        }
-
-        public void SetParent(IEntity entity)
-        {
-            Parent = entity;
-        }
-
-        public string GetName()
-        {
-            return Name;
-        }
-
-        public void SetName(string value)
-        {
-            Name = value;
         }
     }
 }

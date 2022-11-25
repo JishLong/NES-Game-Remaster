@@ -39,7 +39,7 @@ namespace Sprint0.Player
         // An inventory to hold all the player's items - not yet in use
         private Game1 Game;
         public PlayerHUD HUD { get; private set; }
-        public Inventory Inventory { get; private set; }
+        public Inventory.Inventory Inventory { get; private set; }
 
         // Allows the player to be indentified by the multiplayer server;
         public string inputId { get; set; }
@@ -64,7 +64,7 @@ namespace Sprint0.Player
             // Initialize the inventorys
             Game = game;
             HUD = new PlayerHUD(game.LevelManager, this);
-            Inventory = new Inventory();
+            Inventory = new();
 
             // Initializee the inputId
             inputId = null;

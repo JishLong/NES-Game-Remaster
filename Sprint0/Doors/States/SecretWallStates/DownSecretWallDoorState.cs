@@ -49,7 +49,7 @@ namespace Sprint0.Doors.States.SecretWallStates
         private void CreateTriggers(float height, float width)
         {
             IBlock block = BlockFactory.GetBlock(Types.Block.EXPLOSION_TRIGGER, Position + new Vector2(width / 2, 0));
-            block.SetParent(Door);
+            block.Parent = Door;
             Blocks.Add(block);
         }
 

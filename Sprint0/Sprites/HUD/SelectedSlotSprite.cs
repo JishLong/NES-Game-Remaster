@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-namespace Sprint0.Sprites.GUI
+namespace Sprint0.Sprites.HUD
 {
     public class SelectedSlotSprite : AbstractAnimatedSprite
     {

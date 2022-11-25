@@ -33,7 +33,7 @@ namespace Sprint0.GameStates.GameStates
 
             LevelResources = LevelResources.GetInstance();
             CurrentRoom = Game.LevelManager.CurrentLevel.CurrentRoom;
-            NextRoom = Game.LevelManager.CurrentLevel.Rooms.Find(room => room.RoomName == "Room" + Game.LevelManager.CurrentLevel.StartingRoomIndex);
+            NextRoom = Game.LevelManager.CurrentLevel.Rooms.Find(room => room.Name == "Room" + Game.LevelManager.CurrentLevel.StartingRoomIndex);
 
             FramesPassed = 0;
             RectWidth = 0;

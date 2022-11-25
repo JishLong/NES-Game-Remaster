@@ -5,7 +5,6 @@ using Sprint0.Levels;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 using System;
-using System.Xml.Linq;
 
 namespace Sprint0.Characters
 {
@@ -31,14 +30,16 @@ namespace Sprint0.Characters
         // We'll let the state classes reference this sprite so there isn't choppy animation when switching states
         public ISprite Sprite { get; set; }
 
-        private IEntity Parent;
-        private string Name = "unnamed";
-
+        // For the entity system
+        public IEntity Parent { get; set; }
+        public string Name { get; set; }
         protected AbstractCharacter()
         {
             IsTakingDamage = false;
             DamageFramesPassed = 0;
             JustSpawned = true;
+
+            Name = "unnamed";
         }
 
         protected void DeathAction(Room room)
@@ -123,25 +124,6 @@ namespace Sprint0.Characters
             }
 
             if (State != null) State.Update(gameTime);
-        }
-
-        public IEntity GetParent()
-        {
-            return Parent;
-        }
-
-        public void SetParent(IEntity entity)
-        {
-            Parent = entity;
-        }
-        public virtual string GetName()
-        {
-            return Name;
-        }
-
-        public virtual void SetName(string value)
-        {
-            Name = value;
         }
     }
 }

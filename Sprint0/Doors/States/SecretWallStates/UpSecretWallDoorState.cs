@@ -47,7 +47,7 @@ namespace Sprint0.Doors.States.WallStates
         private void CreateTriggers(float height, float width)
         {
             IBlock block = BlockFactory.GetBlock(Types.Block.EXPLOSION_TRIGGER, Position + new Vector2(width / 2, height));
-            block.SetParent(Door);
+            block.Parent = Door;
             Blocks.Add(block);
         }
         private void CreateBlocks(float height, float width)

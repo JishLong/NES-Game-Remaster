@@ -20,7 +20,7 @@ namespace Sprint0.Player
 
         PlayerHUD HUD { get; }
 
-        Inventory Inventory { get; }
+        Inventory.Inventory Inventory { get; }
 
         void Capture(ICommand goToBeginningCommand);
 

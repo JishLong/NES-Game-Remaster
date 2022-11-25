@@ -4,9 +4,7 @@ using Sprint0.Blocks;
 using Sprint0.Blocks.Utils;
 using Sprint0.Levels.Utils;
 using Sprint0.Sprites;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using static Sprint0.Utils;
 
 namespace Sprint0.Doors.States

@@ -1,20 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Blocks;
-using Sprint0.Blocks.Blocks;
-using Sprint0.Doors;
-using Sprint0.Items;
 using Sprint0.Levels;
-using Sprint0.Levels.Events;
 using Sprint0.Npcs;
-using Sprint0.Sprites.Characters.Npcs;
 
 namespace Sprint0.Events
 {
     public class EventOldManAttack : AbstractEvent
     {
 
-        Room CatalystRoom;
-        OldMan OldMan;
+        private readonly Room CatalystRoom;
+        private readonly OldMan OldMan;
 
         public EventOldManAttack(Room catalystRoom, OldMan oldMan)
         {

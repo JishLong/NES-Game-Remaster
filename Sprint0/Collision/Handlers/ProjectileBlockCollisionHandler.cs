@@ -27,7 +27,7 @@ namespace Sprint0.Collision.Handlers
             if(projectile is BombExplosionParticle && block is ExplosionTrigger)
             {
                 AudioManager.GetInstance().PlayOnce(Resources.SecretFound);
-                Door door = block.GetParent() as Door;
+                Door door = block.Parent as Door;
                 door.Unlock();
             }
             else if ((AffectedProjectiles.Contains(projectile.GetType()) && block.IsWall && block is not SoftBorderBlock && block is not Water)

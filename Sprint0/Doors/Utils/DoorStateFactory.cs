@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Sprint0.Blocks.Blocks;
-using Sprint0.Doors.States;
+﻿using Sprint0.Doors.States;
 using Sprint0.Doors.States.EventLockedStates;
 using Sprint0.Doors.States.UnlockedStates;
 using Sprint0.Doors.States.KeyLockedStates;

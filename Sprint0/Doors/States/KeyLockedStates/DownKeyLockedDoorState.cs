@@ -59,7 +59,7 @@ namespace Sprint0.Doors.States.KeyLockedStates
         private void CreateTriggers(float height, float width)
         {
             IBlock block = BlockFactory.GetBlock(Types.Block.UNLOCK_DOOR_TRIGGER, Position + new Vector2(0, -1));
-            block.SetParent(Door);
+            block.Parent = Door;
             Blocks.Add(block);
         }
         public override void Update(GameTime gameTime)

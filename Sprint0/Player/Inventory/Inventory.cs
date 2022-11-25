@@ -1,9 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using Sprint0.Levels;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Sprint0.Player
+namespace Sprint0.Player.Inventory
 {
     public class Inventory
     {
@@ -12,7 +9,7 @@ namespace Sprint0.Player
         public int SelectedRow;
         public int SelectedColumn;
 
-        public Inventory() 
+        public Inventory()
         {
             ItemCounts = new Dictionary<Types.Item, int>();
             SelectedItem = Types.Item.NO_ITEM;
@@ -25,7 +22,7 @@ namespace Sprint0.Player
             if (ItemCounts.ContainsKey(item)) ItemCounts[item] = ItemCounts[item] + amount;
             else ItemCounts.Add(item, amount);
 
-            if (SelectedItem == Types.Item.NO_ITEM && GetUsableItems().Length > 0) 
+            if (SelectedItem == Types.Item.NO_ITEM && GetUsableItems().Length > 0)
             {
                 SelectedItem = item;
                 Types.Item[,] UsableItems = GetUsableItems();
@@ -40,16 +37,16 @@ namespace Sprint0.Player
             }
         }
 
-        public void RemoveFromInventory(Types.Item item, int amount) 
+        public void RemoveFromInventory(Types.Item item, int amount)
         {
-            if (ItemCounts.ContainsKey(item)) 
+            if (ItemCounts.ContainsKey(item))
             {
                 ItemCounts[item] -= amount;
                 if (ItemCounts[item] < 0) ItemCounts[item] = 0;
-            }  
+            }
         }
 
-        public int GetAmount(Types.Item item) 
+        public int GetAmount(Types.Item item)
         {
             if (ItemCounts.ContainsKey(item)) return ItemCounts[item];
             else return 0;
@@ -58,33 +55,33 @@ namespace Sprint0.Player
         public void DecrementItem(Types.Item item)
         {
             if (ItemCounts.ContainsKey(item)) ItemCounts[item]--;
-            if (ItemCounts[item] <= 0) 
+            if (ItemCounts[item] <= 0)
             {
                 ItemCounts.Remove(item);
                 if (SelectedItem == item) SelectedItem = Types.Item.NO_ITEM;
             }
         }
 
-        public bool HasItem(Types.Item item) 
+        public bool HasItem(Types.Item item)
         {
             return ItemCounts.ContainsKey(item);
         }
 
-        public Types.Item[,] GetUsableItems()
+        private Types.Item[,] GetUsableItems()
         {
             Types.Item[,] UsableItems = new Types.Item[,] { {Types.Item.NO_ITEM, Types.Item.NO_ITEM, Types.Item.NO_ITEM, Types.Item.NO_ITEM,},
                 { Types.Item.NO_ITEM, Types.Item.NO_ITEM, Types.Item.NO_ITEM, Types.Item.NO_ITEM,} };
 
-            if (HasItem(Types.Item.WOODEN_BOOMERANG)) UsableItems[0, 0] = (Types.Item.WOODEN_BOOMERANG);
-            if (HasItem(Types.Item.BOMB)) UsableItems[0, 1] = (Types.Item.BOMB);
-            if (HasItem(Types.Item.BOW)) UsableItems[0, 2] = (Types.Item.BOW);
-            if (HasItem(Types.Item.BLUE_CANDLE)) UsableItems[0, 3] = (Types.Item.BLUE_CANDLE);
-            if (HasItem(Types.Item.BLUE_POTION)) UsableItems[1, 2] = (Types.Item.BLUE_POTION);
-            
+            if (HasItem(Types.Item.WOODEN_BOOMERANG)) UsableItems[0, 0] = Types.Item.WOODEN_BOOMERANG;
+            if (HasItem(Types.Item.BOMB)) UsableItems[0, 1] = Types.Item.BOMB;
+            if (HasItem(Types.Item.BOW)) UsableItems[0, 2] = Types.Item.BOW;
+            if (HasItem(Types.Item.BLUE_CANDLE)) UsableItems[0, 3] = Types.Item.BLUE_CANDLE;
+            if (HasItem(Types.Item.BLUE_POTION)) UsableItems[1, 2] = Types.Item.BLUE_POTION;
+
             return UsableItems;
         }
 
-        public void SelectRightItem() 
+        public void SelectRightItem()
         {
             Types.Item[,] UsableItems = GetUsableItems();
             SelectedColumn = (SelectedColumn + 1) % UsableItems.GetLength(1);

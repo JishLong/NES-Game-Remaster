@@ -33,14 +33,14 @@ namespace Sprint0.Levels
         public ProjectileHandler Projectiles { get; }
         public EventMaster EventMaster { get; }
 
-        private IEntity Parent;
+        public IEntity Parent { get; set; }
         private Dictionary<RoomTransition, Room> AdjacentRooms;
 
         private IBorder Border;
 
         private Level Context;
 
-        public string RoomName;
+        public string Name { get; set; }
         public int RoomID;
         public Room(Level level, string roomName)
         {
@@ -52,7 +52,7 @@ namespace Sprint0.Levels
             DoorHandler = new DoorHandler();
             Projectiles = new ProjectileHandler();
 
-            RoomName = roomName;
+            Name = roomName;
             int length = roomName.Length - 4;
             string substring = roomName.Substring(4, length);
             RoomID = int.Parse(substring);
@@ -66,23 +66,7 @@ namespace Sprint0.Levels
                 {RoomTransition.SECRET, null },
             };
         }
-        public IEntity GetParent()
-        {
-            return Parent;
-        }
 
-        public void SetParent(IEntity entity)
-        {
-            Parent = entity;
-        }
-        public string GetName()
-        {
-            return RoomName;
-        }
-        public void SetName(string value)
-        {
-            RoomName = value;
-        }
         public void SetBorder(Border border)
         {
             Border = BorderFactory.GetInstance().GetBorder(border);
