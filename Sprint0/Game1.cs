@@ -74,7 +74,7 @@ namespace Sprint0
             SBatch.Begin(sortMode: SpriteSortMode.BackToFront, samplerState: SamplerState.PointClamp);
 
             CurrentState.Draw(SBatch);
-            MouseSprite.Draw(SBatch, Mouse.GetState().Position.ToVector2() - new Vector2(15, 145), Color.White, 0f);
+            MouseSprite.Draw(SBatch, Mouse.GetState().Position.ToVector2() - new Vector2(15, 175), Color.White, 0f);
             wsClient.DrawGameCode(SBatch);
 
             SBatch.End();
