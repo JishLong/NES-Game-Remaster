@@ -70,6 +70,8 @@ namespace Sprint0
 
         protected override void Draw(GameTime gameTime)
         {
+            Sprint0.Window W = Sprint0.Window.GetInstance();
+
             RenderTarget2D ResizableArea = new(GraphicsDevice, 256, 232);
             GraphicsDevice.SetRenderTarget(ResizableArea);
             GraphicsDevice.Clear(Color.Black);
@@ -90,7 +92,7 @@ namespace Sprint0
             GraphicsDevice.SetRenderTarget(null);
             SBatch.Begin(samplerState: SamplerState.PointClamp);
 
-            SBatch.Draw(ResizableArea, new Rectangle(0, 0, 0, 0), Color.White);
+            SBatch.Draw(ResizableArea, new Rectangle(W.CenteredX, W.CenteredY, W.CenteredWidth, W.CenteredHeight), Color.White);
 
             base.Draw(gameTime);
         }
