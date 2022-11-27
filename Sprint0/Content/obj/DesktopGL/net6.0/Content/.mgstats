@@ -1,1 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/Fonts/largeFont.spritefont","C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Fonts/largeFont.xnb","FontDescriptionProcessor","SpriteFontContent",2071,136223,0.218287
+"C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/Fonts/mediumFont.spritefont","C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Fonts/mediumFont.xnb","FontDescriptionProcessor","SpriteFontContent",2071,70687,0.0194359
+"C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/Fonts/smallFont.spritefont","C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Fonts/smallFont.xnb","FontDescriptionProcessor","SpriteFontContent",2071,21535,0.0152807

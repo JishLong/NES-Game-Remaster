@@ -40,10 +40,11 @@ namespace Sprint0
             MouseSprite = new MouseCursorSprite();
 
             // Set display resolution.
-            Graphics.PreferredBackBufferWidth = Utils.GameWidth;
-            Graphics.PreferredBackBufferHeight = Utils.GameHeight;
+            Graphics.PreferredBackBufferWidth = 256 * 3;
+            Graphics.PreferredBackBufferHeight = 232 * 3;
             Window.AllowUserResizing = true;
             Graphics.ApplyChanges();
+            Sprint0.Window.GetInstance().UpdateWindowSize(Graphics);
             wsClient.Connect();
 
             base.Initialize();
@@ -72,7 +73,7 @@ namespace Sprint0
         {
             Sprint0.Window W = Sprint0.Window.GetInstance();
 
-            RenderTarget2D ResizableArea = new(GraphicsDevice, 256, 232);
+            RenderTarget2D ResizableArea = new(GraphicsDevice, 256 * 3, 232 * 3);
             GraphicsDevice.SetRenderTarget(ResizableArea);
             GraphicsDevice.Clear(Color.Black);
 
@@ -82,7 +83,7 @@ namespace Sprint0
             SBatch.Begin(sortMode: SpriteSortMode.BackToFront, samplerState: SamplerState.PointClamp);
 
             CurrentState.Draw(SBatch);
-            MouseSprite.Draw(SBatch, Mouse.GetState().Position.ToVector2() - new Vector2(15, 175), Color.White, 0f);
+            
             wsClient.DrawGameCode(SBatch);
 
             SBatch.End();
@@ -93,6 +94,9 @@ namespace Sprint0
             SBatch.Begin(samplerState: SamplerState.PointClamp);
 
             SBatch.Draw(ResizableArea, new Rectangle(W.CenteredX, W.CenteredY, W.CenteredWidth, W.CenteredHeight), Color.White);
+            MouseSprite.Draw(SBatch, Mouse.GetState().Position.ToVector2() - new Vector2(15, 175), Color.White, 0f);
+
+            SBatch.End();
 
             base.Draw(gameTime);
         }
@@ -107,8 +111,7 @@ namespace Sprint0
 
         public void OnResize(Object sender, EventArgs e)
         {
-            AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
-            Utils.UpdateWindowSize(Graphics);
+            Sprint0.Window.GetInstance().UpdateWindowSize(Graphics);
         }
     }
 }

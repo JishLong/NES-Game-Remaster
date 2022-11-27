@@ -44,10 +44,10 @@ namespace Sprint0.GameStates.GameStates
             Vector2 welcomeTextSize = Resources.MediumFont.MeasureString("Welcome to the Myth of Zebra!"); 
             Vector2 tipTextSize = Resources.SmallFont.MeasureString(Tips[CurrentTip]);
             Vector2 flashingTextSize = Resources.MediumFont.MeasureString("- TIPS: -");
-            startTextPosition = new Vector2(Utils.GameWidth / 2 - startTextSize.X / 2, Utils.GameHeight / 2 - startTextSize.Y / 2);
-            welcomeTextPosition = new Vector2(Utils.GameWidth / 2 - welcomeTextSize.X / 2, startTextPosition.Y - welcomeTextSize.Y * 3 / 2);
-            tipTextPosition = new Vector2(Utils.GameWidth / 2 - tipTextSize.X / 2, Utils.GameHeight * 9 / 10 - tipTextSize.Y * 3 / 2);
-            flashingTextPosition = new Vector2(Utils.GameWidth / 2 - flashingTextSize.X / 2, tipTextPosition.Y - flashingTextSize.Y * 3 / 2);
+            startTextPosition = new Vector2(256 * 3 / 2 - startTextSize.X / 2, 232 * 3 / 2 - startTextSize.Y / 2);
+            welcomeTextPosition = new Vector2(256 * 3 / 2 - welcomeTextSize.X / 2, startTextPosition.Y - welcomeTextSize.Y * 3 / 2);
+            tipTextPosition = new Vector2(256 * 3 / 2 - tipTextSize.X / 2, Utils.GameHeight * 9 / 10 - tipTextSize.Y * 3 / 2);
+            flashingTextPosition = new Vector2(256 * 3 / 2 - flashingTextSize.X / 2, tipTextPosition.Y - flashingTextSize.Y * 3 / 2);
 
             IsShowing = true;
             FramesPassed = 0;
@@ -61,6 +61,9 @@ namespace Sprint0.GameStates.GameStates
             sb.DrawString(Resources.LargeFont, "Press SPACEBAR to start", startTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             sb.DrawString(Resources.SmallFont, Tips[CurrentTip], tipTextPosition, TipColor, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             if (IsShowing) sb.DrawString(Resources.MediumFont, "- TIPS: -", flashingTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+
+            sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, 256 * 3, 232 * 3), null,
+                Color.Red * 0.5f, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
 
         }
 
@@ -78,7 +81,7 @@ namespace Sprint0.GameStates.GameStates
                 while (PrevTip == CurrentTip);
                 
                 Vector2 tipTextSize = Resources.SmallFont.MeasureString(Tips[CurrentTip]);
-                tipTextPosition = new Vector2(Utils.GameWidth / 2 - tipTextSize.X / 2, Utils.GameHeight * 9 / 10 - tipTextSize.Y * 3 / 2);
+                tipTextPosition = new Vector2(256 * 3 / 2 - tipTextSize.X / 2, 232 * 3 * 9 / 10 - tipTextSize.Y * 3 / 2);
             }
             if (FramesPassed % (TipFrames / FlashingFreq) == 0) 
             {
