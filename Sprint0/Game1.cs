@@ -15,6 +15,7 @@ namespace Sprint0
     public class Game1 : Game
     {
         private GraphicsDeviceManager Graphics;
+        private readonly GameWindow GameWindow;
         private SpriteBatch SBatch;
         private ISprite MouseSprite;
         private WSClient wsClient;
@@ -27,6 +28,7 @@ namespace Sprint0
         public Game1()
         {
             Graphics = new GraphicsDeviceManager(this);
+            GameWindow = new();
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             Window.ClientSizeChanged += OnResize;
@@ -36,15 +38,16 @@ namespace Sprint0
         protected override void Initialize()
         {
             CreateNewGame(false);
-            PlayerManager = new PlayerManager(this);
+            
             MouseSprite = new MouseCursorSprite();
 
             // Set display resolution.
-            Graphics.PreferredBackBufferWidth = 256 * 3;
-            Graphics.PreferredBackBufferHeight = 232 * 3;
+            Graphics.PreferredBackBufferWidth = GameWindow.DefaultScreenWidth;
+            Graphics.PreferredBackBufferHeight = GameWindow.DefaultScreenHeight;
             Window.AllowUserResizing = true;
             Graphics.ApplyChanges();
-            Sprint0.Window.GetInstance().UpdateWindowSize(Graphics);
+            GameWindow.UpdateWindowSize(Graphics);
+
             wsClient.Connect();
 
             base.Initialize();
@@ -71,29 +74,24 @@ namespace Sprint0
 
         protected override void Draw(GameTime gameTime)
         {
-            Sprint0.Window W = Sprint0.Window.GetInstance();
-
-            RenderTarget2D ResizableArea = new(GraphicsDevice, 256 * 3, 232 * 3);
+            // Make an invisible area to render everything onto
+            RenderTarget2D ResizableArea = new(GraphicsDevice, Sprint0.GameWindow.DefaultScreenWidth, Sprint0.GameWindow.DefaultScreenHeight);
             GraphicsDevice.SetRenderTarget(ResizableArea);
             GraphicsDevice.Clear(Color.Black);
 
-            // Render here
-
-            
+            // Render everything onto the invisible area - not to the screen
             SBatch.Begin(sortMode: SpriteSortMode.BackToFront, samplerState: SamplerState.PointClamp);
 
             CurrentState.Draw(SBatch);
-            
             wsClient.DrawGameCode(SBatch);
 
             SBatch.End();
 
-
-
+            // Render everything onto the screen at once, scaled according to the screen size and centered on-screen
             GraphicsDevice.SetRenderTarget(null);
             SBatch.Begin(samplerState: SamplerState.PointClamp);
 
-            SBatch.Draw(ResizableArea, new Rectangle(W.CenteredX, W.CenteredY, W.CenteredWidth, W.CenteredHeight), Color.White);
+            SBatch.Draw(ResizableArea, GameWindow.GetCenteredArea(), Color.White);
             MouseSprite.Draw(SBatch, Mouse.GetState().Position.ToVector2() - new Vector2(15, 175), Color.White, 0f);
 
             SBatch.End();
@@ -107,11 +105,12 @@ namespace Sprint0
             LevelManager.LoadLevel(Types.Level.LEVEL1);
             MouseMappings.GetInstance().InitializeMappings(this);
             if (resetPlayers) PlayerManager.ResetPlayers();
+            PlayerManager = new PlayerManager(this);
         }
 
-        public void OnResize(Object sender, EventArgs e)
+        public void OnResize(object sender, EventArgs e)
         {
-            Sprint0.Window.GetInstance().UpdateWindowSize(Graphics);
+            GameWindow.UpdateWindowSize(Graphics);
         }
     }
 }

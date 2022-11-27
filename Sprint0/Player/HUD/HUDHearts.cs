@@ -21,11 +21,11 @@ namespace Sprint0.Player.HUD
             {
                 Rectangle LifeArea = new((int)(Life.X + i * 8 * GameScale), (int)Life.Y, (int)(8 * GameScale), (int)(8 * GameScale));
 
-                if (Player.Health >= 2 * i) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.FullHeart, Color.White,
+                if (Player.Health >= 2 * (i + 1)) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.FullHeart, Color.White,
                     0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-                else if (Player.Health == 2 * i - 1) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.HalfHeart, Color.White,
+                else if (Player.Health == 2 * i + 1) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.HalfHeart, Color.White,
                     0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-                else if (Player.MaxHealth >= 2 * i) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.EmptyHeart, Color.White,
+                else if (Player.MaxHealth >= 2 * (i + 1)) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.EmptyHeart, Color.White,
                     0f, Vector2.Zero, SpriteEffects.None, 0.18f);
             }
             for (int i = 8; i < 16; i++)
@@ -33,11 +33,11 @@ namespace Sprint0.Player.HUD
                 Rectangle LifeArea = new((int)(Life.X + (i - 8) * 8 * GameScale), (int)(Life.Y + 8 * GameScale), 
                     (int)(8 * GameScale), (int)(8 * GameScale));
 
-                if (Player.Health >= 2 * i) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.FullHeart, Color.White,
+                if (Player.Health >= 2 * (i + 1)) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.FullHeart, Color.White,
                     0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-                else if (Player.Health == 2 * i - 1) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.HalfHeart, Color.White,
+                else if (Player.Health == 2 * i + 1) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.HalfHeart, Color.White,
                     0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-                else if (Player.MaxHealth >= 2 * i) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.EmptyHeart, Color.White,
+                else if (Player.MaxHealth >= 2 * (i + 1)) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.EmptyHeart, Color.White,
                     0f, Vector2.Zero, SpriteEffects.None, 0.18f);
             }
         }
