@@ -27,7 +27,7 @@ namespace Sprint0.GameStates.GameStates
         // Logical variables to help check for certain conditions
         private bool IsShowing;
         private int FramesPassed;
-        private string Response;
+        private string[] Response;
         private string Command;
 
         public CommandLineState(Game1 game) : base(game)
@@ -45,7 +45,7 @@ namespace Sprint0.GameStates.GameStates
 
             IsShowing = true;
             FramesPassed = 0;
-            Response = "type \"help\" for a list of commands";
+            Response = new string[]{ "type \"help\" for a list of commands" };
             Command = "";
         }
 
@@ -57,14 +57,18 @@ namespace Sprint0.GameStates.GameStates
                 null, Color.White * 0.5f, 0f, Vector2.Zero, SpriteEffects.None, 0.05f);
 
             // Draw the response line - where responses to commands are written out
-            sb.Draw(Resources.ScreenCover, ResponseLinePosition, null, Color.Black * 0.5f, 0f, new Vector2(0, 0), SpriteEffects.None, 0.04f);
+            sb.Draw(Resources.ScreenCover, ResponseLinePosition, null, Color.Black * 0.75f, 0f, new Vector2(0, 0), SpriteEffects.None, 0.04f);
 
             // Draw the response
-            sb.DrawString(Resources.SmallFont, Response, ResponseTextPosition, Color.White, 0f, new Vector2(0, 0),
-                GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0.03f);
+            Vector2 CharSize = Resources.SmallFont.MeasureString(" ") * GameWindow.ResolutionScale * TextScaling;
+            for (int i = 0; i < Response.Length; i++) 
+            {
+                sb.DrawString(Resources.SmallFont, Response[i], ResponseTextPosition + new Vector2(0, CharSize.Y * i), 
+                    Color.Aqua, 0f, new Vector2(0, 0), GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0.03f);
+            }            
 
             // Draw the text line panel
-            sb.Draw(Resources.ScreenCover, TextLinePosition, null, Color.Black * 0.5f, 0f, new Vector2(0, 0), SpriteEffects.None, 0.04f);
+            sb.Draw(Resources.ScreenCover, TextLinePosition, null, Color.Black * 0.75f, 0f, new Vector2(0, 0), SpriteEffects.None, 0.04f);
 
             // Draw the command
             sb.DrawString(Resources.SmallFont, Command, CommandTextPosition, Color.White, 0f, new Vector2(0, 0),
@@ -78,8 +82,8 @@ namespace Sprint0.GameStates.GameStates
         {
             Vector2 CharSize = Resources.SmallFont.MeasureString(" ") * GameWindow.ResolutionScale * TextScaling;
 
-            ResponseLinePosition = new Rectangle(0, (int)(56 * GameWindow.ResolutionScale + GameWindow.DefaultScreenHeight / 20),
-                GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight * 11 / 20);
+            ResponseLinePosition = new Rectangle(0, (int)(GameWindow.DefaultScreenHeight / 20),
+                GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight * 16 / 20);
             TextLinePosition = new Rectangle(
                 0, GameWindow.DefaultScreenHeight * 18 / 20, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight / 20);
             
