@@ -75,7 +75,7 @@ namespace Sprint0.Characters.Enemies
 
         public override void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position, Color.White, Sprint0.Utils.CharacterLayerDepth);
+            Sprite.Draw(sb, Sprint0.Utils.LinkToCamera(Position), Color.White, Sprint0.Utils.CharacterLayerDepth);
         }
 
         public override Rectangle GetHitbox() 

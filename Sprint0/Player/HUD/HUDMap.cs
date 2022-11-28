@@ -44,9 +44,9 @@ namespace Sprint0.Player.HUD
 
         private void CreateMap()
         {
-            int roomWidth = 7 * (int) GameScale;
-            int roomHeight = 3 * (int) GameScale;
-            int roomBuffer = 1 * (int) GameScale;
+            int roomWidth = (int)(7 * GameWindow.ResolutionScale);
+            int roomHeight = (int)(3 * GameWindow.ResolutionScale);
+            int roomBuffer = (int)(1 * GameWindow.ResolutionScale);
             for (int i = 0; i < MapSize; i++)
             {
                 for (int j = 0; j < MapSize; j++)
@@ -82,7 +82,7 @@ namespace Sprint0.Player.HUD
             {
                 Vector2 position = PlayerPositions[CurrentRoomID];
                 position = position + HUDOffset;
-                PlayerLocationSprite.Draw(sb, position, Color.Green, HUDLayerDepth + 0.1f);
+                PlayerLocationSprite.Draw(sb, Utils.LinkToCamera(position), Color.Green, HUDLayerDepth + 0.1f);
             }
         }
 
@@ -90,7 +90,7 @@ namespace Sprint0.Player.HUD
         {
             Vector2 position = BossPosition;
             position = position + HUDOffset;
-            BossLocationSprite.Draw(sb, position, Color.Red, HUDLayerDepth + 0.11f);
+            BossLocationSprite.Draw(sb, Utils.LinkToCamera(position), Color.Red, HUDLayerDepth + 0.11f);
         }
         public void DrawMap(SpriteBatch sb)
         {
@@ -99,7 +99,7 @@ namespace Sprint0.Player.HUD
                 ISprite sprite = pair.Key;
                 Vector2 position = pair.Value;
                 position = position + HUDOffset;
-                sprite.Draw(sb, position, Color.Blue, HUDLayerDepth+0.12f);
+                sprite.Draw(sb, Utils.LinkToCamera(position), Color.Blue, HUDLayerDepth+0.12f);
             }
         }
     }

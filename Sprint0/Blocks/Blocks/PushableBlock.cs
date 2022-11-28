@@ -54,7 +54,7 @@ namespace Sprint0.Blocks.Blocks
         {
             if (HasBeenPushed) BlockUnderneath.Draw(sb);
             // The pushable block is technically on top of another block if it has been pushed, but is guaranteed to be drawn after it
-            Sprite.Draw(sb, Position, Color.White, PushableBlockLayerDepth);
+            Sprite.Draw(sb, LinkToCamera(Position), Color.White, PushableBlockLayerDepth);
         }
 
         public override void Update()

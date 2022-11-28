@@ -10,7 +10,7 @@ namespace Sprint0.Levels.Borders
     {
         private ISprite Sprite;
         private Vector2 DefaultPosition;
-        private float DefaultLayerDepth = 1;
+
         public BlueRoomBorder()
         {
             Sprite = new BlueBorderSprite();
@@ -24,7 +24,7 @@ namespace Sprint0.Levels.Borders
 
         public void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, DefaultPosition, Color.White, WallLayerDepth);
+            Sprite.Draw(sb, LinkToCamera(DefaultPosition), Color.White, WallLayerDepth);
         }
     }
 }

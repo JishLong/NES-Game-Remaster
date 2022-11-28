@@ -50,7 +50,7 @@ namespace Sprint0.Player
             State = new PlayerIdleState(this, true);
 
             // Initialize the movement-related fields
-            Position = new Vector2(Resources.BlueTile.Width * Utils.GameScale * 8, Resources.BlueTile.Height * Utils.GameScale * 8);
+            Position = new Vector2(Resources.BlueTile.Width * GameWindow.ResolutionScale * 8, Resources.BlueTile.Height * GameWindow.ResolutionScale * 8);
 
             // Initialized the combat-related fields
             Health = 6;
@@ -92,7 +92,7 @@ namespace Sprint0.Player
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            State.Draw(spriteBatch, Position);
+            State.Draw(spriteBatch, Utils.LinkToCamera(Position));
         }
 
         public Rectangle GetHitbox()

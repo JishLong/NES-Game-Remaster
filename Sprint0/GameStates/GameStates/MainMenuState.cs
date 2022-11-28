@@ -10,26 +10,33 @@ namespace Sprint0.GameStates.GameStates
 {
     public class MainMenuState : AbstractGameState
     {
-        private readonly Random NumGenerator = new();
+        private readonly IInputHandler ClientInputHandler;
+        private readonly Random NumGenerator;
+
+        // The number of frames each tip stays on the screen before a new one appears
         private readonly int TipFrames = 300;
-        private readonly int FlashingFreq = 10;
+        // How quickly the "tips" text flashes on the screen; Higher number = more flashing
+        private readonly int FlashingFreq = 20;
+        // How big the text appears on the screen; lower number = bigger text
+        private readonly int TextScaling = 3;
 
-        private readonly Vector2 startTextPosition;
-        private readonly Vector2 welcomeTextPosition;
-        private Vector2 tipTextPosition;
-        private readonly Vector2 flashingTextPosition;
+        // The positions of each element on the screen
+        private Vector2 WelcomeTextPosition;
+        private Vector2 TitleTextPosition;
+        private Vector2 StartTextPosition;
+        private Vector2 FlashingTextPosition;
+        private Vector2 TipTextPosition;
 
+        // The tips that can show on the screen
         private string[] Tips;
         private int CurrentTip;
-        
+
+        // Logical variables to help check for certain conditions
         private bool IsShowing;
         private int FramesPassed;
 
-        private IInputHandler clientInputHandler;
-
         public MainMenuState(Game1 game) : base(game)
         {
-            clientInputHandler = new MainMenuClientInputHandler(game);
             Controllers ??= new List<IController>()
             {
                 new AudioController(),
@@ -37,17 +44,14 @@ namespace Sprint0.GameStates.GameStates
                 new MouseController(MouseMappings.GetInstance().NoMappings)
             };
 
+            NumGenerator = new();
+            ClientInputHandler = new MainMenuClientInputHandler(game);
+
+            // Set up the tips
             SetTips();
             CurrentTip = NumGenerator.Next(Tips.Length);
 
-            Vector2 startTextSize = Resources.LargeFont.MeasureString("Press SPACEBAR to start");
-            Vector2 welcomeTextSize = Resources.MediumFont.MeasureString("Welcome to the Myth of Zebra!"); 
-            Vector2 tipTextSize = Resources.SmallFont.MeasureString(Tips[CurrentTip]);
-            Vector2 flashingTextSize = Resources.MediumFont.MeasureString("- TIPS: -");
-            startTextPosition = new Vector2(Utils.GameWidth / 2 - startTextSize.X / 2, Utils.GameHeight / 2 - startTextSize.Y / 2);
-            welcomeTextPosition = new Vector2(Utils.GameWidth / 2 - welcomeTextSize.X / 2, startTextPosition.Y - welcomeTextSize.Y * 3 / 2);
-            tipTextPosition = new Vector2(Utils.GameWidth / 2 - tipTextSize.X / 2, Utils.GameHeight * 9 / 10 - tipTextSize.Y * 3 / 2);
-            flashingTextPosition = new Vector2(Utils.GameWidth / 2 - flashingTextSize.X / 2, tipTextPosition.Y - flashingTextSize.Y * 3 / 2);
+            SetElementPositions();
 
             IsShowing = true;
             FramesPassed = 0;
@@ -57,30 +61,40 @@ namespace Sprint0.GameStates.GameStates
         {
             Color TipColor = (FramesPassed < TipFrames / 10) ? Color.Red : Color.White;
 
-            sb.DrawString(Resources.MediumFont, "Welcome to the Myth of Zebra!", welcomeTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            sb.DrawString(Resources.LargeFont, "Press SPACEBAR to start", startTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            sb.DrawString(Resources.SmallFont, Tips[CurrentTip], tipTextPosition, TipColor, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            if (IsShowing) sb.DrawString(Resources.MediumFont, "- TIPS: -", flashingTextPosition, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-
+            sb.DrawString(Resources.SmallFont, "Welcome to...", WelcomeTextPosition, Color.White, 0f, new Vector2(0, 0),
+                GameWindow.ResolutionScale / TextScaling, SpriteEffects.None, 0f);
+            sb.DrawString(Resources.LargeFont, "The Myth of Zebra!", TitleTextPosition, Color.Aqua, 0f, new Vector2(0, 0),
+                GameWindow.ResolutionScale / TextScaling, SpriteEffects.None, 0f);
+            sb.DrawString(Resources.SmallFont, "Press SPACEBAR to start", StartTextPosition, Color.White, 0f, new Vector2(0, 0),
+                GameWindow.ResolutionScale / TextScaling, SpriteEffects.None, 0f);
+            if (IsShowing) sb.DrawString(Resources.MediumFont, "- TIPS: -", FlashingTextPosition, Color.White, 0f, new Vector2(0, 0),
+                GameWindow.ResolutionScale / TextScaling, SpriteEffects.None, 0f);
+            sb.DrawString(Resources.SmallFont, Tips[CurrentTip], TipTextPosition, TipColor, 0f, new Vector2(0, 0),
+                GameWindow.ResolutionScale / TextScaling, SpriteEffects.None, 0f);
         }
 
         public override void Update(GameTime gameTime)
         {
-            clientInputHandler.Update();
+            ClientInputHandler.Update();
             FramesPassed = (FramesPassed + 1) % TipFrames;
-            if (FramesPassed == 0) 
+
+            if (FramesPassed == 0)
             {
+                // Pick a new tip to show on the screen
                 int PrevTip = CurrentTip;
                 do
                 {
                     CurrentTip = NumGenerator.Next(Tips.Length);
                 }
                 while (PrevTip == CurrentTip);
-                
+
+                // Set up the tip's position on the screen
                 Vector2 tipTextSize = Resources.SmallFont.MeasureString(Tips[CurrentTip]);
-                tipTextPosition = new Vector2(Utils.GameWidth / 2 - tipTextSize.X / 2, Utils.GameHeight * 9 / 10 - tipTextSize.Y * 3 / 2);
+                TipTextPosition = new Vector2(GameWindow.DefaultScreenWidth / 2 - tipTextSize.X * GameWindow.ResolutionScale / TextScaling / 2,
+                    GameWindow.DefaultScreenHeight * 4 / 5 - tipTextSize.Y * GameWindow.ResolutionScale / TextScaling / 2);
             }
-            if (FramesPassed % (TipFrames / FlashingFreq) == 0) 
+
+            if (FramesPassed % (TipFrames / FlashingFreq) == 0)
             {
                 IsShowing = !IsShowing;
             }
@@ -88,7 +102,7 @@ namespace Sprint0.GameStates.GameStates
             base.Update(gameTime);
         }
 
-        private void SetTips() 
+        private void SetTips()
         {
             Tips = new string[] {
                 "Killing enemies will make them die",
@@ -114,9 +128,29 @@ namespace Sprint0.GameStates.GameStates
             };
         }
 
+        private void SetElementPositions()
+        {
+            Vector2 welcomeTextSize = Resources.SmallFont.MeasureString("Welcome to...");
+            Vector2 titleTextSize = Resources.LargeFont.MeasureString("The Myth of Zebra!");
+            Vector2 startTextSize = Resources.SmallFont.MeasureString("Press SPACEBAR to start");
+            Vector2 flashingTextSize = Resources.MediumFont.MeasureString("- TIPS: -");
+            Vector2 tipTextSize = Resources.SmallFont.MeasureString(Tips[CurrentTip]);
+
+            WelcomeTextPosition = new Vector2(GameWindow.DefaultScreenWidth / 2 - welcomeTextSize.X * GameWindow.ResolutionScale / TextScaling / 2,
+                GameWindow.DefaultScreenHeight / 5 - welcomeTextSize.Y * GameWindow.ResolutionScale / TextScaling / 2);
+            TitleTextPosition = new Vector2(GameWindow.DefaultScreenWidth / 2 - titleTextSize.X * GameWindow.ResolutionScale / TextScaling / 2,
+                GameWindow.DefaultScreenHeight / 4 - titleTextSize.Y * GameWindow.ResolutionScale / TextScaling / 2);
+            StartTextPosition = new Vector2(GameWindow.DefaultScreenWidth / 2 - startTextSize.X * GameWindow.ResolutionScale / TextScaling / 2,
+                GameWindow.DefaultScreenHeight / 2 - startTextSize.Y * GameWindow.ResolutionScale / TextScaling / 2);
+            FlashingTextPosition = new Vector2(GameWindow.DefaultScreenWidth / 2 - flashingTextSize.X * GameWindow.ResolutionScale / TextScaling / 2,
+                GameWindow.DefaultScreenHeight * 3 / 4 - flashingTextSize.Y * GameWindow.ResolutionScale / TextScaling / 2);
+            TipTextPosition = new Vector2(GameWindow.DefaultScreenWidth / 2 - tipTextSize.X * GameWindow.ResolutionScale / TextScaling / 2,
+                GameWindow.DefaultScreenHeight * 4 / 5 - tipTextSize.Y * GameWindow.ResolutionScale / TextScaling / 2);
+        }
+
         public override void HandleClientInput(dynamic input, string id)
         {
-            clientInputHandler.HandleInput(input, id);
+            ClientInputHandler.HandleInput(input, id);
         }
     }
 }

@@ -10,9 +10,10 @@ namespace Sprint0.GameStates.GameStates
 {
     public class HandTransitionState : AbstractGameState
     {
-        private static readonly int HudAreaHeight = (int)(56 * Utils.GameScale);
-        private int AnimationStage;
+        private static readonly int HUDHeight = (int)(56 * GameWindow.ResolutionScale);
+        // Number of frames it takes to close the "curtains"
         private static readonly int ClosingFrames = 80;
+        // Number of frames it takes for the "curtains" to open again
         private static readonly int OpeningFrames = 80;
 
         private readonly LevelResources LevelResources;
@@ -20,7 +21,8 @@ namespace Sprint0.GameStates.GameStates
         private readonly Room NextRoom;
 
         private int FramesPassed;
-        private int RectWidth;
+        private int AnimationStage;
+        private int CurtainWidth;
 
         public HandTransitionState(Game1 game) : base(game)
         {
@@ -36,52 +38,56 @@ namespace Sprint0.GameStates.GameStates
             NextRoom = Game.LevelManager.CurrentLevel.Rooms.Find(room => room.Name == "Room" + Game.LevelManager.CurrentLevel.StartingRoomIndex);
 
             FramesPassed = 0;
-            RectWidth = 0;
-
             AnimationStage = 0;
+            CurtainWidth = 0;       
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            Camera.GetInstance().Move(Types.Direction.UP, HudAreaHeight);
+            // Draw the HUD
+            Camera.GetInstance().Move(Types.Direction.UP, HUDHeight);
             Game.PlayerManager.GetDefaultPlayer().HUD.Draw(sb);
+            Camera.GetInstance().Move(Types.Direction.DOWN, HUDHeight);
 
-            Camera.GetInstance().Reset();
+            // Draw the game
             if (AnimationStage == 0) CurrentRoom.Draw(sb);
             else NextRoom.Draw(sb);
 
-            sb.Draw(Resources.ScreenCover, new Rectangle(0, HudAreaHeight, RectWidth, Utils.GameHeight - HudAreaHeight), null,
+            // Draw the curtains
+            sb.Draw(Resources.ScreenCover, new Rectangle(0, HUDHeight, CurtainWidth, GameWindow.DefaultScreenHeight - HUDHeight), null,
                 Color.Black, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
-            sb.Draw(Resources.ScreenCover, new Rectangle(Utils.GameWidth - RectWidth, HudAreaHeight, RectWidth, Utils.GameHeight - HudAreaHeight), null,
-                Color.Black, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
+            sb.Draw(Resources.ScreenCover, new Rectangle(GameWindow.DefaultScreenWidth - CurtainWidth, HUDHeight, CurtainWidth, 
+                GameWindow.DefaultScreenHeight - HUDHeight), null, Color.Black, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
 
             
         }
+
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
             FramesPassed++;
 
             switch (AnimationStage) 
             {
                 case 0:
-                    RectWidth = (int)(Utils.GameWidth * ((float)FramesPassed / ClosingFrames) / 2);
+                    CurtainWidth = (int)(GameWindow.DefaultScreenWidth * ((float)FramesPassed / ClosingFrames) / 2);
                     if (FramesPassed >= ClosingFrames)
                     {
                         NextRoom.ResetRoom();
                         Game.LevelManager.CurrentLevel.CurrentRoom = NextRoom;
                         foreach (var player in Game.PlayerManager)
                         {
-                            player.Position = new Vector2(Resources.BlueTile.Width * Utils.GameScale * 8, Resources.BlueTile.Height * Utils.GameScale * 8);
+                            player.Position = new Vector2(LevelResources.BlockWidth * GameWindow.ResolutionScale * 8, 
+                                LevelResources.BlockHeight * GameWindow.ResolutionScale * 8);
                         }
-                        //Game.Player.Position = new Vector2(Resources.BlueTile.Width * Utils.GameScale * 8, Resources.BlueTile.Height * Utils.GameScale * 8);
 
                         FramesPassed = 0;
                         AnimationStage++;
                     }
                     break;
                 default:
-                    RectWidth = (int)(Utils.GameWidth * (1 - (float)FramesPassed / OpeningFrames) / 2);
+                    CurtainWidth = (int)(GameWindow.DefaultScreenWidth * (1 - (float)FramesPassed / OpeningFrames) / 2);
                     if (FramesPassed >= OpeningFrames) 
                     {
                         Game.CurrentState = new PlayingState(Game);

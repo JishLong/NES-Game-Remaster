@@ -15,7 +15,7 @@ namespace Sprint0.Player.States
         protected ISprite Sprite;
 
         // Constant values
-        private static readonly Vector2 Knockback = new(16 * GameScale, 16 * GameScale);
+        private static readonly Vector2 Knockback = new(16 * GameWindow.ResolutionScale, 16 * GameWindow.ResolutionScale);
         private static readonly int InvincibilityFrames = 40;
         private static readonly int KnockbackFrames = InvincibilityFrames / 5;
         private static readonly int LowHealthFrames = 20;
@@ -85,7 +85,7 @@ namespace Sprint0.Player.States
              * This makes it easier to run in between tight spaces of blocks
              */
             Rectangle ActualHitbox = new((int)Player.Position.X, (int)Player.Position.Y,
-                (int)(Resources.LinkDown.Width * GameScale), (int)(Resources.LinkDown.Height * GameScale));
+                (int)(Resources.LinkDown.Width * GameWindow.ResolutionScale), (int)(Resources.LinkDown.Height * GameWindow.ResolutionScale));
 
             int ReducedWidth = ActualHitbox.Width * 2 / 3;
             int ReducedHeight = ActualHitbox.Height * 2 / 3;

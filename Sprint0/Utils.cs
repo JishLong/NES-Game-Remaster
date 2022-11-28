@@ -9,13 +9,6 @@ namespace Sprint0
     // Contains various important methods and values used throughout the code
     public static class Utils
     {
-        // How big everything on the screen is - essentially used to "scale up" or "scale down" images
-        public static float GameScale = 3;
-
-        // Screen size
-        public static int GameWidth = 256 * (int)GameScale;
-        public static int GameHeight = 232 * (int)GameScale;
-
         // Sprite Layer Depths
         public static readonly float DoorWayLayerDepth = 1.0f;
         public static readonly float BlockLayerDepth = 1.0f;
@@ -27,16 +20,6 @@ namespace Sprint0
         public static readonly float ProjectileLayerDepth = 0.4f;
         public static readonly float DoorWallLayerDepth = 0.2f; // Needs to be drawn on top of the player.
         public static readonly float HUDLayerDepth = 0.0f;
-
-        // This will be used for Sprint 5 features
-        public static void UpdateWindowSize(GraphicsDeviceManager graphics)
-        {
-            GameWidth = graphics.GraphicsDevice.Viewport.Width;
-            GameHeight = graphics.GraphicsDevice.Viewport.Height;
-
-            GameScale = GameWidth / 256;
-            GameScale = GameHeight / 176;
-        }
 
         // Returns a position for [centeredHitbox] such that the center points of [hitbox] and [centeredHitbox] fall on the same point
         public static Vector2 CenterRectangles(Rectangle hitbox, int centeredHitboxWidth, int centeredHitboxHeight)
@@ -187,6 +170,16 @@ namespace Sprint0
             }*/
 
             return Strings;
+        }
+
+        public static Rectangle LinkToCamera(Rectangle r)
+        {
+            return new Rectangle(r.X + (int)Camera.GetInstance().Position.X, r.Y + (int)Camera.GetInstance().Position.Y, r.Width, r.Height);
+        }
+
+        public static Vector2 LinkToCamera(Vector2 v) 
+        {
+            return new Vector2(v.X + (int)Camera.GetInstance().Position.X, v.Y + (int)Camera.GetInstance().Position.Y);
         }
     }
 }

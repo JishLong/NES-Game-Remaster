@@ -8,14 +8,13 @@ namespace Sprint0.GameStates.GameStates
 {
     public class InventoryTransitionState : AbstractGameState
     {
-        private static readonly int GameAreaHeight = 176;
-        private static readonly int ShiftAmount = (int)(GameAreaHeight * Utils.GameScale);
+        private static readonly int ShiftAmount = (int)(176 * GameWindow.ResolutionScale);
         private static readonly int TransitionFrames = ShiftAmount / 8;
 
+        private readonly Types.Direction Direction;
         private readonly IGameState InventoryState;
         private readonly IGameState PlayingState;
 
-        private readonly Types.Direction Direction;
         private int ShiftedAmount;
         private int FramesPassed;
 
@@ -38,6 +37,12 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Draw(SpriteBatch sb)
         {
+            /* If we're moving up into the inventory, the camera should move below the screen and draw the playing state,
+             * then move up and draw the inventory state
+             * 
+             * If we're moving down back to the game, the camera should move above the screen and draw the inventory state,
+             * then move down and draw the playing state
+             */
             Camera.GetInstance().Move(Utils.GetOppositeDirection(Direction), ShiftedAmount);
             if (Direction == Types.Direction.UP) PlayingState.Draw(sb);
             else if (Direction == Types.Direction.DOWN) InventoryState.Draw(sb);
@@ -46,7 +51,9 @@ namespace Sprint0.GameStates.GameStates
             if (Direction == Types.Direction.UP) InventoryState.Draw(sb);
             else if (Direction == Types.Direction.DOWN) PlayingState.Draw(sb);
 
-            Camera.GetInstance().Reset();           
+            // Reset camera - better to trace back steps than to hard reset its position
+            Camera.GetInstance().Move(Utils.GetOppositeDirection(Direction), ShiftAmount);
+            Camera.GetInstance().Move(Direction, ShiftedAmount);
         }
 
         public override void Update(GameTime gameTime)

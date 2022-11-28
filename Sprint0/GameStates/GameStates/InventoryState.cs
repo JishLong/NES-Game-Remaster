@@ -3,15 +3,25 @@ using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Controllers;
 using Sprint0.Input;
 using Sprint0.Player.Inventory;
+using Sprint0.Sprites;
 using Sprint0.Sprites.Player;
 using System.Collections.Generic;
+using System.Data;
 
 namespace Sprint0.GameStates.GameStates
 {
     public class InventoryState : AbstractGameState
     {
+        private static readonly int HUDHeight = (int)(56 * GameWindow.ResolutionScale);
+
         private readonly InventoryMap Map;
         private readonly InventorySlots Slots;
+
+        private Rectangle InventoryPosition;
+        private Vector2 SelectedItemPosition;
+        private Vector2 MapPosition;
+        private Vector2 CompassPosition;
+        private Rectangle MiniMapPosition;
 
         public InventoryState(Game1 game) : base(game)
         {
@@ -23,51 +33,48 @@ namespace Sprint0.GameStates.GameStates
 
             Map = new(Game.LevelManager, Game.PlayerManager.GetDefaultPlayer());
             Slots = new(Game.PlayerManager.GetDefaultPlayer());
+
+            SetElementPositions();
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            Camera.GetInstance().Move(Types.Direction.UP, (int)(56 * Utils.GameScale));
-            Vector2 CameraPosition = Camera.GetInstance().Position;
-
-            // Positions for some things in the inventory
-            Rectangle InvArea = new Rectangle((int)CameraPosition.X, (int)CameraPosition.Y, Utils.GameWidth, (int)(176 * Utils.GameScale));
-            Vector2 SelectedItem = new((int)(68 * Utils.GameScale), (int)(48 * Utils.GameScale));
-            Vector2 MapPosition = new((int)(48 * Utils.GameScale), (int)(112 * Utils.GameScale));
-            Vector2 Compass = new((int)(44 * Utils.GameScale), (int)(152 * Utils.GameScale));
-            Rectangle MapArea = new((int)(124 * Utils.GameScale),
-                (int)(92 * Utils.GameScale), (int)(9 * 8 * Utils.GameScale), (int)(9 * 8 * Utils.GameScale));
+            Camera.GetInstance().Move(Types.Direction.UP, HUDHeight);
 
             // Inventory layout
-            sb.Draw(Resources.GuiSpriteSheet, InvArea, Resources.Inventory, Color.White,
+            sb.Draw(Resources.GuiSpriteSheet, Utils.LinkToCamera(InventoryPosition), Resources.Inventory, Color.White,
               0f, Vector2.Zero, SpriteEffects.None, 0.19f);
 
             // Selected item
+            ISprite SelectedItemSprite = null;
             if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.WOODEN_BOOMERANG)
-                new WoodenBoomerangSprite().Draw(sb, SelectedItem, Color.White, 0.18f);
+                SelectedItemSprite = new WoodenBoomerangSprite();
             else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BOMB)
-                new BombSprite().Draw(sb, SelectedItem, Color.White, 0.18f);
+                SelectedItemSprite = new BombSprite();
             else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BOW)
-                new BowSprite().Draw(sb, SelectedItem, Color.White, 0.18f);
+                SelectedItemSprite = new BowSprite();
             else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BLUE_CANDLE)
-                new BlueCandleSprite().Draw(sb, SelectedItem, Color.White, 0.18f);
+                SelectedItemSprite = new BlueCandleSprite();
             else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BLUE_POTION)
-                new BluePotionSprite().Draw(sb, SelectedItem, Color.White, 0.18f);
+                SelectedItemSprite = new BluePotionSprite();
+            if (SelectedItemSprite != null) SelectedItemSprite.Draw(sb, Utils.LinkToCamera(SelectedItemPosition), Color.White, 0.18f);
 
             // Map and compass
-            if (Game.PlayerManager.GetDefaultPlayer().Inventory.HasItem(Types.Item.MAP)) new MapSprite().Draw(sb, MapPosition, Color.White, 0.18f);
-            if (Game.PlayerManager.GetDefaultPlayer().Inventory.HasItem(Types.Item.COMPASS)) new CompassSprite().Draw(sb, Compass, Color.White, 0.18f);
+            if (Game.PlayerManager.GetDefaultPlayer().Inventory.HasItem(Types.Item.MAP)) new MapSprite()
+                    .Draw(sb, Utils.LinkToCamera(MapPosition), Color.White, 0.18f);
+            if (Game.PlayerManager.GetDefaultPlayer().Inventory.HasItem(Types.Item.COMPASS)) new CompassSprite()
+                    .Draw(sb, Utils.LinkToCamera(CompassPosition), Color.White, 0.18f);
 
             // Inventory map
-            Map.DrawPlayerLocation(sb, MapArea);
-            Map.DrawMap(sb, MapArea);
+            Map.DrawPlayerLocation(sb, Utils.LinkToCamera(MiniMapPosition));
+            Map.DrawMap(sb, Utils.LinkToCamera(MiniMapPosition));
 
             // Inventory slots
             Slots.Draw(sb);
 
-            Camera.GetInstance().Move(Types.Direction.DOWN, (int)(176 * Utils.GameScale)); 
+            Camera.GetInstance().Move(Types.Direction.DOWN, (int)(176 * GameWindow.ResolutionScale));
             Game.PlayerManager.GetDefaultPlayer().HUD.Draw(sb);
-            Camera.GetInstance().Move(Types.Direction.UP, (int)(120 * Utils.GameScale));
+            Camera.GetInstance().Move(Types.Direction.UP, (int)(120 * GameWindow.ResolutionScale));
         }
 
         public override void Update(GameTime gameTime)
@@ -76,6 +83,16 @@ namespace Sprint0.GameStates.GameStates
 
             Game.PlayerManager.GetDefaultPlayer().HUD.Update();
             Slots.Update();
+        }
+
+        private void SetElementPositions() 
+        {
+            InventoryPosition = new Rectangle(0, 0, GameWindow.DefaultScreenWidth, (int)(176 * GameWindow.ResolutionScale));
+            SelectedItemPosition = new((int)(68 * GameWindow.ResolutionScale), (int)(48 * GameWindow.ResolutionScale));
+            MapPosition = new((int)(48 * GameWindow.ResolutionScale), (int)(112 * GameWindow.ResolutionScale));
+            CompassPosition = new((int)(44 * GameWindow.ResolutionScale), (int)(152 * GameWindow.ResolutionScale));
+            MiniMapPosition = new((int)(124 * GameWindow.ResolutionScale),
+                (int)(92 * GameWindow.ResolutionScale), (int)(9 * 8 * GameWindow.ResolutionScale), (int)(9 * 8 * GameWindow.ResolutionScale));
         }
     }
 }

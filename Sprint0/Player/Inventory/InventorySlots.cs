@@ -31,30 +31,30 @@ namespace Sprint0.Player.Inventory
 
         public void Draw(SpriteBatch sb)
         {
-            Vector2 SelectionSquare = new((int)((128 + 24 * SelectedColumn) * Utils.GameScale), (int)((48 + 16 * SelectedRow) * Utils.GameScale));
+            Vector2 SelectionSquare = new((int)((128 + 24 * SelectedColumn) * GameWindow.ResolutionScale), (int)((48 + 16 * SelectedRow) * GameWindow.ResolutionScale));
 
-            Vector2 Boomerang = new((int)(132 * Utils.GameScale), (int)(52 * Utils.GameScale));
-            Vector2 Bomb = new((int)(156 * Utils.GameScale), (int)(48 * Utils.GameScale));
-            Vector2 Arrow = new((int)(176 * Utils.GameScale), (int)(48 * Utils.GameScale));
-            Vector2 Bow = new((int)(184 * Utils.GameScale), (int)(48 * Utils.GameScale));
-            Vector2 Candle = new((int)(204 * Utils.GameScale), (int)(48 * Utils.GameScale));
-            Vector2 Potion = new((int)(180 * Utils.GameScale), (int)(64 * Utils.GameScale));
+            Vector2 Boomerang = new((int)(132 * GameWindow.ResolutionScale), (int)(52 * GameWindow.ResolutionScale));
+            Vector2 Bomb = new((int)(156 * GameWindow.ResolutionScale), (int)(48 * GameWindow.ResolutionScale));
+            Vector2 Arrow = new((int)(176 * GameWindow.ResolutionScale), (int)(48 * GameWindow.ResolutionScale));
+            Vector2 Bow = new((int)(184 * GameWindow.ResolutionScale), (int)(48 * GameWindow.ResolutionScale));
+            Vector2 Candle = new((int)(204 * GameWindow.ResolutionScale), (int)(48 * GameWindow.ResolutionScale));
+            Vector2 Potion = new((int)(180 * GameWindow.ResolutionScale), (int)(64 * GameWindow.ResolutionScale));
 
             if (Player.Inventory.HasItem(Types.Item.WOODEN_BOOMERANG))
-                new WoodenBoomerangSprite().Draw(sb, Boomerang, Color.White, 0.18f);
+                new WoodenBoomerangSprite().Draw(sb, Utils.LinkToCamera(Boomerang), Color.White, 0.18f);
             if (Player.Inventory.HasItem(Types.Item.BOMB))
-                new BombSprite().Draw(sb, Bomb, Color.White, 0.18f);
+                new BombSprite().Draw(sb, Utils.LinkToCamera(Bomb), Color.White, 0.18f);
             if (Player.Inventory.HasItem(Types.Item.BOW))
             {
-                new ArrowSprite().Draw(sb, Arrow, Color.White, 0.18f);
-                new BowSprite().Draw(sb, Bow, Color.White, 0.18f);
+                new ArrowSprite().Draw(sb, Utils.LinkToCamera(Arrow), Color.White, 0.18f);
+                new BowSprite().Draw(sb, Utils.LinkToCamera(Bow), Color.White, 0.18f);
             }
             if (Player.Inventory.HasItem(Types.Item.BLUE_CANDLE))
-                new BlueCandleSprite().Draw(sb, Candle, Color.White, 0.18f);
+                new BlueCandleSprite().Draw(sb, Utils.LinkToCamera(Candle), Color.White, 0.18f);
             if (Player.Inventory.HasItem(Types.Item.BLUE_POTION))
-                new BluePotionSprite().Draw(sb, Potion, Color.White, 0.18f);
+                new BluePotionSprite().Draw(sb, Utils.LinkToCamera(Potion), Color.White, 0.18f);
 
-            SelectedSlotSprite.Draw(sb, SelectionSquare, Color.White, 0.18f);
+            SelectedSlotSprite.Draw(sb, Utils.LinkToCamera(SelectionSquare), Color.White, 0.18f);
         }
 
         private void SetSelectedItem()

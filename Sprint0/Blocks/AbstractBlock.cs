@@ -28,7 +28,7 @@ namespace Sprint0.Blocks
 
         public virtual void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position, Color.White, BlockLayerDepth);
+            Sprite.Draw(sb, LinkToCamera(Position), Color.White, BlockLayerDepth);
         }
 
         public virtual Rectangle GetHitbox()

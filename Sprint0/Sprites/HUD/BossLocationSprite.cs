@@ -36,7 +36,7 @@ namespace Sprint0.Sprites.Doors.UnlockdDoorSprites
         public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer = 0)
         {
             
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position + Camera.GetInstance().Position), GetFrame(),
+            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetFrame(),
                 Color.Red * ColorOpacity, 0, Vector2.Zero, SpriteEffects.None, layer);
         }
     }

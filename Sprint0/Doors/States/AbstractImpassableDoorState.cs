@@ -43,7 +43,7 @@ namespace Sprint0.Doors.States
 
         public void Draw(SpriteBatch sb)
         {
-            DoorSprite.Draw(sb, Position, Color.White, DoorWayLayerDepth);
+            DoorSprite.Draw(sb, LinkToCamera(Position), Color.White, DoorWayLayerDepth);
         }
 
     }

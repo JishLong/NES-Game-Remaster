@@ -28,7 +28,7 @@ namespace Sprint0.Items
 
         public void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position, Color.White, ItemLayerDepth);
+            Sprite.Draw(sb, LinkToCamera(Position), Color.White, ItemLayerDepth);
         }
 
         public Rectangle GetHitbox()
