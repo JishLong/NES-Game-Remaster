@@ -10,7 +10,7 @@ namespace Sprint0.Npcs
     public class SecretText : AbstractCharacter
     {
         // The dimensions we want the text to fit into
-        private static readonly Vector2 TextAreaDims = new(11 * 16 * Utils.GameScale, 2 * 16 * Utils.GameScale);
+        private static readonly Vector2 TextAreaDims = new(11 * 16 * GameWindow.ResolutionScale, 2 * 16 * GameWindow.ResolutionScale);
         private string Text;
 
         private List<string> Strings;
@@ -48,10 +48,9 @@ namespace Sprint0.Npcs
                         // We want to center the text within the [TextAreaDims] and allow the camera to move it as well
                         int TextWidthOffset = (int)(TextAreaDims.X - (int)Resources.MediumFont.MeasureString(Strings[i]).X) / 2;
                         Vector2 StringDims = Resources.MediumFont.MeasureString("a");
-                        Vector2 TotalOffset = new Vector2(TextWidthOffset + StringDims.X * j, TextHeightOffset + StringDims.Y * i) +
-                            Camera.GetInstance().Position;
+                        Vector2 TotalOffset = new(TextWidthOffset + StringDims.X * j, TextHeightOffset + StringDims.Y * i);
 
-                        sb.DrawString(Resources.MediumFont, Strings[i].Substring(j, 1), Position + TotalOffset,
+                        sb.DrawString(Resources.MediumFont, Strings[i].Substring(j, 1), Utils.LinkToCamera(Position + TotalOffset),
                             Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0.21f);
                     }
                 }

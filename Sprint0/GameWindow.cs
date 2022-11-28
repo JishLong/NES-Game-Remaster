@@ -5,7 +5,7 @@ namespace Sprint0
     public class GameWindow
     {
         // Controls the scale at which everything is rendered at; higher numbers = higher, sharper resolution
-        public static readonly float ResolutionScale = 3;
+        public static readonly float ResolutionScale = 3f;
         // The width and height at which everything is rendered according to
         public static readonly int DefaultScreenWidth = (int)(256 * ResolutionScale);
         public static readonly int DefaultScreenHeight = (int)(232 * ResolutionScale);

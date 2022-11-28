@@ -39,7 +39,7 @@ namespace Sprint0.Projectiles
 
         public virtual void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position, Color.White, ProjectileLayerDepth);
+            Sprite.Draw(sb, LinkToCamera(Position), Color.White, ProjectileLayerDepth);
         }
 
         public virtual bool IsFromPlayer()

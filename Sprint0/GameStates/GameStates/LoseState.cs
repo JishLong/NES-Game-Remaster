@@ -51,7 +51,7 @@ namespace Sprint0.GameStates.GameStates
 
             Camera.GetInstance().Move(Types.Direction.UP, (int)(56 * GameWindow.ResolutionScale));
             Game.PlayerManager.GetDefaultPlayer().HUD.Draw(sb);
-            Camera.GetInstance().Reset();
+            Camera.GetInstance().Move(Types.Direction.DOWN, (int)(56 * GameWindow.ResolutionScale));
 
             sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight), null,
                 Color.Red * 0.5f, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);

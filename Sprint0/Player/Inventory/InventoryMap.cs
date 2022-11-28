@@ -36,9 +36,9 @@ namespace Sprint0.Player.Inventory
 
         private void CreateMap()
         {
-            int roomWidth = 8 * (int)GameScale;
-            int roomHeight = 8 * (int)GameScale;
-            int roomBuffer = 0 * (int)GameScale;
+            int roomWidth = (int)(8 * GameWindow.ResolutionScale);
+            int roomHeight = (int)(8 * GameWindow.ResolutionScale);
+            int roomBuffer = (int)(0 * GameWindow.ResolutionScale);
             for (int i = 0; i < MapSize; i++)
             {
                 for (int j = 0; j < MapSize; j++)

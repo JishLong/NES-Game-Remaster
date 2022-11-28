@@ -18,7 +18,7 @@ namespace Sprint0.Characters
         // Combat related fields.
         protected int Health;
         private Types.Direction KnockbackDirection;
-        private Vector2 Knockback = new(16 * Sprint0.Utils.GameScale, 16 * Sprint0.Utils.GameScale);
+        private Vector2 Knockback = new(16 * GameWindow.ResolutionScale, 16 * GameWindow.ResolutionScale);
         private static readonly int InvincibilityFrames = 40;
         private static readonly int KnockBackFrames = InvincibilityFrames / 5;
 
@@ -61,7 +61,7 @@ namespace Sprint0.Characters
         public virtual void Draw(SpriteBatch sb)
         {
             Color CharacterColor = (IsTakingDamage) ? Color.Red : Color.White;
-            if (State != null && !JustSpawned) State.Draw(sb, Position, CharacterColor);
+            if (State != null && !JustSpawned) State.Draw(sb, Sprint0.Utils.LinkToCamera(Position), CharacterColor);
         }
 
         public virtual void Freeze(bool frozenForever)

@@ -15,8 +15,8 @@ namespace Sprint0.Levels.Utils
         public Dictionary<string, Types.Door> DoorMap;
         public Dictionary<string, Types.Border> BorderMap;
 
-        public readonly int BlockWidth = 16 * (int) GameScale;
-        public readonly int BlockHeight = 16 * (int) GameScale;
+        public readonly int BlockWidth = (int)(16 * GameWindow.ResolutionScale);
+        public readonly int BlockHeight = (int)(16 * GameWindow.ResolutionScale);
         public readonly int BorderWidth = 16 * 3 * 2;
 
         public Vector2 UpDoorPosition;

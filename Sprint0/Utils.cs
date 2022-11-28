@@ -9,13 +9,6 @@ namespace Sprint0
     // Contains various important methods and values used throughout the code
     public static class Utils
     {
-        // How big everything on the screen is - essentially used to "scale up" or "scale down" images
-        public static float GameScale = 3;
-
-        // Screen size
-        public static int GameWidth = 256 * (int)GameScale;
-        public static int GameHeight = 232 * (int)GameScale;
-
         // Sprite Layer Depths
         public static readonly float DoorWayLayerDepth = 1.0f;
         public static readonly float BlockLayerDepth = 1.0f;

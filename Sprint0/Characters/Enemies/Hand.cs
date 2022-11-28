@@ -42,7 +42,7 @@ namespace Sprint0.Characters.Enemies
         public override void Update(GameTime gameTime)
         {
             FramesPassed++;
-            if (FramesPassed >= 16 * 2 * Sprint0.Utils.GameScale)
+            if (FramesPassed >= 16 * 2 * GameWindow.ResolutionScale)
             {
                 FramesPassed = 0;
                 State.ChangeDirection();

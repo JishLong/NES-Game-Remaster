@@ -51,7 +51,7 @@ namespace Sprint0.GameStates.GameStates
             // Draw the game state that was just paused
             PrevGameState.Draw(sb);
             sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight),
-                null, Color.Black * 0.5f, 0f, Vector2.Zero, SpriteEffects.None, 0.01f);
+                null, Color.Black * 0.5f, 0f, Vector2.Zero, SpriteEffects.None, 0.02f);
 
             // Draw the pause screen panel that is displayed on top of everything else
             sb.Draw(Resources.PausePanel, PanelPosition, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.01f);

@@ -92,7 +92,7 @@ namespace Sprint0
             SBatch.Begin(samplerState: SamplerState.PointClamp);
 
             SBatch.Draw(ResizableArea, GameWindow.GetCenteredArea(), Color.White);
-            MouseSprite.Draw(SBatch, Mouse.GetState().Position.ToVector2() - new Vector2(15, 175), Color.White, 0f);
+            MouseSprite.Draw(SBatch, Mouse.GetState().Position.ToVector2(), Color.White, 0f);
 
             SBatch.End();
 

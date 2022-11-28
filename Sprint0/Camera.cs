@@ -27,7 +27,7 @@ namespace Sprint0
 
         public static Camera GetInstance()
         {
-            Instance ??= new Camera(new(0, 56 * Utils.GameScale));
+            Instance ??= new Camera(new(0, 56 * GameWindow.ResolutionScale));
             return Instance;
         }
     }

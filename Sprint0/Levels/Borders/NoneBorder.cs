@@ -9,7 +9,7 @@ namespace Sprint0.Levels.Borders
     public class NoneBorder: IBorder
     {
         private Vector2 DefaultPosition;
-        private float DefaultLayerDepth = 1;
+
         public NoneBorder()
         {
             DefaultPosition = new Vector2(0, 0);

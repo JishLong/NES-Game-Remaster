@@ -10,7 +10,7 @@ namespace Sprint0.GameStates.GameStates
 {
     public class SecretRoomTransitionState : AbstractGameState
     {
-        private static readonly int HudAreaHeight = 56;
+        private static readonly int HUDHeight = (int)(56 * GameWindow.ResolutionScale);
         private static readonly int FadeOutFrames = 75;
 
         private readonly LevelResources LevelResources;
@@ -40,34 +40,40 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Draw(SpriteBatch sb)
         {
-            Camera.GetInstance().Move(Types.Direction.UP, (int)(HudAreaHeight * Utils.GameScale));
+            // Draw the HUD
+            Camera.GetInstance().Move(Types.Direction.UP, HUDHeight);
             Game.PlayerManager.GetDefaultPlayer().HUD.Draw(sb);
+            Camera.GetInstance().Move(Types.Direction.DOWN, HUDHeight);
 
-            Camera.GetInstance().Reset();
+            // Draw the game
             CurrentRoom.Draw(sb);
 
-            sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, Utils.GameWidth, Utils.GameHeight), null,
+            // Draw a cover over everything that slowly gets more opaque - fade effect
+            sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight), null,
                 Color.Black * FadeAmount, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
 
             if (FramesPassed > FadeOutFrames)
             {
+                // Go into the secret room
                 Game.LevelManager.CurrentLevel.CurrentRoom.MakeTransition(Types.RoomTransition.SECRET);
                 NextRoom.Draw(sb);
 
+                // Set the player at a specific location (was this way in the original game)
                 int NewPlayerX = LevelResources.BlockWidth * 3;
                 int NewPlayerY = LevelResources.BlockHeight * 2;
                 foreach (var player in Game.PlayerManager)
                 {
                     player.Position = new Vector2(NewPlayerX, NewPlayerY);
                 }
-                //Game.Player.Position = new Vector2(NewPlayerX, NewPlayerY);
 
+                // Resume playing game
                 Game.CurrentState = new PlayingState(Game);
             }
         }
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
             FramesPassed++;
             FadeAmount += 1f / FadeOutFrames;
         }

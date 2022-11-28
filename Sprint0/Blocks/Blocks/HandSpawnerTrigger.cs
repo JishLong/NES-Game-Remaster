@@ -18,7 +18,7 @@ namespace Sprint0.Blocks.Blocks
 
         public void SpawnHand(Room room) 
         {
-            float BlockUnits = 16 * Sprint0.Utils.GameScale;
+            float BlockUnits = 16 * GameWindow.ResolutionScale;
             Vector2 Offset = Camera.GetInstance().Position;
 
             if (RNG.NextDouble() < SpawnChance) 

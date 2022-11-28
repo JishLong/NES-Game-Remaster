@@ -11,6 +11,7 @@ namespace Sprint0.GameStates.GameStates
     {
         private readonly IInputHandler ClientInputHandler;
 
+        private static readonly int HUDHeight = (int)(56 * GameWindow.ResolutionScale);
         // The number of frames is takes for the screen to fade to black; higher number = longer time
         private static readonly int FadeOutFrames = 200;
         // How quickly the win text flashes on the screen; LOWER number = more flashing
@@ -56,9 +57,9 @@ namespace Sprint0.GameStates.GameStates
             Game.LevelManager.Draw(sb);
             Game.PlayerManager.Draw(sb);
 
-            Camera.GetInstance().Move(Types.Direction.UP, (int)(56 * GameWindow.ResolutionScale));
+            Camera.GetInstance().Move(Types.Direction.UP, HUDHeight);
             Game.PlayerManager.GetDefaultPlayer().HUD.Draw(sb);
-            Camera.GetInstance().Reset();
+            Camera.GetInstance().Move(Types.Direction.DOWN, HUDHeight);
 
             if (IsFlashing && FramesPassed < FadeOutFrames)
             {
