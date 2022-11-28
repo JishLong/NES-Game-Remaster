@@ -1,6 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System.Text;
-using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -123,55 +121,6 @@ namespace Sprint0
             };
         }
 
-        /* Returns an array of words [Strings] such that each Strings[i] is as long as possible without going over [width]
-         * if you were to draw each string in Strings[i] to the screen; each word is separated by a SPACE character
-         */
-        public static List<string> GetAlignedText(string longString, SpriteFont font, int width)
-        {
-            if (width <= 0)
-                return null;
-
-            List<string> Strings = new();
-            StringBuilder line = new();
-            int start = 0;
-            int space = longString.IndexOf(' ');
-
-            while (space != -1)
-            {
-                // If the next word will fit in the current Strings[i], then we'll add it
-                if (font.MeasureString(longString[start..space] + line).X <= width)
-                    line.Append(longString.AsSpan(start, space-start));
-                // If not, we'll make a new Strings[i] and add it to that instead
-                else if (line.ToString().Equals(""))
-                    Strings.Add(longString[start..space]);
-                else
-                {
-                    Strings.Add(line.ToString());
-                    line = new StringBuilder(longString[start..space]);
-                }
-                start = space;
-                space = longString.IndexOf(' ', start + 1);
-            }
-
-            // Now that there aren't any more spaces, we must be on the last word
-            if (font.MeasureString(longString[start..] + line).X <= width)
-                Strings.Add(line + longString[start..]);
-            else
-            {
-                if (!line.ToString().Equals(""))
-                    Strings.Add(line.ToString());
-                Strings.Add(longString[start..]);
-            }
-
-            // Trim some of the extra space at the beginning and end of each Strings[i]
-            /*for (int i = 0; i < Strings.Count; i++) 
-            {
-                Strings[i] = Strings[i].Trim();
-            }*/
-
-            return Strings;
-        }
-
         public static Rectangle LinkToCamera(Rectangle r)
         {
             return new Rectangle(r.X + (int)Camera.GetInstance().Position.X, r.Y + (int)Camera.GetInstance().Position.Y, r.Width, r.Height);
@@ -180,6 +129,40 @@ namespace Sprint0
         public static Vector2 LinkToCamera(Vector2 v) 
         {
             return new Vector2(v.X + (int)Camera.GetInstance().Position.X, v.Y + (int)Camera.GetInstance().Position.Y);
+        }
+
+        /* Returns a list of words [Strings] such that each Strings[i] is as long as possible without going over [width]
+         * if you were to draw each string in Strings[i] to the screen; each word is separated by a SPACE character
+         */
+        public static List<string> GetAlignedText(string longString, SpriteFont font, int width)
+        {
+            List<string> Strings = new();
+            string Line = "";
+
+            // Get a list of each word in the string
+            if (longString.Length == 0) return Strings;
+            string[] Words = longString.Split(' ');
+            if (Words.Length > 0) Line = Words[0];
+
+            for (int i = 1; i < Words.Length; i++) 
+            {
+                // If adding this word will keep the line below the width limit, add it to the line
+                if (Line.Length > 0 && font.MeasureString(Line + ' ' + Words[i]).X <= width)
+                {
+                    Line += ' ' + Words[i];
+                }
+                // If the line is maxed out, add it to the list and make a new line
+                else
+                {
+                    Strings.Add(Line);
+                    Line = Words[i];
+                }
+            }
+
+            // Add the last line we were looking at to the list, since it wouldn't have been added yet
+            if (Line.Length > 0) Strings.Add(Line);
+
+            return Strings;
         }
     }
 }

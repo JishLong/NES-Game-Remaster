@@ -13,6 +13,7 @@ namespace Sprint0.GameStates.GameStates
         private readonly IInputHandler ClientInputHandler;
         private readonly IGameState PlayingGameState;
         private readonly TypeLine CommandLine;
+        private readonly CommandParser CommandParser;
 
         // How quickly the text cursor flashes on the screen; LOWER number = more flashing
         private static readonly int FlashingFreq = 15;
@@ -27,7 +28,7 @@ namespace Sprint0.GameStates.GameStates
         // Logical variables to help check for certain conditions
         private bool IsShowing;
         private int FramesPassed;
-        private string[] Response;
+        private List<string> Response;
 
         public CommandLineState(Game1 game) : base(game)
         {
@@ -47,10 +48,11 @@ namespace Sprint0.GameStates.GameStates
             // The zelda font has a strange height, so the text is actually placed a little further down to better center it
             ResponseTextPosition = new Vector2(CharSize.X / 2, ResponseLinePosition.Y + CharSize.Y / 8);
             CommandLine = new(TextLinePosition, TextScaling);
+            CommandParser = new(Resources.SmallFont, (int)(TextLinePosition.Width / (GameWindow.ResolutionScale * TextScaling)));
 
             IsShowing = true;
             FramesPassed = 0;
-            Response = new string[]{ "type \"help\" for a list of commands" };
+            Response = new List<string>{ "type \"help\" for a list of commands" };
         }
 
         public override void Draw(SpriteBatch sb)
@@ -65,7 +67,7 @@ namespace Sprint0.GameStates.GameStates
 
             // Draw the response
             Vector2 CharSize = Resources.SmallFont.MeasureString(" ") * GameWindow.ResolutionScale * TextScaling;
-            for (int i = 0; i < Response.Length; i++) 
+            for (int i = 0; i < Response.Count; i++) 
             {
                 sb.DrawString(Resources.SmallFont, Response[i], ResponseTextPosition + new Vector2(0, CharSize.Y * i), 
                     Color.Aqua, 0f, new Vector2(0, 0), GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0.03f);
@@ -97,7 +99,7 @@ namespace Sprint0.GameStates.GameStates
                 if (CommandLine.Text.Length == 0) Game.CurrentState = PlayingGameState;
                 else
                 {
-                    //parse command
+                    Response = CommandParser.ParseCommand(CommandLine.Text, Game);
                     CommandLine.ResetText();
                 }
             }
