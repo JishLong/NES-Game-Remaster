@@ -12,6 +12,10 @@ namespace Sprint0
         // The screen's width to height ratio that must always be maintained
         private static readonly float AspectRatio = (float)DefaultScreenWidth / DefaultScreenHeight;
 
+        // The actual width and height of the screen
+        public int ScreenWidth { get; private set; }
+        public int ScreenHeight { get; private set; }
+
         /* Values that make up a rectangle containing the game that keeps its width to height ratio equal to [AspectRatio];
          * This rectangle is centered on the screen
          */
@@ -23,8 +27,8 @@ namespace Sprint0
         public void UpdateWindowSize(GraphicsDeviceManager graphics)
         {
             // Record the actual dimensions of the screen
-            int ScreenWidth = graphics.GraphicsDevice.Viewport.Width;
-            int ScreenHeight = graphics.GraphicsDevice.Viewport.Height;
+            ScreenWidth = graphics.GraphicsDevice.Viewport.Width;
+            ScreenHeight = graphics.GraphicsDevice.Viewport.Height;
 
             // Calculate the width to keep the aspect ratio in check
             if ((int)(ScreenWidth / AspectRatio) > ScreenHeight) CenteredWidth = (int)(ScreenHeight * AspectRatio);

@@ -44,6 +44,7 @@ namespace Sprint0
         public static Texture2D MouseCursor { get; private set; }
 
         // Sprite sheets
+        public static Texture2D BabyOnBaby { get; private set; }
         public static Texture2D BlocksSpriteSheet { get; private set; }
         public static Texture2D ItemsSpriteSheet { get; private set; }
         public static Texture2D WeaponsAndProjSpriteSheet { get; private set; }
@@ -239,6 +240,7 @@ namespace Sprint0
             Win = c.Load<SoundEffect>("Audio/win");
 
             // Load sprite sheets
+            BabyOnBaby = c.Load<Texture2D>("Images/babyOnBaby");
             BlocksSpriteSheet = c.Load<Texture2D>("Images/blocks");
             ItemsSpriteSheet = c.Load<Texture2D>("Images/items");
             WeaponsAndProjSpriteSheet = c.Load<Texture2D>("Images/weaponsAndProj");

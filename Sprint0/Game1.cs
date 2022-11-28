@@ -92,6 +92,7 @@ namespace Sprint0
             GraphicsDevice.SetRenderTarget(null);
             SBatch.Begin(samplerState: SamplerState.PointClamp);
 
+            SBatch.Draw(Resources.BabyOnBaby, new Rectangle(0, 0, GameWindow.ScreenWidth, GameWindow.ScreenHeight), Color.White);
             SBatch.Draw(ResizableArea, GameWindow.GetCenteredArea(), Color.White);
             MouseSprite.Draw(SBatch, Mouse.GetState().Position.ToVector2(), Color.White, 0f);
 
