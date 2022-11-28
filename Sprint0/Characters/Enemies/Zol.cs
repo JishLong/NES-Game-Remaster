@@ -41,7 +41,7 @@ namespace Sprint0.Characters.Enemies
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
         {
             // If a zol isn't killed in one hit, it splits into two gels
-            if (damage > 1) 
+            if (damage <= 1) 
             {
                 Vector2 gel1Position = Sprint0.Utils.CenterOnEdge(GetHitbox(), GetHitbox().Width, GetHitbox().Height, Types.Direction.LEFT);
                 Vector2 gel2Position = Sprint0.Utils.CenterOnEdge(GetHitbox(), GetHitbox().Width, GetHitbox().Height, Types.Direction.RIGHT);

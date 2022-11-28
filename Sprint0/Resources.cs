@@ -149,8 +149,8 @@ namespace Sprint0
         public static readonly Rectangle Gel = new Rectangle(32, 0, 8, 9);
         public static readonly Rectangle Hand = new Rectangle(48, 0, 16, 16);
         public static readonly Rectangle Skeleton = new Rectangle(80, 0, 15, 16);
-        public static readonly Rectangle Zol = new Rectangle(94, 0, 14, 16);
-        public static readonly Rectangle OldMan = new Rectangle(122, 0, 16, 16);
+        public static readonly Rectangle Zol = new Rectangle(95, 0, 14, 16);
+        public static readonly Rectangle OldMan = new Rectangle(123, 0, 16, 16);
         public static readonly Rectangle RedGoriyaDown = new Rectangle(0, 16, 13, 16);
         public static readonly Rectangle RedGoriyaUp = new Rectangle(26, 16, 13, 16);
         public static readonly Rectangle RedGoriyaSide = new Rectangle(52, 16, 14, 16);

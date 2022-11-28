@@ -47,15 +47,15 @@ namespace Sprint0.GameStates.GameStates
 
             // Selected item
             ISprite SelectedItemSprite = null;
-            if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.WOODEN_BOOMERANG)
+            if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.WOODENBOOMERANG)
                 SelectedItemSprite = new WoodenBoomerangSprite();
             else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BOMB)
                 SelectedItemSprite = new BombSprite();
             else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BOW)
                 SelectedItemSprite = new BowSprite();
-            else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BLUE_CANDLE)
+            else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BLUECANDLE)
                 SelectedItemSprite = new BlueCandleSprite();
-            else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BLUE_POTION)
+            else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BLUEPOTION)
                 SelectedItemSprite = new BluePotionSprite();
             if (SelectedItemSprite != null) SelectedItemSprite.Draw(sb, Utils.LinkToCamera(SelectedItemPosition), Color.White, 0.18f);
 

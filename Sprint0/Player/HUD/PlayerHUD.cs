@@ -60,15 +60,15 @@ namespace Sprint0.Player.HUD
             new SwordProjSprite(Types.Direction.UP).Draw(sb, Utils.LinkToCamera(PrimaryItem), Color.White, 0.18f);
 
             // Secondary weapon
-            if (Player.Inventory.SelectedItem == Types.Item.WOODEN_BOOMERANG)
+            if (Player.Inventory.SelectedItem == Types.Item.WOODENBOOMERANG)
                 new WoodenBoomerangSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
             else if (Player.Inventory.SelectedItem == Types.Item.BOMB)
                 new BombSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
             else if (Player.Inventory.SelectedItem == Types.Item.BOW)
                 new BowSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
-            else if (Player.Inventory.SelectedItem == Types.Item.BLUE_CANDLE)
+            else if (Player.Inventory.SelectedItem == Types.Item.BLUECANDLE)
                 new BlueCandleSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
-            else if (Player.Inventory.SelectedItem == Types.Item.BLUE_POTION)
+            else if (Player.Inventory.SelectedItem == Types.Item.BLUEPOTION)
                 new BluePotionSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
 
             // Item counts

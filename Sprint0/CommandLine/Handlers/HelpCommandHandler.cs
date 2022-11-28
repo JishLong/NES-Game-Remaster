@@ -16,7 +16,7 @@ namespace Sprint0.CommandLine.Handlers
             MaxResponseWidth = maxTextWidth;
 
             ErrorMessage = Utils.GetAlignedText(
-                "Incorrect usage. This command doesn't use any parameters, simply type \"help\"", 
+                "Incorrect usage. This command doesn't use any parameters, simply type \"help\".", 
                 font, maxTextWidth);
         }
 
@@ -30,6 +30,12 @@ namespace Sprint0.CommandLine.Handlers
             List<string> Response = new();
             Response.AddRange(Utils.GetAlignedText(
                 "[ help ] - shows a list of commands, their parameters, and their usages",
+                ResponseFont, MaxResponseWidth));
+            Response.AddRange(Utils.GetAlignedText(
+                "[ list <ObjectType> ] - shows a list of all objects of type <ObjectType>",
+                ResponseFont, MaxResponseWidth));
+            Response.AddRange(Utils.GetAlignedText(
+                "[ spawn <ObjectType> <Object> <X-Coordinate> <Y-Coordinate> ] - spawns an object in the current room",
                 ResponseFont, MaxResponseWidth));
 
             return Response;

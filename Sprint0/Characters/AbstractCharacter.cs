@@ -51,7 +51,7 @@ namespace Sprint0.Characters
             // Custom drop rates because the game's actual drop rates are too uncommon for just playing in the first dungeon
             int Drop = new Random().Next(100);
             if (Drop >= 25 && Drop < 50) room.AddItemToRoom(Types.Item.RUPEE, Position);
-            else if (Drop >= 50 && Drop < 60) room.AddItemToRoom(Types.Item.VALUABLE_RUPEE, Position);
+            else if (Drop >= 50 && Drop < 60) room.AddItemToRoom(Types.Item.VALUABLERUPEE, Position);
             else if (Drop >= 60 && Drop < 75) room.AddItemToRoom(Types.Item.HEART, Position);
             else if (Drop >= 75 && Drop < 85) room.AddItemToRoom(Types.Item.CLOCK, Position);
             else if (Drop >= 85 && Drop < 95) room.AddItemToRoom(Types.Item.BOMB, Position);

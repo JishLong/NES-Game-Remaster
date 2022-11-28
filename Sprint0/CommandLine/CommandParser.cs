@@ -7,12 +7,16 @@ namespace Sprint0.CommandLine
     public class CommandParser
     {
         private readonly HelpCommandHandler HelpCommandHandler;
+        private readonly ListCommandHandler ListCommandHandler;
+        private readonly SpawnCommandHandler SpawnCommandHandler;
 
         private readonly List<string> ErrorMessage;
 
         public CommandParser(SpriteFont font, int maxTextWidth) 
         {
             HelpCommandHandler = new(font, maxTextWidth);
+            ListCommandHandler = new(font, maxTextWidth);
+            SpawnCommandHandler = new(font, maxTextWidth);
 
             ErrorMessage = Utils.GetAlignedText("Unknown command. Type \"help\" for a list of commands.", font, maxTextWidth);
         }
@@ -28,16 +32,18 @@ namespace Sprint0.CommandLine
             if (EndOfCommand == -1) Command = commandLineText;
             else 
             {
-                Command = commandLineText.Substring(0, EndOfCommand);
-                Parameters = commandLineText.Substring(EndOfCommand);
+                Command = commandLineText[..EndOfCommand];
+                Parameters = commandLineText[(EndOfCommand + 1)..];
             }
             
-            Command = Command.ToLower();
-            Parameters = Parameters.ToLower();
+            Command = Command.ToUpper();
+            Parameters = Parameters.ToUpper();
 
             return Command switch
             {
-                "help" => HelpCommandHandler.HandleCommand(Parameters, game),
+                "HELP" => HelpCommandHandler.HandleCommand(Parameters, game),
+                "LIST" => ListCommandHandler.HandleCommand(Parameters, game),
+                "SPAWN" => SpawnCommandHandler.HandleCommand(Parameters, game),
                 _ => ErrorMessage,
             };
         }
