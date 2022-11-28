@@ -159,9 +159,13 @@ namespace Sprint0.Input
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Enter, Keys.Space, Keys.Back, Keys.A, Keys.B, Keys.C, Keys.D, Keys.E, Keys.F, Keys.G,
                 Keys.H, Keys.I, Keys.J, Keys.K, Keys.L, Keys.M, Keys.N, Keys.O, Keys.P, Keys.Q, Keys.R, Keys.S, Keys.T, Keys.U, Keys.V,
                 Keys.W, Keys.X, Keys.Y, Keys.Z, Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6, Keys.D7, Keys.D8, Keys.D9, Keys.D0),
-                    new TypeCommandLineCommand(currentGameState) },
+                    new CommandLineTypeKeyCommand(currentGameState) },
+                { new ActionMap(ActionMap.KeyState.RELEASED, Keys.Enter, Keys.Space, Keys.Back, Keys.A, Keys.B, Keys.C, Keys.D, Keys.E, Keys.F, Keys.G,
+                Keys.H, Keys.I, Keys.J, Keys.K, Keys.L, Keys.M, Keys.N, Keys.O, Keys.P, Keys.Q, Keys.R, Keys.S, Keys.T, Keys.U, Keys.V,
+                Keys.W, Keys.X, Keys.Y, Keys.Z, Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6, Keys.D7, Keys.D8, Keys.D9, Keys.D0),
+                    new CommandLineReleaseKeyCommand(currentGameState) },
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Escape),
-                    new PauseGameCommand(game, currentGameState) },
+                    new ToggleCommandLineCommand(game) },
             };
         }
     }

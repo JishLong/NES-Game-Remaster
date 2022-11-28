@@ -4,20 +4,19 @@ using Sprint0.GameStates.GameStates;
 
 namespace Sprint0.Commands.Misc
 {
-    public class TypeCommandLineCommand : ICommand
+    public class CommandLineTypeKeyCommand : ICommand
     {
         private readonly IGameState CommandLineState;
         private Keys KeyTyped;
 
-        public TypeCommandLineCommand(IGameState commandLineState)
+        public CommandLineTypeKeyCommand(IGameState commandLineState)
         {
             CommandLineState = commandLineState;
         }
 
         public void Execute()
         {
-            string KeyString = KeyTyped.ToString();
-            (CommandLineState as CommandLineState).AddToCommand(KeyString);
+            (CommandLineState as CommandLineState).TypeKey((char)KeyTyped);
         }
 
         public void SetKeyTyped(Keys key) 

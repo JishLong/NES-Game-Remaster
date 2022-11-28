@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.CommandLine;
 using Sprint0.Controllers;
 using Sprint0.Input;
 using Sprint0.Input.ClientInputHandlers;
@@ -11,6 +12,7 @@ namespace Sprint0.GameStates.GameStates
     {
         private readonly IInputHandler ClientInputHandler;
         private readonly IGameState PlayingGameState;
+        private readonly TypeLine CommandLine;
 
         // How quickly the text cursor flashes on the screen; LOWER number = more flashing
         private static readonly int FlashingFreq = 15;
@@ -18,17 +20,14 @@ namespace Sprint0.GameStates.GameStates
         private static readonly float TextScaling = 0.4f;
 
         // The positions of elements on the screen
+        private Rectangle TextLinePosition;
         private Rectangle ResponseLinePosition;
         private Vector2 ResponseTextPosition;
-        private Rectangle TextLinePosition;
-        private Vector2 CommandTextPosition;
-        private Rectangle TextCursorPosition;
 
         // Logical variables to help check for certain conditions
         private bool IsShowing;
         private int FramesPassed;
         private string[] Response;
-        private string Command;
 
         public CommandLineState(Game1 game) : base(game)
         {
@@ -41,12 +40,17 @@ namespace Sprint0.GameStates.GameStates
 
             PlayingGameState = new PlayingState(game);
 
-            SetElementPositions();
+            TextLinePosition = new(0, GameWindow.DefaultScreenHeight * 18 / 20, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight / 20);
+            Vector2 CharSize = Resources.SmallFont.MeasureString(" ") * GameWindow.ResolutionScale * TextScaling;
+            ResponseLinePosition = new Rectangle(0, (int)(GameWindow.DefaultScreenHeight / 20),
+                GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight * 16 / 20);
+            // The zelda font has a strange height, so the text is actually placed a little further down to better center it
+            ResponseTextPosition = new Vector2(CharSize.X / 2, ResponseLinePosition.Y + CharSize.Y / 8);
+            CommandLine = new(TextLinePosition, TextScaling);
 
             IsShowing = true;
             FramesPassed = 0;
             Response = new string[]{ "type \"help\" for a list of commands" };
-            Command = "";
         }
 
         public override void Draw(SpriteBatch sb)
@@ -70,68 +74,39 @@ namespace Sprint0.GameStates.GameStates
             // Draw the text line panel
             sb.Draw(Resources.ScreenCover, TextLinePosition, null, Color.Black * 0.75f, 0f, new Vector2(0, 0), SpriteEffects.None, 0.04f);
 
-            // Draw the command
-            sb.DrawString(Resources.SmallFont, Command, CommandTextPosition, Color.White, 0f, new Vector2(0, 0),
-                GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0.03f);
-
-            // Draw the little text cursor
-            if (IsShowing) sb.Draw(Resources.ScreenCover, TextCursorPosition, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.03f);
-        }
-
-        public void SetElementPositions()
-        {
-            Vector2 CharSize = Resources.SmallFont.MeasureString(" ") * GameWindow.ResolutionScale * TextScaling;
-
-            ResponseLinePosition = new Rectangle(0, (int)(GameWindow.DefaultScreenHeight / 20),
-                GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight * 16 / 20);
-            TextLinePosition = new Rectangle(
-                0, GameWindow.DefaultScreenHeight * 18 / 20, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight / 20);
-            
-            // The zelda font has a strange height, so the text is actually placed a little further down to better center it
-            ResponseTextPosition = new Vector2(CharSize.X / 2, ResponseLinePosition.Y + CharSize.Y / 8);
-            CommandTextPosition = new Vector2(CharSize.X / 2, TextLinePosition.Y + CharSize.Y / 8);
-            TextCursorPosition = new Rectangle((int)CharSize.X / 2, TextLinePosition.Y + TextLinePosition.Height / 6, 
-                (int)CharSize.X / 2, TextLinePosition.Height * 3 / 4);
+            CommandLine.Draw(sb);
         }
 
         public override void Update(GameTime gameTime)
         {
             FramesPassed++;
-            if (FramesPassed % FlashingFreq == 0)
-            {
-                IsShowing = !IsShowing;
-            }
+            if (FramesPassed % FlashingFreq == 0) IsShowing = !IsShowing;
+
+            CommandLine.Update();
 
             base.Update(gameTime);
         }
 
-        public void AddToCommand(string character) 
+        public void TypeKey(char key) 
         {
-            if (character.Equals("Enter"))
+            /* If the key is ENTER, we want to try and execute the command if something is typed
+             * If nothing has been typed, we'll close the command line
+             */
+            if (key == '\r')
             {
-                if (Command.Length == 0) Game.CurrentState = PlayingGameState;
+                if (CommandLine.Text.Length == 0) Game.CurrentState = PlayingGameState;
                 else
                 {
                     //parse command
-                    Command = "";
+                    CommandLine.ResetText();
                 }
             }
-            else if (character.Equals("Back"))
-            {
-                int ShortenedCommand = Command.Length - 1;
-                if (ShortenedCommand >= 0)
-                    Command = Command[0..ShortenedCommand];
-            }
-            else 
-            {
-                if (character.Equals("Space")) character = " ";
-                else if (character.Length == 2) character = character[1..];
-                Command += character;
-            }
-            Vector2 CharSize = Resources.SmallFont.MeasureString(" ") * GameWindow.ResolutionScale * TextScaling;
-            Vector2 CommandSize = Resources.SmallFont.MeasureString(Command) * GameWindow.ResolutionScale * TextScaling;
-            TextCursorPosition = new Rectangle((int)(CharSize.X / 2 + CommandSize.X), TextLinePosition.Y + TextLinePosition.Height / 6, 
-                (int)CharSize.X / 2, TextLinePosition.Height * 3 / 4);
+            else CommandLine.TypeChar(key);
+        }
+
+        public void ReleaseKey() 
+        {
+            CommandLine.ReleaseChar();
         }
     }
 }

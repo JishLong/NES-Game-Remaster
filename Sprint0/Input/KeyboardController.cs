@@ -27,7 +27,9 @@ namespace Sprint0.Controllers
             {
                 if (mapping.Key.IsActivated(PrevState, currentState))
                 {
-                    if (mapping.Value is TypeCommandLineCommand) (mapping.Value as TypeCommandLineCommand).SetKeyTyped(mapping.Key.ActingKey);
+                    // Specific case for the command line - needs to know exactly what key was typed
+                    if (mapping.Value is CommandLineTypeKeyCommand) (mapping.Value as CommandLineTypeKeyCommand).SetKeyTyped(mapping.Key.ActingKey);
+
                     mapping.Value.Execute();
                 }
             }
