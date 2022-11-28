@@ -78,8 +78,8 @@ namespace Sprint0.GameStates.GameStates
                         Game.LevelManager.CurrentLevel.CurrentRoom = NextRoom;
                         foreach (var player in Game.PlayerManager)
                         {
-                            player.Position = new Vector2(LevelResources.BlockWidth * GameWindow.ResolutionScale * 8, 
-                                LevelResources.BlockHeight * GameWindow.ResolutionScale * 8);
+                            player.Position = new Vector2(LevelResources.BlockWidth * 8, 
+                                LevelResources.BlockHeight * 8);
                         }
 
                         FramesPassed = 0;
