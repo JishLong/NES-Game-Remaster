@@ -16,6 +16,7 @@ namespace Sprint0
     {
         private GraphicsDeviceManager Graphics;
         private readonly GameWindow GameWindow;
+        private RenderTarget2D ResizableArea;
         private SpriteBatch SBatch;
         private ISprite MouseSprite;
         private WSClient wsClient;
@@ -47,6 +48,7 @@ namespace Sprint0
             Window.AllowUserResizing = true;
             Graphics.ApplyChanges();
             GameWindow.UpdateWindowSize(Graphics);
+            ResizableArea = new(GraphicsDevice, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight);
 
             wsClient.Connect();
 
@@ -75,7 +77,6 @@ namespace Sprint0
         protected override void Draw(GameTime gameTime)
         {
             // Make an invisible area to render everything onto
-            RenderTarget2D ResizableArea = new(GraphicsDevice, Sprint0.GameWindow.DefaultScreenWidth, Sprint0.GameWindow.DefaultScreenHeight);
             GraphicsDevice.SetRenderTarget(ResizableArea);
             GraphicsDevice.Clear(Color.Black);
 
