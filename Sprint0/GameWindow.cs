@@ -10,7 +10,7 @@ namespace Sprint0
         public static readonly int DefaultScreenWidth = (int)(256 * ResolutionScale);
         public static readonly int DefaultScreenHeight = (int)(232 * ResolutionScale);
         // The screen's width to height ratio that must always be maintained
-        private static readonly float AspectRatio = (float)DefaultScreenWidth / DefaultScreenHeight;            
+        private static readonly float AspectRatio = (float)DefaultScreenWidth / DefaultScreenHeight;
 
         /* Values that make up a rectangle containing the game that keeps its width to height ratio equal to [AspectRatio];
          * This rectangle is centered on the screen

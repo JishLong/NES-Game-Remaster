@@ -28,16 +28,6 @@ namespace Sprint0
         public static readonly float DoorWallLayerDepth = 0.2f; // Needs to be drawn on top of the player.
         public static readonly float HUDLayerDepth = 0.0f;
 
-        // This will be used for Sprint 5 features
-        public static void UpdateWindowSize(GraphicsDeviceManager graphics)
-        {
-            GameWidth = graphics.GraphicsDevice.Viewport.Width;
-            GameHeight = graphics.GraphicsDevice.Viewport.Height;
-
-            GameScale = GameWidth / 256;
-            GameScale = GameHeight / 176;
-        }
-
         // Returns a position for [centeredHitbox] such that the center points of [hitbox] and [centeredHitbox] fall on the same point
         public static Vector2 CenterRectangles(Rectangle hitbox, int centeredHitboxWidth, int centeredHitboxHeight)
         {
@@ -187,6 +177,16 @@ namespace Sprint0
             }*/
 
             return Strings;
+        }
+
+        public static Rectangle LinkToCamera(Rectangle r)
+        {
+            return new Rectangle(r.X + (int)Camera.GetInstance().Position.X, r.Y + (int)Camera.GetInstance().Position.Y, r.Width, r.Height);
+        }
+
+        public static Vector2 LinkToCamera(Vector2 v) 
+        {
+            return new Vector2(v.X + (int)Camera.GetInstance().Position.X, v.Y + (int)Camera.GetInstance().Position.Y);
         }
     }
 }
