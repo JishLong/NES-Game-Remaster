@@ -411,3 +411,9 @@ C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Aud
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\goombaLaserFire.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\goombaLaserHum.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\vineBoom.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\bowserFalls.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\marioDieLong.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\marioDieShort.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\marioFireball.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\marioPowerUpAppears.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\marioStomp.xnb

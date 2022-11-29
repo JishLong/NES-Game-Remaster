@@ -5,7 +5,7 @@ namespace Sprint0.Sprites.GoombaMode.Mario
 {
     public class MarioMovingLeftSprite : AbstractAnimatedSprite
     {
-        public MarioMovingLeftSprite() : base(2, 8) { }
+        public MarioMovingLeftSprite() : base(4, 8) { }
 
         protected override Texture2D GetSpriteSheet() => Resources.GoombaMode;
 

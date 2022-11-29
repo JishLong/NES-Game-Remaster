@@ -1,5 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Characters.States.BatStates;
+using Sprint0.Characters.States.Skeleton;
 using Sprint0.Characters.Utils;
+using Sprint0.GameModes;
 
 namespace Sprint0.Characters.Enemies.States.SkeletonStates
 {
@@ -28,6 +31,12 @@ namespace Sprint0.Characters.Enemies.States.SkeletonStates
         public override void Freeze(bool frozenForever)
         {
             Character.State = new SkeletonFrozenState(Character, Direction, frozenForever);
+        }
+
+        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
+        {
+            if (inCurrentRoom) Character.State = new SkeletonGameModeTransitionState(Character, oldGameMode, newGameMode, Direction);
+            else Character.Sprite = newGameMode.GetSkeletonSprite(this, Direction);
         }
 
         public override void Unfreeze()

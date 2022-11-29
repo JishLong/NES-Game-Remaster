@@ -4,6 +4,8 @@ using Sprint0.Characters;
 using Sprint0.Levels;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Projectiles.Tools;
+using Sprint0.GameModes;
+using static Sprint0.Types;
 
 namespace Sprint0.Npcs
 {
@@ -13,7 +15,7 @@ namespace Sprint0.Npcs
 
 		public OldMan(Vector2 position)
 		{
-            Sprite = new OldManSprite();
+            Sprite = Sprite = GameModeManager.GetInstance().GameMode.GetOldManSprite();
 
             Health = 1;
 			Position = position;	
@@ -33,6 +35,11 @@ namespace Sprint0.Npcs
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
         {
             WasAttacked = true;
+        }
+
+        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
+        {
+            Sprite = newGameMode.GetOldManSprite();
         }
 
         public override void Update(GameTime gameTime)

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Collision;
+using Sprint0.Player;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites.Projectiles.Player;
 using static Sprint0.Types;
@@ -13,7 +14,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
         {
             MaxFramesAlive = Sprite.GetAnimationTime() - 1;        
             Damage = 4;
-            if (user is BombProjectile)
+            if (user is BombProjectile || user is MarioFireballProjectile)
             {
                 Position = Utils.CenterRectangles(user.GetHitbox(), GetHitbox().Width, GetHitbox().Height);
                 AudioManager.GetInstance().PlayOnce(Resources.BombExplode);

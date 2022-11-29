@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.States.ZolStates;
+using Sprint0.GameModes;
 using Sprint0.Levels;
 using Sprint0.Sprites.Characters.Enemies;
 
@@ -12,11 +13,11 @@ namespace Sprint0.Characters.Enemies
 
         public Zol(Vector2 position)
         {
-            // The zol sprite is the same no matter its state, so we'll just instantiate it here
-            Sprite = new ZolSprite();
-
             // State
             State = new ZolMovingState(this);
+
+            // The zol sprite is the same no matter its state, so we'll just instantiate it here
+            Sprite = GameModeManager.GetInstance().GameMode.GetZolSprite(State, Types.Direction.UP);
 
             // Combat
             Health = 1;

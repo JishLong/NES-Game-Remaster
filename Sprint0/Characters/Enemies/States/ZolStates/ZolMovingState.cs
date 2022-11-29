@@ -1,5 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Characters.States.BatStates;
+using Sprint0.Characters.States.ZolStates;
 using Sprint0.Characters.Utils;
+using Sprint0.GameModes;
 
 namespace Sprint0.Characters.Enemies.States.ZolStates
 {
@@ -29,6 +32,11 @@ namespace Sprint0.Characters.Enemies.States.ZolStates
             Character.State = new ZolFrozenState(Character, Direction, frozenForever);
         }
 
+        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
+        {
+            if (inCurrentRoom) Character.State = new ZolGameModeTransitionState(Character, oldGameMode, newGameMode, Direction);
+            else Character.Sprite = newGameMode.GetZolSprite(this, Direction);
+        }
 
         public override void Unfreeze()
         {

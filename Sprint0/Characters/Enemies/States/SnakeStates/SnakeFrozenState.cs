@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Characters.States.SnakeStates;
+using Sprint0.GameModes;
 using static Sprint0.Types;
 
 namespace Sprint0.Characters.Enemies.States.SnakeStates
@@ -36,6 +38,11 @@ namespace Sprint0.Characters.Enemies.States.SnakeStates
             if (frozenForever) FrozenForever = frozenForever;
         }
 
+        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
+        {
+            if (inCurrentRoom) Character.State = new SnakeGameModeTransitionState(Character, oldGameMode, newGameMode, ResumeMovementDirection);
+            else Character.Sprite = newGameMode.GetSnakeSprite(this, ResumeMovementDirection);
+        }
 
         public override void Unfreeze()
         {

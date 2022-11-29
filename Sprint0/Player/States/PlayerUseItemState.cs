@@ -3,23 +3,20 @@ using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 using Sprint0.Items;
 using Sprint0.Sprites.GoombaMode.Goomba;
+using Sprint0.GameModes;
 
 namespace Sprint0.Player.States
 {
     public class PlayerUseItemState : AbstractPlayerState
     {
-        private readonly static ISprite[] Sprites = {
-            new PlayerUseItemUpSprite(), new PlayerUseItemDownSprite(), new PlayerUseItemLeftSprite(), new PlayerUseItemRightSprite()
-        };
-
         private int FramesPassed;
         private static readonly int UseFrames = 20;
 
         public PlayerUseItemState(Player player) : base(player)
         {
             Player.IsStationary = false;
-            if (Player.Gamemode != Types.Gamemode.GOOMBAMODE) Sprite = Sprites[(int)Player.FacingDirection];
-            else Sprite = new GoombaIdleSprite();
+            Sprite = GameModeManager.GetInstance().GameMode.GetPlayerSprite(this, Player.FacingDirection);
+
             FramesPassed = 0;
             ProjectileManager.GetInstance().AddProjectile(Player.SecondaryWeapon, Player, Player.FacingDirection);
             if (Player.SecondaryWeapon == Types.Projectile.BOMB_PROJ) Player.Inventory.DecrementItem(Types.Item.BOMB);

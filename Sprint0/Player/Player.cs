@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Commands;
+using Sprint0.GameModes;
 using Sprint0.Items;
 using Sprint0.Player.HUD;
 using Sprint0.Player.States;
@@ -31,7 +32,7 @@ namespace Sprint0.Player
         public int Health { get; set; }
         public int MaxHealth { get; set; }
         public Types.Projectile SecondaryWeapon { get; set; }
-        public Types.Gamemode Gamemode { get; set; }
+        public Types.GameMode GameMode { get; set; }
 
         // Helpful values to check for certain conditions
         public Types.Direction FacingDirection { get; set; }
@@ -49,7 +50,7 @@ namespace Sprint0.Player
         public Player(Game1 game)
         {
             // Initialize the state
-            Gamemode = Types.Gamemode.NORMALMODE;
+            GameMode = Types.GameMode.NORMALMODE;
             State = new PlayerIdleState(this, true);
 
             // Initialize the movement-related fields
@@ -113,9 +114,9 @@ namespace Sprint0.Player
             State.StopAction();
         }
 
-        public void ToggleGoombification()
+        public void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode)
         {
-            State.ToggleGoombification();
+            State.TransitionGameModes(oldGameMode, newGameMode);
         }
 
         public void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, Types.Direction direction = Types.Direction.NO_DIRECTION) 

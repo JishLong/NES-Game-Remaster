@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.States.HandStates;
+using Sprint0.GameModes;
 using Sprint0.Sprites;
 using Sprint0.Sprites.Characters.Enemies;
 using Sprint0.Sprites.GoombaMode.Goomba;
@@ -19,17 +20,11 @@ namespace Sprint0.Characters.Enemies
             OriginalDirection = direction;
             ShouldBeKilled = false;
 
-            // The hand sprite is the same no matter its state, so we'll just instantiate it here
-            if (clockwise == true && direction == Types.Direction.DOWN) Sprite = new HandDownRightSprite();
-            else if (clockwise == false && direction == Types.Direction.RIGHT) Sprite = new HandDownRightSprite();
-            else if (clockwise == false && direction == Types.Direction.DOWN) Sprite = new HandDownLeftSprite();
-            else if (clockwise == true && direction == Types.Direction.LEFT) Sprite = new HandDownLeftSprite();
-            else if (clockwise == false && direction == Types.Direction.UP) Sprite = new HandUpRightSprite();
-            else if (clockwise == true && direction == Types.Direction.RIGHT) Sprite = new HandUpRightSprite();
-            else Sprite = new HandUpLeftSprite();
-
             // State
             State = new HandMovingState(this, direction, clockwise);
+
+            // The hand sprite is the same no matter its state, so we'll just instantiate it here
+            Sprite = GameModeManager.GetInstance().GameMode.GetHandSprite(State, direction, clockwise);
 
             // Combat
             Health = 2;
@@ -52,9 +47,9 @@ namespace Sprint0.Characters.Enemies
             base.Update(gameTime);
         }
 
-        public void HoldPlayer(Types.Gamemode gameMode) 
+        public void HoldPlayer(Types.GameMode gameMode) 
         {
-            if (gameMode != Types.Gamemode.GOOMBAMODE) PlayerSprite = new PlayerIdleDownSprite();
+            if (gameMode != Types.GameMode.GOOMBAMODE) PlayerSprite = new PlayerIdleDownSprite();
             else PlayerSprite = new GoombaIdleSprite();
         }
     }

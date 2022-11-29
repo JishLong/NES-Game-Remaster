@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Commands;
+using Sprint0.GameModes;
 using Sprint0.Items;
 
 namespace Sprint0.Player.States
@@ -25,7 +26,7 @@ namespace Sprint0.Player.States
 
         void StopAction();
 
-        void ToggleGoombification();
+        void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode);
 
         void Update();
     }

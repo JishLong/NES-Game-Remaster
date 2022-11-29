@@ -1,6 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.GameModes;
+using Sprint0.GameModes.GameModes;
 using Sprint0.Levels.Utils;
+using Sprint0.Player;
 using System.Collections.Generic;
 
 namespace Sprint0.CommandLine.Handlers
@@ -35,22 +38,23 @@ namespace Sprint0.CommandLine.Handlers
 
             if (Words[0].Equals("NORMAL"))
             {
-                foreach (var player in game.PlayerManager)
-                {
-                    if (player.Gamemode == Types.Gamemode.GOOMBAMODE) player.ToggleGoombification();
-                }
+                GameModeManager.GetInstance().ChangeGameMode(new NormalMode(), game);
                 return Utils.GetAlignedText(
                     "Successfully set gamemode to " + Words[0] + ".",
                     ResponseFont, MaxResponseWidth);
             }
             if (Words[0].Equals("GOOMBA"))
             {
-                foreach (var player in game.PlayerManager)
-                {
-                    if (player.Gamemode != Types.Gamemode.GOOMBAMODE) player.ToggleGoombification();
-                }
+                GameModeManager.GetInstance().ChangeGameMode(new GoombaMode(), game);
                 return Utils.GetAlignedText(
                     "It's time to show that filthy plumber who's boss...",
+                    ResponseFont, MaxResponseWidth);
+            }
+            if (Words[0].Equals("MARIO"))
+            {
+                GameModeManager.GetInstance().ChangeGameMode(new MarioMode(), game);
+                return Utils.GetAlignedText(
+                    "It's a me!",
                     ResponseFont, MaxResponseWidth);
             }
             return Utils.GetAlignedText(

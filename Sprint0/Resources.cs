@@ -17,6 +17,7 @@ namespace Sprint0
         public static SoundEffect ArrowBoomerangShoot { get; private set; }
         public static SoundEffect BombExplode { get; private set; }
         public static SoundEffect BossNoise { get; private set; }
+        public static SoundEffect BowserFalls { get; private set; }
         public static SoundEffect Dababy { get; private set; }
         public static SoundEffect DoorOpened { get; private set; }
         public static SoundEffect DungeonMusic { get; private set; }
@@ -29,9 +30,14 @@ namespace Sprint0
         public static SoundEffect ItemPickup { get; private set; }
         public static SoundEffect KeyAppear { get; private set; }
         public static SoundEffect LowHealth { get; private set; }
+        public static SoundEffect MarioDieLong { get; private set; }
+        public static SoundEffect MarioDieShort { get; private set; }
+        public static SoundEffect MarioFireball { get; private set; }
         public static SoundEffect MarioMusic { get; private set; }
         public static SoundEffect MarioPowerDown { get; private set; }
         public static SoundEffect MarioPowerUp { get; private set; }
+        public static SoundEffect MarioPowerUpAppears { get; private set; }
+        public static SoundEffect MarioStomp { get; private set; }   
         public static SoundEffect MenuMusic { get; private set; }
         public static SoundEffect NewItem { get; private set; }
         public static SoundEffect PlaceBomb { get; private set; }
@@ -214,9 +220,16 @@ namespace Sprint0
 
         // Goomba mode lmaooooooooo
         public static readonly Rectangle Mario = new Rectangle(0, 0, 16, 16);
+        public static readonly Rectangle MarioUseItem = new Rectangle(48, 0, 16, 16);
         public static readonly Rectangle Goomba = new Rectangle(0, 16, 16, 16);
+        public static readonly Rectangle BlueGoomba = new Rectangle(16, 16, 16, 16);
         public static readonly Rectangle GoombaLaserHorz = new Rectangle(0, 32, 10, 10);
-        public static readonly Rectangle GoombaLaserVert = new Rectangle(0, 42, 10, 10);
+        public static readonly Rectangle GoombaLaserVert = new Rectangle(40, 32, 10, 10);
+        public static readonly Rectangle Toad = new Rectangle(64, 0, 16, 24);
+        public static readonly Rectangle Fireball = new Rectangle(80, 32, 8, 8);
+        public static readonly Rectangle Bowser = new Rectangle(0, 52, 32, 32);
+        public static readonly Rectangle Parakoopa = new Rectangle(0, 84, 16, 24);
+        public static readonly Rectangle HammerBro = new Rectangle(32, 84, 16, 24);
 
         public static void LoadContent(ContentManager c) 
         {
@@ -229,6 +242,7 @@ namespace Sprint0
             ArrowBoomerangShoot = c.Load<SoundEffect>("Audio/arrowBoomerang");
             BombExplode = c.Load<SoundEffect>("Audio/bomb");
             BossNoise = c.Load<SoundEffect>("Audio/bossNoise");
+            BowserFalls = c.Load<SoundEffect>("Audio/bowserFalls");
             Dababy = c.Load<SoundEffect>("Audio/dababy");
             DoorOpened = c.Load<SoundEffect>("Audio/doorOpened");
             DungeonMusic = c.Load<SoundEffect>("Audio/dungeonMusic");
@@ -241,9 +255,14 @@ namespace Sprint0
             ItemPickup = c.Load<SoundEffect>("Audio/itemPickup");
             KeyAppear = c.Load<SoundEffect>("Audio/keyAppear");
             LowHealth = c.Load<SoundEffect>("Audio/lowHealth");
+            MarioDieLong = c.Load<SoundEffect>("Audio/marioDieLong");
+            MarioDieShort = c.Load<SoundEffect>("Audio/marioDieShort");
+            MarioFireball = c.Load<SoundEffect>("Audio/marioFireball");
             MarioMusic = c.Load<SoundEffect>("Audio/marioMusic");
             MarioPowerDown = c.Load<SoundEffect>("Audio/marioPowerDown");
             MarioPowerUp = c.Load<SoundEffect>("Audio/marioPowerUp");
+            MarioPowerUpAppears = c.Load<SoundEffect>("Audio/marioPowerUpAppears");
+            MarioStomp = c.Load<SoundEffect>("Audio/marioStomp");
             MenuMusic = c.Load<SoundEffect>("Audio/menuMusic");
             NewItem = c.Load<SoundEffect>("Audio/newItem");
             PlaceBomb = c.Load<SoundEffect>("Audio/placeBomb");

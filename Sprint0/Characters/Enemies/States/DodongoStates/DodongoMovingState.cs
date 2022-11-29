@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Utils;
 using Sprint0.Characters.Enemies;
+using Sprint0.Characters.States.DodongoStates;
+using Sprint0.GameModes;
 
 namespace Sprint0.Characters.Bosses.States.DodongoStates
 {
@@ -15,7 +17,7 @@ namespace Sprint0.Characters.Bosses.States.DodongoStates
             if (direction != Types.Direction.NO_DIRECTION) Direction = direction;
             else Direction = CharacterUtils.RandOrthogDirection(Types.Direction.NO_DIRECTION);
 
-            character.Sprite ??= Dodongo.GetSprite(Direction);
+            character.Sprite ??= Dodongo.GetSprite(this, Direction);
         }
 
         public override void Attack()
@@ -26,12 +28,18 @@ namespace Sprint0.Characters.Bosses.States.DodongoStates
         public override void ChangeDirection()
         {
             Direction = CharacterUtils.RandOrthogDirection(Direction);
-            Character.Sprite = Dodongo.GetSprite(Direction);
+            Character.Sprite = Dodongo.GetSprite(this, Direction);
         }
 
         public override void Freeze(bool frozenForever)
         {
             Character.State = new DodongoFrozenState(Character, Direction, frozenForever);
+        }
+
+        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
+        {
+            if (inCurrentRoom) Character.State = new DodongoGameModeTransitionState(Character, oldGameMode, newGameMode, Direction);
+            else Character.Sprite = newGameMode.GetDodongoSprite(this, Direction);
         }
 
         public override void Unfreeze()

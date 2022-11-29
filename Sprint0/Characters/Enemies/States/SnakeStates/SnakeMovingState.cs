@@ -1,5 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Characters.States.BatStates;
+using Sprint0.Characters.States.SnakeStates;
 using Sprint0.Characters.Utils;
+using Sprint0.GameModes;
 
 namespace Sprint0.Characters.Enemies.States.SnakeStates
 {
@@ -14,7 +17,7 @@ namespace Sprint0.Characters.Enemies.States.SnakeStates
             if (direction != Types.Direction.NO_DIRECTION) Direction = direction;
             else Direction = CharacterUtils.RandOrthogDirection(Types.Direction.NO_DIRECTION);
 
-            character.Sprite ??= Snake.GetSprite(Direction);
+            character.Sprite ??= Snake.GetSprite(this, Direction);
         }
         public override void Attack()
         {
@@ -25,14 +28,18 @@ namespace Sprint0.Characters.Enemies.States.SnakeStates
         {
             Direction = CharacterUtils.RandOrthogDirection(Direction);
 
-            // If the snake moves vertically, they retain the sprite they had while they were moving horizontally
-            if (Direction == Types.Direction.LEFT) Character.Sprite = Snake.GetSprite(Types.Direction.LEFT);
-            else if (Direction == Types.Direction.RIGHT) Character.Sprite = Snake.GetSprite(Types.Direction.RIGHT);
+            Character.Sprite = Snake.GetSprite(this, Direction);
         }
 
         public override void Freeze(bool frozenForever)
         {
             Character.State = new SnakeFrozenState(Character, Direction, frozenForever);
+        }
+
+        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
+        {
+            if (inCurrentRoom) Character.State = new SnakeGameModeTransitionState(Character, oldGameMode, newGameMode, Direction);
+            else Character.Sprite = newGameMode.GetSnakeSprite(this, Direction);
         }
 
         public override void Unfreeze()

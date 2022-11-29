@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.States.BatStates;
+using Sprint0.GameModes;
 using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies
@@ -11,11 +12,11 @@ namespace Sprint0.Characters.Enemies
 
         public Bat(Vector2 position)
         {
-            // The bat sprite is the same no matter its state, so we'll just instantiate it here
-            Sprite = new BatSprite();
-
             // State
             State = new BatMovingState(this);
+
+            // The bat sprite is the same no matter its state, so we'll just instantiate it here
+            Sprite = GameModeManager.GetInstance().GameMode.GetBatSprite(State, Types.Direction.UP);
 
             // Combat
             Health = 1;

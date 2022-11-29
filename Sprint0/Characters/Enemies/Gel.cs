@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.States.GelStates;
+using Sprint0.GameModes;
 using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies
@@ -11,11 +12,11 @@ namespace Sprint0.Characters.Enemies
 
         public Gel(Vector2 position)
         {
-            // The gel sprite is the same no matter its state, so we'll just instantiate it here
-            Sprite = new GelSprite();
-
             // State
             State = new GelMovingState(this);
+
+            // The gel sprite is the same no matter its state, so we'll just instantiate it here
+            Sprite = GameModeManager.GetInstance().GameMode.GetGelSprite(State, Types.Direction.UP);
 
             // Combat
             Health = 1;

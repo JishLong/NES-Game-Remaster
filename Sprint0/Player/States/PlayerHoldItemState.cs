@@ -1,10 +1,8 @@
-﻿
-using Sprint0.Sprites.Player.Attack.UseItem;
-using Sprint0.Items;
+﻿using Sprint0.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Items.Items;
-using Sprint0.Sprites.GoombaMode.Goomba;
+using Sprint0.GameModes;
 
 namespace Sprint0.Player.States
 {
@@ -16,8 +14,7 @@ namespace Sprint0.Player.States
 
         public PlayerHoldItemState(Player player, IItem item) : base(player)
         {
-            if (Player.Gamemode != Types.Gamemode.GOOMBAMODE) Sprite = new PlayerHoldItemSprite();
-            else Sprite = new GoombaIdleSprite();
+            Sprite = GameModeManager.GetInstance().GameMode.GetPlayerSprite(this, Player.FacingDirection);
             FramesPassed = 0;
             Item = item;
         }

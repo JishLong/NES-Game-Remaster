@@ -6,6 +6,7 @@ using static Sprint0.Types;
 using Sprint0.Commands.GameStates;
 using Sprint0.Items;
 using Sprint0.Commands;
+using Sprint0.GameModes;
 
 namespace Sprint0.Player.States
 {
@@ -55,8 +56,7 @@ namespace Sprint0.Player.States
                 Player.Health += healthAmount;
                 IsTakingDamage = true;
                 KnockbackDirection = direction;
-                if (Player.Gamemode != Gamemode.GOOMBAMODE) AudioManager.GetInstance().PlayOnce(Resources.PlayerTakeDamage);
-                else AudioManager.GetInstance().PlayOnce(Resources.VineBoom);
+                AudioManager.GetInstance().PlayOnce(GameModeManager.GetInstance().GameMode.PlayerHurtSound);
 
                 if (Player.Health <= 0)
                 {
@@ -102,17 +102,9 @@ namespace Sprint0.Player.States
 
         public abstract void StopAction();
 
-        public void ToggleGoombification()
+        public void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode)
         {
-            if (Player.Gamemode != Gamemode.GOOMBAMODE)
-            {
-                Player.Gamemode = Gamemode.GOOMBAMODE; 
-            }
-            else
-            {
-                Player.Gamemode = Gamemode.NORMALMODE;
-            }
-            Player.State = new PlayerGoombaTransitionState(Player, Sprite);
+            if (oldGameMode.Type != newGameMode.Type) Player.State = new PlayerGameModeTransitionState(Player, oldGameMode, newGameMode);
         }
 
         public virtual void Update() 

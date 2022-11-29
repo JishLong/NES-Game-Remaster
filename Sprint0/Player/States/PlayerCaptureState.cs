@@ -5,6 +5,7 @@ using Sprint0.Sprites.Player.Stationary;
 using Sprint0.Commands.GameStates;
 using Sprint0.Commands;
 using Sprint0.Sprites.GoombaMode.Goomba;
+using Sprint0.GameModes;
 
 namespace Sprint0.Player.States
 {
@@ -16,8 +17,7 @@ namespace Sprint0.Player.States
 
         public PlayerCaptureState(Player player, ICommand goToBeginningCommand) : base(player)
         {
-            if (Player.Gamemode != Types.Gamemode.GOOMBAMODE) Sprite = new PlayerIdleDownSprite(); 
-            else Sprite = new GoombaIdleSprite();
+            Sprite = GameModeManager.GetInstance().GameMode.GetPlayerSprite(this, Player.FacingDirection);
             GoToBeginningCommand = goToBeginningCommand;
             Player.FacingDirection = Types.Direction.UP;
             

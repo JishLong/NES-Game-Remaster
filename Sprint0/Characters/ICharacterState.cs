@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.GameModes;
 
 namespace Sprint0.Characters
 {
@@ -14,6 +15,8 @@ namespace Sprint0.Characters
         void Freeze(bool frozenForever);
 
         Rectangle GetHitbox(Vector2 position);
+
+        void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom);
 
         void Unfreeze();
  

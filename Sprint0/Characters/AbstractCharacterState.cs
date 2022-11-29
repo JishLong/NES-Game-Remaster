@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.GameModes;
 using static Sprint0.Utils;
 
 namespace Sprint0.Characters
@@ -28,6 +29,8 @@ namespace Sprint0.Characters
         {
             return Character.Sprite.GetDrawbox(position);
         }
+
+        public abstract void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom);
 
         public abstract void Unfreeze();
         

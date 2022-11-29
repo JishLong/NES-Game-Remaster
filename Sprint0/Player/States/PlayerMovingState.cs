@@ -1,35 +1,28 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.GameModes;
 using Sprint0.Items;
 using Sprint0.Sprites;
 using Sprint0.Sprites.GoombaMode.Goomba;
-using Sprint0.Sprites.Player.Movement;
 
 namespace Sprint0.Player.States
 {
     public class PlayerMovingState : AbstractPlayerState
     {
-        // Having single instances of these sprites makes movement look smoother if the player repeatedly taps one movement key
-        private readonly static ISprite[] Sprites = { 
-            new PlayerMovingUpSprite(), new PlayerMovingDownSprite(), new PlayerMovingLeftSprite(), new PlayerMovingRightSprite() 
-        };
-
-        private readonly static ISprite GoombaSprite = new GoombaMovingSprite();
-
         private static readonly Vector2 MovementSpeed = new(4, 4);
 
         public PlayerMovingState(Player player) : base(player)
         {
             Player.IsStationary = false;
-            if (Player.Gamemode != Types.Gamemode.GOOMBAMODE) Sprite = Sprites[(int)Player.FacingDirection]; 
-            else Sprite = GoombaSprite;
+            Sprite = GameModeManager.GetInstance().GameMode.GetPlayerSprite(this, Player.FacingDirection);
         }
 
         public override void Move(Types.Direction direction)
         {
-            Player.FacingDirection = direction;
-
-            if (Player.Gamemode == Types.Gamemode.GOOMBAMODE) Sprite = GoombaSprite;
-            else Sprite = Sprites[(int)direction];
+            if (Player.FacingDirection != direction) 
+            {
+                Player.FacingDirection = direction;
+                Sprite = GameModeManager.GetInstance().GameMode.GetPlayerSprite(this, Player.FacingDirection);
+            }
         }
 
         public override void DoPrimaryAttack()

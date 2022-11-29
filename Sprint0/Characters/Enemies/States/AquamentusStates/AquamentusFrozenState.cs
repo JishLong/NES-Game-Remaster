@@ -1,4 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Characters.States.AquamentusStates;
+using Sprint0.Characters.States.BatStates;
+using Sprint0.GameModes;
 
 namespace Sprint0.Characters.Enemies.AquamentusStates
 {
@@ -33,6 +36,12 @@ namespace Sprint0.Characters.Enemies.AquamentusStates
             // If Aquamentus is frozen from a boomerang, picking up a clock will keep it frozen forever
             // On the other hand, if Aquamentus is frozen from a clock, we don't want the boomerang to "unfreeze" it
             if (frozenForever) FrozenForever = frozenForever;
+        }
+
+        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
+        {
+            if (inCurrentRoom) Character.State = new AquamentusGameModeTransitionState(Character, oldGameMode, newGameMode, ResumeMovementDirection);
+            else Character.Sprite = newGameMode.GetAquamentusSprite(this, ResumeMovementDirection);
         }
 
         public override void Unfreeze()

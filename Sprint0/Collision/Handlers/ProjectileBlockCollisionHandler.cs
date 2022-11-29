@@ -19,7 +19,7 @@ namespace Sprint0.Collision.Handlers
         public ProjectileBlockCollisionHandler()
         {
             AffectedProjectiles = new List<System.Type>{ typeof(BossProjectile), typeof(ArrowProjectile), typeof(BlueArrowProjectile),
-            typeof(OldManProjectile), };
+            typeof(OldManProjectile), typeof(MarioFireballProjectile) };
         }
 
         public void HandleCollision(IProjectile projectile, IBlock block, Types.Direction projectileSide)

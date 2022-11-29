@@ -1,9 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.GameModes;
 using Sprint0.Items;
 using Sprint0.Sprites;
-using Sprint0.Sprites.GoombaMode.Goomba;
-using Sprint0.Sprites.Player.Stationary;
 using Sprint0.Sprites.Projectiles.Player;
 
 namespace Sprint0.Player.States
@@ -13,19 +12,24 @@ namespace Sprint0.Player.States
         private static readonly int AnimationFrames = 4;
         private static readonly int NumSpins = 4;
         private static readonly int WaitFrames = 32;
-        private static readonly ISprite[] Sprites = {
-            new PlayerIdleLeftSprite(), new PlayerIdleUpSprite(), new PlayerIdleRightSprite(), new PlayerIdleDownSprite(), new DeathParticleSprite()
-        };
-        private static readonly ISprite[] GoombaSprites = {
-            new GoombaIdleSprite(), new GoombaIdleSprite(), new GoombaIdleSprite(), new GoombaIdleSprite(), new DeathParticleSprite()
-        };
+        private readonly ISprite[] Sprites;
 
         private int AnimationStage;
         private int FramesPassed;
-        private int CurrentSprite;      
+        private int CurrentSprite;
 
         public PlayerDeadState(Player player) : base(player)
         {
+            IGameMode GameMode = GameModeManager.GetInstance().GameMode;
+            Sprites = new ISprite[]
+            {
+                GameMode.GetPlayerSprite(this, Types.Direction.DOWN),
+                GameMode.GetPlayerSprite(this, Types.Direction.LEFT),
+                GameMode.GetPlayerSprite(this, Types.Direction.UP),
+                GameMode.GetPlayerSprite(this, Types.Direction.RIGHT),
+                new DeathParticleSprite()
+            };
+
             Player.IsStationary = false;
 
             AnimationStage = 0;
@@ -37,8 +41,7 @@ namespace Sprint0.Player.States
         {
             if (AnimationStage < 3)
             {
-                if (Player.Gamemode != Types.Gamemode.GOOMBAMODE) Sprites[CurrentSprite].Draw(sb, position, Color.White, 0.09f);
-                else GoombaSprites[CurrentSprite].Draw(sb, position, Color.White, 0.09f);
+                Sprites[CurrentSprite].Draw(sb, position, Color.White, 0.09f);
             }
         }
 

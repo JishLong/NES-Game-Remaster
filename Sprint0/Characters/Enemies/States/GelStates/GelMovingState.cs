@@ -1,5 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Characters.States.BatStates;
+using Sprint0.Characters.States.GelStates;
 using Sprint0.Characters.Utils;
+using Sprint0.GameModes;
 
 namespace Sprint0.Characters.Enemies.States.GelStates
 {
@@ -27,6 +30,12 @@ namespace Sprint0.Characters.Enemies.States.GelStates
         public override void Freeze(bool frozenForever)
         {
             Character.State = new GelFrozenState(Character, Direction, frozenForever);
+        }
+
+        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
+        {
+            if (inCurrentRoom) Character.State = new GelGameModeTransitionState(Character, oldGameMode, newGameMode, Direction);
+            else Character.Sprite = newGameMode.GetGelSprite(this, Direction);
         }
 
         public override void Unfreeze()

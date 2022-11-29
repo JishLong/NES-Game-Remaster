@@ -9,6 +9,8 @@ using System;
 using Microsoft.Xna.Framework.Input;
 using Sprint0.Sprites;
 using Sprint0.WebSockets;
+using Sprint0.GameModes;
+using Sprint0.GameModes.GameModes;
 
 namespace Sprint0
 {
@@ -103,6 +105,7 @@ namespace Sprint0
 
         public void CreateNewGame(bool resetPlayers = true) 
         {
+            GameModeManager.GetInstance().Initialize();
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
             MouseMappings.GetInstance().InitializeMappings(this);

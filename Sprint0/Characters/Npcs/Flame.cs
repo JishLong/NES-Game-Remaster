@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters;
+using Sprint0.GameModes;
 using Sprint0.Levels;
 using Sprint0.Sprites.Characters.Npcs;
 
@@ -10,7 +11,7 @@ namespace Sprint0.Npcs
     {
         public Flame(Vector2 position)
         {
-            Sprite = new FlameSprite();
+            Sprite = Sprite = GameModeManager.GetInstance().GameMode.GetFlameSprite();
 
             Health = 1;
             Position = position;
@@ -29,6 +30,11 @@ namespace Sprint0.Npcs
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
         {
             // You can't kill fire :D
+        }
+
+        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
+        {
+            Sprite = newGameMode.GetFlameSprite();
         }
 
         public override void Update(GameTime gameTime)

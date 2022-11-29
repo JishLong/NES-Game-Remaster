@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Collision;
 using Sprint0.Commands;
+using Sprint0.GameModes;
 using Sprint0.Items;
 using Sprint0.Player.HUD;
 
@@ -16,7 +17,7 @@ namespace Sprint0.Player
         bool IsStationary { get; set; }
         bool GodmodeEnabled { get; set; }
         Types.Projectile SecondaryWeapon { get; set; }
-        Types.Gamemode Gamemode { get; set; }
+        Types.GameMode GameMode { get; set; }
 
         string inputId { get; set; }
 
@@ -40,7 +41,7 @@ namespace Sprint0.Player
 
         void StopAction();
 
-        void ToggleGoombification();
+        void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode);
 
         void Update();
     }

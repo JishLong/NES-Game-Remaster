@@ -1,22 +1,15 @@
-﻿using Sprint0.Sprites.Player.Stationary;
-using Sprint0.Sprites;
-using Sprint0.Items;
-using Sprint0.Sprites.GoombaMode.Goomba;
+﻿using Sprint0.Items;
+using Sprint0.GameModes;
 
 namespace Sprint0.Player.States
 {
     public class PlayerIdleState : AbstractPlayerState
     {
-        private readonly static ISprite[] Sprites = { 
-            new PlayerIdleUpSprite(), new PlayerIdleDownSprite(), new PlayerIdleLeftSprite(), new PlayerIdleRightSprite() 
-        };
-
         // This is the state that new players start off in
         public PlayerIdleState(Player player, bool setUpSettings = false) : base(player, setUpSettings)
         {
             Player.IsStationary = true;
-            if (Player.Gamemode != Types.Gamemode.GOOMBAMODE) Sprite = Sprites[(int)Player.FacingDirection]; 
-            else Sprite = new GoombaIdleSprite();
+            Sprite = GameModeManager.GetInstance().GameMode.GetPlayerSprite(this, Player.FacingDirection);
         }
 
         public override void DoPrimaryAttack()

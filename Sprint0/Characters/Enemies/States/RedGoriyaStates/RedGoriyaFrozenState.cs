@@ -1,5 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.RedGoriyaStates;
+using Sprint0.Characters.States.BatStates;
+using Sprint0.GameModes;
+using static Sprint0.Types;
 
 namespace Sprint0.Characters.Enemies.States.RedGoriyaStates
 {
@@ -35,6 +38,11 @@ namespace Sprint0.Characters.Enemies.States.RedGoriyaStates
             if (frozenForever) FrozenForever = frozenForever;
         }
 
+        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
+        {
+            if (inCurrentRoom) Character.State = new RedGoriyaGameModeTransitionState(Character, oldGameMode, newGameMode, ResumeMovementDirection);
+            else Character.Sprite = newGameMode.GetRedGoriyaSprite(this, ResumeMovementDirection);
+        }
 
         public override void Unfreeze()
         {
