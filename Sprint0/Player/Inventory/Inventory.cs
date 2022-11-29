@@ -19,8 +19,14 @@ namespace Sprint0.Player.Inventory
 
         public void AddToInventory(Types.Item item, int amount)
         {
-            if (ItemCounts.ContainsKey(item)) ItemCounts[item] = ItemCounts[item] + amount;
+            // Minimum item count is 0 and maximum item count is 99
+            if (amount < 0) return;
+            if (ItemCounts.ContainsKey(item)) 
+            {
+                ItemCounts[item] += amount;
+            } 
             else ItemCounts.Add(item, amount);
+            if (ItemCounts[item] > 99) ItemCounts[item] = 99;
 
             if (SelectedItem == Types.Item.NOITEM && GetUsableItems().Length > 0)
             {
@@ -39,11 +45,15 @@ namespace Sprint0.Player.Inventory
 
         public void RemoveFromInventory(Types.Item item, int amount)
         {
+            // Minimum item count is 0 and maximum item count is 99
+            if (amount < 0) return;
             if (ItemCounts.ContainsKey(item))
             {
                 ItemCounts[item] -= amount;
                 if (ItemCounts[item] < 0) ItemCounts[item] = 0;
             }
+
+            if (ItemCounts[item] == 0 && SelectedItem == item) SelectedItem = Types.Item.NOITEM;
         }
 
         public int GetAmount(Types.Item item)
@@ -64,7 +74,7 @@ namespace Sprint0.Player.Inventory
 
         public bool HasItem(Types.Item item)
         {
-            return ItemCounts.ContainsKey(item);
+            return ItemCounts.ContainsKey(item) && ItemCounts[item] > 0;
         }
 
         private Types.Item[,] GetUsableItems()

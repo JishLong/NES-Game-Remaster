@@ -2,6 +2,7 @@
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 using Sprint0.Items;
+using Sprint0.Sprites.GoombaMode.Goomba;
 
 namespace Sprint0.Player.States
 {
@@ -17,7 +18,8 @@ namespace Sprint0.Player.States
         public PlayerUseItemState(Player player) : base(player)
         {
             Player.IsStationary = false;
-            Sprite = Sprites[(int)Player.FacingDirection];
+            if (Player.Gamemode != Types.Gamemode.GOOMBAMODE) Sprite = Sprites[(int)Player.FacingDirection];
+            else Sprite = new GoombaIdleSprite();
             FramesPassed = 0;
             ProjectileManager.GetInstance().AddProjectile(Player.SecondaryWeapon, Player, Player.FacingDirection);
             if (Player.SecondaryWeapon == Types.Projectile.BOMB_PROJ) Player.Inventory.DecrementItem(Types.Item.BOMB);

@@ -23,10 +23,15 @@ namespace Sprint0
         public static SoundEffect EnemyDeath { get; private set; }
         public static SoundEffect EnemyTakeDamage { get; private set; }
         public static SoundEffect FlameShoot { get; private set; }
+        public static SoundEffect GoombaLaserFire { get; private set; }
+        public static SoundEffect GoombaLaserHum { get; private set; }
         public static SoundEffect HeartKeyPickup { get; private set; }
         public static SoundEffect ItemPickup { get; private set; }
         public static SoundEffect KeyAppear { get; private set; }
         public static SoundEffect LowHealth { get; private set; }
+        public static SoundEffect MarioMusic { get; private set; }
+        public static SoundEffect MarioPowerDown { get; private set; }
+        public static SoundEffect MarioPowerUp { get; private set; }
         public static SoundEffect MenuMusic { get; private set; }
         public static SoundEffect NewItem { get; private set; }
         public static SoundEffect PlaceBomb { get; private set; }
@@ -38,6 +43,7 @@ namespace Sprint0
         public static SoundEffect Sword { get; private set; }
         public static SoundEffect SwordProj { get; private set; }
         public static SoundEffect Text { get; private set; }
+        public static SoundEffect VineBoom { get; private set; }
         public static SoundEffect Win { get; private set; }
 
         // Mouse Cursor
@@ -58,6 +64,7 @@ namespace Sprint0
         public static Texture2D GuiElementsSpriteSheet { get; private set; }
         public static Texture2D HUDMapRoomSheet { get; private set; }
         public static Texture2D PlayerLocationSheet { get; private set; }
+        public static Texture2D GoombaMode { get; private set; }
 
         // Sprite sheet positions for all blocks
         public static readonly Rectangle BlueTile = new Rectangle(0, 0, 16, 16);
@@ -205,6 +212,12 @@ namespace Sprint0
         public static readonly Rectangle HUDMapRoom = new Rectangle(0, 0, 7, 3);
         public static readonly Rectangle PlayerLocation = new Rectangle(0, 0, 3, 3);
 
+        // Goomba mode lmaooooooooo
+        public static readonly Rectangle Mario = new Rectangle(0, 0, 16, 16);
+        public static readonly Rectangle Goomba = new Rectangle(0, 16, 16, 16);
+        public static readonly Rectangle GoombaLaserHorz = new Rectangle(0, 32, 10, 10);
+        public static readonly Rectangle GoombaLaserVert = new Rectangle(0, 42, 10, 10);
+
         public static void LoadContent(ContentManager c) 
         {
             // Load font
@@ -222,10 +235,15 @@ namespace Sprint0
             EnemyDeath = c.Load<SoundEffect>("Audio/enemyDeath");
             EnemyTakeDamage = c.Load<SoundEffect>("Audio/enemyTakeDamage");
             FlameShoot = c.Load<SoundEffect>("Audio/flame");
+            GoombaLaserFire = c.Load<SoundEffect>("Audio/goombaLaserFire");
+            GoombaLaserHum = c.Load<SoundEffect>("Audio/goombaLaserHum");
             HeartKeyPickup = c.Load<SoundEffect>("Audio/heartKeyPickup");
             ItemPickup = c.Load<SoundEffect>("Audio/itemPickup");
             KeyAppear = c.Load<SoundEffect>("Audio/keyAppear");
             LowHealth = c.Load<SoundEffect>("Audio/lowHealth");
+            MarioMusic = c.Load<SoundEffect>("Audio/marioMusic");
+            MarioPowerDown = c.Load<SoundEffect>("Audio/marioPowerDown");
+            MarioPowerUp = c.Load<SoundEffect>("Audio/marioPowerUp");
             MenuMusic = c.Load<SoundEffect>("Audio/menuMusic");
             NewItem = c.Load<SoundEffect>("Audio/newItem");
             PlaceBomb = c.Load<SoundEffect>("Audio/placeBomb");
@@ -237,7 +255,8 @@ namespace Sprint0
             Sword = c.Load<SoundEffect>("Audio/sword"); 
             SwordProj = c.Load<SoundEffect>("Audio/swordProj");
             Text = c.Load<SoundEffect>("Audio/text");
-            Win = c.Load<SoundEffect>("Audio/win");
+            VineBoom = c.Load<SoundEffect>("Audio/vineBoom");
+            Win = c.Load<SoundEffect>("Audio/win");        
 
             // Load sprite sheets
             BabyOnBaby = c.Load<Texture2D>("Images/babyOnBaby");
@@ -255,6 +274,7 @@ namespace Sprint0
             GuiElementsSpriteSheet = c.Load<Texture2D>("Images/guiElements");
             HUDMapRoomSheet = c.Load<Texture2D>("Images/HUDMapRoom");
             PlayerLocationSheet = c.Load<Texture2D>("Images/PlayerLocation");
+            GoombaMode = c.Load<Texture2D>("Images/goombaMode");
         }
 
         // Why you looking down here? Tryna see how many lines of code this class is? Go back to the top >:(

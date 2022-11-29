@@ -50,12 +50,14 @@ namespace Sprint0.Player.States
             if (maxHealthAmount > 0) Player.Health = Player.MaxHealth;
 
             // If the health change is negative, the player takes damage
-            if (healthAmount < 0 && !IsTakingDamage)
+            if (healthAmount < 0 && !IsTakingDamage && !Player.GodmodeEnabled)
             {
+                Player.Health += healthAmount;
                 IsTakingDamage = true;
                 KnockbackDirection = direction;
-                AudioManager.GetInstance().PlayOnce(Resources.PlayerTakeDamage);
-                Player.Health += healthAmount;
+                if (Player.Gamemode != Gamemode.GOOMBAMODE) AudioManager.GetInstance().PlayOnce(Resources.PlayerTakeDamage);
+                else AudioManager.GetInstance().PlayOnce(Resources.VineBoom);
+
                 if (Player.Health <= 0)
                 {
                     Player.State = new PlayerDeadState(Player);
@@ -99,6 +101,19 @@ namespace Sprint0.Player.States
         public abstract void Move(Direction direction);
 
         public abstract void StopAction();
+
+        public void ToggleGoombification()
+        {
+            if (Player.Gamemode != Gamemode.GOOMBAMODE)
+            {
+                Player.Gamemode = Gamemode.GOOMBAMODE; 
+            }
+            else
+            {
+                Player.Gamemode = Gamemode.NORMALMODE;
+            }
+            Player.State = new PlayerGoombaTransitionState(Player, Sprite);
+        }
 
         public virtual void Update() 
         {

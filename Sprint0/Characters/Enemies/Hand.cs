@@ -2,6 +2,7 @@
 using Sprint0.Characters.Enemies.States.HandStates;
 using Sprint0.Sprites;
 using Sprint0.Sprites.Characters.Enemies;
+using Sprint0.Sprites.GoombaMode.Goomba;
 using Sprint0.Sprites.Player.Stationary;
 
 namespace Sprint0.Characters.Enemies
@@ -51,9 +52,10 @@ namespace Sprint0.Characters.Enemies
             base.Update(gameTime);
         }
 
-        public void HoldPlayer() 
+        public void HoldPlayer(Types.Gamemode gameMode) 
         {
-            PlayerSprite = new PlayerIdleDownSprite();
+            if (gameMode != Types.Gamemode.GOOMBAMODE) PlayerSprite = new PlayerIdleDownSprite();
+            else PlayerSprite = new GoombaIdleSprite();
         }
     }
 }

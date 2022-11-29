@@ -1,7 +1,7 @@
 ﻿using Sprint0.Sprites.Player.Stationary;
 using Sprint0.Sprites;
-using Sprint0.Player.States;
 using Sprint0.Items;
+using Sprint0.Sprites.GoombaMode.Goomba;
 
 namespace Sprint0.Player.States
 {
@@ -15,7 +15,8 @@ namespace Sprint0.Player.States
         public PlayerIdleState(Player player, bool setUpSettings = false) : base(player, setUpSettings)
         {
             Player.IsStationary = true;
-            Sprite = Sprites[(int)Player.FacingDirection];
+            if (Player.Gamemode != Types.Gamemode.GOOMBAMODE) Sprite = Sprites[(int)Player.FacingDirection]; 
+            else Sprite = new GoombaIdleSprite();
         }
 
         public override void DoPrimaryAttack()

@@ -25,6 +25,8 @@ namespace Sprint0.Player.States
 
         void StopAction();
 
+        void ToggleGoombification();
+
         void Update();
     }
 }

@@ -4,6 +4,7 @@ using Sprint0.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Items.Items;
+using Sprint0.Sprites.GoombaMode.Goomba;
 
 namespace Sprint0.Player.States
 {
@@ -15,7 +16,8 @@ namespace Sprint0.Player.States
 
         public PlayerHoldItemState(Player player, IItem item) : base(player)
         {
-            Sprite = new PlayerHoldItemSprite();
+            if (Player.Gamemode != Types.Gamemode.GOOMBAMODE) Sprite = new PlayerHoldItemSprite();
+            else Sprite = new GoombaIdleSprite();
             FramesPassed = 0;
             Item = item;
         }

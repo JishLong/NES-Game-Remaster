@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Items;
 using Sprint0.Sprites;
+using Sprint0.Sprites.GoombaMode.Goomba;
 using Sprint0.Sprites.Player.Stationary;
 using Sprint0.Sprites.Projectiles.Player;
 
@@ -14,6 +15,9 @@ namespace Sprint0.Player.States
         private static readonly int WaitFrames = 32;
         private static readonly ISprite[] Sprites = {
             new PlayerIdleLeftSprite(), new PlayerIdleUpSprite(), new PlayerIdleRightSprite(), new PlayerIdleDownSprite(), new DeathParticleSprite()
+        };
+        private static readonly ISprite[] GoombaSprites = {
+            new GoombaIdleSprite(), new GoombaIdleSprite(), new GoombaIdleSprite(), new GoombaIdleSprite(), new DeathParticleSprite()
         };
 
         private int AnimationStage;
@@ -30,8 +34,12 @@ namespace Sprint0.Player.States
         }
 
         public override void Draw(SpriteBatch sb, Vector2 position)
-        { 
-            if (AnimationStage < 3) Sprites[CurrentSprite].Draw(sb, position, Color.White, 0.09f);
+        {
+            if (AnimationStage < 3)
+            {
+                if (Player.Gamemode != Types.Gamemode.GOOMBAMODE) Sprites[CurrentSprite].Draw(sb, position, Color.White, 0.09f);
+                else GoombaSprites[CurrentSprite].Draw(sb, position, Color.White, 0.09f);
+            }
         }
 
         public override void HoldItem(IItem item)

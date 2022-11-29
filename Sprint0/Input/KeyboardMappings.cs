@@ -37,7 +37,7 @@ namespace Sprint0.Input
                 { new ActionMap(ActionMap.KeyState.HELD, Keys.D, Keys.Right),
                     new PlayerMoveCommand(player, Types.Direction.RIGHT) },
                 { new ActionMap(ActionMap.KeyState.RELEASED, Keys.W, Keys.Up, Keys.S, Keys.Down, Keys.A, Keys.Left,
-                Keys.D, Keys.Right), new PlayerStopActionCommand(player) },
+                Keys.D, Keys.Right, Keys.Z, Keys.N), new PlayerStopActionCommand(player) },
 
                 // Player attack controls
                 { new ActionMap(ActionMap.KeyState.PRESSED, Keys.Z, Keys.N),

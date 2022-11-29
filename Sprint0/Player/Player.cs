@@ -31,10 +31,12 @@ namespace Sprint0.Player
         public int Health { get; set; }
         public int MaxHealth { get; set; }
         public Types.Projectile SecondaryWeapon { get; set; }
+        public Types.Gamemode Gamemode { get; set; }
 
         // Helpful values to check for certain conditions
         public Types.Direction FacingDirection { get; set; }
         public bool IsStationary { get; set; }
+        public bool GodmodeEnabled { get; set; }
 
         // An inventory to hold all the player's items - not yet in use
         private Game1 Game;
@@ -47,6 +49,7 @@ namespace Sprint0.Player
         public Player(Game1 game)
         {
             // Initialize the state
+            Gamemode = Types.Gamemode.NORMALMODE;
             State = new PlayerIdleState(this, true);
 
             // Initialize the movement-related fields
@@ -108,6 +111,11 @@ namespace Sprint0.Player
         public void StopAction()
         {
             State.StopAction();
+        }
+
+        public void ToggleGoombification()
+        {
+            State.ToggleGoombification();
         }
 
         public void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, Types.Direction direction = Types.Direction.NO_DIRECTION) 

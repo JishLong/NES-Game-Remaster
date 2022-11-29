@@ -41,6 +41,8 @@ namespace Sprint0.Projectiles.Tools
                     return new DeathParticle(user);                  
                 case Types.Projectile.FLAME_PROJ:
                     return new FlameProjectile(user, direction);
+                case Types.Projectile.GOOMBA_LASER_PROJ:
+                    return new GoombaLaserProjectile(user, direction);
                 case Types.Projectile.OLDMAN_PROJ:
                     return new OldManProjectile(user);
                 case Types.Projectile.SPAWN_PARTICLE:

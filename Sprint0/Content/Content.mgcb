@@ -67,6 +67,18 @@
 /processorParam:Quality=Best
 /build:Audio/flame.wav
 
+#begin Audio/goombaLaserFire.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/goombaLaserFire.wav
+
+#begin Audio/goombaLaserHum.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/goombaLaserHum.wav
+
 #begin Audio/heartKeyPickup.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -90,6 +102,24 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/lowHealth.wav
+
+#begin Audio/marioMusic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/marioMusic.wav
+
+#begin Audio/marioPowerDown.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/marioPowerDown.wav
+
+#begin Audio/marioPowerUp.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/marioPowerUp.wav
 
 #begin Audio/menuMusic.wav
 /importer:WavImporter
@@ -156,6 +186,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/text.wav
+
+#begin Audio/vineBoom.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/vineBoom.wav
 
 #begin Audio/win.wav
 /importer:WavImporter
@@ -243,6 +279,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/cursor.png
+
+#begin Images/goombaMode.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/goombaMode.png
 
 #begin Images/gui.png
 /importer:TextureImporter

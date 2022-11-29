@@ -14,7 +14,9 @@ namespace Sprint0.Player
         int Health { get; }
         int MaxHealth { get; }
         bool IsStationary { get; set; }
+        bool GodmodeEnabled { get; set; }
         Types.Projectile SecondaryWeapon { get; set; }
+        Types.Gamemode Gamemode { get; set; }
 
         string inputId { get; set; }
 
@@ -37,6 +39,8 @@ namespace Sprint0.Player
         void Move(Types.Direction direction);
 
         void StopAction();
+
+        void ToggleGoombification();
 
         void Update();
     }

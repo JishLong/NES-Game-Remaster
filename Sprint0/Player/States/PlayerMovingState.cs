@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Items;
 using Sprint0.Sprites;
+using Sprint0.Sprites.GoombaMode.Goomba;
 using Sprint0.Sprites.Player.Movement;
 
 namespace Sprint0.Player.States
@@ -12,18 +13,23 @@ namespace Sprint0.Player.States
             new PlayerMovingUpSprite(), new PlayerMovingDownSprite(), new PlayerMovingLeftSprite(), new PlayerMovingRightSprite() 
         };
 
+        private readonly static ISprite GoombaSprite = new GoombaMovingSprite();
+
         private static readonly Vector2 MovementSpeed = new(4, 4);
 
         public PlayerMovingState(Player player) : base(player)
         {
             Player.IsStationary = false;
-            Sprite = Sprites[(int)Player.FacingDirection];
+            if (Player.Gamemode != Types.Gamemode.GOOMBAMODE) Sprite = Sprites[(int)Player.FacingDirection]; 
+            else Sprite = GoombaSprite;
         }
 
         public override void Move(Types.Direction direction)
         {
             Player.FacingDirection = direction;
-            Sprite = Sprites[(int)direction];
+
+            if (Player.Gamemode == Types.Gamemode.GOOMBAMODE) Sprite = GoombaSprite;
+            else Sprite = Sprites[(int)direction];
         }
 
         public override void DoPrimaryAttack()
