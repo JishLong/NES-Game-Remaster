@@ -12,6 +12,7 @@ namespace Sprint0.CommandLine
         private readonly InventoryCommandHandler InventoryCommandHandler;
         private readonly GamemodeCommandHandler GamemodeCommandHandler;
         private readonly GodmodeCommandHandler GodmodeCommandHandler;
+        private readonly SetHealthCommandHandler SetHealthCommandHandler;
 
         private readonly List<string> ErrorMessage;
 
@@ -23,6 +24,7 @@ namespace Sprint0.CommandLine
             InventoryCommandHandler = new(font, maxTextWidth);
             GamemodeCommandHandler = new(font, maxTextWidth);
             GodmodeCommandHandler = new(font, maxTextWidth);
+            SetHealthCommandHandler = new(font, maxTextWidth);
 
             ErrorMessage = Utils.GetAlignedText("Unknown command. Type \"help\" for a list of commands.", font, maxTextWidth);
         }
@@ -53,6 +55,7 @@ namespace Sprint0.CommandLine
                 "INVENTORY" => InventoryCommandHandler.HandleCommand(Parameters, game),
                 "GAMEMODE" => GamemodeCommandHandler.HandleCommand(Parameters, game),
                 "GODMODE" => GodmodeCommandHandler.HandleCommand(Parameters, game),
+                "SETHEALTH" => SetHealthCommandHandler.HandleCommand(Parameters, game),
                 _ => ErrorMessage,
             };
         }

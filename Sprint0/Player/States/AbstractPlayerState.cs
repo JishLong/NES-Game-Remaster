@@ -44,8 +44,16 @@ namespace Sprint0.Player.States
             Player.State = new PlayerCaptureState(Player, goToBeginningCommand);
         }
 
-        public virtual void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, Types.Direction direction)
+        public virtual void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, Types.Direction direction, bool setOverride)
         {
+            // This is a specific case for explicitly setting the health values via the command line
+            if (setOverride) 
+            {
+                Player.Health = healthAmount;
+                Player.MaxHealth = maxHealthAmount;
+                return;
+            }
+
             // Change the max health; if it increases, the player is set to full health
             Player.MaxHealth += maxHealthAmount;
             if (maxHealthAmount > 0) Player.Health = Player.MaxHealth;

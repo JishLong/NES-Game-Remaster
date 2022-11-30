@@ -27,7 +27,8 @@ namespace Sprint0.Player
 
         void Capture(ICommand goToBeginningCommand);
 
-        void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, Types.Direction direction = Types.Direction.NO_DIRECTION);
+        void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, 
+            Types.Direction direction = Types.Direction.NO_DIRECTION, bool setOverride = false);
 
         void DoPrimaryAttack();
 

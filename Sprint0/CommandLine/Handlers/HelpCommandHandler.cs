@@ -75,9 +75,12 @@ namespace Sprint0.CommandLine.Handlers
                     ResponseFont, MaxResponseWidth));
                 Response.Add("\n\n");
                 Response.AddRange(Utils.GetAlignedText(
-                    "[ spawn <ObjectType> <Object> <Amount> <X-Coordinate> <Y-Coordinate> ] - spawns objects in the current room.",
+                    "[ sethealth <HealthAmount> <MaxHealthAmount ] - sets both the player's health and max health values.",
                     ResponseFont, MaxResponseWidth));
-                
+                Response.Add("\n\n");
+                Response.AddRange(Utils.GetAlignedText(
+                    "[ spawn <ObjectType> <Object> <Amount> <X-Coordinate> <Y-Coordinate> ] - spawns objects in the current room.",
+                    ResponseFont, MaxResponseWidth));       
             }
             return Response;
         }

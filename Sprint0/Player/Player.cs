@@ -5,6 +5,7 @@ using Sprint0.GameModes;
 using Sprint0.Items;
 using Sprint0.Player.HUD;
 using Sprint0.Player.States;
+using Sprint0.Sprites.Doors.UnlockdDoorSprites;
 
 namespace Sprint0.Player
 {
@@ -119,9 +120,10 @@ namespace Sprint0.Player
             State.TransitionGameModes(oldGameMode, newGameMode);
         }
 
-        public void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, Types.Direction direction = Types.Direction.NO_DIRECTION) 
+        public void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, 
+            Types.Direction direction = Types.Direction.NO_DIRECTION, bool setOverride = false) 
         {
-            State.ChangeHealth(healthAmount, maxHealthAmount, game, direction);
+            State.ChangeHealth(healthAmount, maxHealthAmount, game, direction, setOverride);
         }
 
         public void Update()
