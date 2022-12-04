@@ -1,8 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.GameModes;
 using Sprint0.Items;
 using Sprint0.Sprites;
+using Sprint0.Sprites.Player.Idle;
+using Sprint0.Sprites.Projectiles.Character;
 using Sprint0.Sprites.Projectiles.Player;
 
 namespace Sprint0.Player.States
@@ -23,11 +26,11 @@ namespace Sprint0.Player.States
             IGameMode GameMode = GameModeManager.GetInstance().GameMode;
             Sprites = new ISprite[]
             {
-                GameMode.GetPlayerSprite(this, Types.Direction.DOWN),
-                GameMode.GetPlayerSprite(this, Types.Direction.LEFT),
-                GameMode.GetPlayerSprite(this, Types.Direction.UP),
-                GameMode.GetPlayerSprite(this, Types.Direction.RIGHT),
-                new DeathParticleSprite()
+                new PlayerIdleDownSprite(),
+                new PlayerIdleLeftSprite(),
+                new PlayerIdleUpSprite(),
+                new PlayerIdleRightSprite(),
+                new DeathProjectileSprite()
             };
 
             Player.IsStationary = false;
@@ -94,7 +97,7 @@ namespace Sprint0.Player.States
                     if (FramesPassed >= WaitFrames) 
                     {                     
                         CurrentSprite = Sprites.Length - 1;
-                        AudioManager.GetInstance().PlayOnce(Resources.Text);
+                        AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().TextAppear);
                         FramesPassed = 0;
                         AnimationStage++;
                     }                   

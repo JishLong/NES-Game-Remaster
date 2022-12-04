@@ -7,7 +7,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
     public class ArrowExplosionParticle : AbstractProjectile
     {
         public ArrowExplosionParticle(ICollidable user, Types.Direction direction) :
-            base(new ArrowExplosionParticleSprite(), user, direction, Vector2.Zero)
+            base(new ArrowExplosionProjectileSprite(), user, direction, Vector2.Zero)
         {
             MaxFramesAlive = 10;
             Position = Utils.CenterRectangles(user.GetHitbox(), GetHitbox().Width, GetHitbox().Height);

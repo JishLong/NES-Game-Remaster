@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Utils;
 using Sprint0.Characters.Enemies;
-using Sprint0.Characters.States.DodongoStates;
 using Sprint0.GameModes;
 
 namespace Sprint0.Characters.Bosses.States.DodongoStates
@@ -34,12 +33,6 @@ namespace Sprint0.Characters.Bosses.States.DodongoStates
         public override void Freeze(bool frozenForever)
         {
             Character.State = new DodongoFrozenState(Character, Direction, frozenForever);
-        }
-
-        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
-        {
-            if (inCurrentRoom) Character.State = new DodongoGameModeTransitionState(Character, oldGameMode, newGameMode, Direction);
-            else Character.Sprite = newGameMode.GetDodongoSprite(this, Direction);
         }
 
         public override void Unfreeze()

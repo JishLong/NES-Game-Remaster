@@ -3,6 +3,7 @@ using Sprint0.Characters.Enemies.RedGoriyaStates;
 using Sprint0.Sprites.Characters.Enemies;
 using Sprint0.Sprites;
 using Sprint0.GameModes;
+using static Sprint0.Types;
 
 namespace Sprint0.Characters.Enemies
 {
@@ -50,7 +51,13 @@ namespace Sprint0.Characters.Enemies
 
         public static ISprite GetSprite(ICharacterState redGoriyaState, Types.Direction direction)
         {
-            return GameModeManager.GetInstance().GameMode.GetRedGoriyaSprite(redGoriyaState, direction);
+            return direction switch
+            {
+                Direction.LEFT => new RedGoriyaLeftSprite(),
+                Direction.RIGHT => new RedGoriyaRightSprite(),
+                Direction.UP => new RedGoriyaUpSprite(),
+                _ => new RedGoriyaDownSprite(),
+            };
         }
     }
 }

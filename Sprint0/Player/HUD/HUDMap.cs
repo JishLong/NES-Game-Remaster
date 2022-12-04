@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Levels;
 using Sprint0.Sprites;
-using Sprint0.Sprites.Doors.UnlockdDoorSprites;
+using Sprint0.Sprites.Gui;
 using System.Collections.Generic;
 using static Sprint0.Utils;
 

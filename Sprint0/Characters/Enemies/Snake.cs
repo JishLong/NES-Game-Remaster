@@ -41,7 +41,13 @@ namespace Sprint0.Characters.Enemies
 
         public static ISprite GetSprite(ICharacterState state, Types.Direction direction)
         {
-            return GameModeManager.GetInstance().GameMode.GetSnakeSprite(state, Types.Direction.UP);
+            if (direction == Types.Direction.LEFT) return new SnakeLeftSprite();
+            else if (direction == Types.Direction.RIGHT) return new SnakeRightSprite();
+            else
+            {
+                if (RNG.Next(2) > 0) return new SnakeLeftSprite();
+                else return new SnakeRightSprite();
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Sprint0.Blocks.Blocks
 {
     public class Water : AbstractBlock
     {
-        public Water(Vector2 position) : base(new BlueGapSprite(), position, true) { }
+        public Water(Vector2 position) : base(new WaterSprite(), position, true) { }
 
         // For the water, a smaller hitbox looks better so the player is able to walk on the edge
         public override Rectangle GetHitbox()

@@ -22,7 +22,7 @@ namespace Sprint0.Characters.Enemies
             State = new AquamentusMovingState(this);
 
             // The aquamentus sprite is the same no matter its state, so we'll just instantiate it here
-            Sprite = GameModeManager.GetInstance().GameMode.GetAquamentusSprite(State, Types.Direction.LEFT);
+            Sprite = new AquamentusSprite();
 
             // Combat fields
             Health = 6;    // Data here: https://strategywiki.org/wiki/The_Legend_of_Zelda/Bosses

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Characters.States.BatStates;
 using Sprint0.GameModes;
 using Sprint0.Levels;
 using Sprint0.Projectiles.Tools;
@@ -30,7 +29,7 @@ namespace Sprint0.Characters.Enemies
             CurrentState = 0;
 
             // The blade trap sprite is the same no matter its state, so we'll just instantiate it here
-            Sprite = GameModeManager.GetInstance().GameMode.GetBladeTrapSprite(Types.Direction.UP);
+            Sprite = new BladeTrapSprite();
 
             // Movement
             Position = position;
@@ -89,11 +88,6 @@ namespace Sprint0.Characters.Enemies
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
         {
             // Blade trap is invincibile bwahahahaha
-        }
-
-        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
-        {
-            Sprite = newGameMode.GetBladeTrapSprite(MovementDirection);
         }
 
         public override void Update(GameTime gameTime)

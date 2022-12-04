@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites;
 using Sprint0.Sprites.Blocks;
+using Sprint0.Sprites.Borders;
 using static Sprint0.Utils;
 
 namespace Sprint0.Levels.Borders

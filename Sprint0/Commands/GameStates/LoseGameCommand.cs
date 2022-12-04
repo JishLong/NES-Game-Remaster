@@ -1,4 +1,5 @@
-﻿using Sprint0.GameModes;
+﻿using Sprint0.Assets;
+using Sprint0.GameModes;
 using Sprint0.GameStates.GameStates;
 
 namespace Sprint0.Commands.GameStates
@@ -15,7 +16,7 @@ namespace Sprint0.Commands.GameStates
         public void Execute()
         {
             AudioManager.GetInstance().StopAudio();
-            AudioManager.GetInstance().PlayOnce(GameModeManager.GetInstance().GameMode.PlayerDeathSound);
+            AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().PlayerDeath);
             Game.CurrentState = new LoseState(Game);
         }
     }

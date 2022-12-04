@@ -1,31 +1,37 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 
 namespace Sprint0.Sprites.Projectiles.Player
 {
-    public class SwordMeleeSprite : AbstractStillSprite
+    public class SwordMeleeSprite : AbstractSprite
     {
-        private Rectangle Drawbox;
+        private readonly Rectangle DefaultFrame;
+        private readonly Types.Direction Direction;
 
         public SwordMeleeSprite(Types.Direction direction)
         {
-            switch (direction)
+            Direction = direction;
+            DefaultFrame = direction switch
             {
-                case Types.Direction.DOWN:
-                case Types.Direction.UP:
-                    Drawbox = Resources.SwordMeleeVert;
-                    break;
-                case Types.Direction.LEFT:
-                case Types.Direction.RIGHT:
-                    Drawbox = Resources.SwordMeleeHorz;
-                    break;
-                default:
-                    break;
-            }
+                Types.Direction.DOWN or Types.Direction.UP => AssetManager.DefaultImageAssets.SwordMeleeVertical,
+                Types.Direction.LEFT or Types.Direction.RIGHT => AssetManager.DefaultImageAssets.SwordMeleeHorizontal,
+                _ => AssetManager.DefaultImageAssets.SwordMeleeVertical,
+            };
         }
 
-        protected override Texture2D GetSpriteSheet() => Resources.WeaponsAndProjSpriteSheet;
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().ProjectilesSpriteSheet;
 
-        protected override Rectangle GetFrame() => Drawbox;
+        protected override Rectangle GetFirstFrame() 
+        {
+            return Direction switch
+            {
+                Types.Direction.DOWN or Types.Direction.UP => AssetManager.DefaultImageAssets.SwordMeleeVertical,
+                Types.Direction.LEFT or Types.Direction.RIGHT => AssetManager.DefaultImageAssets.SwordMeleeHorizontal,
+                _ => AssetManager.DefaultImageAssets.SwordMeleeVertical,
+            };
+        }
+
+        protected override Rectangle GetDefaultFrame() => DefaultFrame;
     }
 }

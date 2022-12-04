@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.CommandLine;
 using Sprint0.Controllers;
 using Sprint0.Input;
@@ -11,7 +12,6 @@ namespace Sprint0.GameStates.GameStates
     public class CommandLineState : AbstractGameState
     {
         private readonly IInputHandler ClientInputHandler;
-        private readonly IGameState PlayingGameState;
         private readonly TypeLine CommandLine;
         private readonly CommandParser CommandParser;
 
@@ -30,6 +30,8 @@ namespace Sprint0.GameStates.GameStates
         private int FramesPassed;
         private List<string> Response;
 
+        private IGameState NextGameState;
+
         public CommandLineState(Game1 game) : base(game)
         {
             Controllers ??= new List<IController>()
@@ -39,16 +41,16 @@ namespace Sprint0.GameStates.GameStates
                 new MouseController(MouseMappings.GetInstance().NoMappings)
             };
 
-            PlayingGameState = new PlayingState(game);
+            NextGameState = new PlayingState(game);
 
             TextLinePosition = new(0, GameWindow.DefaultScreenHeight * 18 / 20, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight / 20);
-            Vector2 CharSize = Resources.SmallFont.MeasureString(" ") * GameWindow.ResolutionScale * TextScaling;
+            Vector2 CharSize = FontMappings.GetInstance().SmallFont.MeasureString(" ") * GameWindow.ResolutionScale * TextScaling;
             ResponseLinePosition = new Rectangle(0, (int)(GameWindow.DefaultScreenHeight / 20),
                 GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight * 16 / 20);
             // The zelda font has a strange height, so the text is actually placed a little further down to better center it
             ResponseTextPosition = new Vector2(CharSize.X / 2, ResponseLinePosition.Y + CharSize.Y / 8);
             CommandLine = new(TextLinePosition, TextScaling);
-            CommandParser = new(Resources.SmallFont, (int)(TextLinePosition.Width / (GameWindow.ResolutionScale * TextScaling)));
+            CommandParser = new(FontMappings.GetInstance().SmallFont, (int)(TextLinePosition.Width / (GameWindow.ResolutionScale * TextScaling)));
 
             IsShowing = true;
             FramesPassed = 0;
@@ -58,23 +60,23 @@ namespace Sprint0.GameStates.GameStates
         public override void Draw(SpriteBatch sb)
         {
             // Draw the game state that was just paused
-            PlayingGameState.Draw(sb);
-            sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight),
-                null, Color.White * 0.5f, 0f, Vector2.Zero, SpriteEffects.None, 0.05f);
+            NextGameState.Draw(sb);
+            sb.Draw(ImageMappings.GetInstance().GuiElementsSpriteSheet, new Rectangle(0, 0, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight),
+                ImageMappings.GetInstance().ScreenCover, Color.White * 0.5f, 0f, Vector2.Zero, SpriteEffects.None, 0.05f);
 
             // Draw the response line - where responses to commands are written out
-            sb.Draw(Resources.ScreenCover, ResponseLinePosition, null, Color.Black * 0.75f, 0f, new Vector2(0, 0), SpriteEffects.None, 0.04f);
+            sb.Draw(ImageMappings.GetInstance().GuiElementsSpriteSheet, ResponseLinePosition, ImageMappings.GetInstance().ScreenCover, Color.Black * 0.75f, 0f, new Vector2(0, 0), SpriteEffects.None, 0.04f);
 
             // Draw the response
-            Vector2 CharSize = Resources.SmallFont.MeasureString(" ") * GameWindow.ResolutionScale * TextScaling;
+            Vector2 CharSize = FontMappings.GetInstance().SmallFont.MeasureString(" ") * GameWindow.ResolutionScale * TextScaling;
             for (int i = 0; i < Response.Count; i++) 
             {
-                sb.DrawString(Resources.SmallFont, Response[i], ResponseTextPosition + new Vector2(0, CharSize.Y * i), 
+                sb.DrawString(FontMappings.GetInstance().SmallFont, Response[i], ResponseTextPosition + new Vector2(0, CharSize.Y * i), 
                     Color.Aqua, 0f, new Vector2(0, 0), GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0.03f);
             }            
 
             // Draw the text line panel
-            sb.Draw(Resources.ScreenCover, TextLinePosition, null, Color.Black * 0.75f, 0f, new Vector2(0, 0), SpriteEffects.None, 0.04f);
+            sb.Draw(ImageMappings.GetInstance().GuiElementsSpriteSheet, TextLinePosition, ImageMappings.GetInstance().ScreenCover, Color.Black * 0.75f, 0f, new Vector2(0, 0), SpriteEffects.None, 0.04f);
 
             CommandLine.Draw(sb);
         }
@@ -96,7 +98,7 @@ namespace Sprint0.GameStates.GameStates
              */
             if (key == '\r')
             {
-                if (CommandLine.Text.Length == 0) Game.CurrentState = PlayingGameState;
+                if (CommandLine.Text.Length == 0) Game.CurrentState = NextGameState;
                 else
                 {
                     Response = CommandParser.ParseCommand(CommandLine.Text, Game);
@@ -109,6 +111,11 @@ namespace Sprint0.GameStates.GameStates
         public void ReleaseKey() 
         {
             CommandLine.ReleaseChar();
+        }
+
+        public void SetNextState(IGameState nextGameState) 
+        {
+            NextGameState = nextGameState;
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Sprint0.Characters.Enemies
             State = new ZolMovingState(this);
 
             // The zol sprite is the same no matter its state, so we'll just instantiate it here
-            Sprite = GameModeManager.GetInstance().GameMode.GetZolSprite(State, Types.Direction.UP);
+            Sprite = new ZolSprite();
 
             // Combat
             Health = 1;

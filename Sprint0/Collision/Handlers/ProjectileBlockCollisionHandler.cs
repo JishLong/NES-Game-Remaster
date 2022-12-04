@@ -1,4 +1,5 @@
-﻿using Sprint0.Blocks;
+﻿using Sprint0.Assets;
+using Sprint0.Blocks;
 using Sprint0.Blocks.Blocks;
 using Sprint0.Doors;
 using Sprint0.Levels;
@@ -26,7 +27,7 @@ namespace Sprint0.Collision.Handlers
         {
             if(projectile is BombExplosionParticle && block is ExplosionTrigger)
             {
-                AudioManager.GetInstance().PlayOnce(Resources.SecretFound);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().SecretFound);
                 Door door = block.Parent as Door;
                 door.Unlock();
             }

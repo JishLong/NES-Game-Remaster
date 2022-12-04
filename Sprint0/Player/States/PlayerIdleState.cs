@@ -1,5 +1,5 @@
 ﻿using Sprint0.Items;
-using Sprint0.GameModes;
+using Sprint0.Sprites.Player.Idle;
 
 namespace Sprint0.Player.States
 {
@@ -9,7 +9,10 @@ namespace Sprint0.Player.States
         public PlayerIdleState(Player player, bool setUpSettings = false) : base(player, setUpSettings)
         {
             Player.IsStationary = true;
-            Sprite = GameModeManager.GetInstance().GameMode.GetPlayerSprite(this, Player.FacingDirection);
+            if (Player.FacingDirection == Types.Direction.UP) Sprite = new PlayerIdleUpSprite();
+            else if (Player.FacingDirection == Types.Direction.DOWN) Sprite = new PlayerIdleDownSprite();
+            else if (Player.FacingDirection == Types.Direction.LEFT) Sprite = new PlayerIdleLeftSprite();
+            else Sprite = new PlayerIdleRightSprite();
         }
 
         public override void DoPrimaryAttack()

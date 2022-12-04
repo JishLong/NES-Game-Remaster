@@ -3,6 +3,7 @@ using Sprint0.Characters.Bosses.States.DodongoStates;
 using Sprint0.GameModes;
 using Sprint0.Sprites;
 using Sprint0.Sprites.Characters.Enemies;
+using static Sprint0.Types;
 
 namespace Sprint0.Characters.Enemies
 {
@@ -38,7 +39,13 @@ namespace Sprint0.Characters.Enemies
 
         public static ISprite GetSprite(ICharacterState state, Types.Direction direction) 
         {
-            return GameModeManager.GetInstance().GameMode.GetDodongoSprite(state, direction);
+            return direction switch
+            {
+                Direction.LEFT => new DodongoLeftSprite(),
+                Direction.RIGHT => new DodongoRightSprite(),
+                Direction.UP => new DodongoUpSprite(),
+                _ => new DodongoDownSprite(),
+            };
         }
     }
 }

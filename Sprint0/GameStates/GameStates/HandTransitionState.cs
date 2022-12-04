@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.Controllers;
 using Sprint0.Input;
 using Sprint0.Levels;
@@ -54,10 +55,11 @@ namespace Sprint0.GameStates.GameStates
             else NextRoom.Draw(sb);
 
             // Draw the curtains
-            sb.Draw(Resources.ScreenCover, new Rectangle(0, HUDHeight, CurtainWidth, GameWindow.DefaultScreenHeight - HUDHeight), null,
+            sb.Draw(ImageMappings.GetInstance().GuiElementsSpriteSheet, 
+                new Rectangle(0, HUDHeight, CurtainWidth, GameWindow.DefaultScreenHeight - HUDHeight), ImageMappings.GetInstance().ScreenCover,
                 Color.Black, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
-            sb.Draw(Resources.ScreenCover, new Rectangle(GameWindow.DefaultScreenWidth - CurtainWidth, HUDHeight, CurtainWidth, 
-                GameWindow.DefaultScreenHeight - HUDHeight), null, Color.Black, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
+            sb.Draw(ImageMappings.GetInstance().GuiElementsSpriteSheet, new Rectangle(GameWindow.DefaultScreenWidth - CurtainWidth, HUDHeight, CurtainWidth, 
+                GameWindow.DefaultScreenHeight - HUDHeight), ImageMappings.GetInstance().ScreenCover, Color.Black, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
 
             
         }

@@ -13,250 +13,178 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin Audio/arrowBoomerang.wav
+#begin Audio/Default/bombExplode.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/arrowBoomerang.wav
+/build:Audio/Default/bombExplode.wav
 
-#begin Audio/bomb.wav
+#begin Audio/Default/bombPlace.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/bomb.wav
+/build:Audio/Default/bombPlace.wav
 
-#begin Audio/bossNoise.wav
+#begin Audio/Default/bossRoar.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/bossNoise.wav
+/build:Audio/Default/bossRoar.wav
 
-#begin Audio/bowserFalls.wav
+#begin Audio/Default/doorOpen.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/bowserFalls.wav
+/build:Audio/Default/doorOpen.wav
 
-#begin Audio/dababy.wav
+#begin Audio/Default/enemyDeath.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/dababy.wav
+/build:Audio/Default/enemyDeath.wav
 
-#begin Audio/doorOpened.wav
+#begin Audio/Default/enemyHurt.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/doorOpened.wav
+/build:Audio/Default/enemyHurt.wav
 
-#begin Audio/dungeonMusic.wav
+#begin Audio/Default/flameShoot.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/dungeonMusic.wav
+/build:Audio/Default/flameShoot.wav
 
-#begin Audio/enemyDeath.wav
+#begin Audio/Default/itemAppear.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/enemyDeath.wav
+/build:Audio/Default/itemAppear.wav
 
-#begin Audio/enemyTakeDamage.wav
+#begin Audio/Default/itemFound.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/enemyTakeDamage.wav
+/build:Audio/Default/itemFound.wav
 
-#begin Audio/flame.wav
+#begin Audio/Default/musicGame.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/flame.wav
+/build:Audio/Default/musicGame.wav
 
-#begin Audio/goombaLaserFire.wav
+#begin Audio/Default/musicMenu.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/goombaLaserFire.wav
+/build:Audio/Default/musicMenu.wav
 
-#begin Audio/goombaLaserHum.wav
+#begin Audio/Default/oldManTaunt.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/goombaLaserHum.wav
+/build:Audio/Default/oldManTaunt.wav
 
-#begin Audio/heartKeyPickup.wav
+#begin Audio/Default/pickupHeartKey.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/heartKeyPickup.wav
+/build:Audio/Default/pickupHeartKey.wav
 
-#begin Audio/itemPickup.wav
+#begin Audio/Default/pickupItem.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/itemPickup.wav
+/build:Audio/Default/pickupItem.wav
 
-#begin Audio/keyAppear.wav
+#begin Audio/Default/pickupRupee.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/keyAppear.wav
+/build:Audio/Default/pickupRupee.wav
 
-#begin Audio/lowHealth.wav
+#begin Audio/Default/playerDeath.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/lowHealth.wav
+/build:Audio/Default/playerDeath.wav
 
-#begin Audio/marioDieLong.wav
+#begin Audio/Default/playerHurt.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/marioDieLong.wav
+/build:Audio/Default/playerHurt.wav
 
-#begin Audio/marioDieShort.wav
+#begin Audio/Default/playerLowHealth.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/marioDieShort.wav
+/build:Audio/Default/playerLowHealth.wav
 
-#begin Audio/marioFireball.wav
+#begin Audio/Default/projectileBlocked.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/marioFireball.wav
+/build:Audio/Default/projectileBlocked.wav
 
-#begin Audio/marioMusic.wav
+#begin Audio/Default/projectileShoot.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/marioMusic.wav
+/build:Audio/Default/projectileShoot.wav
 
-#begin Audio/marioPowerDown.wav
+#begin Audio/Default/secretFound.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/marioPowerDown.wav
+/build:Audio/Default/secretFound.wav
 
-#begin Audio/marioPowerUp.wav
+#begin Audio/Default/swordShoot.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/marioPowerUp.wav
+/build:Audio/Default/swordShoot.wav
 
-#begin Audio/marioPowerUpAppears.wav
+#begin Audio/Default/swordSwing.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/marioPowerUpAppears.wav
+/build:Audio/Default/swordSwing.wav
 
-#begin Audio/marioStomp.wav
+#begin Audio/Default/textAppear.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/marioStomp.wav
+/build:Audio/Default/textAppear.wav
 
-#begin Audio/menuMusic.wav
+#begin Audio/Default/winGame.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/menuMusic.wav
+/build:Audio/Default/winGame.wav
 
-#begin Audio/newItem.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/newItem.wav
-
-#begin Audio/placeBomb.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/placeBomb.wav
-
-#begin Audio/playerDeath.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/playerDeath.wav
-
-#begin Audio/playerTakeDamage.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/playerTakeDamage.wav
-
-#begin Audio/rupeePickup.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/rupeePickup.wav
-
-#begin Audio/secretFound.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/secretFound.wav
-
-#begin Audio/shieldBlock.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/shieldBlock.wav
-
-#begin Audio/sword.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/sword.wav
-
-#begin Audio/swordProj.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/swordProj.wav
-
-#begin Audio/text.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/text.wav
-
-#begin Audio/vineBoom.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/vineBoom.wav
-
-#begin Audio/win.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/win.wav
-
-#begin Fonts/largeFont.spritefont
+#begin Fonts/Default/largeFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
-/build:Fonts/largeFont.spritefont
+/build:Fonts/Default/largeFont.spritefont
 
-#begin Fonts/mediumFont.spritefont
+#begin Fonts/Default/mediumFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
-/build:Fonts/mediumFont.spritefont
+/build:Fonts/Default/mediumFont.spritefont
 
-#begin Fonts/smallFont.spritefont
+#begin Fonts/Default/smallFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
-/build:Fonts/smallFont.spritefont
+/build:Fonts/Default/smallFont.spritefont
 
-#begin Images/babyOnBaby.png
+#begin Images/Default/blocks.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -266,9 +194,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/babyOnBaby.png
+/build:Images/Default/blocks.png
 
-#begin Images/BladeTrap.png
+#begin Images/Default/characters.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -278,9 +206,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/BladeTrap.png
+/build:Images/Default/characters.png
 
-#begin Images/blocks.png
+#begin Images/Default/cursor.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -290,9 +218,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/blocks.png
+/build:Images/Default/cursor.png
 
-#begin Images/characters.png
+#begin Images/Default/gui.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -302,9 +230,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/characters.png
+/build:Images/Default/gui.png
 
-#begin Images/cursor.png
+#begin Images/Default/guiElements.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -314,9 +242,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/cursor.png
+/build:Images/Default/guiElements.png
 
-#begin Images/goombaMode.png
+#begin Images/Default/items.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -326,9 +254,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/goombaMode.png
+/build:Images/Default/items.png
 
-#begin Images/gui.png
+#begin Images/Default/player.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -338,9 +266,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/gui.png
+/build:Images/Default/player.png
 
-#begin Images/guiElements.png
+#begin Images/Default/projectiles.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -350,9 +278,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/guiElements.png
+/build:Images/Default/projectiles.png
 
-#begin Images/HUDMapRoom.png
+#begin Images/Default/room.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -362,9 +290,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/HUDMapRoom.png
+/build:Images/Default/room.png
 
-#begin Images/invisible.png
+#begin Images/Minecraft/blocks.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -374,9 +302,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/invisible.png
+/build:Images/Minecraft/blocks.png
 
-#begin Images/items.png
+#begin Images/Minecraft/characters.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -386,9 +314,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/items.png
+/build:Images/Minecraft/characters.png
 
-#begin Images/Level1.png
+#begin Images/Minecraft/cursor.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -398,9 +326,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Level1.png
+/build:Images/Minecraft/cursor.png
 
-#begin Images/link.png
+#begin Images/Minecraft/gui.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -410,9 +338,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/link.png
+/build:Images/Minecraft/gui.png
 
-#begin Images/pausePanel.png
+#begin Images/Minecraft/guiElements.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -422,9 +350,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/pausePanel.png
+/build:Images/Minecraft/guiElements.png
 
-#begin Images/PlayerLocation.png
+#begin Images/Minecraft/items.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -434,9 +362,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/PlayerLocation.png
+/build:Images/Minecraft/items.png
 
-#begin Images/screenCover.png
+#begin Images/Minecraft/player.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -446,9 +374,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/screenCover.png
+/build:Images/Minecraft/player.png
 
-#begin Images/weaponsAndProj.png
+#begin Images/Minecraft/projectiles.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -458,5 +386,17 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/weaponsAndProj.png
+/build:Images/Minecraft/projectiles.png
+
+#begin Images/Minecraft/room.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Minecraft/room.png
 

@@ -1,11 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.Commands;
 using Sprint0.GameModes;
 using Sprint0.Items;
 using Sprint0.Player.HUD;
 using Sprint0.Player.States;
-using Sprint0.Sprites.Doors.UnlockdDoorSprites;
 
 namespace Sprint0.Player
 {
@@ -51,11 +51,12 @@ namespace Sprint0.Player
         public Player(Game1 game)
         {
             // Initialize the state
-            GameMode = Types.GameMode.NORMALMODE;
+            GameMode = Types.GameMode.DEFAULTMODE;
             State = new PlayerIdleState(this, true);
 
             // Initialize the movement-related fields
-            Position = new Vector2(Resources.BlueTile.Width * GameWindow.ResolutionScale * 8, Resources.BlueTile.Height * GameWindow.ResolutionScale * 8);
+            Position = new Vector2(AssetManager.DefaultImageAssets.BlueTile.Width * GameWindow.ResolutionScale * 8,
+                AssetManager.DefaultImageAssets.BlueTile.Height * GameWindow.ResolutionScale * 8);
 
             // Initialized the combat-related fields
             Health = 6;
@@ -113,11 +114,6 @@ namespace Sprint0.Player
         public void StopAction()
         {
             State.StopAction();
-        }
-
-        public void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode)
-        {
-            State.TransitionGameModes(oldGameMode, newGameMode);
         }
 
         public void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, 

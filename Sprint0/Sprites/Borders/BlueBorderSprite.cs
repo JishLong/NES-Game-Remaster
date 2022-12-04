@@ -1,12 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 
-namespace Sprint0.Sprites.Blocks
+namespace Sprint0.Sprites.Borders
 {
-    public class BlueBorderSprite: AbstractStillSprite
+    public class BlueBorderSprite: AbstractSprite
     {
-        protected override Texture2D GetSpriteSheet() => Resources.Level1SpriteSheet;
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().RoomSpriteSheet;
 
-        protected override Rectangle GetFrame() => Resources.Level1Border;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().Level1Border;
+
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.Level1Border;
     }
 }

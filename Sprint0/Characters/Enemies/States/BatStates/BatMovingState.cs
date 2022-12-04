@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.States.BatStates;
 using Sprint0.Characters.Utils;
 using Sprint0.GameModes;
 
@@ -30,12 +29,6 @@ namespace Sprint0.Characters.Enemies.States.BatStates
         public override void Freeze(bool frozenForever)
         {
             Character.State = new BatFrozenState(Character, Direction, frozenForever);
-        }
-
-        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
-        {
-            if (inCurrentRoom) Character.State = new BatGameModeTransitionState(Character, oldGameMode, newGameMode, Direction);
-            else Character.Sprite = newGameMode.GetBatSprite(this, Direction);
         }
 
         public override void Unfreeze() 

@@ -15,7 +15,7 @@ namespace Sprint0.Npcs
 
 		public OldMan(Vector2 position)
 		{
-            Sprite = Sprite = GameModeManager.GetInstance().GameMode.GetOldManSprite();
+            Sprite = new OldManSprite();
 
             Health = 1;
 			Position = position;	
@@ -35,11 +35,6 @@ namespace Sprint0.Npcs
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
         {
             WasAttacked = true;
-        }
-
-        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
-        {
-            Sprite = newGameMode.GetOldManSprite();
         }
 
         public override void Update(GameTime gameTime)

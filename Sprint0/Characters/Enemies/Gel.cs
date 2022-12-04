@@ -16,7 +16,7 @@ namespace Sprint0.Characters.Enemies
             State = new GelMovingState(this);
 
             // The gel sprite is the same no matter its state, so we'll just instantiate it here
-            Sprite = GameModeManager.GetInstance().GameMode.GetGelSprite(State, Types.Direction.UP);
+            Sprite = new GelSprite();
 
             // Combat
             Health = 1;

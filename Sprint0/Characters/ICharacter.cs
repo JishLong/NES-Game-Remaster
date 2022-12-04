@@ -21,8 +21,6 @@ namespace Sprint0.Characters
 
         void TakeDamage(Types.Direction damageSide, int damage, Room room);
 
-        void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom);
-
         void Unfreeze();
 
         void Update(GameTime gameTime);

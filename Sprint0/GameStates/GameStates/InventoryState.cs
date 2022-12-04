@@ -1,9 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.Controllers;
 using Sprint0.Input;
 using Sprint0.Player.Inventory;
 using Sprint0.Sprites;
+using Sprint0.Sprites.Items;
 using Sprint0.Sprites.Player;
 using System.Collections.Generic;
 using System.Data;
@@ -42,7 +44,7 @@ namespace Sprint0.GameStates.GameStates
             Camera.GetInstance().Move(Types.Direction.UP, HUDHeight);
 
             // Inventory layout
-            sb.Draw(Resources.GuiSpriteSheet, Utils.LinkToCamera(InventoryPosition), Resources.Inventory, Color.White,
+            sb.Draw(ImageMappings.GetInstance().GuiSpriteSheet, Utils.LinkToCamera(InventoryPosition), ImageMappings.GetInstance().Inventory, Color.White,
               0f, Vector2.Zero, SpriteEffects.None, 0.19f);
 
             // Selected item

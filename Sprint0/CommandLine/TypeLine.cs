@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 
 namespace Sprint0.CommandLine
 {
@@ -42,7 +43,7 @@ namespace Sprint0.CommandLine
             TextScaling = textScaling;
             Text = "";
 
-            Vector2 CharSize = Resources.SmallFont.MeasureString(" ") * GameWindow.ResolutionScale * TextScaling;
+            Vector2 CharSize = FontMappings.GetInstance().SmallFont.MeasureString(" ") * GameWindow.ResolutionScale * TextScaling;
             // The zelda font has a strange height, so the text is actually placed a little further down to better center it
             TextPosition = new Vector2(CharSize.X / 2, Position.Y + CharSize.Y / 8);
             TextCursorPosition = new Rectangle((int)(CharSize.X / 2), Position.Y + Position.Height / 6,
@@ -52,11 +53,12 @@ namespace Sprint0.CommandLine
         public void Draw(SpriteBatch sb) 
         {
             // Draw the text
-            sb.DrawString(Resources.SmallFont, Text, TextPosition, Color.White, 0f, new Vector2(0, 0),
+            sb.DrawString(FontMappings.GetInstance().SmallFont, Text, TextPosition, Color.White, 0f, new Vector2(0, 0),
                 GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0.03f);
 
             // Draw the little text cursor
-            if (IsShowing) sb.Draw(Resources.ScreenCover, TextCursorPosition, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.03f);
+            if (IsShowing) sb.Draw(ImageMappings.GetInstance().GuiElementsSpriteSheet, TextCursorPosition, 
+                ImageMappings.GetInstance().ScreenCover, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.03f);
         }
 
         public void Update()
@@ -124,8 +126,8 @@ namespace Sprint0.CommandLine
 
         private void SetCursorPosition()
         {
-            Vector2 CharSize = Resources.SmallFont.MeasureString(" ") * GameWindow.ResolutionScale * TextScaling;
-            Vector2 CommandSize = Resources.SmallFont.MeasureString(Text) * GameWindow.ResolutionScale * TextScaling;
+            Vector2 CharSize = FontMappings.GetInstance().SmallFont.MeasureString(" ") * GameWindow.ResolutionScale * TextScaling;
+            Vector2 CommandSize = FontMappings.GetInstance().SmallFont.MeasureString(Text) * GameWindow.ResolutionScale * TextScaling;
             TextCursorPosition = new Rectangle((int)(CharSize.X / 2 + CommandSize.X), Position.Y + Position.Height / 6,
                 (int)CharSize.X / 2, Position.Height * 3 / 4);
         }

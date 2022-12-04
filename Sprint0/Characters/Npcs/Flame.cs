@@ -11,7 +11,7 @@ namespace Sprint0.Npcs
     {
         public Flame(Vector2 position)
         {
-            Sprite = Sprite = GameModeManager.GetInstance().GameMode.GetFlameSprite();
+            Sprite = new FlameSprite();
 
             Health = 1;
             Position = position;
@@ -30,11 +30,6 @@ namespace Sprint0.Npcs
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
         {
             // You can't kill fire :D
-        }
-
-        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
-        {
-            Sprite = newGameMode.GetFlameSprite();
         }
 
         public override void Update(GameTime gameTime)

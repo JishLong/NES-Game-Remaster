@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.States.RedGoriyaStates;
-using Sprint0.Characters.States.BatStates;
 using Sprint0.GameModes;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Tools;
@@ -34,12 +33,6 @@ namespace Sprint0.Characters.Enemies.RedGoriyaStates
         public override void ChangeDirection()
         {
             // Do nothing, cant change direction while attacking.
-        }
-
-        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
-        {
-            if (inCurrentRoom) Character.State = new RedGoriyaGameModeTransitionState(Character, oldGameMode, newGameMode, ResumeMovementDirection);
-            else Character.Sprite = newGameMode.GetRedGoriyaSprite(this, ResumeMovementDirection);
         }
 
         public override void Unfreeze()

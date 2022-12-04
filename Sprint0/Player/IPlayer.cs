@@ -42,8 +42,6 @@ namespace Sprint0.Player
 
         void StopAction();
 
-        void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode);
-
         void Update();
     }
 }

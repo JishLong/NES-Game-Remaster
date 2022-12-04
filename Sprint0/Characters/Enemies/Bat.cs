@@ -16,7 +16,7 @@ namespace Sprint0.Characters.Enemies
             State = new BatMovingState(this);
 
             // The bat sprite is the same no matter its state, so we'll just instantiate it here
-            Sprite = GameModeManager.GetInstance().GameMode.GetBatSprite(State, Types.Direction.UP);
+            Sprite = new BatSprite();
 
             // Combat
             Health = 1;

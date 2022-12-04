@@ -7,6 +7,7 @@ using Sprint0.Commands.GameStates;
 using Sprint0.Items;
 using Sprint0.Commands;
 using Sprint0.GameModes;
+using Sprint0.Assets;
 
 namespace Sprint0.Player.States
 {
@@ -64,7 +65,7 @@ namespace Sprint0.Player.States
                 Player.Health += healthAmount;
                 IsTakingDamage = true;
                 KnockbackDirection = direction;
-                AudioManager.GetInstance().PlayOnce(GameModeManager.GetInstance().GameMode.PlayerHurtSound);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().PlayerHurt);
 
                 if (Player.Health <= 0)
                 {
@@ -95,7 +96,8 @@ namespace Sprint0.Player.States
              * This makes it easier to run in between tight spaces of blocks
              */
             Rectangle ActualHitbox = new((int)Player.Position.X, (int)Player.Position.Y,
-                (int)(Resources.LinkDown.Width * GameWindow.ResolutionScale), (int)(Resources.LinkDown.Height * GameWindow.ResolutionScale));
+                (int)(ImageMappings.GetInstance().PlayerDown.Width * GameWindow.ResolutionScale), 
+                (int)(ImageMappings.GetInstance().PlayerDown.Height * GameWindow.ResolutionScale));
 
             int ReducedWidth = ActualHitbox.Width * 2 / 3;
             int ReducedHeight = ActualHitbox.Height * 2 / 3;
@@ -109,11 +111,6 @@ namespace Sprint0.Player.States
         public abstract void Move(Direction direction);
 
         public abstract void StopAction();
-
-        public void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode)
-        {
-            if (oldGameMode.Type != newGameMode.Type) Player.State = new PlayerGameModeTransitionState(Player, oldGameMode, newGameMode);
-        }
 
         public virtual void Update() 
         {
@@ -139,7 +136,7 @@ namespace Sprint0.Player.States
             // Low health sound effect (annoying and scary D: )
             if (Player.Health == 1 && ++LowHealthFramesPassed % LowHealthFrames == 0) 
             {
-                AudioManager.GetInstance().PlayOnce(Resources.LowHealth);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().PlayerLowHealth);
                 LowHealthFramesPassed = 0;
             }
         }

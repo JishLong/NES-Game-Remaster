@@ -1,19 +1,20 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.GameModes;
 using Sprint0.Items;
 using Sprint0.Sprites;
-using Sprint0.Sprites.GoombaMode.Goomba;
+using Sprint0.Sprites.Player.Moving;
 
 namespace Sprint0.Player.States
 {
     public class PlayerMovingState : AbstractPlayerState
     {
+        private readonly ISprite[] Sprites = { new PlayerMovingUpSprite(), new PlayerMovingDownSprite(), new PlayerMovingLeftSprite(),
+            new PlayerMovingRightSprite() };
         private static readonly Vector2 MovementSpeed = new(4, 4);
 
         public PlayerMovingState(Player player) : base(player)
         {
             Player.IsStationary = false;
-            Sprite = GameModeManager.GetInstance().GameMode.GetPlayerSprite(this, Player.FacingDirection);
+            Sprite = Sprites[(int)Player.FacingDirection];
         }
 
         public override void Move(Types.Direction direction)
@@ -21,7 +22,7 @@ namespace Sprint0.Player.States
             if (Player.FacingDirection != direction) 
             {
                 Player.FacingDirection = direction;
-                Sprite = GameModeManager.GetInstance().GameMode.GetPlayerSprite(this, Player.FacingDirection);
+                Sprite = Sprites[(int)Player.FacingDirection];
             }
         }
 

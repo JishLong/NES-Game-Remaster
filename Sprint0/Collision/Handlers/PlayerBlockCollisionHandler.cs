@@ -5,6 +5,7 @@ using Sprint0.Blocks.Blocks;
 using Sprint0.Commands.Levels;
 using Sprint0.Doors;
 using Sprint0.Levels;
+using Sprint0.Assets;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -63,7 +64,7 @@ namespace Sprint0.Collision.Handlers
             {
                 if (player.Inventory.GetAmount(Types.Item.KEY) > 0)
                 {
-                    AudioManager.GetInstance().PlayOnce(Resources.DoorOpened);
+                    AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().DoorOpen);
                     player.Inventory.RemoveFromInventory(Types.Item.KEY, 1);
                     Door door = block.Parent as Door;
                     door.Unlock();

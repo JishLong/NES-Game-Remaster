@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.Blocks.Utils;
 using Sprint0.Entities;
 using Sprint0.Sprites.Blocks;
@@ -36,7 +37,7 @@ namespace Sprint0.Blocks.Blocks
             {
                 HasBeenPushed = true;
                 Direction = direction;
-                AudioManager.GetInstance().PlayOnce(Resources.SecretFound);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().SecretFound);
             }
         }
 

@@ -16,8 +16,6 @@ namespace Sprint0.Characters
 
         Rectangle GetHitbox(Vector2 position);
 
-        void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom);
-
         void Unfreeze();
  
         void Update(GameTime gameTime);        

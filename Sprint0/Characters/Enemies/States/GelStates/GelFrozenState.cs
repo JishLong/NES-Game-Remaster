@@ -1,5 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.States.GelStates;
 using Sprint0.GameModes;
 using static Sprint0.Types;
 
@@ -35,12 +34,6 @@ namespace Sprint0.Characters.Enemies.States.GelStates
             // If a gel is frozen from a boomerang, picking up a clock will keep it frozen forever
             // On the other hand, if a gel is frozen from a clock, we don't want the boomerang to "unfreeze" it
             if (frozenForever) FrozenForever = frozenForever;
-        }
-
-        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
-        {
-            if (inCurrentRoom) Character.State = new GelGameModeTransitionState(Character, oldGameMode, newGameMode, ResumeMovementDirection);
-            else Character.Sprite = newGameMode.GetGelSprite(this, ResumeMovementDirection);
         }
 
         public override void Unfreeze()

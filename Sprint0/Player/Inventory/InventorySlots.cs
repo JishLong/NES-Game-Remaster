@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites;
-using Sprint0.Sprites.HUD;
-using Sprint0.Sprites.Player;
+using Sprint0.Sprites.Gui;
+using Sprint0.Sprites.Items;
 
 namespace Sprint0.Player.Inventory
 {

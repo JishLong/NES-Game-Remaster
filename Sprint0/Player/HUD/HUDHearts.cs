@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using static Sprint0.Utils;
 
 namespace Sprint0.Player.HUD
@@ -24,11 +25,14 @@ namespace Sprint0.Player.HUD
                     Rectangle LifeArea = new((int)(Life.X + j * 8 * GameWindow.ResolutionScale), (int)(Life.Y + 8 * i * GameWindow.ResolutionScale),
                         (int)(8 * GameWindow.ResolutionScale), (int)(8 * GameWindow.ResolutionScale));
 
-                    if (Player.Health >= 2 * (j + 1) + (i * 16)) sb.Draw(Resources.GuiElementsSpriteSheet, LinkToCamera(LifeArea), Resources.FullHeart, Color.White,
+                    if (Player.Health >= 2 * (j + 1) + (i * 16)) sb.Draw(ImageMappings.GetInstance().GuiElementsSpriteSheet, 
+                        LinkToCamera(LifeArea), ImageMappings.GetInstance().HeartFull, Color.White,
                         0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-                    else if (Player.Health == 2 * j + 1 + (i * 16)) sb.Draw(Resources.GuiElementsSpriteSheet, LinkToCamera(LifeArea), Resources.HalfHeart, Color.White,
+                    else if (Player.Health == 2 * j + 1 + (i * 16)) sb.Draw(ImageMappings.GetInstance().GuiElementsSpriteSheet, LinkToCamera(LifeArea),
+                        ImageMappings.GetInstance().HeartHalf, Color.White,
                         0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-                    else if (Player.MaxHealth >= 2 * (j + 1) + (i * 16) - 1) sb.Draw(Resources.GuiElementsSpriteSheet, LinkToCamera(LifeArea), Resources.EmptyHeart, Color.White,
+                    else if (Player.MaxHealth >= 2 * (j + 1) + (i * 16) - 1) sb.Draw(ImageMappings.GetInstance().GuiElementsSpriteSheet, LinkToCamera(LifeArea),
+                        ImageMappings.GetInstance().HeartEmpty, Color.White,
                         0f, Vector2.Zero, SpriteEffects.None, 0.18f);
                 }
             }

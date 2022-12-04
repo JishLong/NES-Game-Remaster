@@ -1,6 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.States.BatStates;
-using Sprint0.Characters.States.DodongoStates;
 using Sprint0.GameModes;
 using static Sprint0.Types;
 
@@ -37,12 +35,6 @@ namespace Sprint0.Characters.Bosses.States.DodongoStates
         public override void ChangeDirection()
         {
             // Do nothing. Cant change direction while frozen.
-        }
-
-        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
-        {
-            if (inCurrentRoom) Character.State = new DodongoGameModeTransitionState(Character, oldGameMode, newGameMode, ResumeMovementDirection);
-            else Character.Sprite = newGameMode.GetDodongoSprite(this, ResumeMovementDirection);
         }
 
         public override void Unfreeze()

@@ -2,7 +2,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Items.Items;
-using Sprint0.GameModes;
+using Sprint0.Sprites.Player;
+using Sprint0.Assets;
 
 namespace Sprint0.Player.States
 {
@@ -14,7 +15,7 @@ namespace Sprint0.Player.States
 
         public PlayerHoldItemState(Player player, IItem item) : base(player)
         {
-            Sprite = GameModeManager.GetInstance().GameMode.GetPlayerSprite(this, Player.FacingDirection);
+            Sprite = new PlayerHoldItemSprite();
             FramesPassed = 0;
             Item = item;
         }
@@ -34,7 +35,7 @@ namespace Sprint0.Player.States
             Item.Update();
 
             FramesPassed++;
-            if (FramesPassed == 2 && Item is Bow) AudioManager.GetInstance().PlaySelfishSound(Resources.NewItem);
+            if (FramesPassed == 2 && Item is Bow) AudioManager.GetInstance().PlaySelfishSound(AudioMappings.GetInstance().ItemFound);
 
             if (FramesPassed % HoldItemFrames == 0)
             {

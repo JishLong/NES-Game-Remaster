@@ -8,27 +8,14 @@ namespace Sprint0.GameModes
         
         public IGameMode GameMode { get; private set; }
 
-        public void ChangeGameMode(IGameMode newGameMode, Game1 game) 
+        public void ChangeGameMode(IGameMode newGameMode) 
         {
-            foreach (var player in game.PlayerManager)
-            {
-                player.TransitionGameModes(GameMode, newGameMode);
-            }
-            foreach (var room in game.LevelManager.CurrentLevel.Rooms) 
-            {
-                bool IsCurrentRoom = room == game.LevelManager.CurrentLevel.CurrentRoom;
-
-                foreach (var character in room.Characters) 
-                {
-                    character.TransitionGameModes(GameMode, newGameMode, IsCurrentRoom);
-                }
-            }
             GameMode = newGameMode;
         }
 
         public void Initialize() 
         {
-            GameMode = new NormalMode();
+            GameMode = new DefaultMode();
         }
 
         public static GameModeManager GetInstance()

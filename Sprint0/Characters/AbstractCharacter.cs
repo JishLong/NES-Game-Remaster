@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.Entities;
 using Sprint0.GameModes;
 using Sprint0.Levels;
@@ -51,7 +52,7 @@ namespace Sprint0.Characters
         {
             // Spawn a "death particle" upon death
             ProjectileManager.GetInstance().AddProjectile(Types.Projectile.DEATH_PARTICLE, this, Types.Direction.NO_DIRECTION);
-            AudioManager.GetInstance().PlayOnce(GameModeManager.GetInstance().GameMode.CharacterDeathSound);
+            AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().EnemyDeath);
 
             // Custom drop rates because the game's actual drop rates are too uncommon for just playing in the first dungeon
             int Drop = new Random().Next(100);
@@ -85,7 +86,7 @@ namespace Sprint0.Characters
             {
                 IsTakingDamage = true;
                 Health -= damage;
-                AudioManager.GetInstance().PlayOnce(GameModeManager.GetInstance().GameMode.CharacterHurtSound);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().EnemyHurt);
                 if (Health <= 0)
                 {
                     DeathAction(room);
@@ -96,11 +97,6 @@ namespace Sprint0.Characters
                     KnockbackDirection = Sprint0.Utils.GetOppositeDirection(damageSide);
                 }
             }
-        }
-
-        public virtual void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom) 
-        {
-            if (State != null) State.TransitionGameModes(oldGameMode, newGameMode, inCurrentRoom);
         }
 
         public virtual void Unfreeze()

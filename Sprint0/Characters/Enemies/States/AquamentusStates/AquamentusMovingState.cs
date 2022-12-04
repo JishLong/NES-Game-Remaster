@@ -1,6 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.States.AquamentusStates;
-using Sprint0.Characters.States.BatStates;
 using Sprint0.Characters.Utils;
 using Sprint0.GameModes;
 
@@ -31,12 +29,6 @@ namespace Sprint0.Characters.Enemies.AquamentusStates
         public override void ChangeDirection()
         {
             Direction = CharacterUtils.RandOrthogDirection(Direction);
-        }
-
-        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
-        {
-            if (inCurrentRoom) Character.State = new AquamentusGameModeTransitionState(Character, oldGameMode, newGameMode, Direction);
-            else Character.Sprite = newGameMode.GetAquamentusSprite(this, Direction);
         }
 
         public override void Unfreeze() 

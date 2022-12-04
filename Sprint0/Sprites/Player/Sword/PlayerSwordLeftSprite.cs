@@ -1,22 +1,37 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 
-namespace Sprint0.Sprites.Player.Attack.SwordAttack
+namespace Sprint0.Sprites.Player.Sword
 {
-    public class PlayerSwordLeftSprite : AbstractAnimatedSprite
+    public class PlayerSwordLeftSprite : AbstractSprite
     {
-        public PlayerSwordLeftSprite() : base(4, 4)
+        private readonly Vector2 PixelOffset = new(-12, 0);
+        
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().PlayerSpriteSheet;
+
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().PlayerSwordLeft;
+
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.PlayerSwordLeft;
+
+        protected override bool IsAnimated()
         {
-            xOffsetPixels = -12;
+            return true;
         }
 
-        protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
-
-        protected override Rectangle GetFirstFrame() => Resources.LinkSwordSideways;
-
-        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
+        protected override int GetNumFrames()
         {
-            DrawFlippedHorz(spriteBatch, position, color, layer);
+            return 4;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            return 4;
+        }
+
+        protected override Vector2 GetPixelOffset()
+        {
+            return PixelOffset;
         }
     }
 }

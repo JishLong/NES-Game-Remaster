@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Characters.States.HandStates;
 using Sprint0.GameModes;
 using static Sprint0.Types;
 using Color = Microsoft.Xna.Framework.Color;
@@ -48,11 +47,6 @@ namespace Sprint0.Characters.Enemies.States.HandStates
             if (frozenForever) FrozenForever = frozenForever;
         }
 
-        public override void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom)
-        {
-            if (inCurrentRoom) Character.State = new HandGameModeTransitionState(Character, oldGameMode, newGameMode, ResumeMovementDirection, ClockWise);
-            else Character.Sprite = newGameMode.GetHandSprite(this, ResumeMovementDirection, ClockWise);
-        }
 
         public override void Unfreeze() 
         {

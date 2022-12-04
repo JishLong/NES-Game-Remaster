@@ -1,14 +1,30 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 
-namespace Sprint0.Sprites.Player
+namespace Sprint0.Sprites.Items
 {
-    public class HeartSprite : AbstractAnimatedSprite
+    public class HeartSprite : AbstractSprite
     {
-        public HeartSprite() : base(2, 8) { }
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().ItemsSpriteSheet;
 
-        protected override Texture2D GetSpriteSheet() => Resources.ItemsSpriteSheet;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().Heart;
 
-        protected override Rectangle GetFirstFrame() => Resources.Heart;
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.Heart;
+
+        protected override bool IsAnimated()
+        {
+            return true;
+        }
+
+        protected override int GetNumFrames()
+        {
+            return 2;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            return 8;
+        }
     }
 }

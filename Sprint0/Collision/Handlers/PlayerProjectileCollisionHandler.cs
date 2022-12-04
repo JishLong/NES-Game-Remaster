@@ -4,6 +4,7 @@ using Sprint0.Projectiles.Tools;
 using Sprint0.Projectiles.Character_Projectiles;
 using Sprint0.Projectiles.Player_Projectiles;
 using Sprint0.Projectiles.Character;
+using Sprint0.Assets;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -27,7 +28,7 @@ namespace Sprint0.Collision.Handlers
                 }    
                 else
                 {
-                    AudioManager.GetInstance().PlayOnce(Resources.ShieldBlock);
+                    AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().ProjectileBlocked);
                 }
 
                 // For enemy boomerangs, we want them to bounce off the player and go back to the user

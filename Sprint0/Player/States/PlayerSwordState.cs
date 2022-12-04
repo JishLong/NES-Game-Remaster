@@ -1,12 +1,15 @@
-﻿using Sprint0.GameModes;
+﻿using Sprint0.Assets;
 using Sprint0.Items;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
+using Sprint0.Sprites.Player.Sword;
 
 namespace Sprint0.Player.States
 {
     public class PlayerSwordState : AbstractPlayerState
     {
+        private readonly ISprite[] Sprites = { new PlayerSwordUpSprite(), new PlayerSwordDownSprite(), new PlayerSwordLeftSprite(),
+            new PlayerSwordRightSprite() };
         private readonly static int GoombaLaserFireRate = 1;
 
         private int FramesPassed;
@@ -14,15 +17,15 @@ namespace Sprint0.Player.States
         public PlayerSwordState(Player player) : base(player)
         {
             Player.IsStationary = false;
-            Sprite = GameModeManager.GetInstance().GameMode.GetPlayerSprite(this, Player.FacingDirection);
+            Sprite = Sprites[(int)Player.FacingDirection];
             if (Player.GameMode != Types.GameMode.GOOMBAMODE)
             {       
                 ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_MELEE, Player, Player.FacingDirection);
-                AudioManager.GetInstance().PlayOnce(Resources.Sword);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().SwordSwing);
             }
             else
             {
-                AudioManager.GetInstance().PlayOnce(Resources.GoombaLaserFire);
+                //AudioManager.GetInstance().PlayOnce(Resources.GoombaLaserFire);
             }
             
             FramesPassed = 0;           
@@ -59,7 +62,7 @@ namespace Sprint0.Player.States
 
             FramesPassed++;
 
-            if (Player.GameMode == Types.GameMode.NORMALMODE)
+            if (Player.GameMode == Types.GameMode.DEFAULTMODE)
             {
                 if (FramesPassed % Sprite.GetAnimationTime() == 0)
                 {

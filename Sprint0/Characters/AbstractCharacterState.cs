@@ -30,8 +30,6 @@ namespace Sprint0.Characters
             return Character.Sprite.GetDrawbox(position);
         }
 
-        public abstract void TransitionGameModes(IGameMode oldGameMode, IGameMode newGameMode, bool inCurrentRoom);
-
         public abstract void Unfreeze();
         
         public abstract void Update(GameTime gameTime);

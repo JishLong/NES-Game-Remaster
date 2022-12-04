@@ -1,11 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
 using Sprint0.Blocks.Utils;
-using Sprint0.Sprites;
-using Sprint0.Sprites.Doors.WallDoorSprites;
+using Sprint0.Sprites.Doors.WallDoors;
 using System.Collections.Generic;
-using static Sprint0.Utils;
 
 namespace Sprint0.Doors.States.WallStates
 {
@@ -22,7 +19,7 @@ namespace Sprint0.Doors.States.WallStates
             Position = LevelResources.DownDoorPosition;
 
             // Create sprite
-            DoorSprite = new DownWallDoorSprite();
+            DoorSprite = new WallDoorDownSprite();
 
             // Blocks
             Blocks = new List<IBlock>();

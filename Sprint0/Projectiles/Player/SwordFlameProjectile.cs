@@ -7,7 +7,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
     public class SwordFlameProjectile : AbstractProjectile
     {
         public SwordFlameProjectile(ICollidable user, Types.Direction direction) :
-            base(new SwordFlameProjSprite(direction), user, direction, new Vector2(3, 3))
+            base(new SwordFlameProjectileSprite(direction), user, direction, new Vector2(3, 3))
         {
             MaxFramesAlive = 20;
 

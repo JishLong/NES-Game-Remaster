@@ -5,6 +5,7 @@ using Sprint0.Input.ClientInputHandlers;
 using Sprint0.Input;
 using System;
 using System.Collections.Generic;
+using Sprint0.Assets;
 
 namespace Sprint0.GameStates.GameStates
 {
@@ -61,15 +62,15 @@ namespace Sprint0.GameStates.GameStates
         {
             Color TipColor = (FramesPassed < TipFrames / 10) ? Color.Red : Color.White;
 
-            sb.DrawString(Resources.SmallFont, "Welcome to...", WelcomeTextPosition, Color.White, 0f, new Vector2(0, 0),
+            sb.DrawString(FontMappings.GetInstance().SmallFont, "Welcome to...", WelcomeTextPosition, Color.White, 0f, new Vector2(0, 0),
                 GameWindow.ResolutionScale / TextScaling, SpriteEffects.None, 0f);
-            sb.DrawString(Resources.LargeFont, "The Myth of Zebra!", TitleTextPosition, Color.Aqua, 0f, new Vector2(0, 0),
+            sb.DrawString(FontMappings.GetInstance().LargeFont, "The Myth of Zebra!", TitleTextPosition, Color.Aqua, 0f, new Vector2(0, 0),
                 GameWindow.ResolutionScale / TextScaling, SpriteEffects.None, 0f);
-            sb.DrawString(Resources.SmallFont, "Press SPACEBAR to start", StartTextPosition, Color.White, 0f, new Vector2(0, 0),
+            sb.DrawString(FontMappings.GetInstance().SmallFont, "Press SPACEBAR to start", StartTextPosition, Color.White, 0f, new Vector2(0, 0),
                 GameWindow.ResolutionScale / TextScaling, SpriteEffects.None, 0f);
-            if (IsShowing) sb.DrawString(Resources.MediumFont, "- TIPS: -", FlashingTextPosition, Color.White, 0f, new Vector2(0, 0),
+            if (IsShowing) sb.DrawString(FontMappings.GetInstance().MediumFont, "- TIPS: -", FlashingTextPosition, Color.White, 0f, new Vector2(0, 0),
                 GameWindow.ResolutionScale / TextScaling, SpriteEffects.None, 0f);
-            sb.DrawString(Resources.SmallFont, Tips[CurrentTip], TipTextPosition, TipColor, 0f, new Vector2(0, 0),
+            sb.DrawString(FontMappings.GetInstance().SmallFont, Tips[CurrentTip], TipTextPosition, TipColor, 0f, new Vector2(0, 0),
                 GameWindow.ResolutionScale / TextScaling, SpriteEffects.None, 0f);
         }
 
@@ -89,7 +90,7 @@ namespace Sprint0.GameStates.GameStates
                 while (PrevTip == CurrentTip);
 
                 // Set up the tip's position on the screen
-                Vector2 tipTextSize = Resources.SmallFont.MeasureString(Tips[CurrentTip]);
+                Vector2 tipTextSize = FontMappings.GetInstance().SmallFont.MeasureString(Tips[CurrentTip]);
                 TipTextPosition = new Vector2(GameWindow.DefaultScreenWidth / 2 - tipTextSize.X * GameWindow.ResolutionScale / TextScaling / 2,
                     GameWindow.DefaultScreenHeight * 4 / 5 - tipTextSize.Y * GameWindow.ResolutionScale / TextScaling / 2);
             }
@@ -130,11 +131,11 @@ namespace Sprint0.GameStates.GameStates
 
         private void SetElementPositions()
         {
-            Vector2 welcomeTextSize = Resources.SmallFont.MeasureString("Welcome to...");
-            Vector2 titleTextSize = Resources.LargeFont.MeasureString("The Myth of Zebra!");
-            Vector2 startTextSize = Resources.SmallFont.MeasureString("Press SPACEBAR to start");
-            Vector2 flashingTextSize = Resources.MediumFont.MeasureString("- TIPS: -");
-            Vector2 tipTextSize = Resources.SmallFont.MeasureString(Tips[CurrentTip]);
+            Vector2 welcomeTextSize = FontMappings.GetInstance().SmallFont.MeasureString("Welcome to...");
+            Vector2 titleTextSize = FontMappings.GetInstance().LargeFont.MeasureString("The Myth of Zebra!");
+            Vector2 startTextSize = FontMappings.GetInstance().SmallFont.MeasureString("Press SPACEBAR to start");
+            Vector2 flashingTextSize = FontMappings.GetInstance().MediumFont.MeasureString("- TIPS: -");
+            Vector2 tipTextSize = FontMappings.GetInstance().SmallFont.MeasureString(Tips[CurrentTip]);
 
             WelcomeTextPosition = new Vector2(GameWindow.DefaultScreenWidth / 2 - welcomeTextSize.X * GameWindow.ResolutionScale / TextScaling / 2,
                 GameWindow.DefaultScreenHeight / 5 - welcomeTextSize.Y * GameWindow.ResolutionScale / TextScaling / 2);

@@ -1,14 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Collision;
 using Sprint0.Projectiles.Tools;
-using Sprint0.Sprites.GoombaMode;
+using Sprint0.Sprites.Projectiles.Character;
 
 namespace Sprint0.Projectiles.Player_Projectiles
 {
     public class MarioFireballProjectile : AbstractProjectile
     {
         public MarioFireballProjectile(ICollidable user, Types.Direction direction) :
-            base(new FireballSprite(), user, direction, new Vector2(10, 10))
+            base(new BossProjectileSprite(), user, direction, new Vector2(10, 10))
         {
             MaxFramesAlive = 100;
             Damage = 1;
@@ -16,7 +16,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
 
             Position = Utils.CenterRectangles(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height);
 
-            AudioManager.GetInstance().PlayOnce(Resources.MarioFireball);
+            //AudioManager.GetInstance().PlayOnce(Resources.MarioFireball);
         }
 
         public override void DeathAction()

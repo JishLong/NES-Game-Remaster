@@ -1,14 +1,30 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 
 namespace Sprint0.Sprites.Projectiles.Character
 {
-    public class BossProjSprite : AbstractAnimatedSprite
+    public class BossProjectileSprite : AbstractSprite
     {
-        public BossProjSprite() : base(4, 8) { }
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().ProjectilesSpriteSheet;
 
-        protected override Texture2D GetSpriteSheet() => Resources.WeaponsAndProjSpriteSheet;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().BossProjectile;
 
-        protected override Rectangle GetFirstFrame() => Resources.BossProj;
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.BossProjectile;
+
+        protected override bool IsAnimated()
+        {
+            return true;
+        }
+
+        protected override int GetNumFrames()
+        {
+            return 4;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            return 8;
+        }
     }
 }

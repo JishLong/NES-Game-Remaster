@@ -1,14 +1,30 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 
-namespace Sprint0.Sprites.Player.Attack.SwordAttack
+namespace Sprint0.Sprites.Player.Sword
 {
-    public class PlayerSwordDownSprite : AbstractAnimatedSprite
+    public class PlayerSwordDownSprite : AbstractSprite
     {
-        public PlayerSwordDownSprite() : base(4, 4) { }
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().PlayerSpriteSheet;
 
-        protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().PlayerSwordDown;
 
-        protected override Rectangle GetFirstFrame() => Resources.LinkSwordDown;
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.PlayerSwordDown;
+
+        protected override bool IsAnimated()
+        {
+            return true;
+        }
+
+        protected override int GetNumFrames()
+        {
+            return 4;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            return 4;
+        }
     }
 }
