@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters.Utils;
+using Sprint0.GameModes;
 
 namespace Sprint0.Characters.Enemies.States.HandStates
 {

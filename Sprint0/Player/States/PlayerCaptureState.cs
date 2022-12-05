@@ -1,9 +1,8 @@
 ﻿using Sprint0.Items;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Sprint0.Sprites.Player.Stationary;
-using Sprint0.Commands.GameStates;
 using Sprint0.Commands;
+using Sprint0.Sprites.Player.Idle;
 
 namespace Sprint0.Player.States
 {
@@ -15,7 +14,7 @@ namespace Sprint0.Player.States
 
         public PlayerCaptureState(Player player, ICommand goToBeginningCommand) : base(player)
         {
-            Sprite = new PlayerIdleDownSprite();
+            Sprite = new PlayerIdleUpSprite();
             GoToBeginningCommand = goToBeginningCommand;
             Player.FacingDirection = Types.Direction.UP;
             

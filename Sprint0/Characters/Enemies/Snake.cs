@@ -3,6 +3,7 @@ using Sprint0.Characters.Enemies.States.SnakeStates;
 using Sprint0.Sprites.Characters.Enemies;
 using Sprint0.Sprites;
 using System;
+using Sprint0.GameModes;
 
 namespace Sprint0.Characters.Enemies
 {
@@ -38,11 +39,11 @@ namespace Sprint0.Characters.Enemies
             base.Update(gameTime);
         }
 
-        public static ISprite GetSprite(Types.Direction direction)
+        public static ISprite GetSprite(ICharacterState state, Types.Direction direction)
         {
             if (direction == Types.Direction.LEFT) return new SnakeLeftSprite();
             else if (direction == Types.Direction.RIGHT) return new SnakeRightSprite();
-            else 
+            else
             {
                 if (RNG.Next(2) > 0) return new SnakeLeftSprite();
                 else return new SnakeRightSprite();

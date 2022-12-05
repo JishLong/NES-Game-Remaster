@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.Controllers;
 using Sprint0.Input;
 using Sprint0.Input.ClientInputHandlers;
@@ -53,30 +54,30 @@ namespace Sprint0.GameStates.GameStates
             Game.PlayerManager.GetDefaultPlayer().HUD.Draw(sb);
             Camera.GetInstance().Move(Types.Direction.DOWN, (int)(56 * GameWindow.ResolutionScale));
 
-            sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight), null,
+            sb.Draw(ImageMappings.GetInstance().GuiElementsSpriteSheet, new Rectangle(0, 0, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight), ImageMappings.GetInstance().ScreenCover,
                 Color.Red * 0.5f, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
             Game.PlayerManager.Draw(sb);
 
             if (FramesPassed > PanelDelayFrames)
             {
-                sb.Draw(Resources.PausePanel, PanelPosition, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.01f);
+                sb.Draw(ImageMappings.GetInstance().GuiElementsSpriteSheet, PanelPosition, ImageMappings.GetInstance().Panel, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.01f);
 
                 // Draw the text
-                if (IsShowing) sb.DrawString(Resources.LargeFont, "- YOU DIED :( -", FlashingTextPosition, Color.White, 0f, new Vector2(0, 0),
+                if (IsShowing) sb.DrawString(FontMappings.GetInstance().LargeFont, "- YOU DIED :( -", FlashingTextPosition, Color.White, 0f, new Vector2(0, 0),
                     GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0f);
-                sb.DrawString(Resources.SmallFont, "Press SPACE to play again", RestartTextPosition, Color.White, 0f, new Vector2(0, 0),
+                sb.DrawString(FontMappings.GetInstance().SmallFont, "Press SPACE to play again", RestartTextPosition, Color.White, 0f, new Vector2(0, 0),
                     GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0f);
-                sb.DrawString(Resources.SmallFont, "Press Q to quit game", QuitTextPosition, Color.White, 0f, new Vector2(0, 0),
+                sb.DrawString(FontMappings.GetInstance().SmallFont, "Press Q to quit game", QuitTextPosition, Color.White, 0f, new Vector2(0, 0),
                     GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0f);
             }
         }
 
         public void SetElementPositions()
         {
-            Rectangle PanelDims = Resources.PausePanel.Bounds;
-            Vector2 FlashingTextSize = Resources.LargeFont.MeasureString("- YOU DIED :( -");
-            Vector2 UnpauseTextSize = Resources.SmallFont.MeasureString("Press SPACE to play again");
-            Vector2 QuitTextSize = Resources.SmallFont.MeasureString("Press Q to quit game");
+            Rectangle PanelDims = ImageMappings.GetInstance().Panel;
+            Vector2 FlashingTextSize = FontMappings.GetInstance().LargeFont.MeasureString("- YOU DIED :( -");
+            Vector2 UnpauseTextSize = FontMappings.GetInstance().SmallFont.MeasureString("Press SPACE to play again");
+            Vector2 QuitTextSize = FontMappings.GetInstance().SmallFont.MeasureString("Press Q to quit game");
 
             PanelPosition = new Rectangle(
                 GameWindow.DefaultScreenWidth / 2 - (int)(PanelDims.Width * GameWindow.ResolutionScale * ElementScaling / 2),

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Input;
 using Sprint0.Commands;
+using Sprint0.Commands.Misc;
 using System.Collections.Generic;
 
 namespace Sprint0.Controllers
@@ -26,6 +27,9 @@ namespace Sprint0.Controllers
             {
                 if (mapping.Key.IsActivated(PrevState, currentState))
                 {
+                    // Specific case for the command line - needs to know exactly what key was typed
+                    if (mapping.Value is CommandLineTypeKeyCommand) (mapping.Value as CommandLineTypeKeyCommand).SetKeyTyped(mapping.Key.ActingKey);
+
                     mapping.Value.Execute();
                 }
             }

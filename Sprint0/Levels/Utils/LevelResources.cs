@@ -59,33 +59,33 @@ namespace Sprint0.Levels.Utils
                 {"skel", Types.Character.SKELETON },
                 {"bat", Types.Character.BAT },
                 {"gel", Types.Character.GEL },
-                {"rgoriya", Types.Character.RED_GORIYA},
+                {"rgoriya", Types.Character.REDGORIYA},
                 {"hand", Types.Character.HAND },
-                {"blade", Types.Character.BLADE_TRAP },
+                {"blade", Types.Character.BLADETRAP },
                 {"aqua", Types.Character.AQUAMENTUS},
                 {"oldman", Types.Character.OLDMAN },
                 {"flame", Types.Character.FLAME },
-                {"sectext", Types.Character.SECRET_TEXT }
+                {"sectext", Types.Character.SECRETTEXT }
             };
 
             ItemMap = new Dictionary<string, Types.Item>()
             {
                 {"comp", Types.Item.COMPASS },
                 {"key", Types.Item.KEY },
-                {"tforce", Types.Item.TRIFORCE_PIECE },
-                {"hcont", Types.Item.HEART_CONTAINER },
+                {"tforce", Types.Item.TRIFORCEPIECE },
+                {"hcont", Types.Item.HEARTCONTAINER },
                 {"map", Types.Item.MAP },
                 {"arrow", Types.Item.ARROW },
-                {"bluecandle", Types.Item.BLUE_CANDLE },
-                {"bluepotion", Types.Item.BLUE_POTION },
+                {"bluecandle", Types.Item.BLUECANDLE },
+                {"bluepotion", Types.Item.BLUEPOTION },
                 {"bomb", Types.Item.BOMB },
                 {"bow", Types.Item.BOW },
                 {"clock", Types.Item.CLOCK },
                 {"fairy", Types.Item.FAIRY },
                 {"heart", Types.Item.HEART },
-                {"boomerang", Types.Item.WOODEN_BOOMERANG },
+                {"boomerang", Types.Item.WOODENBOOMERANG },
                 {"rupee", Types.Item.RUPEE },
-                {"valuablerupee", Types.Item.VALUABLE_RUPEE }
+                {"valuablerupee", Types.Item.VALUABLERUPEE }
             };
 
             DoorMap = new Dictionary<string, Types.Door>()

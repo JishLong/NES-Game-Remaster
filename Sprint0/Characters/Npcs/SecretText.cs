@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.Characters;
 using Sprint0.Levels;
 using System;
@@ -27,7 +28,7 @@ namespace Sprint0.Npcs
         {
             Health = 1;
             Position = position;
-            Text = "eastmost peninsula is the secret";
+            Text = "EASTMOST PENINSULA IS THE SECRET";
 
             FramesPassed = 0;
             NumCharsShown = 0;
@@ -46,11 +47,11 @@ namespace Sprint0.Npcs
                         numCharsDrawn++;
 
                         // We want to center the text within the [TextAreaDims] and allow the camera to move it as well
-                        int TextWidthOffset = (int)(TextAreaDims.X - (int)Resources.MediumFont.MeasureString(Strings[i]).X) / 2;
-                        Vector2 StringDims = Resources.MediumFont.MeasureString("a");
+                        int TextWidthOffset = (int)(TextAreaDims.X - (int)FontMappings.GetInstance().MediumFont.MeasureString(Strings[i]).X) / 2;
+                        Vector2 StringDims = FontMappings.GetInstance().MediumFont.MeasureString("a");
                         Vector2 TotalOffset = new(TextWidthOffset + StringDims.X * j, TextHeightOffset + StringDims.Y * i);
 
-                        sb.DrawString(Resources.MediumFont, Strings[i].Substring(j, 1), Utils.LinkToCamera(Position + TotalOffset),
+                        sb.DrawString(FontMappings.GetInstance().MediumFont, Strings[i].Substring(j, 1), Utils.LinkToCamera(Position + TotalOffset),
                             Color.White, 0, Vector2.Zero, 1f, SpriteEffects.None, 0.21f);
                     }
                 }
@@ -74,8 +75,8 @@ namespace Sprint0.Npcs
             {
                 JustSpawned = false;
                 MaxChars = Text.Length;
-                Strings = Utils.GetAlignedText(Text, Resources.MediumFont, (int)TextAreaDims.X);
-                TextHeightOffset = (int)(TextAreaDims.Y - Resources.MediumFont.MeasureString(" ").Y * Strings.Count) / 2;  
+                Strings = Utils.GetAlignedText(Text, FontMappings.GetInstance().MediumFont, (int)TextAreaDims.X);
+                TextHeightOffset = (int)(TextAreaDims.Y - FontMappings.GetInstance().MediumFont.MeasureString(" ").Y * Strings.Count) / 2;  
             }
 
             if (NumCharsShown < MaxChars) 
@@ -84,7 +85,7 @@ namespace Sprint0.Npcs
                 if (FramesPassed == 0) 
                 {
                     NumCharsShown++;
-                    AudioManager.GetInstance().PlayOnce(Resources.Text);
+                    AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().TextAppear);
                 } 
             }
         }

@@ -1,9 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.Controllers;
 using Sprint0.Input;
 using Sprint0.Player.Inventory;
 using Sprint0.Sprites;
+using Sprint0.Sprites.Items;
 using Sprint0.Sprites.Player;
 using System.Collections.Generic;
 using System.Data;
@@ -42,20 +44,20 @@ namespace Sprint0.GameStates.GameStates
             Camera.GetInstance().Move(Types.Direction.UP, HUDHeight);
 
             // Inventory layout
-            sb.Draw(Resources.GuiSpriteSheet, Utils.LinkToCamera(InventoryPosition), Resources.Inventory, Color.White,
+            sb.Draw(ImageMappings.GetInstance().GuiSpriteSheet, Utils.LinkToCamera(InventoryPosition), ImageMappings.GetInstance().Inventory, Color.White,
               0f, Vector2.Zero, SpriteEffects.None, 0.19f);
 
             // Selected item
             ISprite SelectedItemSprite = null;
-            if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.WOODEN_BOOMERANG)
+            if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.WOODENBOOMERANG)
                 SelectedItemSprite = new WoodenBoomerangSprite();
             else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BOMB)
                 SelectedItemSprite = new BombSprite();
             else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BOW)
                 SelectedItemSprite = new BowSprite();
-            else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BLUE_CANDLE)
+            else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BLUECANDLE)
                 SelectedItemSprite = new BlueCandleSprite();
-            else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BLUE_POTION)
+            else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BLUEPOTION)
                 SelectedItemSprite = new BluePotionSprite();
             if (SelectedItemSprite != null) SelectedItemSprite.Draw(sb, Utils.LinkToCamera(SelectedItemPosition), Color.White, 0.18f);
 

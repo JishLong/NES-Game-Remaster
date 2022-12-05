@@ -1,8 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
+using Sprint0.GameModes;
 using Sprint0.Items;
 using Sprint0.Sprites;
-using Sprint0.Sprites.Player.Stationary;
+using Sprint0.Sprites.Player.Idle;
+using Sprint0.Sprites.Projectiles.Character;
 using Sprint0.Sprites.Projectiles.Player;
 
 namespace Sprint0.Player.States
@@ -12,16 +15,24 @@ namespace Sprint0.Player.States
         private static readonly int AnimationFrames = 4;
         private static readonly int NumSpins = 4;
         private static readonly int WaitFrames = 32;
-        private static readonly ISprite[] Sprites = {
-            new PlayerIdleLeftSprite(), new PlayerIdleUpSprite(), new PlayerIdleRightSprite(), new PlayerIdleDownSprite(), new DeathParticleSprite()
-        };
+        private readonly ISprite[] Sprites;
 
         private int AnimationStage;
         private int FramesPassed;
-        private int CurrentSprite;      
+        private int CurrentSprite;
 
         public PlayerDeadState(Player player) : base(player)
         {
+            IGameMode GameMode = GameModeManager.GetInstance().GameMode;
+            Sprites = new ISprite[]
+            {
+                new PlayerIdleLeftSprite(),
+                new PlayerIdleUpSprite(),
+                new PlayerIdleRightSprite(),
+                new PlayerIdleDownSprite(),
+                new DeathProjectileSprite()
+            };
+
             Player.IsStationary = false;
 
             AnimationStage = 0;
@@ -30,8 +41,11 @@ namespace Sprint0.Player.States
         }
 
         public override void Draw(SpriteBatch sb, Vector2 position)
-        { 
-            if (AnimationStage < 3) Sprites[CurrentSprite].Draw(sb, position, Color.White, 0.09f);
+        {
+            if (AnimationStage < 3)
+            {
+                Sprites[CurrentSprite].Draw(sb, position, Color.White, 0.09f);
+            }
         }
 
         public override void HoldItem(IItem item)
@@ -83,7 +97,7 @@ namespace Sprint0.Player.States
                     if (FramesPassed >= WaitFrames) 
                     {                     
                         CurrentSprite = Sprites.Length - 1;
-                        AudioManager.GetInstance().PlayOnce(Resources.Text);
+                        AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().TextAppear);
                         FramesPassed = 0;
                         AnimationStage++;
                     }                   

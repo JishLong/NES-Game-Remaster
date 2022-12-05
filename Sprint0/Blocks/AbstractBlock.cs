@@ -33,7 +33,7 @@ namespace Sprint0.Blocks
 
         public virtual Rectangle GetHitbox()
         {
-            return Sprite.GetDrawbox(Position);
+            return Sprite.GetHitbox(Position);
         }
 
         public virtual void Update()

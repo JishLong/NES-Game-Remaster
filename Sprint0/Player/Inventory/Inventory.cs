@@ -12,17 +12,23 @@ namespace Sprint0.Player.Inventory
         public Inventory()
         {
             ItemCounts = new Dictionary<Types.Item, int>();
-            SelectedItem = Types.Item.NO_ITEM;
+            SelectedItem = Types.Item.NOITEM;
             SelectedRow = 0;
             SelectedColumn = 0;
         }
 
         public void AddToInventory(Types.Item item, int amount)
         {
-            if (ItemCounts.ContainsKey(item)) ItemCounts[item] = ItemCounts[item] + amount;
+            // Minimum item count is 0 and maximum item count is 99
+            if (amount < 0) return;
+            if (ItemCounts.ContainsKey(item)) 
+            {
+                ItemCounts[item] += amount;
+            } 
             else ItemCounts.Add(item, amount);
+            if (ItemCounts[item] > 99) ItemCounts[item] = 99;
 
-            if (SelectedItem == Types.Item.NO_ITEM && GetUsableItems().Length > 0)
+            if (SelectedItem == Types.Item.NOITEM && GetUsableItems().Length > 0)
             {
                 SelectedItem = item;
                 Types.Item[,] UsableItems = GetUsableItems();
@@ -39,11 +45,15 @@ namespace Sprint0.Player.Inventory
 
         public void RemoveFromInventory(Types.Item item, int amount)
         {
+            // Minimum item count is 0 and maximum item count is 99
+            if (amount < 0) return;
             if (ItemCounts.ContainsKey(item))
             {
                 ItemCounts[item] -= amount;
                 if (ItemCounts[item] < 0) ItemCounts[item] = 0;
             }
+
+            if (ItemCounts[item] == 0 && SelectedItem == item) SelectedItem = Types.Item.NOITEM;
         }
 
         public int GetAmount(Types.Item item)
@@ -58,25 +68,25 @@ namespace Sprint0.Player.Inventory
             if (ItemCounts[item] <= 0)
             {
                 ItemCounts.Remove(item);
-                if (SelectedItem == item) SelectedItem = Types.Item.NO_ITEM;
+                if (SelectedItem == item) SelectedItem = Types.Item.NOITEM;
             }
         }
 
         public bool HasItem(Types.Item item)
         {
-            return ItemCounts.ContainsKey(item);
+            return ItemCounts.ContainsKey(item) && ItemCounts[item] > 0;
         }
 
         private Types.Item[,] GetUsableItems()
         {
-            Types.Item[,] UsableItems = new Types.Item[,] { {Types.Item.NO_ITEM, Types.Item.NO_ITEM, Types.Item.NO_ITEM, Types.Item.NO_ITEM,},
-                { Types.Item.NO_ITEM, Types.Item.NO_ITEM, Types.Item.NO_ITEM, Types.Item.NO_ITEM,} };
+            Types.Item[,] UsableItems = new Types.Item[,] { {Types.Item.NOITEM, Types.Item.NOITEM, Types.Item.NOITEM, Types.Item.NOITEM,},
+                { Types.Item.NOITEM, Types.Item.NOITEM, Types.Item.NOITEM, Types.Item.NOITEM,} };
 
-            if (HasItem(Types.Item.WOODEN_BOOMERANG)) UsableItems[0, 0] = Types.Item.WOODEN_BOOMERANG;
+            if (HasItem(Types.Item.WOODENBOOMERANG)) UsableItems[0, 0] = Types.Item.WOODENBOOMERANG;
             if (HasItem(Types.Item.BOMB)) UsableItems[0, 1] = Types.Item.BOMB;
             if (HasItem(Types.Item.BOW)) UsableItems[0, 2] = Types.Item.BOW;
-            if (HasItem(Types.Item.BLUE_CANDLE)) UsableItems[0, 3] = Types.Item.BLUE_CANDLE;
-            if (HasItem(Types.Item.BLUE_POTION)) UsableItems[1, 2] = Types.Item.BLUE_POTION;
+            if (HasItem(Types.Item.BLUECANDLE)) UsableItems[0, 3] = Types.Item.BLUECANDLE;
+            if (HasItem(Types.Item.BLUEPOTION)) UsableItems[1, 2] = Types.Item.BLUEPOTION;
 
             return UsableItems;
         }

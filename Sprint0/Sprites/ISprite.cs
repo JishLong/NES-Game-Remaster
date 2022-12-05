@@ -9,7 +9,7 @@ namespace Sprint0.Sprites
 
         int GetAnimationTime();
 
-        Rectangle GetDrawbox(Vector2 position);
+        Rectangle GetHitbox(Vector2 position);
 
         void Update();
     }

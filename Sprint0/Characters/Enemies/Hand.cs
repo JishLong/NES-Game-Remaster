@@ -2,7 +2,7 @@
 using Sprint0.Characters.Enemies.States.HandStates;
 using Sprint0.Sprites;
 using Sprint0.Sprites.Characters.Enemies;
-using Sprint0.Sprites.Player.Stationary;
+using Sprint0.Sprites.Player.Idle;
 
 namespace Sprint0.Characters.Enemies
 {
@@ -18,6 +18,9 @@ namespace Sprint0.Characters.Enemies
             OriginalDirection = direction;
             ShouldBeKilled = false;
 
+            // State
+            State = new HandMovingState(this, direction, clockwise);
+
             // The hand sprite is the same no matter its state, so we'll just instantiate it here
             if (clockwise == true && direction == Types.Direction.DOWN) Sprite = new HandDownRightSprite();
             else if (clockwise == false && direction == Types.Direction.RIGHT) Sprite = new HandDownRightSprite();
@@ -26,9 +29,6 @@ namespace Sprint0.Characters.Enemies
             else if (clockwise == false && direction == Types.Direction.UP) Sprite = new HandUpRightSprite();
             else if (clockwise == true && direction == Types.Direction.RIGHT) Sprite = new HandUpRightSprite();
             else Sprite = new HandUpLeftSprite();
-
-            // State
-            State = new HandMovingState(this, direction, clockwise);
 
             // Combat
             Health = 2;
@@ -53,7 +53,7 @@ namespace Sprint0.Characters.Enemies
 
         public void HoldPlayer() 
         {
-            PlayerSprite = new PlayerIdleDownSprite();
+            PlayerSprite = new PlayerIdleUpSprite();
         }
     }
 }

@@ -1,25 +1,30 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class SkeletonSprite : AbstractAnimatedSprite
+    public class SkeletonSprite : AbstractSprite
     {
-        public SkeletonSprite() : base(2, 8) { }
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().CharactersSpriteSheet;
 
-        protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().Skeleton;
 
-        protected override Rectangle GetFirstFrame() => Resources.Skeleton;
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.Skeleton;
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
+        protected override bool IsAnimated()
         {
-            if (CurrentFrame != 0)
-            {
-                Rectangle frame = GetFirstFrame();
-                spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame, color, 0, Vector2.Zero,
-                    SpriteEffects.FlipHorizontally, layer);
-            }
-            else base.Draw(spriteBatch, position, color, layer);
+            return true;
+        }
+
+        protected override int GetNumFrames()
+        {
+            return 2;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            return 8;
         }
     }
 }

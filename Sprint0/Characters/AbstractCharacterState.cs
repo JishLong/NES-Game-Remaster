@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.GameModes;
 using static Sprint0.Utils;
 
 namespace Sprint0.Characters
@@ -26,7 +27,7 @@ namespace Sprint0.Characters
 
         public Rectangle GetHitbox(Vector2 position)
         {
-            return Character.Sprite.GetDrawbox(position);
+            return Character.Sprite.GetHitbox(position);
         }
 
         public abstract void Unfreeze();

@@ -1,14 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
 using Sprint0.Blocks.Utils;
 using Sprint0.Doors.States.UnlockedStates;
 using Sprint0.Levels;
-using Sprint0.Sprites;
-using Sprint0.Sprites.Doors;
-using Sprint0.Sprites.Doors.KeyLockedDoorSprites;
+using Sprint0.Sprites.Doors.KeyLockedDoors;
 using System.Collections.Generic;
-using static Sprint0.Utils;
 
 namespace Sprint0.Doors.States.KeyLockedStates
 {
@@ -25,7 +21,7 @@ namespace Sprint0.Doors.States.KeyLockedStates
             Position = LevelResources.UpDoorPosition;
 
             // Create sprite
-            DoorSprite = new UpKeyLockedDoorSprite();
+            DoorSprite = new KeyLockedDoorUpSprite();
 
             // Blocks
             Blocks = new List<IBlock>();

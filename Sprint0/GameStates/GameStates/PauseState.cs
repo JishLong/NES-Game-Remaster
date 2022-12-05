@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.Controllers;
 using Sprint0.Input;
 using Sprint0.Input.ClientInputHandlers;
@@ -50,27 +51,29 @@ namespace Sprint0.GameStates.GameStates
         {
             // Draw the game state that was just paused
             PrevGameState.Draw(sb);
-            sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight),
-                null, Color.Black * 0.5f, 0f, Vector2.Zero, SpriteEffects.None, 0.02f);
+            sb.Draw(ImageMappings.GetInstance().GuiElementsSpriteSheet, 
+                new Rectangle(0, 0, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight),
+                ImageMappings.GetInstance().ScreenCover, Color.Black * 0.5f, 0f, Vector2.Zero, SpriteEffects.None, 0.02f);
 
             // Draw the pause screen panel that is displayed on top of everything else
-            sb.Draw(Resources.PausePanel, PanelPosition, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.01f);
+            sb.Draw(ImageMappings.GetInstance().GuiElementsSpriteSheet, PanelPosition, ImageMappings.GetInstance().Panel, 
+                Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.01f);
 
             // Draw the text
-            if (IsShowing) sb.DrawString(Resources.LargeFont, "- GAME PAUSED -", FlashingTextPosition, Color.White, 0f, new Vector2(0, 0),
+            if (IsShowing) sb.DrawString(FontMappings.GetInstance().LargeFont, "- GAME PAUSED -", FlashingTextPosition, Color.White, 0f, new Vector2(0, 0),
                 GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0f);
-            sb.DrawString(Resources.SmallFont, "Press ESC to unpause", UnpauseTextPosition, Color.White, 0f, new Vector2(0, 0),
+            sb.DrawString(FontMappings.GetInstance().SmallFont, "Press ESC to unpause", UnpauseTextPosition, Color.White, 0f, new Vector2(0, 0),
                 GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0f);
-            sb.DrawString(Resources.SmallFont, "Press Q to quit game", QuitTextPosition, Color.White, 0f, new Vector2(0, 0),
+            sb.DrawString(FontMappings.GetInstance().SmallFont, "Press Q to quit game", QuitTextPosition, Color.White, 0f, new Vector2(0, 0),
                 GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0f);
         }
 
         public void SetElementPositions()
         {
-            Rectangle PanelDims = Resources.PausePanel.Bounds;
-            Vector2 FlashingTextSize = Resources.LargeFont.MeasureString("- GAME PAUSED -");
-            Vector2 UnpauseTextSize = Resources.SmallFont.MeasureString("Press ESC to unpause");
-            Vector2 QuitTextSize = Resources.SmallFont.MeasureString("Press Q to quit game");
+            Rectangle PanelDims = ImageMappings.GetInstance().Panel;
+            Vector2 FlashingTextSize = FontMappings.GetInstance().LargeFont.MeasureString("- GAME PAUSED -");
+            Vector2 UnpauseTextSize = FontMappings.GetInstance().SmallFont.MeasureString("Press ESC to unpause");
+            Vector2 QuitTextSize = FontMappings.GetInstance().SmallFont.MeasureString("Press Q to quit game");
 
             PanelPosition = new Rectangle(
                 GameWindow.DefaultScreenWidth / 2 - (int)(PanelDims.Width * GameWindow.ResolutionScale * ElementScaling / 2),

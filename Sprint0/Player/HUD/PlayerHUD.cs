@@ -4,6 +4,8 @@ using Sprint0.Sprites.Player;
 using Sprint0.Sprites.Projectiles.Player;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 using Sprint0.Levels;
+using Sprint0.Sprites.Items;
+using Sprint0.Assets;
 
 namespace Sprint0.Player.HUD
 {
@@ -36,12 +38,12 @@ namespace Sprint0.Player.HUD
             Vector2 BombCount = new((int)(96 * GameWindow.ResolutionScale), (int)(37 * GameWindow.ResolutionScale));
 
             // HUD layout
-            sb.Draw(Resources.GuiSpriteSheet, Utils.LinkToCamera(HUDArea), Resources.HUD, Color.White,
+            sb.Draw(ImageMappings.GetInstance().GuiSpriteSheet, Utils.LinkToCamera(HUDArea), ImageMappings.GetInstance().Hud, Color.White,
               0f, Vector2.Zero, SpriteEffects.None, 0.19f);
 
             // Level name and mini map
             string levelName = "Level-" + LevelManager.CurrentLevel.LevelID;
-            sb.DrawString(Resources.MediumFont, levelName, Utils.LinkToCamera(LevelName), Color.White,
+            sb.DrawString(FontMappings.GetInstance().MediumFont, levelName, Utils.LinkToCamera(LevelName), Color.White,
                 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
             HUDMap.DrawPlayerLocation(sb);
             if (Player.Inventory.HasItem(Types.Item.COMPASS))
@@ -57,26 +59,26 @@ namespace Sprint0.Player.HUD
             HUDHearts.Draw(sb);
 
             // Primary weapon
-            new SwordProjSprite(Types.Direction.UP).Draw(sb, Utils.LinkToCamera(PrimaryItem), Color.White, 0.18f);
+            new SwordProjectileSprite(Types.Direction.UP).Draw(sb, Utils.LinkToCamera(PrimaryItem), Color.White, 0.18f);
 
             // Secondary weapon
-            if (Player.Inventory.SelectedItem == Types.Item.WOODEN_BOOMERANG)
+            if (Player.Inventory.SelectedItem == Types.Item.WOODENBOOMERANG)
                 new WoodenBoomerangSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
             else if (Player.Inventory.SelectedItem == Types.Item.BOMB)
                 new BombSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
             else if (Player.Inventory.SelectedItem == Types.Item.BOW)
                 new BowSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
-            else if (Player.Inventory.SelectedItem == Types.Item.BLUE_CANDLE)
+            else if (Player.Inventory.SelectedItem == Types.Item.BLUECANDLE)
                 new BlueCandleSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
-            else if (Player.Inventory.SelectedItem == Types.Item.BLUE_POTION)
+            else if (Player.Inventory.SelectedItem == Types.Item.BLUEPOTION)
                 new BluePotionSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
 
             // Item counts
-            sb.DrawString(Resources.MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.RUPEE), Utils.LinkToCamera(RupeeCount), Color.White,
+            sb.DrawString(FontMappings.GetInstance().MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.RUPEE), Utils.LinkToCamera(RupeeCount), Color.White,
                 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
-            sb.DrawString(Resources.MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.KEY), Utils.LinkToCamera(KeyCount), Color.White,
+            sb.DrawString(FontMappings.GetInstance().MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.KEY), Utils.LinkToCamera(KeyCount), Color.White,
                 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
-            sb.DrawString(Resources.MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.BOMB), Utils.LinkToCamera(BombCount), Color.White,
+            sb.DrawString(FontMappings.GetInstance().MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.BOMB), Utils.LinkToCamera(BombCount), Color.White,
                 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);     
         }
 

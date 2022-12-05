@@ -1,14 +1,32 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
+using Sprint0.GameModes;
 
-namespace Sprint0.Sprites.Player.Movement
+namespace Sprint0.Sprites.Player.Moving
 {
-    public class PlayerMovingDownSprite : AbstractAnimatedSprite
+    public class PlayerMovingDownSprite : AbstractSprite
     {
-        public PlayerMovingDownSprite() : base(2, 8) { }
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().PlayerSpriteSheet;
 
-        protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().PlayerDown;
 
-        protected override Rectangle GetFirstFrame() => Resources.LinkDown;
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.PlayerDown;
+
+        protected override bool IsAnimated()
+        {
+            return true;
+        }
+
+        protected override int GetNumFrames()
+        {
+            return 2;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MARIOMODE) return 12;
+            else return 8;
+        }
     }
 }

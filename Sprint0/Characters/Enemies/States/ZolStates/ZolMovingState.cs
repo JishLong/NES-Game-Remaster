@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Utils;
+using Sprint0.GameModes;
 
 namespace Sprint0.Characters.Enemies.States.ZolStates
 {
@@ -28,7 +29,6 @@ namespace Sprint0.Characters.Enemies.States.ZolStates
         {
             Character.State = new ZolFrozenState(Character, Direction, frozenForever);
         }
-
 
         public override void Unfreeze()
         {

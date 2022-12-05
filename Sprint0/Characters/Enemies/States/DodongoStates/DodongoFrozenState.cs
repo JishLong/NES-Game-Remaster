@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.GameModes;
+using static Sprint0.Types;
 
 namespace Sprint0.Characters.Bosses.States.DodongoStates
 {

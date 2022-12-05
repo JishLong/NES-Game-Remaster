@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.Controllers;
 using Sprint0.Input;
 using Sprint0.Levels;
@@ -49,7 +50,8 @@ namespace Sprint0.GameStates.GameStates
             CurrentRoom.Draw(sb);
 
             // Draw a cover over everything that slowly gets more opaque - fade effect
-            sb.Draw(Resources.ScreenCover, new Rectangle(0, 0, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight), null,
+            sb.Draw(ImageMappings.GetInstance().GuiElementsSpriteSheet, 
+                new Rectangle(0, 0, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight), ImageMappings.GetInstance().ScreenCover,
                 Color.Black * FadeAmount, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
 
             if (FramesPassed > FadeOutFrames)

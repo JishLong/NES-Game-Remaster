@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites;
-using Sprint0.Sprites.HUD;
-using Sprint0.Sprites.Player;
+using Sprint0.Sprites.Gui;
+using Sprint0.Sprites.Items;
 
 namespace Sprint0.Player.Inventory
 {
@@ -40,7 +40,7 @@ namespace Sprint0.Player.Inventory
             Vector2 Candle = new((int)(204 * GameWindow.ResolutionScale), (int)(48 * GameWindow.ResolutionScale));
             Vector2 Potion = new((int)(180 * GameWindow.ResolutionScale), (int)(64 * GameWindow.ResolutionScale));
 
-            if (Player.Inventory.HasItem(Types.Item.WOODEN_BOOMERANG))
+            if (Player.Inventory.HasItem(Types.Item.WOODENBOOMERANG))
                 new WoodenBoomerangSprite().Draw(sb, Utils.LinkToCamera(Boomerang), Color.White, 0.18f);
             if (Player.Inventory.HasItem(Types.Item.BOMB))
                 new BombSprite().Draw(sb, Utils.LinkToCamera(Bomb), Color.White, 0.18f);
@@ -49,9 +49,9 @@ namespace Sprint0.Player.Inventory
                 new ArrowSprite().Draw(sb, Utils.LinkToCamera(Arrow), Color.White, 0.18f);
                 new BowSprite().Draw(sb, Utils.LinkToCamera(Bow), Color.White, 0.18f);
             }
-            if (Player.Inventory.HasItem(Types.Item.BLUE_CANDLE))
+            if (Player.Inventory.HasItem(Types.Item.BLUECANDLE))
                 new BlueCandleSprite().Draw(sb, Utils.LinkToCamera(Candle), Color.White, 0.18f);
-            if (Player.Inventory.HasItem(Types.Item.BLUE_POTION))
+            if (Player.Inventory.HasItem(Types.Item.BLUEPOTION))
                 new BluePotionSprite().Draw(sb, Utils.LinkToCamera(Potion), Color.White, 0.18f);
 
             SelectedSlotSprite.Draw(sb, Utils.LinkToCamera(SelectionSquare), Color.White, 0.18f);

@@ -1,16 +1,14 @@
-﻿using Sprint0.Sprites.Player.Attack.UseItem;
-using Sprint0.Projectiles.Tools;
+﻿using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 using Sprint0.Items;
+using Sprint0.Sprites.Player.UseItem;
 
 namespace Sprint0.Player.States
 {
     public class PlayerUseItemState : AbstractPlayerState
     {
-        private readonly static ISprite[] Sprites = {
-            new PlayerUseItemUpSprite(), new PlayerUseItemDownSprite(), new PlayerUseItemLeftSprite(), new PlayerUseItemRightSprite()
-        };
-
+        private readonly ISprite[] Sprites = { new PlayerUseItemUpSprite(), new PlayerUseItemDownSprite(), new PlayerUseItemLeftSprite(),
+            new PlayerUseItemRightSprite() };
         private int FramesPassed;
         private static readonly int UseFrames = 20;
 
@@ -18,6 +16,7 @@ namespace Sprint0.Player.States
         {
             Player.IsStationary = false;
             Sprite = Sprites[(int)Player.FacingDirection];
+
             FramesPassed = 0;
             ProjectileManager.GetInstance().AddProjectile(Player.SecondaryWeapon, Player, Player.FacingDirection);
             if (Player.SecondaryWeapon == Types.Projectile.BOMB_PROJ) Player.Inventory.DecrementItem(Types.Item.BOMB);

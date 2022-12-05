@@ -9,6 +9,10 @@ using System;
 using Microsoft.Xna.Framework.Input;
 using Sprint0.Sprites;
 using Sprint0.WebSockets;
+using Sprint0.GameModes;
+using Sprint0.GameModes.GameModes;
+using Sprint0.Assets;
+using Sprint0.Assets.DefaultAssets;
 
 namespace Sprint0
 {
@@ -38,8 +42,8 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            CreateNewGame(false);
-            
+            GameModeManager.GetInstance().Initialize();
+
             MouseSprite = new MouseCursorSprite();
 
             // Set display resolution.
@@ -59,9 +63,12 @@ namespace Sprint0
         {
             SBatch = new SpriteBatch(GraphicsDevice);
 
-            Resources.LoadContent(Content);
-            AudioManager.GetInstance().PlayLooped(Resources.MenuMusic);
-            Mouse.SetCursor(MouseCursor.FromTexture2D(Resources.Invisible, 0, 0));
+            AssetManager.LoadContent(Content);
+            AudioManager.GetInstance().PlayLooped(AudioMappings.GetInstance().MusicMenu);
+            Mouse.SetCursor(MouseCursor.FromTexture2D((AssetManager.DefaultImageAssets as DefaultImageAssets).Invisible, 0, 0));
+
+            GameModeManager.GetInstance().Initialize();
+            CreateNewGame(false);
 
             CurrentState = new MainMenuState(this);
         }
@@ -92,7 +99,6 @@ namespace Sprint0
             GraphicsDevice.SetRenderTarget(null);
             SBatch.Begin(samplerState: SamplerState.PointClamp);
 
-            SBatch.Draw(Resources.BabyOnBaby, new Rectangle(0, 0, GameWindow.ScreenWidth, GameWindow.ScreenHeight), Color.White);
             SBatch.Draw(ResizableArea, GameWindow.GetCenteredArea(), Color.White);
             MouseSprite.Draw(SBatch, Mouse.GetState().Position.ToVector2(), Color.White, 0f);
 
@@ -103,6 +109,7 @@ namespace Sprint0
 
         public void CreateNewGame(bool resetPlayers = true) 
         {
+            GameModeManager.GetInstance().Initialize();
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
             MouseMappings.GetInstance().InitializeMappings(this);

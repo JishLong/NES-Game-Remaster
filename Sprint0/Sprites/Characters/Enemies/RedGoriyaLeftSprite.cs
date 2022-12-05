@@ -1,19 +1,32 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
+using Sprint0.GameModes;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class RedGoriyaLeftSprite : AbstractAnimatedSprite
+    public class RedGoriyaLeftSprite : AbstractSprite
     {
-        public RedGoriyaLeftSprite() : base(2, 8) { }
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().CharactersSpriteSheet;
 
-        protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().RedGoriyaLeft;
 
-        protected override Rectangle GetFirstFrame() => Resources.RedGoriyaSide;
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.RedGoriyaLeft;
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
+        protected override bool IsAnimated()
         {
-            DrawFlippedHorz(spriteBatch, position, color, layer);
+            return true;
+        }
+
+        protected override int GetNumFrames()
+        {
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return 4;
+            else return 2;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            return 8;
         }
     }
 }

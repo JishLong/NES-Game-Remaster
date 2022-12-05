@@ -1,12 +1,15 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 
-namespace Sprint0.Sprites.Player
+namespace Sprint0.Sprites.Items
 {
-    public class ValuableRupeeSprite : AbstractStillSprite
-    { 
-        protected override Texture2D GetSpriteSheet() => Resources.ItemsSpriteSheet;
+    public class ValuableRupeeSprite : AbstractSprite
+    {
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().ItemsSpriteSheet;
 
-        protected override Rectangle GetFrame() => Resources.Rupee;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().Rupee;
+
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.Rupee;
     }
 }

@@ -1,12 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 
-namespace Sprint0.Sprites.Player.Attack.UseItem
+namespace Sprint0.Sprites.Player
 {
-    public class PlayerHoldItemSprite : AbstractStillSprite
+    public class PlayerHoldItemSprite : AbstractSprite
     {
-        protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().PlayerSpriteSheet;
 
-        protected override Rectangle GetFrame() => Resources.LinkPickUpItem;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().PlayerHoldItem;
+
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.PlayerHoldItem;
     }
 }
