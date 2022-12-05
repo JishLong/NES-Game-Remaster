@@ -559,12 +559,6 @@
 /processorParam:Quality=Best
 /build:Audio/Minecraft/witherDeath.wav
 
-#begin Audio/Minecraft/witherRoar.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Audio/Minecraft/witherRoar.wav
-
 #begin Audio/Minecraft/witherShoot.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
