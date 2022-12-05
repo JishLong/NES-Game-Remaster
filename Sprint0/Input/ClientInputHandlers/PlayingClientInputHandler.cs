@@ -27,7 +27,7 @@ namespace Sprint0.Input.ClientInputHandlers
                 // player attack
                 { "z", new PlayerSwordAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
                 { "n", new PlayerSwordAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
-                { "c", new PlayerArrowAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
+                { "c", new PlayerSecondaryAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
 
                 // show inventory
                 { "e", new SetDefaultPlayerCommand(game1) }
