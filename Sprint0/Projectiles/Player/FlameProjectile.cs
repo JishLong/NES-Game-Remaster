@@ -15,7 +15,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
             Damage = 1;
             AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().FlameShoot);
 
-            Rectangle TempHitbox = Sprite.GetDrawbox(Vector2.Zero);
+            Rectangle TempHitbox = Sprite.GetHitbox(Vector2.Zero);
             Position = Utils.CenterOnEdge(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height, direction);
         }
 

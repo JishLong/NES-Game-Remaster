@@ -28,7 +28,7 @@ namespace Sprint0.Npcs
         {
             Health = 1;
             Position = position;
-            Text = "eastmost peninsula is the secret";
+            Text = "EASTMOST PENINSULA IS THE SECRET";
 
             FramesPassed = 0;
             NumCharsShown = 0;

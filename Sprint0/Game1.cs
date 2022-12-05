@@ -12,6 +12,7 @@ using Sprint0.WebSockets;
 using Sprint0.GameModes;
 using Sprint0.GameModes.GameModes;
 using Sprint0.Assets;
+using Sprint0.Assets.DefaultAssets;
 
 namespace Sprint0
 {
@@ -64,7 +65,7 @@ namespace Sprint0
 
             AssetManager.LoadContent(Content);
             AudioManager.GetInstance().PlayLooped(AudioMappings.GetInstance().MusicMenu);
-            //Mouse.SetCursor(MouseCursor.FromTexture2D(ImageMappings.GetInstance().SwordMeleeVertical, 0, 0));
+            Mouse.SetCursor(MouseCursor.FromTexture2D((AssetManager.DefaultImageAssets as DefaultImageAssets).Invisible, 0, 0));
 
             GameModeManager.GetInstance().Initialize();
             CreateNewGame(false);

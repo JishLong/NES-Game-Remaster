@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Assets;
+using Sprint0.GameModes;
 
 namespace Sprint0.Sprites.Player.Moving
 {
@@ -19,12 +20,14 @@ namespace Sprint0.Sprites.Player.Moving
 
         protected override int GetNumFrames()
         {
-            return 2;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MARIOMODE) return 4;
+            else return 2;
         }
 
         protected override int GetAnimationSpeed()
         {
-            return 8;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MARIOMODE) return 6;
+            else return 8;
         }
     }
 }

@@ -26,7 +26,7 @@
 
         public enum Event { PUSHBLOCK_UNLOCKS_DOOR, ENEMIES_KILLED_DROPS_ITEM, ENEMIES_KILLED_UNLOCKS_DOOR, OLD_MAN_ATTACK }
 
-        public enum GameMode { GOOMBAMODE, MARIOMODE, DEFAULTMODE, MINECRAFTMODE }
+        public enum GameMode { DEFAULTMODE, GOOMBAMODE, MARIOMODE,  MINECRAFTMODE }
 
         public enum Item
         {

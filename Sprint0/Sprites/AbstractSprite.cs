@@ -51,9 +51,20 @@ namespace Sprint0.Sprites
             return GetNumFrames() * GetAnimationSpeed();
         }
 
-        public Rectangle GetDrawbox(Vector2 position)
+        public Rectangle GetHitbox(Vector2 position)
         {
             Rectangle frame = GetDefaultFrame();
+
+            return new Rectangle((int)(position.X + (GetPixelOffset().X * GameWindow.ResolutionScale)),
+                (int)(position.Y + (GetPixelOffset().Y * GameWindow.ResolutionScale)),
+                (int)(frame.Width * GameWindow.ResolutionScale),
+                (int)(frame.Height * GameWindow.ResolutionScale));
+
+        }
+
+        public Rectangle GetDrawbox(Vector2 position)
+        {
+            Rectangle frame = GetFirstFrame();
 
             return new Rectangle((int)(position.X + (GetPixelOffset().X * GameWindow.ResolutionScale)),
                 (int)(position.Y + (GetPixelOffset().Y * GameWindow.ResolutionScale)),

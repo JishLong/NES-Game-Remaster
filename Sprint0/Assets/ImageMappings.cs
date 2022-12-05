@@ -147,7 +147,7 @@ namespace Sprint0.Assets
         public Rectangle SwordMeleeHorizontal => GMM.GameMode.ImageAssets.SwordMeleeHorizontal;
         public Rectangle SwordMeleeVertical => GMM.GameMode.ImageAssets.SwordMeleeVertical;
         public Rectangle SwordProjectileDown => GMM.GameMode.ImageAssets.SwordProjectileDown;
-        public Rectangle SwordProjectileLeft => GMM.GameMode.ImageAssets.SwordProjectileDown;
+        public Rectangle SwordProjectileLeft => GMM.GameMode.ImageAssets.SwordProjectileLeft;
         public Rectangle SwordProjectileRight => GMM.GameMode.ImageAssets.SwordProjectileRight;
         public Rectangle SwordProjectileUp => GMM.GameMode.ImageAssets.SwordProjectileUp;
 

@@ -46,14 +46,14 @@ namespace Sprint0.CommandLine.Handlers
             }
             if (Words[0].Equals("GOOMBA"))
             {
-                //GameModeManager.GetInstance().ChangeGameMode(new GoombaMode(), game);
+                (game.CurrentState as CommandLineState).SetNextState(new GameModeTransitionState(game, new GoombaMode()));
                 return Utils.GetAlignedText(
                     "It's time to show that filthy plumber who's boss...",
                     ResponseFont, MaxResponseWidth);
             }
             if (Words[0].Equals("MARIO"))
             {
-                //GameModeManager.GetInstance().ChangeGameMode(new MarioMode(), game);
+                (game.CurrentState as CommandLineState).SetNextState(new GameModeTransitionState(game, new MarioMode()));
                 return Utils.GetAlignedText(
                     "It's a me!",
                     ResponseFont, MaxResponseWidth);

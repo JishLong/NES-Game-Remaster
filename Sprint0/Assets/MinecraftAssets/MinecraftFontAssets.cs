@@ -11,9 +11,9 @@ namespace Sprint0.Assets.MinecraftAssets
 
         public void LoadContent(ContentManager c)
         {
-            SmallFont = c.Load<SpriteFont>("Fonts/Default/smallFont");
-            MediumFont = c.Load<SpriteFont>("Fonts/Default/mediumFont");
-            LargeFont = c.Load<SpriteFont>("Fonts/Default/largeFont");
+            SmallFont = c.Load<SpriteFont>("Fonts/Minecraft/smallFont");
+            MediumFont = c.Load<SpriteFont>("Fonts/Minecraft/mediumFont");
+            LargeFont = c.Load<SpriteFont>("Fonts/Minecraft/largeFont");
         }
     }
 }

@@ -26,10 +26,10 @@ namespace Sprint0.Player.States
             IGameMode GameMode = GameModeManager.GetInstance().GameMode;
             Sprites = new ISprite[]
             {
-                new PlayerIdleDownSprite(),
                 new PlayerIdleLeftSprite(),
                 new PlayerIdleUpSprite(),
                 new PlayerIdleRightSprite(),
+                new PlayerIdleDownSprite(),
                 new DeathProjectileSprite()
             };
 

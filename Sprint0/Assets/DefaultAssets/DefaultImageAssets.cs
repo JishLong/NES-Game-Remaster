@@ -12,6 +12,7 @@ namespace Sprint0.Assets.DefaultAssets
         public Texture2D CursorSpriteSheet { get; private set; }
         public Texture2D GuiSpriteSheet { get; private set; }
         public Texture2D GuiElementsSpriteSheet { get; private set; }
+        public Texture2D Invisible { get; private set; }
         public Texture2D ItemsSpriteSheet { get; private set; }
         public Texture2D PlayerSpriteSheet { get; private set; }
         public Texture2D ProjectilesSpriteSheet { get; private set; }
@@ -175,6 +176,7 @@ namespace Sprint0.Assets.DefaultAssets
             CursorSpriteSheet = c.Load<Texture2D>("Images/Default/cursor");
             GuiSpriteSheet = c.Load<Texture2D>("Images/Default/gui");
             GuiElementsSpriteSheet = c.Load<Texture2D>("Images/Default/guiElements");
+            Invisible = c.Load<Texture2D>("Images/Default/invisible");
             ItemsSpriteSheet = c.Load<Texture2D>("Images/Default/items");
             PlayerSpriteSheet = c.Load<Texture2D>("Images/Default/player");
             ProjectilesSpriteSheet = c.Load<Texture2D>("Images/Default/projectiles");

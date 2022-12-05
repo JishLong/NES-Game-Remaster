@@ -34,33 +34,33 @@ namespace Sprint0.Assets.MinecraftAssets
 
         public void LoadContent(ContentManager c)
         {
-            BombExplode = c.Load<SoundEffect>("Audio/Default/bombExplode");
-            BombPlace = c.Load<SoundEffect>("Audio/Default/bombPlace");
-            BossRoar = c.Load<SoundEffect>("Audio/Default/bossRoar");
-            DoorOpen = c.Load<SoundEffect>("Audio/Default/doorOpen");
-            EnemyDeath = c.Load<SoundEffect>("Audio/Default/enemyDeath");
-            EnemyHurt = c.Load<SoundEffect>("Audio/Default/enemyHurt");
-            FlameShoot = c.Load<SoundEffect>("Audio/Default/flameShoot");
-            ItemAppear = c.Load<SoundEffect>("Audio/Default/itemAppear");
-            ItemFound = c.Load<SoundEffect>("Audio/Default/itemFound");
-            MusicGame = c.Load<SoundEffect>("Audio/Default/musicGame");
+            BombExplode = c.Load<SoundEffect>("Audio/Minecraft/tntExplode");
+            BombPlace = c.Load<SoundEffect>("Audio/Minecraft/tntLit");
+            BossRoar = c.Load<SoundEffect>("Audio/Minecraft/witherShoot");
+            DoorOpen = c.Load<SoundEffect>("Audio/Minecraft/doorOpen");
+            EnemyDeath = c.Load<SoundEffect>("Audio/Minecraft/critAttack");
+            EnemyHurt = c.Load<SoundEffect>("Audio/Minecraft/bowDing");
+            FlameShoot = c.Load<SoundEffect>("Audio/Minecraft/flintAndSteel");
+            ItemAppear = c.Load<SoundEffect>("Audio/Minecraft/anvil");
+            ItemFound = c.Load<SoundEffect>("Audio/Minecraft/xpLevelUp");
+            MusicGame = c.Load<SoundEffect>("Audio/Minecraft/sweden");
             MusicMenu = c.Load<SoundEffect>("Audio/Default/musicMenu");
-            OldManTaunt = c.Load<SoundEffect>("Audio/Default/oldManTaunt");
-            PickupHeartKey = c.Load<SoundEffect>("Audio/Default/pickupHeartKey");
-            PickupItem = c.Load<SoundEffect>("Audio/Default/pickupItem");
-            PickupRupee = c.Load<SoundEffect>("Audio/Default/pickupRupee");
-            PlayerDeath = c.Load<SoundEffect>("Audio/Default/playerDeath");
-            PlayerHurt = c.Load<SoundEffect>("Audio/Default/playerHurt");
-            PlayerLowHealth = c.Load<SoundEffect>("Audio/Default/playerLowHealth");
-            ProjectileBlocked = c.Load<SoundEffect>("Audio/Default/projectileBlocked");
-            ProjectileShoot = c.Load<SoundEffect>("Audio/Default/projectileShoot");
-            SecretFound = c.Load<SoundEffect>("Audio/Default/secretFound");
-            SwordShoot = c.Load<SoundEffect>("Audio/Default/swordShoot");
-            SwordSwing = c.Load<SoundEffect>("Audio/Default/swordSwing");
-            TextAppear = c.Load<SoundEffect>("Audio/Default/textAppear");
-            WinGame = c.Load<SoundEffect>("Audio/Default/winGame");
+            OldManTaunt = c.Load<SoundEffect>("Audio/Minecraft/revenge");
+            PickupHeartKey = c.Load<SoundEffect>("Audio/Minecraft/finishEating");
+            PickupItem = c.Load<SoundEffect>("Audio/Minecraft/itemPickup");
+            PickupRupee = c.Load<SoundEffect>("Audio/Minecraft/xp");
+            PlayerDeath = c.Load<SoundEffect>("Audio/Minecraft/oldPlayerHit");
+            PlayerHurt = c.Load<SoundEffect>("Audio/Minecraft/playerHurt");
+            PlayerLowHealth = c.Load<SoundEffect>("Audio/Minecraft/blockPlace");
+            ProjectileBlocked = c.Load<SoundEffect>("Audio/Minecraft/shieldBlock");
+            ProjectileShoot = c.Load<SoundEffect>("Audio/Minecraft/bowShoot");
+            SecretFound = c.Load<SoundEffect>("Audio/Minecraft/piston");
+            SwordShoot = c.Load<SoundEffect>("Audio/Minecraft/tridentThrow");
+            SwordSwing = c.Load<SoundEffect>("Audio/Minecraft/swordSwing");
+            TextAppear = c.Load<SoundEffect>("Audio/Minecraft/dispenser");
+            WinGame = c.Load<SoundEffect>("Audio/Minecraft/achievement");
 
-            GameModeTransition = ItemFound;
+            GameModeTransition = c.Load<SoundEffect>("Audio/Minecraft/witherDeath"); ;
         }
     }
 }

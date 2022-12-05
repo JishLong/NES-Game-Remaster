@@ -45,7 +45,7 @@ namespace Sprint0.Blocks.Blocks
         {
             if (HasBeenPushed) 
             {
-                Position -= DirectionToVector(Direction) * Sprite.GetDrawbox(Position).Width;
+                Position -= DirectionToVector(Direction) * Sprite.GetHitbox(Position).Width;
                 HasBeenPushed = false;
                 FramesPushed = 0;
             }
@@ -68,7 +68,7 @@ namespace Sprint0.Blocks.Blocks
 
                 // We'll move the block one space in the direction [Direction]
                 // NOTE: this condition assumes that the block dimensions are square (i.e. the width and height are equal)
-                if (FramesPushed < Sprite.GetDrawbox(Position).Width)
+                if (FramesPushed < Sprite.GetHitbox(Position).Width)
                 {
                     FramesPushed++;
                     Position += DirectionToVector(Direction);

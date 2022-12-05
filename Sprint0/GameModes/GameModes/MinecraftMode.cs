@@ -2,7 +2,7 @@
 
 namespace Sprint0.GameModes.GameModes
 {
-    internal class MinecraftMode : IGameMode
+    public class MinecraftMode : IGameMode
     {
         public Types.GameMode Type => Types.GameMode.MINECRAFTMODE;
 

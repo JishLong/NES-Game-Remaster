@@ -87,7 +87,7 @@ namespace Sprint0.CommandLine
                     if (Text.Length > 0) Text = Text.Remove(Text.Length - 1);
                 }
                 // Otherwise, add the character
-                else Text += character;
+                else Text += char.ToLower(character);
 
                 // Update the flashing text cursor's position
                 SetCursorPosition();
@@ -105,7 +105,7 @@ namespace Sprint0.CommandLine
                     {
                         if (Text.Length > 0) Text = Text.Remove(Text.Length - 1);
                     }
-                    else Text += character;
+                    else Text += char.ToLower(character);
 
                     // Update the flashing text cursor's position
                     SetCursorPosition();

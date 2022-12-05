@@ -28,11 +28,11 @@ namespace Sprint0.Sprites.Projectiles.Player
         {
             return Direction switch
             {
-                Types.Direction.DOWN => AssetManager.DefaultImageAssets.SwordProjectileDown,
-                Types.Direction.UP => AssetManager.DefaultImageAssets.SwordProjectileUp,
-                Types.Direction.LEFT => AssetManager.DefaultImageAssets.SwordProjectileLeft,
-                Types.Direction.RIGHT => AssetManager.DefaultImageAssets.SwordProjectileRight,
-                _ => AssetManager.DefaultImageAssets.SwordProjectileUp,
+                Types.Direction.DOWN => ImageMappings.GetInstance().SwordProjectileDown,
+                Types.Direction.UP => ImageMappings.GetInstance().SwordProjectileUp,
+                Types.Direction.LEFT => ImageMappings.GetInstance().SwordProjectileLeft,
+                Types.Direction.RIGHT => ImageMappings.GetInstance().SwordProjectileRight,
+                _ => ImageMappings.GetInstance().SwordProjectileUp,
             };
         }
 

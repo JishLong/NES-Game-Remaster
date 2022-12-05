@@ -171,25 +171,25 @@ namespace Sprint0.Assets.MinecraftAssets
         {
             // Sprite sheets
             BlocksSpriteSheet = c.Load<Texture2D>("Images/Minecraft/blocks");
-            CharactersSpriteSheet = c.Load<Texture2D>("Images/Default/characters");
-            CursorSpriteSheet = c.Load<Texture2D>("Images/Default/cursor");
-            GuiSpriteSheet = c.Load<Texture2D>("Images/Default/gui");
-            GuiElementsSpriteSheet = c.Load<Texture2D>("Images/Default/guiElements");
-            ItemsSpriteSheet = c.Load<Texture2D>("Images/Default/items");
-            PlayerSpriteSheet = c.Load<Texture2D>("Images/Default/player");
-            ProjectilesSpriteSheet = c.Load<Texture2D>("Images/Default/projectiles");
-            RoomSpriteSheet = c.Load<Texture2D>("Images/Default/room");
+            CharactersSpriteSheet = c.Load<Texture2D>("Images/Minecraft/characters");
+            CursorSpriteSheet = c.Load<Texture2D>("Images/Minecraft/cursor");
+            GuiSpriteSheet = c.Load<Texture2D>("Images/Minecraft/gui");
+            GuiElementsSpriteSheet = c.Load<Texture2D>("Images/Minecraft/guiElements");
+            ItemsSpriteSheet = c.Load<Texture2D>("Images/Minecraft/items");
+            PlayerSpriteSheet = c.Load<Texture2D>("Images/Minecraft/player");
+            ProjectilesSpriteSheet = c.Load<Texture2D>("Images/Minecraft/projectiles");
+            RoomSpriteSheet = c.Load<Texture2D>("Images/Minecraft/room");
 
             // Sprite sheet positions for blocks
             BlueTile = new(0, 0, 16, 16);
             BlueWall = new(16, 0, 16, 16);
             BlueStatueLeft = new(32, 0, 16, 16);
-            BlueStatueRight = new(0, 16, 16, 16);
-            BlueStairs = new(0, 32, 16, 16);
-            BlueSand = new(16, 16, 16, 16);
-            GreyBricks = new(32, 32, 16, 16);
-            WhiteBars = new(16, 32, 16, 16);
-            Water = new(0, 48, 16, 16);
+            BlueStatueRight = new(32, 0, 16, 16);
+            BlueStairs = new(0, 16, 16, 16);
+            BlueSand = BlueTile;
+            GreyBricks = new(64, 0, 16, 16);
+            WhiteBars = new(48, 0, 16, 16);
+            Water = new(0, 32, 16, 16);
 
             // Sprite sheet positions for characters
             Aquamentus = new(0, 48, 24, 32);
@@ -207,23 +207,23 @@ namespace Sprint0.Assets.MinecraftAssets
             RedGoriyaLeft = new(78, 16, 13, 16);
             RedGoriyaRight = new(52, 16, 13, 16);
             RedGoriyaUp = new(26, 16, 13, 16);
-            Skeleton = new(80, 0, 15, 16);
+            Skeleton = new(80, 0, 14, 16);
             Snake = new(104, 16, 15, 15);
             Zol = new(110, 0, 14, 16);
 
             // Sprite sheet positions for mouse cursor
-            Cursor = new(0, 0, 12, 12);
+            Cursor = new(0, 0, 13, 13);
 
             // Sprite sheet positions for GUI
             Hud = new(0, 176, 256, 56);
             Inventory = new(0, 0, 256, 176);
 
             // Sprite sheet positions for gui elements     
-            HeartEmpty = new(64, 102, 8, 8);
-            HeartFull = new(80, 102, 8, 8);
-            HeartHalf = new(72, 102, 8, 8);
-            HudMapPlayer = new(95, 102, 3, 3);
-            HudMapRoom = new(88, 102, 7, 3);
+            HeartEmpty = new(48, 102, 9, 9);
+            HeartFull = new(57, 102, 9, 9);
+            HeartHalf = new(66, 102, 9, 9);
+            HudMapPlayer = new(82, 102, 4, 4);
+            HudMapRoom = new(75, 102, 7, 3);
             MapIconAllDoors = new(8, 102, 8, 8);
             MapIconDownDoor = new(24, 110, 8, 8);
             MapIconDownLeftDoors = new(16, 118, 8, 8);
@@ -242,24 +242,24 @@ namespace Sprint0.Assets.MinecraftAssets
             MapIconVerticalDoors = new(24, 102, 8, 8);
             Panel = new(0, 0, 206, 102);
             SelectedSlot = new(32, 102, 16, 16);
-            ScreenCover = new(98, 102, 16, 16);
+            ScreenCover = new(86, 102, 16, 16);
 
             // Sprite sheet positions for items
-            Arrow = new(53, 0, 5, 16);
-            BlueCandle = new(77, 0, 8, 16);
-            BluePotion = new(85, 0, 8, 16);
-            Bomb = new(58, 0, 8, 14);
-            Bow = new(45, 0, 8, 16);
-            Clock = new(66, 0, 11, 16);
-            Compass = new(0, 0, 11, 12);
-            Fairy = new(0, 16, 8, 16);
-            Heart = new(16, 16, 7, 8);
-            HeartContainer = new(27, 0, 13, 13);
-            Key = new(19, 0, 8, 16);
-            Map = new(11, 0, 8, 16);
-            Rupee = new(30, 16, 8, 16);
-            TriforcePiece = new(46, 16, 10, 10);
-            WoodenBoomerang = new(40, 0, 5, 8);
+            Arrow = new(80, 0, 16, 16);
+            BlueCandle = new(112, 0, 16, 16);
+            BluePotion = new(128, 0, 16, 16);
+            Bomb = new(96, 0, 16, 16);
+            Bow = new(64, 0, 16, 16);
+            Clock = new(64, 16, 16, 16);
+            Compass = new(0, 16, 16, 16);
+            Fairy = new(128, 16, 16, 16);
+            Heart = new(144, 0, 16, 16);
+            HeartContainer = new(32, 0, 16, 16);
+            Key = new(16, 0, 16, 16);
+            Map = new(0, 0, 16, 16);
+            Rupee = new(160, 0, 16, 16);
+            TriforcePiece = new(176, 0, 16, 16);
+            WoodenBoomerang = new(48, 0, 16, 16);
 
             // Sprite sheet positions for player
             PlayerDown = new(0, 0, 16, 16);
@@ -273,31 +273,31 @@ namespace Sprint0.Assets.MinecraftAssets
             PlayerUp = new(32, 0, 16, 16);
 
             // Sprite sheet positions for projectiles
-            ArrowExplosionProjectile = new(52, 26, 7, 8);
-            ArrowProjectileDown = new(10, 26, 5, 16);
-            ArrowProjectileLeft = new(36, 26, 16, 5);
-            ArrowProjectileRight = new(20, 26, 16, 5);
-            ArrowProjectileUp = new(0, 26, 5, 16);
-            BlueArrowProjectileDown = new(15, 26, 5, 16);
-            BlueArrowProjectileLeft = new(36, 31, 16, 5);
-            BlueArrowProjectileRight = new(20, 31, 16, 5);
-            BlueArrowProjectileUp = new(5, 26, 5, 16);
-            BombExplosionProjectile = new(0, 72, 16, 16);
-            BombProjectile = new(0, 42, 8, 14);
-            BoomerangProjectile = new(8, 42, 8, 8);
-            BossProjectile = new(22, 58, 8, 10);
-            CharacterDeathProjectile = new(0, 88, 15, 16);
-            FlameProjectile = new(32, 42, 16, 16);
-            SwordFlameProjectileDownLeft = new(16, 16, 8, 10);
-            SwordFlameProjectileDownRight = new(48, 16, 8, 10);
-            SwordFlameProjectileUpLeft = new(0, 16, 8, 10);
-            SwordFlameProjectileUpRight = new(32, 16, 8, 10);
-            SwordMeleeHorizontal = new(69, 32, 12, 7);
-            SwordMeleeVertical = new(61, 32, 7, 12);
-            SwordProjectileDown = new(14, 0, 7, 16);
-            SwordProjectileLeft = new(28, 7, 16, 7);
-            SwordProjectileRight = new(28, 0, 16, 7);
-            SwordProjectileUp = new(0, 0, 7, 16);
+            ArrowExplosionProjectile = new(0, 48, 7, 7);
+            ArrowProjectileDown = new(4, 0, 4, 16);
+            ArrowProjectileLeft = new(8, 4, 16, 4);
+            ArrowProjectileRight = new(8, 0, 16, 4);
+            ArrowProjectileUp = new(0, 0, 4, 16);
+            BlueArrowProjectileDown = ArrowProjectileDown;
+            BlueArrowProjectileLeft = ArrowProjectileLeft;
+            BlueArrowProjectileRight = ArrowProjectileRight;
+            BlueArrowProjectileUp = ArrowProjectileUp;
+            BombExplosionProjectile = new(16, 48, 16, 16);
+            BombProjectile = new(24, 0, 16, 16);
+            BoomerangProjectile = new(0, 16, 16, 16);
+            BossProjectile = new(0, 96, 16, 10);
+            CharacterDeathProjectile = new(0, 64, 16, 16);
+            FlameProjectile = new(0, 80, 16, 16);
+            SwordFlameProjectileDownLeft = ArrowExplosionProjectile;
+            SwordFlameProjectileDownRight = ArrowExplosionProjectile;
+            SwordFlameProjectileUpLeft = ArrowExplosionProjectile;
+            SwordFlameProjectileUpRight = ArrowExplosionProjectile;
+            SwordMeleeHorizontal = new(73, 97, 12, 7);
+            SwordMeleeVertical = new(65, 97, 7, 12);
+            SwordProjectileDown = new(16, 32, 8, 16);
+            SwordProjectileLeft = new(32, 40, 16, 8);
+            SwordProjectileRight = new(32, 32, 16, 8);
+            SwordProjectileUp = new(0, 32, 8, 16);
 
             // Sprite sheet positions for the room (borders and doors)
             EventLockedDoorDown = new(99, 276, 32, 32);

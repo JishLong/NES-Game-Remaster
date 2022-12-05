@@ -11,7 +11,7 @@ namespace Sprint0.Blocks.Blocks
         public override Rectangle GetHitbox()
         {
             // Get the original hitbox
-            Rectangle OriginalHitbox = Sprite.GetDrawbox(Position);
+            Rectangle OriginalHitbox = Sprite.GetHitbox(Position);
 
             // Slightly reduce the dimensions of the hitbox
             int ReducedWidth = OriginalHitbox.Width / 2;

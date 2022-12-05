@@ -12,7 +12,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
         {
             MaxFramesAlive = 100;
             Damage = 1;
-            Rectangle TempHitbox = Sprite.GetDrawbox(Vector2.Zero);
+            Rectangle TempHitbox = Sprite.GetHitbox(Vector2.Zero);
 
             Position = Utils.CenterRectangles(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height);
 

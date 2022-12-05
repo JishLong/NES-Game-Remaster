@@ -82,7 +82,7 @@ namespace Sprint0.Characters.Enemies
 
         public override Rectangle GetHitbox() 
         {
-            return Sprite.GetDrawbox(Position);
+            return Sprite.GetHitbox(Position);
         }
 
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)

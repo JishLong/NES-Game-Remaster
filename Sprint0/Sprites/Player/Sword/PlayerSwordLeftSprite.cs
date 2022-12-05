@@ -1,13 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Assets;
+using Sprint0.GameModes;
 
 namespace Sprint0.Sprites.Player.Sword
 {
     public class PlayerSwordLeftSprite : AbstractSprite
     {
-        private readonly Vector2 PixelOffset = new(-12, 0);
-        
+        private readonly Vector2 DefaultPixelOffset = new(-12, 0);
+        private readonly Vector2 MinecraftPixelOffset = new(-11, 0);
+
         protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().PlayerSpriteSheet;
 
         protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().PlayerSwordLeft;
@@ -31,7 +33,8 @@ namespace Sprint0.Sprites.Player.Sword
 
         protected override Vector2 GetPixelOffset()
         {
-            return PixelOffset;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MINECRAFTMODE) return MinecraftPixelOffset;
+            else return DefaultPixelOffset;
         }
     }
 }

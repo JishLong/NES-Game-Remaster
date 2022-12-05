@@ -26,9 +26,9 @@ namespace Sprint0.Sprites.Projectiles.Player
         {
             return Direction switch
             {
-                Types.Direction.DOWN or Types.Direction.UP => AssetManager.DefaultImageAssets.SwordMeleeVertical,
-                Types.Direction.LEFT or Types.Direction.RIGHT => AssetManager.DefaultImageAssets.SwordMeleeHorizontal,
-                _ => AssetManager.DefaultImageAssets.SwordMeleeVertical,
+                Types.Direction.DOWN or Types.Direction.UP => ImageMappings.GetInstance().SwordMeleeVertical,
+                Types.Direction.LEFT or Types.Direction.RIGHT => ImageMappings.GetInstance().SwordMeleeHorizontal,
+                _ => ImageMappings.GetInstance().SwordMeleeVertical,
             };
         }
 

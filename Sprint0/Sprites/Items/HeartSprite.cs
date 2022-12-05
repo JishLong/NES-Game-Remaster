@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Assets;
+using Sprint0.GameModes;
 
 namespace Sprint0.Sprites.Items
 {
@@ -14,17 +15,19 @@ namespace Sprint0.Sprites.Items
 
         protected override bool IsAnimated()
         {
-            return true;
+            return GameModeManager.GetInstance().GameMode.Type != Types.GameMode.MINECRAFTMODE;
         }
 
         protected override int GetNumFrames()
         {
-            return 2;
+            if (GameModeManager.GetInstance().GameMode.Type != Types.GameMode.MINECRAFTMODE) return 2;
+            else return 0;
         }
 
         protected override int GetAnimationSpeed()
         {
-            return 8;
+            if (GameModeManager.GetInstance().GameMode.Type != Types.GameMode.MINECRAFTMODE) return 8;
+            else return 0;
         }
     }
 }

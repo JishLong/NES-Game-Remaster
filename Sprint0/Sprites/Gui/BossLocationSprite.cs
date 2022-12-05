@@ -33,7 +33,7 @@ namespace Sprint0.Sprites.Gui
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer = 0)
         {    
-            spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), GetFirstFrame(),
+            spriteBatch.Draw(GetSpriteSheet(), GetHitbox(position), GetFirstFrame(),
                 Color.Red * ColorOpacity, 0, Vector2.Zero, SpriteEffects.None, layer);
         }
     }

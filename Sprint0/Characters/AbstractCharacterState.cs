@@ -27,7 +27,7 @@ namespace Sprint0.Characters
 
         public Rectangle GetHitbox(Vector2 position)
         {
-            return Character.Sprite.GetDrawbox(position);
+            return Character.Sprite.GetHitbox(position);
         }
 
         public abstract void Unfreeze();

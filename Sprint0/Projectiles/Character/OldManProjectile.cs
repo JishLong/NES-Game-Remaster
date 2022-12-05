@@ -16,7 +16,7 @@ namespace Sprint0.Projectiles.Character_Projectiles
             base(new BossProjectileSprite(), user, Types.Direction.NO_DIRECTION, Vector2.Zero)
         {
             Velocity = new Vector2(RNG.NextSingle() * 2 - 1, RNG.NextSingle()) * new Vector2(10, 10);
-            Rectangle TempHitbox = Sprite.GetDrawbox(Vector2.Zero);
+            Rectangle TempHitbox = Sprite.GetHitbox(Vector2.Zero);
             Position = Utils.CenterRectangles(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height);
             MaxFramesAlive = 180;
             Damage = 0;

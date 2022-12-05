@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Assets;
+using Sprint0.GameModes;
 
 namespace Sprint0.Sprites.Projectiles.Player
 {
@@ -19,12 +20,14 @@ namespace Sprint0.Sprites.Projectiles.Player
 
         protected override int GetNumFrames()
         {
-            return 2;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MINECRAFTMODE) return 32;
+            else return 2;
         }
 
         protected override int GetAnimationSpeed()
         {
-            return 8;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MINECRAFTMODE) return 4;
+            else return 8;
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Sprint0.Projectiles
             User = user;
             Velocity = DirectionToVector(direction) * movementSpeed;
 
-            Rectangle TempHitbox = sprite.GetDrawbox(Vector2.Zero);
+            Rectangle TempHitbox = sprite.GetHitbox(Vector2.Zero);
             Position = AlignEdges(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height, direction);
             Damage = 0;
 
@@ -50,7 +50,7 @@ namespace Sprint0.Projectiles
 
         public virtual Rectangle GetHitbox()
         {
-            return Sprite.GetDrawbox(Position);
+            return Sprite.GetHitbox(Position);
         }
 
         public virtual bool TimeIsUp()
