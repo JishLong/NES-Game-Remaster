@@ -158,7 +158,6 @@ C:/Users/hgray/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/le
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/text.xnb
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/win.xnb
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/characters.xnb
-/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Level1 2.xnb
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Level1.xnb
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/link.xnb
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/pausePanel.xnb
@@ -245,7 +244,14 @@ C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/I
 C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/PlayerLocation.xnb
 C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/gui.xnb
 C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/guiElements.xnb
+<<<<<<< HEAD
+C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/guiElements.xnb
+C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/gui.xnb
+C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/HUDMapRoom.xnb
+C:/Users/josh/source/Repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/PlayerLocation.xnb
+=======
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Level1.xnb
+>>>>>>> Sprint5_dev
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/doorOpened.xnb
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/cursor.xnb
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/gui.xnb
@@ -330,6 +336,10 @@ C:/Users/ethan/Desktop/CSE-3902-Project/Sprint0/obj/Debug/net6.0/refint/Sprint0.
 C:/Users/ethan/Desktop/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.pdb
 C:/Users/ethan/Desktop/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.genruntimeconfig.cache
 C:/Users/ethan/Desktop/CSE-3902-Project/Sprint0/obj/Debug/net6.0/ref/Sprint0.dll
+<<<<<<< HEAD
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/.Level1.xnb.icloud
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/.Level1 2.xnb.icloud
+=======
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\File.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\BladeTrap.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\blocks.xnb
@@ -516,3 +526,4 @@ C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Aud
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\characters.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\gui.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\guiElements.xnb
+>>>>>>> Sprint5_dev

@@ -29,7 +29,7 @@ namespace Sprint0.WebSockets
             // send message to create room on server
             client.Send("{\"type\":\"create\"}");
 
-            // listen to messages
+            // register listener
             client.MessageReceived
                 .Where(msg => msg.Text != null)
                 .Subscribe(obj =>
