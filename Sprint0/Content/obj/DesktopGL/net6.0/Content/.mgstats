@@ -1,9 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-<<<<<<< HEAD
-"/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/Content/Audio/dababy.wav","/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Audio/dababy.xnb","SoundEffectProcessor","SoundEffectContent",30922118,30921977,0.518002
-"/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/Content/Audio/menuMusic.wav","/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Audio/menuMusic.xnb","SoundEffectProcessor","SoundEffectContent",31795552,31795305,0.325612
-"/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/Content/Images/Level1.png","/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Images/Level1.xnb","TextureProcessor","Texture2DContent",92237,5826381,0.212441
-=======
 "C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/Audio/Default/bombExplode.wav","C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Audio/Default/bombExplode.xnb","SoundEffectProcessor","SoundEffectContent",16126,16186,0.4497277
 "C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/Audio/Default/bombPlace.wav","C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Audio/Default/bombPlace.xnb","SoundEffectProcessor","SoundEffectContent",6740,6800,0.1179631
 "C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/Audio/Default/bossRoar.wav","C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Audio/Default/bossRoar.xnb","SoundEffectProcessor","SoundEffectContent",32940,33001,0.1083311
@@ -142,4 +137,3 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/Images/Minecraft/player.png","C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Images/Minecraft/player.xnb","TextureProcessor","Texture2DContent",7205,38997,0.1256695
 "C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/Images/Minecraft/projectiles.png","C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Images/Minecraft/projectiles.xnb","TextureProcessor","Texture2DContent",21800,229461,0.1236294
 "C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/Images/Minecraft/room.png","C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/Content/bin/DesktopGL/Content/Images/Minecraft/room.xnb","TextureProcessor","Texture2DContent",15010,315477,0.1380695
->>>>>>> Sprint5_dev
