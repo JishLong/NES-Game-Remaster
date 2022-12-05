@@ -1,13 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
 using Sprint0.Blocks.Utils;
 using Sprint0.Doors.States.SecretUnlockedStates;
 using Sprint0.Levels;
-using Sprint0.Sprites;
-using Sprint0.Sprites.Doors.WallDoorSprites;
+using Sprint0.Sprites.Doors.WallDoors;
 using System.Collections.Generic;
-using static Sprint0.Utils;
 
 namespace Sprint0.Doors.States.WallStates
 {
@@ -24,7 +21,7 @@ namespace Sprint0.Doors.States.WallStates
             Position = LevelResources.RightDoorPosition;
 
             // Create sprite
-            DoorSprite = new RightWallDoorSprite();
+            DoorSprite = new WallDoorRightSprite();
 
             // Blocks
             Blocks = new List<IBlock>();
@@ -48,7 +45,7 @@ namespace Sprint0.Doors.States.WallStates
         private void CreateTriggers(float height, float width)
         {
             IBlock block = BlockFactory.GetBlock(Types.Block.EXPLOSION_TRIGGER, Position + new Vector2(0, height/2));
-            block.SetParent(Door);
+            block.Parent = Door;
             Blocks.Add(block);
         }
         private void CreateBlocks(float height, float width)

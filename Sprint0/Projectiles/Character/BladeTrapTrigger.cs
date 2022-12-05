@@ -22,19 +22,19 @@ namespace Sprint0.Projectiles.Character
             switch (direction) 
             {
                 case Types.Direction.LEFT:
-                    Dims = new Vector2(Utils.GameWidth, user.GetHitbox().Height);
+                    Dims = new Vector2(GameWindow.DefaultScreenWidth, user.GetHitbox().Height);
                     Position = new Vector2(user.GetHitbox().X - Dims.X, user.GetHitbox().Y);
                     break;
                 case Types.Direction.RIGHT:
-                    Dims = new Vector2(Utils.GameWidth, user.GetHitbox().Height);
+                    Dims = new Vector2(GameWindow.DefaultScreenWidth, user.GetHitbox().Height);
                     Position = new Vector2(user.GetHitbox().Right, user.GetHitbox().Y);
                     break;
                 case Types.Direction.UP:
-                    Dims = new Vector2(user.GetHitbox().Width, Utils.GameHeight);
+                    Dims = new Vector2(user.GetHitbox().Width, GameWindow.DefaultScreenHeight);
                     Position = new Vector2(user.GetHitbox().X, user.GetHitbox().Y - Dims.Y);
                     break;
                 case Types.Direction.DOWN:
-                    Dims = new Vector2(user.GetHitbox().Width, Utils.GameHeight);
+                    Dims = new Vector2(user.GetHitbox().Width, GameWindow.DefaultScreenHeight);
                     Position = new Vector2(user.GetHitbox().X, user.GetHitbox().Bottom);
                     break;
                 default:

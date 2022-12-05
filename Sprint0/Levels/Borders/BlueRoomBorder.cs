@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Sprites;
 using Sprint0.Sprites.Blocks;
+using Sprint0.Sprites.Borders;
 using static Sprint0.Utils;
 
 namespace Sprint0.Levels.Borders
@@ -10,7 +11,7 @@ namespace Sprint0.Levels.Borders
     {
         private ISprite Sprite;
         private Vector2 DefaultPosition;
-        private float DefaultLayerDepth = 1;
+
         public BlueRoomBorder()
         {
             Sprite = new BlueBorderSprite();
@@ -24,7 +25,7 @@ namespace Sprint0.Levels.Borders
 
         public void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, DefaultPosition, Color.White, WallLayerDepth);
+            Sprite.Draw(sb, LinkToCamera(DefaultPosition), Color.White, WallLayerDepth);
         }
     }
 }

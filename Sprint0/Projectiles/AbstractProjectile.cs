@@ -27,7 +27,7 @@ namespace Sprint0.Projectiles
             User = user;
             Velocity = DirectionToVector(direction) * movementSpeed;
 
-            Rectangle TempHitbox = sprite.GetDrawbox(Vector2.Zero);
+            Rectangle TempHitbox = sprite.GetHitbox(Vector2.Zero);
             Position = AlignEdges(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height, direction);
             Damage = 0;
 
@@ -39,7 +39,7 @@ namespace Sprint0.Projectiles
 
         public virtual void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position, Color.White, ProjectileLayerDepth);
+            Sprite.Draw(sb, LinkToCamera(Position), Color.White, ProjectileLayerDepth);
         }
 
         public virtual bool IsFromPlayer()
@@ -50,7 +50,7 @@ namespace Sprint0.Projectiles
 
         public virtual Rectangle GetHitbox()
         {
-            return Sprite.GetDrawbox(Position);
+            return Sprite.GetHitbox(Position);
         }
 
         public virtual bool TimeIsUp()

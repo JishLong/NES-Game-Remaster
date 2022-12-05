@@ -20,7 +20,7 @@ namespace Sprint0.Collision.Handlers
                 if (projectile is BoomerangProjectile) (projectile as BoomerangProjectile).ReturnBoomerang();
 
                 // The flame/bomb will remain alive until its time is up
-                else if (projectile is not FlameProjectile && projectile is not BombExplosionParticle)
+                else if (projectile is not FlameProjectile && projectile is not BombExplosionParticle && projectile is not GoombaLaserProjectile)
                 {
                     projectile.DeathAction();
                     ProjectileManager.GetInstance().RemoveProjectile(projectile);

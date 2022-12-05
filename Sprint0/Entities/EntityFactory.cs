@@ -8,10 +8,6 @@ using Sprint0.Items.Utils;
 using Sprint0.Levels;
 using Sprint0.Levels.Utils;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sprint0.Entities
 {
@@ -32,29 +28,29 @@ namespace Sprint0.Entities
         public IEntity GetEntity(Level level, string roomName, string category, string type, string name, Vector2 position)
         {
             // Find the correct room from the specified name.
-            Room room = level.Rooms.Find(room => room.RoomName == roomName);
+            Room room = level.Rooms.Find(room => room.Name == roomName);
             switch (category)
             {
                 case "block":
                     Types.Block blockType = LevelResources.GetInstance().BlockMap[type];
                     IBlock block = BlockFactory.GetInstance().GetBlock(blockType, position);
-                    block.SetParent(room);
-                    block.SetName(name);
+                    block.Parent = room;
+                    block.Name = name;
                     room.AddBlockToRoom(block);
                     return block;
 
                 case "item":
                     Types.Item itemType = LevelResources.GetInstance().ItemMap[type];
                     IItem item = ItemFactory.GetInstance().GetItem(itemType, position);
-                    item.SetParent(room);
-                    item.SetName(name);
+                    item.Parent = room;
+                    item.Name = name;
                     return item;
 
                 case "character":
                     Types.Character characterType = LevelResources.GetInstance().CharacterMap[type];
                     ICharacter character = CharacterFactory.GetInstance().GetCharacter(characterType, position);
-                    character.SetParent(room);
-                    character.SetName(name);
+                    character.Parent = room;
+                    character.Name = name;
                     room.AddCharacterToRoom(character);
                     return character;
                 default:

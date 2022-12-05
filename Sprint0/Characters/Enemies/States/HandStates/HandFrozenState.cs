@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.GameModes;
+using static Sprint0.Types;
 using Color = Microsoft.Xna.Framework.Color;
 
 namespace Sprint0.Characters.Enemies.States.HandStates
@@ -44,6 +46,7 @@ namespace Sprint0.Characters.Enemies.States.HandStates
             // On the other hand, if a hand is frozen from a clock, we don't want the boomerang to "unfreeze" it
             if (frozenForever) FrozenForever = frozenForever;
         }
+
 
         public override void Unfreeze() 
         {

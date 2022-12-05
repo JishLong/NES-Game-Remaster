@@ -11,12 +11,12 @@ namespace Sprint0.GameStates.GameStates
 {
     public class PlayingState : AbstractGameState
     {
-        private static readonly int HudAreaHeight = 56;
-        private readonly IInputHandler clientInputHandler;
+        private static readonly int HUDHeight = (int)(56 * GameWindow.ResolutionScale);
+
+        private readonly IInputHandler ClientInputHandler;
 
         public PlayingState(Game1 game) : base(game) 
-        {
-            clientInputHandler = new PlayingClientInputHandler(game);
+        {        
             Controllers ??= new List<IController>()
             {
                 new AudioController(),
@@ -25,14 +25,18 @@ namespace Sprint0.GameStates.GameStates
                 new ProjectileController(Game.LevelManager),
                 new CollisionController(Game)
             };
+
+            ClientInputHandler = new PlayingClientInputHandler(game);
         }
 
         public override void Draw(SpriteBatch sb)
         {
-            Camera.GetInstance().Move(Types.Direction.UP, (int)(HudAreaHeight * Utils.GameScale));
+            // Draw the HUD
+            Camera.GetInstance().Move(Types.Direction.UP, HUDHeight);
             Game.PlayerManager.GetDefaultPlayer().HUD.Draw(sb);
+            Camera.GetInstance().Move(Types.Direction.DOWN, HUDHeight);
 
-            Camera.GetInstance().Move(Types.Direction.DOWN, (int)(HudAreaHeight * Utils.GameScale));
+            // Draw the game
             Game.LevelManager.Draw(sb);
             Game.PlayerManager.Draw(sb);
         }
@@ -44,14 +48,14 @@ namespace Sprint0.GameStates.GameStates
 
             // Controllers should be updated before everything else
             base.Update(gameTime);
-            clientInputHandler.Update();
+            ClientInputHandler.Update();
 
             Game.LevelManager.Update(gameTime);
         }
 
         public override void HandleClientInput(dynamic input, string id)
         {
-            clientInputHandler.HandleInput(input, id);
+            ClientInputHandler.HandleInput(input, id);
         }
     }
 }

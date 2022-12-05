@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.GameModes;
 
 namespace Sprint0.Characters.Enemies.AquamentusStates
 {

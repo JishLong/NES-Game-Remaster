@@ -1,15 +1,18 @@
-﻿using Sprint0.Items;
+﻿using Sprint0.Assets;
+using Sprint0.GameModes;
+using Sprint0.Items;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
-using Sprint0.Sprites.Player.Attack.SwordAttack;
+using Sprint0.Sprites.Player.Sword;
+using System;
 
 namespace Sprint0.Player.States
 {
     public class PlayerSwordState : AbstractPlayerState
     {
-        private readonly static ISprite[] Sprites = {
-            new PlayerSwordUpSprite(), new PlayerSwordDownSprite(), new PlayerSwordLeftSprite(), new PlayerSwordRightSprite()
-        };
+        private readonly ISprite[] Sprites = { new PlayerSwordUpSprite(), new PlayerSwordDownSprite(), new PlayerSwordLeftSprite(),
+            new PlayerSwordRightSprite() };
+        private readonly static int GoombaLaserFireRate = 1;
 
         private int FramesPassed;
 
@@ -17,9 +20,10 @@ namespace Sprint0.Player.States
         {
             Player.IsStationary = false;
             Sprite = Sprites[(int)Player.FacingDirection];
-            FramesPassed = 0;
             ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_MELEE, Player, Player.FacingDirection);
-            AudioManager.GetInstance().PlayOnce(Resources.Sword);
+            AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().SwordSwing);
+            
+            FramesPassed = 0;           
         }
 
         public override void DoPrimaryAttack()
@@ -44,7 +48,7 @@ namespace Sprint0.Player.States
 
         public override void StopAction()
         {
-            // Nothing happens; sword attack must complete itself
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) Player.State = new PlayerIdleState(Player);
         }
 
         public override void Update()
@@ -52,16 +56,24 @@ namespace Sprint0.Player.States
             base.Update();
 
             FramesPassed++;
-            if (FramesPassed % Sprite.GetAnimationTime() == 0)
-            {
-                Player.State = new PlayerIdleState(Player);
-            }
 
-            // If the player is at max health, shoot a sword projectile halfway into the attack
-            else if (FramesPassed % Sprite.GetAnimationTime() == Sprite.GetAnimationTime() / 2
-                && Player.Health == Player.MaxHealth)
+            if (GameModeManager.GetInstance().GameMode.Type != Types.GameMode.GOOMBAMODE)
             {
-                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_PROJ, Player, Player.FacingDirection); 
+                if (FramesPassed % Sprite.GetAnimationTime() == 0)
+                {
+                    Player.State = new PlayerIdleState(Player);
+                }
+
+                // If the player is at max health, shoot a sword projectile halfway into the attack
+                else if (FramesPassed % Sprite.GetAnimationTime() == Sprite.GetAnimationTime() / 2
+                    && Player.Health == Player.MaxHealth)
+                {
+                    ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_PROJ, Player, Player.FacingDirection);
+                }
+            }
+            else if (FramesPassed % GoombaLaserFireRate == 0)
+            {
+                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.GOOMBA_LASER_PROJ, Player, Player.FacingDirection);
             }
         }
     }

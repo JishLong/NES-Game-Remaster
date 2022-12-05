@@ -18,7 +18,7 @@ namespace Sprint0.Levels
         {
             int rightValue = map[row, col + 1];
             rightValue *= -1; // need to invert.
-            Room secretRoom = levelRooms.Find(room => room.RoomName == "Room" + rightValue);
+            Room secretRoom = levelRooms.Find(room => room.Name == "Room" + rightValue);
             room.AddTransition(secretRoom, Types.RoomTransition.SECRET);
             return secretRoom;
         }
@@ -32,7 +32,7 @@ namespace Sprint0.Levels
 
             if (aboveValue > 0)  // Check the area above this room.
             {
-                Room roomAbove = levelRooms.Find(room => room.RoomName == "Room" + aboveValue);
+                Room roomAbove = levelRooms.Find(room => room.Name == "Room" + aboveValue);
                 room.AddTransition(roomAbove, Types.RoomTransition.UP);
             }
             else
@@ -42,7 +42,7 @@ namespace Sprint0.Levels
 
             if (rightValue > 0)  // Check the area to the right of this room.
             {
-                Room roomRightOf = levelRooms.Find(room => room.RoomName == "Room" + rightValue);
+                Room roomRightOf = levelRooms.Find(room => room.Name == "Room" + rightValue);
                 room.AddTransition(roomRightOf, Types.RoomTransition.RIGHT);
             }
             else
@@ -52,7 +52,7 @@ namespace Sprint0.Levels
 
             if (belowValue > 0)  // Check the area below this room.
             {
-                Room roomBelow = levelRooms.Find(room => room.RoomName == "Room" + belowValue);
+                Room roomBelow = levelRooms.Find(room => room.Name == "Room" + belowValue);
                 room.AddTransition(roomBelow, Types.RoomTransition.DOWN);
             }
             else
@@ -62,7 +62,7 @@ namespace Sprint0.Levels
 
             if (leftValue > 0)  // Check the area to the left of this room.
             {
-                Room roomLeftOf = levelRooms.Find(room => room.RoomName == "Room" + leftValue);
+                Room roomLeftOf = levelRooms.Find(room => room.Name == "Room" + leftValue);
                 room.AddTransition(roomLeftOf, Types.RoomTransition.LEFT);
             }
             else
@@ -84,7 +84,7 @@ namespace Sprint0.Levels
                     int rightVal = map[row, col + 1];
                     if (valAtIndex > 0) // If this is a room. (empty spaces are set to 0.)
                     {
-                        Room room = rooms.Find(room => room.RoomName == "Room" + valAtIndex);
+                        Room room = rooms.Find(room => room.Name == "Room" + valAtIndex);
                         AddTransitionsToRoom(rooms, room, map, row, col);
                     }
                     else if (valAtIndex < 0 && rightVal < 0)  // Then this is a secret room.
@@ -98,13 +98,13 @@ namespace Sprint0.Levels
                         int secretRoomIndex = valAtIndex * -1;
                         int affectedRoomIndex = rightVal * -1; 
 
-                        Room room = rooms.Find(room => room.RoomName == "Room" + secretRoomIndex);
+                        Room room = rooms.Find(room => room.Name == "Room" + secretRoomIndex);
                         Room secretRoom = AddSecretTransitionToRoom(rooms, room, map, row, col);
                         secretRoom.AddTransition(room, Types.RoomTransition.SECRET); // Link the secret room to the original room.
                     }
                 }
 
-                level.CurrentRoom = rooms.Find(room => room.RoomName == "Room" + level.StartingRoomIndex);
+                level.CurrentRoom = rooms.Find(room => room.Name == "Room" + level.StartingRoomIndex);
             }
         }
     }

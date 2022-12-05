@@ -1,4 +1,5 @@
 ﻿using System;
+using Sprint0.Assets;
 using Sprint0.GameStates.GameStates;
 
 namespace Sprint0.Commands.GameStates
@@ -15,7 +16,7 @@ namespace Sprint0.Commands.GameStates
         public void Execute()
         {
             AudioManager.GetInstance().StopAudio();
-            AudioManager.GetInstance().PlayLooped(Resources.DungeonMusic);
+            AudioManager.GetInstance().PlayLooped(AudioMappings.GetInstance().MusicGame);
             Game.CurrentState = new PlayingState(Game);
         }
 

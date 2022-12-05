@@ -1,17 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Items;
 using Sprint0.Sprites;
-using Sprint0.Sprites.Player.Movement;
+using Sprint0.Sprites.Player.Moving;
 
 namespace Sprint0.Player.States
 {
     public class PlayerMovingState : AbstractPlayerState
     {
-        // Having single instances of these sprites makes movement look smoother if the player repeatedly taps one movement key
-        private readonly static ISprite[] Sprites = { 
-            new PlayerMovingUpSprite(), new PlayerMovingDownSprite(), new PlayerMovingLeftSprite(), new PlayerMovingRightSprite() 
-        };
-
+        private readonly ISprite[] Sprites = { new PlayerMovingUpSprite(), new PlayerMovingDownSprite(), new PlayerMovingLeftSprite(),
+            new PlayerMovingRightSprite() };
         private static readonly Vector2 MovementSpeed = new(4, 4);
 
         public PlayerMovingState(Player player) : base(player)
@@ -22,8 +19,11 @@ namespace Sprint0.Player.States
 
         public override void Move(Types.Direction direction)
         {
-            Player.FacingDirection = direction;
-            Sprite = Sprites[(int)direction];
+            if (Player.FacingDirection != direction) 
+            {
+                Player.FacingDirection = direction;
+                Sprite = Sprites[(int)Player.FacingDirection];
+            }
         }
 
         public override void DoPrimaryAttack()

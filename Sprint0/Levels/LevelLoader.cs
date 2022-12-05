@@ -197,9 +197,9 @@ namespace Sprint0.Levels
                 // Generic entity type is then added to the level's collection.
                 foreach (IEntity levelEntity in level.Entities)
                 {
-                    if (levelEntity.GetName() == entity.GetName())
+                    if (levelEntity.Name == entity.Name)
                     {
-                        throw new Exception("Cannot add entity with name " + entity.GetName() + " to level " + level.LevelName + ". An entity with this name already exists!");
+                        throw new Exception("Cannot add entity with name " + entity.Name + " to level " + level.LevelName + ". An entity with this name already exists!");
                     }
                 }
                 level.AddEntity(entity);

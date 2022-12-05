@@ -1,11 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.Entities;
+using Sprint0.GameModes;
 using Sprint0.Levels;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 using System;
-using System.Xml.Linq;
 
 namespace Sprint0.Characters
 {
@@ -14,12 +15,15 @@ namespace Sprint0.Characters
         // State
         public ICharacterState State { get; set; }
         public Vector2 Position { get; set; }
+
+        public Types.GameMode GameMode { get; set; }
+
         public int Damage { get; protected set; }
 
         // Combat related fields.
         protected int Health;
         private Types.Direction KnockbackDirection;
-        private Vector2 Knockback = new(16 * Sprint0.Utils.GameScale, 16 * Sprint0.Utils.GameScale);
+        private Vector2 Knockback = new(16 * GameWindow.ResolutionScale, 16 * GameWindow.ResolutionScale);
         private static readonly int InvincibilityFrames = 40;
         private static readonly int KnockBackFrames = InvincibilityFrames / 5;
 
@@ -31,26 +35,29 @@ namespace Sprint0.Characters
         // We'll let the state classes reference this sprite so there isn't choppy animation when switching states
         public ISprite Sprite { get; set; }
 
-        private IEntity Parent;
-        private string Name = "unnamed";
-
+        // For the entity system
+        public IEntity Parent { get; set; }
+        public string Name { get; set; }
         protected AbstractCharacter()
         {
             IsTakingDamage = false;
             DamageFramesPassed = 0;
             JustSpawned = true;
+            GameMode = GameModeManager.GetInstance().GameMode.Type;
+
+            Name = "unnamed";
         }
 
         protected void DeathAction(Room room)
         {
             // Spawn a "death particle" upon death
             ProjectileManager.GetInstance().AddProjectile(Types.Projectile.DEATH_PARTICLE, this, Types.Direction.NO_DIRECTION);
-            AudioManager.GetInstance().PlayOnce(Resources.EnemyDeath);
+            AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().EnemyDeath);
 
             // Custom drop rates because the game's actual drop rates are too uncommon for just playing in the first dungeon
             int Drop = new Random().Next(100);
             if (Drop >= 25 && Drop < 50) room.AddItemToRoom(Types.Item.RUPEE, Position);
-            else if (Drop >= 50 && Drop < 60) room.AddItemToRoom(Types.Item.VALUABLE_RUPEE, Position);
+            else if (Drop >= 50 && Drop < 60) room.AddItemToRoom(Types.Item.VALUABLERUPEE, Position);
             else if (Drop >= 60 && Drop < 75) room.AddItemToRoom(Types.Item.HEART, Position);
             else if (Drop >= 75 && Drop < 85) room.AddItemToRoom(Types.Item.CLOCK, Position);
             else if (Drop >= 85 && Drop < 95) room.AddItemToRoom(Types.Item.BOMB, Position);
@@ -60,7 +67,7 @@ namespace Sprint0.Characters
         public virtual void Draw(SpriteBatch sb)
         {
             Color CharacterColor = (IsTakingDamage) ? Color.Red : Color.White;
-            if (State != null && !JustSpawned) State.Draw(sb, Position, CharacterColor);
+            if (State != null && !JustSpawned) State.Draw(sb, Sprint0.Utils.LinkToCamera(Position), CharacterColor);
         }
 
         public virtual void Freeze(bool frozenForever)
@@ -79,7 +86,7 @@ namespace Sprint0.Characters
             {
                 IsTakingDamage = true;
                 Health -= damage;
-                AudioManager.GetInstance().PlayOnce(Resources.EnemyTakeDamage);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().EnemyHurt);
                 if (Health <= 0)
                 {
                     DeathAction(room);
@@ -123,25 +130,6 @@ namespace Sprint0.Characters
             }
 
             if (State != null) State.Update(gameTime);
-        }
-
-        public IEntity GetParent()
-        {
-            return Parent;
-        }
-
-        public void SetParent(IEntity entity)
-        {
-            Parent = entity;
-        }
-        public virtual string GetName()
-        {
-            return Name;
-        }
-
-        public virtual void SetName(string value)
-        {
-            Name = value;
         }
     }
 }

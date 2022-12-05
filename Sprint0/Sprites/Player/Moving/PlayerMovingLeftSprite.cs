@@ -1,19 +1,33 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
+using Sprint0.GameModes;
 
-namespace Sprint0.Sprites.Player.Movement
+namespace Sprint0.Sprites.Player.Moving
 {
-    public class PlayerMovingLeftSprite : AbstractAnimatedSprite
+    public class PlayerMovingLeftSprite : AbstractSprite
     {
-        public PlayerMovingLeftSprite() : base(2, 8) { }
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().PlayerSpriteSheet;
 
-        protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().PlayerLeft;
 
-        protected override Rectangle GetFirstFrame() => Resources.LinkSideways;
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.PlayerLeft;
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
+        protected override bool IsAnimated()
         {
-            DrawFlippedHorz(spriteBatch, position, color, layer);
+            return true;
+        }
+
+        protected override int GetNumFrames()
+        {
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MARIOMODE) return 4;
+            else return 2;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MARIOMODE) return 6;
+            else return 8;
         }
     }
 }

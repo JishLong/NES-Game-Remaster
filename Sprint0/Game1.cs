@@ -9,12 +9,18 @@ using System;
 using Microsoft.Xna.Framework.Input;
 using Sprint0.Sprites;
 using Sprint0.WebSockets;
+using Sprint0.GameModes;
+using Sprint0.GameModes.GameModes;
+using Sprint0.Assets;
+using Sprint0.Assets.DefaultAssets;
 
 namespace Sprint0
 {
     public class Game1 : Game
     {
         private GraphicsDeviceManager Graphics;
+        private readonly GameWindow GameWindow;
+        private RenderTarget2D ResizableArea;
         private SpriteBatch SBatch;
         private ISprite MouseSprite;
         private WSClient wsClient;
@@ -27,6 +33,7 @@ namespace Sprint0
         public Game1()
         {
             Graphics = new GraphicsDeviceManager(this);
+            GameWindow = new();
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             Window.ClientSizeChanged += OnResize;
@@ -35,15 +42,18 @@ namespace Sprint0
 
         protected override void Initialize()
         {
-            CreateNewGame(false);
-            PlayerManager = new PlayerManager(this);
+            GameModeManager.GetInstance().Initialize();
+
             MouseSprite = new MouseCursorSprite();
 
             // Set display resolution.
-            Graphics.PreferredBackBufferWidth = Utils.GameWidth;
-            Graphics.PreferredBackBufferHeight = Utils.GameHeight;
+            Graphics.PreferredBackBufferWidth = GameWindow.DefaultScreenWidth;
+            Graphics.PreferredBackBufferHeight = GameWindow.DefaultScreenHeight;
             Window.AllowUserResizing = true;
             Graphics.ApplyChanges();
+            GameWindow.UpdateWindowSize(Graphics);
+            ResizableArea = new(GraphicsDevice, GameWindow.DefaultScreenWidth, GameWindow.DefaultScreenHeight);
+
             wsClient.Connect();
 
             base.Initialize();
@@ -53,9 +63,12 @@ namespace Sprint0
         {
             SBatch = new SpriteBatch(GraphicsDevice);
 
-            Resources.LoadContent(Content);
-            AudioManager.GetInstance().PlayLooped(Resources.MenuMusic);
-            Mouse.SetCursor(MouseCursor.FromTexture2D(Resources.Invisible, 0, 0));
+            AssetManager.LoadContent(Content);
+            AudioManager.GetInstance().PlayLooped(AudioMappings.GetInstance().MusicMenu);
+            Mouse.SetCursor(MouseCursor.FromTexture2D((AssetManager.DefaultImageAssets as DefaultImageAssets).Invisible, 0, 0));
+
+            GameModeManager.GetInstance().Initialize();
+            CreateNewGame(false);
 
             CurrentState = new MainMenuState(this);
         }
@@ -70,29 +83,43 @@ namespace Sprint0
 
         protected override void Draw(GameTime gameTime)
         {
+            // Make an invisible area to render everything onto
+            GraphicsDevice.SetRenderTarget(ResizableArea);
             GraphicsDevice.Clear(Color.Black);
+
+            // Render everything onto the invisible area - not to the screen
             SBatch.Begin(sortMode: SpriteSortMode.BackToFront, samplerState: SamplerState.PointClamp);
 
             CurrentState.Draw(SBatch);
-            MouseSprite.Draw(SBatch, Mouse.GetState().Position.ToVector2() - new Vector2(15, 145), Color.White, 0f);
             wsClient.DrawGameCode(SBatch);
 
             SBatch.End();
+
+            // Render everything onto the screen at once, scaled according to the screen size and centered on-screen
+            GraphicsDevice.SetRenderTarget(null);
+            SBatch.Begin(samplerState: SamplerState.PointClamp);
+
+            SBatch.Draw(ResizableArea, GameWindow.GetCenteredArea(), Color.White);
+            MouseSprite.Draw(SBatch, Mouse.GetState().Position.ToVector2(), Color.White, 0f);
+
+            SBatch.End();
+
             base.Draw(gameTime);
         }
 
         public void CreateNewGame(bool resetPlayers = true) 
         {
+            GameModeManager.GetInstance().Initialize();
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
             MouseMappings.GetInstance().InitializeMappings(this);
             if (resetPlayers) PlayerManager.ResetPlayers();
+            PlayerManager = new PlayerManager(this);
         }
 
-        public void OnResize(Object sender, EventArgs e)
+        public void OnResize(object sender, EventArgs e)
         {
-            AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
-            Utils.UpdateWindowSize(Graphics);
+            GameWindow.UpdateWindowSize(Graphics);
         }
     }
 }

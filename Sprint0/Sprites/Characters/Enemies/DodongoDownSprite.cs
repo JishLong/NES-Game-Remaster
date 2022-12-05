@@ -1,14 +1,30 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class DodongoDownSprite : AbstractAnimatedSprite
+    public class DodongoDownSprite : AbstractSprite
     {
-        public DodongoDownSprite() : base(2, 16) { }
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().CharactersSpriteSheet;
 
-        protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().DodongoDown;
 
-        protected override Rectangle GetFirstFrame() => Resources.DodongoDown;
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.DodongoDown;
+
+        protected override bool IsAnimated()
+        {
+            return true;
+        }
+
+        protected override int GetNumFrames()
+        {
+            return 2;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            return 16;
+        }
     }
 }

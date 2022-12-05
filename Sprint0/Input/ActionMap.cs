@@ -16,6 +16,7 @@ namespace Sprint0.Controllers
          */
         public enum KeyState {HELD, UP, PRESSED, RELEASED, ALL_HELD, ALL_RELEASED };
 
+        public Keys ActingKey { get; private set; }
         private readonly KeyState State;
         private readonly Keys[] KeyList;
 
@@ -34,10 +35,15 @@ namespace Sprint0.Controllers
                     || State == KeyState.PRESSED && currentState.IsKeyDown(key) && prevState.IsKeyUp(key)
                     || State == KeyState.RELEASED && currentState.IsKeyUp(key) && prevState.IsKeyDown(key))
                 {
+                    ActingKey = key;
                     return true;
                 }
-                else if (State == KeyState.ALL_HELD && currentState.IsKeyUp(key)) return false;
-                else if (State == KeyState.ALL_RELEASED && currentState.IsKeyDown(key)) return false;
+                else 
+                {
+                    ActingKey = Keys.None;
+                    if (State == KeyState.ALL_HELD && currentState.IsKeyUp(key)) return false;
+                    else if (State == KeyState.ALL_RELEASED && currentState.IsKeyDown(key)) return false;
+                }
             }
 
             if (State == KeyState.ALL_HELD || State == KeyState.ALL_RELEASED) return true;
