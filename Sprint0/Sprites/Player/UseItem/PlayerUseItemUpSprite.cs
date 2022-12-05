@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Assets;
+using Sprint0.GameModes;
 
 namespace Sprint0.Sprites.Player.UseItem
 {
@@ -16,7 +17,8 @@ namespace Sprint0.Sprites.Player.UseItem
 
         protected override Vector2 GetPixelOffset()
         {
-            return PixelOffset;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return Vector2.Zero;
+            else return PixelOffset;
         }
     }
 }

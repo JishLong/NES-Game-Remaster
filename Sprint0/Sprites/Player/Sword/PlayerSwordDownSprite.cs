@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Assets;
+using Sprint0.GameModes;
 
 namespace Sprint0.Sprites.Player.Sword
 {
@@ -14,17 +15,20 @@ namespace Sprint0.Sprites.Player.Sword
 
         protected override bool IsAnimated()
         {
-            return true;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return false;
+            else return true;
         }
 
         protected override int GetNumFrames()
         {
-            return 4;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return 0;
+            else return 4;
         }
 
         protected override int GetAnimationSpeed()
         {
-            return 4;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return 0;
+            else return 4;
         }
     }
 }

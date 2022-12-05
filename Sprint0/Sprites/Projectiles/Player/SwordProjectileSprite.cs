@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Assets;
+using Sprint0.GameModes;
 
 namespace Sprint0.Sprites.Projectiles.Player
 {
@@ -45,7 +46,9 @@ namespace Sprint0.Sprites.Projectiles.Player
 
         protected override int GetNumFrames()
         {
-            return 2;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MARIOMODE ||
+                GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return 4;
+            else return 2;
         }
 
         protected override int GetAnimationSpeed()

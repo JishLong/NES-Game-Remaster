@@ -1,8 +1,10 @@
 ﻿using Sprint0.Assets;
+using Sprint0.GameModes;
 using Sprint0.Items;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites;
 using Sprint0.Sprites.Player.Sword;
+using System;
 
 namespace Sprint0.Player.States
 {
@@ -18,15 +20,8 @@ namespace Sprint0.Player.States
         {
             Player.IsStationary = false;
             Sprite = Sprites[(int)Player.FacingDirection];
-            if (Player.GameMode != Types.GameMode.GOOMBAMODE)
-            {       
-                ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_MELEE, Player, Player.FacingDirection);
-                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().SwordSwing);
-            }
-            else
-            {
-                //AudioManager.GetInstance().PlayOnce(Resources.GoombaLaserFire);
-            }
+            ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_MELEE, Player, Player.FacingDirection);
+            AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().SwordSwing);
             
             FramesPassed = 0;           
         }
@@ -53,7 +48,7 @@ namespace Sprint0.Player.States
 
         public override void StopAction()
         {
-            if (Player.GameMode == Types.GameMode.GOOMBAMODE) Player.State = new PlayerIdleState(Player);
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) Player.State = new PlayerIdleState(Player);
         }
 
         public override void Update()
@@ -62,7 +57,7 @@ namespace Sprint0.Player.States
 
             FramesPassed++;
 
-            if (Player.GameMode == Types.GameMode.DEFAULTMODE)
+            if (GameModeManager.GetInstance().GameMode.Type != Types.GameMode.GOOMBAMODE)
             {
                 if (FramesPassed % Sprite.GetAnimationTime() == 0)
                 {
@@ -74,17 +69,6 @@ namespace Sprint0.Player.States
                     && Player.Health == Player.MaxHealth)
                 {
                     ProjectileManager.GetInstance().AddProjectile(Types.Projectile.SWORD_PROJ, Player, Player.FacingDirection);
-                }
-            }
-            else if (Player.GameMode == Types.GameMode.MARIOMODE) 
-            {
-                if (Player.GameMode == Types.GameMode.MARIOMODE && FramesPassed == 1)
-                {
-                    ProjectileManager.GetInstance().AddProjectile(Types.Projectile.MARIO_FIREBALL, Player, Player.FacingDirection);
-                }
-                else if (FramesPassed >= 20)
-                {
-                    Player.State = new PlayerIdleState(Player);
                 }
             }
             else if (FramesPassed % GoombaLaserFireRate == 0)

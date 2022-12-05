@@ -32,35 +32,40 @@ namespace Sprint0.Assets.GoombaAssets
         public SoundEffect TextAppear { get; private set; }
         public SoundEffect WinGame { get; private set; }
 
+        // Bonus sound
+        public SoundEffect WarpPipe { get; private set; }
+
         public void LoadContent(ContentManager c)
         {
-            BombExplode = c.Load<SoundEffect>("Audio/Default/bombExplode");
-            BombPlace = c.Load<SoundEffect>("Audio/Default/bombPlace");
-            BossRoar = c.Load<SoundEffect>("Audio/Default/bossRoar");
-            DoorOpen = c.Load<SoundEffect>("Audio/Default/doorOpen");
-            EnemyDeath = c.Load<SoundEffect>("Audio/Default/enemyDeath");
-            EnemyHurt = c.Load<SoundEffect>("Audio/Default/enemyHurt");
-            FlameShoot = c.Load<SoundEffect>("Audio/Default/flameShoot");
-            ItemAppear = c.Load<SoundEffect>("Audio/Default/itemAppear");
-            ItemFound = c.Load<SoundEffect>("Audio/Default/itemFound");
-            MusicGame = c.Load<SoundEffect>("Audio/Default/musicGame");
+            BombExplode = c.Load<SoundEffect>("Audio/Goomba/fireworks");
+            BombPlace = c.Load<SoundEffect>("Audio/Goomba/brickBump");
+            BossRoar = c.Load<SoundEffect>("Audio/Goomba/bowserFire");
+            DoorOpen = c.Load<SoundEffect>("Audio/Goomba/brickSmash");
+            EnemyDeath = c.Load<SoundEffect>("Audio/Goomba/enemyKick");
+            EnemyHurt = c.Load<SoundEffect>("Audio/Goomba/enemyStomp");
+            FlameShoot = c.Load<SoundEffect>("Audio/Goomba/fireball");
+            ItemAppear = c.Load<SoundEffect>("Audio/Goomba/powerUpAppear");
+            ItemFound = c.Load<SoundEffect>("Audio/Goomba/stageClear");
+            MusicGame = c.Load<SoundEffect>("Audio/Goomba/overworldMusic");
             MusicMenu = c.Load<SoundEffect>("Audio/Default/musicMenu");
-            OldManTaunt = c.Load<SoundEffect>("Audio/Default/oldManTaunt");
-            PickupHeartKey = c.Load<SoundEffect>("Audio/Default/pickupHeartKey");
-            PickupItem = c.Load<SoundEffect>("Audio/Default/pickupItem");
-            PickupRupee = c.Load<SoundEffect>("Audio/Default/pickupRupee");
-            PlayerDeath = c.Load<SoundEffect>("Audio/Default/playerDeath");
-            PlayerHurt = c.Load<SoundEffect>("Audio/Default/playerHurt");
-            PlayerLowHealth = c.Load<SoundEffect>("Audio/Default/playerLowHealth");
-            ProjectileBlocked = c.Load<SoundEffect>("Audio/Default/projectileBlocked");
-            ProjectileShoot = c.Load<SoundEffect>("Audio/Default/projectileShoot");
-            SecretFound = c.Load<SoundEffect>("Audio/Default/secretFound");
-            SwordShoot = c.Load<SoundEffect>("Audio/Default/swordShoot");
-            SwordSwing = c.Load<SoundEffect>("Audio/Default/swordSwing");
-            TextAppear = c.Load<SoundEffect>("Audio/Default/textAppear");
-            WinGame = c.Load<SoundEffect>("Audio/Default/winGame");
+            OldManTaunt = c.Load<SoundEffect>("Audio/Goomba/marioShow");
+            PickupHeartKey = c.Load<SoundEffect>("Audio/Goomba/powerUp");
+            PickupItem = c.Load<SoundEffect>("Audio/Goomba/halfPause");
+            PickupRupee = c.Load<SoundEffect>("Audio/Goomba/coin");
+            PlayerDeath = c.Load<SoundEffect>("Audio/Goomba/playerDeath");
+            PlayerHurt = c.Load<SoundEffect>("Audio/Goomba/vineBoom");
+            PlayerLowHealth = c.Load<SoundEffect>("Audio/Goomba/quarterPause");
+            ProjectileBlocked = c.Load<SoundEffect>("Audio/Goomba/pause");
+            ProjectileShoot = FlameShoot;
+            SecretFound = c.Load<SoundEffect>("Audio/Goomba/oneUp");
+            SwordShoot = c.Load<SoundEffect>("Audio/Goomba/goombaLaserHum");
+            SwordSwing = c.Load<SoundEffect>("Audio/Goomba/goombaLaserFire");
+            TextAppear = PlayerLowHealth;
+            WinGame = c.Load<SoundEffect>("Audio/Goomba/worldClear");
 
-            GameModeTransition = ItemFound;
+            WarpPipe = c.Load<SoundEffect>("Audio/Goomba/pipe");
+
+            GameModeTransition = PickupHeartKey;
         }
     }
 }

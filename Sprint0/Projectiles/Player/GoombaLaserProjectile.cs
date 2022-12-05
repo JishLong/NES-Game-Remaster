@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Assets;
 using Sprint0.Collision;
 using Sprint0.Sprites;
 using Sprint0.Sprites.Projectiles.Character;
@@ -9,7 +10,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
     public class GoombaLaserProjectile : AbstractProjectile
     {
         public GoombaLaserProjectile(ICollidable user, Types.Direction direction) :
-            base(new BossProjectileSprite(), user, direction, new Vector2(30, 30))
+            base(new SwordProjectileSprite(direction), user, direction, new Vector2(30, 30))
         {
             MaxFramesAlive = 100;
             Damage = 1000;
@@ -17,7 +18,7 @@ namespace Sprint0.Projectiles.Player_Projectiles
 
             Position = Utils.CenterRectangles(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height);
 
-            //AudioManager.GetInstance().PlayOnce(Resources.GoombaLaserHum);
+            AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().SwordShoot);
         }
 
         public override void DeathAction()

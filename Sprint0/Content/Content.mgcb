@@ -163,6 +163,144 @@
 /processorParam:Quality=Best
 /build:Audio/Default/winGame.wav
 
+#begin Audio/Goomba/bowserFire.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/bowserFire.wav
+
+#begin Audio/Goomba/brickBump.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/brickBump.wav
+
+#begin Audio/Goomba/brickSmash.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/brickSmash.wav
+
+#begin Audio/Goomba/coin.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/coin.wav
+
+#begin Audio/Goomba/enemyKick.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/enemyKick.wav
+
+#begin Audio/Goomba/enemyStomp.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/enemyStomp.wav
+
+#begin Audio/Goomba/fireball.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/fireball.wav
+
+#begin Audio/Goomba/fireworks.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/fireworks.wav
+
+#begin Audio/Goomba/goombaLaserFire.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/goombaLaserFire.wav
+
+#begin Audio/Goomba/goombaLaserHum.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/goombaLaserHum.wav
+
+#begin Audio/Goomba/halfPause.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/halfPause.wav
+
+#begin Audio/Goomba/marioShow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/marioShow.wav
+
+#begin Audio/Goomba/oneUp.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/oneUp.wav
+
+#begin Audio/Goomba/overworldMusic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/overworldMusic.wav
+
+#begin Audio/Goomba/pause.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/pause.wav
+
+#begin Audio/Goomba/pipe.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/pipe.wav
+
+#begin Audio/Goomba/playerDeath.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/playerDeath.wav
+
+#begin Audio/Goomba/powerUp.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/powerUp.wav
+
+#begin Audio/Goomba/powerUpAppear.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/powerUpAppear.wav
+
+#begin Audio/Goomba/quarterPause.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/quarterPause.wav
+
+#begin Audio/Goomba/stageClear.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/stageClear.wav
+
+#begin Audio/Goomba/vineBoom.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/vineBoom.wav
+
+#begin Audio/Goomba/worldClear.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/worldClear.wav
+
 #begin Audio/Mario/bowserFalls.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -619,6 +757,18 @@
 /processorParam:TextureFormat=Color
 /build:Images/Goomba/blocks.png
 
+#begin Images/Goomba/characters.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Goomba/characters.png
+
 #begin Images/Goomba/cursor.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -630,6 +780,42 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/Goomba/cursor.png
+
+#begin Images/Goomba/items.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Goomba/items.png
+
+#begin Images/Goomba/player.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Goomba/player.png
+
+#begin Images/Goomba/projectiles.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Goomba/projectiles.png
 
 #begin Images/Goomba/room.png
 /importer:TextureImporter

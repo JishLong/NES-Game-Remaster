@@ -37,7 +37,7 @@ namespace Sprint0.CommandLine.Handlers
                 return Response;
             }
 
-            if (Words[0].Equals("NORMAL"))
+            if (Words[0].Equals("DEFAULT"))
             {
                 (game.CurrentState as CommandLineState).SetNextState(new GameModeTransitionState(game, new DefaultMode()));
                 return Utils.GetAlignedText(

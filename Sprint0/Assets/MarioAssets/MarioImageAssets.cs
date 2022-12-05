@@ -245,21 +245,21 @@ namespace Sprint0.Assets.MarioAssets
             ScreenCover = new(98, 102, 16, 16);
 
             // Sprite sheet positions for items
-            Arrow = new(53, 0, 5, 16);
-            BlueCandle = new(77, 0, 8, 16);
-            BluePotion = new(85, 0, 8, 16);
-            Bomb = new(58, 0, 8, 14);
-            Bow = new(45, 0, 8, 16);
-            Clock = new(66, 0, 11, 16);
+            Arrow = new(66, 0, 12, 8);
+            BlueCandle = new(105, 0, 16, 16);
+            BluePotion = new(121, 0, 8, 16);
+            Bomb = new(78, 0, 16, 16);
+            Bow = new(58, 0, 8, 16);
+            Clock = new(94, 0, 11, 16);
             Compass = new(0, 0, 11, 12);
-            Fairy = new(0, 16, 8, 16);
-            Heart = new(16, 16, 7, 8);
-            HeartContainer = new(27, 0, 13, 13);
-            Key = new(19, 0, 8, 16);
+            Fairy = new(0, 16, 16, 16);
+            Heart = new(129, 0, 16, 16);
+            HeartContainer = new(33, 0, 16, 16);
+            Key = new(19, 0, 14, 16);
             Map = new(11, 0, 8, 16);
-            Rupee = new(30, 16, 8, 16);
-            TriforcePiece = new(46, 16, 10, 10);
-            WoodenBoomerang = new(40, 0, 5, 8);
+            Rupee = new(32, 16, 10, 14);
+            TriforcePiece = new(145, 0, 16, 23);
+            WoodenBoomerang = new(49, 0, 9, 16);
 
             // Sprite sheet positions for player
             PlayerDown = new(0, 32, 16, 16);
@@ -273,31 +273,31 @@ namespace Sprint0.Assets.MarioAssets
             PlayerUp = new(32, 32, 16, 16);
 
             // Sprite sheet positions for projectiles
-            ArrowExplosionProjectile = new(52, 26, 7, 8);
-            ArrowProjectileDown = new(10, 26, 5, 16);
-            ArrowProjectileLeft = new(36, 26, 16, 5);
-            ArrowProjectileRight = new(20, 26, 16, 5);
-            ArrowProjectileUp = new(0, 26, 5, 16);
-            BlueArrowProjectileDown = new(15, 26, 5, 16);
-            BlueArrowProjectileLeft = new(36, 31, 16, 5);
-            BlueArrowProjectileRight = new(20, 31, 16, 5);
-            BlueArrowProjectileUp = new(5, 26, 5, 16);
-            BombExplosionProjectile = new(0, 72, 16, 16);
-            BombProjectile = new(0, 42, 8, 14);
-            BoomerangProjectile = new(8, 42, 8, 8);
-            BossProjectile = new(22, 58, 8, 10);
-            CharacterDeathProjectile = new(0, 88, 15, 16);
-            FlameProjectile = new(32, 42, 16, 16);
-            SwordFlameProjectileDownLeft = new(16, 16, 8, 10);
-            SwordFlameProjectileDownRight = new(48, 16, 8, 10);
-            SwordFlameProjectileUpLeft = new(0, 16, 8, 10);
-            SwordFlameProjectileUpRight = new(32, 16, 8, 10);
-            SwordMeleeHorizontal = new(69, 32, 12, 7);
-            SwordMeleeVertical = new(61, 32, 7, 12);
-            SwordProjectileDown = new(14, 0, 7, 16);
-            SwordProjectileLeft = new(28, 7, 16, 7);
-            SwordProjectileRight = new(28, 0, 16, 7);
-            SwordProjectileUp = new(0, 0, 7, 16);
+            ArrowExplosionProjectile = new(0, 32, 16, 16);
+            ArrowProjectileDown = new(32, 8, 8, 12);
+            ArrowProjectileLeft = new(0, 8, 12, 8);
+            ArrowProjectileRight = new(12, 8, 12, 8);
+            ArrowProjectileUp = new(24, 8, 8, 12);
+            BlueArrowProjectileDown = ArrowProjectileDown;
+            BlueArrowProjectileLeft = ArrowProjectileLeft;
+            BlueArrowProjectileRight = ArrowProjectileRight;
+            BlueArrowProjectileUp = ArrowProjectileUp;
+            BombExplosionProjectile = ArrowExplosionProjectile;
+            BombProjectile = new(0, 16, 16, 16);
+            BoomerangProjectile = new(0, 48, 16, 16);
+            BossProjectile = new(16, 20, 24, 8);
+            CharacterDeathProjectile = ArrowExplosionProjectile;
+            FlameProjectile = new(16, 32, 16, 16);
+            SwordFlameProjectileDownLeft = new(0, 0, 8, 8);
+            SwordFlameProjectileDownRight = SwordFlameProjectileDownLeft;
+            SwordFlameProjectileUpLeft = SwordFlameProjectileDownLeft;
+            SwordFlameProjectileUpRight = SwordFlameProjectileDownLeft;
+            SwordMeleeHorizontal = new(49, 1, 12, 7);
+            SwordMeleeVertical = new(41, 1, 7, 12);
+            SwordProjectileDown = SwordFlameProjectileDownLeft;
+            SwordProjectileLeft = SwordFlameProjectileDownLeft;
+            SwordProjectileRight = SwordFlameProjectileDownLeft;
+            SwordProjectileUp = SwordFlameProjectileDownLeft;
 
             // Sprite sheet positions for the room (borders and doors)
             EventLockedDoorDown = new(99, 276, 32, 32);

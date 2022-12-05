@@ -15,18 +15,18 @@ namespace Sprint0.Sprites.Items
 
         protected override bool IsAnimated()
         {
-            return GameModeManager.GetInstance().GameMode.Type != Types.GameMode.MINECRAFTMODE;
+            return GameModeManager.GetInstance().GameMode.Type == Types.GameMode.DEFAULTMODE;
         }
 
         protected override int GetNumFrames()
         {
-            if (GameModeManager.GetInstance().GameMode.Type != Types.GameMode.MINECRAFTMODE) return 2;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.DEFAULTMODE) return 2;
             else return 0;
         }
 
         protected override int GetAnimationSpeed()
         {
-            if (GameModeManager.GetInstance().GameMode.Type != Types.GameMode.MINECRAFTMODE) return 8;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.DEFAULTMODE) return 8;
             else return 0;
         }
     }

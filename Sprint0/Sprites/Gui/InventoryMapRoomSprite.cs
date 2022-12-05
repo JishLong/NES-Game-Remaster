@@ -45,24 +45,24 @@ namespace Sprint0.Sprites.Gui
         protected override Rectangle GetFirstFrame() 
         {
             if (!HasLeftRoom && !HasRightRoom && !HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
-            else if (HasLeftRoom && HasRightRoom && HasUpRoom && HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
-            else if (HasLeftRoom && HasRightRoom && !HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
-            else if (!HasLeftRoom && !HasRightRoom && HasUpRoom && HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
+            else if (HasLeftRoom && HasRightRoom && HasUpRoom && HasDownRoom) return ImageMappings.GetInstance().MapIconAllDoors;
+            else if (HasLeftRoom && HasRightRoom && !HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconHorizontalDoors;
+            else if (!HasLeftRoom && !HasRightRoom && HasUpRoom && HasDownRoom) return ImageMappings.GetInstance().MapIconVerticalDoors;
 
-            else if (HasLeftRoom && !HasRightRoom && !HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
-            else if (!HasLeftRoom && HasRightRoom && !HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
-            else if (!HasLeftRoom && !HasRightRoom && HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
-            else if (!HasLeftRoom && !HasRightRoom && !HasUpRoom && HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
+            else if (HasLeftRoom && !HasRightRoom && !HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconLeftDoor;
+            else if (!HasLeftRoom && HasRightRoom && !HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconRightDoor;
+            else if (!HasLeftRoom && !HasRightRoom && HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconUpDoor;
+            else if (!HasLeftRoom && !HasRightRoom && !HasUpRoom && HasDownRoom) return ImageMappings.GetInstance().MapIconDownDoor;
 
-            else if (HasLeftRoom && !HasRightRoom && HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
-            else if (!HasLeftRoom && HasRightRoom && HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
-            else if (HasLeftRoom && !HasRightRoom && !HasUpRoom && HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
-            else if (!HasLeftRoom && HasRightRoom && !HasUpRoom && HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
+            else if (HasLeftRoom && !HasRightRoom && HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconUpLeftDoors;
+            else if (!HasLeftRoom && HasRightRoom && HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconUpRightDoors;
+            else if (HasLeftRoom && !HasRightRoom && !HasUpRoom && HasDownRoom) return ImageMappings.GetInstance().MapIconDownLeftDoors;
+            else if (!HasLeftRoom && HasRightRoom && !HasUpRoom && HasDownRoom) return ImageMappings.GetInstance().MapIconDownRightDoors;
 
-            else if (HasLeftRoom && HasRightRoom && HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
-            else if (HasLeftRoom && HasRightRoom && !HasUpRoom && HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
-            else if (HasLeftRoom && !HasRightRoom && HasUpRoom && HasDownRoom) return ImageMappings.GetInstance().MapIconNoDoors;
-            else /*if (!HasLeftRoom && HasRightRoom && HasUpRoom && HasDownRoom)*/ return ImageMappings.GetInstance().MapIconNoDoors;
+            else if (HasLeftRoom && HasRightRoom && HasUpRoom && !HasDownRoom) return ImageMappings.GetInstance().MapIconNoDownDoor;
+            else if (HasLeftRoom && HasRightRoom && !HasUpRoom && HasDownRoom) return ImageMappings.GetInstance().MapIconNoUpDoor;
+            else if (HasLeftRoom && !HasRightRoom && HasUpRoom && HasDownRoom) return ImageMappings.GetInstance().MapIconNoRightDoor;
+            else /*if (!HasLeftRoom && HasRightRoom && HasUpRoom && HasDownRoom)*/ return ImageMappings.GetInstance().MapIconNoLeftDoor;
         }
 
         protected override Rectangle GetDefaultFrame() => DefaultFrame;

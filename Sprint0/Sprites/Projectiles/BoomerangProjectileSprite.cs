@@ -20,13 +20,13 @@ namespace Sprint0.Sprites.Projectiles
 
         protected override int GetNumFrames()
         {
-            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MINECRAFTMODE) return 4;
+            if (GameModeManager.GetInstance().GameMode.Type != Types.GameMode.DEFAULTMODE) return 4;
             else return 3;
         }
 
         protected override int GetAnimationSpeed()
         {
-            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MINECRAFTMODE) return 5;
+            if (GameModeManager.GetInstance().GameMode.Type != Types.GameMode.DEFAULTMODE) return 5;
             else return 6;
         }
     }

@@ -6,6 +6,8 @@ using Sprint0.Commands.Levels;
 using Sprint0.Doors;
 using Sprint0.Levels;
 using Sprint0.Assets;
+using Sprint0.GameModes;
+using Sprint0.Assets.GoombaAssets;
 
 namespace Sprint0.Collision.Handlers
 {
@@ -48,6 +50,8 @@ namespace Sprint0.Collision.Handlers
                 {
                     new RoomTransitionCommand(game, playerSide, player).Execute();
                     player.StopAction();
+                    if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE)
+                        AudioManager.GetInstance().PlayOnce((GameModeManager.GetInstance().GameMode.AudioAssets as GoombaAudioAssets).WarpPipe);
                 }
                 else if (block is BlueStairs)
                 {
