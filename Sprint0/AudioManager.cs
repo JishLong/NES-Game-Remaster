@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Audio;
+using System;
 using System.Collections.Generic;
 
 namespace Sprint0
@@ -46,9 +47,9 @@ namespace Sprint0
         {
             SoundEffectInstance instance = audio.CreateInstance();
             instance.IsLooped = false;
-            if (IsMuted) instance.Volume = 0;
-            PlayingAudio.Add(instance);
-            instance.Play();
+            if (IsMuted) instance.Volume = 0;            
+            try { instance.Play(); PlayingAudio.Add(instance); }
+            catch (Exception e) { }
         }
 
         public void PlayLooped(SoundEffect audio)
@@ -56,8 +57,8 @@ namespace Sprint0
             SoundEffectInstance instance = audio.CreateInstance();
             instance.IsLooped = true;
             if (IsMuted) instance.Volume = 0;
-            PlayingAudio.Add(instance);
-            instance.Play();
+            try { instance.Play(); PlayingAudio.Add(instance); }
+            catch (Exception e) { }
         }
 
         public void StopAudio() 

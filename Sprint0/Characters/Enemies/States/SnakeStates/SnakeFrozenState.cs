@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.GameModes;
 using static Sprint0.Types;
 
 namespace Sprint0.Characters.Enemies.States.SnakeStates
@@ -35,7 +36,6 @@ namespace Sprint0.Characters.Enemies.States.SnakeStates
             // On the other hand, if a snake is frozen from a clock, we don't want the boomerang to "unfreeze" it
             if (frozenForever) FrozenForever = frozenForever;
         }
-
 
         public override void Unfreeze()
         {

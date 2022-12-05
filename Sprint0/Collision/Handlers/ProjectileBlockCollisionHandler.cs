@@ -1,4 +1,5 @@
-﻿using Sprint0.Blocks;
+﻿using Sprint0.Assets;
+using Sprint0.Blocks;
 using Sprint0.Blocks.Blocks;
 using Sprint0.Doors;
 using Sprint0.Levels;
@@ -19,15 +20,15 @@ namespace Sprint0.Collision.Handlers
         public ProjectileBlockCollisionHandler()
         {
             AffectedProjectiles = new List<System.Type>{ typeof(BossProjectile), typeof(ArrowProjectile), typeof(BlueArrowProjectile),
-            typeof(OldManProjectile) };
+            typeof(OldManProjectile), typeof(MarioFireballProjectile) };
         }
 
         public void HandleCollision(IProjectile projectile, IBlock block, Types.Direction projectileSide)
         {
             if(projectile is BombExplosionParticle && block is ExplosionTrigger)
             {
-                AudioManager.GetInstance().PlayOnce(Resources.SecretFound);
-                Door door = block.GetParent() as Door;
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().SecretFound);
+                Door door = block.Parent as Door;
                 door.Unlock();
             }
             else if ((AffectedProjectiles.Contains(projectile.GetType()) && block.IsWall && block is not SoftBorderBlock && block is not Water)

@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.RedGoriyaStates;
+using Sprint0.GameModes;
+using static Sprint0.Types;
 
 namespace Sprint0.Characters.Enemies.States.RedGoriyaStates
 {
@@ -34,7 +36,6 @@ namespace Sprint0.Characters.Enemies.States.RedGoriyaStates
             // On the other hand, if a goriya is frozen from a clock, we don't want the boomerang to "unfreeze" it
             if (frozenForever) FrozenForever = frozenForever;
         }
-
 
         public override void Unfreeze()
         {

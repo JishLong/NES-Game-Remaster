@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.Blocks.Utils;
 using Sprint0.Entities;
 using Sprint0.Sprites.Blocks;
@@ -36,7 +37,7 @@ namespace Sprint0.Blocks.Blocks
             {
                 HasBeenPushed = true;
                 Direction = direction;
-                AudioManager.GetInstance().PlayOnce(Resources.SecretFound);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().SecretFound);
             }
         }
 
@@ -44,7 +45,7 @@ namespace Sprint0.Blocks.Blocks
         {
             if (HasBeenPushed) 
             {
-                Position -= DirectionToVector(Direction) * Sprite.GetDrawbox(Position).Width;
+                Position -= DirectionToVector(Direction) * Sprite.GetHitbox(Position).Width;
                 HasBeenPushed = false;
                 FramesPushed = 0;
             }
@@ -54,7 +55,7 @@ namespace Sprint0.Blocks.Blocks
         {
             if (HasBeenPushed) BlockUnderneath.Draw(sb);
             // The pushable block is technically on top of another block if it has been pushed, but is guaranteed to be drawn after it
-            Sprite.Draw(sb, Position, Color.White, PushableBlockLayerDepth);
+            Sprite.Draw(sb, LinkToCamera(Position), Color.White, PushableBlockLayerDepth);
         }
 
         public override void Update()
@@ -67,7 +68,7 @@ namespace Sprint0.Blocks.Blocks
 
                 // We'll move the block one space in the direction [Direction]
                 // NOTE: this condition assumes that the block dimensions are square (i.e. the width and height are equal)
-                if (FramesPushed < Sprite.GetDrawbox(Position).Width)
+                if (FramesPushed < Sprite.GetHitbox(Position).Width)
                 {
                     FramesPushed++;
                     Position += DirectionToVector(Direction);

@@ -1,4 +1,5 @@
-﻿using Sprint0.Characters;
+﻿using Sprint0.Assets;
+using Sprint0.Characters;
 using Sprint0.Commands.GameStates;
 using Sprint0.Items;
 using Sprint0.Items.Items;
@@ -33,29 +34,29 @@ namespace Sprint0.Collision.Handlers
                     player.HoldItem(item);                    
                 } 
 
-                if (item is Key) AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
-                else if (item.GetItemType() == Types.Item.RUPEE) AudioManager.GetInstance().PlayOnce(Resources.RupeePickup);
-                else AudioManager.GetInstance().PlayOnce(Resources.ItemPickup);               
+                if (item is Key) AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().PickupHeartKey);
+                else if (item.GetItemType() == Types.Item.RUPEE) AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().PickupRupee);
+                else AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().PickupItem);               
             }
             else if (item is Clock) 
             {
                 foreach (ICharacter character in room.Characters) character.Freeze(true);
-                AudioManager.GetInstance().PlayOnce(Resources.ItemPickup);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().PickupItem);
             }
             else if (item is Fairy)
             {
                 player.ChangeHealth(3, 0, game);
-                AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().PickupHeartKey);
             }
             else if (item is Heart)
             {
                 player.ChangeHealth(1, 0, game);
-                AudioManager.GetInstance().PlayOnce(Resources.HeartKeyPickup);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().PickupHeartKey);
             }
             else if (item is HeartContainer)
             {
                 player.ChangeHealth(0, 2, game);
-                AudioManager.GetInstance().PlayOnce(Resources.ItemPickup);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().PickupItem);
             }
             else if (item is TriforcePiece)
             {

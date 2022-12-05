@@ -28,34 +28,34 @@ namespace Sprint0.Events
             {
                 case Types.Event.PUSHBLOCK_UNLOCKS_DOOR:
                     // Get a reference to the catalyst entity from entity name.
-                    IEntity pushblock = level.Entities.Find(entity => entity.GetName() == catalystEntityName);
+                    IEntity pushblock = level.Entities.Find(entity => entity.Name == catalystEntityName);
                     // Get a reference to the receiver entity from entity name.
-                    IEntity door = level.Entities.Find(entity => entity.GetName() == receivingEntityName);
+                    IEntity door = level.Entities.Find(entity => entity.Name == receivingEntityName);
 
                     return new EventPushBlockUnlocksDoor(pushblock as IBlock, door as Door);
 
                 case Types.Event.ENEMIES_KILLED_DROPS_ITEM:
                     // Catalyst entity is the room itself in this case.
-                    IEntity catalystRoom = level.Entities.Find(entity => entity.GetName() == catalystEntityName);
+                    IEntity catalystRoom = level.Entities.Find(entity => entity.Name == catalystEntityName);
                     // Get a reference to the receiver entity from entity name.
-                    IEntity item = level.Entities.Find(entity => entity.GetName() == receivingEntityName);
+                    IEntity item = level.Entities.Find(entity => entity.Name == receivingEntityName);
                     // Get a reference to the room that owns the item.
-                    IEntity owningRoom = level.Entities.Find(entity => entity.GetName() == item.GetParent().GetName());
+                    IEntity owningRoom = level.Entities.Find(entity => entity.Name == item.Parent.Name);
 
                     return new EventEnemiesKilledDropsItem(catalystRoom as Room, owningRoom as Room, item as IItem);
                 case Types.Event.ENEMIES_KILLED_UNLOCKS_DOOR:
                     // Catalyst entity is the room itself in this case.
-                    IEntity room = level.Entities.Find(entity => entity.GetName() == catalystEntityName);
+                    IEntity room = level.Entities.Find(entity => entity.Name == catalystEntityName);
                     // Get a reference to the receiver entity from entity name.
-                    door = level.Entities.Find(entity => entity.GetName() == receivingEntityName);
+                    door = level.Entities.Find(entity => entity.Name == receivingEntityName);
 
                     return new EventEnemiesKilledUnlocksDoor(room as Room, door as Door);
 
                 case Types.Event.OLD_MAN_ATTACK:
                     // Catalyst entity is the room itself in this case.
-                    IEntity oldManRoom = level.Entities.Find(entity => entity.GetName() == catalystEntityName);
+                    IEntity oldManRoom = level.Entities.Find(entity => entity.Name == catalystEntityName);
                     // Get a reference to the receiver entity from entity name.
-                    IEntity oldMan = level.Entities.Find(entity => entity.GetName() == receivingEntityName);
+                    IEntity oldMan = level.Entities.Find(entity => entity.Name == receivingEntityName);
 
                     return new EventOldManAttack(oldManRoom as Room, oldMan as OldMan);
                 default:

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.States.ZolStates;
+using Sprint0.GameModes;
 using Sprint0.Levels;
 using Sprint0.Sprites.Characters.Enemies;
 
@@ -12,11 +13,11 @@ namespace Sprint0.Characters.Enemies
 
         public Zol(Vector2 position)
         {
-            // The zol sprite is the same no matter its state, so we'll just instantiate it here
-            Sprite = new ZolSprite();
-
             // State
             State = new ZolMovingState(this);
+
+            // The zol sprite is the same no matter its state, so we'll just instantiate it here
+            Sprite = new ZolSprite();
 
             // Combat
             Health = 1;
@@ -41,7 +42,7 @@ namespace Sprint0.Characters.Enemies
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
         {
             // If a zol isn't killed in one hit, it splits into two gels
-            if (damage > 1) 
+            if (damage <= 1) 
             {
                 Vector2 gel1Position = Sprint0.Utils.CenterOnEdge(GetHitbox(), GetHitbox().Width, GetHitbox().Height, Types.Direction.LEFT);
                 Vector2 gel2Position = Sprint0.Utils.CenterOnEdge(GetHitbox(), GetHitbox().Width, GetHitbox().Height, Types.Direction.RIGHT);

@@ -7,11 +7,11 @@ namespace Sprint0.Projectiles.Player_Projectiles
     public class SwordFlameProjectile : AbstractProjectile
     {
         public SwordFlameProjectile(ICollidable user, Types.Direction direction) :
-            base(new SwordFlameProjSprite(direction), user, direction, new Vector2(3, 3))
+            base(new SwordFlameProjectileSprite(direction), user, direction, new Vector2(3, 3))
         {
             MaxFramesAlive = 20;
 
-            Rectangle TempHitbox = Sprite.GetDrawbox(Vector2.Zero);
+            Rectangle TempHitbox = Sprite.GetHitbox(Vector2.Zero);
             Position = Utils.CenterRectangles(user.GetHitbox(), TempHitbox.Width, TempHitbox.Height);
             Damage = 1;
         }

@@ -24,7 +24,6 @@
     <None Remove="Microsoft.AspNetCore.SignalR.Client" />
     <None Remove="Websocket.Client" />
     <None Remove="Newtonsoft.Json" />
-    <None Remove="WebSockets\" />
     <None Remove="Input\ClientInputHandlers\" />
   </ItemGroup>
   <ItemGroup>
@@ -39,7 +38,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Code Reviews\" />
-    <Folder Include="WebSockets\" />
     <Folder Include="Input\ClientInputHandlers\" />
   </ItemGroup>
   <ItemGroup>

@@ -21,7 +21,7 @@ namespace Sprint0.Characters.Utils
                     return new Aquamentus(position);
                 case Types.Character.BAT:
                     return new Bat(position);
-                case Types.Character.BLADE_TRAP:
+                case Types.Character.BLADETRAP:
                     return new BladeTrap(position);
                 case Types.Character.DODONGO:
                     return new Dodongo(position);
@@ -33,9 +33,9 @@ namespace Sprint0.Characters.Utils
                     return new Hand(position, direction, clockwise);
                 case Types.Character.OLDMAN:
                     return new OldMan(position);
-                case Types.Character.RED_GORIYA:
+                case Types.Character.REDGORIYA:
                     return new RedGoriya(position);
-                case Types.Character.SECRET_TEXT:
+                case Types.Character.SECRETTEXT:
                     return new SecretText(position);
                 case Types.Character.SKELETON:
                     return new Skeleton(position);

@@ -3,12 +3,15 @@ using Microsoft.Xna.Framework;
 using Sprint0.Collision;
 using Sprint0.Levels;
 using Sprint0.Entities;
+using Sprint0.GameModes;
 
 namespace Sprint0.Characters
 {
     public interface ICharacter : ICollidable, IEntity
     {
         Vector2 Position { get; set; }
+
+        Types.GameMode GameMode { get; set; }
 
         int Damage { get; }
 

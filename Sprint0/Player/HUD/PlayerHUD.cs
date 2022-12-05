@@ -4,40 +4,46 @@ using Sprint0.Sprites.Player;
 using Sprint0.Sprites.Projectiles.Player;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 using Sprint0.Levels;
+using Sprint0.Sprites.Items;
+using Sprint0.Assets;
 
 namespace Sprint0.Player.HUD
 {
-    public class PlayerHUD : Inventory
-    {
-        int numHearts;
+    public class PlayerHUD
+    {        
+        private readonly LevelManager LevelManager;
+        private readonly Player Player;
 
-        private HUDMap HUDMap;
-        private Player Player;
-        private LevelManager LevelManager;
+        private readonly HUDMap HUDMap;
+        private readonly HUDHearts HUDHearts;
 
         public PlayerHUD(LevelManager levelManager, Player player)
         {
-            Player = player;
             LevelManager = levelManager;
+            Player = player;
+            
             HUDMap = new HUDMap(levelManager, Player);
+            HUDHearts = new(Player);
         }
 
         public void Draw(SpriteBatch sb)
         {
-            Vector2 CameraPosition = Camera.GetInstance().Position;
+            // Some positions for things on the HUD
+            Rectangle HUDArea = new(0, 0, GameWindow.DefaultScreenWidth, (int)(56 * GameWindow.ResolutionScale));
+            Vector2 SecondaryItem = new(128 * GameWindow.ResolutionScale, (int)(24 * GameWindow.ResolutionScale));
+            Vector2 PrimaryItem = new(152 * GameWindow.ResolutionScale, (int)(24 * GameWindow.ResolutionScale));
+            Vector2 LevelName = new((int)(20 * GameWindow.ResolutionScale), (int)(7 * GameWindow.ResolutionScale));
+            Vector2 RupeeCount = new((int)(96 * GameWindow.ResolutionScale), (int)(13 * GameWindow.ResolutionScale));
+            Vector2 KeyCount = new((int)(96 * GameWindow.ResolutionScale), (int)(29 * GameWindow.ResolutionScale));
+            Vector2 BombCount = new((int)(96 * GameWindow.ResolutionScale), (int)(37 * GameWindow.ResolutionScale));
 
-            Rectangle HUDArea = new Rectangle((int)CameraPosition.X, (int)CameraPosition.Y, Utils.GameWidth, (int)(56 * Utils.GameScale));
-            Vector2 lifeLOC = new Vector2((int)CameraPosition.X + 555, (int)CameraPosition.Y + 15);
-            Vector2 Life = new((int)(176 * Utils.GameScale + CameraPosition.X), (int)(32 * Utils.GameScale + CameraPosition.Y));
-            Vector2 SecondaryItem = new((int)(128 * Utils.GameScale), (int)(24 * Utils.GameScale));
-            Vector2 PrimaryItem = new((int)(152 * Utils.GameScale), (int)(24 * Utils.GameScale));
-            Vector2 LevelName = new((int)(20 * Utils.GameScale + CameraPosition.X), (int)(7 * Utils.GameScale + CameraPosition.Y));
-            Vector2 RupeeCount = new((int)(96 * Utils.GameScale + CameraPosition.X), (int)(13 * Utils.GameScale + CameraPosition.Y));
-            Vector2 KeyCount = new((int)(96 * Utils.GameScale + CameraPosition.X), (int)(29 * Utils.GameScale + CameraPosition.Y));
-            Vector2 BombCount = new((int)(96 * Utils.GameScale + CameraPosition.X), (int)(37 * Utils.GameScale + CameraPosition.Y));
+            // HUD layout
+            sb.Draw(ImageMappings.GetInstance().GuiSpriteSheet, Utils.LinkToCamera(HUDArea), ImageMappings.GetInstance().Hud, Color.White,
+              0f, Vector2.Zero, SpriteEffects.None, 0.19f);
 
+            // Level name and mini map
             string levelName = "Level-" + LevelManager.CurrentLevel.LevelID;
-            sb.DrawString(Resources.MediumFont, levelName, LevelName, Color.White,
+            sb.DrawString(FontMappings.GetInstance().MediumFont, levelName, Utils.LinkToCamera(LevelName), Color.White,
                 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
             HUDMap.DrawPlayerLocation(sb);
             if (Player.Inventory.HasItem(Types.Item.COMPASS))
@@ -49,57 +55,36 @@ namespace Sprint0.Player.HUD
                 HUDMap.DrawMap(sb);
             }
 
-            sb.Draw(Resources.GuiSpriteSheet, HUDArea, Resources.HUD, Color.White,
-              0f, Vector2.Zero, SpriteEffects.None, 0.19f);
+            // Health bar
+            HUDHearts.Draw(sb);
 
-            if (Player.Inventory.SelectedItem == Types.Item.WOODEN_BOOMERANG)
-                new WoodenBoomerangSprite().Draw(sb, SecondaryItem, Color.White, 0.18f);
+            // Primary weapon
+            new SwordProjectileSprite(Types.Direction.UP).Draw(sb, Utils.LinkToCamera(PrimaryItem), Color.White, 0.18f);
+
+            // Secondary weapon
+            if (Player.Inventory.SelectedItem == Types.Item.WOODENBOOMERANG)
+                new WoodenBoomerangSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
             else if (Player.Inventory.SelectedItem == Types.Item.BOMB)
-                new BombSprite().Draw(sb, SecondaryItem, Color.White, 0.18f);
+                new BombSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
             else if (Player.Inventory.SelectedItem == Types.Item.BOW)
-                new BowSprite().Draw(sb, SecondaryItem, Color.White, 0.18f);
-            else if (Player.Inventory.SelectedItem == Types.Item.BLUE_CANDLE)
-                new BlueCandleSprite().Draw(sb, SecondaryItem, Color.White, 0.18f);
-            else if (Player.Inventory.SelectedItem == Types.Item.BLUE_POTION)
-                new BluePotionSprite().Draw(sb, SecondaryItem, Color.White, 0.18f);
+                new BowSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
+            else if (Player.Inventory.SelectedItem == Types.Item.BLUECANDLE)
+                new BlueCandleSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
+            else if (Player.Inventory.SelectedItem == Types.Item.BLUEPOTION)
+                new BluePotionSprite().Draw(sb, Utils.LinkToCamera(SecondaryItem), Color.White, 0.18f);
 
-            new SwordProjSprite(Types.Direction.UP).Draw(sb, PrimaryItem, Color.White, 0.18f);
-
-            sb.DrawString(Resources.MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.RUPEE), RupeeCount, Color.White,
+            // Item counts
+            sb.DrawString(FontMappings.GetInstance().MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.RUPEE), Utils.LinkToCamera(RupeeCount), Color.White,
                 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
-            sb.DrawString(Resources.MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.KEY), KeyCount, Color.White,
+            sb.DrawString(FontMappings.GetInstance().MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.KEY), Utils.LinkToCamera(KeyCount), Color.White,
                 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
-            sb.DrawString(Resources.MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.BOMB), BombCount, Color.White,
-                0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
-
-            for (int i = 0; i < 8; i++)
-            {
-                Rectangle LifeArea = new Rectangle((int)(Life.X + i * 8 * Utils.GameScale),
-                    (int)Life.Y, (int)(8 * Utils.GameScale), (int)(8 * Utils.GameScale));
-                if (Player.Health >= 2 * i) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.FullHeart, Color.White,
-                    0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-                else if (Player.Health == 2 * i - 1) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.HalfHeart, Color.White,
-                    0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-                else if (Player.MaxHealth >= 2 * i) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.EmptyHeart, Color.White,
-                    0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-            }
-            for (int i = 8; i < 16; i++)
-            {
-                Rectangle LifeArea = new Rectangle((int)(Life.X + (i-8) * 8 * Utils.GameScale),
-                    (int)(Life.Y + 8 * Utils.GameScale), (int)(8 * Utils.GameScale), (int)(8 * Utils.GameScale));
-                if (Player.Health >= 2 * i) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.FullHeart, Color.White,
-                    0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-                else if (Player.Health == 2 * i - 1) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.HalfHeart, Color.White,
-                    0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-                else if (Player.MaxHealth >= 2 * i) sb.Draw(Resources.GuiElementsSpriteSheet, LifeArea, Resources.EmptyHeart, Color.White,
-                    0f, Vector2.Zero, SpriteEffects.None, 0.18f);
-            }
+            sb.DrawString(FontMappings.GetInstance().MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.BOMB), Utils.LinkToCamera(BombCount), Color.White,
+                0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);     
         }
 
         public void Update()
         {
             HUDMap.Update();
-            numHearts = Player.Health;
         }
     }
 }

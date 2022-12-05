@@ -4,6 +4,8 @@ using Sprint0.Characters;
 using Sprint0.Levels;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Projectiles.Tools;
+using Sprint0.GameModes;
+using static Sprint0.Types;
 
 namespace Sprint0.Npcs
 {
@@ -22,12 +24,12 @@ namespace Sprint0.Npcs
 
         public override void Draw(SpriteBatch sb)
         {
-            Sprite.Draw(sb, Position, Color.White, Utils.CharacterLayerDepth);
+            Sprite.Draw(sb, Utils.LinkToCamera(Position), Color.White, Utils.CharacterLayerDepth);
         }
 
         public override Rectangle GetHitbox()
         {
-            return Sprite.GetDrawbox(Position);
+            return Sprite.GetHitbox(Position);
         }
 
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)

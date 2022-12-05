@@ -1,14 +1,30 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Sprint0.Assets;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class BatSprite : AbstractAnimatedSprite
+    public class BatSprite : AbstractSprite
     {
-        public BatSprite() : base(2, 4) { }
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().CharactersSpriteSheet;
 
-        protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().Bat;
 
-        protected override Rectangle GetFirstFrame() => Resources.Bat;
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.Bat;
+
+        protected override bool IsAnimated()
+        {
+            return true;
+        }
+
+        protected override int GetNumFrames()
+        {
+            return 2;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            return 4;
+        }
     }
 }

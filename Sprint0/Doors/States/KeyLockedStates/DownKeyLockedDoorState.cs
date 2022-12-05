@@ -1,14 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
 using Sprint0.Blocks.Utils;
 using Sprint0.Doors.States.UnlockedStates;
 using Sprint0.Levels;
-using Sprint0.Sprites;
-using Sprint0.Sprites.Doors;
-using Sprint0.Sprites.Doors.KeyLockedDoorSprites;
+using Sprint0.Sprites.Doors.KeyLockedDoors;
 using System.Collections.Generic;
-using static Sprint0.Utils;
 
 namespace Sprint0.Doors.States.KeyLockedStates
 {
@@ -25,7 +21,7 @@ namespace Sprint0.Doors.States.KeyLockedStates
             Position = LevelResources.DownDoorPosition;
 
             // Create sprite
-            DoorSprite = new DownKeyLockedDoorSprite();
+            DoorSprite = new KeyLockedDoorDownSprite();
 
             // Blocks
             Blocks = new List<IBlock>();
@@ -59,7 +55,7 @@ namespace Sprint0.Doors.States.KeyLockedStates
         private void CreateTriggers(float height, float width)
         {
             IBlock block = BlockFactory.GetBlock(Types.Block.UNLOCK_DOOR_TRIGGER, Position + new Vector2(0, -1));
-            block.SetParent(Door);
+            block.Parent = Door;
             Blocks.Add(block);
         }
         public override void Update(GameTime gameTime)

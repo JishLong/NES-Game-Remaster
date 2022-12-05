@@ -2,6 +2,7 @@
 using Sprint0.Sprites.Projectiles.Player;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Collision;
+using Sprint0.Assets;
 
 namespace Sprint0.Projectiles.Player
 {
@@ -10,12 +11,12 @@ namespace Sprint0.Projectiles.Player
         private readonly Types.Direction Direction;
 
         public BlueArrowProjectile(ICollidable user, Types.Direction direction) :
-            base(new BlueArrowProjSprite(direction), user, direction, new Vector2(15, 15))
+            base(new BlueArrowProjectileSprite(direction), user, direction, new Vector2(15, 15))
         {
             MaxFramesAlive = 40;
             Direction = direction;
             Damage = 4;
-            AudioManager.GetInstance().PlayOnce(Resources.ArrowBoomerangShoot);
+            AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().ProjectileShoot);
         }
 
         public override void DeathAction()

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.AquamentusStates;
+using Sprint0.GameModes;
 using Sprint0.Levels;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites.Characters.Enemies;
@@ -17,11 +18,11 @@ namespace Sprint0.Characters.Enemies
 
         public Aquamentus(Vector2 position)
         {
-            // The aquamentus sprite is the same no matter its state, so we'll just instantiate it here
-            Sprite = new AquamentusSprite();
-
             // State
             State = new AquamentusMovingState(this);
+
+            // The aquamentus sprite is the same no matter its state, so we'll just instantiate it here
+            Sprite = new AquamentusSprite();
 
             // Combat fields
             Health = 6;    // Data here: https://strategywiki.org/wiki/The_Legend_of_Zelda/Bosses

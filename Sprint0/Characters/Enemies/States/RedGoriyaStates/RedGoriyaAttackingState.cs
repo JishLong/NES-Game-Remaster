@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Characters.Enemies.States.RedGoriyaStates;
+using Sprint0.GameModes;
 using Sprint0.Projectiles;
 using Sprint0.Projectiles.Tools;
+using static Sprint0.Types;
 
 namespace Sprint0.Characters.Enemies.RedGoriyaStates
 {

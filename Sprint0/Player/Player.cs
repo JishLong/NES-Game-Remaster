@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.Commands;
+using Sprint0.GameModes;
 using Sprint0.Items;
 using Sprint0.Player.HUD;
 using Sprint0.Player.States;
@@ -31,15 +33,17 @@ namespace Sprint0.Player
         public int Health { get; set; }
         public int MaxHealth { get; set; }
         public Types.Projectile SecondaryWeapon { get; set; }
+        public Types.GameMode GameMode { get; set; }
 
         // Helpful values to check for certain conditions
         public Types.Direction FacingDirection { get; set; }
         public bool IsStationary { get; set; }
+        public bool GodmodeEnabled { get; set; }
 
         // An inventory to hold all the player's items - not yet in use
         private Game1 Game;
         public PlayerHUD HUD { get; private set; }
-        public Inventory Inventory { get; private set; }
+        public Inventory.Inventory Inventory { get; private set; }
 
         // Allows the player to be indentified by the multiplayer server;
         public string inputId { get; set; }
@@ -47,10 +51,12 @@ namespace Sprint0.Player
         public Player(Game1 game)
         {
             // Initialize the state
+            GameMode = Types.GameMode.DEFAULTMODE;
             State = new PlayerIdleState(this, true);
 
             // Initialize the movement-related fields
-            Position = new Vector2(Resources.BlueTile.Width * Utils.GameScale * 8, Resources.BlueTile.Height * Utils.GameScale * 8);
+            Position = new Vector2(AssetManager.DefaultImageAssets.BlueTile.Width * GameWindow.ResolutionScale * 8,
+                AssetManager.DefaultImageAssets.BlueTile.Height * GameWindow.ResolutionScale * 8);
 
             // Initialized the combat-related fields
             Health = 6;
@@ -64,7 +70,7 @@ namespace Sprint0.Player
             // Initialize the inventorys
             Game = game;
             HUD = new PlayerHUD(game.LevelManager, this);
-            Inventory = new Inventory();
+            Inventory = new();
 
             // Initializee the inputId
             inputId = null;
@@ -92,7 +98,7 @@ namespace Sprint0.Player
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            State.Draw(spriteBatch, Position);
+            State.Draw(spriteBatch, Utils.LinkToCamera(Position));
         }
 
         public Rectangle GetHitbox()
@@ -110,9 +116,10 @@ namespace Sprint0.Player
             State.StopAction();
         }
 
-        public void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, Types.Direction direction = Types.Direction.NO_DIRECTION) 
+        public void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, 
+            Types.Direction direction = Types.Direction.NO_DIRECTION, bool setOverride = false) 
         {
-            State.ChangeHealth(healthAmount, maxHealthAmount, game, direction);
+            State.ChangeHealth(healthAmount, maxHealthAmount, game, direction, setOverride);
         }
 
         public void Update()
