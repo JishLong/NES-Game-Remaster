@@ -1,0 +1,9 @@
+(Code/Readability)
+Alfie Zhang
+20 Oct 2022
+Sprint3
+PlayerBlockCollisionHandler.cs
+Paul Fierman
+
+Code is both functional and easy to read. Switch case is implemented seamlessly.
+We could add a 'pushable'/'walk-through' property to AbstractBlock. For the scope of Sprint3, using OR logic in this class to check is fine for now.

@@ -1,0 +1,11 @@
+Author of code review: Ethan Powers
+Date of code review: 10 November. 2022
+Sprint #: 4
+Name of .cs file being reviewed: HUD.cs
+Author of .cs file being reviewed: Josh Long
+Time to review: 5 mins
+Comments: Although the class is not visually appealing, since whitespace is not well utilized,
+much of the code is quite self-explanatory so it is still quite readable.  Furthermore,
+comments are sparsed in with the code, further enhancing readability. My only complaint
+is that the variable capitalization seems to be inconsistent throughout the class, which is
+a pet-peeve of mine.

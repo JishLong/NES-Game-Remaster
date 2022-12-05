@@ -1,0 +1,9 @@
+Review Author: Hanebal Aseged
+Date:  10/24/2022
+Sprint: 3
+LevelLoader.cs
+Author of .cs: Hayden Gray
+Number of minuets: 10
+The file is organized pretty well and it is easy to tell what the purpose of each 
+of the methods in this file are. There are no magic numbers and there are short comments
+that explain what parts of methods do that are easy to interpret.

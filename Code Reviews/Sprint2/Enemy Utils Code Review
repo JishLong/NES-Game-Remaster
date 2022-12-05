@@ -1,0 +1,6 @@
+Alfie Zhang - 10/3/22, Sprint 2 - EnemyUtils.cs - written by Hayden Gray
+
+This utility class has good readbility; enums and dictionaries are clear and simple, and methods that manipulate vectors have very clear descriptions which also
+explain the params and returns of each method.
+
+It may be useful to make this a general utiliy class outside of the enemy directory to be used for other types of sprites.

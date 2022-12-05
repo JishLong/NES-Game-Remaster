@@ -1,0 +1,12 @@
+(Readability)
+Alfie Zhang
+20 Oct 2022
+Sprint3
+CollisionManager.cs
+Josh Long, Ethan Powers, Paul Fierman
+
+For the most part, I think the collision manager is as consolidated as can be. 
+Methods/variables and their order are consistent (e.g. using only SideA for consistency to prevent confusion), 
+which helps the readability of each Handler object and the massive [if-else] method.
+
+Comments could help highlight the different handlers in the [if-else] method, but not too important/subjectively helpful.

@@ -1,0 +1,12 @@
+Type,Catalyst_Entity,Receiving_Entity
+pushblock_unlocks_door,pb1,left_event_locked_room9
+enemies_killed_drops_item,Room9,key1
+enemies_killed_drops_item,Room1,key2
+enemies_killed_drops_item,Room6,key3
+enemies_killed_drops_item,Room11,boomerang1
+enemies_killed_drops_item,Room14,heartcont1
+enemies_killed_unlocks_door,Room14,right_event_locked_room14
+enemies_killed_drops_item,Room17,key4
+enemies_killed_drops_item,Room13,key5
+enemies_killed_drops_item,Room3,key6
+old_man_attack,Room8,oldman1

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
@@ -13,6 +13,19 @@
   <ItemGroup>
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
+    <None Remove="Player\" />
+    <None Remove="Sprites\Player\" />
+    <None Remove="Player\State\" />
+    <None Remove="Commands\Player\" />
+    <None Remove="Sprites\Player\Attack\" />
+    <None Remove="Sprites\Player\Stationary\" />
+    <None Remove="Sprites\Player\Movement\" />
+    <None Remove="Code Reviews\" />
+    <None Remove="Microsoft.AspNetCore.SignalR.Client" />
+    <None Remove="Websocket.Client" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="WebSockets\" />
+    <None Remove="Input\ClientInputHandlers\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -21,6 +34,165 @@
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
+    <PackageReference Include="Websocket.Client" Version="4.4.43" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Code Reviews\" />
+    <Folder Include="WebSockets\" />
+    <Folder Include="Input\ClientInputHandlers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Levels\Level1\Room17\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room17\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room17\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room16\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room16\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room16\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room15\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room15\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room15\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room14\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room14\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room14\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room13\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room13\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room13\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room12\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room12\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room12\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room11\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room11\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room11\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room10\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room10\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room10\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room9\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room9\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room9\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room8\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room8\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room8\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room7\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room7\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room7\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room6\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room6\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room6\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room5\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room5\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room5\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room4\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room4\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room4\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room3\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room3\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room3\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room2\Blocks.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room2\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room2\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room1\Items.csv">
+      <SubType>Component</SubType>
+    </None>
+    <None Update="Levels\Level1\Room1\Characters.csv">
+      <SubType>Component</SubType>
+    </None>
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />

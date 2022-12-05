@@ -1,0 +1,14 @@
+Author of review: Paul
+Date: 10/24/2022
+Sprint: 3
+CharacterTakeDamageCommand.cs
+Author of .cs: Alfie Zhang
+
+This class makes good use of readonly fields. Since they are only to be visable within the scope of this file, it is good that they are private fields. 
+This command file extends the ICommand interface, so there is a high level of abstraction within the execution() method. Only a simple .TakeDamage method 
+is called on the ICharacter parameter. Because of this abstraction, there is a higher degree of coupling as opposed to working out the damage taking logic
+within this .cs file. None the less the cohesion makes sense, because a collision envolving a character and the operation of a character taking damage belong
+together. 
+ 
+I would suggest that a variable that keeps track of all successful character hits or damge inflictions could be implimented into this class. This would allow
+for a score tracker that increases whenever a player successfully attacks an character.

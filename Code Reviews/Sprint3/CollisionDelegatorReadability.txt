@@ -1,0 +1,13 @@
+Author of review: Paul Fierman
+Date: 10/24/2022
+Sprint: 3
+CollisionDelegator.cs
+Author of .cs: Josh Long
+Number of minutes: 15
+
+This file is organized clearly, each seperate goal of the .cs is blocked out by purpose. First each handler is declared as private fields that directly 
+correlate to the two items that are colliding. Next,the public CollisionDelegator() object initializes each private field to its 
+associated collision handler. Both of these code blocks are easy to read, and each collision has only one line of code to declare its field, and one 
+line of code to instanciate its handler. The final block of this file is a public void DelegateCollision method with the purpose of determining which two colidable 
+objects are envolved in a collision then calls the correlating collision handler. This block is some what overwhelming with all the if statement branching but each
+segment itself is easy to read.

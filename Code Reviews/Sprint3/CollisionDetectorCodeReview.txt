@@ -1,0 +1,13 @@
+﻿Author of code review: Ethan Powers
+Date of code review: 24 Oct. 2022
+Sprint #: 3
+Name of .cs file: CollisionDetector.cs
+Author of .cs file: Josh Long
+
+The code in this file has both high coupling and only moderate cohesion.
+Currently, the CollisionController calls the Update() maethod on it to handle
+all collision logic.  Though there are other collision classes, they are only
+ever used by the CollisionDetector.  To decrease coupling, we should use the
+collisionDetector class as the first in a pipeline of collision classes, called
+from the CollisionController's Update() method.  This would reduce coupling and
+increase coheision in the CollisionDetector class.

@@ -1,0 +1,8 @@
+Alfie Zhang - 10/3/22, Sprint 2 - BoomerangAttackBehavior.cs - written by Hayden Gray
+
+This class is able to handle weapons/projectiles that are seperate from a character (as in they are are different sprites). Any other Behavior classes written in this
+way will be convenient to implement since you can assign different behaviors/weapons/projectiles to different characters; the IAttackBehavior pattern is very reusable. 
+Can probably be used for bosses as well.
+
+The class is relatively new, but some methods are unclear, such as NoWeapon(), which in the code assigns a none type to a variable called boomerang, which was a little
+unituitive.

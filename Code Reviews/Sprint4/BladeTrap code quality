@@ -1,0 +1,11 @@
+Author of the code review: Paul Fierman
+Date: 11/14/2020
+Sprint:
+Name of the .cs: BladeTrap.cs
+Author of the .cs: Hanebal Aseged
+Several methods such as RespondToBladeTrap and RespondToWall have no paramaters, which provides ease to the client side code and reduces coupling. The 
+naming conventions could be worked on to increase future readibility and potentially maintainability. The draw function makes good use of Utils singleton
+constants inorder to avoid magic numbers. Short informative comments help readibility for other implimenters. 
+
+One hypothetical suggestion would be to add more traps and add a variance to the frequency of attacks. This could make for a fun bonus level for Sprint 5 
+where the user must avoid constantly attacking enemies who are in hot pursuit of the user.

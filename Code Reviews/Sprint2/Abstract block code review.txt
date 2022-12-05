@@ -1,0 +1,8 @@
+Author of code review: Ethan Powers
+Date of review: 03 Oct. 2022
+Sprint 2
+File being reviewed: AbstractBlock.cs
+Author of AbstractBlock.cs: Hanebal
+Time for review: 6 mins
+
+Notes: The class is relatively simple, but what really stands out to me is the use of the protected keyword for the position and prite.  This is highly readable, without the need for getter and setter methods.
