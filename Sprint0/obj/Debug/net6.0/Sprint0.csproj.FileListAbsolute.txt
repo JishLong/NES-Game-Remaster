@@ -514,3 +514,5 @@ C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Aud
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\vineBoom.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\overworldMusic.xnb
 C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\characters.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\gui.xnb
+C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\guiElements.xnb

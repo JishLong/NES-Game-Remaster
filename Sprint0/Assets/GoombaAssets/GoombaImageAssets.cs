@@ -173,8 +173,8 @@ namespace Sprint0.Assets.GoombaAssets
             BlocksSpriteSheet = c.Load<Texture2D>("Images/Goomba/blocks");
             CharactersSpriteSheet = c.Load<Texture2D>("Images/Goomba/characters");
             CursorSpriteSheet = c.Load<Texture2D>("Images/Goomba/cursor");
-            GuiSpriteSheet = c.Load<Texture2D>("Images/Default/gui");
-            GuiElementsSpriteSheet = c.Load<Texture2D>("Images/Default/guiElements");
+            GuiSpriteSheet = c.Load<Texture2D>("Images/Goomba/gui");
+            GuiElementsSpriteSheet = c.Load<Texture2D>("Images/Goomba/guiElements");
             ItemsSpriteSheet = c.Load<Texture2D>("Images/Goomba/items");
             PlayerSpriteSheet = c.Load<Texture2D>("Images/Goomba/player");
             ProjectilesSpriteSheet = c.Load<Texture2D>("Images/Goomba/projectiles");
