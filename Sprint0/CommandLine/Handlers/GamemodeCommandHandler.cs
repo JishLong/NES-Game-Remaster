@@ -37,28 +37,28 @@ namespace Sprint0.CommandLine.Handlers
             }
 
             // Check for a gamemode type
-            if (Words[0].Equals("DEFAULT"))
+            if (Words[0].Equals("DEFAULTMODE"))
             {
                 (game.CurrentState as CommandLineState).SetNextState(new GameModeTransitionState(game, new DefaultMode()));
                 return Utils.GetAlignedText(
                     "Successfully set gamemode to " + Words[0] + ".",
                     ResponseFont, MaxResponseWidth);
             }
-            if (Words[0].Equals("GOOMBA"))
+            if (Words[0].Equals("GOOMBAMODE"))
             {
                 (game.CurrentState as CommandLineState).SetNextState(new GameModeTransitionState(game, new GoombaMode()));
                 return Utils.GetAlignedText(
                     "It's time to show that filthy plumber who's boss...",
                     ResponseFont, MaxResponseWidth);
             }
-            if (Words[0].Equals("MARIO"))
+            if (Words[0].Equals("MARIOMODE"))
             {
                 (game.CurrentState as CommandLineState).SetNextState(new GameModeTransitionState(game, new MarioMode()));
                 return Utils.GetAlignedText(
                     "It's a me!",
                     ResponseFont, MaxResponseWidth);
             }
-            if (Words[0].Equals("MINECRAFT"))
+            if (Words[0].Equals("MINECRAFTMODE"))
             {
                 (game.CurrentState as CommandLineState).SetNextState(new GameModeTransitionState(game, new MinecraftMode()));
                 return Utils.GetAlignedText(
