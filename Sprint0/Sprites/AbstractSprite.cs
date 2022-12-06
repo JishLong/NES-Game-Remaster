@@ -55,11 +55,11 @@ namespace Sprint0.Sprites
         {
             Rectangle frame = GetDefaultFrame();
 
-            return new Rectangle((int)(position.X + (GetPixelOffset().X * GameWindow.ResolutionScale)),
-                (int)(position.Y + (GetPixelOffset().Y * GameWindow.ResolutionScale)),
-                (int)(frame.Width * GameWindow.ResolutionScale),
-                (int)(frame.Height * GameWindow.ResolutionScale));
+            Vector2 CenteredPosition = Utils.CenterRectangles(GetDrawbox(position),
+                (int)(frame.Width * GameWindow.ResolutionScale), (int)(frame.Height * GameWindow.ResolutionScale));
 
+            return new Rectangle((int)CenteredPosition.X, (int)CenteredPosition.Y,
+                (int)(frame.Width * GameWindow.ResolutionScale), (int)(frame.Height * GameWindow.ResolutionScale));
         }
 
         public Rectangle GetDrawbox(Vector2 position)
