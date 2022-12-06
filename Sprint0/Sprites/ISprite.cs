@@ -11,6 +11,8 @@ namespace Sprint0.Sprites
 
         Rectangle GetHitbox(Vector2 position);
 
+        Rectangle GetDrawbox(Vector2 position);
+
         void Update();
     }
 }

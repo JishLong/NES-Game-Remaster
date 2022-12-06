@@ -39,7 +39,7 @@ namespace Sprint0.Assets.GoombaAssets
 
             WarpPipe = c.Load<SoundEffect>("Audio/Goomba/pipe");
 
-            GameModeTransition = PickupHeartKey;
+            GameModeTransition = c.Load<SoundEffect>("Audio/Goomba/bowserFalls");
         }
     }
 }

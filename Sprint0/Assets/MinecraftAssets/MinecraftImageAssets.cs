@@ -58,11 +58,11 @@ namespace Sprint0.Assets.MinecraftAssets
             Inventory = new(0, 0, 256, 176);
 
             // Sprite sheet positions for gui elements     
-            HeartEmpty = new(48, 102, 9, 9);
-            HeartFull = new(57, 102, 9, 9);
-            HeartHalf = new(66, 102, 9, 9);
-            HudMapPlayer = new(82, 102, 4, 4);
-            HudMapRoom = new(75, 102, 7, 3);
+            HeartEmpty = new(56, 102, 9, 9);
+            HeartFull = new(65, 102, 9, 9);
+            HeartHalf = new(74, 102, 9, 9);
+            HudMapPlayer = new(90, 102, 4, 4);
+            HudMapRoom = new(83, 102, 7, 3);
             MapIconAllDoors = new(8, 102, 8, 8);
             MapIconDownDoor = new(24, 110, 8, 8);
             MapIconDownLeftDoors = new(16, 118, 8, 8);
@@ -80,8 +80,8 @@ namespace Sprint0.Assets.MinecraftAssets
             MapIconUpRightDoors = new(8, 118, 8, 8);
             MapIconVerticalDoors = new(24, 102, 8, 8);
             Panel = new(0, 0, 206, 102);
-            SelectedSlot = new(32, 102, 16, 16);
-            ScreenCover = new(86, 102, 16, 16);
+            SelectedSlot = new(32, 102, 24, 24);
+            ScreenCover = new(94, 102, 16, 16);
 
             // Sprite sheet positions for items
             Arrow = new(80, 0, 16, 16);

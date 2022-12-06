@@ -163,6 +163,12 @@
 /processorParam:Quality=Best
 /build:Audio/Default/winGame.wav
 
+#begin Audio/Goomba/bowserFalls.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/bowserFalls.wav
+
 #begin Audio/Goomba/bowserFire.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
