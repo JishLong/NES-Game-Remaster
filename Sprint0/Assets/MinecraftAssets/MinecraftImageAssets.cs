@@ -192,24 +192,24 @@ namespace Sprint0.Assets.MinecraftAssets
             Water = new(0, 32, 16, 16);
 
             // Sprite sheet positions for characters
-            Aquamentus = new(0, 48, 24, 32);
-            Bat = new(0, 0, 16, 10);
-            BladeTrap = new(96, 48, 16, 16);
-            DodongoDown = new(0, 32, 15, 16);
-            DodongoLeft = new(116, 32, 28, 16);
-            DodongoRight = new(60, 32, 28, 16);
-            DodongoUp = new(30, 32, 15, 16);
-            Flame = new(112, 48, 16, 16);
-            Gel = new(32, 0, 8, 9);
-            Hand = new(48, 0, 16, 16);
-            OldMan = new(144, 48, 16, 16);
-            RedGoriyaDown = new(0, 16, 13, 16);
-            RedGoriyaLeft = new(78, 16, 13, 16);
-            RedGoriyaRight = new(52, 16, 13, 16);
-            RedGoriyaUp = new(26, 16, 13, 16);
-            Skeleton = new(80, 0, 14, 16);
-            Snake = new(104, 16, 15, 15);
-            Zol = new(110, 0, 14, 16);
+            Aquamentus = new(50, 48, 26, 24);
+            Bat = new(30, 0, 16, 12);
+            BladeTrap = new(0, 90, 16, 16);
+            DodongoDown = new(104, 32, 14, 16);
+            DodongoLeft = new(52, 32, 26, 16);
+            DodongoRight = new(0, 32, 26, 16);
+            DodongoUp = new(132, 32, 14, 16);
+            Flame = new(0, 74, 16, 16);
+            Gel = new(94, 0, 10, 10);
+            Hand = new(0, 48, 25, 26);
+            OldMan = new(144, 0, 16, 16);
+            RedGoriyaDown = new(64, 16, 14, 16);
+            RedGoriyaLeft = new(32, 16, 16, 16);
+            RedGoriyaRight = new(0, 16, 16, 16);
+            RedGoriyaUp = new(92, 16, 14, 16);
+            Skeleton = new(0, 0, 14, 16);
+            Snake = new(114, 0, 15, 16);
+            Zol = new(62, 0, 16, 16);
 
             // Sprite sheet positions for mouse cursor
             Cursor = new(0, 0, 13, 13);
