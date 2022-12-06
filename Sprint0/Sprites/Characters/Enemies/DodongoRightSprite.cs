@@ -26,7 +26,8 @@ namespace Sprint0.Sprites.Characters.Enemies
 
         protected override int GetAnimationSpeed()
         {
-            return 16;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return 6;
+            else return 16;
         }
     }
 }

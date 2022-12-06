@@ -8,6 +8,7 @@ namespace Sprint0.Sprites.Player.UseItem
     public class PlayerUseItemLeftSprite : AbstractSprite
     {
         private readonly Vector2 DefaultPixelOffset = new(-12, 0);
+        private readonly Vector2 GoombaPixelOffset = new(-5, 0);
         private readonly Vector2 MinecraftPixelOffset = new(-11, 0);
 
         protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().PlayerSpriteSheet;
@@ -19,7 +20,7 @@ namespace Sprint0.Sprites.Player.UseItem
         protected override Vector2 GetPixelOffset()
         {
             if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MINECRAFTMODE) return MinecraftPixelOffset;
-            else if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return Vector2.Zero;
+            else if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return GoombaPixelOffset;
             else return DefaultPixelOffset;
         }
     }

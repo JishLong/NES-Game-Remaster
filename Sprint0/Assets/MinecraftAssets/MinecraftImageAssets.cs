@@ -51,7 +51,7 @@ namespace Sprint0.Assets.MinecraftAssets
             Zol = new(62, 0, 16, 16);
 
             // Sprite sheet positions for mouse cursor
-            Cursor = new(0, 0, 13, 13);
+            Cursor = new(0, 0, 9, 9);
 
             // Sprite sheet positions for GUI
             Hud = new(0, 176, 256, 56);

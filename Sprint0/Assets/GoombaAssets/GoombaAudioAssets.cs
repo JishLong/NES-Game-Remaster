@@ -34,7 +34,7 @@ namespace Sprint0.Assets.GoombaAssets
             SecretFound = c.Load<SoundEffect>("Audio/Goomba/oneUp");
             SwordShoot = c.Load<SoundEffect>("Audio/Goomba/goombaLaserHum");
             SwordSwing = c.Load<SoundEffect>("Audio/Goomba/goombaLaserFire");
-            TextAppear = PlayerLowHealth;
+            TextAppear = c.Load<SoundEffect>("Audio/Goomba/sixteenthPause");
             WinGame = c.Load<SoundEffect>("Audio/Goomba/worldClear");
 
             WarpPipe = c.Load<SoundEffect>("Audio/Goomba/pipe");

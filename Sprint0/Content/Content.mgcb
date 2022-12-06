@@ -289,6 +289,12 @@
 /processorParam:Quality=Best
 /build:Audio/Goomba/quarterPause.wav
 
+#begin Audio/Goomba/sixteenthPause.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/sixteenthPause.wav
+
 #begin Audio/Goomba/stageClear.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -420,6 +426,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/Mario/quarterPause.wav
+
+#begin Audio/Mario/sixteenthPause.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Mario/sixteenthPause.wav
 
 #begin Audio/Mario/stageClear.wav
 /importer:WavImporter

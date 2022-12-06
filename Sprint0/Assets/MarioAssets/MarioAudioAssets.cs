@@ -31,7 +31,7 @@ namespace Sprint0.Assets.MarioAssets
             SecretFound = c.Load<SoundEffect>("Audio/Mario/oneUp");
             SwordShoot = FlameShoot;
             SwordSwing = c.Load<SoundEffect>("Audio/Mario/bowserFalls");
-            TextAppear = PlayerLowHealth;
+            TextAppear = c.Load<SoundEffect>("Audio/Mario/sixteenthPause");
             WinGame = c.Load<SoundEffect>("Audio/Mario/worldClear");
 
             GameModeTransition = PickupHeartKey;

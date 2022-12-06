@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Assets;
+using Sprint0.GameModes;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
@@ -24,7 +25,8 @@ namespace Sprint0.Sprites.Characters.Enemies
 
         protected override int GetAnimationSpeed()
         {
-            return 16;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return 12;
+            else return 16;
         }
     }
 }
