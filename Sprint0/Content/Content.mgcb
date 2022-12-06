@@ -598,6 +598,48 @@
 /processorParam:TextureFormat=Compressed
 /build:Fonts/Default/smallFont.spritefont
 
+#begin Fonts/Goomba/largeFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Goomba/largeFont.spritefont
+
+#begin Fonts/Goomba/mediumFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Goomba/mediumFont.spritefont
+
+#begin Fonts/Goomba/smallFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Goomba/smallFont.spritefont
+
+#begin Fonts/Mario/largeFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Mario/largeFont.spritefont
+
+#begin Fonts/Mario/mediumFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Mario/mediumFont.spritefont
+
+#begin Fonts/Mario/smallFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Mario/smallFont.spritefont
+
 #begin Fonts/Minecraft/largeFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

@@ -43,7 +43,12 @@ namespace Sprint0.Assets
             GoombaAudioAssets = new GoombaAudioAssets();
             GoombaFontAssets = new GoombaFontAssets();
 
-            // Load the assets
+            /* Load the assets
+             * 
+             * DEV NOTE: we could add something that would sort of load/deload certain assets as it sees fit (kinda like a garbage collector),
+             * but for the scope of this project I don't think it's very necessary, plus there isn't any performance issues with loading only
+             * these 4 sets of assets. However, for a project with an unknown (unlimited) amount of assets, this would be nice.
+             */
             DefaultImageAssets.LoadContent(c);
             DefaultAudioAssets.LoadContent(c);
             DefaultFontAssets.LoadContent(c);

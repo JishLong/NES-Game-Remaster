@@ -32,7 +32,7 @@ namespace Sprint0.Assets
         public Texture2D ProjectilesSpriteSheet => GMM.GameMode.ImageAssets.ProjectilesSpriteSheet;
         public Texture2D RoomSpriteSheet => GMM.GameMode.ImageAssets.RoomSpriteSheet;
 
-        // Blocks
+        // Block sprite sheet positions
         public Rectangle BlueTile => GMM.GameMode.ImageAssets.BlueTile;
         public Rectangle BlueWall => GMM.GameMode.ImageAssets.BlueWall;
         public Rectangle BlueStatueLeft => GMM.GameMode.ImageAssets.BlueStatueLeft;
@@ -43,7 +43,7 @@ namespace Sprint0.Assets
         public Rectangle WhiteBars => GMM.GameMode.ImageAssets.WhiteBars;
         public Rectangle Water => GMM.GameMode.ImageAssets.Water;
 
-        // Characters
+        // Character sprite sheet positions
         public Rectangle Aquamentus => GMM.GameMode.ImageAssets.Aquamentus;
         public Rectangle Bat => GMM.GameMode.ImageAssets.Bat;
         public Rectangle BladeTrap => GMM.GameMode.ImageAssets.BladeTrap;
@@ -63,14 +63,14 @@ namespace Sprint0.Assets
         public Rectangle Snake => GMM.GameMode.ImageAssets.Snake;
         public Rectangle Zol => GMM.GameMode.ImageAssets.Zol;
 
-        // Mouse cursor
+        // Mouse cursor sprite sheet position
         public Rectangle Cursor => GMM.GameMode.ImageAssets.Cursor;
 
-        // GUI
+        // GUI sprite sheet positions
         public Rectangle Hud => GMM.GameMode.ImageAssets.Hud;
         public Rectangle Inventory => GMM.GameMode.ImageAssets.Inventory;
 
-        // GUI Elements
+        // GUI element sprite sheet positions
         public Rectangle HeartEmpty => GMM.GameMode.ImageAssets.HeartEmpty;
         public Rectangle HeartFull => GMM.GameMode.ImageAssets.HeartFull;
         public Rectangle HeartHalf => GMM.GameMode.ImageAssets.HeartHalf;
@@ -96,7 +96,7 @@ namespace Sprint0.Assets
         public Rectangle SelectedSlot => GMM.GameMode.ImageAssets.SelectedSlot;
         public Rectangle ScreenCover => GMM.GameMode.ImageAssets.ScreenCover;
 
-        // Items
+        // Item sprite sheet positions
         public Rectangle Arrow => GMM.GameMode.ImageAssets.Arrow;
         public Rectangle BlueCandle => GMM.GameMode.ImageAssets.BlueCandle;
         public Rectangle BluePotion => GMM.GameMode.ImageAssets.BluePotion;
@@ -113,7 +113,7 @@ namespace Sprint0.Assets
         public Rectangle TriforcePiece => GMM.GameMode.ImageAssets.TriforcePiece;
         public Rectangle WoodenBoomerang => GMM.GameMode.ImageAssets.WoodenBoomerang;
 
-        // Player
+        // Player sprite sheet positions
         public Rectangle PlayerDown => GMM.GameMode.ImageAssets.PlayerDown;
         public Rectangle PlayerHoldItem => GMM.GameMode.ImageAssets.PlayerHoldItem;
         public Rectangle PlayerLeft => GMM.GameMode.ImageAssets.PlayerLeft;
@@ -124,7 +124,7 @@ namespace Sprint0.Assets
         public Rectangle PlayerSwordUp => GMM.GameMode.ImageAssets.PlayerSwordUp;
         public Rectangle PlayerUp => GMM.GameMode.ImageAssets.PlayerUp;
 
-        // Projectiles
+        // Projectile sprite sheet positions
         public Rectangle ArrowExplosionProjectile => GMM.GameMode.ImageAssets.ArrowExplosionProjectile;
         public Rectangle ArrowProjectileDown => GMM.GameMode.ImageAssets.ArrowProjectileDown;
         public Rectangle ArrowProjectileLeft => GMM.GameMode.ImageAssets.ArrowProjectileLeft;
@@ -151,7 +151,7 @@ namespace Sprint0.Assets
         public Rectangle SwordProjectileRight => GMM.GameMode.ImageAssets.SwordProjectileRight;
         public Rectangle SwordProjectileUp => GMM.GameMode.ImageAssets.SwordProjectileUp;
 
-        // Room (borders and doors)
+        // Room sprite sheet positions (borders and doors)
         public Rectangle EventLockedDoorDown => GMM.GameMode.ImageAssets.EventLockedDoorDown;
         public Rectangle EventLockedDoorLeft => GMM.GameMode.ImageAssets.EventLockedDoorLeft;
         public Rectangle EventLockedDoorRight => GMM.GameMode.ImageAssets.EventLockedDoorRight;

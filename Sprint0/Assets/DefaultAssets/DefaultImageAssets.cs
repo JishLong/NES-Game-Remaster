@@ -6,169 +6,7 @@ namespace Sprint0.Assets.DefaultAssets
 {
     public class DefaultImageAssets : IImageAssets
     {
-        // Sprite sheets
-        public Texture2D BlocksSpriteSheet { get; private set; }
-        public Texture2D CharactersSpriteSheet { get; private set; }
-        public Texture2D CursorSpriteSheet { get; private set; }
-        public Texture2D GuiSpriteSheet { get; private set; }
-        public Texture2D GuiElementsSpriteSheet { get; private set; }
-        public Texture2D Invisible { get; private set; }
-        public Texture2D ItemsSpriteSheet { get; private set; }
-        public Texture2D PlayerSpriteSheet { get; private set; }
-        public Texture2D ProjectilesSpriteSheet { get; private set; }
-        public Texture2D RoomSpriteSheet { get; private set; }
-
-        // Sprite sheet positions for blocks
-        public Rectangle BlueTile { get; private set; }
-        public Rectangle BlueWall { get; private set; }
-        public Rectangle BlueStatueLeft { get; private set; }
-        public Rectangle BlueStatueRight { get; private set; }
-        public Rectangle BlueStairs { get; private set; }
-        public Rectangle BlueSand { get; private set; }
-        public Rectangle GreyBricks { get; private set; }
-        public Rectangle WhiteBars { get; private set; }
-        public Rectangle Water { get; private set; }
-
-        // Sprite sheet positions for characters
-        public Rectangle Aquamentus { get; private set; }
-        public Rectangle Bat { get; private set; }
-        public Rectangle BladeTrap { get; private set; }
-        public Rectangle DodongoDown { get; private set; }
-        public Rectangle DodongoLeft { get; private set; }
-        public Rectangle DodongoRight { get; private set; }
-        public Rectangle DodongoUp { get; private set; }
-        public Rectangle Flame { get; private set; }
-        public Rectangle Gel { get; private set; }
-        public Rectangle Hand { get; private set; }
-        public Rectangle OldMan { get; private set; }
-        public Rectangle RedGoriyaDown { get; private set; }
-        public Rectangle RedGoriyaLeft { get; private set; }
-        public Rectangle RedGoriyaRight { get; private set; }
-        public Rectangle RedGoriyaUp { get; private set; }
-        public Rectangle Skeleton { get; private set; }
-        public Rectangle Snake { get; private set; }
-        public Rectangle Zol { get; private set; }
-
-        // Sprite sheet positions for mouse cursor
-        public Rectangle Cursor { get; private set; }
-
-        // Sprite sheet positions for GUI
-        public Rectangle Hud { get; private set; }
-        public Rectangle Inventory { get; private set; }
-
-        // Sprite sheet positions for gui elements     
-        public Rectangle HeartEmpty { get; private set; }
-        public Rectangle HeartFull { get; private set; }
-        public Rectangle HeartHalf { get; private set; }
-        public Rectangle HudMapPlayer { get; private set; }
-        public Rectangle HudMapRoom { get; private set; }
-        public Rectangle MapIconAllDoors { get; private set; }
-        public Rectangle MapIconDownDoor { get; private set; }
-        public Rectangle MapIconDownLeftDoors { get; private set; }
-        public Rectangle MapIconDownRightDoors { get; private set; }
-        public Rectangle MapIconHorizontalDoors { get; private set; }
-        public Rectangle MapIconLeftDoor { get; private set; }
-        public Rectangle MapIconNoDoors { get; private set; }
-        public Rectangle MapIconNoDownDoor { get; private set; }
-        public Rectangle MapIconNoLeftDoor { get; private set; }
-        public Rectangle MapIconNoRightDoor { get; private set; }
-        public Rectangle MapIconNoUpDoor { get; private set; }
-        public Rectangle MapIconRightDoor { get; private set; }
-        public Rectangle MapIconUpDoor { get; private set; }
-        public Rectangle MapIconUpLeftDoors { get; private set; }
-        public Rectangle MapIconUpRightDoors { get; private set; }
-        public Rectangle MapIconVerticalDoors { get; private set; }
-        public Rectangle Panel { get; private set; }
-        public Rectangle SelectedSlot { get; private set; }
-        public Rectangle ScreenCover { get; private set; }
-
-        // Sprite sheet positions for items
-        public Rectangle Arrow { get; private set; }
-        public Rectangle BlueCandle { get; private set; }
-        public Rectangle BluePotion { get; private set; }
-        public Rectangle Bomb { get; private set; }
-        public Rectangle Bow { get; private set; }
-        public Rectangle Clock { get; private set; }
-        public Rectangle Compass { get; private set; }
-        public Rectangle Fairy { get; private set; }
-        public Rectangle Heart { get; private set; }
-        public Rectangle HeartContainer { get; private set; }
-        public Rectangle Key { get; private set; }
-        public Rectangle Map { get; private set; }
-        public Rectangle Rupee { get; private set; }
-        public Rectangle TriforcePiece { get; private set; }
-        public Rectangle WoodenBoomerang { get; private set; }
-
-        // Sprite sheet positions for player
-        public Rectangle PlayerDown { get; private set; }
-        public Rectangle PlayerHoldItem { get; private set; }
-        public Rectangle PlayerLeft { get; private set; }
-        public Rectangle PlayerRight { get; private set; }
-        public Rectangle PlayerSwordDown { get; private set; }
-        public Rectangle PlayerSwordLeft { get; private set; }
-        public Rectangle PlayerSwordRight { get; private set; }
-        public Rectangle PlayerSwordUp { get; private set; }
-        public Rectangle PlayerUp { get; private set; }
-
-        // Sprite sheet positions for projectiles
-        public Rectangle ArrowExplosionProjectile { get; private set; }
-        public Rectangle ArrowProjectileDown { get; private set; }
-        public Rectangle ArrowProjectileLeft { get; private set; }
-        public Rectangle ArrowProjectileRight { get; private set; }
-        public Rectangle ArrowProjectileUp { get; private set; }
-        public Rectangle BlueArrowProjectileDown { get; private set; }
-        public Rectangle BlueArrowProjectileLeft { get; private set; }
-        public Rectangle BlueArrowProjectileRight { get; private set; }
-        public Rectangle BlueArrowProjectileUp { get; private set; }
-        public Rectangle BombExplosionProjectile { get; private set; }
-        public Rectangle BombProjectile { get; private set; }
-        public Rectangle BoomerangProjectile { get; private set; }
-        public Rectangle BossProjectile { get; private set; }
-        public Rectangle CharacterDeathProjectile { get; private set; }
-        public Rectangle FlameProjectile { get; private set; }
-        public Rectangle SwordFlameProjectileDownLeft { get; private set; }
-        public Rectangle SwordFlameProjectileDownRight { get; private set; }
-        public Rectangle SwordFlameProjectileUpLeft { get; private set; }
-        public Rectangle SwordFlameProjectileUpRight { get; private set; }
-        public Rectangle SwordMeleeHorizontal { get; private set; }
-        public Rectangle SwordMeleeVertical { get; private set; }
-        public Rectangle SwordProjectileDown { get; private set; }
-        public Rectangle SwordProjectileLeft { get; private set; }
-        public Rectangle SwordProjectileRight { get; private set; }
-        public Rectangle SwordProjectileUp { get; private set; }
-
-        // Sprite sheet positions for the room (borders and doors)
-        public Rectangle EventLockedDoorDown { get; private set; }
-        public Rectangle EventLockedDoorLeft { get; private set; }
-        public Rectangle EventLockedDoorRight { get; private set; }
-        public Rectangle EventLockedDoorUp { get; private set; }
-        public Rectangle KeyLockedDoorDown { get; private set; }
-        public Rectangle KeyLockedDoorLeft { get; private set; }
-        public Rectangle KeyLockedDoorRight { get; private set; }
-        public Rectangle KeyLockedDoorUp { get; private set; }
-        public Rectangle Level1Border { get; private set; }
-        public Rectangle SecretDoorWallDown { get; private set; }
-        public Rectangle SecretDoorWayDown { get; private set; }
-        public Rectangle SecretDoorWallLeft { get; private set; }
-        public Rectangle SecretDoorWayLeft { get; private set; }
-        public Rectangle SecretDoorWallRight { get; private set; }
-        public Rectangle SecretDoorWayRight { get; private set; }
-        public Rectangle SecretDoorWallUp { get; private set; }
-        public Rectangle SecretDoorWayUp { get; private set; }
-        public Rectangle UnlockedDoorWallDown { get; private set; }
-        public Rectangle UnlockedDoorWayDown { get; private set; }
-        public Rectangle UnlockedDoorWallLeft { get; private set; }
-        public Rectangle UnlockedDoorWayLeft { get; private set; }
-        public Rectangle UnlockedDoorWallRight { get; private set; }
-        public Rectangle UnlockedDoorWayRight { get; private set; }
-        public Rectangle UnlockedDoorWallUp { get; private set; }
-        public Rectangle UnlockedDoorWayUp { get; private set; }
-        public Rectangle WallDoorDown { get; private set; }
-        public Rectangle WallDoorLeft { get; private set; }
-        public Rectangle WallDoorRight { get; private set; }
-        public Rectangle WallDoorUp { get; private set; }
-
-        public void LoadContent(ContentManager c)
+        public virtual void LoadContent(ContentManager c)
         {
             // Sprite sheets
             BlocksSpriteSheet = c.Load<Texture2D>("Images/Default/blocks");
@@ -182,7 +20,7 @@ namespace Sprint0.Assets.DefaultAssets
             ProjectilesSpriteSheet = c.Load<Texture2D>("Images/Default/projectiles");
             RoomSpriteSheet = c.Load<Texture2D>("Images/Default/room");
 
-            // Sprite sheet positions for blocks
+            // Block sprite sheet positions
             BlueTile = new(0, 0, 16, 16);
             BlueWall = new(16, 0, 16, 16);
             BlueStatueLeft = new(32, 0, 16, 16);
@@ -193,7 +31,7 @@ namespace Sprint0.Assets.DefaultAssets
             WhiteBars = new(16, 32, 16, 16);
             Water = new(32, 16, 16, 16);
 
-            // Sprite sheet positions for characters
+            // Character sprite sheet positions
             Aquamentus = new(0, 48, 24, 32);
             Bat = new(0, 0, 16, 10);
             BladeTrap = new(96, 48, 16, 16);
@@ -213,14 +51,14 @@ namespace Sprint0.Assets.DefaultAssets
             Snake = new(104, 16, 15, 15);
             Zol = new(110, 0, 14, 16);
 
-            // Sprite sheet positions for mouse cursor
+            // Mouse cursor sprite sheet position
             Cursor = new(0, 0, 12, 12);
 
-            // Sprite sheet positions for GUI
+            // GUI sprite sheet positions
             Hud = new(0, 176, 256, 56);
             Inventory = new(0, 0, 256, 176);
 
-            // Sprite sheet positions for gui elements     
+            // GUI element sprite sheet positions 
             HeartEmpty = new(64, 102, 8, 8);
             HeartFull = new(80, 102, 8, 8);
             HeartHalf = new(72, 102, 8, 8);
@@ -246,7 +84,7 @@ namespace Sprint0.Assets.DefaultAssets
             SelectedSlot = new(32, 102, 16, 16);
             ScreenCover = new(98, 102, 16, 16);
 
-            // Sprite sheet positions for items
+            // Item sprite sheet positions
             Arrow = new(53, 0, 5, 16);
             BlueCandle = new(77, 0, 8, 16);
             BluePotion = new(85, 0, 8, 16);
@@ -263,7 +101,7 @@ namespace Sprint0.Assets.DefaultAssets
             TriforcePiece = new(46, 16, 10, 10);
             WoodenBoomerang = new(40, 0, 5, 8);
 
-            // Sprite sheet positions for player
+            // Player sprite sheet positions
             PlayerDown = new(0, 0, 16, 16);
             PlayerHoldItem = new(108, 44, 14, 16);
             PlayerLeft = new(96, 0, 16, 16);
@@ -274,7 +112,7 @@ namespace Sprint0.Assets.DefaultAssets
             PlayerSwordUp = new(64, 16, 16, 28);
             PlayerUp = new(32, 0, 16, 16);
 
-            // Sprite sheet positions for projectiles
+            // Projectile sprite sheet positions
             ArrowExplosionProjectile = new(52, 26, 7, 8);
             ArrowProjectileDown = new(10, 26, 5, 16);
             ArrowProjectileLeft = new(36, 26, 16, 5);
@@ -301,7 +139,7 @@ namespace Sprint0.Assets.DefaultAssets
             SwordProjectileRight = new(28, 0, 16, 7);
             SwordProjectileUp = new(0, 0, 7, 16);
 
-            // Sprite sheet positions for the room (borders and doors)
+            // Room sprite sheet positions (borders and doors)
             EventLockedDoorDown = new(99, 276, 32, 32);
             EventLockedDoorLeft = new(99, 210, 32, 32);
             EventLockedDoorRight = new(99, 243, 32, 32);
@@ -332,5 +170,167 @@ namespace Sprint0.Assets.DefaultAssets
             WallDoorRight = new(0, 243, 32, 32);
             WallDoorUp = new(0, 177, 32, 32);
         }
+
+        // Sprite sheets
+        public Texture2D BlocksSpriteSheet { get; protected set; }
+        public Texture2D CharactersSpriteSheet { get; protected set; }
+        public Texture2D CursorSpriteSheet { get; protected set; }
+        public Texture2D GuiSpriteSheet { get; protected set; }
+        public Texture2D GuiElementsSpriteSheet { get; protected set; }
+        public Texture2D Invisible { get; protected set; }
+        public Texture2D ItemsSpriteSheet { get; protected set; }
+        public Texture2D PlayerSpriteSheet { get; protected set; }
+        public Texture2D ProjectilesSpriteSheet { get; protected set; }
+        public Texture2D RoomSpriteSheet { get; protected set; }
+
+        // Block sprite sheet positions
+        public Rectangle BlueTile { get; protected set; }
+        public Rectangle BlueWall { get; protected set; }
+        public Rectangle BlueStatueLeft { get; protected set; }
+        public Rectangle BlueStatueRight { get; protected set; }
+        public Rectangle BlueStairs { get; protected set; }
+        public Rectangle BlueSand { get; protected set; }
+        public Rectangle GreyBricks { get; protected set; }
+        public Rectangle WhiteBars { get; protected set; }
+        public Rectangle Water { get; protected set; }
+
+        // Character sprite sheet positions
+        public Rectangle Aquamentus { get; protected set; }
+        public Rectangle Bat { get; protected set; }
+        public Rectangle BladeTrap { get; protected set; }
+        public Rectangle DodongoDown { get; protected set; }
+        public Rectangle DodongoLeft { get; protected set; }
+        public Rectangle DodongoRight { get; protected set; }
+        public Rectangle DodongoUp { get; protected set; }
+        public Rectangle Flame { get; protected set; }
+        public Rectangle Gel { get; protected set; }
+        public Rectangle Hand { get; protected set; }
+        public Rectangle OldMan { get; protected set; }
+        public Rectangle RedGoriyaDown { get; protected set; }
+        public Rectangle RedGoriyaLeft { get; protected set; }
+        public Rectangle RedGoriyaRight { get; protected set; }
+        public Rectangle RedGoriyaUp { get; protected set; }
+        public Rectangle Skeleton { get; protected set; }
+        public Rectangle Snake { get; protected set; }
+        public Rectangle Zol { get; protected set; }
+
+        // Mouse cursor sprite sheet position
+        public Rectangle Cursor { get; protected set; }
+
+        // GUI sprite sheet positions
+        public Rectangle Hud { get; protected set; }
+        public Rectangle Inventory { get; protected set; }
+
+        // GUI element sprite sheet positions    
+        public Rectangle HeartEmpty { get; protected set; }
+        public Rectangle HeartFull { get; protected set; }
+        public Rectangle HeartHalf { get; protected set; }
+        public Rectangle HudMapPlayer { get; protected set; }
+        public Rectangle HudMapRoom { get; protected set; }
+        public Rectangle MapIconAllDoors { get; protected set; }
+        public Rectangle MapIconDownDoor { get; protected set; }
+        public Rectangle MapIconDownLeftDoors { get; protected set; }
+        public Rectangle MapIconDownRightDoors { get; protected set; }
+        public Rectangle MapIconHorizontalDoors { get; protected set; }
+        public Rectangle MapIconLeftDoor { get; protected set; }
+        public Rectangle MapIconNoDoors { get; protected set; }
+        public Rectangle MapIconNoDownDoor { get; protected set; }
+        public Rectangle MapIconNoLeftDoor { get; protected set; }
+        public Rectangle MapIconNoRightDoor { get; protected set; }
+        public Rectangle MapIconNoUpDoor { get; protected set; }
+        public Rectangle MapIconRightDoor { get; protected set; }
+        public Rectangle MapIconUpDoor { get; protected set; }
+        public Rectangle MapIconUpLeftDoors { get; protected set; }
+        public Rectangle MapIconUpRightDoors { get; protected set; }
+        public Rectangle MapIconVerticalDoors { get; protected set; }
+        public Rectangle Panel { get; protected set; }
+        public Rectangle SelectedSlot { get; protected set; }
+        public Rectangle ScreenCover { get; protected set; }
+
+        // Item sprite sheet positions
+        public Rectangle Arrow { get; protected set; }
+        public Rectangle BlueCandle { get; protected set; }
+        public Rectangle BluePotion { get; protected set; }
+        public Rectangle Bomb { get; protected set; }
+        public Rectangle Bow { get; protected set; }
+        public Rectangle Clock { get; protected set; }
+        public Rectangle Compass { get; protected set; }
+        public Rectangle Fairy { get; protected set; }
+        public Rectangle Heart { get; protected set; }
+        public Rectangle HeartContainer { get; protected set; }
+        public Rectangle Key { get; protected set; }
+        public Rectangle Map { get; protected set; }
+        public Rectangle Rupee { get; protected set; }
+        public Rectangle TriforcePiece { get; protected set; }
+        public Rectangle WoodenBoomerang { get; protected set; }
+
+        // Player sprite sheet positions
+        public Rectangle PlayerDown { get; protected set; }
+        public Rectangle PlayerHoldItem { get; protected set; }
+        public Rectangle PlayerLeft { get; protected set; }
+        public Rectangle PlayerRight { get; protected set; }
+        public Rectangle PlayerSwordDown { get; protected set; }
+        public Rectangle PlayerSwordLeft { get; protected set; }
+        public Rectangle PlayerSwordRight { get; protected set; }
+        public Rectangle PlayerSwordUp { get; protected set; }
+        public Rectangle PlayerUp { get; protected set; }
+
+        // Projectile sprite sheet positions
+        public Rectangle ArrowExplosionProjectile { get; protected set; }
+        public Rectangle ArrowProjectileDown { get; protected set; }
+        public Rectangle ArrowProjectileLeft { get; protected set; }
+        public Rectangle ArrowProjectileRight { get; protected set; }
+        public Rectangle ArrowProjectileUp { get; protected set; }
+        public Rectangle BlueArrowProjectileDown { get; protected set; }
+        public Rectangle BlueArrowProjectileLeft { get; protected set; }
+        public Rectangle BlueArrowProjectileRight { get; protected set; }
+        public Rectangle BlueArrowProjectileUp { get; protected set; }
+        public Rectangle BombExplosionProjectile { get; protected set; }
+        public Rectangle BombProjectile { get; protected set; }
+        public Rectangle BoomerangProjectile { get; protected set; }
+        public Rectangle BossProjectile { get; protected set; }
+        public Rectangle CharacterDeathProjectile { get; protected set; }
+        public Rectangle FlameProjectile { get; protected set; }
+        public Rectangle SwordFlameProjectileDownLeft { get; protected set; }
+        public Rectangle SwordFlameProjectileDownRight { get; protected set; }
+        public Rectangle SwordFlameProjectileUpLeft { get; protected set; }
+        public Rectangle SwordFlameProjectileUpRight { get; protected set; }
+        public Rectangle SwordMeleeHorizontal { get; protected set; }
+        public Rectangle SwordMeleeVertical { get; protected set; }
+        public Rectangle SwordProjectileDown { get; protected set; }
+        public Rectangle SwordProjectileLeft { get; protected set; }
+        public Rectangle SwordProjectileRight { get; protected set; }
+        public Rectangle SwordProjectileUp { get; protected set; }
+
+        // Room sprite sheet positions (borders and doors)
+        public Rectangle EventLockedDoorDown { get; protected set; }
+        public Rectangle EventLockedDoorLeft { get; protected set; }
+        public Rectangle EventLockedDoorRight { get; protected set; }
+        public Rectangle EventLockedDoorUp { get; protected set; }
+        public Rectangle KeyLockedDoorDown { get; protected set; }
+        public Rectangle KeyLockedDoorLeft { get; protected set; }
+        public Rectangle KeyLockedDoorRight { get; protected set; }
+        public Rectangle KeyLockedDoorUp { get; protected set; }
+        public Rectangle Level1Border { get; protected set; }
+        public Rectangle SecretDoorWallDown { get; protected set; }
+        public Rectangle SecretDoorWayDown { get; protected set; }
+        public Rectangle SecretDoorWallLeft { get; protected set; }
+        public Rectangle SecretDoorWayLeft { get; protected set; }
+        public Rectangle SecretDoorWallRight { get; protected set; }
+        public Rectangle SecretDoorWayRight { get; protected set; }
+        public Rectangle SecretDoorWallUp { get; protected set; }
+        public Rectangle SecretDoorWayUp { get; protected set; }
+        public Rectangle UnlockedDoorWallDown { get; protected set; }
+        public Rectangle UnlockedDoorWayDown { get; protected set; }
+        public Rectangle UnlockedDoorWallLeft { get; protected set; }
+        public Rectangle UnlockedDoorWayLeft { get; protected set; }
+        public Rectangle UnlockedDoorWallRight { get; protected set; }
+        public Rectangle UnlockedDoorWayRight { get; protected set; }
+        public Rectangle UnlockedDoorWallUp { get; protected set; }
+        public Rectangle UnlockedDoorWayUp { get; protected set; }
+        public Rectangle WallDoorDown { get; protected set; }
+        public Rectangle WallDoorLeft { get; protected set; }
+        public Rectangle WallDoorRight { get; protected set; }
+        public Rectangle WallDoorUp { get; protected set; }
     }
 }
