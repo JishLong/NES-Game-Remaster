@@ -27,7 +27,6 @@ namespace Sprint0.GameStates.GameStates
             {
                 new AudioController(),
                 new KeyboardController(KeyboardMappings.GetInstance().GetRoomTransitionStateMappings(Game, this)),
-                new MouseController(MouseMappings.GetInstance().NoMappings)
             };
 
             LevelResources = LevelResources.GetInstance();
