@@ -64,13 +64,13 @@ namespace Sprint0.GameStates.GameStates
                 IsFlashing = !IsFlashing;
 
                 if (!IsFlashing && GameModeManager.GetInstance().GameMode.Type == OldGameMode.Type)
-                    GameModeManager.GetInstance().ChangeGameMode(NewGameMode);
+                    GameModeManager.GetInstance().GameMode = NewGameMode;
                 else if (!IsFlashing && GameModeManager.GetInstance().GameMode.Type == NewGameMode.Type)
-                    GameModeManager.GetInstance().ChangeGameMode(OldGameMode);
+                    GameModeManager.GetInstance().GameMode = OldGameMode;
 
                 if (FlashesPassed >= NumFlashes)
                 {
-                    GameModeManager.GetInstance().ChangeGameMode(NewGameMode);
+                    GameModeManager.GetInstance().GameMode = NewGameMode;
                     Game.CurrentState = PlayingState;
                     AudioManager.GetInstance().StopAudio();
                     AudioManager.GetInstance().PlayLooped(AudioMappings.GetInstance().MusicGame);
