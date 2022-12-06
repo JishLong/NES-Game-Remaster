@@ -13,12 +13,17 @@ namespace Sprint0.Characters
     public abstract class AbstractCharacter : ICharacter
     {
         // State
-        public ICharacterState State { get; set; }
+        public ICharacterState CurrentState { get; set; }
+        public ICharacterState MovingState { get; set; }
+        public ICharacterState FrozenTemporarilyState { get; set; }
+        public ICharacterState FrozenForeverState { get; set; }
+        public ICharacterState AttackState { get; set; }
         public Vector2 Position { get; set; }
 
         private readonly Types.Character CharacterType;
 
         public int Damage { get; protected set; }
+        public Vector2 MovementSpeed { get; protected set; }
 
         // Combat related fields.
         protected int Health;
@@ -28,7 +33,7 @@ namespace Sprint0.Characters
         private static readonly int KnockBackFrames = InvincibilityFrames / 5;
 
         // Condition monitoring variables
-        private bool IsTakingDamage;
+        protected bool IsTakingDamage;
         private int DamageFramesPassed;
         protected bool JustSpawned;
 
@@ -67,19 +72,21 @@ namespace Sprint0.Characters
         public virtual void Draw(SpriteBatch sb)
         {
             Color CharacterColor = (IsTakingDamage) ? Color.Red : Color.White;
-            if (State != null && !JustSpawned) State.Draw(sb, Sprint0.Utils.LinkToCamera(Position), CharacterColor);
+            if (CurrentState != null && !JustSpawned) CurrentState.Draw(sb, Sprint0.Utils.LinkToCamera(Position), CharacterColor);
         }
 
         public virtual void Freeze(bool frozenForever)
         {
-            if (State != null) State.Freeze(frozenForever);
+            if (CurrentState != null) CurrentState.Freeze(frozenForever);
         }
+
+        public abstract void SetSprite(Types.Direction direction = Types.Direction.NO_DIRECTION);
 
         public Types.Character GetCharacterType() => CharacterType;
 
         public virtual Rectangle GetHitbox()
         {
-            return State.GetHitbox(Position);
+            return CurrentState.GetHitbox(Position);
         }
 
         public virtual void TakeDamage(Types.Direction damageSide, int damage, Room room)
@@ -103,7 +110,7 @@ namespace Sprint0.Characters
 
         public virtual void Unfreeze()
         {
-            if (State != null) State.Unfreeze();
+            if (CurrentState != null) CurrentState.Unfreeze();
         }
 
         public virtual void Update(GameTime gameTime)
@@ -131,7 +138,7 @@ namespace Sprint0.Characters
                 }
             }
 
-            if (State != null) State.Update(gameTime);
+            if (CurrentState != null) CurrentState.Update(gameTime);
         }
     }
 }

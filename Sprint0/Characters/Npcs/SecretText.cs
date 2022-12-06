@@ -64,6 +64,11 @@ namespace Sprint0.Npcs
             return Rectangle.Empty;
         }
 
+        public override void SetSprite(Types.Direction direction)
+        {
+            // Do nothing
+        }
+
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
         {
             // Secret message is invincible

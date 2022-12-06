@@ -1,8 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.States.HandStates;
+using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Characters.Enemies.States;
 using Sprint0.Sprites;
 using Sprint0.Sprites.Characters.Enemies;
 using Sprint0.Sprites.Player.Idle;
+using static Sprint0.Types;
 
 namespace Sprint0.Characters.Enemies
 {
@@ -19,7 +21,13 @@ namespace Sprint0.Characters.Enemies
             ShouldBeKilled = false;
 
             // State
-            State = new HandMovingState(this, direction, clockwise);
+            MovingState = new HandMovingState(this, clockwise);
+            FrozenTemporarilyState = new FrozenTemporarilyState(this);
+            FrozenForeverState = new FrozenForeverState(this);
+            AttackState = null;
+
+            MovingState.SetUp(direction);
+            CurrentState = MovingState;
 
             // The hand sprite is the same no matter its state, so we'll just instantiate it here
             if (clockwise == true && direction == Types.Direction.DOWN) Sprite = new HandDownRightSprite();
@@ -33,10 +41,27 @@ namespace Sprint0.Characters.Enemies
             // Combat
             Health = 2;
             Damage = 1;
+            MovementSpeed = new Vector2(1, 1);
 
             // Movement
             Position = position;
             FramesPassed = 0;
+        }
+
+        public override void Draw(SpriteBatch sb)
+        {
+            Color CharacterColor = (IsTakingDamage) ? Color.Red : Color.White;
+            if (!JustSpawned) 
+            {
+                if (PlayerSprite != null) PlayerSprite.Draw(sb, Sprint0.Utils.LinkToCamera(Position), 
+                    CharacterColor, Sprint0.Utils.WallLayerDepth + 0.02f);
+                Sprite.Draw(sb, Sprint0.Utils.LinkToCamera(Position), CharacterColor, Sprint0.Utils.WallLayerDepth + 0.01f);
+            }
+        }
+
+        public override void SetSprite(Types.Direction direction)
+        {
+            // Do nothing
         }
 
         public override void Update(GameTime gameTime)
@@ -45,7 +70,7 @@ namespace Sprint0.Characters.Enemies
             if (FramesPassed >= 16 * 2 * GameWindow.ResolutionScale)
             {
                 FramesPassed = 0;
-                State.ChangeDirection();
+                CurrentState.ChangeDirection();
             }
 
             base.Update(gameTime);

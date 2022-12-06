@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.States.GelStates;
-using Sprint0.GameModes;
+using Sprint0.Characters.Enemies.States;
 using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies
@@ -13,7 +12,13 @@ namespace Sprint0.Characters.Enemies
         public Gel(Vector2 position) : base(Types.Character.GEL)
         {
             // State
-            State = new GelMovingState(this);
+            MovingState = new OrthogonalMovingState(this);
+            FrozenTemporarilyState = new FrozenTemporarilyState(this);
+            FrozenForeverState = new FrozenForeverState(this);
+            AttackState = null;
+
+            MovingState.SetUp();
+            CurrentState = MovingState;
 
             // The gel sprite is the same no matter its state, so we'll just instantiate it here
             Sprite = new GelSprite();
@@ -21,9 +26,15 @@ namespace Sprint0.Characters.Enemies
             // Combat
             Health = 1;
             Damage = 1;
+            MovementSpeed = new Vector2(2, 2);
 
             // Movement
             Position = position;
+        }
+
+        public override void SetSprite(Types.Direction direction)
+        {
+            // Do nothing
         }
 
         public override void Update(GameTime gameTime)
@@ -32,7 +43,7 @@ namespace Sprint0.Characters.Enemies
             if ((DirectionTimer - DirectionDelay) > 0)
             {
                 DirectionTimer = 0;
-                State.ChangeDirection();
+                CurrentState.ChangeDirection();
             }
 
             base.Update(gameTime);

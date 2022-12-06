@@ -85,6 +85,11 @@ namespace Sprint0.Characters.Enemies
             return Sprite.GetHitbox(Position);
         }
 
+        public override void SetSprite(Types.Direction direction)
+        {
+            // Do nothing
+        }
+
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
         {
             // Blade trap is invincibile bwahahahaha

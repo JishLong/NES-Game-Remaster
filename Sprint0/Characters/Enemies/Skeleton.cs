@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.States.SkeletonStates;
+using Sprint0.Characters.Enemies.States;
 using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies
@@ -15,14 +15,26 @@ namespace Sprint0.Characters.Enemies
             Sprite = new SkeletonSprite();
 
             // State
-            State = new SkeletonMovingState(this);
+            MovingState = new OrthogonalMovingState(this);
+            FrozenTemporarilyState = new FrozenTemporarilyState(this);
+            FrozenForeverState = new FrozenForeverState(this);
+            AttackState = null;
+
+            MovingState.SetUp();
+            CurrentState = MovingState;
 
             // Combat
             Health = 2;
             Damage = 1;
+            MovementSpeed = new(1.5f, 1.5f);
 
             // Movement
             Position = position;
+        }
+
+        public override void SetSprite(Types.Direction direction)
+        {
+            // Do nothing
         }
 
         public override void Update(GameTime gameTime)
@@ -31,7 +43,7 @@ namespace Sprint0.Characters.Enemies
             if ((DirectionTimer - DirectionDelay) > 0)
             {
                 DirectionTimer = 0;
-                State.ChangeDirection();
+                CurrentState.ChangeDirection();
             }
 
             base.Update(gameTime);

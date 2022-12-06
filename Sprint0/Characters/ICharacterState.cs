@@ -16,6 +16,8 @@ namespace Sprint0.Characters
 
         Rectangle GetHitbox(Vector2 position);
 
+        void SetUp(Types.Direction direction = Types.Direction.NO_DIRECTION);
+
         void Unfreeze();
  
         void Update(GameTime gameTime);        

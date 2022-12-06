@@ -32,6 +32,11 @@ namespace Sprint0.Npcs
             return Sprite.GetHitbox(Position);
         }
 
+        public override void SetSprite(Types.Direction direction)
+        {
+            // Do nothing
+        }
+
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
         {
             WasAttacked = true;

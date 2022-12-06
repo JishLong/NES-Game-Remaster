@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.States.ZolStates;
-using Sprint0.GameModes;
+using Sprint0.Characters.Enemies.States;
 using Sprint0.Levels;
 using Sprint0.Sprites.Characters.Enemies;
 
@@ -14,7 +13,13 @@ namespace Sprint0.Characters.Enemies
         public Zol(Vector2 position) : base(Types.Character.ZOL)
         {
             // State
-            State = new ZolMovingState(this);
+            MovingState = new OrthogonalMovingState(this);
+            FrozenTemporarilyState = new FrozenTemporarilyState(this);
+            FrozenForeverState = new FrozenForeverState(this);
+            AttackState = null;
+
+            MovingState.SetUp();
+            CurrentState = MovingState;
 
             // The zol sprite is the same no matter its state, so we'll just instantiate it here
             Sprite = new ZolSprite();
@@ -22,9 +27,15 @@ namespace Sprint0.Characters.Enemies
             // Combat
             Health = 1;
             Damage = 2;
+            MovementSpeed = new(1, 1);
 
             // Movement
             Position = position;
+        }
+
+        public override void SetSprite(Types.Direction direction)
+        {
+            // Do nothing
         }
 
         public override void Update(GameTime gameTime)
@@ -33,7 +44,7 @@ namespace Sprint0.Characters.Enemies
             if ((DirectionTimer - DirectionDelay) > 0)
             {
                 DirectionTimer = 0;
-                State.ChangeDirection();
+                CurrentState.ChangeDirection();
             }
 
             base.Update(gameTime);
