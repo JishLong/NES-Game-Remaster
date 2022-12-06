@@ -65,6 +65,13 @@ namespace Sprint0.CommandLine.Handlers
                 Response.AddRange(new List<string>(System.Enum.GetNames(typeof(Types.Item))));
                 return Response;
             }
+            // Make sure it isn't the "NOITEM" type, as this will crash the game
+            else if (ItemType == Types.Item.NOITEM) 
+            {
+                return Utils.GetAlignedText(
+                    "Error: <ItemType> " + Words[1] + " cannot be used.",
+                    ResponseFont, MaxResponseWidth);
+            }
 
             // Check to see if we're adding or removing the item
             Player.Inventory.Inventory Inventory = game.PlayerManager.GetDefaultPlayer().Inventory;

@@ -101,16 +101,7 @@ namespace Sprint0.CommandLine.Handlers
             {
                 // If the item exists, attempt to spawn it in
                 ObjectExists = System.Enum.TryParse(Words[1], out Types.Item ItemType);
-                if (ObjectExists) 
-                {
-                    for (int i = 0; i < Amount; i++)
-                    {
-                        IItem Item = ItemFactory.GetInstance().GetItem(ItemType,
-                            new Vector2(16 * GameWindow.ResolutionScale * (1 + XCoord), 16 * GameWindow.ResolutionScale * (1 + YCoord)));
-                        game.LevelManager.CurrentLevel.CurrentRoom.AddItemToRoom(Item);
-                    }
-                }
-                else
+                if (!ObjectExists) 
                 {
                     Response.AddRange(Utils.GetAlignedText(
                     "Unknown <Object> " + Words[1] + ".",
@@ -122,6 +113,22 @@ namespace Sprint0.CommandLine.Handlers
                     Response.Add("\n\n");
                     Response.AddRange(new List<string>(System.Enum.GetNames(typeof(Types.Item))));
                     return Response;
+                }
+                // Make sure it isn't the "NOITEM" type, as this will crash the game
+                else if (ItemType == Types.Item.NOITEM)
+                {
+                    return Utils.GetAlignedText(
+                        "Error: <ItemType> " + Words[1] + " cannot be used.",
+                        ResponseFont, MaxResponseWidth);
+                }
+                else 
+                {
+                    for (int i = 0; i < Amount; i++)
+                    {
+                        IItem Item = ItemFactory.GetInstance().GetItem(ItemType,
+                            new Vector2(16 * GameWindow.ResolutionScale * (1 + XCoord), 16 * GameWindow.ResolutionScale * (1 + YCoord)));
+                        game.LevelManager.CurrentLevel.CurrentRoom.AddItemToRoom(Item);
+                    }
                 }
             }
             else if (Words[0].Equals("CHARACTER"))
