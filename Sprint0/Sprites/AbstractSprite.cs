@@ -55,10 +55,8 @@ namespace Sprint0.Sprites
         {
             Rectangle frame = GetDefaultFrame();
 
-            Vector2 CenteredPosition = Utils.CenterRectangles(GetDrawbox(position),
-                (int)(frame.Width * GameWindow.ResolutionScale), (int)(frame.Height * GameWindow.ResolutionScale));
-
-            return new Rectangle((int)CenteredPosition.X, (int)CenteredPosition.Y,
+            return new Rectangle((int)(position.X + (GetPixelOffset().X * GameWindow.ResolutionScale)),
+                (int)(position.Y + (GetPixelOffset().Y * GameWindow.ResolutionScale)),
                 (int)(frame.Width * GameWindow.ResolutionScale), (int)(frame.Height * GameWindow.ResolutionScale));
         }
 
@@ -66,11 +64,12 @@ namespace Sprint0.Sprites
         {
             Rectangle frame = GetFirstFrame();
 
-            return new Rectangle((int)(position.X + (GetPixelOffset().X * GameWindow.ResolutionScale)),
-                (int)(position.Y + (GetPixelOffset().Y * GameWindow.ResolutionScale)),
+            Vector2 CenteredPosition = Utils.CenterRectangles(GetHitbox(position),
+                (int)(frame.Width * GameWindow.ResolutionScale), (int)(frame.Height * GameWindow.ResolutionScale));
+
+            return new Rectangle((int)CenteredPosition.X, (int)CenteredPosition.Y,
                 (int)(frame.Width * GameWindow.ResolutionScale),
                 (int)(frame.Height * GameWindow.ResolutionScale));
-
         }
 
         public virtual void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer = 0)

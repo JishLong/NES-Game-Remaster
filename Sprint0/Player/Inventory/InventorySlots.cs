@@ -55,8 +55,8 @@ namespace Sprint0.Player.Inventory
             Rectangle SelectedSlotArea = new((int)((128 + 24 * SelectedColumn) * GameWindow.ResolutionScale), 
                 (int)((48 + 16 * SelectedRow) * GameWindow.ResolutionScale),
                 (int)(16 * GameWindow.ResolutionScale), (int)(16 * GameWindow.ResolutionScale));
-            Rectangle SpriteDrawbox = SelectedSlotSprite.GetDrawbox(SelectedSlotArea.Location.ToVector2());
-            Vector2 SpritePosition = Utils.CenterRectangles(SelectedSlotArea, SpriteDrawbox.Width, SpriteDrawbox.Height);
+            Rectangle SpriteHitbox = SelectedSlotSprite.GetHitbox(SelectedSlotArea.Location.ToVector2());
+            Vector2 SpritePosition = Utils.CenterRectangles(SelectedSlotArea, SpriteHitbox.Width, SpriteHitbox.Height);
             SelectedSlotSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.17f);
 
             // Items in each slot
@@ -64,42 +64,42 @@ namespace Sprint0.Player.Inventory
             if (Player.Inventory.HasItem(Types.Item.WOODENBOOMERANG))
             {
                 ItemSprite = new WoodenBoomerangSprite();
-                SpriteDrawbox = ItemSprite.GetDrawbox(BoomerangArea.Location.ToVector2());
-                SpritePosition = Utils.CenterRectangles(BoomerangArea, SpriteDrawbox.Width, SpriteDrawbox.Height);
+                SpriteHitbox = ItemSprite.GetHitbox(BoomerangArea.Location.ToVector2());
+                SpritePosition = Utils.CenterRectangles(BoomerangArea, SpriteHitbox.Width, SpriteHitbox.Height);
                 ItemSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.18f);
             }
             if (Player.Inventory.HasItem(Types.Item.BOMB))
             {
                 ItemSprite = new BombSprite();
-                SpriteDrawbox = ItemSprite.GetDrawbox(BombArea.Location.ToVector2());
-                SpritePosition = Utils.CenterRectangles(BombArea, SpriteDrawbox.Width, SpriteDrawbox.Height);
+                SpriteHitbox = ItemSprite.GetHitbox(BombArea.Location.ToVector2());
+                SpritePosition = Utils.CenterRectangles(BombArea, SpriteHitbox.Width, SpriteHitbox.Height);
                 ItemSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.18f);
             }
             // If the player has a bow, we'll essentially "give" them the arrow - both the bow and arrow get drawn
             if (Player.Inventory.HasItem(Types.Item.BOW))
             {
                 ItemSprite = new BowSprite();
-                SpriteDrawbox = ItemSprite.GetDrawbox(BowArea.Location.ToVector2());
-                SpritePosition = Utils.CenterRectangles(BowArea, SpriteDrawbox.Width, SpriteDrawbox.Height);
+                SpriteHitbox = ItemSprite.GetHitbox(BowArea.Location.ToVector2());
+                SpritePosition = Utils.CenterRectangles(BowArea, SpriteHitbox.Width, SpriteHitbox.Height);
                 ItemSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.18f);
 
                 ItemSprite = new ArrowSprite();
-                SpriteDrawbox = ItemSprite.GetDrawbox(ArrowArea.Location.ToVector2());
-                SpritePosition = Utils.CenterRectangles(ArrowArea, SpriteDrawbox.Width, SpriteDrawbox.Height);
+                SpriteHitbox = ItemSprite.GetHitbox(ArrowArea.Location.ToVector2());
+                SpritePosition = Utils.CenterRectangles(ArrowArea, SpriteHitbox.Width, SpriteHitbox.Height);
                 ItemSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.18f);
             }
             if (Player.Inventory.HasItem(Types.Item.BLUECANDLE))
             {
                 ItemSprite = new BlueCandleSprite();
-                SpriteDrawbox = ItemSprite.GetDrawbox(CandleArea.Location.ToVector2());
-                SpritePosition = Utils.CenterRectangles(CandleArea, SpriteDrawbox.Width, SpriteDrawbox.Height);
+                SpriteHitbox = ItemSprite.GetHitbox(CandleArea.Location.ToVector2());
+                SpritePosition = Utils.CenterRectangles(CandleArea, SpriteHitbox.Width, SpriteHitbox.Height);
                 ItemSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.18f);
             }
             if (Player.Inventory.HasItem(Types.Item.BLUEPOTION))
             {
                 ItemSprite = new BluePotionSprite();
-                SpriteDrawbox = ItemSprite.GetDrawbox(PotionArea.Location.ToVector2());
-                SpritePosition = Utils.CenterRectangles(PotionArea, SpriteDrawbox.Width, SpriteDrawbox.Height);
+                SpriteHitbox = ItemSprite.GetHitbox(PotionArea.Location.ToVector2());
+                SpritePosition = Utils.CenterRectangles(PotionArea, SpriteHitbox.Width, SpriteHitbox.Height);
                 ItemSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.18f);
             }
         }

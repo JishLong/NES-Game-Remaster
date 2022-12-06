@@ -38,7 +38,7 @@ namespace Sprint0.Assets.MarioAssets
             DodongoLeft = new(0, 48, 16, 16);
             DodongoRight = new(32, 48, 16, 16);
             DodongoUp = new(96, 48, 16, 16);
-            Flame = new(160, 48, 16, 16);
+            Flame = new(160, 0, 16, 16);
             Gel = new(32, 0, 8, 9);
             Hand = new(112, 0, 16, 24);
             OldMan = new(160, 24, 16, 24);

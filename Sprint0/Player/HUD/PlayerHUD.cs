@@ -70,8 +70,8 @@ namespace Sprint0.Player.HUD
 
             // Primary weapon
             ISprite ItemSprite = new SwordProjectileSprite(Types.Direction.UP);
-            Rectangle SpriteDrawbox = ItemSprite.GetDrawbox(PrimaryItemArea.Location.ToVector2());
-            Vector2 SpritePosition = Utils.CenterRectangles(PrimaryItemArea, SpriteDrawbox.Width, SpriteDrawbox.Height);
+            Rectangle SpriteHitbox = ItemSprite.GetHitbox(PrimaryItemArea.Location.ToVector2());
+            Vector2 SpritePosition = Utils.CenterRectangles(PrimaryItemArea, SpriteHitbox.Width, SpriteHitbox.Height);
             ItemSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.18f);
 
             // Secondary weapon
@@ -86,8 +86,8 @@ namespace Sprint0.Player.HUD
             };
             if (ItemSprite != null) 
             {
-                SpriteDrawbox = ItemSprite.GetDrawbox(SecondaryItemArea.Location.ToVector2());
-                SpritePosition = Utils.CenterRectangles(SecondaryItemArea, SpriteDrawbox.Width, SpriteDrawbox.Height);
+                SpriteHitbox = ItemSprite.GetHitbox(SecondaryItemArea.Location.ToVector2());
+                SpritePosition = Utils.CenterRectangles(SecondaryItemArea, SpriteHitbox.Width, SpriteHitbox.Height);
                 ItemSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.18f);
             }
 

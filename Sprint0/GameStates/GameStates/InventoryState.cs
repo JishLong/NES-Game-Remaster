@@ -50,7 +50,7 @@ namespace Sprint0.GameStates.GameStates
 
             // Selected weapon
             ISprite ItemSprite;
-            Rectangle SpriteDrawbox;
+            Rectangle SpriteHitbox;
             Vector2 SpritePosition;
             ItemSprite = Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem switch
             {
@@ -63,8 +63,8 @@ namespace Sprint0.GameStates.GameStates
             };
             if (ItemSprite != null)
             {
-                SpriteDrawbox = ItemSprite.GetDrawbox(SelectedItemArea.Location.ToVector2());
-                SpritePosition = Utils.CenterRectangles(SelectedItemArea, SpriteDrawbox.Width, SpriteDrawbox.Height);
+                SpriteHitbox = ItemSprite.GetHitbox(SelectedItemArea.Location.ToVector2());
+                SpritePosition = Utils.CenterRectangles(SelectedItemArea, SpriteHitbox.Width, SpriteHitbox.Height);
                 ItemSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.18f);
             }
 
@@ -72,15 +72,15 @@ namespace Sprint0.GameStates.GameStates
             if (Game.PlayerManager.GetDefaultPlayer().Inventory.HasItem(Types.Item.MAP)) 
             {
                 ItemSprite = new MapSprite();
-                SpriteDrawbox = ItemSprite.GetDrawbox(MapArea.Location.ToVector2());
-                SpritePosition = Utils.CenterRectangles(MapArea, SpriteDrawbox.Width, SpriteDrawbox.Height);
+                SpriteHitbox = ItemSprite.GetHitbox(MapArea.Location.ToVector2());
+                SpritePosition = Utils.CenterRectangles(MapArea, SpriteHitbox.Width, SpriteHitbox.Height);
                 ItemSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.18f);
             }
             if (Game.PlayerManager.GetDefaultPlayer().Inventory.HasItem(Types.Item.COMPASS))
             {
                 ItemSprite = new CompassSprite();
-                SpriteDrawbox = ItemSprite.GetDrawbox(CompassArea.Location.ToVector2());
-                SpritePosition = Utils.CenterRectangles(CompassArea, SpriteDrawbox.Width, SpriteDrawbox.Height);
+                SpriteHitbox = ItemSprite.GetHitbox(CompassArea.Location.ToVector2());
+                SpritePosition = Utils.CenterRectangles(CompassArea, SpriteHitbox.Width, SpriteHitbox.Height);
                 ItemSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.18f);
             }
 
