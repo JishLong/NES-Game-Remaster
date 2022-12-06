@@ -11,13 +11,13 @@ namespace Sprint0.Characters
     {
         Vector2 Position { get; set; }
 
-        Types.GameMode GameMode { get; set; }
-
         int Damage { get; }
 
         void Draw(SpriteBatch sb);
 
         void Freeze(bool frozenForever);
+
+        Types.Character GetCharacterType();
 
         void TakeDamage(Types.Direction damageSide, int damage, Room room);
 

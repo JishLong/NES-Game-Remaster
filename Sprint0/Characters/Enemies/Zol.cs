@@ -11,7 +11,7 @@ namespace Sprint0.Characters.Enemies
         private double DirectionTimer = 0;
         private readonly double DirectionDelay = 1000;    // Change direction every this many milliseconds.
 
-        public Zol(Vector2 position)
+        public Zol(Vector2 position) : base(Types.Character.ZOL)
         {
             // State
             State = new ZolMovingState(this);

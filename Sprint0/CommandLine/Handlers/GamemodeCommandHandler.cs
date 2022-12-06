@@ -1,10 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Sprint0.GameModes;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Sprint0.GameModes.GameModes;
 using Sprint0.GameStates.GameStates;
-using Sprint0.Levels.Utils;
-using Sprint0.Player;
 using System.Collections.Generic;
 
 namespace Sprint0.CommandLine.Handlers
@@ -22,21 +18,25 @@ namespace Sprint0.CommandLine.Handlers
 
         public List<string> HandleCommand(string parameters, Game1 game)
         {
+            List<string> Response = new();
             string[] Words = parameters.Split(' ');
 
+            // Check for the correct number of parameters
             if (Words.Length != 1 || Words[0].Equals(""))
             {
-                List<string> Response = new();
                 Response.AddRange(Utils.GetAlignedText(
-                    "This command requires exactly one parameter, the <GamemodeType>.",
+                    "This command requires exactly one parameter, the <GameModeType>.",
                     ResponseFont, MaxResponseWidth));
                 Response.Add("\n\n");
                 Response.AddRange(Utils.GetAlignedText(
-                    "Try typing \"gamemode normal\" or \"gamemode god\".",
+                    "Try using one of these for the <GameModeType>:",
                     ResponseFont, MaxResponseWidth));
+                Response.Add("\n\n");
+                Response.AddRange(new List<string>(System.Enum.GetNames(typeof(Types.GameMode))));
                 return Response;
             }
 
+            // Check for a gamemode type
             if (Words[0].Equals("DEFAULT"))
             {
                 (game.CurrentState as CommandLineState).SetNextState(new GameModeTransitionState(game, new DefaultMode()));
@@ -65,9 +65,18 @@ namespace Sprint0.CommandLine.Handlers
                     "Awww man...",
                     ResponseFont, MaxResponseWidth);
             }
-            return Utils.GetAlignedText(
-                "Unknown <ObjectType> " + Words[0] + ".",
-                ResponseFont, MaxResponseWidth);
+
+            // If it's made it this far, the gamemode type must have been wrong
+            Response.AddRange(Utils.GetAlignedText(
+                "Unknown <GameModeType> " + Words[0] + ".",
+                ResponseFont, MaxResponseWidth));
+            Response.Add("\n\n");
+            Response.AddRange(Utils.GetAlignedText(
+                "Try using one of these for the <GameModeType>:",
+                ResponseFont, MaxResponseWidth));
+            Response.Add("\n\n");
+            Response.AddRange(new List<string>(System.Enum.GetNames(typeof(Types.GameMode))));
+            return Response;
         }
     }
 }

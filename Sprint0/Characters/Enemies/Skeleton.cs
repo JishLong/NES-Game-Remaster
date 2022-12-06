@@ -9,7 +9,7 @@ namespace Sprint0.Characters.Enemies
         private double DirectionTimer = 0;
         private readonly double DirectionDelay = 1500;    // Change direction every this many milliseconds.
 
-        public Skeleton(Vector2 position)
+        public Skeleton(Vector2 position) : base(Types.Character.SKELETON)
         {
             // The skeleton sprite is the same no matter its state, so we'll just instantiate it here
             Sprite = new SkeletonSprite();

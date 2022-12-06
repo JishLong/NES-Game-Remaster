@@ -16,7 +16,7 @@ namespace Sprint0.Characters
         public ICharacterState State { get; set; }
         public Vector2 Position { get; set; }
 
-        public Types.GameMode GameMode { get; set; }
+        private readonly Types.Character CharacterType;
 
         public int Damage { get; protected set; }
 
@@ -38,12 +38,12 @@ namespace Sprint0.Characters
         // For the entity system
         public IEntity Parent { get; set; }
         public string Name { get; set; }
-        protected AbstractCharacter()
+        protected AbstractCharacter(Types.Character characterType)
         {
+            CharacterType = characterType;
             IsTakingDamage = false;
             DamageFramesPassed = 0;
             JustSpawned = true;
-            GameMode = GameModeManager.GetInstance().GameMode.Type;
 
             Name = "unnamed";
         }
@@ -74,6 +74,8 @@ namespace Sprint0.Characters
         {
             if (State != null) State.Freeze(frozenForever);
         }
+
+        public Types.Character GetCharacterType() => CharacterType;
 
         public virtual Rectangle GetHitbox()
         {

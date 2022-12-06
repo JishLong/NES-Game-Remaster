@@ -24,7 +24,7 @@ namespace Sprint0.Npcs
         // Y-coordinate offset to help vertically center the text within the [TextAreaDims]
         private int TextHeightOffset;
 
-        public SecretText(Vector2 position)
+        public SecretText(Vector2 position) : base(Types.Character.SECRETTEXT)
         {
             Health = 1;
             Position = position;

@@ -9,7 +9,7 @@ namespace Sprint0.Npcs
 {
     public class Flame : AbstractCharacter
     {
-        public Flame(Vector2 position)
+        public Flame(Vector2 position) : base(Types.Character.FLAME)
         {
             Sprite = new FlameSprite();
 

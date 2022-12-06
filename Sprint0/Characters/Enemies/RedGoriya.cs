@@ -15,7 +15,7 @@ namespace Sprint0.Characters.Enemies
         private double DirectionTimer = 0;
         private readonly double DirectionDelay = 1500;    // Change direction every this many milliseconds.
 
-        public RedGoriya(Vector2 position)
+        public RedGoriya(Vector2 position) : base(Character.REDGORIYA)
         {
             // State
             State = new RedGoriyaMovingState(this);

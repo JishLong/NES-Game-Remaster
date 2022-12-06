@@ -10,7 +10,7 @@ namespace Sprint0.Characters.Enemies
         private double DirectionTimer = 0;
         private readonly double DirectionDelay = 1000;    // Change direction every this many milliseconds.
 
-        public Bat(Vector2 position)
+        public Bat(Vector2 position) : base(Types.Character.BAT)
         {
             // State
             State = new BatMovingState(this);

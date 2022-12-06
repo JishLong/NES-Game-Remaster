@@ -12,7 +12,7 @@ namespace Sprint0.Characters.Enemies
         private double DirectionTimer;
         private readonly double DirectionDelay = 1000;    // Change direction every this many milliseconds.
 
-        public Dodongo(Vector2 position)
+        public Dodongo(Vector2 position) : base(Character.DODONGO)
         {
             // State fields
             State = new DodongoMovingState(this);

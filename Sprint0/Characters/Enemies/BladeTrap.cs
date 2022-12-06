@@ -23,7 +23,7 @@ namespace Sprint0.Characters.Enemies
          */
         private int CurrentState;
 
-        public BladeTrap(Vector2 position)
+        public BladeTrap(Vector2 position) : base(Character.BLADETRAP)
         {
             // State
             CurrentState = 0;

@@ -18,10 +18,11 @@ namespace Sprint0.CommandLine.Handlers
         {
             string[] Words = parameters.Split(' ');
 
+            // Check for the correct number of parameters
             if (Words.Length != 1 || Words[0].Equals(""))
             {
                 return Utils.GetAlignedText(
-                    "This command requires exactly one parameter, <Enable/Disable>.",
+                    "This command requires exactly one parameter, <enable/disable>.",
                     ResponseFont, MaxResponseWidth);
             }
 
@@ -45,8 +46,10 @@ namespace Sprint0.CommandLine.Handlers
                         ResponseFont, MaxResponseWidth);
                 }
             }
+
+            // If it's made it this far, the user typed in something wrong for the one parameter
             return Utils.GetAlignedText(
-                "Expected \"Enable\" or \"Disable\".",
+                "Expected \"enable\" or \"disable\" for <enable/disable>. Instead, found " + Words[0] + ".",
                 ResponseFont, MaxResponseWidth);
         }
     }

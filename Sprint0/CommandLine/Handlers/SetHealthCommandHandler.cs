@@ -8,16 +8,10 @@ namespace Sprint0.CommandLine.Handlers
         private readonly SpriteFont ResponseFont;
         private readonly int MaxResponseWidth;
 
-        private readonly List<string> ErrorMessage;
-
         public SetHealthCommandHandler(SpriteFont font, int maxTextWidth)
         {
             ResponseFont = font;
             MaxResponseWidth = maxTextWidth;
-
-            ErrorMessage = Utils.GetAlignedText(
-                "Incorrect usage. This command doesn't use any parameters, simply type \"help\".",
-                font, maxTextWidth);
         }
 
         public List<string> HandleCommand(string parameters, Game1 game)
@@ -64,7 +58,7 @@ namespace Sprint0.CommandLine.Handlers
             if (HealthAmount > MaxHealthAmount)
             {
                 return Utils.GetAlignedText(
-                    "Logical error: <HealthAmount> greater than <MaxHealthAmount>",
+                    "Error: <HealthAmount> greater than <MaxHealthAmount>. Could not set player's health.",
                     ResponseFont, MaxResponseWidth);
             }
 
@@ -73,6 +67,7 @@ namespace Sprint0.CommandLine.Handlers
                 player.ChangeHealth(HealthAmount, MaxHealthAmount, game, Types.Direction.NO_DIRECTION, true);
             }
 
+            // Let user know the operation was successful
             return Utils.GetAlignedText(
                 "Successfully set player's health to " + Words[0] + " and max health to " + Words[1] + ".",
                 ResponseFont, MaxResponseWidth);

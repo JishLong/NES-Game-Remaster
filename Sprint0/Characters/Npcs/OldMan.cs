@@ -13,7 +13,7 @@ namespace Sprint0.Npcs
 	{
         public bool WasAttacked { get; private set; }
 
-		public OldMan(Vector2 position)
+		public OldMan(Vector2 position) : base(Character.OLDMAN)
 		{
             Sprite = new OldManSprite();
 

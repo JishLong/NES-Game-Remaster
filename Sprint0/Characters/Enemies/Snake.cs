@@ -14,7 +14,7 @@ namespace Sprint0.Characters.Enemies
 
         private static readonly Random RNG = new();
 
-        public Snake(Vector2 position)
+        public Snake(Vector2 position) : base(Types.Character.SNAKE)
         {
             // State
             State = new SnakeMovingState(this);

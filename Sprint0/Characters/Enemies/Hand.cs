@@ -13,7 +13,7 @@ namespace Sprint0.Characters.Enemies
         public bool ShouldBeKilled;
         public ISprite PlayerSprite;
 
-        public Hand(Vector2 position, Types.Direction direction, bool clockwise)
+        public Hand(Vector2 position, Types.Direction direction, bool clockwise) : base(Types.Character.HAND)
         {
             OriginalDirection = direction;
             ShouldBeKilled = false;

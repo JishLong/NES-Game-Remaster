@@ -16,7 +16,7 @@ namespace Sprint0.Characters.Enemies
         private double DirectionTime;
         private readonly double DirectionDelay = 1000;    // Change direction every this many milliseconds.
 
-        public Aquamentus(Vector2 position)
+        public Aquamentus(Vector2 position) : base(Types.Character.AQUAMENTUS)
         {
             // State
             State = new AquamentusMovingState(this);
