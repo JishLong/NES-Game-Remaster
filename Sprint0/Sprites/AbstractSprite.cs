@@ -62,7 +62,7 @@ namespace Sprint0.Sprites
                 (int)(frame.Width * GameWindow.ResolutionScale), (int)(frame.Height * GameWindow.ResolutionScale));
         }
 
-        public Rectangle GetDrawbox(Vector2 position)
+        public virtual Rectangle GetDrawbox(Vector2 position)
         {
             Rectangle frame = GetFirstFrame();
 

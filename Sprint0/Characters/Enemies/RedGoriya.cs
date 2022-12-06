@@ -27,7 +27,7 @@ namespace Sprint0.Characters.Enemies
             // Combat
             Health = 3;
             Damage = 2;
-            MovementSpeed = new Vector2(1.5f, 1.5f);
+            MovementSpeed = new(1.5f / 3 * GameWindow.ResolutionScale, 1.5f / 3 * GameWindow.ResolutionScale);
 
             // Movement
             Position = position;

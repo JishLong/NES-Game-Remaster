@@ -30,7 +30,7 @@ namespace Sprint0.Characters.Enemies
             // Combat fields
             Health = 6;    // Data here: https://strategywiki.org/wiki/The_Legend_of_Zelda/Bosses
             Damage = 2;    // Damage dealt
-            MovementSpeed = new(1, 1);
+            MovementSpeed = new(1.0f/3 * GameWindow.ResolutionScale, 1.0f/3 * GameWindow.ResolutionScale);
 
         // Movement fields
         Position = position;

@@ -9,7 +9,8 @@ namespace Sprint0.Projectiles.Player_Projectiles
     public class FlameProjectile : AbstractProjectile
     {
         public FlameProjectile(ICollidable user, Types.Direction direction) : 
-            base(new FlameProjectileSprite(), user, direction, new Vector2(5, 5))
+            base(new FlameProjectileSprite(), user, direction, 
+                new Vector2(5.0f / 3 * GameWindow.ResolutionScale, 5.0f / 3 * GameWindow.ResolutionScale))
         {
             MaxFramesAlive = 100;
             Damage = 1;

@@ -10,7 +10,10 @@ using Sprint0.Sprites.Items;
 namespace Sprint0.Player.HUD
 {
     public class PlayerHUD
-    {        
+    {
+        // How big the text appears on the screen; bigger number = bigger elements
+        private static readonly float TextScaling = 0.3f;
+
         private readonly LevelManager LevelManager;
         private readonly Player Player;
         private readonly HUDMap HUDMap;
@@ -51,7 +54,7 @@ namespace Sprint0.Player.HUD
             // Level name and mini map
             string levelName = "Level-" + LevelManager.CurrentLevel.LevelID;
             sb.DrawString(FontMappings.GetInstance().MediumFont, levelName, Utils.LinkToCamera(LevelNamePosition), Color.White,
-                0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
+                0f, Vector2.Zero, GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0.18f);
             HUDMap.DrawPlayerLocation(sb);
             if (Player.Inventory.HasItem(Types.Item.COMPASS))
             {
@@ -90,11 +93,14 @@ namespace Sprint0.Player.HUD
 
             // Item counts
             sb.DrawString(FontMappings.GetInstance().MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.RUPEE), 
-                Utils.LinkToCamera(RupeeCountPosition), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
+                Utils.LinkToCamera(RupeeCountPosition), Color.White, 0f, Vector2.Zero, GameWindow.ResolutionScale * TextScaling, 
+                SpriteEffects.None, 0.18f);
             sb.DrawString(FontMappings.GetInstance().MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.KEY), 
-                Utils.LinkToCamera(KeyCountPosition), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);
+                Utils.LinkToCamera(KeyCountPosition), Color.White, 0f, Vector2.Zero, GameWindow.ResolutionScale * TextScaling, 
+                SpriteEffects.None, 0.18f);
             sb.DrawString(FontMappings.GetInstance().MediumFont, "X" + Player.Inventory.GetAmount(Types.Item.BOMB), 
-                Utils.LinkToCamera(BombCountPosition), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0.18f);     
+                Utils.LinkToCamera(BombCountPosition), Color.White, 0f, Vector2.Zero, GameWindow.ResolutionScale * TextScaling, 
+                SpriteEffects.None, 0.18f);     
         }
 
         public void Update()

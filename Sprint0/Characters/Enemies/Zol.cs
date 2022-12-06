@@ -27,7 +27,7 @@ namespace Sprint0.Characters.Enemies
             // Combat
             Health = 1;
             Damage = 2;
-            MovementSpeed = new(1, 1);
+            MovementSpeed = new(1.0f / 3 * GameWindow.ResolutionScale, 1.0f / 3 * GameWindow.ResolutionScale);
 
             // Movement
             Position = position;

@@ -34,7 +34,7 @@ namespace Sprint0.GameStates.GameStates
             Direction = direction;
             ShiftAmount = (Direction == Types.Direction.DOWN || Direction == Types.Direction.UP) ? (int)(176 * GameWindow.ResolutionScale) : 
                 GameWindow.DefaultScreenWidth;
-            TransitionFrames = ShiftAmount / 6;
+            TransitionFrames = (int)(ShiftAmount / 6 / GameWindow.ResolutionScale * 3);
             TargetPlayer = player;
 
             CurrentRoom = Game.LevelManager.CurrentLevel.CurrentRoom;

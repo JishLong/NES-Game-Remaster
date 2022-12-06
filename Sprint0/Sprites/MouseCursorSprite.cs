@@ -26,5 +26,16 @@ namespace Sprint0.Sprites
         {
             return 6;
         }
+
+        public override Rectangle GetDrawbox(Vector2 position)
+        {
+            Rectangle frame = GetFirstFrame();
+
+            return new Rectangle((int)(position.X + (GetPixelOffset().X * 3)),
+                (int)(position.Y + (GetPixelOffset().Y * 3)),
+                (int)(frame.Width * 3),
+                (int)(frame.Height * 3));
+
+        }
     }
 }

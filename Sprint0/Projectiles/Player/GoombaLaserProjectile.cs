@@ -1,8 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Sprint0.Assets;
 using Sprint0.Collision;
-using Sprint0.Sprites;
-using Sprint0.Sprites.Projectiles.Character;
 using Sprint0.Sprites.Projectiles.Player;
 
 namespace Sprint0.Projectiles.Player_Projectiles
@@ -10,7 +8,8 @@ namespace Sprint0.Projectiles.Player_Projectiles
     public class GoombaLaserProjectile : AbstractProjectile
     {
         public GoombaLaserProjectile(ICollidable user, Types.Direction direction) :
-            base(new SwordProjectileSprite(direction), user, direction, new Vector2(30, 30))
+            base(new SwordProjectileSprite(direction), user, direction, 
+                new Vector2(30.0f / 3 * GameWindow.ResolutionScale, 30.0f / 3 * GameWindow.ResolutionScale))
         {
             MaxFramesAlive = 100;
             Damage = 1000;
