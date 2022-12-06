@@ -4,15 +4,16 @@ using Sprint0.Assets;
 using Sprint0.Controllers;
 using Sprint0.GameModes;
 using Sprint0.Input;
-using Sprint0.Levels.Utils;
 using System.Collections.Generic;
 
 namespace Sprint0.GameStates.GameStates
 {
     public class GameModeTransitionState : AbstractGameState
     {
+        // The number of screen flashes before the gamemode actually switches
         private static readonly int NumFlashes = 10;
-        private static readonly int FlashFreq = 5;
+        // The number of frames in-between each flash
+        private static readonly int FlashFrames = 5;
 
         private readonly IGameMode OldGameMode;
         private readonly IGameMode NewGameMode;
@@ -51,13 +52,14 @@ namespace Sprint0.GameStates.GameStates
 
         public override void Update(GameTime gameTime)
         {
+            // If the "new" gamemode isn't actually new, we won't do anything
             if (OldGameMode.Type == NewGameMode.Type) Game.CurrentState = PlayingState;
             else if (FramesPassed == 0 && FlashesPassed == 0) AudioManager.GetInstance().PlayOnce(NewGameMode.AudioAssets.GameModeTransition);
             base.Update(gameTime);
 
             FramesPassed++;
 
-            if (FramesPassed >= FlashFreq)
+            if (FramesPassed >= FlashFrames)
             {
                 FramesPassed = 0;
                 FlashesPassed++;
