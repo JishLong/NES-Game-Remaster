@@ -28,7 +28,7 @@ namespace Sprint0.GameStates.GameStates
             {
                 new AudioController(),
                 new KeyboardController(KeyboardMappings.GetInstance().GetInventoryTransitionStateMappings(Game, this)),
-                new MouseController(MouseMappings.GetInstance().NoMappings)
+                new MouseController(MouseMappings.GetInstance().NoMappings, game)
             };
 
             OldGameMode = GameModeManager.GetInstance().GameMode;
