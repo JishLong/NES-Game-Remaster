@@ -8,11 +8,7 @@ namespace Sprint0
     /// <summary>
     /// A set that can optionally stage changes that
     /// are only loaded when the Load() method is called.
-	/// To make changes immediately, use the Put() and Drop() methods.
-	/// 
-    /// Rules:
-    ///		1. Cannot call Put()  tergeting elements already in set.
-    ///		2. Cannot call Drop() tergeting elements not in set.
+	/// To make changes immediately, use the Put() and Drop() methods
 	///
 	/// This is useful for delaying actions such as asynchronous user input
 	/// from the web server.  By delaying button releases by 1 frame, you ensure
@@ -32,20 +28,18 @@ namespace Sprint0
 
 		public void Put(T element)
 		{
-			if (list.Contains(element))
+			if (!list.Contains(element))
 			{
-				throw new Exception($"Set already contains {element.ToString()}");
-			}
-			list.Add(element);
+                list.Add(element);
+            }
 		}
 
 		public void Drop(T element)
 		{
-			if (!list.Contains(element))
+			if (list.Contains(element))
 			{
-				throw new Exception($"Set does not contain {element.ToString()}");
-			}
-            list.Remove(element);
+                list.Remove(element);
+            }
 		}
 
 		public void StagePut(T element)
