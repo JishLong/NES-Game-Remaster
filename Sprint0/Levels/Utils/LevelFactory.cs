@@ -17,7 +17,7 @@ namespace Sprint0.Levels.Utils
                 case Types.Level.LEVEL1:
                     return new Level("Level1", 2, 15);
                 case Types.Level.LEVEL2:
-                    return new Level("Level2", 1, 18);
+                    return new Level("Level2", 1, 17);
                 default:
                     Console.Error.Write("The level of type " + levelType.ToString() +
                         " could not be instantiated by the Level Factory. Does this type exist?");

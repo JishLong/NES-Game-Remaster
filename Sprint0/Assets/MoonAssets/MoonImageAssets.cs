@@ -26,7 +26,7 @@ namespace Sprint0.Assets.DefaultAssets
             BlueStatueLeft = new(32, 0, 16, 16);
             BlueStatueRight = new(0, 16, 16, 16);
             BlueStairs = new(0, 32, 16, 16);
-            BlueSand = new(16, 16, 16, 16);
+            BlueSand = new(48, 0, 16, 16);
             GreyBricks = new(32, 32, 16, 16);
             WhiteBars = new(16, 32, 16, 16);
             Water = new(32, 16, 16, 16);

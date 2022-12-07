@@ -29,6 +29,10 @@ namespace Sprint0.Assets.MinecraftAssets
             GreyBricks = new(64, 0, 16, 16);
             WhiteBars = new(48, 0, 16, 16);
             Water = new(0, 32, 16, 16);
+            Sand = BlueSand;
+            RedSand = BlueSand;
+            RedStatueLeft = BlueStatueLeft;
+            RedStatueRight = BlueStatueRight;
 
             // Sprite sheet positions for characters
             Aquamentus = new(50, 48, 26, 24);
