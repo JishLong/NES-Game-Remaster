@@ -24,7 +24,9 @@ namespace Sprint0.Events
         public override void Update(GameTime gameTime)
         {
 
-            if(CatalystRoom.Characters.Count == 0 && Fired == false)
+            // Edge case, need to check if 
+
+            if(CatalystRoom.CharacterCount == 0 && Fired == false)
             {
                 AudioManager.GetInstance().PlayOnce(Resources.KeyAppear);
                 OwningRoom.AddItemToRoom(Item);

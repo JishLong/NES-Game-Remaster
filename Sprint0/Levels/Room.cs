@@ -28,16 +28,14 @@ namespace Sprint0.Levels
     {
         public List<IBlock> Blocks { get; }
         public List<ICharacter> Characters { get; }
+        public int CharacterCount;
         public List<IItem> Items { get; }
         public DoorHandler DoorHandler { get; }
         public ProjectileHandler Projectiles { get; }
         public EventMaster EventMaster { get; }
-
         public IEntity Parent { get; set; }
         private Dictionary<RoomTransition, Room> AdjacentRooms;
-
         private IBorder Border;
-
         private Level Context;
 
         public string Name { get; set; }
@@ -111,9 +109,14 @@ namespace Sprint0.Levels
             Blocks.Remove(block);
         }
         public void AddCharacterToRoom(Types.Character character, Vector2 position, Types.Direction direction = Direction.NO_DIRECTION,
-            bool clockwise = false)
+            bool clockwise = false, string text = "")
         {
-            Characters.Add(CharacterFactory.GetInstance().GetCharacter(character, position, direction, clockwise));
+            ICharacter newCharacter = CharacterFactory.GetInstance().GetCharacter(character, position, direction, clockwise, text); 
+            if (!(newCharacter is BladeTrap))
+            {
+                CharacterCount++;
+            }
+            Characters.Add(newCharacter);
         }
         public void AddCharacterToRoom(ICharacter character)
         {
@@ -122,6 +125,7 @@ namespace Sprint0.Levels
 
         public void RemoveCharacterFromRoom(ICharacter character)
         {
+            CharacterCount--;
             Characters.Remove(character);
         }
         public void AddItemToRoom(Types.Item item, Vector2 position)

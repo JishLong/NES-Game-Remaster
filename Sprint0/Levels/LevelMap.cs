@@ -19,7 +19,7 @@ namespace Sprint0.Levels
         {
             RootPath = "../../../Levels/";  // TODO: There is probably a better way to do this than with relative paths...
             MapFile = RootPath + levelName + "/" + "Map.csv";
-            MapSize = 9;
+            MapSize = 10;
             MapArray = new int[MapSize, MapSize];
             LoadMap();  // Load the map to an array on construction.
         }

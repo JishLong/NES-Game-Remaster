@@ -44,13 +44,17 @@ namespace Sprint0
         public static Texture2D MouseCursor { get; private set; }
 
         // Sprite sheets
+        public static Texture2D BlocksSpriteSheet { get; set; }
+        public static Texture2D LevelSpriteSheet { get; set; }
         public static Texture2D BabyOnBaby { get; private set; }
-        public static Texture2D BlocksSpriteSheet { get; private set; }
+        public static Texture2D Level1BlocksSpriteSheet { get; private set; }
+        public static Texture2D Level2BlocksSpriteSheet { get; private set; }
         public static Texture2D ItemsSpriteSheet { get; private set; }
         public static Texture2D WeaponsAndProjSpriteSheet { get; private set; }
         public static Texture2D CharactersSpriteSheet { get; private set; }
         public static Texture2D LinkSpriteSheet { get; private set; }
         public static Texture2D Level1SpriteSheet { get; private set; }
+        public static Texture2D Level2SpriteSheet { get; private set; }
         public static Texture2D PausePanel { get; private set; }
         public static Texture2D ScreenCover { get; private set; }
         public static Texture2D Invisible { get; private set; }
@@ -69,6 +73,10 @@ namespace Sprint0
         public static readonly Rectangle GreyBricks = new Rectangle(48, 16, 16, 16);
         public static readonly Rectangle WhiteBars = new Rectangle(0, 32, 16, 16);
         public static readonly Rectangle Water = new Rectangle(16, 16, 16, 16);
+        public static readonly Rectangle Sand = new Rectangle(16, 32, 16, 16);
+        public static readonly Rectangle RedSand = new Rectangle(32, 32, 16, 16);
+        public static readonly Rectangle RedStatueLeft = new Rectangle(48, 32, 16, 16);
+        public static readonly Rectangle RedStatueRight = new Rectangle(64, 32, 16, 16);
 
         // Sprite sheet positions for all borders
         public static readonly Rectangle Level1Border = new Rectangle(521, 11, 256, 176);
@@ -205,6 +213,7 @@ namespace Sprint0
         public static readonly Rectangle HUDMapRoom = new Rectangle(0, 0, 7, 3);
         public static readonly Rectangle PlayerLocation = new Rectangle(0, 0, 3, 3);
 
+
         public static void LoadContent(ContentManager c) 
         {
             // Load font
@@ -241,12 +250,16 @@ namespace Sprint0
 
             // Load sprite sheets
             BabyOnBaby = c.Load<Texture2D>("Images/babyOnBaby");
-            BlocksSpriteSheet = c.Load<Texture2D>("Images/blocks");
+            Level1BlocksSpriteSheet = c.Load<Texture2D>("Images/level1blocks");
+            Level2BlocksSpriteSheet = c.Load<Texture2D>("Images/level2blocks");
+            BlocksSpriteSheet = Level1BlocksSpriteSheet;
             ItemsSpriteSheet = c.Load<Texture2D>("Images/items");
             WeaponsAndProjSpriteSheet = c.Load<Texture2D>("Images/weaponsAndProj");
             CharactersSpriteSheet = c.Load<Texture2D>("Images/characters");
             LinkSpriteSheet = c.Load<Texture2D>("Images/link");
             Level1SpriteSheet = c.Load<Texture2D>("Images/level1");
+            Level2SpriteSheet = c.Load<Texture2D>("Images/level2");
+            LevelSpriteSheet = Level1SpriteSheet;
             PausePanel = c.Load<Texture2D>("Images/pausePanel");
             ScreenCover = c.Load<Texture2D>("Images/screenCover");
             MouseCursor = c.Load<Texture2D>("Images/cursor");

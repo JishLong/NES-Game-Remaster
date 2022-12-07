@@ -63,6 +63,8 @@ namespace Sprint0
             AudioManager.GetInstance().PlayLooped(Resources.MenuMusic);
             Mouse.SetCursor(MouseCursor.FromTexture2D(Resources.Invisible, 0, 0));
 
+            Resources.LevelSpriteSheet = Resources.Level2SpriteSheet;
+            Resources.BlocksSpriteSheet= Resources.Level2BlocksSpriteSheet;
             CurrentState = new MainMenuState(this);
         }
 
@@ -104,7 +106,8 @@ namespace Sprint0
         public void CreateNewGame(bool resetPlayers = true) 
         {
             LevelManager = new LevelManager();
-            LevelManager.LoadLevel(Types.Level.LEVEL1);
+            //LevelManager.LoadLevel(Types.Level.LEVEL1);
+            LevelManager.LoadLevel(Types.Level.LEVEL2);
             MouseMappings.GetInstance().InitializeMappings(this);
             if (resetPlayers) PlayerManager.ResetPlayers();
             PlayerManager = new PlayerManager(this);

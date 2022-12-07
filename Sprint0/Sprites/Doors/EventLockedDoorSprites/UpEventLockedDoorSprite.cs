@@ -5,7 +5,7 @@ namespace Sprint0.Sprites.Doors.EventLockedDoorSprites
 {
     public class UpEventLockedDoorSprite : AbstractStillSprite
     {
-        protected override Texture2D GetSpriteSheet() => Resources.Level1SpriteSheet;
+        protected override Texture2D GetSpriteSheet() => Resources.LevelSpriteSheet;
 
         protected override Rectangle GetFrame() => Resources.UpEventLockedDoor;
     }
