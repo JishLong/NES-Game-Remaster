@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.States.ZolStates;
+using Sprint0.Characters.Enemies.States;
 using Sprint0.Levels;
 using Sprint0.Sprites.Characters.Enemies;
 
@@ -10,20 +10,32 @@ namespace Sprint0.Characters.Enemies
         private double DirectionTimer = 0;
         private readonly double DirectionDelay = 1000;    // Change direction every this many milliseconds.
 
-        public Zol(Vector2 position)
+        public Zol(Vector2 position) : base(Types.Character.ZOL)
         {
+            // State
+            MovingState = new OrthogonalMovingState(this);
+            FrozenTemporarilyState = new FrozenTemporarilyState(this);
+            FrozenForeverState = new FrozenForeverState(this);
+            AttackState = null;
+
+            MovingState.SetUp();
+            CurrentState = MovingState;
+
             // The zol sprite is the same no matter its state, so we'll just instantiate it here
             Sprite = new ZolSprite();
-
-            // State
-            State = new ZolMovingState(this);
 
             // Combat
             Health = 1;
             Damage = 2;
+            MovementSpeed = new(1.0f / 3 * GameWindow.ResolutionScale, 1.0f / 3 * GameWindow.ResolutionScale);
 
             // Movement
             Position = position;
+        }
+
+        public override void SetSprite(Types.Direction direction)
+        {
+            // Do nothing
         }
 
         public override void Update(GameTime gameTime)
@@ -32,7 +44,7 @@ namespace Sprint0.Characters.Enemies
             if ((DirectionTimer - DirectionDelay) > 0)
             {
                 DirectionTimer = 0;
-                State.ChangeDirection();
+                CurrentState.ChangeDirection();
             }
 
             base.Update(gameTime);
@@ -41,7 +53,7 @@ namespace Sprint0.Characters.Enemies
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)
         {
             // If a zol isn't killed in one hit, it splits into two gels
-            if (damage > 1) 
+            if (damage <= 1) 
             {
                 Vector2 gel1Position = Sprint0.Utils.CenterOnEdge(GetHitbox(), GetHitbox().Width, GetHitbox().Height, Types.Direction.LEFT);
                 Vector2 gel2Position = Sprint0.Utils.CenterOnEdge(GetHitbox(), GetHitbox().Width, GetHitbox().Height, Types.Direction.RIGHT);

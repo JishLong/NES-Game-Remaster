@@ -1,12 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 
-namespace Sprint0.Sprites.Player
+namespace Sprint0.Sprites.Items
 {
-    public class BluePotionSprite : AbstractStillSprite
+    public class BluePotionSprite : AbstractSprite
     {
-        protected override Texture2D GetSpriteSheet() => Resources.ItemsSpriteSheet;
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().ItemsSpriteSheet;
 
-        protected override Rectangle GetFrame() => Resources.BluePotion;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().BluePotion;
+
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.BluePotion;
     }
 }

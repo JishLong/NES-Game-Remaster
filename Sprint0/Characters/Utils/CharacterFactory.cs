@@ -21,7 +21,7 @@ namespace Sprint0.Characters.Utils
                     return new Aquamentus(position);
                 case Types.Character.BAT:
                     return new Bat(position);
-                case Types.Character.BLADE_TRAP:
+                case Types.Character.BLADETRAP:
                     return new BladeTrap(position);
                 case Types.Character.DODONGO:
                     return new Dodongo(position);
@@ -33,12 +33,12 @@ namespace Sprint0.Characters.Utils
                     return new Hand(position, direction, clockwise);
                 case Types.Character.OLDMAN:
                     return new OldMan(position);
-                case Types.Character.RED_GORIYA:
+                case Types.Character.REDGORIYA:
                     return new RedGoriya(position);
-                case Types.Character.SECRET_TEXT_1:
-                    return new SecretText(position, "eastmost peninsula is the secret.");
-                case Types.Character.SECRET_TEXT_2:
-                    return new SecretText(position, "dodongo dislikes smoke.");
+                case Types.Character.SECRETTEXT1:
+                    return new SecretText(position, "EASTMOST PENINSULA IS THE SECRET.");
+                case Types.Character.SECRETTEXT2:
+                    return new SecretText(position, "DODONGO DISLIKES SMOKE.");
                 case Types.Character.SKELETON:
                     return new Skeleton(position);
                 case Types.Character.SNAKE:

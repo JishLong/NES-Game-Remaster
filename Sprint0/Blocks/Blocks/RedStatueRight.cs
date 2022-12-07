@@ -5,6 +5,6 @@ namespace Sprint0.Blocks.Blocks
 {
     public class RedStatueRight: AbstractBlock
     {
-        public RedStatueRight(Vector2 position) : base(new RedStatueRightSprite(), position, false) { }
+        public RedStatueRight(Vector2 position) : base(new RedStatueRightSprite(), position, true) { }
     }
 }

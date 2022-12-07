@@ -1,5 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.States.BatStates;
+using Sprint0.Characters.Enemies.States;
 using Sprint0.Sprites.Characters.Enemies;
 
 namespace Sprint0.Characters.Enemies
@@ -9,20 +9,32 @@ namespace Sprint0.Characters.Enemies
         private double DirectionTimer = 0;
         private readonly double DirectionDelay = 1000;    // Change direction every this many milliseconds.
 
-        public Bat(Vector2 position)
+        public Bat(Vector2 position) : base(Types.Character.BAT)
         {
+            // State
+            MovingState = new OmnidirectionalMovingState(this);
+            FrozenTemporarilyState = new FrozenTemporarilyState(this);
+            FrozenForeverState = new FrozenForeverState(this);
+            AttackState = null;
+
+            MovingState.SetUp();
+            CurrentState = MovingState;
+
             // The bat sprite is the same no matter its state, so we'll just instantiate it here
             Sprite = new BatSprite();
-
-            // State
-            State = new BatMovingState(this);
 
             // Combat
             Health = 1;
             Damage = 1;
+            MovementSpeed = new(2.0f/3 * GameWindow.ResolutionScale, 2.0f/3 * GameWindow.ResolutionScale);
 
             // Movement
             Position = position;
+        }
+
+        public override void SetSprite(Types.Direction direction)
+        {
+            // Do nothing
         }
 
         public override void Update(GameTime gameTime)
@@ -31,7 +43,7 @@ namespace Sprint0.Characters.Enemies
             if ((DirectionTimer - DirectionDelay) > 0)
             {
                 DirectionTimer = 0;
-                State.ChangeDirection();
+                CurrentState.ChangeDirection();
             }
 
             base.Update(gameTime);

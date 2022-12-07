@@ -17,9 +17,9 @@ namespace Sprint0.Items.Utils
             {
                 case Types.Item.ARROW:
                     return new Arrow(position);
-                case Types.Item.BLUE_CANDLE:
+                case Types.Item.BLUECANDLE:
                     return new BlueCandle(position);
-                case Types.Item.BLUE_POTION:
+                case Types.Item.BLUEPOTION:
                     return new BluePotion(position);
                 case Types.Item.BOMB:
                     return new Bomb(position);
@@ -33,7 +33,7 @@ namespace Sprint0.Items.Utils
                     return new Fairy(position);
                 case Types.Item.HEART:
                     return new Heart(position);
-                case Types.Item.HEART_CONTAINER:
+                case Types.Item.HEARTCONTAINER:
                     return new HeartContainer(position);
                 case Types.Item.KEY:
                     return new Key(position);
@@ -41,11 +41,11 @@ namespace Sprint0.Items.Utils
                     return new Map(position);
                 case Types.Item.RUPEE:
                     return new Rupee(position);
-                case Types.Item.TRIFORCE_PIECE:
+                case Types.Item.TRIFORCEPIECE:
                     return new TriforcePiece(position);
-                case Types.Item.WOODEN_BOOMERANG:
+                case Types.Item.WOODENBOOMERANG:
                     return new WoodenBoomerang(position);
-                case Types.Item.VALUABLE_RUPEE:
+                case Types.Item.VALUABLERUPEE:
                     return new ValuableRupee(position);
                 default:
                     Console.Error.Write("The item of type " + itemType.ToString() +

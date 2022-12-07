@@ -14,7 +14,7 @@ namespace Sprint0.Commands.Player
 
         public void Execute()
         {
-            if (Player.Inventory.SelectedItem == Item.BLUE_CANDLE)
+            if (Player.Inventory.SelectedItem == Item.BLUECANDLE)
             {
                 Player.SecondaryWeapon = Types.Projectile.FLAME_PROJ;
                 Player.DoSecondaryAttack();

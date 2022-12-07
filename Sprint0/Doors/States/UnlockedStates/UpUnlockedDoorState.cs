@@ -1,12 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Blocks;
 using Sprint0.Blocks.Utils;
 using Sprint0.Levels.Utils;
-using Sprint0.Sprites;
-using Sprint0.Sprites.Doors.UnlockdDoorSprites;
+using Sprint0.Sprites.Doors.UnlockedDoors;
 using System.Collections.Generic;
-using static Sprint0.Utils;
 
 namespace Sprint0.Doors.States.UnlockedStates
 {
@@ -24,8 +21,8 @@ namespace Sprint0.Doors.States.UnlockedStates
             DoorWayOffset = new Vector2(0, Height);
 
             // Create sprites
-            DoorWaySprite = new UpUnlockedDoorWaySprite();
-            DoorWallSprite = new UpUnlockedDoorWallSprite();
+            DoorWaySprite = new UnlockedDoorWayUpSprite();
+            DoorWallSprite = new UnlockedDoorWallUpSprite();
 
             // Blocks
             Blocks = new List<IBlock>();

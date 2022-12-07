@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Sprites.Items;
 using Sprint0.Sprites.Player;
 using System;
 
@@ -35,7 +36,7 @@ namespace Sprint0.Items.Items
             float y = RNG.NextSingle() * 2 - 1;
 
             // We'll also double the speed so it isn't snail-slow
-            return new Vector2(x*2, y*2);
+            return new Vector2(x*2, y*2) * GameWindow.ResolutionScale / 3;
         }
     }
 }

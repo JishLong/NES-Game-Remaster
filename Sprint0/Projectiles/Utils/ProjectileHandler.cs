@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
 using Sprint0.Projectiles.Player_Projectiles;
 using System.Collections.Generic;
 
@@ -25,7 +26,7 @@ namespace Sprint0.Projectiles.Tools
                 {
                     if (proj is SwordProjectile || proj is SwordFlameProjectile) return;
                 }
-                AudioManager.GetInstance().PlayOnce(Resources.SwordProj);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().SwordShoot);
             }
             if (projectile is BoomerangProjectile) 
             {

@@ -1,15 +1,17 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.GameModes;
 using Sprint0.Levels;
 using Sprint0.Projectiles.Tools;
 using Sprint0.Sprites.Characters.Enemies;
+using static Sprint0.Types;
 
 namespace Sprint0.Characters.Enemies
 {
     public class BladeTrap : AbstractCharacter
     {
-        private static Vector2 AttackMovementSpeed = new(5, 5);
-        private static Vector2 ReturnMovementSpeed = new(2, 2);
+        private static Vector2 AttackMovementSpeed = new(5.0f/3 * GameWindow.ResolutionScale, 5.0f/3 * GameWindow.ResolutionScale);
+        private static Vector2 ReturnMovementSpeed = new(2.0f/3 * GameWindow.ResolutionScale, 2.0f/3 * GameWindow.ResolutionScale);
 
         private Types.Direction MovementDirection;
 
@@ -21,13 +23,13 @@ namespace Sprint0.Characters.Enemies
          */
         private int CurrentState;
 
-        public BladeTrap(Vector2 position)
+        public BladeTrap(Vector2 position) : base(Character.BLADETRAP)
         {
-            // The blade trap sprite is the same no matter its state, so we'll just instantiate it here
-            Sprite = new BladeTrapSprite();
-
             // State
             CurrentState = 0;
+
+            // The blade trap sprite is the same no matter its state, so we'll just instantiate it here
+            Sprite = new BladeTrapSprite();
 
             // Movement
             Position = position;
@@ -80,7 +82,12 @@ namespace Sprint0.Characters.Enemies
 
         public override Rectangle GetHitbox() 
         {
-            return Sprite.GetDrawbox(Position);
+            return Sprite.GetHitbox(Position);
+        }
+
+        public override void SetSprite(Types.Direction direction)
+        {
+            // Do nothing
         }
 
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)

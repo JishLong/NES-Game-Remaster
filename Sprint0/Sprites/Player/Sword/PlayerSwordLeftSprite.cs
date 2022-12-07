@@ -1,22 +1,45 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
+using Sprint0.GameModes;
 
-namespace Sprint0.Sprites.Player.Attack.SwordAttack
+namespace Sprint0.Sprites.Player.Sword
 {
-    public class PlayerSwordLeftSprite : AbstractAnimatedSprite
+    public class PlayerSwordLeftSprite : AbstractSprite
     {
-        public PlayerSwordLeftSprite() : base(4, 4)
+        private readonly Vector2 DefaultPixelOffset = new(-12, 0);
+        private readonly Vector2 GoombaPixelOffset = new(-5, 0);
+        private readonly Vector2 MinecraftPixelOffset = new(-11, 0);
+
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().PlayerSpriteSheet;
+
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().PlayerSwordLeft;
+
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.PlayerSwordLeft;
+
+        protected override bool IsAnimated()
         {
-            xOffsetPixels = -12;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return false;
+            else return true;
         }
 
-        protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
-
-        protected override Rectangle GetFirstFrame() => Resources.LinkSwordSideways;
-
-        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
+        protected override int GetNumFrames()
         {
-            DrawFlippedHorz(spriteBatch, position, color, layer);
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return 0;
+            else return 4;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return 0;
+            else return 4;
+        }
+
+        protected override Vector2 GetPixelOffset()
+        {
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MINECRAFTMODE) return MinecraftPixelOffset;
+            else if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return GoombaPixelOffset;
+            else return DefaultPixelOffset;
         }
     }
 }

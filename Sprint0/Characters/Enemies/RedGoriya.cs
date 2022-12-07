@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.RedGoriyaStates;
 using Sprint0.Sprites.Characters.Enemies;
-using Sprint0.Sprites;
+using static Sprint0.Types;
+using Sprint0.Characters.Enemies.States;
 
 namespace Sprint0.Characters.Enemies
 {
@@ -13,17 +13,35 @@ namespace Sprint0.Characters.Enemies
         private double DirectionTimer = 0;
         private readonly double DirectionDelay = 1500;    // Change direction every this many milliseconds.
 
-        public RedGoriya(Vector2 position)
+        public RedGoriya(Vector2 position) : base(Character.REDGORIYA)
         {
             // State
-            State = new RedGoriyaMovingState(this);
+            MovingState = new OrthogonalMovingState(this);
+            FrozenTemporarilyState = new FrozenTemporarilyState(this);
+            FrozenForeverState = new FrozenForeverState(this);
+            AttackState = new RedGoriyaAttackState(this);
+
+            MovingState.SetUp();
+            CurrentState = MovingState;
 
             // Combat
             Health = 3;
             Damage = 2;
+            MovementSpeed = new(1.5f / 3 * GameWindow.ResolutionScale, 1.5f / 3 * GameWindow.ResolutionScale);
 
             // Movement
             Position = position;
+        }
+
+        public override void SetSprite(Types.Direction direction)
+        {
+            Sprite = direction switch
+            {
+                Direction.LEFT => new RedGoriyaLeftSprite(),
+                Direction.RIGHT => new RedGoriyaRightSprite(),
+                Direction.UP => new RedGoriyaUpSprite(),
+                _ => new RedGoriyaDownSprite(),
+            };
         }
 
         public override void Update(GameTime gameTime)
@@ -35,27 +53,16 @@ namespace Sprint0.Characters.Enemies
             if ((AttackTimer - AttackDelay) > 0)
             {
                 AttackTimer = 0;
-                State.Attack();
+                CurrentState.Attack();
             }
 
             if ((DirectionTimer - DirectionDelay) > 0)
             {
                 DirectionTimer = 0;
-                State.ChangeDirection();
+                CurrentState.ChangeDirection();
             }
 
             base.Update(gameTime);
-        }
-
-        public static ISprite GetSprite(Types.Direction direction)
-        {
-            return direction switch
-            {
-                Types.Direction.LEFT => new RedGoriyaLeftSprite(),
-                Types.Direction.RIGHT => new RedGoriyaRightSprite(),
-                Types.Direction.UP => new RedGoriyaUpSprite(),
-                _ => new RedGoriyaDownSprite(),
-            };
         }
     }
 }

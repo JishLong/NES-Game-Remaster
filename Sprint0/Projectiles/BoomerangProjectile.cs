@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Assets;
 using Sprint0.Collision;
 using Sprint0.Items;
 using Sprint0.Projectiles.Tools;
@@ -13,7 +14,8 @@ namespace Sprint0.Projectiles
         private readonly Types.Direction Direction;
 
         public BoomerangProjectile(ICollidable player, Types.Direction direction) :
-            base(new BoomerangSprite(), player, direction, new Vector2(7, 7))
+            base(new BoomerangProjectileSprite(), player, direction, 
+                new Vector2(7.0f / 3 * GameWindow.ResolutionScale, 7.0f / 3 * GameWindow.ResolutionScale))
         {
             MaxFramesAlive = 70;
             IsReturning = false;
@@ -61,7 +63,7 @@ namespace Sprint0.Projectiles
             // Boomerang spinning noise
             if (IsFromPlayer() && FramesPassed % 10 == 0) 
             {
-                AudioManager.GetInstance().PlayOnce(Resources.ArrowBoomerangShoot);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().ProjectileShoot);
             }
         }
 

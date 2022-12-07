@@ -1,4 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Assets;
+using Sprint0.Blocks;
+using Sprint0.Blocks.Blocks;
 using Sprint0.Doors;
 using Sprint0.Levels;
 
@@ -19,7 +22,7 @@ namespace Sprint0.Events
 
             if(Room.CharacterCount == 0 && Fired == false)
             {
-                AudioManager.GetInstance().PlayOnce(Resources.DoorOpened);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().DoorOpen);
                 Door.Unlock();
                 Fired = true;
             }

@@ -16,7 +16,6 @@ namespace Sprint0.Levels
             LevelLoader = new LevelLoader(this);
             Levels = new List<Level>();
         }
-
         public List<IBlock> GetCurrentRoomBlocks()
         {
             return CurrentLevel.CurrentRoom.Blocks;

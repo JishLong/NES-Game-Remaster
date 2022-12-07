@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Characters;
+using Sprint0.GameModes;
 using Sprint0.Levels;
 using Sprint0.Sprites.Characters.Npcs;
 
@@ -8,7 +9,7 @@ namespace Sprint0.Npcs
 {
     public class Flame : AbstractCharacter
     {
-        public Flame(Vector2 position)
+        public Flame(Vector2 position) : base(Types.Character.FLAME)
         {
             Sprite = new FlameSprite();
 
@@ -23,7 +24,12 @@ namespace Sprint0.Npcs
 
         public override Rectangle GetHitbox()
         {
-            return Sprite.GetDrawbox(Position);
+            return Sprite.GetHitbox(Position);
+        }
+
+        public override void SetSprite(Types.Direction direction)
+        {
+            // Do nothing
         }
 
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)

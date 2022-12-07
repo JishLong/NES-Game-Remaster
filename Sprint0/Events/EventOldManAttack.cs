@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Assets;
 using Sprint0.Levels;
 using Sprint0.Npcs;
 
@@ -21,7 +22,7 @@ namespace Sprint0.Events
             if (Fired == false && OldMan.WasAttacked) 
             {
                 AudioManager.GetInstance().StopAudio();
-                AudioManager.GetInstance().PlayLooped(Resources.Dababy);
+                AudioManager.GetInstance().PlayLooped(AudioMappings.GetInstance().OldManTaunt);
                 foreach (var character in CatalystRoom.Characters) 
                 {
                     if (character is SecretText) (character as SecretText).Taunt();

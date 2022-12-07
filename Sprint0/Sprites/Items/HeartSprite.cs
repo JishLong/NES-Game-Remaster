@@ -1,14 +1,33 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
+using Sprint0.GameModes;
 
-namespace Sprint0.Sprites.Player
+namespace Sprint0.Sprites.Items
 {
-    public class HeartSprite : AbstractAnimatedSprite
+    public class HeartSprite : AbstractSprite
     {
-        public HeartSprite() : base(2, 8) { }
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().ItemsSpriteSheet;
 
-        protected override Texture2D GetSpriteSheet() => Resources.ItemsSpriteSheet;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().Heart;
 
-        protected override Rectangle GetFirstFrame() => Resources.Heart;
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.Heart;
+
+        protected override bool IsAnimated()
+        {
+            return GameModeManager.GetInstance().GameMode.Type == Types.GameMode.DEFAULTMODE;
+        }
+
+        protected override int GetNumFrames()
+        {
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.DEFAULTMODE) return 2;
+            else return 0;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.DEFAULTMODE) return 8;
+            else return 0;
+        }
     }
 }

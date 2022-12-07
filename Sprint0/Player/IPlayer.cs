@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Collision;
 using Sprint0.Commands;
+using Sprint0.GameModes;
 using Sprint0.Items;
 using Sprint0.Player.HUD;
 
@@ -14,7 +15,9 @@ namespace Sprint0.Player
         int Health { get; }
         int MaxHealth { get; }
         bool IsStationary { get; set; }
+        bool GodmodeEnabled { get; set; }
         Types.Projectile SecondaryWeapon { get; set; }
+        Types.GameMode GameMode { get; set; }
 
         string inputId { get; set; }
 
@@ -24,7 +27,8 @@ namespace Sprint0.Player
 
         void Capture(ICommand goToBeginningCommand);
 
-        void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, Types.Direction direction = Types.Direction.NO_DIRECTION);
+        void ChangeHealth(int healthAmount, int maxHealthAmount, Game1 game, 
+            Types.Direction direction = Types.Direction.NO_DIRECTION, bool setOverride = false);
 
         void DoPrimaryAttack();
 

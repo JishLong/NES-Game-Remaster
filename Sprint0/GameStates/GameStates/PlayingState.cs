@@ -21,7 +21,7 @@ namespace Sprint0.GameStates.GameStates
             {
                 new AudioController(),
                 new KeyboardController(KeyboardMappings.GetInstance().GetPlayingStateMappings(Game, Game.PlayerManager.GetDefaultPlayer(), this)),
-                new MouseController(MouseMappings.GetInstance().PlayingStateMappings),
+                new MouseController(Game, MouseMappings.GetInstance().PlayingStateMappings),
                 new ProjectileController(Game.LevelManager),
                 new CollisionController(Game)
             };

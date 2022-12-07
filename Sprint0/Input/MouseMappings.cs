@@ -8,7 +8,6 @@ namespace Sprint0.Input
     {
         private static MouseMappings Instance;
 
-        public Dictionary<string, ICommand> NoMappings { get; private set; }
         public Dictionary<string, ICommand> PlayingStateMappings { get; private set; }
 
         private MouseMappings() { }
@@ -21,8 +20,6 @@ namespace Sprint0.Input
 
         public void InitializeMappings(Game1 game)
         {
-            NoMappings = new Dictionary<string, ICommand>();
-
             PlayingStateMappings = new Dictionary<string, ICommand>() { 
                 { "left", new PreviousRoomCommand(game) },
                 { "right", new NextRoomCommand(game) },

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Sprint0.Collision;
 using Sprint0.Levels;
 using Sprint0.Entities;
+using Sprint0.GameModes;
 
 namespace Sprint0.Characters
 {
@@ -15,6 +16,8 @@ namespace Sprint0.Characters
         void Draw(SpriteBatch sb);
 
         void Freeze(bool frozenForever);
+
+        Types.Character GetCharacterType();
 
         void TakeDamage(Types.Direction damageSide, int damage, Room room);
 

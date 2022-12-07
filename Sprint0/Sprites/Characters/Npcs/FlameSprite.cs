@@ -1,25 +1,33 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Sprint0.Assets;
+using Sprint0.GameModes;
 
 namespace Sprint0.Sprites.Characters.Npcs
 {
-    public class FlameSprite : AbstractAnimatedSprite
+    public class FlameSprite : AbstractSprite
     {
-        public FlameSprite() : base(2, 8) { }
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().CharactersSpriteSheet;
 
-        protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().Flame;
 
-        protected override Rectangle GetFirstFrame() => Resources.Flame;
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.Flame;
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layerDepth)
+        protected override bool IsAnimated()
         {
-            if (CurrentFrame != 0)
-            {
-                Rectangle frame = GetFirstFrame();
-                spriteBatch.Draw(GetSpriteSheet(), GetDrawbox(position), frame, color, 0, Vector2.Zero,
-                    SpriteEffects.FlipHorizontally, layerDepth);
-            }
-            else base.Draw(spriteBatch, position, color, layerDepth);
+            return true;
+        }
+
+        protected override int GetNumFrames()
+        {
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MINECRAFTMODE) return 32;
+            else return 2;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MINECRAFTMODE) return 4;
+            else return 8;
         }
     }
 }

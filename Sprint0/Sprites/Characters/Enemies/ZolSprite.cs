@@ -1,14 +1,32 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Sprint0.Assets;
+using Sprint0.GameModes;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class ZolSprite : AbstractAnimatedSprite
+    public class ZolSprite : AbstractSprite
     {
-        public ZolSprite() : base(2, 8) { }
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().CharactersSpriteSheet;
 
-        protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().Zol;
 
-        protected override Rectangle GetFirstFrame() => Resources.Zol;
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.Zol;
+
+        protected override bool IsAnimated()
+        {
+            return true;
+        }
+
+        protected override int GetNumFrames()
+        {
+            return 2;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return 12;
+            else return 8;
+        }
     }
 }

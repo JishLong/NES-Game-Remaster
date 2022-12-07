@@ -13,7 +13,7 @@ namespace Sprint0.Blocks.Blocks
 
         public override Rectangle GetHitbox()
         {
-            return Sprite.GetDrawbox(Position);
+            return Sprite.GetHitbox(Position);
         }
         public override void Draw(SpriteBatch sb)
         {

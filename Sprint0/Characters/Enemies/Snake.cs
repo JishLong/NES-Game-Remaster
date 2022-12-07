@@ -1,8 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
-using Sprint0.Characters.Enemies.States.SnakeStates;
 using Sprint0.Sprites.Characters.Enemies;
-using Sprint0.Sprites;
 using System;
+using Sprint0.Characters.Enemies.States;
 
 namespace Sprint0.Characters.Enemies
 {
@@ -13,17 +12,35 @@ namespace Sprint0.Characters.Enemies
 
         private static readonly Random RNG = new();
 
-        public Snake(Vector2 position)
+        public Snake(Vector2 position) : base(Types.Character.SNAKE)
         {
             // State
-            State = new SnakeMovingState(this);
+            MovingState = new SnakeMovingState(this);
+            FrozenTemporarilyState = new FrozenTemporarilyState(this);
+            FrozenForeverState = new FrozenForeverState(this);
+            AttackState = null;
+
+            MovingState.SetUp();
+            CurrentState = MovingState;
 
             // Combat
             Health = 1;
             Damage = 1;
+            MovementSpeed = new(2.0f / 3 * GameWindow.ResolutionScale, 2.0f / 3 * GameWindow.ResolutionScale);
 
             // Movement
             Position = position;
+        }
+
+        public override void SetSprite(Types.Direction direction)
+        {
+            if (direction == Types.Direction.LEFT) Sprite = new SnakeLeftSprite();
+            else if (direction == Types.Direction.RIGHT) Sprite = new SnakeRightSprite();
+            else
+            {
+                if (RNG.Next(2) > 0) Sprite = new SnakeLeftSprite();
+                else Sprite = new SnakeRightSprite();
+            }
         }
 
         public override void Update(GameTime gameTime)
@@ -32,21 +49,10 @@ namespace Sprint0.Characters.Enemies
             if ((DirectionTimer - DirectionDelay) > 0)
             {
                 DirectionTimer = 0;
-                State.ChangeDirection();
+                CurrentState.ChangeDirection();
             }
 
             base.Update(gameTime);
-        }
-
-        public static ISprite GetSprite(Types.Direction direction)
-        {
-            if (direction == Types.Direction.LEFT) return new SnakeLeftSprite();
-            else if (direction == Types.Direction.RIGHT) return new SnakeRightSprite();
-            else 
-            {
-                if (RNG.Next(2) > 0) return new SnakeLeftSprite();
-                else return new SnakeRightSprite();
-            }
         }
     }
 }

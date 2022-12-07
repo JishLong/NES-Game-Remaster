@@ -1,21 +1,18 @@
-﻿using Sprint0.Sprites.Player.Stationary;
-using Sprint0.Sprites;
-using Sprint0.Player.States;
-using Sprint0.Items;
+﻿using Sprint0.Items;
+using Sprint0.Sprites.Player.Idle;
 
 namespace Sprint0.Player.States
 {
     public class PlayerIdleState : AbstractPlayerState
     {
-        private readonly static ISprite[] Sprites = { 
-            new PlayerIdleUpSprite(), new PlayerIdleDownSprite(), new PlayerIdleLeftSprite(), new PlayerIdleRightSprite() 
-        };
-
         // This is the state that new players start off in
         public PlayerIdleState(Player player, bool setUpSettings = false) : base(player, setUpSettings)
         {
             Player.IsStationary = true;
-            Sprite = Sprites[(int)Player.FacingDirection];
+            if (Player.FacingDirection == Types.Direction.UP) Sprite = new PlayerIdleUpSprite();
+            else if (Player.FacingDirection == Types.Direction.DOWN) Sprite = new PlayerIdleDownSprite();
+            else if (Player.FacingDirection == Types.Direction.LEFT) Sprite = new PlayerIdleLeftSprite();
+            else Sprite = new PlayerIdleRightSprite();
         }
 
         public override void DoPrimaryAttack()

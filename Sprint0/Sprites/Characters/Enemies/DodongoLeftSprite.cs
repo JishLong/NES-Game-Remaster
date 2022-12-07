@@ -1,19 +1,33 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
+using Sprint0.GameModes;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class DodongoLeftSprite : AbstractAnimatedSprite
+    public class DodongoLeftSprite : AbstractSprite
     {
-        public DodongoLeftSprite() : base(2, 16) { }
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().CharactersSpriteSheet;
 
-        protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().DodongoLeft;
 
-        protected override Rectangle GetFirstFrame() => Resources.DodongoSide;
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.DodongoLeft;
 
-        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
+        protected override bool IsAnimated()
         {
-            DrawFlippedHorz(spriteBatch, position, color, layer);
+            return true;
+        }
+
+        protected override int GetNumFrames()
+        {
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return 4;
+            else return 2;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return 6;
+            else return 16;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Sprint0.GameStates.GameStates
     public class InventoryTransitionState : AbstractGameState
     {
         private static readonly int ShiftAmount = (int)(176 * GameWindow.ResolutionScale);
-        private static readonly int TransitionFrames = ShiftAmount / 8;
+        private static readonly int TransitionFrames = (int)(ShiftAmount / 8 / GameWindow.ResolutionScale * 3);
 
         private readonly Types.Direction Direction;
         private readonly IGameState InventoryState;
@@ -24,7 +24,6 @@ namespace Sprint0.GameStates.GameStates
             {
                 new AudioController(),
                 new KeyboardController(KeyboardMappings.GetInstance().GetInventoryTransitionStateMappings(Game, this)),
-                new MouseController(MouseMappings.GetInstance().NoMappings)
             };
 
             Direction = direction;

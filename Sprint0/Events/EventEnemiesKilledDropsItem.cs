@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Sprint0.Assets;
 using Sprint0.Blocks;
 using Sprint0.Blocks.Blocks;
 using Sprint0.Doors;
@@ -28,7 +29,7 @@ namespace Sprint0.Events
 
             if(CatalystRoom.CharacterCount == 0 && Fired == false)
             {
-                AudioManager.GetInstance().PlayOnce(Resources.KeyAppear);
+                AudioManager.GetInstance().PlayOnce(AudioMappings.GetInstance().ItemAppear);
                 OwningRoom.AddItemToRoom(Item);
                 Fired = true;
             }

@@ -1,14 +1,32 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
+using Sprint0.GameModes;
 
 namespace Sprint0.Sprites.Characters.Enemies
 {
-    public class RedGoriyaDownSprite : AbstractAnimatedSprite
+    public class RedGoriyaDownSprite : AbstractSprite
     {
-        public RedGoriyaDownSprite() : base(2, 8) { }
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().CharactersSpriteSheet;
 
-        protected override Texture2D GetSpriteSheet() => Resources.CharactersSpriteSheet;
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().RedGoriyaDown;
 
-        protected override Rectangle GetFirstFrame() => Resources.RedGoriyaDown;
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.RedGoriyaDown;
+
+        protected override bool IsAnimated()
+        {
+            return true;
+        }
+
+        protected override int GetNumFrames()
+        {
+            return 2;
+        }
+
+        protected override int GetAnimationSpeed()
+        {
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return 12;
+            else return 8;
+        }
     }
 }

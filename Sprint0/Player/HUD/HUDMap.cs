@@ -2,8 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using Sprint0.Levels;
 using Sprint0.Sprites;
-using Sprint0.Sprites.Doors.UnlockdDoorSprites;
+using Sprint0.Sprites.Gui;
 using System.Collections.Generic;
+using System.Security.AccessControl;
 using static Sprint0.Utils;
 
 namespace Sprint0.Player.HUD
@@ -15,9 +16,10 @@ namespace Sprint0.Player.HUD
         private ISprite PlayerLocationSprite;
         private ISprite BossLocationSprite;
 
-        private Vector2 HUDOffset = new Vector2(50, 60);
+        private Vector2 HUDOffset = new Vector2(16, 20) * GameWindow.ResolutionScale;
         private int BossRoomID;
         private int CurrentRoomID;
+        private int LevelID; // This is important since the currently generated map is only good for this level.
 
         private Dictionary<ISprite, Vector2> RoomSprites; // Maps sprites to positions where they should be drawn.
         private Dictionary<int, Vector2> PlayerPositions; // Pairs room ids with positions in which to draw the player.
@@ -29,12 +31,9 @@ namespace Sprint0.Player.HUD
         public HUDMap(LevelManager levelManager, Player player)
         {
             LevelManager = levelManager;
+            LevelID = LevelManager.CurrentLevel.LevelID;
             RoomSprites = new Dictionary<ISprite, Vector2>();
             PlayerPositions = new Dictionary<int, Vector2>();
-            MapArray = levelManager.CurrentLevel.Map.MapArray;
-            MapSize = levelManager.CurrentLevel.Map.MapSize;
-            CurrentRoomID = levelManager.CurrentLevel.CurrentRoom.RoomID;   // Set this on initialization
-            BossRoomID = levelManager.CurrentLevel.BossRoomIndex;
             PlayerLocationSprite = new PlayerLocationSprite();
             BossLocationSprite = new BossLocationSprite();
             Player = player;
@@ -44,6 +43,10 @@ namespace Sprint0.Player.HUD
 
         private void CreateMap()
         {
+            MapArray = LevelManager.CurrentLevel.Map.MapArray;
+            MapSize = LevelManager.CurrentLevel.Map.MapSize;
+            CurrentRoomID = LevelManager.CurrentLevel.CurrentRoom.RoomID;   // Set this on initialization
+            BossRoomID = LevelManager.CurrentLevel.BossRoomIndex;
             int roomWidth = (int)(7 * GameWindow.ResolutionScale);
             int roomHeight = (int)(3 * GameWindow.ResolutionScale);
             int roomBuffer = (int)(1 * GameWindow.ResolutionScale);
@@ -70,6 +73,14 @@ namespace Sprint0.Player.HUD
 
         public void Update()
         {
+            // If the level changes, we need to regenerate the map.
+            if(LevelID != LevelManager.CurrentLevel.LevelID)
+            {
+                LevelID = LevelManager.CurrentLevel.LevelID;
+                PlayerPositions.Clear();
+                RoomSprites.Clear();
+                CreateMap();
+            }
             // Get this every tick.
             CurrentRoomID = LevelManager.CurrentLevel.CurrentRoom.RoomID;
             BossLocationSprite.Update();

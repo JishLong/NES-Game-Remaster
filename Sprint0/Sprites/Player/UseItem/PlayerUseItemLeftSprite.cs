@@ -1,22 +1,27 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Sprint0.Assets;
+using Sprint0.GameModes;
 
-namespace Sprint0.Sprites.Player.Attack.UseItem
+namespace Sprint0.Sprites.Player.UseItem
 {
-    public class PlayerUseItemLeftSprite : AbstractStillSprite
+    public class PlayerUseItemLeftSprite : AbstractSprite
     {
-        public PlayerUseItemLeftSprite()
+        private readonly Vector2 DefaultPixelOffset = new(-12, 0);
+        private readonly Vector2 GoombaPixelOffset = new(-5, 0);
+        private readonly Vector2 MinecraftPixelOffset = new(-11, 0);
+
+        protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().PlayerSpriteSheet;
+
+        protected override Rectangle GetFirstFrame() => ImageMappings.GetInstance().PlayerSwordLeft;
+
+        protected override Rectangle GetDefaultFrame() => AssetManager.DefaultImageAssets.PlayerSwordLeft;
+
+        protected override Vector2 GetPixelOffset()
         {
-            xOffsetPixels = -12;
-        }
-
-        protected override Texture2D GetSpriteSheet() => Resources.LinkSpriteSheet;
-
-        protected override Rectangle GetFrame() => Resources.LinkSwordSideways;
-
-        public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)
-        {
-            DrawFlippedHorz(spriteBatch, position, color, layer);
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.MINECRAFTMODE) return MinecraftPixelOffset;
+            else if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return GoombaPixelOffset;
+            else return DefaultPixelOffset;
         }
     }
 }
