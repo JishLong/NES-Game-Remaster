@@ -82,7 +82,11 @@ namespace Sprint0.CommandLine.Handlers
                     ResponseFont, MaxResponseWidth));
                 Response.Add("\n\n");
                 Response.AddRange(Utils.GetAlignedText(
-                    "[ sethealth <HealthAmount> <MaxHealthAmount ] - sets both the player's health and max health values.",
+                    "[ sethealth <HealthAmount> <MaxHealthAmount> ] - sets both the player's health and max health values.",
+                    ResponseFont, MaxResponseWidth));
+                Response.Add("\n\n");
+                Response.AddRange(Utils.GetAlignedText(
+                    "[ setlevel <LevelName> ] - sets the level to <LevelName>.",
                     ResponseFont, MaxResponseWidth));
                 Response.Add("\n\n");
                 Response.AddRange(Utils.GetAlignedText(

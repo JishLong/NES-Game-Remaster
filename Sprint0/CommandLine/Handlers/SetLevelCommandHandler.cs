@@ -21,7 +21,7 @@ namespace Sprint0.CommandLine.Handlers
             string[] Words = parameters.Split(' ');
 
             // Check for the correct parameter formatting
-            if (Words.Length != 1)
+            if (Words.Length != 1 || Words[0].Equals(""))
             {
                 return Utils.GetAlignedText(
                     "One parameter, <LevelName> is required.",
@@ -30,8 +30,17 @@ namespace Sprint0.CommandLine.Handlers
 
             if (Words[0] != "LEVEL1" && Words[0] != "LEVEL2")
             {
-                return Utils.GetAlignedText("Invalid level specified: " + "\"" + Words[0] + "\"",
-                    ResponseFont, MaxResponseWidth);
+                List<string> Response = new();
+                Response.AddRange(Utils.GetAlignedText(
+                    "Invalid level specified: " + "\"" + Words[0] + "\"",
+                    ResponseFont, MaxResponseWidth));
+                Response.Add("\n\n");
+                Response.AddRange(Utils.GetAlignedText(
+                    "Try using one of these for the <LevelName>:",
+                    ResponseFont, MaxResponseWidth));
+                Response.Add("\n\n");
+                Response.AddRange(new List<string>(System.Enum.GetNames(typeof(Types.Level))));
+                return Response;
             }
 
             Types.Level levelType = Types.Level.LEVEL1;
@@ -48,7 +57,6 @@ namespace Sprint0.CommandLine.Handlers
             }
 
             game.LevelManager.LoadLevel(levelType);
-            
 
             // Let user know the operation was successful
             return Utils.GetAlignedText(
