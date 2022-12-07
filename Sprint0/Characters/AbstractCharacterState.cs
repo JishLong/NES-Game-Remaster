@@ -30,6 +30,8 @@ namespace Sprint0.Characters
             return Character.Sprite.GetHitbox(position);
         }
 
+        public abstract void SetUp(Types.Direction direction);
+
         public abstract void Unfreeze();
         
         public abstract void Update(GameTime gameTime);

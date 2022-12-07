@@ -5,34 +5,7 @@ namespace Sprint0.Assets.DefaultAssets
 {
     public class DefaultAudioAssets : IAudioAssets
     {
-        public SoundEffect BombExplode { get; private set; }
-        public SoundEffect BombPlace { get; private set; }
-        public SoundEffect BossRoar { get; private set; }
-        public SoundEffect DoorOpen { get; private set; }
-        public SoundEffect EnemyDeath { get; private set; }
-        public SoundEffect EnemyHurt { get; private set; }
-        public SoundEffect FlameShoot { get; private set; }
-        public SoundEffect GameModeTransition { get; private set; }
-        public SoundEffect ItemAppear { get; private set; }
-        public SoundEffect ItemFound { get; private set; }
-        public SoundEffect MusicGame { get; private set; }
-        public SoundEffect MusicMenu { get; private set; }
-        public SoundEffect OldManTaunt { get; private set; }
-        public SoundEffect PickupHeartKey { get; private set; }
-        public SoundEffect PickupItem { get; private set; }
-        public SoundEffect PickupRupee { get; private set; }
-        public SoundEffect PlayerDeath { get; private set; }
-        public SoundEffect PlayerHurt { get; private set; }
-        public SoundEffect PlayerLowHealth { get; private set; }
-        public SoundEffect ProjectileBlocked { get; private set; }
-        public SoundEffect ProjectileShoot { get; private set; }
-        public SoundEffect SecretFound { get; private set; }
-        public SoundEffect SwordShoot { get; private set; }
-        public SoundEffect SwordSwing { get; private set; }
-        public SoundEffect TextAppear { get; private set; }
-        public SoundEffect WinGame { get; private set; }
-
-        public void LoadContent(ContentManager c)
+        public virtual void LoadContent(ContentManager c)
         {
             BombExplode = c.Load<SoundEffect>("Audio/Default/bombExplode");
             BombPlace = c.Load<SoundEffect>("Audio/Default/bombPlace");
@@ -62,5 +35,32 @@ namespace Sprint0.Assets.DefaultAssets
 
             GameModeTransition = ItemFound;
         }
+
+        public SoundEffect BombExplode { get; protected set; }
+        public SoundEffect BombPlace { get; protected set; }
+        public SoundEffect BossRoar { get; protected set; }
+        public SoundEffect DoorOpen { get; protected set; }
+        public SoundEffect EnemyDeath { get; protected set; }
+        public SoundEffect EnemyHurt { get; protected set; }
+        public SoundEffect FlameShoot { get; protected set; }
+        public SoundEffect GameModeTransition { get; protected set; }
+        public SoundEffect ItemAppear { get; protected set; }
+        public SoundEffect ItemFound { get; protected set; }
+        public SoundEffect MusicGame { get; protected set; }
+        public SoundEffect MusicMenu { get; protected set; }
+        public SoundEffect OldManTaunt { get; protected set; }
+        public SoundEffect PickupHeartKey { get; protected set; }
+        public SoundEffect PickupItem { get; protected set; }
+        public SoundEffect PickupRupee { get; protected set; }
+        public SoundEffect PlayerDeath { get; protected set; }
+        public SoundEffect PlayerHurt { get; protected set; }
+        public SoundEffect PlayerLowHealth { get; protected set; }
+        public SoundEffect ProjectileBlocked { get; protected set; }
+        public SoundEffect ProjectileShoot { get; protected set; }
+        public SoundEffect SecretFound { get; protected set; }
+        public SoundEffect SwordShoot { get; protected set; }
+        public SoundEffect SwordSwing { get; protected set; }
+        public SoundEffect TextAppear { get; protected set; }
+        public SoundEffect WinGame { get; protected set; }
     }
 }

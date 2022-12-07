@@ -163,6 +163,12 @@
 /processorParam:Quality=Best
 /build:Audio/Default/winGame.wav
 
+#begin Audio/Goomba/bowserFalls.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/bowserFalls.wav
+
 #begin Audio/Goomba/bowserFire.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -282,6 +288,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/Goomba/quarterPause.wav
+
+#begin Audio/Goomba/sixteenthPause.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Goomba/sixteenthPause.wav
 
 #begin Audio/Goomba/stageClear.wav
 /importer:WavImporter
@@ -414,6 +426,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/Mario/quarterPause.wav
+
+#begin Audio/Mario/sixteenthPause.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Mario/sixteenthPause.wav
 
 #begin Audio/Mario/stageClear.wav
 /importer:WavImporter
@@ -597,6 +615,48 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:Fonts/Default/smallFont.spritefont
+
+#begin Fonts/Goomba/largeFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Goomba/largeFont.spritefont
+
+#begin Fonts/Goomba/mediumFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Goomba/mediumFont.spritefont
+
+#begin Fonts/Goomba/smallFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Goomba/smallFont.spritefont
+
+#begin Fonts/Mario/largeFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Mario/largeFont.spritefont
+
+#begin Fonts/Mario/mediumFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Mario/mediumFont.spritefont
+
+#begin Fonts/Mario/smallFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Mario/smallFont.spritefont
 
 #begin Fonts/Minecraft/largeFont.spritefont
 /importer:FontDescriptionImporter

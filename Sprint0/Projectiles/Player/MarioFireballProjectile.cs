@@ -8,7 +8,8 @@ namespace Sprint0.Projectiles.Player_Projectiles
     public class MarioFireballProjectile : AbstractProjectile
     {
         public MarioFireballProjectile(ICollidable user, Types.Direction direction) :
-            base(new BossProjectileSprite(), user, direction, new Vector2(10, 10))
+            base(new BossProjectileSprite(), user, direction, 
+                new Vector2(10.0f / 3 * GameWindow.ResolutionScale, 10.0f / 3 * GameWindow.ResolutionScale))
         {
             MaxFramesAlive = 100;
             Damage = 1;

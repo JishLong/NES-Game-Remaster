@@ -13,7 +13,7 @@ namespace Sprint0.Npcs
 	{
         public bool WasAttacked { get; private set; }
 
-		public OldMan(Vector2 position)
+		public OldMan(Vector2 position) : base(Character.OLDMAN)
 		{
             Sprite = new OldManSprite();
 
@@ -30,6 +30,11 @@ namespace Sprint0.Npcs
         public override Rectangle GetHitbox()
         {
             return Sprite.GetHitbox(Position);
+        }
+
+        public override void SetSprite(Types.Direction direction)
+        {
+            // Do nothing
         }
 
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)

@@ -7,6 +7,7 @@ using Sprint0.Player.Inventory;
 using Sprint0.Sprites;
 using Sprint0.Sprites.Items;
 using Sprint0.Sprites.Player;
+using Sprint0.Sprites.Projectiles.Player;
 using System.Collections.Generic;
 using System.Data;
 
@@ -20,9 +21,9 @@ namespace Sprint0.GameStates.GameStates
         private readonly InventorySlots Slots;
 
         private Rectangle InventoryPosition;
-        private Vector2 SelectedItemPosition;
-        private Vector2 MapPosition;
-        private Vector2 CompassPosition;
+        private Rectangle SelectedItemArea;
+        private Rectangle MapArea;
+        private Rectangle CompassArea;
         private Rectangle MiniMapPosition;
 
         public InventoryState(Game1 game) : base(game)
@@ -47,25 +48,41 @@ namespace Sprint0.GameStates.GameStates
             sb.Draw(ImageMappings.GetInstance().GuiSpriteSheet, Utils.LinkToCamera(InventoryPosition), ImageMappings.GetInstance().Inventory, Color.White,
               0f, Vector2.Zero, SpriteEffects.None, 0.19f);
 
-            // Selected item
-            ISprite SelectedItemSprite = null;
-            if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.WOODENBOOMERANG)
-                SelectedItemSprite = new WoodenBoomerangSprite();
-            else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BOMB)
-                SelectedItemSprite = new BombSprite();
-            else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BOW)
-                SelectedItemSprite = new BowSprite();
-            else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BLUECANDLE)
-                SelectedItemSprite = new BlueCandleSprite();
-            else if (Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem == Types.Item.BLUEPOTION)
-                SelectedItemSprite = new BluePotionSprite();
-            if (SelectedItemSprite != null) SelectedItemSprite.Draw(sb, Utils.LinkToCamera(SelectedItemPosition), Color.White, 0.18f);
+            // Selected weapon
+            ISprite ItemSprite;
+            Rectangle SpriteHitbox;
+            Vector2 SpritePosition;
+            ItemSprite = Game.PlayerManager.GetDefaultPlayer().Inventory.SelectedItem switch
+            {
+                Types.Item.BOW => new BowSprite(),
+                Types.Item.WOODENBOOMERANG => new WoodenBoomerangSprite(),
+                Types.Item.BOMB => new BombSprite(),
+                Types.Item.BLUECANDLE => new BlueCandleSprite(),
+                Types.Item.BLUEPOTION => new BluePotionSprite(),
+                _ => null
+            };
+            if (ItemSprite != null)
+            {
+                SpriteHitbox = ItemSprite.GetHitbox(SelectedItemArea.Location.ToVector2());
+                SpritePosition = Utils.CenterRectangles(SelectedItemArea, SpriteHitbox.Width, SpriteHitbox.Height);
+                ItemSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.18f);
+            }
 
             // Map and compass
-            if (Game.PlayerManager.GetDefaultPlayer().Inventory.HasItem(Types.Item.MAP)) new MapSprite()
-                    .Draw(sb, Utils.LinkToCamera(MapPosition), Color.White, 0.18f);
-            if (Game.PlayerManager.GetDefaultPlayer().Inventory.HasItem(Types.Item.COMPASS)) new CompassSprite()
-                    .Draw(sb, Utils.LinkToCamera(CompassPosition), Color.White, 0.18f);
+            if (Game.PlayerManager.GetDefaultPlayer().Inventory.HasItem(Types.Item.MAP)) 
+            {
+                ItemSprite = new MapSprite();
+                SpriteHitbox = ItemSprite.GetHitbox(MapArea.Location.ToVector2());
+                SpritePosition = Utils.CenterRectangles(MapArea, SpriteHitbox.Width, SpriteHitbox.Height);
+                ItemSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.18f);
+            }
+            if (Game.PlayerManager.GetDefaultPlayer().Inventory.HasItem(Types.Item.COMPASS))
+            {
+                ItemSprite = new CompassSprite();
+                SpriteHitbox = ItemSprite.GetHitbox(CompassArea.Location.ToVector2());
+                SpritePosition = Utils.CenterRectangles(CompassArea, SpriteHitbox.Width, SpriteHitbox.Height);
+                ItemSprite.Draw(sb, Utils.LinkToCamera(SpritePosition), Color.White, 0.18f);
+            }
 
             // Inventory map
             Map.DrawPlayerLocation(sb, Utils.LinkToCamera(MiniMapPosition));
@@ -90,9 +107,12 @@ namespace Sprint0.GameStates.GameStates
         private void SetElementPositions() 
         {
             InventoryPosition = new Rectangle(0, 0, GameWindow.DefaultScreenWidth, (int)(176 * GameWindow.ResolutionScale));
-            SelectedItemPosition = new((int)(68 * GameWindow.ResolutionScale), (int)(48 * GameWindow.ResolutionScale));
-            MapPosition = new((int)(48 * GameWindow.ResolutionScale), (int)(112 * GameWindow.ResolutionScale));
-            CompassPosition = new((int)(44 * GameWindow.ResolutionScale), (int)(152 * GameWindow.ResolutionScale));
+            SelectedItemArea = new((int)(68 * GameWindow.ResolutionScale), (int)(48 * GameWindow.ResolutionScale),
+                (int)(8 * GameWindow.ResolutionScale), (int)(16 * GameWindow.ResolutionScale));
+            MapArea = new((int)(48 * GameWindow.ResolutionScale), (int)(112 * GameWindow.ResolutionScale),
+                (int)(8 * GameWindow.ResolutionScale), (int)(16 * GameWindow.ResolutionScale));
+            CompassArea = new((int)(44 * GameWindow.ResolutionScale), (int)(152 * GameWindow.ResolutionScale),
+                (int)(15 * GameWindow.ResolutionScale), (int)(16 * GameWindow.ResolutionScale));
             MiniMapPosition = new((int)(124 * GameWindow.ResolutionScale),
                 (int)(92 * GameWindow.ResolutionScale), (int)(9 * 8 * GameWindow.ResolutionScale), (int)(9 * 8 * GameWindow.ResolutionScale));
         }

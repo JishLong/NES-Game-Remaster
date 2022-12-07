@@ -11,6 +11,9 @@ namespace Sprint0.WebSockets
     // a websocket client to handle multiplayer connections with my custom server/controller
     public class WSClient
     {
+        // How big the text appears on the screen; bigger number = bigger elements
+        private static readonly float TextScaling = 0.3f;
+
         private const String connection_uri = "ws://142.93.200.13:443";
         private WebsocketClient client;
         private String roomCode = null;
@@ -29,7 +32,7 @@ namespace Sprint0.WebSockets
             // send message to create room on server
             client.Send("{\"type\":\"create\"}");
 
-            // register listener
+            // listen to messages
             client.MessageReceived
                 .Where(msg => msg.Text != null)
                 .Subscribe(obj =>
@@ -62,11 +65,13 @@ namespace Sprint0.WebSockets
         {
             if (roomCode != null)
             {
-                sb.DrawString(FontMappings.GetInstance().SmallFont, $"Room Code: {roomCode}", new Vector2(5, 5), Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0.0f);
+                sb.DrawString(FontMappings.GetInstance().SmallFont, $"Room Code: {roomCode}", new Vector2(5, 5), Color.White, 0f, new Vector2(0, 0),
+                    GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0.0f);
             }
             else
             {
-                sb.DrawString(FontMappings.GetInstance().SmallFont, "No connection to server", new Vector2(5, 5), Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0.0f);
+                sb.DrawString(FontMappings.GetInstance().SmallFont, "No connection to server", new Vector2(5, 5), Color.White, 0f, new Vector2(0, 0),
+                    GameWindow.ResolutionScale * TextScaling, SpriteEffects.None, 0.0f);
             }
         }
     }

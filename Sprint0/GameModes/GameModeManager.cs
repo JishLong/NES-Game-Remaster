@@ -6,12 +6,7 @@ namespace Sprint0.GameModes
     {
         private static GameModeManager Instance;
         
-        public IGameMode GameMode { get; private set; }
-
-        public void ChangeGameMode(IGameMode newGameMode) 
-        {
-            GameMode = newGameMode;
-        }
+        public IGameMode GameMode { get; set; }
 
         public void Initialize() 
         {

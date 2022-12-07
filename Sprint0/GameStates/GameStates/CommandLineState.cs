@@ -38,7 +38,6 @@ namespace Sprint0.GameStates.GameStates
             {
                 new AudioController(),
                 new KeyboardController(KeyboardMappings.GetInstance().GetCommandLineStateMappings(Game, this)),
-                new MouseController(MouseMappings.GetInstance().NoMappings, game)
             };
 
             NextGameState = new PlayingState(game);

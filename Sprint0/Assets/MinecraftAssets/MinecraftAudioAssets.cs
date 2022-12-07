@@ -1,38 +1,12 @@
 ﻿using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
+using Sprint0.Assets.DefaultAssets;
 
 namespace Sprint0.Assets.MinecraftAssets
 {
-    public class MinecraftAudioAssets : IAudioAssets
+    public class MinecraftAudioAssets : DefaultAudioAssets
     {
-        public SoundEffect BombExplode { get; private set; }
-        public SoundEffect BombPlace { get; private set; }
-        public SoundEffect BossRoar { get; private set; }
-        public SoundEffect DoorOpen { get; private set; }
-        public SoundEffect EnemyDeath { get; private set; }
-        public SoundEffect EnemyHurt { get; private set; }
-        public SoundEffect FlameShoot { get; private set; }
-        public SoundEffect GameModeTransition { get; private set; }
-        public SoundEffect ItemAppear { get; private set; }
-        public SoundEffect ItemFound { get; private set; }
-        public SoundEffect MusicGame { get; private set; }
-        public SoundEffect MusicMenu { get; private set; }
-        public SoundEffect OldManTaunt { get; private set; }
-        public SoundEffect PickupHeartKey { get; private set; }
-        public SoundEffect PickupItem { get; private set; }
-        public SoundEffect PickupRupee { get; private set; }
-        public SoundEffect PlayerDeath { get; private set; }
-        public SoundEffect PlayerHurt { get; private set; }
-        public SoundEffect PlayerLowHealth { get; private set; }
-        public SoundEffect ProjectileBlocked { get; private set; }
-        public SoundEffect ProjectileShoot { get; private set; }
-        public SoundEffect SecretFound { get; private set; }
-        public SoundEffect SwordShoot { get; private set; }
-        public SoundEffect SwordSwing { get; private set; }
-        public SoundEffect TextAppear { get; private set; }
-        public SoundEffect WinGame { get; private set; }
-
-        public void LoadContent(ContentManager c)
+        public override void LoadContent(ContentManager c)
         {
             BombExplode = c.Load<SoundEffect>("Audio/Minecraft/tntExplode");
             BombPlace = c.Load<SoundEffect>("Audio/Minecraft/tntLit");

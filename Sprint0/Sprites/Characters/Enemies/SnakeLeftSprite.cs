@@ -26,7 +26,8 @@ namespace Sprint0.Sprites.Characters.Enemies
 
         protected override int GetAnimationSpeed()
         {
-            return 12;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return 6;
+            else return 12;
         }
 
         public override void Draw(SpriteBatch spriteBatch, Vector2 position, Color color, float layer)

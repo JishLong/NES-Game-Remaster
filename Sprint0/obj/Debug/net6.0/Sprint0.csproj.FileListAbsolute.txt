@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/arrowBoomerang.xnb
 C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/bomb.xnb
 C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/bossNoise.xnb
@@ -443,3 +444,14 @@ C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/ref/Sprint0
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.pdb
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.genruntimeconfig.cache
 /Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/ref/Sprint0.dll
+=======
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Goomba/largeFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Goomba/mediumFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Goomba/smallFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Mario/largeFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Mario/mediumFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Mario/smallFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/bowserFalls.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/sixteenthPause.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/sixteenthPause.xnb
+>>>>>>> Sprint5_dev

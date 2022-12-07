@@ -24,7 +24,7 @@ namespace Sprint0.Npcs
         // Y-coordinate offset to help vertically center the text within the [TextAreaDims]
         private int TextHeightOffset;
 
-        public SecretText(Vector2 position)
+        public SecretText(Vector2 position) : base(Types.Character.SECRETTEXT)
         {
             Health = 1;
             Position = position;
@@ -62,6 +62,11 @@ namespace Sprint0.Npcs
         {
             // Doesn't need a hitbox, so we'll just return a dud (can't be null)
             return Rectangle.Empty;
+        }
+
+        public override void SetSprite(Types.Direction direction)
+        {
+            // Do nothing
         }
 
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)

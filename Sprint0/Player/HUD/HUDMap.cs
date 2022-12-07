@@ -15,7 +15,7 @@ namespace Sprint0.Player.HUD
         private ISprite PlayerLocationSprite;
         private ISprite BossLocationSprite;
 
-        private Vector2 HUDOffset = new Vector2(50, 60);
+        private Vector2 HUDOffset = new Vector2(16, 20) * GameWindow.ResolutionScale;
         private int BossRoomID;
         private int CurrentRoomID;
 

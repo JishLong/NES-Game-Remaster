@@ -8,17 +8,17 @@ namespace Sprint0.Controllers
 {
     public class MouseController : IController
     {
+        private readonly Game1 Game;
         private readonly Dictionary<string, ICommand> CommandMappings;
-        private Game1 game;
 
         // Used so that only the "pulse" of the mouse is registered rather than just looking for the button held down
         private MouseState PrevState;
 
-        public MouseController(Dictionary<string, ICommand> commandMappings, Game1 game1)
+        public MouseController(Game1 game, Dictionary<string, ICommand> commandMappings)
         {
+            Game = game;
             CommandMappings = commandMappings;
             PrevState = Mouse.GetState();
-            this.game = game1;
         }
 
         public void Update()
@@ -42,8 +42,8 @@ namespace Sprint0.Controllers
 
         private bool MouseInWindow()
         {
-            return Mouse.GetState().X >= 0 && Mouse.GetState().X <= game.GraphicsDevice.Viewport.Width &&
-                   Mouse.GetState().Y >= 0 && Mouse.GetState().Y <= game.GraphicsDevice.Viewport.Height;
+            return Mouse.GetState().X >= 0 && Mouse.GetState().X <= Game.GraphicsDevice.Viewport.Width &&
+                   Mouse.GetState().Y >= 0 && Mouse.GetState().Y <= Game.GraphicsDevice.Viewport.Height;
         }
     }
 }

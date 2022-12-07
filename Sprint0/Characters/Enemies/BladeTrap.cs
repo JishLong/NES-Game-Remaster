@@ -10,8 +10,8 @@ namespace Sprint0.Characters.Enemies
 {
     public class BladeTrap : AbstractCharacter
     {
-        private static Vector2 AttackMovementSpeed = new(5, 5);
-        private static Vector2 ReturnMovementSpeed = new(2, 2);
+        private static Vector2 AttackMovementSpeed = new(5.0f/3 * GameWindow.ResolutionScale, 5.0f/3 * GameWindow.ResolutionScale);
+        private static Vector2 ReturnMovementSpeed = new(2.0f/3 * GameWindow.ResolutionScale, 2.0f/3 * GameWindow.ResolutionScale);
 
         private Types.Direction MovementDirection;
 
@@ -23,7 +23,7 @@ namespace Sprint0.Characters.Enemies
          */
         private int CurrentState;
 
-        public BladeTrap(Vector2 position)
+        public BladeTrap(Vector2 position) : base(Character.BLADETRAP)
         {
             // State
             CurrentState = 0;
@@ -83,6 +83,11 @@ namespace Sprint0.Characters.Enemies
         public override Rectangle GetHitbox() 
         {
             return Sprite.GetHitbox(Position);
+        }
+
+        public override void SetSprite(Types.Direction direction)
+        {
+            // Do nothing
         }
 
         public override void TakeDamage(Types.Direction damageSide, int damage, Room room)

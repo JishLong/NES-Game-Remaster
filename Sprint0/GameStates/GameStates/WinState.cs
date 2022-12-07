@@ -42,7 +42,6 @@ namespace Sprint0.GameStates.GameStates
             {
                 new AudioController(),
                 new KeyboardController(KeyboardMappings.GetInstance().GetWinStateMappings(Game, this)),
-                new MouseController(MouseMappings.GetInstance().NoMappings, game)
             };
 
             SetElementPositions();

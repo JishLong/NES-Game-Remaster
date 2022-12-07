@@ -8,6 +8,7 @@ namespace Sprint0.Sprites.Player.Sword
     public class PlayerSwordUpSprite : AbstractSprite
     {
         private readonly Vector2 PixelOffset = new(0, -12);
+        private readonly Vector2 GoombaPixelOffset = new(0, -5);
 
         protected override Texture2D GetSpriteSheet() => ImageMappings.GetInstance().PlayerSpriteSheet;
 
@@ -35,7 +36,7 @@ namespace Sprint0.Sprites.Player.Sword
 
         protected override Vector2 GetPixelOffset()
         {
-            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return Vector2.Zero;
+            if (GameModeManager.GetInstance().GameMode.Type == Types.GameMode.GOOMBAMODE) return GoombaPixelOffset;
             else return PixelOffset;
         }
     }

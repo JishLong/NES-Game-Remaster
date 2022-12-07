@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sprint0.Commands;
-using Sprint0.Commands.Misc;
 using Sprint0.Commands.Player;
 
 namespace Sprint0.Input.ClientInputHandlers
@@ -27,10 +26,7 @@ namespace Sprint0.Input.ClientInputHandlers
                 // player attack
                 { "z", new PlayerSwordAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
                 { "n", new PlayerSwordAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
-                { "c", new PlayerSecondaryAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
-
-                // show inventory
-                { "e", new SetDefaultPlayerCommand(game1) }
+                { "c", new PlayerArrowAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
             };
 
             buttonReleaseMap = new Dictionary<string, ITargetedCommand>()

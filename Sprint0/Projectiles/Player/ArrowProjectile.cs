@@ -11,7 +11,8 @@ namespace Sprint0.Projectiles.Player_Projectiles
         private readonly Types.Direction Direction;
 
         public ArrowProjectile(ICollidable user, Types.Direction direction) :
-            base(new ArrowProjectileSprite(direction), user, direction, new Vector2(15, 15))
+            base(new ArrowProjectileSprite(direction), user, direction, 
+                new Vector2(15.0f / 3 * GameWindow.ResolutionScale, 15.0f / 3 * GameWindow.ResolutionScale))
         {
             MaxFramesAlive = 20;
             Direction = direction;

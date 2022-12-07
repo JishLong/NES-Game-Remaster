@@ -14,7 +14,8 @@ namespace Sprint0.Projectiles
         private readonly Types.Direction Direction;
 
         public BoomerangProjectile(ICollidable player, Types.Direction direction) :
-            base(new BoomerangProjectileSprite(), player, direction, new Vector2(7, 7))
+            base(new BoomerangProjectileSprite(), player, direction, 
+                new Vector2(7.0f / 3 * GameWindow.ResolutionScale, 7.0f / 3 * GameWindow.ResolutionScale))
         {
             MaxFramesAlive = 70;
             IsReturning = false;

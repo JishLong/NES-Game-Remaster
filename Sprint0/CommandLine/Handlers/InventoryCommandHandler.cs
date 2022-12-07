@@ -27,7 +27,7 @@ namespace Sprint0.CommandLine.Handlers
                     ResponseFont, MaxResponseWidth));
                 Response.Add("\n\n");
                 Response.AddRange(Utils.GetAlignedText(
-                    "<Add/Remove> - whether an item will be added or removed from the player's inventory.",
+                    "<add/remove> - whether an item will be added or removed from the player's inventory.",
                     ResponseFont, MaxResponseWidth));
                 Response.Add("\n\n");
                 Response.AddRange(Utils.GetAlignedText(
@@ -48,15 +48,32 @@ namespace Sprint0.CommandLine.Handlers
                     ResponseFont, MaxResponseWidth);
             }
 
-            // Check for a correct item to add or remove from inventory
+            // Check for a correct item
             bool ObjectExists = System.Enum.TryParse(Words[1], out Types.Item ItemType);
             if (!ObjectExists)
             {
+                List<string> Response = new();
+
+                Response.AddRange(Utils.GetAlignedText(
+                    "Unknown <ItemType> " + Words[1] + ".",
+                    ResponseFont, MaxResponseWidth));
+                Response.Add("\n\n");
+                Response.AddRange(Utils.GetAlignedText(
+                    "Try using one of these for the <ItemType>:",
+                    ResponseFont, MaxResponseWidth));
+                Response.Add("\n\n");
+                Response.AddRange(new List<string>(System.Enum.GetNames(typeof(Types.Item))));
+                return Response;
+            }
+            // Make sure it isn't the "NOITEM" type, as this will crash the game
+            else if (ItemType == Types.Item.NOITEM) 
+            {
                 return Utils.GetAlignedText(
-                    "Unknown " + Words[0] + " " + Words[1] + ".",
+                    "Error: <ItemType> " + Words[1] + " cannot be used.",
                     ResponseFont, MaxResponseWidth);
             }
 
+            // Check to see if we're adding or removing the item
             Player.Inventory.Inventory Inventory = game.PlayerManager.GetDefaultPlayer().Inventory;
             if (Words[0].Equals("ADD"))
             {
@@ -76,7 +93,6 @@ namespace Sprint0.CommandLine.Handlers
                 Inventory.AddToInventory(ItemType, Amount);
                 return Response;
             }
-      
             if (Words[0].Equals("REMOVE"))
             {
                 List<string> Response;
@@ -96,8 +112,9 @@ namespace Sprint0.CommandLine.Handlers
                 return Response;
             }
 
+            // If we've made it this far, the user mistyped "add" or "remove"
             return Utils.GetAlignedText(
-                "Expected to <Add> or <Remove> " + Words[2] + " of " + Words[1] + " from player's inventory. Instead, found " + Words[0] + ".",
+                "Expected to <add> or <remove> for <add/remove>. Instead, found " + Words[0] + ".",
                 ResponseFont, MaxResponseWidth);
         }
     }

@@ -9,7 +9,7 @@ namespace Sprint0.Player.States
     {
         private readonly ISprite[] Sprites = { new PlayerMovingUpSprite(), new PlayerMovingDownSprite(), new PlayerMovingLeftSprite(),
             new PlayerMovingRightSprite() };
-        private static readonly Vector2 MovementSpeed = new(4, 4);
+        private static readonly Vector2 MovementSpeed = new(4.0f / 3 * GameWindow.ResolutionScale, 4.0f / 3 * GameWindow.ResolutionScale);
 
         public PlayerMovingState(Player player) : base(player)
         {

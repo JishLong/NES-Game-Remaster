@@ -42,7 +42,6 @@ namespace Sprint0.GameStates.GameStates
             {
                 new AudioController(),
                 new KeyboardController(KeyboardMappings.GetInstance().GetMainMenuStateMappings(Game)),
-                new MouseController(MouseMappings.GetInstance().NoMappings, game)
             };
 
             NumGenerator = new();
