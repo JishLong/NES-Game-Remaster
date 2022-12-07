@@ -112,6 +112,7 @@ namespace Sprint0
             GameModeManager.GetInstance().Initialize();
             LevelManager = new LevelManager();
             LevelManager.LoadLevel(Types.Level.LEVEL1);
+            //LevelManager.LoadLevel(Types.Level.LEVEL2);
             MouseMappings.GetInstance().InitializeMappings(this);
             if (resetPlayers) PlayerManager.ResetPlayers();
             PlayerManager = new PlayerManager(this);

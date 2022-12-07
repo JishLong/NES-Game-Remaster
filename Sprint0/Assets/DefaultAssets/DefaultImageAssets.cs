@@ -30,6 +30,11 @@ namespace Sprint0.Assets.DefaultAssets
             GreyBricks = new(32, 32, 16, 16);
             WhiteBars = new(16, 32, 16, 16);
             Water = new(32, 16, 16, 16);
+            Sand = new(16, 16, 16, 16);
+            RedSand = new(16, 16, 16, 16);
+            RedStatueLeft = new(32, 0, 16, 16);
+            RedStatueRight = new(0, 16, 16, 16);
+
 
             // Character sprite sheet positions
             Aquamentus = new(0, 48, 24, 32);
@@ -193,6 +198,10 @@ namespace Sprint0.Assets.DefaultAssets
         public Rectangle GreyBricks { get; protected set; }
         public Rectangle WhiteBars { get; protected set; }
         public Rectangle Water { get; protected set; }
+        public Rectangle Sand { get; protected set; }
+        public Rectangle RedSand{ get; protected set; }
+        public Rectangle RedStatueLeft{ get; protected set; }
+        public Rectangle RedStatueRight{ get; protected set; }
 
         // Character sprite sheet positions
         public Rectangle Aquamentus { get; protected set; }

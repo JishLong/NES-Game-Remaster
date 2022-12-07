@@ -29,6 +29,10 @@ namespace Sprint0.Assets
         Rectangle GreyBricks { get; }
         Rectangle WhiteBars { get; }
         Rectangle Water { get; }
+        Rectangle Sand { get; }
+        Rectangle RedSand { get; }
+        Rectangle RedStatueLeft { get; }
+        Rectangle RedStatueRight { get; }
 
         // Character sprite sheet positions
         Rectangle Aquamentus { get; }

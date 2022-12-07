@@ -29,6 +29,10 @@ namespace Sprint0.Assets.MarioAssets
             GreyBricks = BlueTile;
             WhiteBars = new(32, 16, 16, 16);
             Water = new(0, 16, 16, 16);
+            Sand = BlueSand;
+            RedSand = BlueSand;
+            RedStatueLeft = BlueStatueLeft;
+            RedStatueRight = BlueStatueRight;
 
             // Sprite sheet positions for characters
             Aquamentus = new(0, 64, 32, 32);

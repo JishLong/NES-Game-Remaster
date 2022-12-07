@@ -29,6 +29,10 @@ namespace Sprint0.Assets.GoombaAssets
             GreyBricks = new(0, 16, 16, 16);
             WhiteBars = new(48, 16, 16, 16);
             Water = new(16, 16, 16, 16);
+            Sand = BlueSand;
+            RedSand = BlueSand;
+            RedStatueLeft = BlueStatueLeft;
+            RedStatueRight = BlueStatueRight;
 
             // Sprite sheet positions for characters
             Aquamentus = new(0, 48, 16, 32);

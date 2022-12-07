@@ -13,6 +13,7 @@ namespace Sprint0.Commands.Levels
 
         public void Execute()
         {
+
             Game.LevelManager.CurrentLevel.GoToPreviousRoom();
             Game.LevelManager.CurrentLevel.CurrentRoom.ResetRoom();
         }

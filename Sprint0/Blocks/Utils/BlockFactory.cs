@@ -53,6 +53,14 @@ namespace Sprint0.Blocks.Utils
                     return new UnlockDoorTrigger(position);
                 case Types.Block.EXPLOSION_TRIGGER:
                     return new ExplosionTrigger(position);
+                case Types.Block.RED_STATUE_LEFT:
+                    return new RedStatueLeft(position);
+                case Types.Block.RED_STATUE_RIGHT:
+                    return new RedStatueRight(position);
+                case Types.Block.RED_SAND:
+                    return new RedSand(position);
+                case Types.Block.SAND:
+                    return new Sand(position);
                 default:
                     Console.Error.Write("The block of type " + blockType.ToString() + 
                         " could not be instantiated by the Block Factory. Does this type exist?");

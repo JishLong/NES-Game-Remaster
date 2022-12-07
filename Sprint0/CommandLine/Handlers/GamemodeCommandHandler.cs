@@ -44,6 +44,15 @@ namespace Sprint0.CommandLine.Handlers
                     "Successfully set gamemode to " + Words[0] + ".",
                     ResponseFont, MaxResponseWidth);
             }
+
+            if (Words[0].Equals("MOONMODE"))
+            {
+                (game.CurrentState as CommandLineState).SetNextState(new GameModeTransitionState(game, new MoonMode()));
+                return Utils.GetAlignedText(
+                    "Successfully set gamemode to " + Words[0] + ".",
+                    ResponseFont, MaxResponseWidth);
+            }
+
             if (Words[0].Equals("GOOMBAMODE"))
             {
                 (game.CurrentState as CommandLineState).SetNextState(new GameModeTransitionState(game, new GoombaMode()));

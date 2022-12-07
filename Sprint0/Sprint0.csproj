@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Code Reviews\" />
+    <Folder Include="Levels\Level2\" />
     <Folder Include="WebSockets\" />
     <Folder Include="Input\ClientInputHandlers\" />
   </ItemGroup>

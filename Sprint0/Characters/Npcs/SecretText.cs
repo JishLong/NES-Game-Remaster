@@ -24,11 +24,11 @@ namespace Sprint0.Npcs
         // Y-coordinate offset to help vertically center the text within the [TextAreaDims]
         private int TextHeightOffset;
 
-        public SecretText(Vector2 position) : base(Types.Character.SECRETTEXT)
+        public SecretText(Vector2 position, string text) : base(Types.Character.SECRETTEXT1)
         {
             Health = 1;
             Position = position;
-            Text = "EASTMOST PENINSULA IS THE SECRET";
+            Text = text;
 
             FramesPassed = 0;
             NumCharsShown = 0;

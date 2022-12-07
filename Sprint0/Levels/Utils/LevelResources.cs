@@ -50,8 +50,11 @@ namespace Sprint0.Levels.Utils
                 {"gstairs", Types.Block.WHITE_BARS },
                 {"estb", Types.Block.EXIT_SECRET_TRANSITION_BLOCK },
                 {"sbb", Types.Block.SOFT_BORDER_BLOCK },
-                {"hst", Types.Block.HAND_SPAWNER_TRIGGER }
-
+                {"hst", Types.Block.HAND_SPAWNER_TRIGGER },
+                {"sand", Types.Block.SAND },
+                {"rsand", Types.Block.RED_SAND },
+                {"rsl", Types.Block.RED_STATUE_LEFT },
+                {"rsr", Types.Block.RED_STATUE_RIGHT },
             };
 
             CharacterMap = new Dictionary<string, Types.Character>()
@@ -60,12 +63,15 @@ namespace Sprint0.Levels.Utils
                 {"bat", Types.Character.BAT },
                 {"gel", Types.Character.GEL },
                 {"rgoriya", Types.Character.REDGORIYA},
+                {"snake", Types.Character.SNAKE },
+                {"dodongo", Types.Character.DODONGO },
                 {"hand", Types.Character.HAND },
                 {"blade", Types.Character.BLADETRAP },
                 {"aqua", Types.Character.AQUAMENTUS},
                 {"oldman", Types.Character.OLDMAN },
                 {"flame", Types.Character.FLAME },
-                {"sectext", Types.Character.SECRETTEXT }
+                {"sectext1", Types.Character.SECRETTEXT1},
+                {"sectext2", Types.Character.SECRETTEXT2 }
             };
 
             ItemMap = new Dictionary<string, Types.Item>()

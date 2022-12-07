@@ -1,0 +1,11 @@
+Category,Type,Name,Room,X Position,Y Position
+item,key,key1,Room2,6,3
+item,key,key2,Room3,6,3
+item,key,key3,Room9,6,3
+item,key,key4,Room11,6,3
+item,boomerang,boomerang1,Room10,6,3
+item,bomb,bomb1,Room12,6,3
+item,bomb,bomb2,Room15,11,0
+item,rupee,rupee1,Room14,6,3
+character,oldman,oldman1,Room16,5,2
+item,hcont,hcont1,Room18,6,3

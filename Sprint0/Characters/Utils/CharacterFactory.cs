@@ -13,7 +13,7 @@ namespace Sprint0.Characters.Utils
         private CharacterFactory() { }
 
         public ICharacter GetCharacter(Types.Character characterType, Vector2 position, Types.Direction direction = Types.Direction.NO_DIRECTION,
-            bool clockwise = false)
+            bool clockwise = false, string text = "")
         {
             switch (characterType)
             {
@@ -35,8 +35,10 @@ namespace Sprint0.Characters.Utils
                     return new OldMan(position);
                 case Types.Character.REDGORIYA:
                     return new RedGoriya(position);
-                case Types.Character.SECRETTEXT:
-                    return new SecretText(position);
+                case Types.Character.SECRETTEXT1:
+                    return new SecretText(position, "EASTMOST PENINSULA IS THE SECRET.");
+                case Types.Character.SECRETTEXT2:
+                    return new SecretText(position, "DODONGO DISLIKES SMOKE.");
                 case Types.Character.SKELETON:
                     return new Skeleton(position);
                 case Types.Character.SNAKE:

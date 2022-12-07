@@ -12,6 +12,10 @@ namespace Sprint0.Assets
         public static IAudioAssets DefaultAudioAssets { get; private set; }
         public static IFontAssets DefaultFontAssets { get; private set; }
 
+        public static IImageAssets MoonImageAssets { get; private set; }
+        public static IAudioAssets MoonAudioAssets { get; private set; }
+        public static IFontAssets MoonFontAssets { get; private set; }
+
         public static IImageAssets MinecraftImageAssets { get; private set; }
         public static IAudioAssets MinecraftAudioAssets { get; private set; }
         public static IFontAssets MinecraftFontAssets { get; private set; }
@@ -31,6 +35,10 @@ namespace Sprint0.Assets
             DefaultAudioAssets = new DefaultAudioAssets();
             DefaultFontAssets = new DefaultFontAssets();
 
+            MoonImageAssets = new MoonImageAssets();
+            MoonAudioAssets = new MoonAudioAssets();
+            MoonFontAssets = new MoonFontAssets();
+
             MinecraftImageAssets = new MinecraftImageAssets();
             MinecraftAudioAssets = new MinecraftAudioAssets();
             MinecraftFontAssets = new MinecraftFontAssets();
@@ -47,11 +55,15 @@ namespace Sprint0.Assets
              * 
              * DEV NOTE: we could add something that would sort of load/deload certain assets as it sees fit (kinda like a garbage collector),
              * but for the scope of this project I don't think it's very necessary, plus there isn't any performance issues with loading only
-             * these 4 sets of assets. However, for a project with an unknown (unlimited) amount of assets, this would be nice.
+             * these 5 sets of assets. However, for a project with an unknown (unlimited) amount of assets, this would be nice.
              */
             DefaultImageAssets.LoadContent(c);
             DefaultAudioAssets.LoadContent(c);
             DefaultFontAssets.LoadContent(c);
+
+            MoonImageAssets.LoadContent(c);
+            MoonAudioAssets.LoadContent(c);
+            MoonFontAssets.LoadContent(c);
 
             MinecraftImageAssets.LoadContent(c);
             MinecraftAudioAssets.LoadContent(c);

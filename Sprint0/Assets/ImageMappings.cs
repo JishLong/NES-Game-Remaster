@@ -42,6 +42,10 @@ namespace Sprint0.Assets
         public Rectangle GreyBricks => GMM.GameMode.ImageAssets.GreyBricks;
         public Rectangle WhiteBars => GMM.GameMode.ImageAssets.WhiteBars;
         public Rectangle Water => GMM.GameMode.ImageAssets.Water;
+        public Rectangle Sand => GMM.GameMode.ImageAssets.Sand;
+        public Rectangle RedSand => GMM.GameMode.ImageAssets.RedSand;
+        public Rectangle RedStatueLeft => GMM.GameMode.ImageAssets.RedStatueLeft;
+        public Rectangle RedStatueRight => GMM.GameMode.ImageAssets.RedStatueRight;
 
         // Character sprite sheet positions
         public Rectangle Aquamentus => GMM.GameMode.ImageAssets.Aquamentus;

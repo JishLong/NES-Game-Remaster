@@ -14,6 +14,7 @@ namespace Sprint0.Player.Inventory
         private ISprite PlayerLocationSprite;
 
         private int CurrentRoomID;
+        private int LevelID;
 
         private Dictionary<ISprite, Vector2> RoomSprites; // Maps sprites to positions where they should be drawn.
         private Dictionary<int, Vector2> PlayerPositions; // Pairs room ids with positions in which to draw the player.
@@ -24,11 +25,9 @@ namespace Sprint0.Player.Inventory
         public InventoryMap(LevelManager levelManager, IPlayer player)
         {
             LevelManager = levelManager;
+            LevelID = LevelManager.CurrentLevel.LevelID;
             RoomSprites = new Dictionary<ISprite, Vector2>();
             PlayerPositions = new Dictionary<int, Vector2>();
-            MapArray = levelManager.CurrentLevel.Map.MapArray;
-            MapSize = levelManager.CurrentLevel.Map.MapSize;
-            CurrentRoomID = levelManager.CurrentLevel.CurrentRoom.RoomID;   // Set this on initialization
             PlayerLocationSprite = new PlayerLocationSprite();
 
             CreateMap();
@@ -36,6 +35,9 @@ namespace Sprint0.Player.Inventory
 
         private void CreateMap()
         {
+            MapArray = LevelManager.CurrentLevel.Map.MapArray;
+            MapSize = LevelManager.CurrentLevel.Map.MapSize;
+            CurrentRoomID = LevelManager.CurrentLevel.CurrentRoom.RoomID;   // Set this on initialization
             int roomWidth = (int)(8 * GameWindow.ResolutionScale);
             int roomHeight = (int)(8 * GameWindow.ResolutionScale);
             int roomBuffer = (int)(0 * GameWindow.ResolutionScale);
@@ -69,6 +71,14 @@ namespace Sprint0.Player.Inventory
 
         public void Update()
         {
+            // If the level changes, we need to regenerate the map.
+            if(LevelID != LevelManager.CurrentLevel.LevelID)
+            {
+                LevelID = LevelManager.CurrentLevel.LevelID;
+                PlayerPositions.Clear();
+                RoomSprites.Clear();
+                CreateMap();
+            }
             // Get this every tick.
             CurrentRoomID = LevelManager.CurrentLevel.CurrentRoom.RoomID;
             CreateMap();
