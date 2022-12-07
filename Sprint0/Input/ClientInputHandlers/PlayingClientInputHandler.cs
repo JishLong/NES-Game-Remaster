@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sprint0.Commands;
+using Sprint0.Commands.Misc;
 using Sprint0.Commands.Player;
 
 namespace Sprint0.Input.ClientInputHandlers
@@ -27,6 +28,9 @@ namespace Sprint0.Input.ClientInputHandlers
                 { "z", new PlayerSwordAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
                 { "n", new PlayerSwordAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
                 { "c", new PlayerArrowAttackCommand(game1.PlayerManager.GetDefaultPlayer()) },
+
+                // default player (i.e. inventory control)
+                { "e", new SetDefaultPlayerCommand(game1) }
             };
 
             buttonReleaseMap = new Dictionary<string, ITargetedCommand>()
