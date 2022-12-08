@@ -342,4 +342,6 @@ namespace Sprint0.Assets.DefaultAssets
         public Rectangle WallDoorRight { get; protected set; }
         public Rectangle WallDoorUp { get; protected set; }
     }
+
+    // That class isn't 300 lines long it's just your imagination heheheha
 }

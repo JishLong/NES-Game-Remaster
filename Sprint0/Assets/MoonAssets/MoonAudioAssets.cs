@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Sprint0.Assets.DefaultAssets
 {
-    public class MoonAudioAssets: IAudioAssets
+    public class MoonAudioAssets: DefaultAudioAssets
     {
-        public virtual void LoadContent(ContentManager c)
+        public override void LoadContent(ContentManager c)
         {
             BombExplode = c.Load<SoundEffect>("Audio/Default/bombExplode");
             BombPlace = c.Load<SoundEffect>("Audio/Default/bombPlace");
@@ -35,32 +35,5 @@ namespace Sprint0.Assets.DefaultAssets
 
             GameModeTransition = ItemFound;
         }
-
-        public SoundEffect BombExplode { get; protected set; }
-        public SoundEffect BombPlace { get; protected set; }
-        public SoundEffect BossRoar { get; protected set; }
-        public SoundEffect DoorOpen { get; protected set; }
-        public SoundEffect EnemyDeath { get; protected set; }
-        public SoundEffect EnemyHurt { get; protected set; }
-        public SoundEffect FlameShoot { get; protected set; }
-        public SoundEffect GameModeTransition { get; protected set; }
-        public SoundEffect ItemAppear { get; protected set; }
-        public SoundEffect ItemFound { get; protected set; }
-        public SoundEffect MusicGame { get; protected set; }
-        public SoundEffect MusicMenu { get; protected set; }
-        public SoundEffect OldManTaunt { get; protected set; }
-        public SoundEffect PickupHeartKey { get; protected set; }
-        public SoundEffect PickupItem { get; protected set; }
-        public SoundEffect PickupRupee { get; protected set; }
-        public SoundEffect PlayerDeath { get; protected set; }
-        public SoundEffect PlayerHurt { get; protected set; }
-        public SoundEffect PlayerLowHealth { get; protected set; }
-        public SoundEffect ProjectileBlocked { get; protected set; }
-        public SoundEffect ProjectileShoot { get; protected set; }
-        public SoundEffect SecretFound { get; protected set; }
-        public SoundEffect SwordShoot { get; protected set; }
-        public SoundEffect SwordSwing { get; protected set; }
-        public SoundEffect TextAppear { get; protected set; }
-        public SoundEffect WinGame { get; protected set; }
     }
 }
