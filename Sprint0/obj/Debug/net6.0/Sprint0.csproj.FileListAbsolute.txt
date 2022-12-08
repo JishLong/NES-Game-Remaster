@@ -1,417 +1,595 @@
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\bombExplode.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\bombPlace.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\bossRoar.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\doorOpen.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\enemyDeath.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\enemyHurt.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\flameShoot.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\itemAppear.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\itemFound.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\musicGame.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\musicMenu.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\oldManTaunt.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\pickupHeartKey.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\pickupItem.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\pickupRupee.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\playerDeath.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\playerHurt.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\playerLowHealth.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\projectileBlocked.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\projectileShoot.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\secretFound.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\swordShoot.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\swordSwing.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\textAppear.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\winGame.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\bowserFalls.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\bowserFire.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\brickBump.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\brickSmash.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\coin.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\enemyKick.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\enemyStomp.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\fireball.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\fireworks.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\goombaLaserFire.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\goombaLaserHum.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\halfPause.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\marioShow.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\oneUp.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\overworldMusic.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\pause.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\pipe.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\playerDeath.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\powerUp.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\powerUpAppear.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\quarterPause.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\sixteenthPause.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\stageClear.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\vineBoom.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\worldClear.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\bowserFalls.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\bowserFire.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\brickBump.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\brickSmash.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\castleMusic.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\coin.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\enemyKick.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\enemyStomp.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\fireball.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\fireworks.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\halfPause.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\marioShow.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\oneUp.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\pause.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\pipe.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\playerDeath.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\powerUp.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\powerUpAppear.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\quarterPause.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\sixteenthPause.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\stageClear.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\worldClear.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\achievement.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\anvil.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\blockPlace.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\bowDing.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\bowShoot.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\critAttack.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\dispenser.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\doorOpen.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\finishEating.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\flintAndSteel.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\itemPickup.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\oldPlayerHit.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\piston.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\playerHurt.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\revenge.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\shieldBlock.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\sweden.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\swordSwing.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\tntExplode.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\tntLit.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\tridentThrow.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\witherDeath.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\witherShoot.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\xp.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\xpLevelUp.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\blocks.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\characters.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\dungeonBlocks.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\File.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\fireBlock.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Default\largeFont.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Default\mediumFont.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Default\smallFont.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Goomba\largeFont.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Goomba\mediumFont.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Goomba\smallFont.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Mario\largeFont.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Mario\mediumFont.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Mario\smallFont.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Minecraft\largeFont.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Minecraft\mediumFont.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Minecraft\smallFont.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\blocks.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\blocks.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\characters.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\cursor.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\gui.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\guiElements.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\invisible.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\items.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\player.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\projectiles.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\room.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\blocks.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\characters.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\cursor.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\gui.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\guiElements.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\items.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\player.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\projectiles.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\room.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\blocks.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\characters.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\cursor.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\gui.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\guiElements.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\items.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\player.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\projectiles.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\room.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\blocks.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\characters.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\cursor.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\gui.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\guiElements.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\items.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\player.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\projectiles.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\room.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mouse Cursor\cursor1.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mouse Cursor\cursor2.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mouse Cursor\cursor3.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mouse Cursor\cursor4.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\items.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Level1.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\link.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\weaponsAndItems.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\weaponsAndProj.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.exe
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.deps.json
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.runtimeconfig.json
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.dll
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.pdb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\MonoGame.Framework.dll
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Websocket.Client.dll
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\linux-x64\native\libSDL2-2.0.so.0
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\linux-x64\native\libopenal.so.1
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\osx\native\libSDL2.dylib
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\osx\native\libopenal.1.dylib
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\win-x64\native\SDL2.dll
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\win-x64\native\soft_oal.dll
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\win-x86\native\SDL2.dll
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\win-x86\native\soft_oal.dll
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\System.Reactive.dll
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\System.Reactive.xml
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.csproj.AssemblyReference.cache
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.AssemblyInfoInputs.cache
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.AssemblyInfo.cs
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.csproj.CoreCompileInputs.cache
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.csproj.CopyComplete
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.dll
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\refint\Sprint0.dll
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.pdb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.genruntimeconfig.cache
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\ref\Sprint0.dll
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Moon\blocks.xnb
-C:\Users\Hayden\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Moon\room.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\arrowBoomerang.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\bomb.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\bossNoise.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\dababy.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\bombExplode.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\bombPlace.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\bossRoar.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\doorOpen.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\enemyDeath.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\enemyHurt.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\flameShoot.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\itemAppear.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\itemFound.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\musicGame.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\musicMenu.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\oldManTaunt.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\pickupHeartKey.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\pickupItem.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\pickupRupee.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\playerDeath.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\playerHurt.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\playerLowHealth.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\projectileBlocked.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\projectileShoot.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\secretFound.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\swordShoot.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\swordSwing.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\textAppear.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Default\winGame.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\doorOpened.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\dungeonMusic.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\enemyDeath.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\enemyTakeDamage.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\flame.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\bowserFalls.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\bowserFire.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\brickBump.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\brickSmash.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\coin.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\enemyKick.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\enemyStomp.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\fireball.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\fireworks.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\goombaLaserFire.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\goombaLaserHum.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\halfPause.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\marioShow.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\oneUp.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\overworldMusic.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\pause.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\pipe.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\playerDeath.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\powerUp.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\powerUpAppear.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\quarterPause.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\sixteenthPause.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\stageClear.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\vineBoom.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Goomba\worldClear.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\heartKeyPickup.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\itemPickup.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\keyAppear.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\lowHealth.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\bowserFalls.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\bowserFire.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\brickBump.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\brickSmash.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\castleMusic.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\coin.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\enemyKick.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\enemyStomp.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\fireball.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\fireworks.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\halfPause.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\marioShow.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\oneUp.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\pause.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\pipe.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\playerDeath.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\powerUp.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\powerUpAppear.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\quarterPause.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\sixteenthPause.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\stageClear.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Mario\worldClear.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\menuMusic.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\achievement.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\anvil.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\blockPlace.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\bowDing.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\bowShoot.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\critAttack.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\dispenser.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\doorOpen.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\finishEating.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\flintAndSteel.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\itemPickup.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\oldPlayerHit.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\piston.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\playerHurt.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\revenge.ogg
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\revenge.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\shieldBlock.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\sweden.ogg
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\sweden.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\swordSwing.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\tntExplode.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\tntLit.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\tridentThrow.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\witherDeath.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\witherRoar.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\witherShoot.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\xp.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\Minecraft\xpLevelUp.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\newItem.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\placeBomb.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\playerDeath.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\playerTakeDamage.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\rupeePickup.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\secretFound.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\shieldBlock.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\sword.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\swordProj.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\text.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Audio\win.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\File.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Default\largeFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Default\mediumFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Default\smallFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Goomba\largeFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Goomba\mediumFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Goomba\smallFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\largeFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Mario\largeFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Mario\mediumFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Mario\smallFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\mediumFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Minecraft\largeFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Minecraft\mediumFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\Minecraft\smallFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Fonts\smallFont.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\babyOnBaby.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\BladeTrap.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\blocks.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\characters.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\cursor.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\blocks.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\characters.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\cursor.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\gui.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\guiElements.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\invisible.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\items.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\player.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\projectiles.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Default\room.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\blocks.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\characters.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\cursor.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\gui.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\guiElements.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\items.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\player.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\projectiles.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Goomba\room.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\gui.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\guiElements.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\HUDMapRoom.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\invisible.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\items.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Level1.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\link.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\blocks.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\characters.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\cursor.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\gui.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\guiElements.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\items.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\player.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\projectiles.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Mario\room.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\blocks.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\characters.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\cursor.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\gui.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\guiElements.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\items.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\player.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\projectiles.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Minecraft\room.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\pausePanel.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\PlayerLocation.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\screenCover.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\weaponsAndProj.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Moon\blocks.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Content\Images\Moon\room.xnb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.exe
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.deps.json
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.runtimeconfig.json
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.dll
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Sprint0.pdb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\MonoGame.Framework.dll
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\Websocket.Client.dll
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\linux-x64\native\libSDL2-2.0.so.0
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\linux-x64\native\libopenal.so.1
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\osx\native\libSDL2.dylib
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\osx\native\libopenal.1.dylib
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\win-x64\native\SDL2.dll
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\win-x64\native\soft_oal.dll
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\win-x86\native\SDL2.dll
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\runtimes\win-x86\native\soft_oal.dll
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\System.Reactive.dll
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\bin\Debug\net6.0\System.Reactive.xml
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.csproj.AssemblyReference.cache
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.AssemblyInfoInputs.cache
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.AssemblyInfo.cs
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.csproj.CoreCompileInputs.cache
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.csproj.CopyComplete
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.dll
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\refint\Sprint0.dll
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.pdb
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\Sprint0.genruntimeconfig.cache
-C:\Users\josh\source\repos\CSE-3902-Project\Sprint0\obj\Debug\net6.0\ref\Sprint0.dll
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/bombExplode.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/bombPlace.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/bossRoar.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/doorOpen.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/enemyDeath.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/enemyHurt.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/flameShoot.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/itemAppear.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/itemFound.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/musicGame.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/musicMenu.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/oldManTaunt.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/pickupHeartKey.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/pickupItem.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/pickupRupee.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/playerDeath.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/playerHurt.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/playerLowHealth.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/projectileBlocked.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/projectileShoot.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/secretFound.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/swordShoot.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/swordSwing.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/textAppear.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/winGame.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/bowserFalls.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/bowserFire.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/brickBump.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/brickSmash.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/coin.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/enemyKick.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/enemyStomp.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/fireball.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/fireworks.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/goombaLaserFire.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/goombaLaserHum.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/halfPause.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/marioShow.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/oneUp.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/overworldMusic.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/pause.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/pipe.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/playerDeath.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/powerUp.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/powerUpAppear.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/quarterPause.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/sixteenthPause.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/stageClear.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/vineBoom.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/worldClear.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/bowserFalls.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/bowserFire.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/brickBump.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/brickSmash.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/castleMusic.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/coin.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/enemyKick.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/enemyStomp.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/fireball.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/fireworks.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/halfPause.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/marioShow.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/oneUp.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/pause.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/pipe.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/playerDeath.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/powerUp.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/powerUpAppear.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/quarterPause.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/sixteenthPause.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/stageClear.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/worldClear.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/achievement.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/anvil.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/blockPlace.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/bowDing.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/bowShoot.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/critAttack.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/dispenser.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/doorOpen.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/finishEating.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/flintAndSteel.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/itemPickup.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/oldPlayerHit.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/piston.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/playerHurt.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/revenge.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/shieldBlock.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/sweden.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/swordSwing.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/tntExplode.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/tntLit.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/tridentThrow.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/witherDeath.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/witherShoot.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/xp.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/xpLevelUp.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/blocks.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/characters.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/dungeonBlocks.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/File.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/fireBlock.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Default/largeFont.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Default/mediumFont.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Default/smallFont.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Goomba/largeFont.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Goomba/mediumFont.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Goomba/smallFont.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Mario/largeFont.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Mario/mediumFont.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Mario/smallFont.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Minecraft/largeFont.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Minecraft/mediumFont.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Minecraft/smallFont.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/blocks.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/blocks.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/characters.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/cursor.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/gui.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/guiElements.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/invisible.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/items.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/player.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/projectiles.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/room.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/blocks.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/characters.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/cursor.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/gui.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/guiElements.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/items.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/player.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/projectiles.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/room.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/blocks.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/characters.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/cursor.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/gui.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/guiElements.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/items.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/player.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/projectiles.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/room.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/blocks.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/characters.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/cursor.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/gui.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/guiElements.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/items.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/player.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/projectiles.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/room.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mouse Cursor/cursor1.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mouse Cursor/cursor2.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mouse Cursor/cursor3.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mouse Cursor/cursor4.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/items.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Level1.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/link.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/weaponsAndItems.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/weaponsAndProj.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0.exe
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0.deps.json
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0.runtimeconfig.json
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0.dll
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0.pdb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/MonoGame.Framework.dll
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Newtonsoft.Json.dll
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Websocket.Client.dll
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/linux-x64/native/libSDL2-2.0.so.0
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/linux-x64/native/libopenal.so.1
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/osx/native/libSDL2.dylib
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/osx/native/libopenal.1.dylib
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/win-x64/native/SDL2.dll
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/win-x64/native/soft_oal.dll
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/win-x86/native/SDL2.dll
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/win-x86/native/soft_oal.dll
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/System.Reactive.dll
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/System.Reactive.xml
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.csproj.AssemblyReference.cache
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.AssemblyInfoInputs.cache
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.AssemblyInfo.cs
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.csproj.CoreCompileInputs.cache
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.csproj.CopyComplete
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.dll
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/refint/Sprint0.dll
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.pdb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.genruntimeconfig.cache
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/ref/Sprint0.dll
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Moon/blocks.xnb
+C:/Users/Hayden/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Moon/room.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/arrowBoomerang.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/bomb.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/bossNoise.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/dababy.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/bombExplode.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/bombPlace.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/bossRoar.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/doorOpen.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/enemyDeath.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/enemyHurt.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/flameShoot.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/itemAppear.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/itemFound.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/musicGame.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/musicMenu.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/oldManTaunt.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/pickupHeartKey.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/pickupItem.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/pickupRupee.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/playerDeath.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/playerHurt.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/playerLowHealth.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/projectileBlocked.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/projectileShoot.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/secretFound.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/swordShoot.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/swordSwing.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/textAppear.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/winGame.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/doorOpened.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/dungeonMusic.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/enemyDeath.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/enemyTakeDamage.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/flame.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/bowserFalls.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/bowserFire.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/brickBump.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/brickSmash.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/coin.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/enemyKick.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/enemyStomp.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/fireball.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/fireworks.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/goombaLaserFire.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/goombaLaserHum.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/halfPause.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/marioShow.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/oneUp.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/overworldMusic.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/pause.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/pipe.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/playerDeath.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/powerUp.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/powerUpAppear.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/quarterPause.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/sixteenthPause.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/stageClear.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/vineBoom.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/worldClear.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/heartKeyPickup.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/itemPickup.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/keyAppear.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/lowHealth.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/bowserFalls.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/bowserFire.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/brickBump.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/brickSmash.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/castleMusic.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/coin.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/enemyKick.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/enemyStomp.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/fireball.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/fireworks.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/halfPause.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/marioShow.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/oneUp.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/pause.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/pipe.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/playerDeath.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/powerUp.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/powerUpAppear.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/quarterPause.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/sixteenthPause.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/stageClear.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/worldClear.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/menuMusic.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/achievement.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/anvil.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/blockPlace.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/bowDing.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/bowShoot.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/critAttack.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/dispenser.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/doorOpen.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/finishEating.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/flintAndSteel.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/itemPickup.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/oldPlayerHit.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/piston.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/playerHurt.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/revenge.ogg
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/revenge.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/shieldBlock.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/sweden.ogg
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/sweden.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/swordSwing.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/tntExplode.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/tntLit.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/tridentThrow.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/witherDeath.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/witherRoar.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/witherShoot.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/xp.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/xpLevelUp.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/newItem.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/placeBomb.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/playerDeath.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/playerTakeDamage.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/rupeePickup.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/secretFound.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/shieldBlock.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/sword.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/swordProj.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/text.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/win.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/File.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Default/largeFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Default/mediumFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Default/smallFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Goomba/largeFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Goomba/mediumFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Goomba/smallFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/largeFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Mario/largeFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Mario/mediumFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Mario/smallFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/mediumFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Minecraft/largeFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Minecraft/mediumFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Minecraft/smallFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/smallFont.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/babyOnBaby.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/BladeTrap.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/blocks.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/characters.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/cursor.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/blocks.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/characters.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/cursor.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/gui.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/guiElements.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/invisible.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/items.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/player.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/projectiles.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/room.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/blocks.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/characters.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/cursor.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/gui.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/guiElements.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/items.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/player.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/projectiles.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/room.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/gui.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/guiElements.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/HUDMapRoom.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/invisible.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/items.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Level1.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/link.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/blocks.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/characters.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/cursor.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/gui.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/guiElements.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/items.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/player.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/projectiles.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/room.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/blocks.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/characters.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/cursor.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/gui.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/guiElements.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/items.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/player.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/projectiles.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/room.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/pausePanel.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/PlayerLocation.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/screenCover.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/weaponsAndProj.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Moon/blocks.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Moon/room.xnb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0.exe
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0.deps.json
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0.runtimeconfig.json
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0.dll
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0.pdb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/MonoGame.Framework.dll
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Newtonsoft.Json.dll
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Websocket.Client.dll
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/linux-x64/native/libSDL2-2.0.so.0
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/linux-x64/native/libopenal.so.1
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/osx/native/libSDL2.dylib
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/osx/native/libopenal.1.dylib
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/win-x64/native/SDL2.dll
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/win-x64/native/soft_oal.dll
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/win-x86/native/SDL2.dll
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/win-x86/native/soft_oal.dll
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/System.Reactive.dll
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/bin/Debug/net6.0/System.Reactive.xml
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.csproj.AssemblyReference.cache
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.AssemblyInfoInputs.cache
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.AssemblyInfo.cs
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.csproj.CoreCompileInputs.cache
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.csproj.CopyComplete
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.dll
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/refint/Sprint0.dll
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.pdb
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.genruntimeconfig.cache
+C:/Users/josh/source/repos/CSE-3902-Project/Sprint0/obj/Debug/net6.0/ref/Sprint0.dll
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/bombExplode.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/bombPlace.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/bossRoar.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/doorOpen.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/enemyDeath.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/enemyHurt.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/flameShoot.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/itemAppear.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/itemFound.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/musicGame.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/musicMenu.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/oldManTaunt.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/pickupHeartKey.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/pickupItem.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/pickupRupee.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/playerDeath.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/playerHurt.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/playerLowHealth.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/projectileBlocked.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/projectileShoot.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/secretFound.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/swordShoot.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/swordSwing.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/textAppear.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Default/winGame.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/bowserFalls.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/bowserFire.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/brickBump.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/brickSmash.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/coin.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/enemyKick.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/enemyStomp.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/fireball.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/fireworks.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/goombaLaserFire.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/goombaLaserHum.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/halfPause.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/marioShow.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/oneUp.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/overworldMusic.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/pause.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/pipe.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/playerDeath.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/powerUp.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/powerUpAppear.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/quarterPause.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/sixteenthPause.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/stageClear.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/vineBoom.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Goomba/worldClear.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/bowserFalls.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/bowserFire.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/brickBump.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/brickSmash.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/castleMusic.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/coin.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/enemyKick.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/enemyStomp.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/fireball.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/fireworks.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/halfPause.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/marioShow.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/oneUp.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/pause.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/pipe.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/playerDeath.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/powerUp.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/powerUpAppear.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/quarterPause.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/sixteenthPause.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/stageClear.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Mario/worldClear.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/achievement.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/anvil.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/blockPlace.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/bowDing.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/bowShoot.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/critAttack.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/dispenser.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/doorOpen.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/finishEating.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/flintAndSteel.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/itemPickup.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/oldPlayerHit.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/piston.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/playerHurt.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/revenge.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/shieldBlock.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/sweden.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/swordSwing.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/tntExplode.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/tntLit.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/tridentThrow.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/witherDeath.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/witherShoot.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/xp.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Audio/Minecraft/xpLevelUp.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/File.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Default/largeFont.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Default/mediumFont.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Default/smallFont.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Goomba/largeFont.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Goomba/mediumFont.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Goomba/smallFont.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Mario/largeFont.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Mario/mediumFont.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Mario/smallFont.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Minecraft/largeFont.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Minecraft/mediumFont.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Fonts/Minecraft/smallFont.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/blocks.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/characters.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/cursor.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/gui.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/guiElements.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/invisible.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/items.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/player.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/projectiles.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Default/room.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/blocks.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/characters.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/cursor.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/gui.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/guiElements.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/items.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/player.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/projectiles.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Goomba/room.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/blocks.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/characters.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/cursor.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/gui.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/guiElements.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/items.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/player.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/projectiles.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Mario/room.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/blocks.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/characters.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/cursor.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/gui.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/guiElements.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/items.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/player.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/projectiles.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Minecraft/room.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Moon/blocks.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Content/Images/Moon/room.xnb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0.deps.json
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0.runtimeconfig.json
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0.dll
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Sprint0.pdb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/MonoGame.Framework.dll
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/Websocket.Client.dll
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/linux-x64/native/libSDL2-2.0.so.0
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/linux-x64/native/libopenal.so.1
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/osx/native/libSDL2.dylib
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/osx/native/libopenal.1.dylib
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/win-x64/native/SDL2.dll
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/win-x64/native/soft_oal.dll
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/win-x86/native/SDL2.dll
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/runtimes/win-x86/native/soft_oal.dll
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/System.Reactive.dll
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/bin/Debug/net6.0/System.Reactive.xml
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.csproj.AssemblyReference.cache
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.AssemblyInfoInputs.cache
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.AssemblyInfo.cs
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.csproj.CoreCompileInputs.cache
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.csproj.CopyComplete
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.dll
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/refint/Sprint0.dll
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.pdb
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/Sprint0.genruntimeconfig.cache
+/Users/ethan/Desktop/Classes/Interactive Systems/CSE-3902-Project/Sprint0/obj/Debug/net6.0/ref/Sprint0.dll
