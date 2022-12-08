@@ -1,0 +1,12 @@
+Author of the code review: Ethan Powers
+Date of the code review: 07 Dec.
+Sprint number: 5
+Name of the .cs file being reviewed: HelpCommandHandler.cs
+Author of the .cs file being reviewed: Josh
+Number of minutes taken to complete the review: 7
+
+Comments: In terms of readability, this file is not very readable.  There are 
+sparse comments throughout the code, but they don't add much to the overall 
+readability of the code.  There is only one method inside the class and it is 
+about 70 lines long.  There is considerable nesting within the method.  This 
+could really use some refactoring.

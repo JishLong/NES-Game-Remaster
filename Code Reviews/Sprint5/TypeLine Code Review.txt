@@ -1,0 +1,9 @@
+Author of the code review: Ethan Powers
+Date of the code review: 07 Dec.
+Sprint number: 5
+Name of the .cs file being reviewed: TypeLine.cs
+Author of the .cs file being reviewed: Josh
+Number of minutes taken to complete the review: 5
+
+Comments: The class is readable, thanks to the use of numerous comments
+and liberal use of whitespace.  Furthermore, there is little nesting, making it fairly easy to follow the code.

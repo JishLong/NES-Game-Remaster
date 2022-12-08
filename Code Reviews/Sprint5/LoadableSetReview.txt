@@ -1,0 +1,10 @@
+Author: Hayden Gray 
+Date: 12/7/22
+Sprint: Sprint 5
+Class under review: LoadableSet.cs
+Class author: Ethan Powers 
+
+This class facilitates the online multiplayer system. It is 
+extremely cohesive as each method relates very closely to one another,
+and by extension, it is also very readable. I would say that this code
+is also highly reusable given the generality of its abstraction.

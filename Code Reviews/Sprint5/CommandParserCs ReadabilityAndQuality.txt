@@ -1,0 +1,11 @@
+Alfie Zhang
+12/7/2022
+Sprint 5
+CommandParser.cs
+Josh Long
+Minutes: 7
+
+The command parser takes in a command and returns the corrseponding parsed Command,
+which the revlavent CommandLine Handler can then take care of. The fields as well as
+the parse command are easily readable, and the switch case deals with all possible inputs
+directly. The functionality of the class is complete and very simple.

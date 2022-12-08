@@ -1,0 +1,9 @@
+Hanebal Aseged
+12/7/22
+Sprint 5
+GameModeManager.cs
+Josh Long
+6 min
+This is a really straight forward file, it has a simple job and does a good job with handling that
+task. All it does is initalize the gamemode at the start and then act as a getter/setter for
+the gamemode whenever that experiences a change. 

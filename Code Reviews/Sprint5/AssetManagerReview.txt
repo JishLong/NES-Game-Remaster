@@ -1,0 +1,11 @@
+Author: Hayden Gray 
+Date: 12/7/22
+Sprint: Sprint 5
+Class under review: AssetManager.cs
+Class author: Josh Long 
+
+This class allows many different 'asset packs' to be loaded in 
+at runtime, which in turn allow for dynamic switching between them.
+This class is highly reusable and extensible given that the number of 
+asset packs it can support is virtually unlimited. It is also very cohesive.
+It has only a very few specific jobs that are closely linked to one another.
