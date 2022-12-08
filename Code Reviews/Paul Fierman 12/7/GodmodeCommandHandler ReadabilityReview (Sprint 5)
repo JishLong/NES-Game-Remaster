@@ -1,0 +1,12 @@
+Paul Fierman
+12/7/2022
+Sprint 5
+GodmodeCommandHandler.cs
+Josh Long
+Minutes: 10
+It is clear that all inputs into the command line are stored into a list of Strings and are split to 
+account for any user error when entering in the commands. It is readable both cases of when the user wants to turn on 
+and turn off the “Godmode” by checking the first word of the String list, Words. It is easy to tell 
+what the key words Enable and Disable are intended for and what to do following once they are entered. Finally the 
+catch case at the end of the file is easily readable to output an incorrect command if something other than Enable or Disable are 
+entered on the command line. 
