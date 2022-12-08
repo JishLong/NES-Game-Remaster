@@ -1,0 +1,12 @@
+Author of the code review: Ethan Powers
+Date of the code review: 07 Dec.
+Sprint number: 5
+Name of the .cs file being reviewed: SpawnCommandHandler.cs
+Author of the .cs file being reviewed: Josh
+Number of minutes taken to complete the review: 10
+
+Comments: Though the coupling is very manageable in this class, the cohesion is 
+very low.  There is one method in the class, and it's about 150 lines long.
+It's responsibilities include validating each of the parameters.  If we wanted to 
+expand the types of game objects that can be spawned, it would be quite 
+challenging to integrate into this class.
