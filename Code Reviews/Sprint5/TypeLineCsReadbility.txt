@@ -1,0 +1,12 @@
+Alfie Zhang
+12/7/2022
+Sprint 5
+TypeLine.cs
+Josh Long
+Minutes: 8
+
+The class has many functions, but comments help detail individual functions that aren't so obvious.
+Same with fields, as there are many that are necessary for the class, and the comments help document
+the purpose for each of them. If we had more time, we could continue to further abstract functions 
+in the class, such as setting the cursor/text positions. Otherwise, the class is very readable and 
+concise in functonality. 
