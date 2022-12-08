@@ -1,0 +1,12 @@
+Hanebal Aseged
+12/7/2022
+Sprint 5
+SetHealthCommandHandler.cs
+Josh Long
+Min: 12
+The file is well organized and covers all of it's bases in functionality as none of the edge
+cases that I can think of don't cause it any issues. Comprised of mostly if checks to make 
+sure that nothing will break. It is a little clunky to scroll through but there isn't much that can be done
+about this as their are many unique cases that it must be ready to handle.
+Hypothetical, if we wanted to expand the set health command to set the health of any character not just
+the player it would be able to handle that implementation without issues.
