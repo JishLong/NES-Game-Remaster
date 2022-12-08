@@ -1,0 +1,14 @@
+Paul Fierman
+12/7/2022
+Sprint 5
+WSClient.cs
+Ethan Powers
+Minutes: 15
+Code Quality: The organization of this file is organized cleanly by each block of related functions.
+This file utilizes two outside packages, Newtonsoft.Json and Websocket.Client This makes for a looser coupling 
+because of reference to outside packages. The next section of the file separates all declarations of private variables 
+and constants. Keeping all related objects together is a strong example of tight cohesion. Each line of code follows the
+practice of maintaining a sole purpose which improves readability and reusability which is a positive.  
+
+Hypothetical: With multiple potential connections to the same server that the game is run through, it would not be too 
+difficult to create split screen capabilities for multiple devices to run on. 
